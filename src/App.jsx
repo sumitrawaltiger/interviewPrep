@@ -2,15 +2,16 @@ import { useState } from 'react';
 
 const START = new Date('2027-07-15');
 
-// 100 Days of DSA + System Design
-// 3h/day — FULL 3 hours on Udemy course + code along
-// Each course block = course days + practice/revision days
-// Day 100 = Oct 22, 2027
+// ── 100 DAYS · 3H/DAY · JUL 15 → OCT 22, 2027 ──────────────────────────────
+// DSA courses: Java ONLY (4 Java courses + 1 language-agnostic with Java code)
+// SD courses:  5 system design courses
+// Final review: 29 days (Days 72–100) — mock + drill + interview prep
 const COURSES = [
+  // ── DSA — JAVA ONLY ─────────────────────────────────────────────────────────
   {
     seq: 1,
     cat: 'DSA',
-    icon: '🧩',
+    icon: '☕',
     color: '#6366F1',
     dark: '#4338CA',
     bg: '#EEF2FF',
@@ -29,163 +30,132 @@ const COURSES = [
     startDate: 'Jul 15',
     endDate: 'Jul 22, 2027',
     offset: 0,
-    tag: 'START HERE — DAY 1',
-    why: "Interview-first teaching. Every data structure is taught by asking 'when would an interviewer use this?' Big O, Arrays, Stacks, Queues, Linked Lists, Trees, Graphs — all with interview context. Code examples in JS, Python, Java, C#. 250K students.",
+    lang: 'Java + JS + Python + C#',
+    tag: 'START HERE — INTERVIEW FRAMEWORK',
+    why: "Interview-first teaching — code examples provided in Java, JavaScript, Python, and C#. Every structure taught asking 'when would an interviewer use this?' Covers Big O, Arrays, Stacks, Queues, Linked Lists, Trees, Graphs, Sorting. 250K students. Best course to build the interview mindset from day 1.",
     courseTopics: [
-      'Big O: time + space complexity — analyse every solution you write',
-      'Arrays, Hash Tables: Two Pointers, Sliding Window, Frequency Counter',
-      'Stacks, Queues, Linked Lists — implementation + interview patterns',
-      'Trees, Graphs — DFS, BFS, traversals, cycle detection',
-      'Sorting: QuickSort, MergeSort — trade-offs for interviews',
-      'Interview framework: how to talk through any problem out loud',
+      'Big O: time + space complexity — analyse every Java solution you write',
+      'Arrays, Strings, Hash Tables — Two Pointers, Sliding Window, Frequency Counter in Java',
+      'Stacks, Queues, Linked Lists — Java implementation + interview patterns',
+      'Trees, Graphs — DFS, BFS, traversals, cycle detection in Java',
+      'Sorting: QuickSort, MergeSort in Java — know trade-offs cold',
+      'Interview communication framework — how to talk through any problem',
     ],
     practiceDay:
-      'Day 8 — code every structure from scratch without watching. Build Array, Linked List, Stack, BST in your chosen language.',
+      'Day 8 — rebuild Array, Linked List, Stack, BST in Java from scratch without watching. Use IntelliJ, no hints.',
   },
   {
     seq: 2,
     cat: 'DSA',
-    icon: '🧩',
+    icon: '☕',
     color: '#0EA5E9',
     dark: '#0369A1',
     bg: '#F0F9FF',
     border: '#BAE6FD',
-    title: 'Python Data Structures & Algorithms + LeetCode Exercises',
+    title: 'Java Data Structures & Algorithms + LEETCODE Exercises',
     by: 'Scott Barrett',
-    hours: 18,
+    hours: 10,
     rating: 4.8,
-    stu: '60K+',
-    url: 'https://www.udemy.com/course/data-structures-algorithms-python/',
-    courseDays: 6,
+    stu: '58K+',
+    url: 'https://www.udemy.com/course/java-data-structures-algorithms-leetcode/',
+    courseDays: 4,
     practiceDays: 1,
-    totalDays: 7,
+    totalDays: 5,
     dayStart: 9,
-    dayEnd: 15,
+    dayEnd: 13,
     startDate: 'Jul 23',
-    endDate: 'Jul 29, 2027',
+    endDate: 'Jul 27, 2027',
     offset: 8,
-    tag: '4.8★ HIGHEST RATED — DAY 9',
-    why: "Highest-rated DSA course on Udemy. Scott's visual animations make patterns click. Covers 100+ LeetCode-style exercises. Even if you don't write Python, use this for the pattern recognition and visual clarity it provides for each structure.",
+    lang: 'Java 100%',
+    tag: '4.8★ JAVA + LEETCODE',
+    why: "Scott Barrett's Java course — 4.8★ with 100+ LeetCode exercises coded entirely in Java. His animated visuals for data structures are unmatched. Built specifically for experienced Java developers preparing for coding interviews. Every concept immediately drilled with a real LeetCode-style Java problem.",
     courseTopics: [
-      'Visual animations for every data structure — best on Udemy',
-      'Linked Lists: singly + doubly, all pointer manipulation patterns',
-      'Trees: BST — insert, delete, validate with real exercises',
-      'Sorting deep dive: Bubble, Selection, Merge, Quick with code',
-      'Hash Tables: collision handling, implementation from scratch',
-      'Big O analysis woven into every lesson',
+      '100+ LeetCode exercises coded in Java — integrated into every lesson',
+      'Linked Lists: singly + doubly — all pointer manipulation patterns in Java',
+      'Trees: BST — insert, delete, validate, traversal with Java exercises',
+      'Heaps: min-heap, max-heap — Java PriorityQueue deep dive',
+      'Sorting in Java: Merge Sort, Quick Sort implementation + analysis',
+      'Big O woven into every lesson — analyse your Java solution each time',
     ],
     practiceDay:
-      'Day 15 — rebuild LinkedList reversal and BST validation from memory. Explain each algorithm out loud.',
+      'Day 13 — re-solve 5 LeetCode problems from this course in Java from memory. Time yourself: Easy < 15 min.',
   },
   {
     seq: 3,
     cat: 'DSA',
-    icon: '🧩',
+    icon: '☕',
     color: '#7C3AED',
     dark: '#6D28D9',
     bg: '#F5F3FF',
     border: '#DDD6FE',
-    title: 'JavaScript Algorithms and Data Structures Masterclass',
-    by: 'Colt Steele',
-    hours: 22,
-    rating: 4.7,
-    stu: '350K+',
-    url: 'https://www.udemy.com/course/js-algorithms-and-data-structures-masterclass/',
-    courseDays: 8,
-    practiceDays: 2,
-    totalDays: 10,
-    dayStart: 16,
-    dayEnd: 25,
-    startDate: 'Jul 30',
-    endDate: 'Aug 8, 2027',
-    offset: 15,
-    tag: 'BEST VISUALS · 350K STUDENTS — DAY 16',
-    why: "Most enrolled DSA course on Udemy with 350K+ students. Colt's animations for sorting, recursion, trees, and graphs are the clearest anywhere online. Especially valuable for recursion intuition and sorting algorithm understanding.",
+    title: 'Data Structures and Algorithms: Deep Dive Using Java',
+    by: 'Tim Buchalka (Java Masterclass Academy)',
+    hours: 16,
+    rating: 4.5,
+    stu: '112K+',
+    url: 'https://www.udemy.com/course/data-structures-and-algorithms-deep-dive-using-java/',
+    courseDays: 6,
+    practiceDays: 1,
+    totalDays: 7,
+    dayStart: 14,
+    dayEnd: 20,
+    startDate: 'Jul 28',
+    endDate: 'Aug 3, 2027',
+    offset: 13,
+    lang: 'Java 100%',
+    tag: '112K STUDENTS — JAVA DEEP DIVE',
+    why: "Tim Buchalka's Java Academy — 112K students. Deep-dive implementation-focused course in pure Java. You code every data structure from scratch: Arrays, LinkedLists, Stacks, Queues, Hashtables, Trees, Heaps. Includes Java Collections Framework and sorting algorithms with Java implementations.",
     courseTopics: [
-      'Problem solving approach: patterns before memorisation',
-      'Recursion: call stack, helper method, pure recursion — animated',
-      'Advanced sorting: Radix Sort, Counting Sort — beyond comparison',
-      'Binary Search Trees: insert, find, traversal — animated',
-      'Binary Heaps, Priority Queue: visual step-by-step',
-      'Graphs: adjacency list vs matrix, DFS, BFS — all visualised',
+      'Arrays + ArrayLists: Java implementation, resizing, amortised cost',
+      'LinkedList: singly and doubly, Java from scratch with all operations',
+      'Stacks, Queues, Hashtables — Java implementation + Java Collections',
+      'Binary Trees: insert, delete, traversal — all coded in Java',
+      'Heaps + HeapSort — Java PriorityQueue internals',
+      'Java Collections Framework: ArrayList, LinkedList, TreeMap, HashMap — interview context',
     ],
     practiceDay:
-      'Days 24–25 — implement QuickSort and MergeSort from scratch. Draw the recursion tree on paper first, then code.',
+      'Day 20 — implement a Hashtable from scratch in Java. Handle collisions with chaining. No reference.',
   },
   {
     seq: 4,
     cat: 'DSA',
-    icon: '🧩',
-    color: '#E11D48',
-    dark: '#BE123C',
-    bg: '#FFF1F2',
-    border: '#FECDD3',
-    title: 'Data Structures & Algorithms: Level-up for Coding Interviews',
-    by: 'Prateek Narang (ex-Google Senior Engineer)',
-    hours: 25,
-    rating: 4.5,
-    stu: '45K+',
-    url: 'https://www.udemy.com/course/cpp-data-structures-algorithms-levelup-prateek-narang/',
-    courseDays: 9,
-    practiceDays: 2,
-    totalDays: 11,
-    dayStart: 26,
-    dayEnd: 36,
-    startDate: 'Aug 9',
-    endDate: 'Aug 19, 2027',
-    offset: 25,
-    tag: 'EX-GOOGLE — DAY 26',
-    why: "ex-Google Senior Engineer. The 'brute force first, then optimise' approach mirrors exactly how real interviews unfold. 150+ problems covering every advanced pattern. Code in C++ but logic is language-agnostic.",
-    courseTopics: [
-      'Brute force → optimise approach for every single problem',
-      'Advanced DP: 2D DP, DP on trees, knapsack variants',
-      'Advanced Graphs: Dijkstra, Bellman-Ford, Floyd-Warshall, MST',
-      'Tries: autocomplete, word search, prefix matching',
-      'Backtracking: pruning, state-space search, N-Queens',
-      '150+ carefully selected problems — each teaching a specific pattern',
-    ],
-    practiceDay:
-      'Days 35–36 — solve 3 problems using brute force first, then optimise each. Time yourself.',
-  },
-  {
-    seq: 5,
-    cat: 'DSA',
-    icon: '🧩',
+    icon: '☕',
     color: '#D97706',
     dark: '#B45309',
     bg: '#FFFBEB',
     border: '#FDE68A',
-    title: 'Mastering Data Structures & Algorithms using C and C++',
-    by: 'Abdul Bari',
-    hours: 58,
-    rating: 4.7,
-    stu: '229K+',
-    url: 'https://www.udemy.com/course/datastructurescncpp/',
-    courseDays: 20,
-    practiceDays: 5,
-    totalDays: 25,
-    dayStart: 37,
-    dayEnd: 61,
-    startDate: 'Aug 20',
-    endDate: 'Sep 13, 2027',
-    offset: 36,
-    tag: 'LEGENDARY FOUNDATIONS — DAY 37',
-    why: 'The legendary deep-foundations course. 229K students. Abdul Bari explains HOW data structures work internally at a level no other instructor touches. Whiteboard-first teaching. Language is C/C++ but conceptual depth is language-agnostic.',
+    title: 'Java Data Structures and Algorithms Masterclass',
+    by: 'Elshad Karimov',
+    hours: 45,
+    rating: 4.5,
+    stu: '8K+',
+    url: 'https://www.udemy.com/course/java-data-structures-and-algorithms-masterclass/',
+    courseDays: 15,
+    practiceDays: 3,
+    totalDays: 18,
+    dayStart: 21,
+    dayEnd: 38,
+    startDate: 'Aug 4',
+    endDate: 'Aug 21, 2027',
+    offset: 20,
+    lang: 'Java 100%',
+    tag: '45H · MOST COMPREHENSIVE JAVA DSA',
+    why: 'The most comprehensive Java DSA course on Udemy at 45+ hours. 100+ interview questions from Apple, Amazon, Google, and Microsoft all solved in Java. Covers every data structure and algorithm with detailed Java implementation. Visual explanatory videos with Java code throughout.',
     courseTopics: [
-      'Physical vs logical data structures — memory model fundamentals',
-      'Recursion: recurrence relation + time complexity from first principles',
-      'Every sorting algorithm with whiteboard complexity proofs',
-      'Trees: AVL, Red-Black — self-balancing internals + rotation logic',
-      'Graphs: DFS, BFS, Spanning Trees, Shortest Paths — deep proofs',
-      'Hashing: collision resolution, hash function design, load factor',
+      '100+ interview questions from FAANG — all solved in Java',
+      'All linked list variants: singly, doubly, circular — full Java implementation',
+      'Trees: BST, AVL Tree, Red-Black Tree — Java implementation with rotations',
+      'Graphs: BFS, DFS, Dijkstra, Bellman-Ford — Java adjacency list implementations',
+      'Dynamic Programming: top-down + bottom-up — Java solutions',
+      'Sorting: all major algorithms implemented and compared in Java',
     ],
     practiceDay:
-      '5 revision days (Days 57–61) — re-implement 5 data structures from scratch: Heap, AVL Tree, Graph with Dijkstra, Hash Table, and Trie. No reference.',
+      "Days 36–38 — re-implement AVL Tree with rotations, Dijkstra's algorithm, and LRU Cache in Java from scratch. 3 full days, no hints.",
   },
   {
-    seq: 6,
+    seq: 5,
     cat: 'DSA',
-    icon: '🧩',
+    icon: '☕',
     color: '#DC2626',
     dark: '#B91C1C',
     bg: '#FEF2F2',
@@ -199,25 +169,27 @@ const COURSES = [
     courseDays: 3,
     practiceDays: 1,
     totalDays: 4,
-    dayStart: 62,
-    dayEnd: 65,
-    startDate: 'Sep 14',
-    endDate: 'Sep 17, 2027',
-    offset: 61,
-    tag: 'FAANG LEVEL · FINAL DSA PUSH — DAY 62',
-    why: 'The final DSA course before shifting to System Design. Covers the hardest patterns from real FAANG interviews — complex graph problems, multi-dimensional DP, and Big Tech interview simulation. Short but dense at 8h.',
+    dayStart: 39,
+    dayEnd: 42,
+    startDate: 'Aug 22',
+    endDate: 'Aug 25, 2027',
+    offset: 38,
+    lang: 'Java + multi-lang',
+    tag: 'FAANG LEVEL — FINAL DSA PUSH',
+    why: 'The final DSA course before shifting to System Design. Covers the hardest patterns from real FAANG interviews — complex graphs, multi-dimensional DP, and Big Tech interview simulation. Java code examples included. Short at 8h — do in 3 days as a final sharpening push before moving to SD.',
     courseTopics: [
-      'FAANG-specific hard graph problems — company-sourced',
-      'Advanced DP patterns from real Google, Meta, Amazon interviews',
-      'Interview simulation: manage hints, time pressure, think out loud',
-      "Salary negotiation — worth an extra 20–30% (Andrei's own data)",
-      'Offer evaluation: comparing total compensation packages',
+      'FAANG-specific hard graph problems — with Java solutions',
+      'Advanced DP patterns from real Google, Meta, Amazon interviews in Java',
+      'Interview simulation: manage hints, time pressure, think out loud in Java',
+      'Salary negotiation — worth an extra 20–30% on your offer',
+      'Offer evaluation: comparing total comp packages',
     ],
     practiceDay:
-      'Day 65 — simulate a full coding interview: 2 Medium problems in 45 min, spoken aloud throughout.',
+      'Day 42 — simulate a full Java coding interview in IntelliJ: 2 Medium problems, 45 min total, spoken aloud.',
   },
+  // ── SYSTEM DESIGN ────────────────────────────────────────────────────────────
   {
-    seq: 7,
+    seq: 6,
     cat: 'SD',
     icon: '🏗',
     color: '#16A34A',
@@ -233,26 +205,27 @@ const COURSES = [
     courseDays: 2,
     practiceDays: 1,
     totalDays: 3,
-    dayStart: 66,
-    dayEnd: 68,
-    startDate: 'Sep 18',
-    endDate: 'Sep 20, 2027',
-    offset: 65,
-    tag: 'START SYSTEM DESIGN HERE — DAY 66',
-    why: "Frank Kane is a former Amazon 'Bar Raiser' and hiring manager who interviewed thousands of engineers. Teaches what interviewers actually look for. Updated 2025 with Generative AI + Agentic AI system design. 6 full mock walkthroughs. Best ROI per hour on all of Udemy.",
+    dayStart: 43,
+    dayEnd: 45,
+    startDate: 'Aug 26',
+    endDate: 'Aug 28, 2027',
+    offset: 42,
+    lang: 'Language-agnostic',
+    tag: 'START SYSTEM DESIGN HERE',
+    why: "Frank Kane is a former Amazon 'Bar Raiser' and hiring manager. Teaches what interviewers actually evaluate. Updated 2025 to include Generative AI + Agentic AI system design. 6 full mock design walkthroughs. Best ROI per hour on Udemy — do this first, it gives you the framework for everything that follows.",
     courseTopics: [
-      'The exact framework Amazon/Google interviewers use to evaluate',
-      'Horizontal vs vertical scaling — when to choose each',
+      'The exact evaluation framework Amazon/Google interviewers use',
+      'Horizontal vs vertical scaling — when to choose each in an interview',
       'Load balancing, Redis caching, CDN, database sharding',
-      'Designing GenAI systems with RAG and Agentic AI — 2025',
+      'Designing GenAI systems with RAG and Agentic AI — 2025 update',
       '6 mock system design interviews with real company questions',
       'What separates passing from failing — insider perspective',
     ],
     practiceDay:
-      'Day 68 — design URL Shortener from scratch on paper. Requirements → Estimation → HLD → DB Schema → API. 45 min, spoken aloud.',
+      'Day 45 — design URL Shortener from scratch: Requirements → Estimation → HLD → DB Schema → API. 45 min, spoken aloud.',
   },
   {
-    seq: 8,
+    seq: 7,
     cat: 'SD',
     icon: '🏗',
     color: '#0EA5E9',
@@ -268,13 +241,14 @@ const COURSES = [
     courseDays: 7,
     practiceDays: 2,
     totalDays: 9,
-    dayStart: 69,
-    dayEnd: 77,
-    startDate: 'Sep 21',
-    endDate: 'Sep 29, 2027',
-    offset: 68,
-    tag: 'DEEP ARCHITECTURE — DAY 69',
-    why: '93K students. Best deep-dive distributed systems course for senior interviews. CQRS, Event Sourcing, Microservices patterns, API Gateway, Saga — every pattern you use daily in FPO Cloud. This translates your FPO experience into system design interview language.',
+    dayStart: 46,
+    dayEnd: 54,
+    startDate: 'Aug 29',
+    endDate: 'Sep 6, 2027',
+    offset: 45,
+    lang: 'Language-agnostic',
+    tag: 'DEEP ARCHITECTURE · 93K STUDENTS',
+    why: '93K students. Best deep-dive distributed systems course for senior interviews. CQRS, Event Sourcing, Microservices, API Gateway, Saga — all patterns you use daily in FPO Cloud. This course translates your FPO experience into the vocabulary that system design interviewers use.',
     courseTopics: [
       'Distributed systems: consensus, replication, consistency models',
       'Microservices: API Gateway, Service Discovery, Circuit Breaker — your FPO!',
@@ -284,10 +258,10 @@ const COURSES = [
       'High availability: failover, disaster recovery, SLA design',
     ],
     practiceDay:
-      'Days 76–77 — design WhatsApp then Instagram from scratch. Paper diagram first. Compare your design to the course solution.',
+      'Days 53–54 — design WhatsApp then Instagram cold. Paper diagram first, then compare to course solution.',
   },
   {
-    seq: 9,
+    seq: 8,
     cat: 'SD',
     icon: '🏗',
     color: '#7C3AED',
@@ -303,26 +277,27 @@ const COURSES = [
     courseDays: 6,
     practiceDays: 2,
     totalDays: 8,
-    dayStart: 78,
-    dayEnd: 85,
-    startDate: 'Sep 30',
-    endDate: 'Oct 7, 2027',
-    offset: 77,
-    tag: '20+ COMPLETE DESIGNS — DAY 78',
-    why: '20+ complete system designs end-to-end: requirements, estimation, HLD, deep dive. Best breadth coverage of classic interview questions. Covers URL Shortener, Twitter, WhatsApp, Netflix, Uber, Notification System, Rate Limiter, Search Autocomplete, Distributed Cache, Leaderboard.',
+    dayStart: 55,
+    dayEnd: 62,
+    startDate: 'Sep 7',
+    endDate: 'Sep 14, 2027',
+    offset: 54,
+    lang: 'Language-agnostic',
+    tag: '20+ COMPLETE DESIGNS',
+    why: '20+ complete system designs end-to-end. Best breadth coverage of classic questions on Udemy. Covers URL Shortener, Twitter, WhatsApp, Netflix, Uber, Notification System, Rate Limiter, Search Autocomplete, Distributed Cache, Leaderboard, Web Crawler.',
     courseTopics: [
-      'URL Shortener — hashing, redirect, scalability',
-      'Twitter — fanout, celebrity problem, trending topics',
+      'Twitter — tweet fanout, celebrity problem, trending topics',
       'Netflix — encoding pipeline, CDN, adaptive bitrate, recommendations',
       'Uber — geolocation indexing, driver matching, surge, ETA',
-      'Notification System — multi-channel, dedup, priorities',
+      'Notification System — multi-channel, dedup, priorities (FPO uses this!)',
       'Rate Limiter — token bucket, leaky bucket, distributed sliding window',
+      'Search Autocomplete — trie in distributed system, prefix caching',
     ],
     practiceDay:
-      'Days 84–85 — design Netflix then Uber cold. No notes, no reference. 45 min each spoken aloud.',
+      'Days 61–62 — design Netflix then Uber cold. No notes. 45 min each, spoken aloud.',
   },
   {
-    seq: 10,
+    seq: 9,
     cat: 'SD',
     icon: '🏗',
     color: '#E11D48',
@@ -338,26 +313,27 @@ const COURSES = [
     courseDays: 4,
     practiceDays: 1,
     totalDays: 5,
-    dayStart: 86,
-    dayEnd: 90,
-    startDate: 'Oct 8',
-    endDate: 'Oct 12, 2027',
-    offset: 85,
-    tag: 'REAL TRADE-OFFS — DAY 86',
-    why: 'Real production architectures from Netflix, Uber, Airbnb with honest trade-off discussion — explaining WHY certain choices were made in production, not just what. This is exactly what senior interviewers want to hear.',
+    dayStart: 63,
+    dayEnd: 67,
+    startDate: 'Sep 15',
+    endDate: 'Sep 19, 2027',
+    offset: 62,
+    lang: 'Language-agnostic',
+    tag: 'REAL TRADE-OFFS',
+    why: 'Real production architectures from Netflix, Uber, Airbnb explaining WHY choices were made — not just what. This is exactly what senior interviewers want to hear. Teaches you to reason about systems like an engineer, not recite memorised patterns.',
     courseTopics: [
       'Netflix: how they actually scaled — real production decisions',
-      'Uber: real-time systems — actual consequences of each choice',
+      'Uber: real-time systems — actual consequences of each architecture choice',
       'Airbnb: search, payments, trust & safety at scale',
       'Trade-off framework: cost vs complexity vs consistency vs availability',
-      'When NOT to use microservices — an honest assessment',
+      'When NOT to use microservices — an honest rare assessment',
       'Monolith → microservices migration: strategies and failure modes',
     ],
     practiceDay:
-      'Day 90 — design your FPO Flight Optimiser system. Walk through it as if answering an interview question. Your real work = perfect demo.',
+      'Day 67 — design your FPO Flight Optimiser. Walk through it as an interview answer using the 5-step template.',
   },
   {
-    seq: 11,
+    seq: 10,
     cat: 'SD',
     icon: '🏗',
     color: '#D97706',
@@ -373,36 +349,30 @@ const COURSES = [
     courseDays: 3,
     practiceDays: 1,
     totalDays: 4,
-    dayStart: 91,
-    dayEnd: 94,
-    startDate: 'Oct 13',
-    endDate: 'Oct 16, 2027',
-    offset: 90,
-    tag: '2026 FAANG TEMPLATE — DAY 91',
-    why: '2026 edition from active FAANG engineers. Uses a 5-step template (Requirements → Capacity → API → HLD → Deep Dive) matching what modern interviewers expect. Continuously updated. The perfect final course before the review week.',
+    dayStart: 68,
+    dayEnd: 71,
+    startDate: 'Sep 20',
+    endDate: 'Sep 23, 2027',
+    offset: 67,
+    lang: 'Language-agnostic',
+    tag: '2026 FAANG TEMPLATE — FINAL SD COURSE',
+    why: '2026 edition from active FAANG engineers. Uses a 5-step template (Requirements → Capacity → API Design → HLD → Deep Dive) matching what modern interviewers expect. Continuously updated. The perfect final course before the 29-day review phase.',
     courseTopics: [
       '5-step interview template used at Google, Meta, Amazon 2026',
       'YouTube: video upload, encoding pipeline, CDN, recommendations',
       'Social Media Newsfeed: fan-out on write vs read, caching, ranking',
-      'WhatsApp end-to-end using the FAANG template',
-      'How to handle follow-up deep dives from senior interviewers',
+      'WhatsApp end-to-end using the FAANG 5-step template',
+      'How to handle deep-dive follow-up questions from senior interviewers',
       'Continuously updated — new system designs added regularly',
     ],
     practiceDay:
-      'Day 94 — design a system of your choice cold. 45 min, use the 5-step FAANG template exactly.',
+      'Day 71 — design a system cold using the 5-step template exactly. 45 min, no notes, spoken.',
   },
 ];
 
-const REVIEW = {
-  dayStart: 95,
-  dayEnd: 100,
-  startDate: 'Oct 17',
-  endDate: 'Oct 22, 2027',
-  title: 'Final Revision Week',
-};
-
-const TOTAL_DAYS = 100;
+const REVIEW_DAYS = 29; // Days 72–100
 const TOTAL_HRS = COURSES.reduce((s, c) => s + c.hours, 0);
+const TOTAL_DAYS = 100;
 const DSA_COURSES = COURSES.filter((c) => c.cat === 'DSA');
 const SD_COURSES = COURSES.filter((c) => c.cat === 'SD');
 
@@ -411,13 +381,10 @@ function daysSinceStart() {
 }
 function currentSeq() {
   const d = daysSinceStart();
-  for (const c of COURSES) {
-    if (d < c.offset + c.totalDays) return c.seq;
-  }
-  return 12; // review week or beyond
+  for (const c of COURSES) if (d < c.offset + c.totalDays) return c.seq;
+  return 11; // final review
 }
 
-// ── CARD ──────────────────────────────────────────────────────────────────────
 function Card({ c, isOpen, onToggle, isCurrent }) {
   return (
     <div
@@ -437,7 +404,6 @@ function Card({ c, isOpen, onToggle, isCurrent }) {
         transition: 'all 0.25s',
       }}
     >
-      {/* ── Header ── */}
       <button
         onClick={onToggle}
         style={{
@@ -453,7 +419,6 @@ function Card({ c, isOpen, onToggle, isCurrent }) {
           fontFamily: 'inherit',
         }}
       >
-        {/* Day badge */}
         <div
           style={{
             width: 54,
@@ -472,19 +437,10 @@ function Card({ c, isOpen, onToggle, isCurrent }) {
             boxShadow: isOpen ? `0 4px 14px ${c.color}45` : 'none',
           }}
         >
+          <span style={{ fontSize: 14, lineHeight: 1 }}>{c.icon}</span>
           <span
             style={{
-              fontSize: 8,
-              fontWeight: 800,
-              letterSpacing: '0.06em',
-              color: isOpen ? 'rgba(255,255,255,0.65)' : c.color,
-            }}
-          >
-            {c.cat}
-          </span>
-          <span
-            style={{
-              fontSize: 16,
+              fontSize: 14,
               fontWeight: 900,
               lineHeight: 1,
               color: isOpen ? '#fff' : c.color,
@@ -496,7 +452,7 @@ function Card({ c, isOpen, onToggle, isCurrent }) {
             style={{
               fontSize: 8,
               fontWeight: 700,
-              color: isOpen ? 'rgba(255,255,255,0.55)' : c.color + '99',
+              color: isOpen ? 'rgba(255,255,255,0.6)' : c.color + '99',
             }}
           >
             d{c.dayStart}–{c.dayEnd}
@@ -528,6 +484,21 @@ function Card({ c, isOpen, onToggle, isCurrent }) {
                 📍 TODAY
               </span>
             )}
+            {c.cat === 'DSA' && (
+              <span
+                style={{
+                  fontSize: 9,
+                  fontWeight: 800,
+                  padding: '2px 7px',
+                  borderRadius: 20,
+                  background: '#EEF2FF',
+                  color: '#4338CA',
+                  border: '1px solid #C7D2FE',
+                }}
+              >
+                ☕ JAVA
+              </span>
+            )}
             <span
               style={{
                 fontSize: 'clamp(11px,3.5vw,13px)',
@@ -551,13 +522,25 @@ function Card({ c, isOpen, onToggle, isCurrent }) {
             }}
           >
             <span style={{ fontSize: 12, fontWeight: 900, color: c.color }}>
-              {c.hours}h course
+              {c.hours}h
             </span>
             <span style={{ fontSize: 10, fontWeight: 700, color: '#F59E0B' }}>
               ★{c.rating}
             </span>
             <span style={{ fontSize: 10, color: '#94A3B8' }}>👥{c.stu}</span>
-            <span style={{ fontSize: 10, color: '#64748B', fontWeight: 600 }}>
+            <span
+              style={{
+                fontSize: 9,
+                fontWeight: 600,
+                padding: '1px 6px',
+                borderRadius: 10,
+                background: '#F1F5F9',
+                color: '#64748B',
+              }}
+            >
+              {c.lang}
+            </span>
+            <span style={{ fontSize: 10, color: '#64748B' }}>
               {c.startDate} → {c.endDate}
             </span>
           </div>
@@ -597,7 +580,6 @@ function Card({ c, isOpen, onToggle, isCurrent }) {
         </span>
       </button>
 
-      {/* ── Body ── */}
       {isOpen && (
         <div
           style={{
@@ -605,7 +587,6 @@ function Card({ c, isOpen, onToggle, isCurrent }) {
             padding: '13px 15px 17px',
           }}
         >
-          {/* Why */}
           <div
             style={{
               background: c.color + '0A',
@@ -632,7 +613,6 @@ function Card({ c, isOpen, onToggle, isCurrent }) {
             </div>
           </div>
 
-          {/* Topics + Practice side by side */}
           <div
             style={{
               display: 'grid',
@@ -658,7 +638,7 @@ function Card({ c, isOpen, onToggle, isCurrent }) {
                   marginBottom: 6,
                 }}
               >
-                📺 {c.courseDays} DAYS COURSE CONTENT
+                📺 {c.courseDays} DAYS — COURSE + CODE ALONG
               </div>
               {c.courseTopics.map((item, i) => (
                 <div
@@ -685,54 +665,46 @@ function Card({ c, isOpen, onToggle, isCurrent }) {
               ))}
             </div>
 
-            <div
-              style={{
-                background: '#FFFBEB',
-                border: '1px solid #FDE68A',
-                borderRadius: 9,
-                padding: '10px 12px',
-              }}
-            >
+            <div style={{ display: 'flex', flexDirection: 'column', gap: 9 }}>
               <div
                 style={{
-                  fontSize: 10,
-                  fontWeight: 800,
-                  color: '#D97706',
-                  letterSpacing: '0.08em',
-                  marginBottom: 6,
-                }}
-              >
-                💪 {c.practiceDays} DAY{c.practiceDays > 1 ? 'S' : ''}{' '}
-                CODE-ALONG REVISION
-              </div>
-              <div style={{ fontSize: 11, color: '#78350F', lineHeight: 1.75 }}>
-                {c.practiceDay}
-              </div>
-              <div
-                style={{
-                  marginTop: 10,
-                  padding: '8px 10px',
-                  background: '#FEF3C7',
-                  borderRadius: 7,
+                  background: '#FFFBEB',
                   border: '1px solid #FDE68A',
+                  borderRadius: 9,
+                  padding: '10px 12px',
                 }}
               >
                 <div
                   style={{
-                    fontSize: 9,
+                    fontSize: 10,
                     fontWeight: 800,
-                    color: '#92400E',
-                    marginBottom: 3,
+                    color: '#D97706',
+                    letterSpacing: '0.08em',
+                    marginBottom: 4,
                   }}
                 >
-                  ⏰ FULL 3 HOURS DAILY
+                  💪 {c.practiceDays} DAY{c.practiceDays > 1 ? 'S' : ''} —
+                  REVISION FROM SCRATCH
                 </div>
                 <div
-                  style={{ fontSize: 10, color: '#78350F', lineHeight: 1.6 }}
+                  style={{ fontSize: 11, color: '#78350F', lineHeight: 1.75 }}
                 >
-                  6:00–9:00 AM · Udemy course + code along · no LeetCode in this
-                  slot
+                  {c.practiceDay}
                 </div>
+              </div>
+              <div
+                style={{
+                  background: '#F8FAFF',
+                  border: '1px solid #E0E7FF',
+                  borderRadius: 9,
+                  padding: '9px 11px',
+                  fontSize: 10,
+                  color: '#4F46E5',
+                  lineHeight: 1.65,
+                }}
+              >
+                ⏰ <strong>Full 3h daily:</strong> 6:00–9:00 AM · Udemy + code
+                along · no separate LeetCode slot in this 100-day plan
               </div>
             </div>
           </div>
@@ -773,7 +745,6 @@ function Card({ c, isOpen, onToggle, isCurrent }) {
   );
 }
 
-// ── APP ───────────────────────────────────────────────────────────────────────
 export default function App() {
   const [open, setOpen] = useState(1);
   const curSeq = currentSeq();
@@ -870,7 +841,7 @@ export default function App() {
               </div>
               <div
                 style={{
-                  fontSize: 'clamp(17px,5vw,28px)',
+                  fontSize: 'clamp(17px,5vw,27px)',
                   fontWeight: 900,
                   color: '#fff',
                   letterSpacing: '-0.02em',
@@ -886,13 +857,13 @@ export default function App() {
                   marginTop: 2,
                 }}
               >
-                Jul 15 → Oct 22, 2027 · 11 courses · {TOTAL_HRS}h · 3h/day ·
-                6:00–9:00 AM
+                Jul 15 → Oct 22, 2027 · 10 courses · {TOTAL_HRS}h · 3h/day ·
+                6:00 AM–9:00 AM
               </div>
             </div>
           </div>
 
-          {/* 500 days milestone banner */}
+          {/* 500 days gold banner */}
           <div
             style={{
               display: 'flex',
@@ -975,11 +946,11 @@ export default function App() {
             }}
           >
             {[
-              ['Day ' + Math.min(daysIn + 1, 100), 'Current Day'],
-              ['11', 'Courses'],
-              ['300h', 'Days 401–500'],
-              [TOTAL_HRS + 'h', 'Course Hrs'],
+              ['Day ' + Math.min(daysIn + 1, 100), 'of 100 Days'],
+              ['500d', "Jun'26→Oct'27"],
               ['3h/day', '6–9 AM'],
+              [TOTAL_HRS + 'h', 'Course Hrs'],
+              ['☕ Java', 'DSA Language'],
               ['Oct 22', 'Finish 🎯'],
             ].map(([v, l]) => (
               <div
@@ -994,7 +965,7 @@ export default function App() {
               >
                 <div
                   style={{
-                    fontSize: 'clamp(12px,3.5vw,15px)',
+                    fontSize: 'clamp(11px,3.5vw,14px)',
                     fontWeight: 900,
                     color: '#fff',
                   }}
@@ -1014,47 +985,50 @@ export default function App() {
             ))}
           </div>
 
-          {/* 100-day progress bar */}
+          {/* 100-day bar */}
           <div style={{ marginBottom: 10 }}>
             <div
               style={{
                 height: 12,
                 borderRadius: 6,
                 overflow: 'hidden',
-                background: 'rgba(255,255,255,0.12)',
-                marginBottom: 4,
+                display: 'flex',
+                boxShadow: 'inset 0 1px 3px rgba(0,0,0,0.3)',
+                gap: 1,
               }}
             >
-              {/* Course segments */}
-              <div style={{ height: '100%', display: 'flex' }}>
-                {COURSES.map((c) => (
-                  <div
-                    key={c.seq}
-                    style={{
-                      flex: c.totalDays,
-                      background:
-                        daysIn >= c.dayEnd
-                          ? c.color
-                          : daysIn >= c.dayStart
-                            ? c.color
-                            : c.color + '55',
-                      transition: 'background 0.3s',
-                      position: 'relative',
-                      borderRight: '1px solid rgba(0,0,0,0.15)',
-                    }}
-                  />
-                ))}
+              {COURSES.map((c) => (
                 <div
+                  key={c.seq}
                   style={{
-                    flex: 6,
-                    background: daysIn >= 95 ? '#16A34A' : '#16A34A55',
+                    flex: c.totalDays,
+                    background:
+                      daysIn >= c.dayEnd
+                        ? c.color
+                        : daysIn >= c.dayStart
+                          ? c.color
+                          : c.color + '55',
+                    borderRight: '1px solid rgba(0,0,0,0.12)',
+                    transition: 'background 0.3s',
                   }}
                 />
-              </div>
+              ))}
+              <div
+                style={{
+                  flex: REVIEW_DAYS,
+                  background: daysIn >= 72 ? '#16A34A' : '#16A34A55',
+                }}
+              />
             </div>
-            <div style={{ display: 'flex', justifyContent: 'space-between' }}>
+            <div
+              style={{
+                display: 'flex',
+                justifyContent: 'space-between',
+                marginTop: 4,
+              }}
+            >
               <span style={{ fontSize: 9, color: 'rgba(255,255,255,0.4)' }}>
-                🧩 DSA (#1–6)
+                ☕ Java DSA (#1–5, Days 1–42)
               </span>
               <span
                 style={{
@@ -1063,10 +1037,10 @@ export default function App() {
                   fontWeight: 700,
                 }}
               >
-                Day {Math.min(daysIn + 1, 100)} of 100 ({pct}%)
+                Day {Math.min(daysIn + 1, 100)} · {pct}%
               </span>
               <span style={{ fontSize: 9, color: 'rgba(255,255,255,0.4)' }}>
-                🏗 SD (#7–11)
+                🏗 SD (#6–10) · 🏁 Review
               </span>
             </div>
           </div>
@@ -1122,7 +1096,7 @@ export default function App() {
                     fontWeight: curSeq === c.seq ? 800 : 400,
                   }}
                 >
-                  d{c.dayStart} #{c.seq}
+                  d{c.dayStart} #{c.seq} {c.cat === 'DSA' ? '☕' : '🏗'}
                   {curSeq === c.seq ? ' ←' : ''}
                 </span>
               </button>
@@ -1155,38 +1129,36 @@ export default function App() {
               marginBottom: 12,
             }}
           >
-            📐 HOW EACH COURSE BLOCK WORKS
+            📐 HOW THIS 100-DAY PLAN WORKS
           </div>
           <div
             style={{
               display: 'grid',
-              gridTemplateColumns: 'repeat(auto-fit,minmax(180px,1fr))',
+              gridTemplateColumns: 'repeat(auto-fit,minmax(170px,1fr))',
               gap: 8,
+              marginBottom: 10,
             }}
           >
             {[
               {
-                n: '1',
-                icon: '📺',
-                t: 'Course Days',
-                d: 'Full 3 hours on Udemy. Watch + code along every example. Pause and rebuild every concept yourself before moving on.',
+                icon: '☕',
+                t: 'DSA in Java',
+                d: '5 courses, Days 1–42. All data structures and algorithms coded in Java. Code along with IntelliJ open.',
                 col: '#6366F1',
               },
               {
-                n: '2',
-                icon: '💪',
-                t: 'Revision Days',
-                d: 'Rebuild key data structures or designs from scratch — no watching, no hints. Reinforce what the course taught.',
-                col: '#F59E0B',
-              },
-              {
-                n: '3',
-                icon: '📝',
-                t: 'Final Review (Days 95–100)',
-                d: '6 days to revisit your 5 hardest topics, do mock system design sessions, and polish interview readiness.',
+                icon: '🏗',
+                t: 'System Design',
+                d: '5 courses, Days 43–71. Language-agnostic architecture and design interview prep.',
                 col: '#16A34A',
               },
-            ].map(({ n, icon, t, d, col }) => (
+              {
+                icon: '🏁',
+                t: 'Final Review (29 days)',
+                d: 'Days 72–100. Mock interviews, revision, weak-spot drilling, and interview simulation.',
+                col: '#F59E0B',
+              },
+            ].map(({ icon, t, d, col }) => (
               <div
                 key={t}
                 style={{
@@ -1201,20 +1173,20 @@ export default function App() {
                     display: 'flex',
                     gap: 8,
                     alignItems: 'center',
-                    marginBottom: 5,
+                    marginBottom: 4,
                   }}
                 >
                   <span
                     style={{
-                      width: 22,
-                      height: 22,
+                      width: 24,
+                      height: 24,
                       borderRadius: 6,
                       background: col + '18',
                       color: col,
                       display: 'flex',
                       alignItems: 'center',
                       justifyContent: 'center',
-                      fontSize: 12,
+                      fontSize: 13,
                       flexShrink: 0,
                     }}
                   >
@@ -1236,7 +1208,6 @@ export default function App() {
           </div>
           <div
             style={{
-              marginTop: 10,
               padding: '10px 12px',
               background: 'linear-gradient(90deg,#EEF2FF,#F0F9FF)',
               borderRadius: 8,
@@ -1246,9 +1217,12 @@ export default function App() {
               lineHeight: 1.7,
             }}
           >
-            ⏰ <strong>6:00 AM – 9:00 AM · Full 3 hours · Every day.</strong> No
-            LeetCode slot — that's separate after you get a job offer. This 100
-            days is 100% course + code-along mastery.
+            ⏰{' '}
+            <strong>
+              6:00 AM – 9:00 AM · Full 3 hours · Every day · 100 days.
+            </strong>{' '}
+            Udemy course + code along. No separate LeetCode slot — the exercises
+            inside the courses are your practice.
           </div>
         </div>
 
@@ -1273,19 +1247,19 @@ export default function App() {
               marginBottom: 10,
             }}
           >
-            🗓 100-DAY COURSE SEQUENCE — TAP ROW TO JUMP
+            🗓 100-DAY SEQUENCE — TAP ROW TO JUMP
           </div>
           <table
             style={{
               width: '100%',
               borderCollapse: 'collapse',
               fontSize: 10,
-              minWidth: 490,
+              minWidth: 500,
             }}
           >
             <thead>
               <tr style={{ background: '#F8FAFC' }}>
-                {['Days', '#', 'Title', 'Hrs', 'Dates', '★', 'Type'].map(
+                {['Days', '#', 'Title', 'Hrs', 'Dates', '★', 'Lang'].map(
                   (h) => (
                     <th
                       key={h}
@@ -1335,7 +1309,8 @@ export default function App() {
                         borderRadius: 12,
                       }}
                     >
-                      {curSeq === c.seq ? '📍' : ''} {c.dayStart}–{c.dayEnd}
+                      {curSeq === c.seq ? '📍' : ''}
+                      {c.dayStart}–{c.dayEnd}
                     </span>
                   </td>
                   <td style={{ padding: '7px 8px' }}>
@@ -1361,7 +1336,7 @@ export default function App() {
                       padding: '7px 8px',
                       fontWeight: curSeq === c.seq ? 800 : 600,
                       color: '#0F172A',
-                      maxWidth: 220,
+                      maxWidth: 200,
                       overflow: 'hidden',
                       textOverflow: 'ellipsis',
                       whiteSpace: 'nowrap',
@@ -1411,16 +1386,15 @@ export default function App() {
                           (c.cat === 'DSA' ? '#C7D2FE' : '#BBF7D0'),
                       }}
                     >
-                      {c.cat === 'DSA' ? '🧩 DSA' : '🏗 SD'}
+                      {c.cat === 'DSA' ? '☕ Java' : '🏗 SD'}
                     </span>
                   </td>
                 </tr>
               ))}
-              {/* Final review row */}
               <tr
                 style={{
                   borderBottom: '1px solid #F1F5F9',
-                  background: curSeq === 12 ? '#F0FDF4' : 'transparent',
+                  background: curSeq === 11 ? '#F0FDF4' : 'transparent',
                 }}
               >
                 <td style={{ padding: '7px 8px' }}>
@@ -1434,26 +1408,11 @@ export default function App() {
                       borderRadius: 12,
                     }}
                   >
-                    95–100
+                    72–100
                   </span>
                 </td>
                 <td style={{ padding: '7px 8px' }}>
-                  <div
-                    style={{
-                      width: 22,
-                      height: 22,
-                      borderRadius: 6,
-                      background: '#DCFCE7',
-                      color: '#15803D',
-                      display: 'flex',
-                      alignItems: 'center',
-                      justifyContent: 'center',
-                      fontSize: 10,
-                      fontWeight: 900,
-                    }}
-                  >
-                    ✓
-                  </div>
+                  <span style={{ fontSize: 13 }}>🏁</span>
                 </td>
                 <td
                   style={{
@@ -1462,13 +1421,13 @@ export default function App() {
                     color: '#0F172A',
                   }}
                 >
-                  Final Revision Week
+                  Final Revision + Mock Interviews (29 days)
                 </td>
                 <td style={{ padding: '7px 8px', color: '#64748B' }}>—</td>
                 <td
                   style={{ padding: '7px 8px', color: '#64748B', fontSize: 10 }}
                 >
-                  Oct 17 → Oct 22, 2027
+                  Sep 24 → Oct 22
                 </td>
                 <td style={{ padding: '7px 8px', color: '#64748B' }}>—</td>
                 <td style={{ padding: '7px 8px' }}>
@@ -1512,7 +1471,7 @@ export default function App() {
                     fontSize: 11,
                   }}
                 >
-                  TOTAL — 11 courses + revision
+                  TOTAL — 10 courses + 29-day review
                 </td>
                 <td
                   style={{
@@ -1526,19 +1485,16 @@ export default function App() {
                 </td>
                 <td
                   colSpan={3}
-                  style={{ padding: '8px', fontSize: 10, color: '#94A3B8' }}
+                  style={{ padding: '8px', fontSize: 9, color: '#94A3B8' }}
                 >
-                  Jul 15, 2027 → Oct 22, 2027 · 300h study · 3h/day
+                  Jul 15 → Oct 22, 2027 · 300h total · 3h/day
                 </td>
               </tr>
             </tbody>
           </table>
-          <div style={{ marginTop: 6, fontSize: 9, color: '#94A3B8' }}>
-            👆 Tap any row to jump to that course
-          </div>
         </div>
 
-        {/* DSA section heading */}
+        {/* DSA section */}
         <div
           style={{
             display: 'flex',
@@ -1563,7 +1519,7 @@ export default function App() {
               whiteSpace: 'nowrap',
             }}
           >
-            🧩 DSA — COURSES 1–6 · Days 1–65
+            ☕ JAVA DSA — COURSES 1–5 · DAYS 1–42
           </span>
           <div
             style={{
@@ -1592,7 +1548,7 @@ export default function App() {
           ))}
         </div>
 
-        {/* SD section heading */}
+        {/* SD section */}
         <div
           style={{
             display: 'flex',
@@ -1617,7 +1573,7 @@ export default function App() {
               whiteSpace: 'nowrap',
             }}
           >
-            🏗 SYSTEM DESIGN — COURSES 7–11 · Days 66–94
+            🏗 SYSTEM DESIGN — COURSES 6–10 · DAYS 43–71
           </span>
           <div
             style={{
@@ -1646,7 +1602,7 @@ export default function App() {
           ))}
         </div>
 
-        {/* Final review block */}
+        {/* Final review 29 days */}
         <div
           style={{
             background: 'linear-gradient(135deg,#F0FDF4,#ECFDF5)',
@@ -1662,13 +1618,13 @@ export default function App() {
               display: 'flex',
               alignItems: 'center',
               gap: 10,
-              marginBottom: 10,
+              marginBottom: 12,
             }}
           >
             <div
               style={{
-                width: 46,
-                height: 46,
+                width: 48,
+                height: 48,
                 borderRadius: 12,
                 background: 'linear-gradient(135deg,#16A34A,#15803D)',
                 display: 'flex',
@@ -1700,58 +1656,60 @@ export default function App() {
                     border: '1px solid #86EFAC',
                   }}
                 >
-                  DAYS 95–100
+                  DAYS 72–100 · 29 DAYS
                 </span>
                 <span
                   style={{ fontSize: 15, fontWeight: 900, color: '#0F172A' }}
                 >
-                  Final Revision Week
+                  Final Revision + Mock Interviews
                 </span>
               </div>
               <div style={{ fontSize: 10, color: '#64748B' }}>
-                Oct 17–22, 2027 · 6 days · 18h · Day 100 = Oct 22 🎯
+                Sep 24 – Oct 22, 2027 · 87h · Day 100 = Oct 22 🎯
               </div>
             </div>
           </div>
+
           <div
             style={{
               display: 'grid',
-              gridTemplateColumns: 'repeat(auto-fit,minmax(190px,1fr))',
+              gridTemplateColumns: 'repeat(auto-fit,minmax(200px,1fr))',
               gap: 8,
+              marginBottom: 10,
             }}
           >
             {[
               {
-                d: 'Day 95',
-                t: 'DSA Revision',
-                body: 'Rebuild your 3 hardest data structures from scratch: Heap, Graph with Dijkstra, Trie. No reference. Code in your interview language.',
+                d: 'Days 72–78',
+                t: 'DSA Revision Week',
+                b: 'Rebuild all 5 key structures from scratch in Java: Heap, Graph + Dijkstra, Trie, AVL Tree, LRU Cache. No reference. Use IntelliJ.',
               },
               {
-                d: 'Day 96',
-                t: 'SD Revision',
-                body: "Design Twitter + Uber cold — 45 min each, paper diagram first, spoken aloud. Compare to Mikhail's solutions.",
+                d: 'Days 79–85',
+                t: 'System Design Mocks',
+                b: 'Design 1 system per day cold — 45 min, paper first, 5-step template. Twitter, Netflix, Uber, Notification System, Rate Limiter, Payment System, FPO.',
               },
               {
-                d: 'Day 97',
-                t: 'Mock Interview 1',
-                body: 'Full coding mock: simulate 2 problems in 45 min, spoken. Then 45 min system design. Pramp.com or peer session.',
+                d: 'Days 86–92',
+                t: 'Mock Interview Week',
+                b: 'Pramp.com peer sessions (3 sessions). interviewing.io if available. Record yourself once and watch for filler words and pacing.',
               },
               {
-                d: 'Day 98',
+                d: 'Days 93–97',
                 t: 'Weak Spot Drill',
-                body: 'Identify your 3 weakest topics from the entire 100 days. Spend the full 3 hours re-watching + re-coding those sections.',
+                b: 'Identify your 3 weakest DSA topics + 2 weakest system designs. Spend 5 days re-watching + re-coding those specific sections.',
               },
               {
-                d: 'Day 99',
-                t: 'Mock Interview 2',
-                body: 'Full mock again — different partner. Record yourself. Watch for filler words, pacing, communication quality.',
+                d: 'Days 98–99',
+                t: 'Final Polish',
+                b: "Resume final update. LinkedIn headline: 'Java | Spring Boot | React | System Design | 7 AWS Certs'. FPO 90-second pitch rehearsed cold.",
               },
               {
-                d: 'Day 100',
-                t: 'Interview Ready 🎯',
-                body: 'Review your FPO system design answer. Polish your 90-second intro. You are ready. Start applying aggressively.',
+                d: 'Day 100 🎯',
+                t: 'Interview Ready',
+                b: 'Oct 22, 2027. 500 days of coding streak. You are ready. Apply aggressively. Every interview teaches you more than a week of solo prep.',
               },
-            ].map(({ d, t, body }) => (
+            ].map(({ d, t, b }) => (
               <div
                 key={d}
                 style={{
@@ -1785,7 +1743,7 @@ export default function App() {
                 <div
                   style={{ fontSize: 10, color: '#64748B', lineHeight: 1.6 }}
                 >
-                  {body}
+                  {b}
                 </div>
               </div>
             ))}
@@ -1865,11 +1823,11 @@ export default function App() {
               lineHeight: 1.8,
             }}
           >
-            💡 <strong>Every system design interview:</strong> "At FPO Cloud I
+            💡 <strong>Every system design round:</strong> "At FPO Cloud I
             designed a real-time multi-tenant flight trajectory SaaS for
             Lufthansa, American Airlines and FedEx — Lambda microservices, Step
-            Functions Saga, DynamoDB, Kafka, 7 AWS certs..." — top 5% before a
-            diagram is drawn.
+            Functions Saga, DynamoDB, Kafka, 7 AWS certs..." — top 5% before
+            drawing a diagram.
           </div>
         </div>
 
@@ -1878,19 +1836,19 @@ export default function App() {
           <div
             style={{
               fontSize: 13,
-              color: '#6366F1',
+              color: '#FDE68A',
               fontWeight: 900,
               marginBottom: 4,
+              textShadow: '0 1px 8px rgba(0,0,0,0.2)',
             }}
           >
-            💯 500 Days Total · 400 Days of Code + 100 Days DSA & SD · Oct 22,
-            2027
+            🏆 500 Days Total · 400 Days of Code + 100 Days DSA & System Design
           </div>
           <div
             style={{ fontSize: 10, color: '#94A3B8', letterSpacing: '0.1em' }}
           >
-            500 DAYS · 6:00 AM–9:00 AM · Jun 10 2026 → Oct 22 2027 · 400 DAYS
-            UDEMY + 100 DAYS DSA & SYSTEM DESIGN
+            500 DAYS · 6:00 AM–9:00 AM · JUN 10 2026 → OCT 22 2027 · ☕ JAVA DSA
+            · 🏗 SYSTEM DESIGN
           </div>
         </div>
       </div>
