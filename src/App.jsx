@@ -3,39 +3,335 @@ import { useState } from 'react';
 // ── 144 DAYS · 432H · JUL 15 → DEC 5, 2027 ─────────────────────────────────
 const PHASES = [
   {
-    id: 'sysdesign',
+    id: 'java',
     n: 1,
-    name: 'System Design',
-    icon: '🏗',
+    icon: '☕',
+    color: '#16A34A',
+    dark: '#15803D',
+    bg: '#F0FDF4',
+    border: '#BBF7D0',
+    name: 'Java Spring Boot Developer',
+    role: '🏢 Target Role: Java Spring Boot / Microservices Developer',
+    days: 30,
+    total: 90,
+    courseH: 54,
+    practiceH: 36,
+    offset: 0,
+    startDate: 'Jul 15, 2027',
+    endDate: 'Aug 13, 2027',
+    tag: 'ROLE 1',
+    daily:
+      '6:00–7:30 AM → Course Q&A (1.5h) · 7:30–9:00 AM → Write code answers from memory (1.5h)',
+    whatYouNeedToKnow: [
+      'Core Java: OOP, Collections, Generics, Multithreading, equals/hashCode contract',
+      'Java 8+: Streams API, Lambdas, Optional, CompletableFuture, Method references',
+      'Spring Boot: IoC/DI, Bean lifecycle, @Transactional, AOP, auto-configuration',
+      'Spring Data JPA: Entity mapping, N+1 problem fix, JPQL, @Query, Specifications',
+      'Spring Security: JWT auth flow, OAuth2, Cognito integration (your FPO experience!)',
+      'Microservices: Circuit Breaker, Saga pattern, Kafka, API Gateway, K8s basics',
+      'Testing: @WebMvcTest, @DataJpaTest, Testcontainers, Mockito — interviewers love this',
+    ],
+    practice: [
+      'Write 5 Java 8 Streams problems daily from memory (filter, map, groupingBy, flatMap, reduce)',
+      'Explain every Spring concept out loud as if teaching — IoC, DI, AOP, @Transactional',
+      'Build a mini REST API from scratch in 30 min — CRUD + JWT auth + Dockerfile',
+      'Map FPO patterns to Java: C# Lambda → Spring @Service, EventBridge → Kafka, DynamoDB → JPA',
+      'Prepare STAR stories: DLH trajectory NullRef bug, LZA migration, multi-tenant Cognito for 9 pools',
+    ],
+    interviewQs: [
+      'What is the difference between @Component, @Service, @Repository, @Controller?',
+      'Explain how Spring @Transactional propagation works — REQUIRED vs REQUIRES_NEW',
+      'How do you solve the N+1 problem in JPA? (your answer: @EntityGraph / JOIN FETCH)',
+      'Design a JWT authentication flow end-to-end in Spring Security',
+      'What is the Saga pattern? Orchestration vs Choreography? (your FPO uses Step Functions = Saga)',
+      'How does Kafka consumer group work? What is a partition? (you use Kafka in FPO daily)',
+    ],
+    courses: [
+      {
+        h: 10,
+        title: 'Java Programming Interview Guide — 200+ Q&A',
+        by: 'Ranga Karanam (in28minutes)',
+        rating: 4.5,
+        stu: '80K+',
+        url: 'https://www.udemy.com/course/java-interview-questions-and-answers/',
+        tag: '🥇 JAVA 200 Q&A',
+        tc: '#15803D',
+        why: 'Best Java interview format — 200+ questions with code examples. Java 8 Streams, Collections, Generics, Multithreading, OOP deep dive. Perfect structured revision.',
+      },
+      {
+        h: 10,
+        title: 'Spring & Spring Boot Interview Guide — 200+ Q&A',
+        by: 'Ranga Karanam (in28minutes)',
+        rating: 4.5,
+        stu: '60K+',
+        url: 'https://www.udemy.com/course/spring-interview-questions-and-answers/',
+        tag: '🌱 SPRING 200 Q&A',
+        tc: '#0369A1',
+        why: '200 Spring Q&A covering IoC, Bean scopes, @Transactional, JPA, AOP, REST, Microservices. Pairs perfectly with the Java guide. Do both simultaneously.',
+      },
+      {
+        h: 13,
+        title: 'Java Interview Masterclass — Top 350 Questions 2026 (PDF)',
+        by: 'Happy Rawat',
+        rating: 4.6,
+        stu: '2K+',
+        url: 'https://www.udemy.com/course/top-250-java-interview-questions/',
+        tag: '💯 350 Q&A + PDF',
+        tc: '#7C3AED',
+        why: '350 questions covering Core Java, OOP, Collections, Multithreading, Generics, Spring, Spring Boot with PDF tracker. Last updated Dec 2025. Great daily warm-up — 30 Q every morning.',
+      },
+      {
+        h: 12,
+        title:
+          'Java Interview Help — Java Spring Boot Microservices DevOps Cloud',
+        by: 'Chad Darby',
+        rating: 4.6,
+        stu: '30K+',
+        url: 'https://www.udemy.com/course/java-interview-help/',
+        tag: '🎯 FULL STACK',
+        tc: '#D97706',
+        why: "Full-picture Java interview: Java + Spring Boot + Microservices + REST + DevOps + Cloud in one course. Chad Darby is one of Udemy's top Java instructors. Covers presentation skills too.",
+      },
+      {
+        h: 9,
+        title: 'Spring and Spring Boot Basic Interview Guide 2026',
+        by: 'Multiple Instructors',
+        rating: 4.7,
+        stu: '3K+',
+        url: 'https://www.udemy.com/course/spring-and-spring-boot-basic-interview-guide-2026/',
+        tag: '🆕 2026 UPDATED',
+        tc: '#059669',
+        why: 'Updated April 2026 — covers Spring 7, Spring Boot 4, and latest interview patterns. IoC, DI, MVC, AOP, Profiles, Bean Scopes, Auto-Configuration, Embedded Servers. Perfect final revision.',
+      },
+    ],
+  },
+  {
+    id: 'react',
+    n: 2,
+    icon: '⚛',
     color: '#0EA5E9',
     dark: '#0369A1',
     bg: '#F0F9FF',
     border: '#BAE6FD',
-    days: 30,
-    total: 90,
-    courseH: 55,
-    practiceH: 35,
-    offset: 0,
-    startDate: 'Jul 15, 2027',
-    endDate: 'Aug 13, 2027',
-    tag: 'START HERE',
+    name: 'React JS + React Native Developer',
+    role: '💻 Target Role: React JS / React Native Developer (TypeScript)',
+    days: 25,
+    total: 75,
+    courseH: 45,
+    practiceH: 30,
+    offset: 30,
+    startDate: 'Aug 14, 2027',
+    endDate: 'Sep 7, 2027',
+    tag: 'ROLE 2',
     daily:
-      '6:00–7:30 AM course (1.5h) · 7:30–9:00 AM design 1 system from scratch on paper (1.5h)',
-    leetcode:
-      'Design 20 systems from scratch: URL Shortener, WhatsApp, Netflix, Uber, Twitter, Instagram, Google Docs, Notification System, Rate Limiter, Distributed Cache, Search Autocomplete, Payment System, Ride Sharing, News Feed, Video Streaming, Leaderboard, Web Crawler, Pastebin, Flight Booking System (your FPO!), Airline Operations Dashboard.',
-    topics: [
-      'Week 1: Fundamentals — Scalability, Load Balancing, Caching (Redis), CDN, CAP theorem, ACID vs BASE',
-      'Week 2: Databases — SQL vs NoSQL, Sharding, Replication, DynamoDB (you know this from FPO!)',
-      'Week 3: APIs + Messaging — REST vs gRPC, Rate Limiting, Kafka/SQS, Event-Driven (you know EventBridge)',
-      'Week 4: Design classics — URL Shortener, WhatsApp, Netflix, Uber, Twitter — one per day, spoken aloud',
-      'Week 5 (Days 26–30): Advanced systems + estimation practice + mock design sessions',
+      '6:00–7:30 AM → Course Q&A (1.5h) · 7:30–9:00 AM → Build components from memory in TypeScript (1.5h)',
+    whatYouNeedToKnow: [
+      'React Fundamentals: Virtual DOM, reconciliation, fiber, component lifecycle, keys',
+      'Hooks deep dive: useState, useEffect, useCallback, useMemo, useRef, useContext, useReducer',
+      'Custom hooks: build useDebounce, useFetch, useLocalStorage, useClickOutside from scratch',
+      'TypeScript in React: interfaces, generics, utility types (Pick/Omit/Partial), typed hooks',
+      'State management: Context API vs Redux Toolkit vs React Query — know trade-offs cold',
+      'Performance: React.memo, lazy/Suspense, code splitting, useTransition, profiler',
+      'React Native specifics: StyleSheet, FlatList, Navigation, Expo, EAS Build, platform differences',
     ],
     practice: [
-      'Every day: design 1 system on paper BEFORE solutions — 45 minutes strict',
-      'FPO superpower: Lambda=Microservice, Step Functions=Saga, DynamoDB=NoSQL, Kafka=EventBridge',
-      'Speak out loud while designing — 50% of system design score is communication',
-      'Draw: Requirements → Estimation → HLD → Database Schema → API Design → Deep Dive',
-      "Watch ByteByteGo YouTube for each system you design — Alex Xu's diagrams are unmatched",
+      'Build 5 components from memory with TypeScript — no copy-paste: custom hook, virtualized list, debounced search',
+      "Explain every concept out loud: 'Virtual DOM works by...' until it sounds completely natural",
+      'Implement useCallback + useMemo and MEASURE re-renders with React DevTools profiler',
+      'Prepare 3 real code examples from your FPO React/RN work — have GitHub links ready',
+      'Build a complete TypeScript React app in 90 min: flight search UI with hooks + API call + React Query',
+    ],
+    interviewQs: [
+      "What is the Virtual DOM and how does React's reconciliation (fiber) work?",
+      'Explain the difference between useCallback and useMemo — when do you actually need them?',
+      'How would you type a generic React component with TypeScript? Show me the syntax.',
+      'What is the difference between React.memo, PureComponent, and useMemo?',
+      "How does React Native differ from React JS — what can't you do in RN that you can in React?",
+      "Explain how you'd implement infinite scroll in React with React Query.",
+    ],
+    courses: [
+      {
+        h: 13,
+        title: 'React Interview Masterclass — Top 200 Questions (+PDF) 2026',
+        by: 'Happy Rawat',
+        rating: 4.7,
+        stu: '2.5K+',
+        url: 'https://www.udemy.com/course/react-interview/',
+        tag: '🥇 200 Q&A + PDF',
+        tc: '#15803D',
+        why: '4.7★. 200 React Q&A covering Hooks, Redux, TypeScript, Lifecycle, Routing with PDF + PPT revision book and interview tracker Excel sheet. Updated Dec 2025. Best structured React interview prep.',
+      },
+      {
+        h: 8,
+        title:
+          'React Interview Questions — Coding Interview 2026 (TypeScript + RxJS)',
+        by: 'Ariel Weinberger',
+        rating: 4.6,
+        stu: '8K+',
+        url: 'https://www.udemy.com/course/react-interview-questions-coding-interview-2023/',
+        tag: '💻 CODING+TS',
+        tc: '#0369A1',
+        why: '58 REAL React coding interview questions with TypeScript — you solve each problem yourself before the solution. Covers TypeScript and RxJS patterns essential for senior React roles.',
+      },
+      {
+        h: 7,
+        title:
+          'React JS Complete Exam/Interview Test Preparation 2025 (420+ Q)',
+        by: 'Multiple Instructors',
+        rating: 4.6,
+        stu: '3K+',
+        url: 'https://www.udemy.com/course/react-js-complete-exam-interview-test-preparation-2025/',
+        tag: '420 MCQ TESTS',
+        tc: '#7C3AED',
+        why: '420+ exam-style MCQ questions covering React + React Native basics (navigation, UI elements, platform differences). 40-50% scenario-based. Perfect daily practice test format.',
+      },
+      {
+        h: 9,
+        title:
+          'Master the Coding Interview: Non-Technical (Resume, Salary, STAR)',
+        by: 'Andrei Neagoie (ZTM)',
+        rating: 4.7,
+        stu: '60K+',
+        url: 'https://www.udemy.com/course/master-the-coding-interview-get-more-job-offers/',
+        tag: '🤝 NON-TECH',
+        tc: '#D97706',
+        why: '4.7★. Resume writing, LinkedIn optimisation, salary negotiation, STAR behavioral Q&A. 40% of hiring is non-technical. Your 12+ years + 7 AWS certs + FPO airline experience is gold — learn to present it.',
+      },
+      {
+        h: 8,
+        title: 'JavaScript Interview Prep — Become a Frontend Developer',
+        by: 'Multiple Instructors',
+        rating: 4.5,
+        stu: '20K+',
+        url: 'https://www.udemy.com/course/javascript-interview-prep-become-a-frontend-developer/',
+        tag: '🟨 JS CORE',
+        tc: '#059669',
+        why: "JavaScript interview essentials: closures, hoisting, event loop, promises, async/await, prototype chain, 'this' keyword. Covers what React-specific courses miss. Essential for senior frontend roles.",
+      },
+    ],
+  },
+  {
+    id: 'pyai',
+    n: 3,
+    icon: '🤖',
+    color: '#7C3AED',
+    dark: '#6D28D9',
+    bg: '#F5F3FF',
+    border: '#DDD6FE',
+    name: 'Python + Generative & Agentic AI',
+    role: '🧠 Target Role: Python AI Engineer / GenAI Developer / LLM Engineer',
+    days: 25,
+    total: 75,
+    courseH: 45,
+    practiceH: 30,
+    offset: 55,
+    startDate: 'Sep 8, 2027',
+    endDate: 'Oct 2, 2027',
+    tag: 'ROLE 3',
+    daily:
+      '6:00–7:30 AM → Course (1.5h) · 7:30–9:00 AM → Build an AI agent or RAG pipeline (1.5h)',
+    whatYouNeedToKnow: [
+      'Python fundamentals: OOP, decorators, generators, async/await, type hints — interviewers test basics first',
+      'LLM concepts: tokenisation, embeddings, temperature, context window, fine-tuning vs RAG',
+      'LangChain: chains, agents, tools, memory, LCEL, RAG pipeline with vector databases (Pinecone, FAISS)',
+      'LangGraph: state machines, conditional edges, multi-agent orchestration, ReAct + Reflection patterns',
+      'Agentic patterns: ReAct, Reflection, Planning, Multi-agent (orchestrator + sub-agents), MCP protocol',
+      'AWS Bedrock + boto3: invoke_model, Knowledge Bases, Agents for Bedrock — your FPO infra!',
+      'Evaluation: how to measure LLM output quality, hallucination detection, LangSmith tracing',
+    ],
+    practice: [
+      'Build a RAG pipeline from scratch: PDF → chunk → embed → Pinecone → retrieve → generate',
+      'Build a LangGraph multi-agent workflow: planner → researcher → writer with state management',
+      'Deploy a LangChain agent as an AWS Lambda with API Gateway — your exact FPO pattern',
+      'Build FPO AI Assistant: natural language query over flight data using LangChain + DynamoDB tool',
+      'Prepare GitHub portfolio: 3 AI agent projects with README, architecture diagram, demo video',
+    ],
+    interviewQs: [
+      'What is RAG and why is it better than fine-tuning for most enterprise use cases?',
+      'Explain the ReAct pattern — Reasoning + Acting. How does LangGraph implement this?',
+      'What is a vector database? How does cosine similarity work for retrieval?',
+      'How would you build a multi-agent system where agents coordinate? What is MCP?',
+      "How do you evaluate an LLM agent's output? What metrics do you use?",
+      'How would you deploy a LangChain agent to production on AWS? Walk me through the architecture.',
+    ],
+    courses: [
+      {
+        h: 22,
+        title:
+          'LangChain: Agentic AI Engineering with LangChain & LangGraph 2026',
+        by: 'Eden Marco',
+        rating: 4.7,
+        stu: '114K+',
+        url: 'https://www.udemy.com/course/langchain/',
+        tag: '🥇 LANGCHAIN CORE',
+        tc: '#15803D',
+        why: '114K students. Re-recorded 2026 — supports LangChain v1.2+. Covers LangChain fundamentals, LangGraph agents, RAG, MCP, production deployment. Eden Marco is the definitive LangChain instructor on Udemy.',
+      },
+      {
+        h: 15,
+        title: 'Complete Agentic AI Bootcamp with LangGraph and LangChain',
+        by: 'Multiple Instructors',
+        rating: 4.8,
+        stu: '6K+',
+        url: 'https://www.udemy.com/course/complete-agentic-ai-bootcamp-with-langgraph-and-langchain/',
+        tag: '🕸 LANGGRAPH',
+        tc: '#0369A1',
+        why: '4.8★ — highest rated in this category. Deep LangGraph: state machines, multi-agent coordination, ReAct + Reflection patterns, agentic RAG. Customer service bots, data processors, recommendation engines.',
+      },
+      {
+        h: 8,
+        title: 'Python Interview Questions — Core Python + OOP + Automation',
+        by: 'Multiple Instructors',
+        rating: 4.5,
+        stu: '15K+',
+        url: 'https://www.udemy.com/course/python-interview-questions-and-answers/',
+        tag: '🐍 PYTHON CORE',
+        tc: '#D97706',
+        why: "Core Python interview Q&A: OOP, decorators, generators, async, closures, type hints. AI interviewers always test Python fundamentals before LangChain. Don't skip this even after 400 days.",
+      },
+    ],
+  },
+  {
+    id: 'sysdesign',
+    n: 4,
+    icon: '🏗',
+    color: '#F59E0B',
+    dark: '#D97706',
+    bg: '#FFFBEB',
+    border: '#FDE68A',
+    name: 'System Design',
+    role: '📐 Cross-Cutting: Required for ALL 3 Roles at Senior Level',
+    days: 22,
+    total: 66,
+    courseH: 40,
+    practiceH: 26,
+    offset: 80,
+    startDate: 'Oct 3, 2027',
+    endDate: 'Oct 24, 2027',
+    tag: 'ALL ROLES',
+    daily:
+      '6:00–7:20 AM → Course (1.33h) · 7:20–9:00 AM → Design 1 system from scratch on paper (1.67h)',
+    whatYouNeedToKnow: [
+      'Core building blocks: Load Balancer, CDN, Cache (Redis), Message Queue (Kafka), API Gateway, DB',
+      'SQL vs NoSQL trade-offs, Sharding, Replication, CAP theorem, ACID vs BASE',
+      'Scalability: horizontal vs vertical, stateless services, database read replicas',
+      'Microservices: Service Discovery, Circuit Breaker, Saga, API Gateway, CQRS, Event Sourcing',
+      'AI-specific: Vector DB architecture, LLM serving infrastructure, RAG system design, Agent orchestration',
+      'Estimation: back-of-envelope QPS, storage, bandwidth — practice 10 scenarios',
+    ],
+    practice: [
+      'Design 1 system every day — 45 min strict, spoken aloud, paper first',
+      'Java role: Design URL Shortener, WhatsApp, Notification System, Flight Booking System (your FPO!)',
+      'React role: Design a CDN, Real-time Collaboration (Google Docs), Social Media Feed',
+      'AI role: Design a RAG System, LLM Serving Infrastructure, AI Agent Orchestration Platform',
+      'FPO superpower: your architecture IS a system design answer — Lambda=microservice, DynamoDB=NoSQL at scale',
+    ],
+    interviewQs: [
+      'Design a real-time flight trajectory optimisation system (your FPO!) — walk me through it',
+      'Design a notification system supporting email, push, SMS (FPO uses this for airline alerts!)',
+      "Design a RAG system for a large enterprise knowledge base — what's your vector DB choice?",
+      'How would you scale a Java Spring Boot API from 100 RPS to 100K RPS?',
+      'Design a multi-tenant SaaS platform — how do you isolate data? (your FPO is multi-tenant!)',
     ],
     courses: [
       {
@@ -47,7 +343,7 @@ const PHASES = [
         url: 'https://www.udemy.com/course/system-design-interview-prep/',
         tag: '🥇 START HERE',
         tc: '#15803D',
-        why: 'Frank Kane is an ex-Amazon hiring manager — teaches exactly what interviewers look for. 5h, do first. Six mock design walkthroughs. Best ROI per hour on Udemy for system design.',
+        why: 'Ex-Amazon hiring manager teaches exactly what interviewers look for. 5h, 6 mock design walkthroughs. Best ROI per hour on Udemy. Do this first — it gives you the interview framework.',
       },
       {
         h: 20,
@@ -58,10 +354,10 @@ const PHASES = [
         url: 'https://www.udemy.com/course/software-architecture-design-of-modern-large-scale-systems/',
         tag: '🏛 ARCHITECTURE',
         tc: '#0369A1',
-        why: "93K students. Deep distributed systems — exactly what Senior/Staff interviews test. CQRS, Event Sourcing, Microservices, API Gateway, Saga. You'll recognise FPO Cloud in every example.",
+        why: "93K students. Deep distributed systems — CQRS, Event Sourcing, Microservices, API Gateway, Saga. You'll recognise FPO Cloud in every example. Essential for senior Java + senior AI roles.",
       },
       {
-        h: 18,
+        h: 15,
         title: 'System Design Interview Guide for Software Architecture',
         by: 'Mikhail Smarshchok',
         rating: 4.5,
@@ -69,209 +365,130 @@ const PHASES = [
         url: 'https://www.udemy.com/course/system-design-a-comprehensive-guide/',
         tag: '🎯 20+ SYSTEMS',
         tc: '#7C3AED',
-        why: "20+ complete system designs end-to-end. Best coverage of advanced systems: real-time, distributed, event-driven. Great for Week 3–4 after Frank Kane's framework.",
-      },
-      {
-        h: 12,
-        title: 'Pragmatic System Design',
-        by: 'Bogdan Stashchuk',
-        rating: 4.5,
-        stu: '15K+',
-        url: 'https://www.udemy.com/course/pragmatic-system-design/',
-        tag: '⚡ TRADE-OFFS',
-        tc: '#D97706',
-        why: 'Real production architectures from Netflix, Uber, Airbnb with honest trade-off discussion — exactly what interviewers want to hear. Pragmatic, not theoretical.',
+        why: '20+ complete system designs: URL Shortener, WhatsApp, Netflix, Uber, Twitter, Search Autocomplete, Notification System, Rate Limiter. One per day in this phase.',
       },
     ],
   },
   {
-    id: 'java',
-    n: 2,
-    name: 'Java 8 + Spring Boot Interview',
-    icon: '☕',
-    color: '#16A34A',
-    dark: '#15803D',
-    bg: '#F0FDF4',
-    border: '#BBF7D0',
+    id: 'dsa',
+    n: 5,
+    icon: '🧩',
+    color: '#6366F1',
+    dark: '#4338CA',
+    bg: '#EEF2FF',
+    border: '#C7D2FE',
+    name: 'DSA + LeetCode Patterns',
+    role: '🏁 Universal: Required for ALL Technical Interviews',
     days: 28,
     total: 84,
-    courseH: 52,
-    practiceH: 32,
-    offset: 30,
-    startDate: 'Aug 14, 2027',
-    endDate: 'Sep 10, 2027',
-    tag: '',
+    courseH: 50,
+    practiceH: 34,
+    offset: 102,
+    startDate: 'Oct 25, 2027',
+    endDate: 'Nov 21, 2027',
+    tag: 'LAST = FRESHEST 🧠',
     daily:
-      '6:00–7:30 AM course Q&A (1.5h) · 7:30–9:00 AM write code answers from memory (1.5h)',
-    leetcode:
-      'Prepare written answers for 200+ Java interview questions. Coding focus: Streams API problems, Lambda expressions, OOP design patterns, Spring Bean lifecycle, JPA N+1, JWT auth flow, Microservices patterns.',
-    topics: [
-      'Week 5–6: Core Java — OOP, Collections, Generics, Exception handling, Multithreading, equals/hashCode',
-      'Week 7: Java 8 — Streams API (coding!), Lambdas, Optional, CompletableFuture, Method references',
-      'Week 8: Spring Boot — DI, Bean lifecycle, AOP, @Transactional, JPA relationships, N+1 fix, REST best practices',
-      'Week 9 (4 days): Spring Security + Microservices — JWT flow, OAuth2, Circuit Breaker, Saga, Kafka, K8s for interviews',
+      '6:00–7:00 AM → Course/theory (1h) · 7:00–8:30 AM → LeetCode 4 problems (1.5h) · 8:30–9:00 AM → Review (0.5h)',
+    whatYouNeedToKnow: [
+      "Arrays + Strings: Two Pointers, Sliding Window, Prefix Sum, Kadane's algorithm",
+      "Linked Lists: Fast/Slow pointer, reversal, cycle detection (Floyd's algorithm)",
+      'Stacks + Queues: Monotonic stack, sliding window maximum, implement queue using stacks',
+      'Trees + Graphs: DFS, BFS, topological sort, Dijkstra, Union-Find, backtracking',
+      'Dynamic Programming: top-down memoisation, bottom-up tabulation, 1D + 2D DP patterns',
+      'Hash Maps: frequency counting, two-sum pattern, anagram grouping, sliding window + hash',
     ],
     practice: [
-      "Write every Streams solution from memory — don't copy-paste, your hands must remember the syntax",
-      'For every concept: explain out loud as if teaching a junior developer',
-      'Write 5 Java 8 Streams problems daily (filter, map, groupingBy, flatMap, reduce)',
-      'Prepare STAR answers using FPO: DLH trajectory bug, LZA migration, multi-tenant Cognito provisioning',
-      'Translate FPO C# patterns to Java equivalents — highlight polyglot experience in interviews',
+      'Attempt every problem for 25 min BEFORE watching solution — the struggle is the learning',
+      'Time yourself: Easy < 15 min, Medium < 25 min — track every session in a notebook',
+      'After every 10 problems: identify your weakest pattern and drill 5 targeted problems on it',
+      'Daily: 1 Easy warm-up + 2 Medium + 1 Hard attempt — 4 problems minimum every day',
+      'Final 5 days (Nov 17–21): 8 problems/day at speed — simulate interview pressure daily',
+    ],
+    interviewQs: [
+      'Find the longest substring without repeating characters (Sliding Window — Medium)',
+      "Detect a cycle in a linked list and find the start node (Floyd's algorithm — Medium)",
+      'Given a matrix, find the number of islands (Graph BFS/DFS — Medium)',
+      'Coin Change: minimum coins to make a target (DP bottom-up — Medium)',
+      'LRU Cache implementation (HashMap + Doubly Linked List — Hard)',
+      'Serialize and Deserialize a Binary Tree (BFS/DFS — Hard)',
     ],
     courses: [
       {
-        h: 10,
-        title: 'Java Programming Interview Guide — 200+ Questions & Answers',
-        by: 'Ranga Karanam (in28minutes)',
-        rating: 4.5,
-        stu: '80K+',
-        url: 'https://www.udemy.com/course/java-interview-questions-and-answers/',
-        tag: '🥇 JAVA 200 Q&A',
+        h: 20,
+        title: 'Master the Coding Interview: Data Structures + Algorithms',
+        by: 'Andrei Neagoie (ZTM)',
+        rating: 4.6,
+        stu: '250K+',
+        url: 'https://www.udemy.com/course/master-the-coding-interview-data-structures-algorithms/',
+        tag: '🥇 INTERVIEW-FIRST',
         tc: '#15803D',
-        why: '200+ Java Q&A with code examples. Java 5–8 features, Collections, Generics, Multithreading, Functional Programming. Perfect interview revision format by Ranga Karanam.',
-      },
-      {
-        h: 10,
-        title: 'Spring & Spring Boot Interview Guide — 200+ Questions',
-        by: 'Ranga Karanam (in28minutes)',
-        rating: 4.5,
-        stu: '60K+',
-        url: 'https://www.udemy.com/course/spring-interview-questions-and-answers/',
-        tag: '🌱 SPRING 200 Q&A',
-        tc: '#0369A1',
-        why: '200 Spring/Spring Boot/JPA/AOP/REST Q&A with code. Covers IoC, Bean scopes, @Transactional, JPA, REST. Do alongside Java guide — they pair perfectly.',
+        why: "250K students. Interview-first DSA — Andrei asks 'when would an interviewer use this?' for every structure. Best for actual job interviews, not academic CS. Covers all patterns with interview context.",
       },
       {
         h: 18,
-        title:
-          'Java Interview Help — Java Spring Boot Microservices DevOps Cloud',
-        by: 'Chad Darby',
-        rating: 4.6,
-        stu: '30K+',
-        url: 'https://www.udemy.com/course/java-interview-help/',
-        tag: '🎯 FULL STACK',
-        tc: '#7C3AED',
-        why: 'Covers the full Java developer interview: Java, Spring Boot, Microservices, REST, DevOps, Cloud in one course. Chad Darby is a top Udemy Java instructor. Best full-picture interview prep.',
-      },
-      {
-        h: 14,
-        title: 'Java Interview Questions Bootcamp — 1000+ Q&A Master Class',
-        by: 'Multiple Instructors',
-        rating: 4.5,
-        stu: '20K+',
-        url: 'https://www.udemy.com/course/java-interview-questions-bootcamp-master-class-1000-java-questions/',
-        tag: '💯 1000 Q&A',
-        tc: '#D97706',
-        why: '1000+ Java Q&A covering Generics, Collections, Multithreading, Design Patterns, OOP, Functional Programming. Use as daily warm-up — 30 Q&A every morning.',
-      },
-    ],
-  },
-  {
-    id: 'react',
-    n: 3,
-    name: 'React + Frontend Interview',
-    icon: '⚛',
-    color: '#F59E0B',
-    dark: '#D97706',
-    bg: '#FFFBEB',
-    border: '#FDE68A',
-    days: 16,
-    total: 48,
-    courseH: 29,
-    practiceH: 19,
-    offset: 58,
-    startDate: 'Sep 11, 2027',
-    endDate: 'Sep 26, 2027',
-    tag: '',
-    daily:
-      '6:00–7:30 AM course Q&A (1.5h) · 7:30–9:00 AM build components from memory (1.5h)',
-    leetcode:
-      'Prepare answers for 100+ React interview questions. Build 5 components from memory: custom hook, context provider, infinite scroll, debounced search, virtualized list.',
-    topics: [
-      'Days 1–5: React fundamentals — Virtual DOM, reconciliation, fiber, component lifecycle, Pure Component vs memo',
-      'Days 6–9: Hooks deep dive — useState, useEffect, useCallback, useMemo, useRef, custom hooks, rules of hooks',
-      'Days 10–12: State management — Context API, Redux Toolkit, React Query, Zustand comparison for interviews',
-      'Days 13–15: Performance — React.memo, lazy/Suspense, code splitting, useTransition, TypeScript in React',
-      'Day 16: Next.js SSR/SSG/ISR interview questions, testing with RTL, frontend take-home exercise',
-    ],
-    practice: [
-      'Build each React pattern from scratch without reference — hooks, context, compound components',
-      "Explain every concept out loud: 'Virtual DOM works by...' until it flows naturally",
-      'Implement useCallback, useMemo, React.memo and actually measure re-render impact in DevTools',
-      'Prepare 3 code examples from your FPO React/RN work to discuss in interviews',
-      'Do 1 full frontend take-home: build a flight search UI in 90 minutes, deploy to Netlify',
-    ],
-    courses: [
-      {
-        h: 11,
-        title: 'React Interview Masterclass — 200 Questions (Hindi)',
-        by: 'Hindi Instructor',
-        rating: 4.4,
-        stu: '15K+',
-        url: 'https://www.udemy.com/course/react-interview-masterclass-top-200-questions-in-hindi/',
-        tag: '🥇 200 Q&A',
-        tc: '#15803D',
-        why: '200 React Q&A in Hindi — makes tricky concepts crystal clear. Virtual DOM, reconciliation, fiber, hooks rules, performance patterns. Perfect interview consolidation.',
-      },
-      {
-        h: 10,
-        title:
-          'Master the Coding Interview: Non-Technical (Resume, Salary, Behavioural)',
-        by: 'Andrei Neagoie (ZTM)',
-        rating: 4.7,
+        title: 'Python Data Structures & Algorithms + LeetCode Exercises',
+        by: 'Scott Barrett',
+        rating: 4.8,
         stu: '60K+',
-        url: 'https://www.udemy.com/course/master-the-coding-interview-get-more-job-offers/',
-        tag: '🤝 NON-TECH',
+        url: 'https://www.udemy.com/course/data-structures-algorithms-python/',
+        tag: '🥈 4.8★ LEETCODE',
         tc: '#0369A1',
-        why: '4.7★. Resume, LinkedIn, salary negotiation, STAR behavioral Q&A. 40% of hiring is non-technical. Your 12+ years + AWS certs + FPO experience is gold — this course teaches you to present it.',
+        why: '4.8★ — highest rated DSA+LeetCode course on Udemy. Scott integrates LeetCode directly into every lesson. 100+ coding exercises with full explanations. Even in Java, use this for pattern understanding.',
       },
       {
-        h: 8,
-        title: 'JavaScript Interview Prep — Become a Frontend Developer',
-        by: 'Multiple Instructors',
-        rating: 4.5,
-        stu: '20K+',
-        url: 'https://www.udemy.com/course/javascript-interview-prep-become-a-frontend-developer/',
-        tag: '🟨 JS INTERVIEW',
-        tc: '#D97706',
-        why: "JavaScript interview questions: closures, hoisting, event loop, promises, async/await, prototype chain, this keyword. Fills gaps the React-specific course doesn't cover.",
+        h: 12,
+        title: 'JavaScript Algorithms and Data Structures Masterclass',
+        by: 'Colt Steele',
+        rating: 4.7,
+        stu: '350K+',
+        url: 'https://www.udemy.com/course/js-algorithms-and-data-structures-masterclass/',
+        tag: '🎨 BEST VISUALS',
+        tc: '#7C3AED',
+        why: '350K students. Best visual animations for sorting, trees, graphs on Udemy. Use for visual understanding of algorithms you find hard to grasp from code alone. Colt makes abstract → concrete.',
       },
     ],
   },
   {
     id: 'mock',
-    n: 4,
-    name: 'Mock Interviews + Final Polish',
+    n: 6,
     icon: '🎯',
     color: '#E11D48',
     dark: '#BE123C',
     bg: '#FFF1F2',
     border: '#FECDD3',
-    days: 20,
-    total: 60,
-    courseH: 18,
-    practiceH: 42,
-    offset: 74,
-    startDate: 'Sep 27, 2027',
-    endDate: 'Oct 16, 2027',
-    tag: '',
+    name: 'Mock Interviews + Final Polish',
+    role: '✅ Finish Line: All 3 Roles Interview-Ready by Dec 5',
+    days: 14,
+    total: 42,
+    courseH: 25,
+    practiceH: 17,
+    offset: 130,
+    startDate: 'Nov 22, 2027',
+    endDate: 'Dec 5, 2027',
+    tag: 'FINISH LINE 🏁',
     daily:
-      '6:00–7:00 AM course/revision (1h) · 7:00–8:30 AM timed mock session (1.5h) · 8:30–9:00 AM review (0.5h)',
-    leetcode:
-      '10 full system design mocks (45 min each, spoken aloud). Resume + LinkedIn final polish. 5+ Pramp peer mock sessions. Behavioral STAR stories ready for 15 questions.',
-    topics: [
-      'Days 1–5: System Design mocks — 1 full design per day spoken aloud, compare with expert solution',
-      'Days 6–10: Peer mocks on Pramp.com — book 5 free sessions, take turns interviewing each other',
-      'Days 11–14: Behavioral prep — 15 STAR stories written from FPO work (bugs, migrations, leadership)',
-      'Days 15–18: Resume final polish + LinkedIn update — quantify every bullet with real FPO numbers',
-      "Days 19–20: Company research — target companies' tech stack, engineering blogs, recent launches",
+      '6:00–7:00 AM → Course revision (1h) · 7:00–8:30 AM → Timed mock session (1.5h) · 8:30–9:00 AM → Feedback review (0.5h)',
+    whatYouNeedToKnow: [
+      'Java mock: 10 technical questions answered on whiteboard from memory in 40 min',
+      'React mock: build a TypeScript component from scratch in 20 min, then explain decisions',
+      'AI mock: explain your RAG pipeline or LangGraph agent architecture in 10 min',
+      'System design mock: design any of the 20 systems you practiced, spoken aloud in 45 min',
+      'DSA mock: 2 LeetCode Medium problems in 40 min total — strict timer every session',
+      'Behavioral: 15 STAR stories from FPO ready cold — DLH bug, LZA migration, team leadership',
     ],
     practice: [
-      'Pramp.com — book 5 free peer mock interviews, no excuses, different partner each time',
-      'interviewing.io — 2 anonymous FAANG engineer mock sessions (first is free)',
-      'Record 1 mock session on video — watch playback for filler words and body language',
-      'FPO STAR stories: DLH NullRef bug fix, LZA migration spike, multi-tenant Cognito provisioning for 9 pools',
-      'Know your numbers: X flights/day, Y airlines, Z Lambda cold starts fixed — quantify everything',
+      'Pramp.com: book 4 free peer mock interview sessions — different partner each time',
+      'interviewing.io: 2 anonymous FAANG engineer mock sessions (first one free)',
+      'Record yourself on video for 1 session — watch for filler words, pacing, confidence',
+      'Resume final polish: quantify every FPO bullet with real numbers (X flights/day, Y airlines, Z% latency fix)',
+      "LinkedIn: headline → 'Java | React | Agentic AI | AWS | 7 Certs' — recruiters search these keywords",
+    ],
+    interviewQs: [
+      'Tell me about yourself — 90-second pitch covering FPO + your 400-day upskilling journey',
+      'Walk me through your most challenging technical problem and how you solved it (FPO STAR story)',
+      'Why are you leaving NextStep? / What are you looking for in your next role?',
+      'Where do you see Agentic AI impacting flight operations in the next 3 years?',
+      'What is your salary expectation? (know your number — Senior/Staff range in your target market)',
     ],
     courses: [
       {
@@ -283,103 +500,43 @@ const PHASES = [
         url: 'https://www.udemy.com/course/master-the-coding-interview-big-tech-faang-interviews/',
         tag: '🏢 FAANG PREP',
         tc: '#15803D',
-        why: 'Advanced patterns used at FAANG/MAANG. Do in Week 1 of this phase. Harder graph, DP, and system design questions at Big Tech difficulty — prepares you for the toughest interviews.',
+        why: 'FAANG-level patterns — harder graph, DP, system design. Do in Week 1 of this phase. Prepares you for the hardest interview questions at Big Tech difficulty.',
+      },
+      {
+        h: 7,
+        title: 'Java Interview Masterclass — Top 350 Questions Quick Revision',
+        by: 'Happy Rawat',
+        rating: 4.6,
+        stu: '2K+',
+        url: 'https://www.udemy.com/course/top-250-java-interview-questions/',
+        tag: '☕ JAVA FINAL',
+        tc: '#0369A1',
+        why: 'Speed-run the Java 350 Q&A tracker in 7h — a focused final revision of every Java concept. Do 50 questions per day as your morning warm-up this week.',
       },
       {
         h: 10,
-        title: 'Cracking the Coding Interview Bootcamp — Algorithms',
-        by: 'Zach Miller',
+        title: 'System Design Interview Guide — Full Mock Sessions',
+        by: 'Mikhail Smarshchok',
         rating: 4.5,
-        stu: '30K+',
-        url: 'https://www.udemy.com/course/master-the-coding-interview-data-structures-algorithms/',
-        tag: '🔑 CRACK CTI',
-        tc: '#0369A1',
-        why: 'Based on the famous Gayle McDowell book. Algorithmic thinking frameworks and problem-solving patterns for whiteboard coding interviews. Do in Week 2 alongside Pramp sessions.',
-      },
-    ],
-  },
-  {
-    id: 'dsa',
-    n: 5,
-    name: 'DSA + LeetCode Patterns',
-    icon: '🧩',
-    color: '#6366F1',
-    dark: '#4338CA',
-    bg: '#EEF2FF',
-    border: '#C7D2FE',
-    days: 50,
-    total: 150,
-    courseH: 93,
-    practiceH: 57,
-    offset: 94,
-    startDate: 'Oct 17, 2027',
-    endDate: 'Dec 5, 2027',
-    tag: 'FINAL PHASE 🏁',
-    daily:
-      '6:00–7:00 AM course/theory (1h) · 7:00–8:30 AM LeetCode problems (1.5h) · 8:30–9:00 AM review solutions (0.5h)',
-    leetcode:
-      'Target: 200+ problems — 40 Easy, 110 Medium, 50 Hard. Use NeetCode 150 as your roadmap. By Dec 5 you must solve Medium problems in under 20 minutes.',
-    topics: [
-      'Week 11–12 (Oct 17–30): Big O, Arrays, Strings, Hashing — Two Pointers, Sliding Window, Prefix Sum (40 problems)',
-      'Week 13–14 (Oct 31–Nov 13): Linked Lists, Stacks, Queues, Binary Trees, BST — DFS, BFS, Tree DP (40 problems)',
-      'Week 15–16 (Nov 14–Nov 27): Graphs — BFS, DFS, Topological Sort, Dijkstra, Union-Find (35 problems)',
-      'Week 17–18 (Nov 28–Dec 5): Dynamic Programming — Knapsack, LCS, 2D DP, Backtracking (25 problems + speed drill)',
-      'Dec 5 final: Re-solve your 20 hardest problems at speed — Easy < 8 min, Medium < 18 min',
-    ],
-    practice: [
-      'Solve every problem BEFORE watching solution — minimum 20 min struggle time, no shortcuts',
-      'Time yourself: Easy < 15 min, Medium < 25 min, Hard < 40 min — track in notebook',
-      'After every 10 problems: identify weakest pattern and drill 5 more on it specifically',
-      'Daily: 4 problems minimum — 1 Easy warm-up + 2 Medium + 1 Hard attempt',
-      'Final week: 10 problems per day at full speed — simulate interview pressure',
-    ],
-    courses: [
-      {
-        h: 39,
-        title: 'Master the Coding Interview: Data Structures + Algorithms',
-        by: 'Andrei Neagoie (Zero To Mastery)',
-        rating: 4.6,
-        stu: '140K+',
-        url: 'https://www.udemy.com/course/master-the-coding-interview-data-structures-algorithms/',
-        tag: '🥇 PRIMARY',
-        tc: '#15803D',
-        why: "Interview-first DSA — Andrei teaches 'when would an interviewer use this?' for every structure. Best for actual job interviews. 140K students. Covers all patterns with interview context.",
-      },
-      {
-        h: 28,
-        title: 'Python Data Structures & Algorithms + LeetCode Exercises',
-        by: 'Scott Barrett',
-        rating: 4.8,
-        stu: '60K+',
-        url: 'https://www.udemy.com/course/data-structures-algorithms-python/',
-        tag: '🥈 LEETCODE',
-        tc: '#0369A1',
-        why: '4.8★ — highest rated DSA+LeetCode course on Udemy. Scott integrates LeetCode directly into every lesson. Even in Java, use this to understand patterns then re-implement. Exceptional problem-pattern approach.',
-      },
-      {
-        h: 26,
-        title: 'JavaScript Algorithms and Data Structures Masterclass',
-        by: 'Colt Steele',
-        rating: 4.7,
-        stu: '350K+',
-        url: 'https://www.udemy.com/course/js-algorithms-and-data-structures-masterclass/',
-        tag: '🎨 VISUALISE',
+        stu: '25K+',
+        url: 'https://www.udemy.com/course/system-design-a-comprehensive-guide/',
+        tag: '🏗 SD MOCKS',
         tc: '#7C3AED',
-        why: '350K students. Best visual animations for sorting, trees, graphs. Use for visual understanding of algorithms — Colt makes abstract concepts concrete. Watch alongside solving problems.',
+        why: 'Full system design mock sessions. Use the last 10h of this course for mock walkthroughs — speak every design out loud in 45 min exactly as you would in a real interview.',
       },
     ],
   },
 ];
 
 const TOT_DAYS = PHASES.reduce((s, p) => s + p.days, 0);
-const TOT_HOURS = PHASES.reduce((s, p) => s + p.total, 0);
+const TOT_HRS = PHASES.reduce((s, p) => s + p.total, 0);
 const TOT_COURSE = PHASES.reduce((s, p) => s + p.courseH, 0);
-const TOT_PRACTICE = PHASES.reduce((s, p) => s + p.practiceH, 0);
-const TOT_COURSES = PHASES.reduce((s, p) => s + p.courses.length, 0);
+const TOT_PRAC = PHASES.reduce((s, p) => s + p.practiceH, 0);
+const TOT_CCOUNT = PHASES.reduce((s, p) => s + p.courses.length, 0);
 
 // ── COURSE CARD ───────────────────────────────────────────────────────────────
 function CourseCard({ c, col }) {
-  const isPrimary = c.tag.startsWith('🥇');
+  const isPri = c.tag.startsWith('🥇') || c.tag.includes('CORE');
   return (
     <a
       href={c.url}
@@ -389,12 +546,10 @@ function CourseCard({ c, col }) {
         display: 'block',
         textDecoration: 'none',
         background: '#fff',
-        border: `1.5px solid ${isPrimary ? col + '55' : '#E2E8F0'}`,
+        border: `1.5px solid ${isPri ? col + '55' : '#E2E8F0'}`,
         borderRadius: 12,
         padding: '12px 14px',
-        boxShadow: isPrimary
-          ? `0 3px 12px ${col}12`
-          : '0 1px 3px rgba(0,0,0,0.04)',
+        boxShadow: isPri ? `0 3px 12px ${col}10` : '0 1px 3px rgba(0,0,0,0.04)',
         transition: 'all 0.18s',
       }}
       onMouseEnter={(e) => {
@@ -442,7 +597,7 @@ function CourseCard({ c, col }) {
           {c.tag}
         </span>
       </div>
-      <div style={{ fontSize: 11, color: '#64748B', marginBottom: 7 }}>
+      <div style={{ fontSize: 11, color: '#64748B', marginBottom: 6 }}>
         by {c.by}
       </div>
       <div
@@ -495,7 +650,6 @@ function Block({ p, isOpen, onToggle }) {
   const pPct = 100 - cPct;
   const barL = ((p.offset / 144) * 100).toFixed(1) + '%';
   const barW = ((p.days / 144) * 100).toFixed(1) + '%';
-
   return (
     <div
       id={'b-' + p.id}
@@ -546,7 +700,6 @@ function Block({ p, isOpen, onToggle }) {
         >
           {p.icon}
         </div>
-
         <div style={{ flex: 1, minWidth: 0 }}>
           <div
             style={{
@@ -554,7 +707,7 @@ function Block({ p, isOpen, onToggle }) {
               gap: 7,
               alignItems: 'center',
               flexWrap: 'wrap',
-              marginBottom: 3,
+              marginBottom: 2,
             }}
           >
             <span
@@ -572,7 +725,7 @@ function Block({ p, isOpen, onToggle }) {
             </span>
             <span
               style={{
-                fontSize: 'clamp(13px,4vw,15px)',
+                fontSize: 'clamp(12px,3.5vw,14px)',
                 fontWeight: 900,
                 color: '#0F172A',
               }}
@@ -586,16 +739,26 @@ function Block({ p, isOpen, onToggle }) {
                   fontWeight: 800,
                   padding: '2px 7px',
                   borderRadius: 20,
-                  background: p.color + '15',
-                  color: p.color,
-                  border: `1px solid ${p.color}30`,
+                  background: p.id === 'dsa' ? '#EEF2FF' : p.color + '12',
+                  color: p.id === 'dsa' ? '#4338CA' : p.color,
+                  border: `1px solid ${p.id === 'dsa' ? '#C7D2FE' : p.color + '28'}`,
                 }}
               >
                 {p.tag}
               </span>
             )}
           </div>
-          <div style={{ fontSize: 10, color: '#64748B', marginBottom: 3 }}>
+          <div
+            style={{
+              fontSize: 10,
+              color: p.color,
+              fontWeight: 600,
+              marginBottom: 2,
+            }}
+          >
+            {p.role}
+          </div>
+          <div style={{ fontSize: 10, color: '#94A3B8' }}>
             {p.startDate} → {p.endDate} · {p.days}d · {p.courses.length} courses
           </div>
           <div
@@ -604,14 +767,14 @@ function Block({ p, isOpen, onToggle }) {
               height: 4,
               borderRadius: 2,
               overflow: 'hidden',
-              maxWidth: 150,
+              maxWidth: 160,
+              marginTop: 4,
             }}
           >
             <div style={{ flex: cPct, background: p.color }} />
-            <div style={{ flex: pPct, background: p.color + '35' }} />
+            <div style={{ flex: pPct, background: p.color + '30' }} />
           </div>
         </div>
-
         <div style={{ textAlign: 'right', flexShrink: 0 }}>
           <div
             style={{
@@ -619,9 +782,9 @@ function Block({ p, isOpen, onToggle }) {
               fontWeight: 900,
               color: p.color,
               background: p.color + '12',
-              padding: '3px 12px',
+              padding: '3px 11px',
               borderRadius: 20,
-              border: `1px solid ${p.color}25`,
+              border: `1px solid ${p.color}22`,
               marginBottom: 2,
             }}
           >
@@ -629,7 +792,6 @@ function Block({ p, isOpen, onToggle }) {
           </div>
           <div style={{ fontSize: 9, color: '#94A3B8' }}>{p.days}d × 3h</div>
         </div>
-
         <span
           style={{
             color: p.color,
@@ -652,7 +814,7 @@ function Block({ p, isOpen, onToggle }) {
             padding: '14px 16px 18px',
           }}
         >
-          {/* Stats */}
+          {/* Stats strip */}
           <div
             style={{
               display: 'grid',
@@ -677,7 +839,7 @@ function Block({ p, isOpen, onToggle }) {
                   textAlign: 'center',
                 }}
               >
-                <div style={{ fontSize: 15 }}>{ic}</div>
+                <div style={{ fontSize: 14 }}>{ic}</div>
                 <div
                   style={{
                     fontSize: 'clamp(11px,3vw,13px)',
@@ -695,7 +857,7 @@ function Block({ p, isOpen, onToggle }) {
           </div>
 
           {/* Timeline */}
-          <div style={{ marginBottom: 12 }}>
+          <div style={{ marginBottom: 10 }}>
             <div
               style={{
                 display: 'flex',
@@ -731,7 +893,7 @@ function Block({ p, isOpen, onToggle }) {
             </div>
           </div>
 
-          {/* Course / Practice bar */}
+          {/* Course/Practice split bar */}
           <div style={{ marginBottom: 12 }}>
             <div
               style={{
@@ -757,11 +919,11 @@ function Block({ p, isOpen, onToggle }) {
               }}
             >
               <div style={{ flex: p.courseH, background: p.color }} />
-              <div style={{ flex: p.practiceH, background: p.color + '35' }} />
+              <div style={{ flex: p.practiceH, background: p.color + '30' }} />
             </div>
           </div>
 
-          {/* Daily schedule */}
+          {/* Daily plan */}
           <div
             style={{
               background: '#F8FAFF',
@@ -787,131 +949,162 @@ function Block({ p, isOpen, onToggle }) {
             </div>
           </div>
 
-          {/* Topics */}
-          <div style={{ marginBottom: 10 }}>
-            <div
-              style={{
-                fontSize: 10,
-                fontWeight: 800,
-                color: '#94A3B8',
-                letterSpacing: '0.1em',
-                marginBottom: 6,
-              }}
-            >
-              📋 WEEK-BY-WEEK TOPICS
-            </div>
-            {p.topics.map((t, i) => (
-              <div
-                key={i}
-                style={{
-                  display: 'flex',
-                  gap: 8,
-                  alignItems: 'flex-start',
-                  padding: '3px 0',
-                }}
-              >
-                <div
-                  style={{
-                    width: 20,
-                    height: 20,
-                    borderRadius: 5,
-                    background: p.color + '20',
-                    color: p.color,
-                    display: 'flex',
-                    alignItems: 'center',
-                    justifyContent: 'center',
-                    fontSize: 9,
-                    fontWeight: 900,
-                    flexShrink: 0,
-                    marginTop: 1,
-                  }}
-                >
-                  {i + 1}
-                </div>
-                <span
-                  style={{ fontSize: 11, color: '#374151', lineHeight: 1.65 }}
-                >
-                  {t}
-                </span>
-              </div>
-            ))}
-          </div>
-
-          {/* LeetCode / Practice target */}
+          {/* 3-column: Know + Practice + Sample Qs */}
           <div
             style={{
-              background: '#FFFBEB',
-              border: '1px solid #FDE68A',
-              borderRadius: 9,
-              padding: '10px 12px',
+              display: 'grid',
+              gridTemplateColumns: 'repeat(auto-fit,minmax(220px,1fr))',
+              gap: 10,
               marginBottom: 12,
             }}
           >
+            {/* What you need to know */}
             <div
               style={{
-                fontSize: 10,
-                fontWeight: 800,
-                color: '#D97706',
-                letterSpacing: '0.1em',
-                marginBottom: 4,
+                background: `${p.color}08`,
+                border: `1px solid ${p.color}22`,
+                borderRadius: 9,
+                padding: '10px 12px',
               }}
             >
-              🎯 PRACTICE TARGET
-            </div>
-            <div style={{ fontSize: 11, color: '#78350F', lineHeight: 1.65 }}>
-              {p.leetcode}
-            </div>
-          </div>
-
-          {/* Practice tips */}
-          <div
-            style={{
-              background: '#F0FDF4',
-              border: '1px solid #BBF7D0',
-              borderRadius: 9,
-              padding: '10px 12px',
-              marginBottom: 14,
-            }}
-          >
-            <div
-              style={{
-                fontSize: 10,
-                fontWeight: 800,
-                color: '#15803D',
-                letterSpacing: '0.1em',
-                marginBottom: 6,
-              }}
-            >
-              💻 PRACTICE TIPS
-            </div>
-            {p.practice.map((item, i) => (
               <div
-                key={i}
                 style={{
-                  display: 'flex',
-                  gap: 7,
-                  alignItems: 'flex-start',
-                  padding: '2px 0',
+                  fontSize: 10,
+                  fontWeight: 800,
+                  color: p.color,
+                  letterSpacing: '0.08em',
+                  marginBottom: 6,
                 }}
               >
-                <span
+                📋 MUST KNOW
+              </div>
+              {p.whatYouNeedToKnow.map((item, i) => (
+                <div
+                  key={i}
                   style={{
-                    color: p.color,
-                    fontSize: 10,
-                    flexShrink: 0,
-                    marginTop: 2,
-                    fontWeight: 700,
+                    display: 'flex',
+                    gap: 6,
+                    alignItems: 'flex-start',
+                    padding: '2px 0',
                   }}
                 >
-                  ▸
-                </span>
-                <span
-                  style={{ fontSize: 11, color: '#166534', lineHeight: 1.65 }}
-                >
-                  {item}
-                </span>
+                  <span
+                    style={{
+                      color: p.color,
+                      fontSize: 9,
+                      flexShrink: 0,
+                      marginTop: 3,
+                      fontWeight: 700,
+                    }}
+                  >
+                    ▸
+                  </span>
+                  <span
+                    style={{ fontSize: 10, color: '#374151', lineHeight: 1.6 }}
+                  >
+                    {item}
+                  </span>
+                </div>
+              ))}
+            </div>
+            {/* Practice ideas */}
+            <div
+              style={{
+                background: '#FFFBEB',
+                border: '1px solid #FDE68A',
+                borderRadius: 9,
+                padding: '10px 12px',
+              }}
+            >
+              <div
+                style={{
+                  fontSize: 10,
+                  fontWeight: 800,
+                  color: '#D97706',
+                  letterSpacing: '0.08em',
+                  marginBottom: 6,
+                }}
+              >
+                💻 PRACTICE
               </div>
-            ))}
+              {p.practice.map((item, i) => (
+                <div
+                  key={i}
+                  style={{
+                    display: 'flex',
+                    gap: 6,
+                    alignItems: 'flex-start',
+                    padding: '2px 0',
+                  }}
+                >
+                  <span
+                    style={{
+                      color: '#D97706',
+                      fontSize: 9,
+                      flexShrink: 0,
+                      marginTop: 3,
+                      fontWeight: 700,
+                    }}
+                  >
+                    ▸
+                  </span>
+                  <span
+                    style={{ fontSize: 10, color: '#78350F', lineHeight: 1.6 }}
+                  >
+                    {item}
+                  </span>
+                </div>
+              ))}
+            </div>
+            {/* Sample interview questions */}
+            <div
+              style={{
+                background: '#F0FDF4',
+                border: '1px solid #BBF7D0',
+                borderRadius: 9,
+                padding: '10px 12px',
+              }}
+            >
+              <div
+                style={{
+                  fontSize: 10,
+                  fontWeight: 800,
+                  color: '#15803D',
+                  letterSpacing: '0.08em',
+                  marginBottom: 6,
+                }}
+              >
+                🎤 SAMPLE Q&A
+              </div>
+              {p.interviewQs.map((q, i) => (
+                <div
+                  key={i}
+                  style={{
+                    display: 'flex',
+                    gap: 6,
+                    alignItems: 'flex-start',
+                    padding: '2px 0',
+                  }}
+                >
+                  <span
+                    style={{
+                      color: '#15803D',
+                      fontSize: 9,
+                      flexShrink: 0,
+                      marginTop: 3,
+                      fontWeight: 700,
+                    }}
+                  >
+                    Q{i + 1}
+                  </span>
+                  <span
+                    style={{ fontSize: 10, color: '#166534', lineHeight: 1.6 }}
+                  >
+                    {q}
+                  </span>
+                </div>
+              ))}
+            </div>
           </div>
 
           {/* Courses */}
@@ -939,7 +1132,7 @@ function Block({ p, isOpen, onToggle }) {
 
 // ── APP ───────────────────────────────────────────────────────────────────────
 export default function App() {
-  const [open, setOpen] = useState('dsa');
+  const [open, setOpen] = useState('java');
   const go = (id) => {
     setOpen(id);
     setTimeout(
@@ -961,7 +1154,7 @@ export default function App() {
         overflowX: 'hidden',
       }}
     >
-      {/* ── HERO ── */}
+      {/* HERO */}
       <div
         style={{
           background:
@@ -979,19 +1172,6 @@ export default function App() {
             backgroundImage:
               'radial-gradient(circle,rgba(255,255,255,0.055) 1px,transparent 1px)',
             backgroundSize: '22px 22px',
-          }}
-        />
-        <div
-          style={{
-            position: 'absolute',
-            top: -80,
-            right: -60,
-            width: 300,
-            height: 300,
-            borderRadius: '50%',
-            pointerEvents: 'none',
-            background:
-              'radial-gradient(circle,rgba(99,102,241,0.22) 0%,transparent 65%)',
           }}
         />
 
@@ -1016,7 +1196,7 @@ export default function App() {
               style={{
                 width: 48,
                 height: 48,
-                borderRadius: 13,
+                borderRadius: 12,
                 flexShrink: 0,
                 background: 'linear-gradient(135deg,#6366F1,#8B5CF6)',
                 display: 'flex',
@@ -1042,9 +1222,9 @@ export default function App() {
               </div>
               <div
                 style={{
-                  fontSize: 'clamp(17px,5vw,28px)',
+                  fontSize: 'clamp(16px,5vw,27px)',
                   fontWeight: 900,
-                  color: '#FFFFFF',
+                  color: '#fff',
                   letterSpacing: '-0.02em',
                   lineHeight: 1.15,
                 }}
@@ -1058,10 +1238,73 @@ export default function App() {
                   marginTop: 2,
                 }}
               >
-                Jul 15, 2027 → Dec 5, 2027 · 144 days · 432h · {TOT_COURSES}{' '}
-                courses · 6 AM–9 AM
+                Jul 15 → Dec 5, 2027 · 144 days · 432h · {TOT_CCOUNT} courses ·
+                6 AM–9 AM
               </div>
             </div>
+          </div>
+
+          {/* 3 target roles */}
+          <div
+            style={{
+              display: 'grid',
+              gridTemplateColumns: 'repeat(3,1fr)',
+              gap: 7,
+              marginBottom: 14,
+            }}
+          >
+            {[
+              {
+                icon: '☕',
+                label: 'Java Spring Boot',
+                sub: '+ Microservices',
+                col: '#16A34A',
+              },
+              {
+                icon: '⚛',
+                label: 'React JS + RN',
+                sub: '+ TypeScript',
+                col: '#0EA5E9',
+              },
+              {
+                icon: '🤖',
+                label: 'Python AI Eng.',
+                sub: 'GenAI + Agentic',
+                col: '#7C3AED',
+              },
+            ].map(({ icon, label, sub, col }) => (
+              <div
+                key={label}
+                style={{
+                  background: 'rgba(255,255,255,0.09)',
+                  borderRadius: 10,
+                  padding: '10px 10px',
+                  border: `1px solid ${col}50`,
+                  textAlign: 'center',
+                }}
+              >
+                <div style={{ fontSize: 20, marginBottom: 3 }}>{icon}</div>
+                <div
+                  style={{
+                    fontSize: 'clamp(10px,3vw,12px)',
+                    fontWeight: 800,
+                    color: '#fff',
+                  }}
+                >
+                  {label}
+                </div>
+                <div
+                  style={{
+                    fontSize: 9,
+                    color: col,
+                    marginTop: 1,
+                    fontWeight: 600,
+                  }}
+                >
+                  {sub}
+                </div>
+              </div>
+            ))}
           </div>
 
           {/* Schedule banner */}
@@ -1079,11 +1322,11 @@ export default function App() {
           >
             <span style={{ fontSize: 20 }}>⏰</span>
             <div style={{ flex: 1 }}>
-              <div style={{ fontSize: 12, fontWeight: 900, color: '#FFFFFF' }}>
+              <div style={{ fontSize: 12, fontWeight: 900, color: '#fff' }}>
                 6:00 AM – 9:00 AM · Every Day · 144 Days
               </div>
               <div style={{ fontSize: 10, color: 'rgba(255,255,255,0.42)' }}>
-                ~1.7h course · ~1.3h practice · Bangkok time · continues after
+                ~1.8h course · ~1.2h practice · Bangkok time · continues after
                 400-day Udemy plan
               </div>
             </div>
@@ -1092,7 +1335,7 @@ export default function App() {
                 432h
               </div>
               <div style={{ fontSize: 9, color: 'rgba(255,255,255,0.38)' }}>
-                total study
+                total
               </div>
             </div>
           </div>
@@ -1110,9 +1353,9 @@ export default function App() {
               ['144d', '~5 Months'],
               ['432h', 'Total Study'],
               ['3h/day', '6–9 AM'],
-              [TOT_COURSES + ' courses', '5 Phases'],
-              [`${TOT_COURSE}h / ${TOT_PRACTICE}h`, 'Course/Practice'],
-              ["Dec 5, '27", 'Interview Ready'],
+              [TOT_CCOUNT + ' courses', '6 Phases'],
+              ['60%/40%', 'Course/Practice'],
+              ["Dec 5 '27", '3 Roles Ready'],
             ].map(([v, l]) => (
               <div
                 key={l}
@@ -1128,7 +1371,7 @@ export default function App() {
                   style={{
                     fontSize: 'clamp(11px,3.5vw,14px)',
                     fontWeight: 900,
-                    color: '#FFFFFF',
+                    color: '#fff',
                   }}
                 >
                   {v}
@@ -1158,11 +1401,12 @@ export default function App() {
               }}
             >
               {[
-                ['#0EA5E9', 30],
-                ['#16A34A', 28],
-                ['#F59E0B', 16],
-                ['#E11D48', 20],
-                ['#6366F1', 50],
+                ['#16A34A', 30],
+                ['#0EA5E9', 25],
+                ['#7C3AED', 25],
+                ['#F59E0B', 22],
+                ['#6366F1', 28],
+                ['#E11D48', 14],
               ].map(([col, fl], i) => (
                 <div key={i} style={{ flex: fl, background: col }} />
               ))}
@@ -1174,24 +1418,24 @@ export default function App() {
                 marginTop: 4,
               }}
             >
-              <span style={{ fontSize: 9, color: 'rgba(255,255,255,0.42)' }}>
+              <span style={{ fontSize: 9, color: 'rgba(255,255,255,0.4)' }}>
                 Jul 15, 2027
               </span>
-              <span style={{ fontSize: 9, color: 'rgba(255,255,255,0.42)' }}>
+              <span style={{ fontSize: 9, color: 'rgba(255,255,255,0.4)' }}>
                 Dec 5, 2027 🎯
               </span>
             </div>
           </div>
 
-          {/* Phase pills */}
+          {/* Pills */}
           <div
             style={{
               display: 'flex',
               gap: 6,
               overflowX: 'auto',
               paddingBottom: 2,
-              WebkitOverflowScrolling: 'touch',
               scrollbarWidth: 'none',
+              WebkitOverflowScrolling: 'touch',
             }}
           >
             {PHASES.map((p) => (
@@ -1229,7 +1473,7 @@ export default function App() {
         </div>
       </div>
 
-      {/* ── BODY ── */}
+      {/* BODY */}
       <div
         style={{ maxWidth: 900, margin: '0 auto', padding: '12px 12px 48px' }}
       >
@@ -1253,7 +1497,7 @@ export default function App() {
               marginBottom: 10,
             }}
           >
-            📊 432H STUDY SPLIT + TARGETS
+            📊 432H STUDY SPLIT · 3 ROLES · DEC 5 TARGETS
           </div>
           <div
             style={{
@@ -1274,12 +1518,12 @@ export default function App() {
               }}
             >
               <span style={{ fontSize: 9, fontWeight: 800, color: '#fff' }}>
-                {TOT_COURSE}h courses
+                {TOT_COURSE}h course
               </span>
             </div>
             <div
               style={{
-                flex: TOT_PRACTICE,
+                flex: TOT_PRAC,
                 background: '#A5B4FC',
                 display: 'flex',
                 alignItems: 'center',
@@ -1287,42 +1531,42 @@ export default function App() {
               }}
             >
               <span style={{ fontSize: 9, fontWeight: 800, color: '#312E81' }}>
-                {TOT_PRACTICE}h practice
+                {TOT_PRAC}h practice
               </span>
             </div>
           </div>
           <div
             style={{
               display: 'grid',
-              gridTemplateColumns: 'repeat(auto-fit,minmax(150px,1fr))',
+              gridTemplateColumns: 'repeat(auto-fit,minmax(160px,1fr))',
               gap: 8,
               marginTop: 10,
             }}
           >
             {[
               {
-                label: '🧩 LeetCode target',
-                val: '300+ problems',
-                sub: '60E · 170M · 70H',
+                l: '☕ Java Spring Boot',
+                v: 'Apply Now',
+                s: '200+ Q&A · Spring Security · JPA',
               },
               {
-                label: '🏗 System designs',
-                val: '20 systems',
-                sub: 'Full HLD + API + DB',
+                l: '⚛ React JS + RN',
+                v: 'Apply Now',
+                s: 'TypeScript · Hooks · 200+ Q&A',
               },
               {
-                label: '☕ Java Q&A',
-                val: '400+ answered',
-                sub: 'Written from memory',
+                l: '🤖 Python AI Eng.',
+                v: 'Apply Now',
+                s: 'LangChain · LangGraph · RAG',
               },
               {
-                label: '🎯 Mock interviews',
-                val: '8+ sessions',
-                sub: 'Pramp + interviewing.io',
+                l: '🧩 DSA LeetCode',
+                v: '200+ Problems',
+                s: 'All patterns · Timed · Fresh',
               },
-            ].map(({ label, val, sub }) => (
+            ].map(({ l, v, s }) => (
               <div
-                key={label}
+                key={l}
                 style={{
                   background: '#F8FAFC',
                   borderRadius: 9,
@@ -1333,14 +1577,16 @@ export default function App() {
                 <div
                   style={{ fontSize: 10, color: '#64748B', marginBottom: 3 }}
                 >
-                  {label}
+                  {l}
                 </div>
                 <div
-                  style={{ fontSize: 13, fontWeight: 800, color: '#0F172A' }}
+                  style={{ fontSize: 12, fontWeight: 800, color: '#0F172A' }}
                 >
-                  {val}
+                  {v}
                 </div>
-                <div style={{ fontSize: 9, color: '#94A3B8' }}>{sub}</div>
+                <div style={{ fontSize: 9, color: '#94A3B8', marginTop: 1 }}>
+                  {s}
+                </div>
               </div>
             ))}
           </div>
@@ -1367,7 +1613,7 @@ export default function App() {
               marginBottom: 10,
             }}
           >
-            🗓 MASTER SCHEDULE — 5 PHASES · 144 DAYS · 432H
+            🗓 MASTER SCHEDULE — 6 PHASES · 144 DAYS · 432H
           </div>
           <table
             style={{
@@ -1379,30 +1625,24 @@ export default function App() {
           >
             <thead>
               <tr style={{ background: '#F8FAFC' }}>
-                {[
-                  '',
-                  'Phase',
-                  'Days',
-                  'Study',
-                  '📺 Course',
-                  '💻 Practice',
-                  'Period',
-                ].map((h) => (
-                  <th
-                    key={h}
-                    style={{
-                      padding: '6px 8px',
-                      textAlign: 'left',
-                      color: '#64748B',
-                      fontWeight: 700,
-                      borderBottom: '2px solid #E2E8F0',
-                      whiteSpace: 'nowrap',
-                      fontSize: 10,
-                    }}
-                  >
-                    {h}
-                  </th>
-                ))}
+                {['', 'Phase', 'Days', 'Study', '📺', '💻', 'Period'].map(
+                  (h) => (
+                    <th
+                      key={h}
+                      style={{
+                        padding: '6px 8px',
+                        textAlign: 'left',
+                        color: '#64748B',
+                        fontWeight: 700,
+                        borderBottom: '2px solid #E2E8F0',
+                        whiteSpace: 'nowrap',
+                        fontSize: 10,
+                      }}
+                    >
+                      {h}
+                    </th>
+                  ),
+                )}
               </tr>
             </thead>
             <tbody>
@@ -1439,15 +1679,27 @@ export default function App() {
                       {p.icon}
                     </div>
                   </td>
-                  <td
-                    style={{
-                      padding: '7px 8px',
-                      fontWeight: 800,
-                      color: '#0F172A',
-                      fontSize: 11,
-                    }}
-                  >
-                    {p.name}
+                  <td style={{ padding: '7px 8px' }}>
+                    <div
+                      style={{
+                        fontWeight: 800,
+                        color: '#0F172A',
+                        fontSize: 11,
+                      }}
+                    >
+                      {p.name}
+                    </div>
+                    {p.tag && (
+                      <div
+                        style={{
+                          fontSize: 8,
+                          fontWeight: 700,
+                          color: p.id === 'dsa' ? '#4338CA' : p.color,
+                        }}
+                      >
+                        {p.tag}
+                      </div>
+                    )}
                   </td>
                   <td
                     style={{
@@ -1467,10 +1719,22 @@ export default function App() {
                   >
                     {p.total}h
                   </td>
-                  <td style={{ padding: '7px 8px', color: '#4F46E5' }}>
+                  <td
+                    style={{
+                      padding: '7px 8px',
+                      color: '#4F46E5',
+                      fontSize: 10,
+                    }}
+                  >
                     {p.courseH}h
                   </td>
-                  <td style={{ padding: '7px 8px', color: '#94A3B8' }}>
+                  <td
+                    style={{
+                      padding: '7px 8px',
+                      color: '#94A3B8',
+                      fontSize: 10,
+                    }}
+                  >
                     {p.practiceH}h
                   </td>
                   <td
@@ -1508,7 +1772,7 @@ export default function App() {
                   {TOT_COURSE}h
                 </td>
                 <td style={{ padding: '8px', color: '#94A3B8' }}>
-                  {TOT_PRACTICE}h
+                  {TOT_PRAC}h
                 </td>
                 <td
                   style={{
@@ -1524,7 +1788,7 @@ export default function App() {
             </tbody>
           </table>
           <div style={{ marginTop: 6, fontSize: 10, color: '#94A3B8' }}>
-            👆 Tap any row to jump to that phase
+            👆 Tap any row to jump to that phase's full plan
           </div>
         </div>
 
@@ -1540,14 +1804,14 @@ export default function App() {
           ))}
         </div>
 
-        {/* FPO superpower callout */}
+        {/* FPO superpower */}
         <div
           style={{
             marginTop: 14,
             background: 'linear-gradient(135deg,#F0FDF4,#ECFDF5)',
             borderRadius: 12,
             border: '1px solid #BBF7D0',
-            padding: '16px',
+            padding: '14px 16px',
             boxShadow: '0 1px 4px rgba(0,0,0,0.04)',
           }}
         >
@@ -1560,7 +1824,7 @@ export default function App() {
               marginBottom: 10,
             }}
           >
-            🚀 YOUR FPO EXPERIENCE = INTERVIEW GOLD
+            🚀 YOUR FPO EXPERIENCE = INTERVIEW GOLD FOR ALL 3 ROLES
           </div>
           <div
             style={{
@@ -1571,28 +1835,28 @@ export default function App() {
           >
             {[
               [
-                'System Design',
-                'Lambda=Microservice · DynamoDB=NoSQL · Kafka=EventBridge · API Gateway=Load Balancer',
+                '☕ Java',
+                'C# .NET 8 patterns → Java equivalents. Cognito OAuth2 = Spring Security JWT. DynamoDB JPA patterns.',
               ],
               [
-                'Java Interview',
-                'C# + .NET 8 background → Java patterns are the same. Highlight polyglot skills.',
+                '⚛ React',
+                '92 days React + 28d RN + 35d Next.js built in 400 days. FPO iPad EFB app = live RN portfolio.',
               ],
               [
-                'Behavioural',
-                'FPO NullRef bug (DLH EN-2026) · LZA migration spike · Multi-tenant Cognito provisioning',
+                '🤖 Python AI',
+                'AWS Bedrock + Agents = Agentic AI on your own infra. FPO LLM assistant = interview demo project.',
               ],
               [
-                'Architecture',
-                'Step Functions=Saga · S3 archive=tiered storage · Cognito+OAuth2=auth at scale',
+                '🏗 System Design',
+                'FPO IS a system design answer: multi-tenant SaaS, Lambda microservices, Kafka events, DynamoDB at scale.',
               ],
               [
-                'Credentials',
-                '7 AWS Certs + CKA = instant senior credibility before a single interview question',
+                '🏆 Credentials',
+                '7 AWS Certs + CKA = instant senior credibility. Mention it in the first 30 seconds.',
               ],
               [
-                'Scale',
-                'Real airlines: Lufthansa, American Airlines, FedEx — enterprise-scale, real traffic',
+                '📊 Scale',
+                'Real airlines: Lufthansa, American, FedEx. Enterprise-grade, real traffic, real stakes.',
               ],
             ].map(([title, desc]) => (
               <div
@@ -1634,12 +1898,13 @@ export default function App() {
               lineHeight: 1.75,
             }}
           >
-            💡 <strong>Open every interview with:</strong> "At FPO Cloud I
-            designed a real-time multi-tenant flight trajectory system for
-            Lufthansa, American Airlines and FedEx using AWS Lambda + Step
-            Functions + DynamoDB + Kafka, handling live ACARS data from 15
-            airlines…" — that single sentence puts you in the top 5% of
-            candidates.
+            💡 <strong>Opening line for every interview:</strong> "At FPO Cloud
+            I built a real-time multi-tenant flight trajectory SaaS for
+            Lufthansa, American Airlines and FedEx — AWS Lambda microservices,
+            Step Functions, DynamoDB, Kafka, React Native iPad app, with 7 AWS
+            certifications. In the last 400 days I've added full-stack
+            React/TypeScript, Java Spring Boot, and Agentic AI engineering to
+            that foundation."
           </div>
         </div>
 
@@ -1663,7 +1928,7 @@ export default function App() {
               marginBottom: 12,
             }}
           >
-            ⚡ 6 RULES — 144 DAYS TO INTERVIEW-READY
+            ⚡ 6 RULES — 144 DAYS · 3 ROLES · DEC 5 DEADLINE
           </div>
           <div
             style={{
@@ -1676,32 +1941,32 @@ export default function App() {
               [
                 '⏰',
                 '6 AM–9 AM every day',
-                "Same habit from 400 days. Don't break the chain now — you're 400 days in.",
+                "Same habit from 400 days. 544 consecutive days of this habit by Dec 5. Don't break the chain.",
               ],
               [
-                '🚫',
-                'Never skip the struggle',
-                'Attempt every LeetCode problem 25 min BEFORE solutions. The struggle IS the learning.',
+                '🎯',
+                'Apply while preparing',
+                "Start applying Week 3 of Phase 1. Don't wait until Dec 5 — interviews take weeks to schedule.",
               ],
               [
                 '🗣️',
-                'Talk while you solve',
-                'Verbalise your approach out loud every time. 50% of interview scoring is communication.',
+                'Speak everything aloud',
+                'Every concept, every design, every LeetCode approach — verbalise it. Interviews reward communication.',
               ],
               [
-                '✍️',
-                'Paper before laptop',
-                'System design: always draw on paper first. Interviewers think visually.',
+                '🏗',
+                "Build, don't just watch",
+                'Every phase: build one real project. Java REST API, React TS app, LangGraph agent — GitHub links ready.',
               ],
               [
                 '🔁',
                 'Spaced repetition',
-                'Re-solve hard problems after 3 days, 7 days, 14 days. Use a notebook. Memory compounds.',
+                'Hard problems: revisit after 3 days, 7 days, 14 days. Keep a notebook. Memory compounds.',
               ],
               [
                 '📅',
-                'Weekly mock session',
-                'Every Sunday: 1 mock coding (45 min) + 1 mock design (45 min). Simulate real conditions.',
+                'Mock every Sunday',
+                'Every Sunday: 1 coding mock (45 min) + 1 design mock (45 min). Simulate real interview pressure.',
               ],
             ].map(([icon, title, desc]) => (
               <div
@@ -1761,8 +2026,8 @@ export default function App() {
           <div
             style={{ fontSize: 10, color: '#94A3B8', letterSpacing: '0.1em' }}
           >
-            144 DAYS · 432H · {TOT_COURSES} COURSES · 300+ LEETCODE · 6 AM–9 AM
-            · JUL 15 → DEC 5, 2027
+            144 DAYS · 432H · {TOT_CCOUNT} COURSES · 3 ROLES · 6 AM–9 AM · JUL
+            15 → DEC 5, 2027
           </div>
         </div>
       </div>
