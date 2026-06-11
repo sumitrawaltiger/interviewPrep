@@ -378,37 +378,37 @@ const PHASES = [
     bg: '#EEF2FF',
     border: '#C7D2FE',
     name: 'DSA + LeetCode Patterns',
-    role: '🏁 Universal: Required for ALL Technical Interviews',
-    days: 28,
-    total: 84,
-    courseH: 50,
-    practiceH: 34,
+    role: '🏁 Universal + Final Polish — Required for ALL 3 Roles · Freshest Before Interviews',
+    days: 42,
+    total: 126,
+    courseH: 75,
+    practiceH: 51,
     offset: 102,
     startDate: 'Oct 25, 2027',
-    endDate: 'Nov 21, 2027',
+    endDate: 'Dec 5, 2027',
     tag: 'LAST = FRESHEST 🧠',
     daily:
-      '6:00–7:00 AM → Course/theory (1h) · 7:00–8:30 AM → LeetCode 4 problems (1.5h) · 8:30–9:00 AM → Review (0.5h)',
+      '6:00–7:00 AM course/theory (1h) · 7:00–8:30 AM LeetCode 4 problems (1.5h) · 8:30–9:00 AM mock/review (0.5h)',
     whatYouNeedToKnow: [
       "Arrays + Strings: Two Pointers, Sliding Window, Prefix Sum, Kadane's algorithm",
       "Linked Lists: Fast/Slow pointer, reversal, cycle detection (Floyd's algorithm)",
-      'Stacks + Queues: Monotonic stack, sliding window maximum, implement queue using stacks',
+      'Stacks + Queues: Monotonic stack, sliding window max, implement queue using stacks',
       'Trees + Graphs: DFS, BFS, topological sort, Dijkstra, Union-Find, backtracking',
-      'Dynamic Programming: top-down memoisation, bottom-up tabulation, 1D + 2D DP patterns',
-      'Hash Maps: frequency counting, two-sum pattern, anagram grouping, sliding window + hash',
+      'Dynamic Programming: memoisation, tabulation, 1D + 2D DP, knapsack patterns',
+      'Final 2 weeks (Nov 22–Dec 5): Pramp mocks, STAR behavioral prep, resume polish, LinkedIn update',
     ],
     practice: [
-      'Attempt every problem for 25 min BEFORE watching solution — the struggle is the learning',
-      'Time yourself: Easy < 15 min, Medium < 25 min — track every session in a notebook',
-      'After every 10 problems: identify your weakest pattern and drill 5 targeted problems on it',
-      'Daily: 1 Easy warm-up + 2 Medium + 1 Hard attempt — 4 problems minimum every day',
-      'Final 5 days (Nov 17–21): 8 problems/day at speed — simulate interview pressure daily',
+      'Weeks 1–4 (Oct 25–Nov 21): 4 problems daily — 1 Easy + 2 Medium + 1 Hard, strict timer',
+      'Weeks 5–6 (Nov 22–Dec 5): 6 problems/day + Sunday Pramp mock sessions every week',
+      'Every Sunday: 1 mock coding session 45 min (2 problems) + 1 system design mock 45 min',
+      'Pramp.com: book 5 free peer mock interviews in Weeks 4–6 — different partner each time',
+      'Final week Dec 1–5: re-solve 20 hardest problems at speed + resume final polish',
     ],
     interviewQs: [
       'Find the longest substring without repeating characters (Sliding Window — Medium)',
-      "Detect a cycle in a linked list and find the start node (Floyd's algorithm — Medium)",
-      'Given a matrix, find the number of islands (Graph BFS/DFS — Medium)',
-      'Coin Change: minimum coins to make a target (DP bottom-up — Medium)',
+      "Detect a cycle in a linked list — find the start node (Floyd's algorithm — Medium)",
+      'Number of islands in a matrix (Graph BFS/DFS — Medium)',
+      'Coin Change — minimum coins to make a target (DP bottom-up — Medium)',
       'LRU Cache implementation (HashMap + Doubly Linked List — Hard)',
       'Serialize and Deserialize a Binary Tree (BFS/DFS — Hard)',
     ],
@@ -420,9 +420,9 @@ const PHASES = [
         rating: 4.6,
         stu: '250K+',
         url: 'https://www.udemy.com/course/master-the-coding-interview-data-structures-algorithms/',
-        tag: '🥇 INTERVIEW-FIRST',
+        tag: '🥇 START HERE',
         tc: '#15803D',
-        why: "250K students. Interview-first DSA — Andrei asks 'when would an interviewer use this?' for every structure. Best for actual job interviews, not academic CS. Covers all patterns with interview context.",
+        why: '250K students. Interview-first DSA — Andrei teaches when an interviewer would use each structure. Best for actual job interviews. All patterns taught with real interview context.',
       },
       {
         h: 18,
@@ -433,7 +433,7 @@ const PHASES = [
         url: 'https://www.udemy.com/course/data-structures-algorithms-python/',
         tag: '🥈 4.8★ LEETCODE',
         tc: '#0369A1',
-        why: '4.8★ — highest rated DSA+LeetCode course on Udemy. Scott integrates LeetCode directly into every lesson. 100+ coding exercises with full explanations. Even in Java, use this for pattern understanding.',
+        why: '4.8★ highest-rated DSA+LeetCode course on Udemy. Scott integrates LeetCode directly into every lesson with 100+ exercises. Use for pattern understanding regardless of language.',
       },
       {
         h: 12,
@@ -444,53 +444,8 @@ const PHASES = [
         url: 'https://www.udemy.com/course/js-algorithms-and-data-structures-masterclass/',
         tag: '🎨 BEST VISUALS',
         tc: '#7C3AED',
-        why: '350K students. Best visual animations for sorting, trees, graphs on Udemy. Use for visual understanding of algorithms you find hard to grasp from code alone. Colt makes abstract → concrete.',
+        why: '350K students. Best visual animations for sorting, trees, graphs on Udemy. Colt makes abstract algorithms concrete. Use for visual understanding of anything you struggle to grasp from code alone.',
       },
-    ],
-  },
-  {
-    id: 'mock',
-    n: 6,
-    icon: '🎯',
-    color: '#E11D48',
-    dark: '#BE123C',
-    bg: '#FFF1F2',
-    border: '#FECDD3',
-    name: 'Mock Interviews + Final Polish',
-    role: '✅ Finish Line: All 3 Roles Interview-Ready by Dec 5',
-    days: 14,
-    total: 42,
-    courseH: 25,
-    practiceH: 17,
-    offset: 130,
-    startDate: 'Nov 22, 2027',
-    endDate: 'Dec 5, 2027',
-    tag: 'FINISH LINE 🏁',
-    daily:
-      '6:00–7:00 AM → Course revision (1h) · 7:00–8:30 AM → Timed mock session (1.5h) · 8:30–9:00 AM → Feedback review (0.5h)',
-    whatYouNeedToKnow: [
-      'Java mock: 10 technical questions answered on whiteboard from memory in 40 min',
-      'React mock: build a TypeScript component from scratch in 20 min, then explain decisions',
-      'AI mock: explain your RAG pipeline or LangGraph agent architecture in 10 min',
-      'System design mock: design any of the 20 systems you practiced, spoken aloud in 45 min',
-      'DSA mock: 2 LeetCode Medium problems in 40 min total — strict timer every session',
-      'Behavioral: 15 STAR stories from FPO ready cold — DLH bug, LZA migration, team leadership',
-    ],
-    practice: [
-      'Pramp.com: book 4 free peer mock interview sessions — different partner each time',
-      'interviewing.io: 2 anonymous FAANG engineer mock sessions (first one free)',
-      'Record yourself on video for 1 session — watch for filler words, pacing, confidence',
-      'Resume final polish: quantify every FPO bullet with real numbers (X flights/day, Y airlines, Z% latency fix)',
-      "LinkedIn: headline → 'Java | React | Agentic AI | AWS | 7 Certs' — recruiters search these keywords",
-    ],
-    interviewQs: [
-      'Tell me about yourself — 90-second pitch covering FPO + your 400-day upskilling journey',
-      'Walk me through your most challenging technical problem and how you solved it (FPO STAR story)',
-      'Why are you leaving NextStep? / What are you looking for in your next role?',
-      'Where do you see Agentic AI impacting flight operations in the next 3 years?',
-      'What is your salary expectation? (know your number — Senior/Staff range in your target market)',
-    ],
-    courses: [
       {
         h: 8,
         title: 'Master the Coding Interview: Big Tech (FAANG Interviews)',
@@ -498,9 +453,20 @@ const PHASES = [
         rating: 4.6,
         stu: '40K+',
         url: 'https://www.udemy.com/course/master-the-coding-interview-big-tech-faang-interviews/',
-        tag: '🏢 FAANG PREP',
-        tc: '#15803D',
-        why: 'FAANG-level patterns — harder graph, DP, system design. Do in Week 1 of this phase. Prepares you for the hardest interview questions at Big Tech difficulty.',
+        tag: '🏢 FAANG LEVEL',
+        tc: '#DC2626',
+        why: 'Harder FAANG-level patterns — complex graphs, advanced DP. Do in Week 4 once foundations are solid. Prepares you for the toughest questions at Big Tech difficulty.',
+      },
+      {
+        h: 10,
+        title: 'Cracking the Coding Interview Bootcamp — Algorithms',
+        by: 'Zach Miller',
+        rating: 4.5,
+        stu: '30K+',
+        url: 'https://www.udemy.com/course/master-the-coding-interview-data-structures-algorithms/',
+        tag: '🔑 CTI BOOTCAMP',
+        tc: '#D97706',
+        why: "Based on Gayle McDowell's famous book. Algorithmic thinking frameworks for whiteboard interviews. Do in Week 5 — pure interview mindset and problem-solving technique, no new theory.",
       },
       {
         h: 7,
@@ -509,20 +475,9 @@ const PHASES = [
         rating: 4.6,
         stu: '2K+',
         url: 'https://www.udemy.com/course/top-250-java-interview-questions/',
-        tag: '☕ JAVA FINAL',
-        tc: '#0369A1',
-        why: 'Speed-run the Java 350 Q&A tracker in 7h — a focused final revision of every Java concept. Do 50 questions per day as your morning warm-up this week.',
-      },
-      {
-        h: 10,
-        title: 'System Design Interview Guide — Full Mock Sessions',
-        by: 'Mikhail Smarshchok',
-        rating: 4.5,
-        stu: '25K+',
-        url: 'https://www.udemy.com/course/system-design-a-comprehensive-guide/',
-        tag: '🏗 SD MOCKS',
-        tc: '#7C3AED',
-        why: 'Full system design mock sessions. Use the last 10h of this course for mock walkthroughs — speak every design out loud in 45 min exactly as you would in a real interview.',
+        tag: '☕ JAVA REVISION',
+        tc: '#15803D',
+        why: 'Speed-run all 350 Java Q&A in the final week — 50 questions per day as morning warm-up. Keeps Java knowledge sharp while deep in DSA. Perfect last-week confidence booster.',
       },
     ],
   },
@@ -1327,7 +1282,7 @@ export default function App() {
               </div>
               <div style={{ fontSize: 10, color: 'rgba(255,255,255,0.42)' }}>
                 ~1.8h course · ~1.2h practice · Bangkok time · continues after
-                400-day Udemy plan
+                400-day of Code
               </div>
             </div>
             <div style={{ textAlign: 'right', flexShrink: 0 }}>
@@ -1353,7 +1308,7 @@ export default function App() {
               ['144d', '~5 Months'],
               ['432h', 'Total Study'],
               ['3h/day', '6–9 AM'],
-              [TOT_CCOUNT + ' courses', '6 Phases'],
+              [TOT_CCOUNT + ' courses', '5 Phases'],
               ['60%/40%', 'Course/Practice'],
               ["Dec 5 '27", '3 Roles Ready'],
             ].map(([v, l]) => (
@@ -1405,8 +1360,7 @@ export default function App() {
                 ['#0EA5E9', 25],
                 ['#7C3AED', 25],
                 ['#F59E0B', 22],
-                ['#6366F1', 28],
-                ['#E11D48', 14],
+                ['#6366F1', 42],
               ].map(([col, fl], i) => (
                 <div key={i} style={{ flex: fl, background: col }} />
               ))}
@@ -1613,7 +1567,7 @@ export default function App() {
               marginBottom: 10,
             }}
           >
-            🗓 MASTER SCHEDULE — 6 PHASES · 144 DAYS · 432H
+            🗓 MASTER SCHEDULE — 5 PHASES · 144 DAYS · 432H
           </div>
           <table
             style={{
