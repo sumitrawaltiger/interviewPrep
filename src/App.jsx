@@ -6,7 +6,7 @@ import { useState } from 'react';
 const START = new Date('2026-06-15');
 
 const PHASES = [
-  // ══ BLOCK 1 — 400 DAYS OF CODE (56 weeks) ════════════════════════════════
+  // ══ BLOCK 1 — 365 DAYS OF CODE (56 weeks) ════════════════════════════════
   {
     id: 'react',
     block: 1,
@@ -1752,7 +1752,7 @@ export default function App() {
               {
                 icon: '📚',
                 n: 'Block 1',
-                t: '1 Year of Code',
+                t: '1 Year of Full Stack',
                 s: 'W01–W50 · Days 1–350',
                 d: 'React · RN · Next.js · Spring Boot · Microservices · DevOps',
                 col: '#6366F1',
@@ -2058,7 +2058,7 @@ export default function App() {
           {
             b: 1,
             icon: '📚',
-            label: 'BLOCK 1 — 1 Year OF CODE',
+            label: 'BLOCK 1 — 1 Year OF Full Stack',
             sub: 'Weeks 01–50 · Days 1–350 · Jun 15 2026 → May 30 2027',
             col: '#6366F1',
             phases: b1,
