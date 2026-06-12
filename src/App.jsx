@@ -1724,7 +1724,7 @@ export default function App() {
                   lineHeight: 1.1,
                 }}
               >
-                77 Weeks Coding Journey
+                77 Weeks of Code
               </div>
               <div
                 style={{
