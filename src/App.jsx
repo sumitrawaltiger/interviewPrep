@@ -6,7 +6,7 @@ import { useState } from 'react';
 const START = new Date('2026-06-15');
 
 const PHASES = [
-  // ══ BLOCK 1 — 1 year of Full Stack (56 weeks) ════════════════════════════════
+  // ══ BLOCK 1 — 400 DAYS OF CODE (56 weeks) ════════════════════════════════
   {
     id: 'react',
     block: 1,
@@ -370,20 +370,20 @@ const PHASES = [
     border: '#FECDD3',
     name: 'Microservices',
     blockLabel: 'Block 1 · MAX ⭐',
-    weeks: 7,
-    days: 49,
+    weeks: 8,
+    days: 56,
     dayStart: 260,
-    dayEnd: 308,
+    dayEnd: 315,
     wkStart: 38,
-    wkEnd: 44,
+    wkEnd: 45,
     startDate: 'Mar 1, 2027',
-    endDate: 'Apr 18, 2027',
+    endDate: 'Apr 25, 2027',
     hours: '~147h',
     courseH: '90h',
     practiceH: '57h',
     milestone: '🏛 Microservices Complete',
     summary:
-      '7 weeks — MAX TIME · 49 days · 4 courses. Kafka, CQRS, Event Sourcing, Saga, K8s, Circuit Breaker. Every pattern maps to your FPO Cloud: EventBridge→Kafka, Step Functions→Saga, Lambda→Microservice.',
+      '8 weeks — MAX TIME · 56 days · 4 courses. Kafka, CQRS, Event Sourcing, Saga, K8s, Circuit Breaker. Every pattern maps to your FPO Cloud: EventBridge→Kafka, Step Functions→Saga, Lambda→Microservice.',
     courses: [
       'Ranga Karanam — Java Spring Boot Microservices with K8s & Docker (35h)',
       'Sergey Kargopolov — Building Microservices with Spring Cloud (30h)',
@@ -428,9 +428,15 @@ const PHASES = [
       },
       {
         w: 44,
-        focus: 'K8s + Revision',
+        focus: 'K8s Deployment',
         topics:
-          'Deploy microservices to K8s, Ingress, ConfigMaps. Write 1 Architecture Decision Record.',
+          'Deploy microservices to K8s, Ingress, ConfigMaps, Secrets — hands-on with KodeKloud',
+      },
+      {
+        w: 45,
+        focus: 'Revision + ADR',
+        topics:
+          'Rebuild one microservice from scratch. Write 1 Architecture Decision Record for Karsten. Interview Q&A drill on Kafka, CQRS, Saga.',
       },
     ],
   },
@@ -445,61 +451,67 @@ const PHASES = [
     border: '#FED7AA',
     name: 'DevOps',
     blockLabel: 'Block 1',
-    weeks: 6,
-    days: 42,
-    dayStart: 309,
-    dayEnd: 350,
-    wkStart: 45,
-    wkEnd: 50,
-    startDate: 'Apr 19, 2027',
-    endDate: 'May 30, 2027',
+    weeks: 7,
+    days: 49,
+    dayStart: 316,
+    dayEnd: 364,
+    wkStart: 46,
+    wkEnd: 52,
+    startDate: 'Apr 26, 2027',
+    endDate: 'Jun 13, 2027',
     hours: '~126h',
     courseH: '79h',
     practiceH: '47h',
-    milestone: '⚙ DevOps Complete',
-    pythonWeek: 'W50',
+    milestone: '⚙ DevOps Complete · Day 364 · Week 52',
+    pythonWeek: 'W52',
     summary:
-      '6 weeks · 42 days. DevOps courses (W45–W49) + Python Scripting merged into W50. No standalone Python phase — learn Python automation in the context you will actually use it: DevOps scripting for FPO infrastructure.',
+      '7 weeks · 49 days. DevOps courses (W46–W51) + Python scripting merged into W52. Ends Day 364, Sunday Jun 13, 2027 — end of Week 52. No standalone Python phase — learn Python automation in the context you will actually use it: DevOps scripting for FPO infrastructure.',
     courses: [
-      'Nana Janashia TechWorld — DevOps Bootcamp (35h) · W45–W48',
-      'Mumshad Mannambeth KodeKloud — The Complete DevOps Bootcamp (20h) · W48–W49',
-      'Anil Dollor — Mastering DevOps Hindi (8h) · W49',
-      'Mumshad Mannambeth — Terraform for Absolute Beginners with Labs (9h) · W49',
-      '🐍 Al Sweigart — Automate the Boring Stuff with Python (9h) · W50 — Python for DevOps',
+      'Nana Janashia TechWorld — DevOps Bootcamp (35h) · W46–W49',
+      'Mumshad Mannambeth KodeKloud — The Complete DevOps Bootcamp (20h) · W49–W50',
+      'Anil Dollor — Mastering DevOps Hindi (8h) · W50',
+      'Mumshad Mannambeth — Terraform for Absolute Beginners with Labs (9h) · W51',
+      '🐍 Al Sweigart — Automate the Boring Stuff with Python (9h) · W52 — Python for DevOps',
     ],
     weekPlan: [
       {
-        w: 45,
+        w: 46,
         focus: 'Linux + Docker',
         topics:
           'Linux essentials, Docker images, containers, volumes, docker-compose — KodeKloud labs',
       },
       {
-        w: 46,
+        w: 47,
         focus: 'Kubernetes',
         topics:
           'Pods, Deployments, Services, Ingress, ConfigMaps, Secrets, AWS EKS',
       },
       {
-        w: 47,
+        w: 48,
         focus: 'CI/CD Pipelines',
         topics:
           'GitHub Actions workflows, OIDC keyless AWS auth, build/test/deploy pipelines',
       },
       {
-        w: 48,
+        w: 49,
         focus: 'Terraform IaC',
         topics:
           'HCL syntax, resources, state, modules — provision FPO AWS resources with Terraform',
       },
       {
-        w: 49,
+        w: 50,
         focus: 'Monitoring + Hindi Recap',
         topics:
           'Prometheus, Grafana, Datadog (your FPO tool), alerts. Hindi DevOps recap — Anil Dollor.',
       },
       {
-        w: 50,
+        w: 51,
+        focus: 'Monitoring + Observability 2',
+        topics:
+          'Prometheus alerts, Datadog FPO dashboards deep dive, GitHub Actions advanced CI/CD pipelines',
+      },
+      {
+        w: 52,
         focus: '🐍 Python for DevOps',
         topics:
           'Automate the Boring Stuff: boto3 FPO Lambda lister, CloudWatch log parser, subprocess, regex log parsing, scheduling, S3 automation — Python learned in DevOps context',
@@ -519,17 +531,17 @@ const PHASES = [
     blockLabel: 'Block 2 · Agentic AI using Python',
     weeks: 6,
     days: 42,
-    dayStart: 351,
-    dayEnd: 392,
-    wkStart: 51,
-    wkEnd: 56,
-    startDate: 'May 31, 2027',
-    endDate: 'Jul 11, 2027',
+    dayStart: 365,
+    dayEnd: 406,
+    wkStart: 53,
+    wkEnd: 58,
+    startDate: 'Jun 14, 2027',
+    endDate: 'Jul 25, 2027',
     hours: '~126h',
     courseH: '96h',
     practiceH: '30h',
-    milestone: '🤖 Agentic AI using Python Complete · Day 392',
-    pythonWeek: 'W51',
+    milestone: '🤖 Agentic AI using Python Complete · Day 406',
+    pythonWeek: 'W53',
     summary:
       '6 weeks · 42 days. W51 = Python core foundations (Angela Yu), then immediately into GenAI and agents. Python learned with purpose — you need it for LangChain. Build FPO AI assistant as capstone.',
     courses: [
@@ -540,37 +552,37 @@ const PHASES = [
     ],
     weekPlan: [
       {
-        w: 51,
+        w: 53,
         focus: '🐍 Python Foundations',
         topics:
           'Angela Yu Days 1–30: variables, OOP, file I/O, exceptions, type hints. Fast-track using your C# background — 1 week is enough to code Python for AI.',
       },
       {
-        w: 52,
+        w: 54,
         focus: 'GenAI Foundations',
         topics:
           'LLMs, embeddings, RAG, prompt engineering (CoT, ReAct), AWS Bedrock — Frank Kane. GenAI concepts land fast now you know Python.',
       },
       {
-        w: 53,
+        w: 55,
         focus: 'LangChain Core',
         topics:
           'Chains, agents, tools, memory, LCEL, vector databases (Pinecone, FAISS) — Eden Marco',
       },
       {
-        w: 54,
+        w: 56,
         focus: 'LangGraph + Multi-Agent',
         topics:
           'State machines, conditional edges, multi-agent orchestration, ReAct + Reflection patterns',
       },
       {
-        w: 55,
+        w: 57,
         focus: 'Ed Donner Projects 1',
         topics:
           'Career Digital Twin, Deep Research agent, SDR Agent — 8 real production projects',
       },
       {
-        w: 56,
+        w: 58,
         focus: 'Ed Donner Projects 2 + FPO AI',
         topics:
           'Engineering Team in Docker, Browser Agent, MCP. Build FPO AI Assistant: natural language query over flight data.',
@@ -591,17 +603,17 @@ const PHASES = [
     blockLabel: 'Block 3 · DSA + System Design',
     weeks: 7,
     days: 49,
-    dayStart: 393,
-    dayEnd: 441,
-    wkStart: 57,
-    wkEnd: 63,
-    startDate: 'Jul 12, 2027',
-    endDate: 'Aug 29, 2027',
+    dayStart: 407,
+    dayEnd: 455,
+    wkStart: 59,
+    wkEnd: 65,
+    startDate: 'Jul 26, 2027',
+    endDate: 'Sep 12, 2027',
     hours: '~147h',
     courseH: '99h',
     practiceH: '48h',
-    milestone: '🧩 Java DSA Complete',
-    pythonWeek: 'W57',
+    milestone: '🧩 Java DSA Complete · Day 455',
+    pythonWeek: 'W59',
     summary:
       "7 weeks · 49 days. W57 = Scott Barrett's Java+Python DSA course (solves problems in both languages side by side). W58–W63 = Java-primary DSA courses. Python problem-solving skills built naturally alongside Java.",
     courses: [
@@ -613,43 +625,43 @@ const PHASES = [
     ],
     weekPlan: [
       {
-        w: 57,
+        w: 59,
         focus: '🐍 Python + Java DSA',
         topics:
           'Scott Barrett Java+LeetCode course: solves every problem in both Java and Python. Big O, Arrays, Hash Maps, Linked Lists — two languages simultaneously.',
       },
       {
-        w: 58,
+        w: 60,
         focus: 'Trees + BST in Java',
         topics:
           'DFS preorder/inorder/postorder, BFS level-order, BST insert/delete/validate — all in Java',
       },
       {
-        w: 59,
+        w: 61,
         focus: 'Heaps + Graphs in Java',
         topics:
           'Java PriorityQueue, Top-K patterns, BFS/DFS on graphs, topological sort, Union-Find',
       },
       {
-        w: 60,
+        w: 62,
         focus: 'Sorting + Searching',
         topics:
           'All sorting algorithms in Java — QuickSort, MergeSort, HeapSort — with complexity proofs',
       },
       {
-        w: 61,
+        w: 63,
         focus: 'DP Foundations',
         topics:
           '1D DP: coin change, house robber, jump game. Top-down memoisation in Java.',
       },
       {
-        w: 62,
+        w: 64,
         focus: 'Advanced DP + Backtracking',
         topics:
           '2D DP, interval DP, backtracking N-Queens, Sudoku — Java solutions',
       },
       {
-        w: 63,
+        w: 65,
         focus: 'FAANG Hard + Revision',
         topics:
           'Hard graph, advanced DP — FAANG course. Rebuild 3 structures from scratch cold.',
@@ -669,46 +681,46 @@ const PHASES = [
     blockLabel: 'Block 3',
     weeks: 4,
     days: 28,
-    dayStart: 442,
-    dayEnd: 469,
-    wkStart: 64,
-    wkEnd: 67,
-    startDate: 'Aug 30, 2027',
-    endDate: 'Sep 26, 2027',
+    dayStart: 456,
+    dayEnd: 483,
+    wkStart: 66,
+    wkEnd: 69,
+    startDate: 'Sep 13, 2027',
+    endDate: 'Oct 10, 2027',
     hours: '~84h',
     courseH: '63h',
     practiceH: '21h',
-    milestone: '🏗 System Design Complete',
+    milestone: '🏗 System Design Complete · Day 483',
     summary:
       '4 weeks · 28 days · 5 courses. Design 1 system from scratch each day spoken aloud. FPO IS a system design answer — multi-tenant SaaS, Lambda microservices, DynamoDB at scale.',
     courses: [
-      'Frank Kane ex-Amazon — Mastering the System Design Interview (5h) · W64',
-      'Michael Pogrebinsky 93K — Software Architecture Modern Large Scale Systems (20h) · W64–W65',
-      'Mikhail Smarshchok — System Design Interview Guide 20+ designs (18h) · W65–W66',
-      'Bogdan Stashchuk — Pragmatic System Design real trade-offs (12h) · W66–W67',
-      'FAANG Insiders — System Design Masterclass 2026 (8h) · W67',
+      'Frank Kane ex-Amazon — Mastering the System Design Interview (5h) · W66',
+      'Michael Pogrebinsky 93K — Software Architecture Modern Large Scale Systems (20h) · W66–W67',
+      'Mikhail Smarshchok — System Design Interview Guide 20+ designs (18h) · W67–W68',
+      'Bogdan Stashchuk — Pragmatic System Design real trade-offs (12h) · W68–W69',
+      'FAANG Insiders — System Design Masterclass 2026 (8h) · W69',
     ],
     weekPlan: [
       {
-        w: 64,
+        w: 66,
         focus: 'SD Framework + Architecture',
         topics:
           'Frank Kane 5-step template. CQRS, Event Sourcing, Saga, API Gateway — all maps to FPO',
       },
       {
-        w: 65,
+        w: 67,
         focus: 'Classic Designs 1',
         topics:
           'URL Shortener, WhatsApp, Twitter — Requirements→Estimation→HLD→DB→API each day',
       },
       {
-        w: 66,
+        w: 68,
         focus: 'Classic Designs 2',
         topics:
           'Netflix, Uber, Notification System, Rate Limiter — 45 min each spoken aloud, cold',
       },
       {
-        w: 67,
+        w: 69,
         focus: 'Advanced + FPO Design',
         topics:
           'Payment System, FPO Flight Optimiser (your system!), Distributed Cache, Leaderboard',
@@ -726,50 +738,36 @@ const PHASES = [
     border: '#FDE68A',
     name: 'DSA + SD Review',
     blockLabel: 'Block 3 · Final Review',
-    weeks: 4,
-    days: 28,
-    dayStart: 470,
+    weeks: 2,
+    days: 14,
+    dayStart: 484,
     dayEnd: 497,
-    wkStart: 68,
+    wkStart: 70,
     wkEnd: 71,
-    startDate: 'Sep 27, 2027',
+    startDate: 'Oct 11, 2027',
     endDate: 'Oct 24, 2027',
     hours: '~84h',
     courseH: '0h',
     practiceH: '84h',
     milestone: '🏁 100-Day Review Complete',
     summary:
-      '4 weeks · 28 days · pure practice. No new courses. DSA revision in Java, system design mocks, Pramp peer sessions, weak-spot drilling, resume polish.',
+      '2 weeks · 14 days · pure practice. No new courses. DSA revision in Java, system design mocks, Pramp peer sessions, weak-spot drilling, resume polish.',
     courses: [
-      'W68: DSA Revision — rebuild Heap, Dijkstra, Trie, AVL Tree, LRU Cache in Java cold',
-      'W69: System Design mocks — 7 designs spoken 45 min each, paper diagram first',
-      'W70: Pramp.com peer mocks — 4 sessions + interviewing.io — record yourself once',
-      'W71: Weak-spot drill + Resume polish + FPO 90-sec pitch rehearsal cold',
+      'W70: DSA Revision — rebuild Heap, Dijkstra, Trie, AVL Tree, LRU Cache in Java cold',
+      'W71: System Design mocks + Pramp.com peer sessions + Resume polish + FPO 90-sec pitch cold',
     ],
     weekPlan: [
       {
-        w: 68,
+        w: 70,
         focus: 'DSA Revision in Java',
         topics:
           'Rebuild 5 structures cold: Heap, Graph+Dijkstra, Trie, AVL Tree, LRU Cache — no reference',
       },
       {
-        w: 69,
-        focus: 'System Design Mocks',
+        w: 71,
+        focus: 'System Design Mocks + Final Polish',
         topics:
           'Twitter, Netflix, Uber, FPO, Payment System — 45 min each spoken, paper diagram first',
-      },
-      {
-        w: 70,
-        focus: 'Pramp Peer Mocks',
-        topics:
-          '4 Pramp sessions + 1 interviewing.io. Record yourself, watch for filler words.',
-      },
-      {
-        w: 71,
-        focus: 'Final Polish',
-        topics:
-          'Resume quantified bullets. LinkedIn headline. FPO 90-sec pitch rehearsed cold.',
       },
     ],
   },
@@ -1009,41 +1007,41 @@ const MILESTONES = [
     color: '#16A34A',
   },
   {
-    day: 308,
-    wk: 44,
-    date: 'Apr 18, 2027',
+    day: 315,
+    wk: 45,
+    date: 'Apr 25, 2027',
     icon: '🏛',
     label: 'Microservices Complete',
     color: '#E11D48',
   },
   {
-    day: 350,
-    wk: 50,
-    date: 'May 30, 2027',
+    day: 364,
+    wk: 52,
+    date: 'Jun 13, 2027',
     icon: '⚙',
-    label: 'DevOps Complete',
+    label: 'DevOps Complete · Day 364 · W52',
     color: '#EA580C',
   },
   {
-    day: 392,
-    wk: 56,
-    date: 'Jul 11, 2027',
+    day: 406,
+    wk: 58,
+    date: 'Jul 25, 2027',
     icon: '🤖',
     label: 'Agentic AI using Python Complete',
     color: '#7C3AED',
   },
   {
-    day: 441,
-    wk: 63,
-    date: 'Aug 29, 2027',
+    day: 455,
+    wk: 65,
+    date: 'Sep 12, 2027',
     icon: '🧩',
     label: 'Java DSA + Python DSA Complete',
     color: '#6366F1',
   },
   {
-    day: 469,
-    wk: 67,
-    date: 'Sep 26, 2027',
+    day: 483,
+    wk: 69,
+    date: 'Oct 10, 2027',
     icon: '🏗',
     label: 'System Design Complete',
     color: '#16A34A',
@@ -1725,7 +1723,7 @@ export default function App() {
                   lineHeight: 1.1,
                 }}
               >
-                77 Weeks Coding Journey
+                77 Weeks Of Code
               </div>
               <div
                 style={{
@@ -1753,8 +1751,8 @@ export default function App() {
               {
                 icon: '📚',
                 n: 'Block 1',
-                t: '1 year of Full Stack',
-                s: 'W01–W50 · Days 1–350',
+                t: '400 Days of Code',
+                s: 'W01–W52 · Days 1–364',
                 d: 'React · RN · Next.js · Spring Boot · Microservices · DevOps',
                 col: '#6366F1',
               },
@@ -1762,7 +1760,7 @@ export default function App() {
                 icon: '🤖',
                 n: 'Block 2',
                 t: 'Agentic AI using Python',
-                s: 'W51–W56 · Days 351–392',
+                s: 'W53–W58 · Days 365–406',
                 d: 'GenAI Foundations · LangChain · LangGraph · Ed Donner 8 Projects',
                 col: '#7C3AED',
               },
@@ -1770,7 +1768,7 @@ export default function App() {
                 icon: '💯',
                 n: 'Block 3',
                 t: 'DSA + System Design',
-                s: 'W57–W71 · Days 393–497',
+                s: 'W59–W71 · Days 407–497',
                 d: 'Java DSA · System Design courses · Final Review & Mocks',
                 col: '#16A34A',
               },
@@ -2059,8 +2057,8 @@ export default function App() {
           {
             b: 1,
             icon: '📚',
-            label: 'BLOCK 1 — 1 year of Full Stack',
-            sub: 'Weeks 01–50 · Days 1–350 · Jun 15 2026 → May 30 2027',
+            label: 'BLOCK 1 — 400 DAYS OF CODE',
+            sub: 'Weeks 01–52 · Days 1–364 · Jun 15 2026 → Jun 13 2027',
             col: '#6366F1',
             phases: b1,
           },
@@ -2068,7 +2066,7 @@ export default function App() {
             b: 2,
             icon: '🤖',
             label: 'BLOCK 2 — AGENTIC AI USING PYTHON',
-            sub: 'Weeks 51–56 · Days 351–392 · May 31 → Jul 11 2027',
+            sub: 'Weeks 53–58 · Days 365–406 · Jun 14 → Jul 25 2027',
             col: '#7C3AED',
             phases: b2,
           },
@@ -2076,7 +2074,7 @@ export default function App() {
             b: 3,
             icon: '💯',
             label: 'BLOCK 3 — DSA + SYSTEM DESIGN',
-            sub: 'Weeks 57–71 · Days 393–497 · Jul 12 → Oct 24 2027',
+            sub: 'Weeks 59–71 · Days 407–497 · Jul 26 → Oct 24 2027',
             col: '#16A34A',
             phases: b3,
           },
