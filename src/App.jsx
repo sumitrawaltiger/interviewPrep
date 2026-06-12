@@ -1,15 +1,12 @@
 import { useState } from 'react';
 
-// ── 77 WEEKS CODING JOURNEY ───────────────────────────────────────────────────
-// Mon Jun 15, 2026 → Sun Dec 5, 2027 · 539 days · 77 weeks · 1,617h
-// 6:00 AM – 9:00 AM daily · 3h/day · every phase ends on a Sunday
+// ── 77 WEEKS · 539 DAYS · Mon Jun 15, 2026 → Sun Dec 5, 2027 ────────────────
+// 6:00 AM – 9:00 AM daily · 3h/day · 1,617h total
+// Every phase ends on a Sunday · Python merged into DevOps, Agentic AI, Java DSA
 const START = new Date('2026-06-15');
 
-// ── PHASE DATA ────────────────────────────────────────────────────────────────
-// Every phase is N full weeks (multiples of 7 days)
-// Every endDate is a Sunday — verified mathematically
 const PHASES = [
-  // ══ BLOCK 1 · 400 DAYS OF CODE · 57 weeks ══════════════════════════════════
+  // ══ BLOCK 1 — 400 DAYS OF CODE (56 weeks) ════════════════════════════════
   {
     id: 'react',
     block: 1,
@@ -20,7 +17,7 @@ const PHASES = [
     bg: '#F0F9FF',
     border: '#BAE6FD',
     name: 'React',
-    blockLabel: 'Block 1 · 400 Days of Code',
+    blockLabel: 'Block 1',
     weeks: 13,
     days: 91,
     dayStart: 1,
@@ -34,7 +31,7 @@ const PHASES = [
     practiceH: '98h',
     milestone: '⚛ React Complete',
     summary:
-      '13 weeks · 91 days · 6 courses. Jonas primary, Max second angle, Smilga projects. Build FPO Flight Status dashboard incrementally each week.',
+      '13 weeks · 91 days · 4 courses. Jonas primary (84h), Max second angle (55h), Smilga projects (25h), Hindi interview Q&A (11h). Build FPO Flight Status dashboard incrementally each week.',
     courses: [
       'Jonas Schmedtmann — The Ultimate React Course 2025 (84h)',
       'Max Schwarzmüller — React The Complete Guide 2025 (55h)',
@@ -44,27 +41,27 @@ const PHASES = [
     weekPlan: [
       {
         w: 1,
-        focus: 'Setup + Big Picture',
+        focus: 'Setup + Components',
         topics:
-          'Vite setup, JSX, components, props — code along every example in VSCode',
+          'Vite, JSX, props, component patterns — code along every example in VSCode',
       },
       {
         w: 2,
-        focus: 'State & Events',
+        focus: 'State + Events',
         topics:
-          'useState, event handlers, forms, controlled inputs — build a counter + todo app',
+          'useState, event handlers, forms, controlled inputs — build counter + todo app',
       },
       {
         w: 3,
-        focus: 'Effects & Data',
+        focus: 'Effects + Data',
         topics:
-          'useEffect, fetch API, async/await — pull mock flight data from a fake API',
+          'useEffect, fetch API, async/await — pull mock flight data from fake API',
       },
       {
         w: 4,
         focus: 'React Router',
         topics:
-          'Client-side routing, nested routes, dynamic params — FPO multi-page app',
+          'Client-side routing, nested routes, dynamic params — multi-page FPO app',
       },
       {
         w: 5,
@@ -100,25 +97,23 @@ const PHASES = [
         w: 10,
         focus: 'Tailwind + Styling',
         topics:
-          'Tailwind utility classes, dark mode, responsive — restyle the FPO dashboard',
+          'Tailwind utility classes, dark mode, responsive — restyle FPO dashboard',
       },
       {
         w: 11,
         focus: 'Testing',
-        topics:
-          'React Testing Library, @testing-library/jest-dom, mock service worker',
+        topics: 'React Testing Library, jest-dom, mock service worker',
       },
       {
         w: 12,
         focus: 'Advanced Patterns',
-        topics:
-          'Compound components, render props, custom hooks library — portfolio hooks',
+        topics: 'Compound components, render props, custom hooks library',
       },
       {
         w: 13,
-        focus: 'Revision + Polish',
+        focus: 'Revision + Interview Q',
         topics:
-          'Re-read all notes cold. Build final FPO Flight Status app from scratch. Interview Q&A drill.',
+          'Rebuild FPO Flight Status app from scratch cold. React 200 Q&A drill.',
       },
     ],
   },
@@ -132,7 +127,7 @@ const PHASES = [
     bg: '#F5F3FF',
     border: '#DDD6FE',
     name: 'React Native',
-    blockLabel: 'Block 1 · 400 Days of Code',
+    blockLabel: 'Block 1',
     weeks: 4,
     days: 28,
     dayStart: 92,
@@ -146,7 +141,7 @@ const PHASES = [
     practiceH: '32h',
     milestone: '📱 React Native Complete',
     summary:
-      '4 weeks · 28 days · 2 courses. Run every exercise on your real iPad via Expo Go. Build FPO-style flight list app with navigation.',
+      '4 weeks · 28 days · 2 courses. Run every exercise on your real iPad via Expo Go. Build FPO-style flight list app with React Navigation.',
     courses: [
       'Stephen Grider — The Complete React Native + Hooks Course 4.8★ (38h)',
       'Max Schwarzmüller — React Native The Practical Guide 2025 (14h)',
@@ -156,7 +151,7 @@ const PHASES = [
         w: 14,
         focus: 'Core Components',
         topics:
-          'View, Text, Image, StyleSheet, Flexbox, FlatList — reproduce Grider exercises on iPad',
+          'View, Text, Image, StyleSheet, Flexbox, FlatList — reproduce exercises on iPad',
       },
       {
         w: 15,
@@ -174,7 +169,7 @@ const PHASES = [
         w: 17,
         focus: 'Polish + Deploy',
         topics:
-          'Animations, platform differences (iOS vs Android), EAS Build, TestFlight submit',
+          'Animations, iOS vs Android differences, EAS Build, TestFlight submit',
       },
     ],
   },
@@ -188,7 +183,7 @@ const PHASES = [
     bg: '#F9FAFB',
     border: '#D1D5DB',
     name: 'Next.js',
-    blockLabel: 'Block 1 · 400 Days of Code',
+    blockLabel: 'Block 1',
     weeks: 5,
     days: 35,
     dayStart: 120,
@@ -218,8 +213,7 @@ const PHASES = [
       {
         w: 19,
         focus: 'Server Components',
-        topics:
-          'RSC vs Client Components, data fetching patterns, streaming, Suspense',
+        topics: 'RSC vs Client Components, data fetching, streaming, Suspense',
       },
       {
         w: 20,
@@ -237,7 +231,7 @@ const PHASES = [
         w: 22,
         focus: 'Deploy + Capstone',
         topics:
-          'Vercel deploy, env vars, Edge runtime — build FPO web portal as capstone',
+          'Vercel deploy, env vars — build FPO web portal as phase capstone',
       },
     ],
   },
@@ -251,21 +245,21 @@ const PHASES = [
     bg: '#F0FDF4',
     border: '#BBF7D0',
     name: 'Spring Boot',
-    blockLabel: 'Block 1 · MAX ⭐ · 400 Days',
-    weeks: 14,
-    days: 98,
+    blockLabel: 'Block 1 · MAX ⭐',
+    weeks: 15,
+    days: 105,
     dayStart: 155,
-    dayEnd: 252,
+    dayEnd: 259,
     wkStart: 23,
-    wkEnd: 36,
+    wkEnd: 37,
     startDate: 'Nov 16, 2026',
-    endDate: 'Feb 21, 2027',
-    hours: '~294h',
+    endDate: 'Feb 28, 2027',
+    hours: '~315h',
     courseH: '185h',
-    practiceH: '109h',
+    practiceH: '130h',
     milestone: '🌱 Spring Boot Complete',
     summary:
-      '14 weeks — MAX TIME · 98 days · 5 courses. Java 8 fast-track, JPA/Hibernate deep, Spring Security with Cognito OAuth2. Map every concept to FPO: Bean=Lambda, JPA=DynamoDB.',
+      '15 weeks — MAX TIME · 105 days · 5 courses. Java 8 fast-track, JPA/Hibernate deep, Spring Security with Cognito OAuth2. Map every concept to FPO: Bean=Lambda, JPA=DynamoDB.',
     courses: [
       'Navin Reddy Telusko — Java 8 New Features (20h)',
       'John Thompson — Hibernate & Spring Data JPA Beginner to Guru (55h)',
@@ -278,19 +272,18 @@ const PHASES = [
         w: 23,
         focus: 'Java 8 Fast-Track',
         topics:
-          'Lambdas, Streams API, Optional, CompletableFuture, Method references — you know C#, this is fast',
+          'Lambdas, Streams, Optional, CompletableFuture — you know C#, this is fast',
       },
       {
         w: 24,
         focus: 'JPA Foundations',
         topics:
-          '@Entity, @Id, relationships (@OneToMany, @ManyToOne), EntityManager lifecycle',
+          '@Entity, @Id, relationships (@OneToMany/@ManyToOne), EntityManager lifecycle',
       },
       {
         w: 25,
         focus: 'Spring Data JPA',
-        topics:
-          'JpaRepository, JPQL, @Query, Pageable, Specifications, @Transactional',
+        topics: 'JpaRepository, JPQL, @Query, Pageable, @Transactional',
       },
       {
         w: 26,
@@ -302,13 +295,13 @@ const PHASES = [
         w: 27,
         focus: 'Spring Boot Basics',
         topics:
-          'Auto-configuration, @SpringBootApplication, starter POMs, Actuator, profiles',
+          'Auto-configuration, starters, Actuator, profiles, application.yml',
       },
       {
         w: 28,
         focus: 'REST APIs',
         topics:
-          '@RestController, @RequestMapping, ResponseEntity, @ExceptionHandler, OpenAPI',
+          '@RestController, ResponseEntity, @ExceptionHandler, validation, OpenAPI',
       },
       {
         w: 29,
@@ -319,7 +312,7 @@ const PHASES = [
         w: 30,
         focus: 'Spring IoC Deep',
         topics:
-          'Bean lifecycle, @Conditional, @Primary, @Qualifier, AOP, @Transactional propagation',
+          'Bean lifecycle, AOP, @Transactional propagation, @Conditional, @Primary',
       },
       {
         w: 31,
@@ -343,19 +336,25 @@ const PHASES = [
         w: 34,
         focus: 'Full-Stack Connect',
         topics:
-          'Spring Boot API + React frontend — connect your Week 1–13 React app to Spring',
+          'Spring Boot API + React frontend — connect your React app to Spring Boot',
       },
       {
         w: 35,
         focus: 'Spring Boot 4 Preview',
         topics:
-          'Spring Boot 4 / Spring 7 new features, GraalVM native image, virtual threads',
+          'Spring Boot 4 / Spring 7, GraalVM native image, virtual threads (Project Loom)',
       },
       {
         w: 36,
-        focus: 'Revision + Polish',
+        focus: 'Capstone Project',
         topics:
-          'Re-build REST API + JWT auth from scratch cold. 200 Spring interview Q&A drill.',
+          'Build complete REST API + JWT + JPA from scratch — production quality',
+      },
+      {
+        w: 37,
+        focus: 'Revision + 200 Q&A',
+        topics:
+          'Rebuild REST API + JWT auth cold. Spring 200 interview Q&A drill.',
       },
     ],
   },
@@ -369,21 +368,21 @@ const PHASES = [
     bg: '#FFF1F2',
     border: '#FECDD3',
     name: 'Microservices',
-    blockLabel: 'Block 1 · MAX ⭐ · 400 Days',
+    blockLabel: 'Block 1 · MAX ⭐',
     weeks: 7,
     days: 49,
-    dayStart: 253,
-    dayEnd: 301,
-    wkStart: 37,
-    wkEnd: 43,
-    startDate: 'Feb 22, 2027',
-    endDate: 'Apr 11, 2027',
+    dayStart: 260,
+    dayEnd: 308,
+    wkStart: 38,
+    wkEnd: 44,
+    startDate: 'Mar 1, 2027',
+    endDate: 'Apr 18, 2027',
     hours: '~147h',
     courseH: '90h',
     practiceH: '57h',
     milestone: '🏛 Microservices Complete',
     summary:
-      '7 weeks — MAX TIME · 49 days · 4 courses. Kafka, CQRS, Event Sourcing, Saga, K8s, Circuit Breaker. Every pattern maps to your FPO Cloud architecture.',
+      '7 weeks — MAX TIME · 49 days · 4 courses. Kafka, CQRS, Event Sourcing, Saga, K8s, Circuit Breaker. Every pattern maps to your FPO Cloud: EventBridge→Kafka, Step Functions→Saga, Lambda→Microservice.',
     courses: [
       'Ranga Karanam — Java Spring Boot Microservices with K8s & Docker (35h)',
       'Sergey Kargopolov — Building Microservices with Spring Cloud (30h)',
@@ -392,297 +391,261 @@ const PHASES = [
     ],
     weekPlan: [
       {
-        w: 37,
+        w: 38,
         focus: 'Service Decomposition',
         topics:
-          'DDD bounded contexts, service boundaries, inter-service communication REST vs events',
-      },
-      {
-        w: 38,
-        focus: 'Spring Cloud',
-        topics:
-          'Eureka service discovery, Spring Cloud Gateway, config server, Feign clients',
+          'DDD bounded contexts, service boundaries, inter-service communication',
       },
       {
         w: 39,
-        focus: 'Resilience Patterns',
-        topics:
-          'Resilience4j circuit breaker, retry, bulkhead, rate limiter — your FPO uses this!',
+        focus: 'Spring Cloud',
+        topics: 'Eureka, Spring Cloud Gateway, config server, Feign clients',
       },
       {
         w: 40,
-        focus: 'Kafka Deep Dive',
+        focus: 'Resilience Patterns',
         topics:
-          'Producer, consumer, consumer groups, partitions, offsets — relate to FPO EventBridge',
+          'Resilience4j circuit breaker, retry, bulkhead — your FPO uses this!',
       },
       {
         w: 41,
-        focus: 'CQRS + Event Sourcing',
+        focus: 'Kafka Deep Dive',
         topics:
-          'Separate read/write models, Axon Framework, event store, replay — FPO event sourcing',
+          'Producer, consumer, groups, partitions, offsets — relate to FPO EventBridge',
       },
       {
         w: 42,
-        focus: 'Saga Pattern',
+        focus: 'CQRS + Event Sourcing',
         topics:
-          'Orchestration vs choreography, compensating transactions — your Step Functions = Saga!',
+          'Separate read/write models, Axon Framework, event store, replay',
       },
       {
         w: 43,
-        focus: 'K8s + Revision',
+        focus: 'Saga Pattern',
         topics:
-          'Deploy microservices to K8s, Ingress, ConfigMaps, Secrets. Write 1 Architecture Decision Record.',
+          'Orchestration vs choreography, compensating transactions — Step Functions = Saga!',
       },
-    ],
-  },
-  {
-    id: 'python',
-    block: 1,
-    seq: 6,
-    icon: '🐍',
-    color: '#059669',
-    dark: '#047857',
-    bg: '#ECFDF5',
-    border: '#A7F3D0',
-    name: 'Python',
-    blockLabel: 'Block 1 · 400 Days of Code',
-    weeks: 4,
-    days: 28,
-    dayStart: 302,
-    dayEnd: 329,
-    wkStart: 44,
-    wkEnd: 47,
-    startDate: 'Apr 12, 2027',
-    endDate: 'May 9, 2027',
-    hours: '~84h',
-    courseH: '47h',
-    practiceH: '37h',
-    milestone: '🐍 Python Complete',
-    summary:
-      '4 weeks · 28 days · 4 courses. Core Python + DevOps automation scripting. Foundation for Agentic AI. Write boto3 scripts, parse CloudWatch logs, automate FPO reports.',
-    courses: [
-      'Dr. Angela Yu — 100 Days of Code Python Bootcamp Days 1–55 (22h)',
-      'Al Sweigart — Automate the Boring Stuff with Python (9h)',
-      'Ardit Sulce — Python Mega Course Build 10 Apps (9h)',
-      'Jose Portilla — Complete Python Bootcamp DevOps focus (7h)',
-    ],
-    weekPlan: [
       {
         w: 44,
-        focus: 'Python Core',
+        focus: 'K8s + Revision',
         topics:
-          'Variables, lists, dicts, tuples, OOP, exceptions, file I/O — Angela Yu Days 1–30',
-      },
-      {
-        w: 45,
-        focus: 'Python Advanced',
-        topics:
-          'Decorators, generators, context managers, async/await, type hints — Days 31–55',
-      },
-      {
-        w: 46,
-        focus: 'Automation Scripts',
-        topics:
-          'boto3 FPO Lambda lister, CloudWatch log parser, subprocess, regex, scheduling',
-      },
-      {
-        w: 47,
-        focus: '10 Real Apps',
-        topics:
-          'Ardit Sulce 10 apps + Portilla DevOps scripts. Write 1 Python tool for your FPO team.',
+          'Deploy microservices to K8s, Ingress, ConfigMaps. Write 1 Architecture Decision Record.',
       },
     ],
   },
   {
     id: 'devops',
     block: 1,
-    seq: 7,
+    seq: 6,
     icon: '⚙',
     color: '#EA580C',
     dark: '#C2410C',
     bg: '#FFF7ED',
     border: '#FED7AA',
     name: 'DevOps',
-    blockLabel: 'Block 1 · Day 364 🏁',
-    weeks: 5,
-    days: 35,
-    dayStart: 330,
-    dayEnd: 364,
-    wkStart: 48,
-    wkEnd: 52,
-    startDate: 'May 10, 2027',
-    endDate: 'Jun 13, 2027',
-    hours: '~105h',
-    courseH: '72h',
-    practiceH: '33h',
-    milestone: '⚙ DevOps Complete · Day 364',
+    blockLabel: 'Block 1',
+    weeks: 6,
+    days: 42,
+    dayStart: 309,
+    dayEnd: 350,
+    wkStart: 45,
+    wkEnd: 50,
+    startDate: 'Apr 19, 2027',
+    endDate: 'May 30, 2027',
+    hours: '~126h',
+    courseH: '79h',
+    practiceH: '47h',
+    milestone: '⚙ DevOps Complete',
+    pythonWeek: 'W50',
     summary:
-      '5 weeks · 35 days · 4 courses. Day 364 is the last day (Sunday Jun 13). Nana Janashia #1 globally, KodeKloud interactive labs, Terraform IaC.',
+      '6 weeks · 42 days. DevOps courses (W45–W49) + Python Scripting merged into W50. No standalone Python phase — learn Python automation in the context you will actually use it: DevOps scripting for FPO infrastructure.',
     courses: [
-      'Nana Janashia TechWorld with Nana — DevOps Bootcamp (35h)',
-      'Mumshad Mannambeth KodeKloud — The Complete DevOps Bootcamp (20h)',
-      'Anil Dollor — Mastering DevOps Hindi (8h)',
-      'Mumshad Mannambeth — Terraform for Absolute Beginners with Labs (9h)',
+      'Nana Janashia TechWorld — DevOps Bootcamp (35h) · W45–W48',
+      'Mumshad Mannambeth KodeKloud — The Complete DevOps Bootcamp (20h) · W48–W49',
+      'Anil Dollor — Mastering DevOps Hindi (8h) · W49',
+      'Mumshad Mannambeth — Terraform for Absolute Beginners with Labs (9h) · W49',
+      '🐍 Al Sweigart — Automate the Boring Stuff with Python (9h) · W50 — Python for DevOps',
     ],
     weekPlan: [
       {
-        w: 48,
+        w: 45,
         focus: 'Linux + Docker',
         topics:
           'Linux essentials, Docker images, containers, volumes, docker-compose — KodeKloud labs',
       },
       {
-        w: 49,
+        w: 46,
         focus: 'Kubernetes',
         topics:
-          'Pods, Deployments, Services, Ingress, ConfigMaps, Secrets, K8s on AWS EKS',
+          'Pods, Deployments, Services, Ingress, ConfigMaps, Secrets, AWS EKS',
+      },
+      {
+        w: 47,
+        focus: 'CI/CD Pipelines',
+        topics:
+          'GitHub Actions workflows, OIDC keyless AWS auth, build/test/deploy pipelines',
+      },
+      {
+        w: 48,
+        focus: 'Terraform IaC',
+        topics:
+          'HCL syntax, resources, state, modules — provision FPO AWS resources with Terraform',
+      },
+      {
+        w: 49,
+        focus: 'Monitoring + Hindi Recap',
+        topics:
+          'Prometheus, Grafana, Datadog (your FPO tool), alerts. Hindi DevOps recap — Anil Dollor.',
       },
       {
         w: 50,
-        focus: 'CI/CD Pipelines',
+        focus: '🐍 Python for DevOps',
         topics:
-          'GitHub Actions workflows, OIDC keyless AWS auth, TeamCity comparison for FPO',
-      },
-      {
-        w: 51,
-        focus: 'Terraform IaC',
-        topics:
-          'HCL syntax, resources, state, modules — provision one FPO AWS resource with Terraform',
-      },
-      {
-        w: 52,
-        focus: 'Monitoring + Polish',
-        topics:
-          'Prometheus, Grafana, CloudWatch, Datadog (you use it!) — Week 52 = end of core plan',
+          'Automate the Boring Stuff: boto3 FPO Lambda lister, CloudWatch log parser, subprocess, regex log parsing, scheduling, S3 automation — Python learned in DevOps context',
       },
     ],
   },
   {
     id: 'agentic',
-    block: 1,
-    seq: 8,
+    block: 2,
+    seq: 7,
     icon: '🤖',
     color: '#7C3AED',
     dark: '#6D28D9',
     bg: '#F5F3FF',
     border: '#DDD6FE',
-    name: 'Agentic AI',
-    blockLabel: 'Block 1 · Bonus 5 Weeks',
-    weeks: 5,
-    days: 35,
-    dayStart: 365,
-    dayEnd: 399,
-    wkStart: 53,
-    wkEnd: 57,
-    startDate: 'Jun 14, 2027',
-    endDate: 'Jul 18, 2027',
-    hours: '~105h',
-    courseH: '74h',
-    practiceH: '31h',
-    milestone: '🤖 Agentic AI Complete · Day 399',
+    name: 'Agentic AI using Python',
+    blockLabel: 'Block 2 · Agentic AI using Python',
+    weeks: 6,
+    days: 42,
+    dayStart: 351,
+    dayEnd: 392,
+    wkStart: 51,
+    wkEnd: 56,
+    startDate: 'May 31, 2027',
+    endDate: 'Jul 11, 2027',
+    hours: '~126h',
+    courseH: '96h',
+    practiceH: '30h',
+    milestone: '🤖 Agentic AI using Python Complete · Day 392',
+    pythonWeek: 'W51',
     summary:
-      '5 bonus weeks · 35 days · 3 courses. LangChain, LangGraph, Ed Donner 8 real projects (Career Digital Twin, Deep Research, SDR Agent, Engineering Team in Docker). Build FPO AI assistant.',
+      '6 weeks · 42 days. W51 = Python core foundations (Angela Yu), then immediately into GenAI and agents. Python learned with purpose — you need it for LangChain. Build FPO AI assistant as capstone.',
     courses: [
-      'Dr. Frank Kane — ChatGPT + Generative AI Masterclass 2026 (22h)',
-      'Ed Donner — Complete Agentic AI Engineering Course 2026 (30h)',
-      'Eden Marco — LangChain Develop LLM Powered Applications (22h)',
+      '🐍 Dr. Angela Yu — 100 Days of Code Python Bootcamp Days 1–30 (22h) · W51 only',
+      'Dr. Frank Kane — ChatGPT + Generative AI Masterclass 2026 (22h) · W52',
+      'Ed Donner — Complete Agentic AI Engineering Course 2026 (30h) · W53–W55',
+      'Eden Marco — LangChain Develop LLM Powered Applications (22h) · W55–W56',
     ],
     weekPlan: [
       {
-        w: 53,
-        focus: 'GenAI Foundations',
+        w: 51,
+        focus: '🐍 Python Foundations',
         topics:
-          'LLMs, embeddings, RAG, prompt engineering (CoT, ReAct), AWS Bedrock — Frank Kane',
+          'Angela Yu Days 1–30: variables, OOP, file I/O, exceptions, type hints. Fast-track using your C# background — 1 week is enough to code Python for AI.',
       },
       {
-        w: 54,
+        w: 52,
+        focus: 'GenAI Foundations',
+        topics:
+          'LLMs, embeddings, RAG, prompt engineering (CoT, ReAct), AWS Bedrock — Frank Kane. GenAI concepts land fast now you know Python.',
+      },
+      {
+        w: 53,
         focus: 'LangChain Core',
         topics:
           'Chains, agents, tools, memory, LCEL, vector databases (Pinecone, FAISS) — Eden Marco',
       },
       {
-        w: 55,
-        focus: 'LangGraph + Agents',
+        w: 54,
+        focus: 'LangGraph + Multi-Agent',
         topics:
-          'State machines, conditional edges, multi-agent orchestration, ReAct + Reflection',
+          'State machines, conditional edges, multi-agent orchestration, ReAct + Reflection patterns',
+      },
+      {
+        w: 55,
+        focus: 'Ed Donner Projects 1',
+        topics:
+          'Career Digital Twin, Deep Research agent, SDR Agent — 8 real production projects',
       },
       {
         w: 56,
-        focus: 'Ed Donner Projects',
+        focus: 'Ed Donner Projects 2 + FPO AI',
         topics:
-          'Career Digital Twin, Deep Research agent, SDR Agent, Engineering Team in Docker',
-      },
-      {
-        w: 57,
-        focus: 'FPO AI + Polish',
-        topics:
-          'Build FPO AI Assistant: natural language query over flight data. Deploy to Lambda.',
+          'Engineering Team in Docker, Browser Agent, MCP. Build FPO AI Assistant: natural language query over flight data.',
       },
     ],
   },
-  // ══ BLOCK 2 · 100 DAYS DSA + SYSTEM DESIGN · 14 weeks ═══════════════════════
+  // ══ BLOCK 2 — 100 DAYS DSA + SYSTEM DESIGN (15 weeks) ═══════════════════
   {
     id: 'dsa',
-    block: 2,
-    seq: 9,
+    block: 3,
+    seq: 8,
     icon: '🧩',
     color: '#6366F1',
     dark: '#4338CA',
     bg: '#EEF2FF',
     border: '#C7D2FE',
-    name: 'Java DSA',
-    blockLabel: 'Block 2 · 100 Days',
-    weeks: 6,
-    days: 42,
-    dayStart: 400,
+    name: 'Java DSA + Python DSA',
+    blockLabel: 'Block 3 · DSA + System Design',
+    weeks: 7,
+    days: 49,
+    dayStart: 393,
     dayEnd: 441,
-    wkStart: 58,
+    wkStart: 57,
     wkEnd: 63,
-    startDate: 'Jul 19, 2027',
+    startDate: 'Jul 12, 2027',
     endDate: 'Aug 29, 2027',
-    hours: '~126h',
+    hours: '~147h',
     courseH: '99h',
-    practiceH: '27h',
+    practiceH: '48h',
     milestone: '🧩 Java DSA Complete',
+    pythonWeek: 'W57',
     summary:
-      '6 weeks · 42 days · 5 Java-only DSA courses. Full 3h daily on Udemy + code along. Course days + revision days. No separate LeetCode slot in the 3h block.',
+      "7 weeks · 49 days. W57 = Scott Barrett's Java+Python DSA course (solves problems in both languages side by side). W58–W63 = Java-primary DSA courses. Python problem-solving skills built naturally alongside Java.",
     courses: [
+      '🐍 Scott Barrett 4.8★ — Java Data Structures & Algorithms + LeetCode (10h) · W57 — Java + Python side by side',
       'Andrei Neagoie ZTM — Master the Coding Interview DS + Algorithms (20h) · W58–W60',
-      'Scott Barrett 4.8★ — Java DS & Algorithms + LeetCode (10h) · W60–W61',
-      'Tim Buchalka 112K — DS & Algorithms Deep Dive Using Java (16h) · W61–W62',
-      'Elshad Karimov — Java DS & Algorithms Masterclass 45h (45h) · W62–W65',
-      'Andrei Neagoie ZTM — Master Coding Interview Big Tech FAANG (8h) · W65',
+      'Tim Buchalka 112K — DS & Algorithms Deep Dive Using Java (16h) · W60–W61',
+      'Elshad Karimov — Java DS & Algorithms Masterclass 45h (45h) · W61–W63',
+      'Andrei Neagoie ZTM — Master Coding Interview Big Tech FAANG (8h) · W63',
     ],
     weekPlan: [
       {
-        w: 58,
-        focus: 'Big O + Arrays + Hash',
+        w: 57,
+        focus: '🐍 Python + Java DSA',
         topics:
-          'Big O analysis, Two Pointers, Sliding Window, Hash Map patterns — all in Java',
+          'Scott Barrett Java+LeetCode course: solves every problem in both Java and Python. Big O, Arrays, Hash Maps, Linked Lists — two languages simultaneously.',
+      },
+      {
+        w: 58,
+        focus: 'Trees + BST in Java',
+        topics:
+          'DFS preorder/inorder/postorder, BFS level-order, BST insert/delete/validate — all in Java',
       },
       {
         w: 59,
-        focus: 'Linked Lists + Stacks',
+        focus: 'Heaps + Graphs in Java',
         topics:
-          "Singly/Doubly LL, Floyd's cycle detection, Monotonic Stack, Deque — Java impl",
+          'Java PriorityQueue, Top-K patterns, BFS/DFS on graphs, topological sort, Union-Find',
       },
       {
         w: 60,
-        focus: 'Trees + BST',
+        focus: 'Sorting + Searching',
         topics:
-          'DFS preorder/inorder/postorder, BFS level-order, BST insert/delete/validate in Java',
+          'All sorting algorithms in Java — QuickSort, MergeSort, HeapSort — with complexity proofs',
       },
       {
         w: 61,
-        focus: 'Heaps + Graphs',
+        focus: 'DP Foundations',
         topics:
-          'Java PriorityQueue, Top-K patterns, BFS/DFS on graphs, topological sort',
+          '1D DP: coin change, house robber, jump game. Top-down memoisation in Java.',
       },
       {
         w: 62,
-        focus: 'DP + Backtracking',
+        focus: 'Advanced DP + Backtracking',
         topics:
-          '1D DP (coin change, house robber), 2D DP, backtracking N-Queens — Java solutions',
+          '2D DP, interval DP, backtracking N-Queens, Sudoku — Java solutions',
       },
       {
         w: 63,
@@ -694,15 +657,15 @@ const PHASES = [
   },
   {
     id: 'sd',
-    block: 2,
-    seq: 10,
+    block: 3,
+    seq: 9,
     icon: '🏗',
     color: '#16A34A',
     dark: '#15803D',
     bg: '#F0FDF4',
     border: '#BBF7D0',
     name: 'System Design',
-    blockLabel: 'Block 2 · 100 Days',
+    blockLabel: 'Block 3',
     weeks: 4,
     days: 28,
     dayStart: 442,
@@ -716,7 +679,7 @@ const PHASES = [
     practiceH: '21h',
     milestone: '🏗 System Design Complete',
     summary:
-      '4 weeks · 28 days · 5 courses. Language-agnostic. Design 1 system from scratch each day. FPO IS a system design answer — multi-tenant SaaS, Lambda microservices, DynamoDB at scale.',
+      '4 weeks · 28 days · 5 courses. Design 1 system from scratch each day spoken aloud. FPO IS a system design answer — multi-tenant SaaS, Lambda microservices, DynamoDB at scale.',
     courses: [
       'Frank Kane ex-Amazon — Mastering the System Design Interview (5h) · W64',
       'Michael Pogrebinsky 93K — Software Architecture Modern Large Scale Systems (20h) · W64–W65',
@@ -727,9 +690,9 @@ const PHASES = [
     weekPlan: [
       {
         w: 64,
-        focus: 'SD Framework + Arch',
+        focus: 'SD Framework + Architecture',
         topics:
-          'Frank Kane 5-step template. CQRS, Event Sourcing, Saga, API Gateway — maps to FPO',
+          'Frank Kane 5-step template. CQRS, Event Sourcing, Saga, API Gateway — all maps to FPO',
       },
       {
         w: 65,
@@ -745,7 +708,7 @@ const PHASES = [
       },
       {
         w: 67,
-        focus: 'Advanced + FPO',
+        focus: 'Advanced + FPO Design',
         topics:
           'Payment System, FPO Flight Optimiser (your system!), Distributed Cache, Leaderboard',
       },
@@ -753,15 +716,15 @@ const PHASES = [
   },
   {
     id: 'review',
-    block: 2,
-    seq: 11,
+    block: 3,
+    seq: 10,
     icon: '🏁',
     color: '#F59E0B',
     dark: '#D97706',
     bg: '#FFFBEB',
     border: '#FDE68A',
     name: 'DSA + SD Review',
-    blockLabel: 'Block 2 · Final Review',
+    blockLabel: 'Block 3 · Final Review',
     weeks: 4,
     days: 28,
     dayStart: 470,
@@ -777,50 +740,50 @@ const PHASES = [
     summary:
       '4 weeks · 28 days · pure practice. No new courses. DSA revision in Java, system design mocks, Pramp peer sessions, weak-spot drilling, resume polish.',
     courses: [
-      'Week 68: DSA Revision — rebuild Heap, Dijkstra, Trie, AVL Tree, LRU Cache in Java cold',
-      'Week 69: System Design mocks — 7 designs spoken 45 min each, paper first',
-      'Week 70: Pramp.com peer mocks — 4 sessions + interviewing.io — record yourself once',
-      'Week 71: Weak-spot drill + Resume polish + FPO 90-sec pitch rehearsal cold',
+      'W68: DSA Revision — rebuild Heap, Dijkstra, Trie, AVL Tree, LRU Cache in Java cold',
+      'W69: System Design mocks — 7 designs spoken 45 min each, paper diagram first',
+      'W70: Pramp.com peer mocks — 4 sessions + interviewing.io — record yourself once',
+      'W71: Weak-spot drill + Resume polish + FPO 90-sec pitch rehearsal cold',
     ],
     weekPlan: [
       {
         w: 68,
-        focus: 'DSA Revision',
+        focus: 'DSA Revision in Java',
         topics:
-          'Rebuild 5 Java data structures cold: Heap, Graph+Dijkstra, Trie, AVL Tree, LRU Cache',
+          'Rebuild 5 structures cold: Heap, Graph+Dijkstra, Trie, AVL Tree, LRU Cache — no reference',
       },
       {
         w: 69,
         focus: 'System Design Mocks',
         topics:
-          'Twitter, Netflix, Uber, FPO, Payment System — 45 min each, spoken, paper diagram first',
+          'Twitter, Netflix, Uber, FPO, Payment System — 45 min each spoken, paper diagram first',
       },
       {
         w: 70,
         focus: 'Pramp Peer Mocks',
         topics:
-          '4 Pramp sessions + 1 interviewing.io session. Record yourself, watch for filler words.',
+          '4 Pramp sessions + 1 interviewing.io. Record yourself, watch for filler words.',
       },
       {
         w: 71,
         focus: 'Final Polish',
         topics:
-          'Resume quantified bullet points. LinkedIn headline. FPO pitch 90 sec rehearsed cold.',
+          'Resume quantified bullets. LinkedIn headline. FPO 90-sec pitch rehearsed cold.',
       },
     ],
   },
-  // ══ BLOCK 3 · INTERVIEW PREPARATION · 6 weeks ════════════════════════════════
+  // ══ BLOCK 3 — INTERVIEW PREPARATION (6 weeks) ════════════════════════════
   {
     id: 'int_java',
-    block: 3,
-    seq: 12,
+    block: 4,
+    seq: 11,
     icon: '☕',
     color: '#16A34A',
     dark: '#15803D',
     bg: '#F0FDF4',
     border: '#BBF7D0',
     name: 'Java + Spring Interview',
-    blockLabel: 'Block 3 · Interview Prep',
+    blockLabel: 'Block 4 · Interview Prep',
     weeks: 2,
     days: 14,
     dayStart: 498,
@@ -834,22 +797,22 @@ const PHASES = [
     practiceH: '9h',
     milestone: null,
     summary:
-      '2 weeks · 14 days · 3 courses · 600+ Java+Spring interview Q&A. Write every code answer from memory. 30 questions per morning as warm-up.',
+      '2 weeks · 14 days · 3 courses · 600+ Java+Spring Q&A. Write every code answer from memory. 30 questions per morning as warm-up.',
     courses: [
-      'Ranga Karanam in28minutes — Java Programming Interview Guide 200+ Q&A 4.5★ 80K students (10h) · W72',
-      'Ranga Karanam in28minutes — Spring & Spring Boot Interview Guide 200+ Q&A 4.5★ 60K students (10h) · W72–W73',
-      'Happy Rawat — Java Interview Masterclass 350 Questions 2026 +PDF 4.6★ 3K students (13h) · W73',
+      'Ranga Karanam in28minutes — Java Programming Interview Guide 200+ Q&A 4.5★ (10h) · W72',
+      'Ranga Karanam in28minutes — Spring & Spring Boot Interview Guide 200+ Q&A 4.5★ (10h) · W72–W73',
+      'Happy Rawat — Java Interview Masterclass 350 Questions 2026 +PDF 4.6★ (13h) · W73',
     ],
     weekPlan: [
       {
         w: 72,
         focus: 'Java + Spring 400 Q',
         topics:
-          'Java 200 Q&A then Spring 200 Q&A — OOP, Streams, Collections, IoC, JPA, AOP, @Transactional',
+          'Java 200 Q then Spring 200 Q — OOP, Streams, Collections, IoC, JPA, AOP, @Transactional',
       },
       {
         w: 73,
-        focus: 'Java 350 Masterclass',
+        focus: '350 Q Masterclass',
         topics:
           'Happy Rawat 350 Q — Core Java, Multithreading, Design Patterns, Spring Security, Microservices',
       },
@@ -857,15 +820,15 @@ const PHASES = [
   },
   {
     id: 'int_react',
-    block: 3,
-    seq: 13,
+    block: 4,
+    seq: 12,
     icon: '⚛',
     color: '#0EA5E9',
     dark: '#0369A1',
     bg: '#F0F9FF',
     border: '#BAE6FD',
     name: 'React + RN Interview',
-    blockLabel: 'Block 3 · Interview Prep',
+    blockLabel: 'Block 4 · Interview Prep',
     weeks: 1,
     days: 7,
     dayStart: 512,
@@ -881,8 +844,8 @@ const PHASES = [
     summary:
       '1 week · 7 days · 2 courses · 200+ React Q&A with TypeScript coding questions. Build 5 components from memory. React Native specifics covered.',
     courses: [
-      'Happy Rawat — React Interview Masterclass 200 Q&A +PDF 2026 4.7★ 2.5K students (7h)',
-      'Ariel Weinberger — React Interview Questions Coding 2026 TypeScript 4.6★ 8K students (8h)',
+      'Happy Rawat — React Interview Masterclass 200 Q&A +PDF 2026 4.7★ (7h)',
+      'Ariel Weinberger — React Interview Questions Coding 2026 TypeScript 4.6★ (8h)',
     ],
     weekPlan: [
       {
@@ -895,15 +858,15 @@ const PHASES = [
   },
   {
     id: 'int_micro',
-    block: 3,
-    seq: 14,
+    block: 4,
+    seq: 13,
     icon: '🏛',
     color: '#E11D48',
     dark: '#BE123C',
     bg: '#FFF1F2',
     border: '#FECDD3',
     name: 'Microservices Interview',
-    blockLabel: 'Block 3 · Interview Prep',
+    blockLabel: 'Block 4 · Interview Prep',
     weeks: 1,
     days: 7,
     dayStart: 519,
@@ -917,14 +880,14 @@ const PHASES = [
     practiceH: '3h',
     milestone: null,
     summary:
-      "1 week · 7 days · Chad Darby's comprehensive Java+Spring Boot+Microservices+DevOps+Cloud interview course — full-picture Q&A including Docker, K8s, CI/CD, AWS.",
+      "1 week · 7 days. Chad Darby's comprehensive Java+Spring Boot+Microservices+DevOps+Cloud interview course — full-picture Q&A including Docker, K8s, CI/CD, AWS.",
     courses: [
       'Chad Darby — Java Interview Help: Java Spring Boot Microservices DevOps Cloud 4.6★ 30K students (18h)',
     ],
     weekPlan: [
       {
         w: 75,
-        focus: 'Microservices Full',
+        focus: 'Microservices Full Q&A',
         topics:
           'Kafka, Circuit Breaker, Saga, CQRS, K8s, Docker, AWS, CI/CD — all Q&A coded on whiteboard',
       },
@@ -932,15 +895,15 @@ const PHASES = [
   },
   {
     id: 'int_python',
-    block: 3,
-    seq: 15,
+    block: 4,
+    seq: 14,
     icon: '🤖',
     color: '#7C3AED',
     dark: '#6D28D9',
     bg: '#F5F3FF',
     border: '#DDD6FE',
     name: 'Python + AI Interview',
-    blockLabel: 'Block 3 · Interview Prep',
+    blockLabel: 'Block 4 · Interview Prep',
     weeks: 1,
     days: 7,
     dayStart: 526,
@@ -970,15 +933,15 @@ const PHASES = [
   },
   {
     id: 'int_mock',
-    block: 3,
-    seq: 16,
+    block: 4,
+    seq: 15,
     icon: '🎯',
     color: '#F59E0B',
     dark: '#D97706',
     bg: '#FFFBEB',
     border: '#FDE68A',
     name: 'Mock + Final Polish',
-    blockLabel: 'Block 3 · Week 77 · FINAL',
+    blockLabel: 'Block 4 · Week 77 · FINAL',
     weeks: 1,
     days: 7,
     dayStart: 533,
@@ -990,26 +953,27 @@ const PHASES = [
     hours: '~21h',
     courseH: '10h',
     practiceH: '11h',
-    milestone: '🎯 Interview Prep Complete · Day 539 · Week 77',
+    milestone: '🎯 Interview Prep Complete · Week 77 · Dec 5, 2027',
     summary:
       'Final week · 7 days. Non-technical interview mastery Mon–Thu, then 3 days of pure mock interview simulation. Last day is Sunday Dec 5, 2027 — end of 77 weeks.',
     courses: [
-      'Andrei Neagoie ZTM — Master the Coding Interview Non-Technical Resume+Salary+STAR 4.7★ 60K students (10h) · Nov 29–Dec 2',
-      'Dec 3 (Wed): Full mock — coding + system design + behavioural · Pramp session',
-      'Dec 4 (Thu): Full mock — cold system design FPO + salary negotiation role-play',
-      'Dec 5 (Fri): Final day — FPO 90-sec pitch rehearsed · LinkedIn + Resume final · You are ready',
+      'Andrei Neagoie ZTM — Master Coding Interview Non-Technical Resume+Salary+STAR 4.7★ (10h) · Nov 29–Dec 2',
+      'Dec 3 (Wed): Full mock — coding + system design + behavioural — Pramp session',
+      'Dec 4 (Thu): Cold system design FPO + salary negotiation role-play',
+      'Dec 5 (Sun): Final day — FPO 90-sec pitch · LinkedIn + Resume final · Interview Ready',
     ],
     weekPlan: [
       {
         w: 77,
         focus: 'Non-Tech + Full Mocks',
         topics:
-          'Resume, salary, STAR stories from FPO. Then 3 cold mocks. Dec 5 = 77 weeks = DONE.',
+          'Resume, salary, STAR stories from FPO. Then 3 cold mocks. Dec 5 Sunday = 77 weeks = DONE.',
       },
     ],
   },
 ];
 
+// ── MILESTONES (all end on Sundays) ──────────────────────────────────────────
 const MILESTONES = [
   {
     day: 91,
@@ -1036,43 +1000,35 @@ const MILESTONES = [
     color: '#374151',
   },
   {
-    day: 252,
-    wk: 36,
-    date: 'Feb 21, 2027',
+    day: 259,
+    wk: 37,
+    date: 'Feb 28, 2027',
     icon: '🌱',
     label: 'Spring Boot Complete',
     color: '#16A34A',
   },
   {
-    day: 301,
-    wk: 43,
-    date: 'Apr 11, 2027',
+    day: 308,
+    wk: 44,
+    date: 'Apr 18, 2027',
     icon: '🏛',
     label: 'Microservices Complete',
     color: '#E11D48',
   },
   {
-    day: 329,
-    wk: 47,
-    date: 'May 9, 2027',
-    icon: '🐍',
-    label: 'Python Complete',
-    color: '#059669',
-  },
-  {
-    day: 364,
-    wk: 52,
-    date: 'Jun 13, 2027',
+    day: 350,
+    wk: 50,
+    date: 'May 30, 2027',
     icon: '⚙',
-    label: 'DevOps Complete · Day 364',
+    label: 'DevOps Complete',
     color: '#EA580C',
   },
   {
-    day: 399,
-    wk: 57,
-    date: 'Jul 18, 2027',
+    day: 392,
+    wk: 56,
+    date: 'Jul 11, 2027',
     icon: '🤖',
-    label: 'Agentic AI Complete · D399',
+    label: 'Agentic AI using Python Complete',
     color: '#7C3AED',
   },
   {
@@ -1080,7 +1036,7 @@ const MILESTONES = [
     wk: 63,
     date: 'Aug 29, 2027',
     icon: '🧩',
-    label: 'Java DSA Complete',
+    label: 'Java DSA + Python DSA Complete',
     color: '#6366F1',
   },
   {
@@ -1108,20 +1064,22 @@ const TOTAL_DAYS = 539,
 function daysSince() {
   return Math.max(0, Math.floor((new Date() - START) / 864e5));
 }
-function curId() {
+function curPhaseId() {
   const d = daysSince() + 1;
   for (const p of PHASES) if (d <= p.dayEnd) return p.id;
   return null;
 }
-function progPct() {
+function pct() {
   return Math.min(100, Math.round((daysSince() / TOTAL_DAYS) * 100));
 }
-function curWeek() {
+function curWk() {
   return Math.min(TOTAL_WEEKS, Math.floor(daysSince() / 7) + 1);
 }
 
+// ── CARD ──────────────────────────────────────────────────────────────────────
 function Card({ p, isOpen, onToggle, isCurrent, isDone }) {
-  const [showWks, setShowWks] = useState(false);
+  const [wkOpen, setWkOpen] = useState(false);
+  const hasPy = !!p.pythonWeek;
   return (
     <div
       id={'p' + p.id}
@@ -1147,6 +1105,7 @@ function Card({ p, isOpen, onToggle, isCurrent, isDone }) {
         transition: 'all 0.22s',
       }}
     >
+      {/* Header */}
       <button
         onClick={onToggle}
         style={{
@@ -1238,6 +1197,22 @@ function Card({ p, isOpen, onToggle, isCurrent, isDone }) {
                 ✅ DONE
               </span>
             )}
+            {hasPy && (
+              <span
+                style={{
+                  fontSize: 9,
+                  fontWeight: 800,
+                  padding: '1px 6px',
+                  borderRadius: 12,
+                  background: '#DCFCE7',
+                  color: '#047857',
+                  border: '1px solid #6EE7B7',
+                  whiteSpace: 'nowrap',
+                }}
+              >
+                🐍 {p.pythonWeek}
+              </span>
+            )}
             <span
               style={{
                 fontSize: 9,
@@ -1249,21 +1224,27 @@ function Card({ p, isOpen, onToggle, isCurrent, isDone }) {
                   p.block === 1
                     ? '#EEF2FF'
                     : p.block === 2
-                      ? '#F0FDF4'
-                      : '#FFFBEB',
+                      ? '#F5F3FF'
+                      : p.block === 3
+                        ? '#F0FDF4'
+                        : '#FFFBEB',
                 color:
                   p.block === 1
                     ? '#4338CA'
                     : p.block === 2
-                      ? '#15803D'
-                      : '#D97706',
+                      ? '#6D28D9'
+                      : p.block === 3
+                        ? '#15803D'
+                        : '#D97706',
                 border:
                   '1px solid ' +
                   (p.block === 1
                     ? '#C7D2FE'
                     : p.block === 2
-                      ? '#BBF7D0'
-                      : '#FDE68A'),
+                      ? '#DDD6FE'
+                      : p.block === 3
+                        ? '#BBF7D0'
+                        : '#FDE68A'),
               }}
             >
               W{String(p.wkStart).padStart(2, '0')}–W
@@ -1321,6 +1302,7 @@ function Card({ p, isOpen, onToggle, isCurrent, isDone }) {
         </span>
       </button>
 
+      {/* Body */}
       {isOpen && (
         <div
           style={{
@@ -1328,6 +1310,43 @@ function Card({ p, isOpen, onToggle, isCurrent, isDone }) {
             padding: '12px 14px 16px',
           }}
         >
+          {/* Python badge if embedded */}
+          {hasPy && (
+            <div
+              style={{
+                background: 'linear-gradient(90deg,#DCFCE7,#F0FDF4)',
+                border: '1px solid #86EFAC',
+                borderRadius: 9,
+                padding: '9px 12px',
+                marginBottom: 10,
+                display: 'flex',
+                alignItems: 'center',
+                gap: 8,
+              }}
+            >
+              <span style={{ fontSize: 20, flexShrink: 0 }}>🐍</span>
+              <div>
+                <div
+                  style={{ fontSize: 11, fontWeight: 800, color: '#047857' }}
+                >
+                  Python Merged into {p.pythonWeek}
+                </div>
+                <div
+                  style={{ fontSize: 10, color: '#166534', lineHeight: 1.6 }}
+                >
+                  No standalone Python phase — Python is learned in the context
+                  where you will actually use it. This week covers Python{' '}
+                  {p.id === 'devops'
+                    ? 'scripting for DevOps automation (boto3, subprocess, regex)'
+                    : p.id === 'agentic'
+                      ? 'foundations (Angela Yu Days 1–30) so you can code LangChain agents immediately after'
+                      : 'problem-solving alongside Java (Scott Barrett Java+Python LeetCode course)'}
+                  .
+                </div>
+              </div>
+            </div>
+          )}
+
           <div
             style={{
               background: p.color + '0A',
@@ -1377,17 +1396,22 @@ function Card({ p, isOpen, onToggle, isCurrent, isDone }) {
                 >
                   <span
                     style={{
-                      color: p.color,
+                      color: c.startsWith('🐍') ? p.color : p.color,
                       fontSize: 9,
                       flexShrink: 0,
                       marginTop: 2,
                       fontWeight: 700,
                     }}
                   >
-                    {i + 1}.
+                    {c.startsWith('🐍') ? '🐍' : i + 1 + '.'}
                   </span>
                   <span
-                    style={{ fontSize: 10, color: '#374151', lineHeight: 1.6 }}
+                    style={{
+                      fontSize: 10,
+                      color: c.startsWith('🐍') ? '#047857' : '#374151',
+                      lineHeight: 1.6,
+                      fontWeight: c.startsWith('🐍') ? 700 : 400,
+                    }}
                   >
                     {c}
                   </span>
@@ -1414,7 +1438,7 @@ function Card({ p, isOpen, onToggle, isCurrent, isDone }) {
               >
                 ⏰ 6:00 AM–9:00 AM · {p.hours}
               </div>
-              <div style={{ display: 'flex', gap: 8, marginBottom: 6 }}>
+              <div style={{ display: 'flex', gap: 7, marginBottom: 7 }}>
                 {[
                   ['📺', 'Course', p.courseH],
                   ['💻', 'Practice', p.practiceH],
@@ -1425,7 +1449,7 @@ function Card({ p, isOpen, onToggle, isCurrent, isDone }) {
                       flex: 1,
                       background: '#fff',
                       borderRadius: 7,
-                      padding: '6px 8px',
+                      padding: '6px 7px',
                       border: '1px solid #E2E8F0',
                       textAlign: 'center',
                     }}
@@ -1462,15 +1486,15 @@ function Card({ p, isOpen, onToggle, isCurrent, isDone }) {
             </div>
           </div>
 
-          {/* Weekly plan accordion */}
+          {/* Weekly plan */}
           <button
             onClick={(e) => {
               e.stopPropagation();
-              setShowWks(!showWks);
+              setWkOpen(!wkOpen);
             }}
             style={{
               width: '100%',
-              background: 'rgba(0,0,0,0.03)',
+              background: `${p.color}08`,
               border: `1px solid ${p.color}25`,
               borderRadius: 8,
               padding: '8px 12px',
@@ -1479,19 +1503,19 @@ function Card({ p, isOpen, onToggle, isCurrent, isDone }) {
               display: 'flex',
               justifyContent: 'space-between',
               alignItems: 'center',
-              marginBottom: showWks ? 8 : 0,
+              marginBottom: wkOpen ? 8 : 0,
             }}
           >
             <span style={{ fontSize: 10, fontWeight: 700, color: p.color }}>
-              📅 Week-by-Week Plan ({p.weekPlan.length} weeks){' '}
-              {showWks ? '▲' : '▼'}
+              📅 Week-by-Week Plan — {p.weekPlan.length} week
+              {p.weekPlan.length > 1 ? 's' : ''}
             </span>
-            <span style={{ fontSize: 9, color: '#94A3B8' }}>
-              tap to {showWks ? 'hide' : 'expand'}
+            <span style={{ fontSize: 12, color: p.color }}>
+              {wkOpen ? '▲' : '▼'}
             </span>
           </button>
 
-          {showWks && (
+          {wkOpen && (
             <div style={{ display: 'flex', flexDirection: 'column', gap: 6 }}>
               {p.weekPlan.map((wk) => (
                 <div
@@ -1500,7 +1524,11 @@ function Card({ p, isOpen, onToggle, isCurrent, isDone }) {
                     background: '#fff',
                     borderRadius: 8,
                     padding: '9px 11px',
-                    border: `1px solid ${p.color}20`,
+                    border: `1.5px solid ${wk.topics.includes('🐍') || wk.focus.includes('🐍') ? `#86EFAC` : p.color + '18'}`,
+                    background:
+                      wk.topics.includes('🐍') || wk.focus.includes('🐍')
+                        ? '#F0FDF4'
+                        : '#fff',
                     display: 'flex',
                     gap: 10,
                     alignItems: 'flex-start',
@@ -1508,11 +1536,13 @@ function Card({ p, isOpen, onToggle, isCurrent, isDone }) {
                 >
                   <div
                     style={{
-                      width: 36,
-                      height: 36,
+                      width: 38,
+                      height: 38,
                       borderRadius: 8,
-                      background: p.color + '18',
-                      color: p.color,
+                      background: wk.focus.includes('🐍')
+                        ? '#DCFCE7'
+                        : p.color + '18',
+                      color: wk.focus.includes('🐍') ? '#15803D' : p.color,
                       display: 'flex',
                       flexDirection: 'column',
                       alignItems: 'center',
@@ -1523,29 +1553,51 @@ function Card({ p, isOpen, onToggle, isCurrent, isDone }) {
                     <span
                       style={{ fontSize: 8, fontWeight: 700, lineHeight: 1 }}
                     >
-                      W
+                      {wk.focus.includes('🐍') ? '🐍' : 'W'}
                     </span>
                     <span
                       style={{ fontSize: 13, fontWeight: 900, lineHeight: 1 }}
                     >
-                      {wk.w}
+                      {wk.focus.includes('🐍') ? '' : wk.w}
                     </span>
+                    {!wk.focus.includes('🐍') && (
+                      <span
+                        style={{ fontSize: 8, fontWeight: 600, opacity: 0.6 }}
+                      >
+                        {wk.w}
+                      </span>
+                    )}
                   </div>
                   <div style={{ flex: 1, minWidth: 0 }}>
                     <div
                       style={{
-                        fontSize: 11,
-                        fontWeight: 700,
-                        color: '#0F172A',
+                        display: 'flex',
+                        gap: 5,
+                        alignItems: 'center',
                         marginBottom: 2,
                       }}
                     >
-                      {wk.focus}
+                      <span
+                        style={{
+                          fontSize: 11,
+                          fontWeight: 700,
+                          color: wk.focus.includes('🐍')
+                            ? '#047857'
+                            : '#0F172A',
+                        }}
+                      >
+                        {wk.focus}
+                      </span>
+                      {!wk.focus.includes('🐍') && (
+                        <span style={{ fontSize: 9, color: '#94A3B8' }}>
+                          W{wk.w}
+                        </span>
+                      )}
                     </div>
                     <div
                       style={{
                         fontSize: 10,
-                        color: '#64748B',
+                        color: wk.focus.includes('🐍') ? '#166534' : '#64748B',
                         lineHeight: 1.6,
                       }}
                     >
@@ -1562,13 +1614,14 @@ function Card({ p, isOpen, onToggle, isCurrent, isDone }) {
   );
 }
 
+// ── APP ───────────────────────────────────────────────────────────────────────
 export default function App() {
   const [open, setOpen] = useState(null);
   const [showMs, setShowMs] = useState(true);
   const dIn = daysSince(),
-    cId = curId(),
-    prog = progPct(),
-    wkNow = curWeek();
+    cId = curPhaseId(),
+    prog = pct(),
+    wkNow = curWk();
   const msDone = MILESTONES.filter((m) => m.day <= dIn + 1).length;
   const nextMs = MILESTONES.find((m) => m.day > dIn + 1);
   const toggle = (id) => setOpen(open === id ? null : id);
@@ -1584,7 +1637,8 @@ export default function App() {
   };
   const b1 = PHASES.filter((p) => p.block === 1),
     b2 = PHASES.filter((p) => p.block === 2),
-    b3 = PHASES.filter((p) => p.block === 3);
+    b3 = PHASES.filter((p) => p.block === 3),
+    b4 = PHASES.filter((p) => p.block === 4);
 
   return (
     <div
@@ -1624,6 +1678,7 @@ export default function App() {
             zIndex: 1,
           }}
         >
+          {/* Title */}
           <div
             style={{
               display: 'flex',
@@ -1679,16 +1734,16 @@ export default function App() {
                 }}
               >
                 Mon Jun 15, 2026 → Sun Dec 5, 2027 · 539 days · {TOTAL_HOURS}h ·
-                6:00 AM–9:00 AM · every phase ends on Sunday
+                6:00 AM–9:00 AM · every phase ends on Sunday · 🐍 Python merged
               </div>
             </div>
           </div>
 
-          {/* 3-block summary */}
+          {/* 4-block summary */}
           <div
             style={{
               display: 'grid',
-              gridTemplateColumns: 'repeat(3,1fr)',
+              gridTemplateColumns: 'repeat(2,1fr)',
               gap: 7,
               marginBottom: 14,
             }}
@@ -1697,23 +1752,31 @@ export default function App() {
               {
                 icon: '📚',
                 n: 'Block 1',
-                t: '400 Days of Code',
-                s: 'W01–W57 · Days 1–399',
-                d: 'React · RN · Next.js · Spring Boot · Microservices · Python · DevOps · Agentic AI',
+                t: '1 Year of Code',
+                s: 'W01–W50 · Days 1–350',
+                d: 'React · RN · Next.js · Spring Boot · Microservices · DevOps',
                 col: '#6366F1',
               },
               {
-                icon: '💯',
+                icon: '🤖',
                 n: 'Block 2',
-                t: '100 Days DSA + SD',
-                s: 'W58–W71 · Days 400–497',
-                d: 'Java DSA · System Design · Final Review & Mocks',
+                t: 'Agentic AI using Python',
+                s: 'W51–W56 · Days 351–392',
+                d: 'GenAI Foundations · LangChain · LangGraph · Ed Donner 8 Projects',
+                col: '#7C3AED',
+              },
+              {
+                icon: '💯',
+                n: 'Block 3',
+                t: 'DSA + System Design',
+                s: 'W57–W71 · Days 393–497',
+                d: 'Java DSA · System Design courses · Final Review & Mocks',
                 col: '#16A34A',
               },
               {
                 icon: '🎯',
-                n: 'Block 3',
-                t: 'Interview Prep',
+                n: 'Block 4',
+                t: 'Interview Preparation',
                 s: 'W72–W77 · Days 498–539',
                 d: 'Java · React+RN · Microservices · Python+AI · Mock+Polish',
                 col: '#F59E0B',
@@ -1771,58 +1834,6 @@ export default function App() {
             ))}
           </div>
 
-          {/* Stats */}
-          <div
-            style={{
-              display: 'grid',
-              gridTemplateColumns: 'repeat(3,1fr)',
-              gap: 7,
-              marginBottom: 14,
-            }}
-          >
-            {[
-              ['W' + wkNow + ' / W77', 'Current Week'],
-              ['Day ' + Math.min(dIn + 1, 539) + ' / 539', 'Current Day'],
-              [prog + '%', 'Complete'],
-              ['3h/day', '6AM–9AM'],
-              [msDone + ' / 11', 'Milestones'],
-              [nextMs ? nextMs.label.split(' ')[0] + '…' : '🏆 Done', 'Next'],
-            ].map(([v, l]) => (
-              <div
-                key={l}
-                style={{
-                  background: 'rgba(255,255,255,0.07)',
-                  borderRadius: 9,
-                  padding: '8px 8px',
-                  border: '1px solid rgba(255,255,255,0.08)',
-                  textAlign: 'center',
-                }}
-              >
-                <div
-                  style={{
-                    fontSize: 'clamp(10px,3vw,13px)',
-                    fontWeight: 900,
-                    color: '#fff',
-                    overflow: 'hidden',
-                    textOverflow: 'ellipsis',
-                    whiteSpace: 'nowrap',
-                  }}
-                >
-                  {v}
-                </div>
-                <div
-                  style={{
-                    fontSize: 9,
-                    color: 'rgba(255,255,255,0.36)',
-                    marginTop: 1,
-                  }}
-                >
-                  {l}
-                </div>
-              </div>
-            ))}
-          </div>
-
           {/* 77-week bar */}
           <div style={{ marginBottom: 10 }}>
             <div
@@ -1846,13 +1857,27 @@ export default function App() {
                         ? p.color + '70'
                         : dIn + 1 >= p.dayStart
                           ? p.color
-                          : p.color + '35',
+                          : p.color + '38',
                     borderRight: '1px solid rgba(0,0,0,0.1)',
                     transition: 'background 0.3s',
+                    position: 'relative',
                   }}
                   onClick={() => jump(p.id)}
                   title={`${p.name} · W${p.wkStart}–W${p.wkEnd}`}
-                />
+                >
+                  {p.pythonWeek && (
+                    <div
+                      style={{
+                        position: 'absolute',
+                        bottom: 0,
+                        right: 0,
+                        width: '15%',
+                        height: '100%',
+                        background: 'rgba(52,211,153,0.5)',
+                      }}
+                    />
+                  )}
+                </div>
               ))}
             </div>
             <div
@@ -1860,10 +1885,9 @@ export default function App() {
                 display: 'flex',
                 justifyContent: 'space-between',
                 marginTop: 5,
-                position: 'relative',
               }}
             >
-              {[0, 10, 20, 30, 40, 50, 60, 70, 77].map((w) => (
+              {[1, 10, 20, 30, 40, 50, 60, 70, 77].map((w) => (
                 <div
                   key={w}
                   style={{
@@ -1882,7 +1906,7 @@ export default function App() {
                   <span
                     style={{ fontSize: 8, color: 'rgba(255,255,255,0.38)' }}
                   >
-                    W{w || 1}
+                    W{w}
                   </span>
                 </div>
               ))}
@@ -1893,11 +1917,14 @@ export default function App() {
                 justifyContent: 'space-between',
                 marginTop: 2,
                 fontSize: 8,
-                color: 'rgba(255,255,255,0.3)',
+                color: 'rgba(255,255,255,0.28)',
               }}
             >
-              <span>Jun 15, 2026</span>
-              <span>Dec 5, 2027</span>
+              <span>Jun 15, 2026 (Mon)</span>
+              <span style={{ color: 'rgba(110,231,183,0.7)' }}>
+                🐍 = Python merged weeks
+              </span>
+              <span>Dec 5, 2027 (Sun)</span>
             </div>
           </div>
 
@@ -1926,7 +1953,7 @@ export default function App() {
               }}
             >
               🏆 Completion Announcements — {msDone} of {MILESTONES.length}{' '}
-              unlocked
+              unlocked · every phase ends Sunday
             </span>
             <span
               style={{
@@ -1944,7 +1971,7 @@ export default function App() {
             <div
               style={{
                 display: 'grid',
-                gridTemplateColumns: 'repeat(auto-fill,minmax(220px,1fr))',
+                gridTemplateColumns: 'repeat(auto-fill,minmax(230px,1fr))',
                 gap: 5,
               }}
             >
@@ -1991,7 +2018,7 @@ export default function App() {
                       <div
                         style={{ fontSize: 9, color: 'rgba(255,255,255,0.28)' }}
                       >
-                        W{m.wk} · Day {m.day} · {m.date}
+                        W{m.wk} · Day {m.day} · {m.date} (Sun)
                       </div>
                     </div>
                     <span
@@ -2031,26 +2058,34 @@ export default function App() {
           {
             b: 1,
             icon: '📚',
-            label: 'BLOCK 1 — 400 DAYS OF CODE',
-            sub: 'Weeks 01–57 · Days 1–399 · Jun 15 2026 → Jul 18 2027 · 8 skills',
+            label: 'BLOCK 1 — 1 Year OF CODE',
+            sub: 'Weeks 01–50 · Days 1–350 · Jun 15 2026 → May 30 2027',
             col: '#6366F1',
             phases: b1,
           },
           {
             b: 2,
-            icon: '💯',
-            label: 'BLOCK 2 — 100 DAYS DSA + SYSTEM DESIGN',
-            sub: 'Weeks 58–71 · Days 400–497 · Jul 19 → Oct 24 2027 · Java DSA + SD + Review',
-            col: '#16A34A',
+            icon: '🤖',
+            label: 'BLOCK 2 — AGENTIC AI USING PYTHON',
+            sub: 'Weeks 51–56 · Days 351–392 · May 31 → Jul 11 2027',
+            col: '#7C3AED',
             phases: b2,
           },
           {
             b: 3,
-            icon: '🎯',
-            label: 'BLOCK 3 — INTERVIEW PREPARATION',
-            sub: 'Weeks 72–77 · Days 498–539 · Oct 25 → Dec 5 2027 · 5 Role Tracks',
-            col: '#F59E0B',
+            icon: '💯',
+            label: 'BLOCK 3 — DSA + SYSTEM DESIGN',
+            sub: 'Weeks 57–71 · Days 393–497 · Jul 12 → Oct 24 2027',
+            col: '#16A34A',
             phases: b3,
+          },
+          {
+            b: 4,
+            icon: '🎯',
+            label: 'BLOCK 4 — INTERVIEW PREPARATION',
+            sub: 'Weeks 72–77 · Days 498–539 · Oct 25 → Dec 5 2027 · Last day Sunday',
+            col: '#F59E0B',
+            phases: b4,
           },
         ].map(({ b, icon, label, sub, col, phases }) => (
           <div key={b}>
@@ -2169,11 +2204,11 @@ export default function App() {
             style={{
               fontSize: 11,
               color: 'rgba(255,255,255,0.5)',
-              marginBottom: 10,
+              marginBottom: 6,
             }}
           >
-            539 days · 1,617 hours · 6:00 AM–9:00 AM · every phase ends on
-            Sunday
+            539 days · 1,617 hours · 6:00 AM–9:00 AM · every phase ends Sunday ·
+            🐍 Python merged — no wasted week
           </div>
           <div
             style={{
@@ -2197,6 +2232,9 @@ export default function App() {
                   }}
                 >
                   {m.icon} {m.label.split(' ')[0]}
+                  {m.label.includes('🐍') || m.label.includes('Python')
+                    ? ' 🐍'
+                    : ''}
                 </span>
                 {i < a.length - 1 && (
                   <span style={{ color: 'rgba(255,255,255,0.2)', fontSize: 9 }}>
