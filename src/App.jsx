@@ -1,12 +1,13 @@
 import { useState } from 'react';
 
-// ── 77 WEEKS · 539 DAYS · Mon Jun 15, 2026 → Sun Dec 5, 2027 ────────────────
+// ── 77 WEEKS · 539 DAYS · Mon Jun 15, 2026 → Sun Dec 5, 2027 ──────────────
 // 6:00 AM – 9:00 AM daily · 3h/day · 1,617h total
-// Every phase ends on a Sunday · Python merged into DevOps, Agentic AI, Java DSA
+// Every phase ends on a Sunday · 3 Blocks
+// Block 1: 52w (W01–W52) · Block 2: 17w DSA+SD (W53–W69) · Block 3: 8w Interview Prep (W70–W77)
 const START = new Date('2026-06-15');
 
 const PHASES = [
-  // ══ BLOCK 1 — 400 DAYS OF CODE (56 weeks) ════════════════════════════════
+  // ══ BLOCK 1 — 1 Year of Full Stack · 52 weeks ════════════════════════════════
   {
     id: 'react',
     block: 1,
@@ -17,7 +18,7 @@ const PHASES = [
     bg: '#F0F9FF',
     border: '#BAE6FD',
     name: 'React',
-    blockLabel: 'Block 1',
+    blockLabel: 'Block 1 ·  1 Year of Full Stack',
     weeks: 13,
     days: 91,
     dayStart: 1,
@@ -31,10 +32,10 @@ const PHASES = [
     practiceH: '156.5h',
     milestone: '⚛ React Complete',
     summary:
-      '13 weeks · 91 days · 3 courses. John Smilga primary — 50.5h, 25+ real projects (your first Udemy course). Max Schwarzmüller second angle — TypeScript, testing, Redux Toolkit deep. Hindi interview Q&A final week.',
+      '13 weeks · 91 days · 3 courses. John Smilga primary (50.5h, 25+ real projects), Max second angle (55h, TypeScript + testing), Hindi interview Q&A final week.',
     courses: [
       'John Smilga — React Tutorial & Projects Course 2025 (50.5h) ★ START HERE — 25+ real projects',
-      'Max Schwarzmüller — React The Complete Guide 2025 (55h) — second angle, TypeScript, testing',
+      'Max Schwarzmüller — React The Complete Guide 2025 (55h) — TypeScript, testing, Redux Toolkit',
       'Hindi Instructor — React Interview Masterclass 200 Q (11h) — final week interview drill',
     ],
     weekPlan: [
@@ -42,19 +43,19 @@ const PHASES = [
         w: 1,
         focus: 'Smilga: Setup + JSX',
         topics:
-          'John Smilga Course 1 — Vite, JSX, props, component patterns, NPM basics — 25+ projects begin',
+          'Vite, JSX, props, component patterns — 25+ projects begin, code along in VSCode',
       },
       {
         w: 2,
         focus: 'Smilga: State + Events',
         topics:
-          'useState, event handlers, forms, controlled inputs — Person List, City Tours, Todo projects',
+          'useState, event handlers, forms — Person List, City Tours, Todo projects',
       },
       {
         w: 3,
         focus: 'Smilga: Hooks + Data',
         topics:
-          'useEffect, fetch API, async/await — Food Recipe project, Beachwalk Resort project',
+          'useEffect, fetch API, async/await — Food Recipe project, Beachwalk Resort',
       },
       {
         w: 4,
@@ -78,43 +79,43 @@ const PHASES = [
         w: 7,
         focus: 'Smilga: Redux Toolkit',
         topics:
-          'createSlice, configureStore, RTK Query — full e-commerce state management project',
+          'createSlice, configureStore, RTK Query — full e-commerce state management',
       },
       {
         w: 8,
-        focus: 'Smilga: TypeScript + Tailwind',
+        focus: 'Smilga: TS + Tailwind',
         topics:
-          'TypeScript in React, Tailwind CSS — Smilga final projects with TS. 50.5h Smilga course complete.',
+          'TypeScript in React, Tailwind CSS — Smilga final projects. 50.5h course complete.',
       },
       {
         w: 9,
         focus: 'Max: TypeScript Deep',
         topics:
-          'Max course begins — generic components, utility types (Pick/Omit/Partial), typed hooks, strict TS',
+          'Generic components, utility types (Pick/Omit/Partial), typed hooks, strict TS',
       },
       {
         w: 10,
         focus: 'Max: Performance + Testing',
         topics:
-          'useMemo, useCallback, React.memo, lazy/Suspense, React Testing Library, Mockito',
+          'useMemo, useCallback, React.memo, lazy/Suspense, React Testing Library',
       },
       {
         w: 11,
         focus: 'Max: Advanced Patterns',
         topics:
-          'Compound components, render props, forwardRef, HOC, custom hooks library — Max course',
+          'Compound components, render props, forwardRef, HOC, custom hooks library',
       },
       {
         w: 12,
         focus: 'Max: Redux + Next.js',
         topics:
-          'Max — Redux Toolkit deep, RTK Query advanced, Next.js intro chapters, deployment',
+          'Redux Toolkit deep, RTK Query advanced, Next.js intro, deployment',
       },
       {
         w: 13,
-        focus: 'Hindi: 200 Q&A + FPO',
+        focus: 'Hindi: 200 Q&A + Revision',
         topics:
-          'Hindi Interview Masterclass — 200 React Q&A. Rebuild FPO Flight Status app from scratch. Both courses complete.',
+          'Hindi 200 React Q&A drill. Rebuild FPO Flight Status app from scratch cold.',
       },
     ],
   },
@@ -128,7 +129,7 @@ const PHASES = [
     bg: '#F5F3FF',
     border: '#DDD6FE',
     name: 'React Native',
-    blockLabel: 'Block 1',
+    blockLabel: 'Block 1 · 1 Year of Full Stack',
     weeks: 4,
     days: 28,
     dayStart: 92,
@@ -184,7 +185,7 @@ const PHASES = [
     bg: '#F9FAFB',
     border: '#D1D5DB',
     name: 'Next.js',
-    blockLabel: 'Block 1',
+    blockLabel: 'Block 1 · 1 year of Full Stack',
     weeks: 5,
     days: 35,
     dayStart: 120,
@@ -273,7 +274,7 @@ const PHASES = [
         w: 23,
         focus: 'Java 8 Fast-Track',
         topics:
-          'Lambdas, Streams, Optional, CompletableFuture — you know C#, this is fast',
+          'Lambdas, Streams, Optional, CompletableFuture — fast-track using C# background',
       },
       {
         w: 24,
@@ -343,7 +344,7 @@ const PHASES = [
         w: 35,
         focus: 'Spring Boot 4 Preview',
         topics:
-          'Spring Boot 4 / Spring 7, GraalVM native image, virtual threads (Project Loom)',
+          'Spring Boot 4 / Spring 7, GraalVM native image, virtual threads',
       },
       {
         w: 36,
@@ -378,12 +379,12 @@ const PHASES = [
     wkEnd: 45,
     startDate: 'Mar 1, 2027',
     endDate: 'Apr 25, 2027',
-    hours: '~147h',
+    hours: '~168h',
     courseH: '90h',
-    practiceH: '57h',
+    practiceH: '78h',
     milestone: '🏛 Microservices Complete',
     summary:
-      '8 weeks — MAX TIME · 56 days · 4 courses. Kafka, CQRS, Event Sourcing, Saga, K8s, Circuit Breaker. Every pattern maps to your FPO Cloud: EventBridge→Kafka, Step Functions→Saga, Lambda→Microservice.',
+      '8 weeks — MAX TIME · 56 days · 4 courses. Kafka, CQRS, Event Sourcing, Saga, K8s, Circuit Breaker. Every pattern maps to FPO Cloud: EventBridge→Kafka, Step Functions→Saga.',
     courses: [
       'Ranga Karanam — Java Spring Boot Microservices with K8s & Docker (35h)',
       'Sergey Kargopolov — Building Microservices with Spring Cloud (30h)',
@@ -429,14 +430,13 @@ const PHASES = [
       {
         w: 44,
         focus: 'K8s Deployment',
-        topics:
-          'Deploy microservices to K8s, Ingress, ConfigMaps, Secrets — hands-on with KodeKloud',
+        topics: 'Deploy microservices to K8s, Ingress, ConfigMaps, Secrets',
       },
       {
         w: 45,
         focus: 'Revision + ADR',
         topics:
-          'Rebuild one microservice from scratch. Write 1 Architecture Decision Record for Karsten. Interview Q&A drill on Kafka, CQRS, Saga.',
+          'Rebuild one microservice from scratch. Write 1 Architecture Decision Record. Interview Q&A drill.',
       },
     ],
   },
@@ -450,7 +450,7 @@ const PHASES = [
     bg: '#FFF7ED',
     border: '#FED7AA',
     name: 'DevOps',
-    blockLabel: 'Block 1',
+    blockLabel: 'Block 1 · Day 364 🏁',
     weeks: 7,
     days: 49,
     dayStart: 316,
@@ -459,13 +459,13 @@ const PHASES = [
     wkEnd: 52,
     startDate: 'Apr 26, 2027',
     endDate: 'Jun 13, 2027',
-    hours: '~126h',
+    hours: '~147h',
     courseH: '79h',
-    practiceH: '47h',
+    practiceH: '68h',
     milestone: '⚙ DevOps Complete · Day 364 · Week 52',
     pythonWeek: 'W52',
     summary:
-      '7 weeks · 49 days. DevOps courses (W46–W51) + Python scripting merged into W52. Ends Day 364, Sunday Jun 13, 2027 — end of Week 52. No standalone Python phase — learn Python automation in the context you will actually use it: DevOps scripting for FPO infrastructure.',
+      '7 weeks · 49 days. DevOps courses (W46–W51) + Python automation scripting merged into W52. Day 364 = Sunday Jun 13, 2027 — end of Block 1, end of Week 52.',
     courses: [
       'Nana Janashia TechWorld — DevOps Bootcamp (35h) · W46–W49',
       'Mumshad Mannambeth KodeKloud — The Complete DevOps Bootcamp (20h) · W49–W50',
@@ -502,242 +502,240 @@ const PHASES = [
         w: 50,
         focus: 'Monitoring + Hindi Recap',
         topics:
-          'Prometheus, Grafana, Datadog (your FPO tool), alerts. Hindi DevOps recap — Anil Dollor.',
+          'Prometheus, Grafana, Datadog (your FPO tool). Hindi DevOps recap — Anil Dollor.',
       },
       {
         w: 51,
-        focus: 'Monitoring + Observability 2',
+        focus: 'Monitoring + Observability',
         topics:
-          'Prometheus alerts, Datadog FPO dashboards deep dive, GitHub Actions advanced CI/CD pipelines',
+          'Prometheus alerts, Datadog FPO dashboards deep dive, GitHub Actions advanced pipelines',
       },
       {
         w: 52,
         focus: '🐍 Python for DevOps',
         topics:
-          'Automate the Boring Stuff: boto3 FPO Lambda lister, CloudWatch log parser, subprocess, regex log parsing, scheduling, S3 automation — Python learned in DevOps context',
+          'Automate the Boring Stuff: boto3 FPO Lambda lister, CloudWatch log parser, subprocess, regex, S3 automation scripts',
       },
     ],
   },
-  {
-    id: 'agentic',
-    block: 2,
-    seq: 7,
-    icon: '🤖',
-    color: '#7C3AED',
-    dark: '#6D28D9',
-    bg: '#F5F3FF',
-    border: '#DDD6FE',
-    name: 'Agentic AI using Python',
-    blockLabel: 'Block 2 · Agentic AI using Python',
-    weeks: 6,
-    days: 42,
-    dayStart: 365,
-    dayEnd: 406,
-    wkStart: 53,
-    wkEnd: 58,
-    startDate: 'Jun 14, 2027',
-    endDate: 'Jul 25, 2027',
-    hours: '~126h',
-    courseH: '96h',
-    practiceH: '30h',
-    milestone: '🤖 Agentic AI using Python Complete · Day 406',
-    pythonWeek: 'W53',
-    summary:
-      '6 weeks · 42 days. W51 = Python core foundations (Angela Yu), then immediately into GenAI and agents. Python learned with purpose — you need it for LangChain. Build FPO AI assistant as capstone.',
-    courses: [
-      '🐍 Dr. Angela Yu — 100 Days of Code Python Bootcamp Days 1–30 (22h) · W51 only',
-      'Dr. Frank Kane — ChatGPT + Generative AI Masterclass 2026 (22h) · W52',
-      'Ed Donner — Complete Agentic AI Engineering Course 2026 (30h) · W53–W55',
-      'Eden Marco — LangChain Develop LLM Powered Applications (22h) · W55–W56',
-    ],
-    weekPlan: [
-      {
-        w: 53,
-        focus: '🐍 Python Foundations',
-        topics:
-          'Angela Yu Days 1–30: variables, OOP, file I/O, exceptions, type hints. Fast-track using your C# background — 1 week is enough to code Python for AI.',
-      },
-      {
-        w: 54,
-        focus: 'GenAI Foundations',
-        topics:
-          'LLMs, embeddings, RAG, prompt engineering (CoT, ReAct), AWS Bedrock — Frank Kane. GenAI concepts land fast now you know Python.',
-      },
-      {
-        w: 55,
-        focus: 'LangChain Core',
-        topics:
-          'Chains, agents, tools, memory, LCEL, vector databases (Pinecone, FAISS) — Eden Marco',
-      },
-      {
-        w: 56,
-        focus: 'LangGraph + Multi-Agent',
-        topics:
-          'State machines, conditional edges, multi-agent orchestration, ReAct + Reflection patterns',
-      },
-      {
-        w: 57,
-        focus: 'Ed Donner Projects 1',
-        topics:
-          'Career Digital Twin, Deep Research agent, SDR Agent — 8 real production projects',
-      },
-      {
-        w: 58,
-        focus: 'Ed Donner Projects 2 + FPO AI',
-        topics:
-          'Engineering Team in Docker, Browser Agent, MCP. Build FPO AI Assistant: natural language query over flight data.',
-      },
-    ],
-  },
-  // ══ BLOCK 2 — 100 DAYS DSA + SYSTEM DESIGN (15 weeks) ═══════════════════
+  // ══ BLOCK 2 — DSA + SYSTEM DESIGN · 17 weeks ═════════════════════════════
   {
     id: 'dsa',
-    block: 3,
-    seq: 8,
+    block: 2,
+    seq: 7,
     icon: '🧩',
     color: '#6366F1',
     dark: '#4338CA',
     bg: '#EEF2FF',
     border: '#C7D2FE',
-    name: 'Java DSA + Python DSA',
-    blockLabel: 'Block 3 · DSA + System Design',
-    weeks: 7,
-    days: 49,
-    dayStart: 407,
-    dayEnd: 455,
-    wkStart: 59,
-    wkEnd: 65,
-    startDate: 'Jul 26, 2027',
-    endDate: 'Sep 12, 2027',
-    hours: '~147h',
+    name: 'Java DSA',
+    blockLabel: 'Block 2 · DSA + System Design',
+    weeks: 9,
+    days: 63,
+    dayStart: 365,
+    dayEnd: 427,
+    wkStart: 53,
+    wkEnd: 61,
+    startDate: 'Jun 14, 2027',
+    endDate: 'Aug 15, 2027',
+    hours: '~189h',
     courseH: '99h',
-    practiceH: '48h',
-    milestone: '🧩 Java DSA Complete · Day 455',
-    pythonWeek: 'W59',
+    practiceH: '90h',
+    milestone: '🧩 Java DSA Complete · Day 427',
+    pythonWeek: 'W53',
     summary:
-      "7 weeks · 49 days. W57 = Scott Barrett's Java+Python DSA course (solves problems in both languages side by side). W58–W63 = Java-primary DSA courses. Python problem-solving skills built naturally alongside Java.",
+      '9 weeks · 63 days. W53 = Scott Barrett Java+Python DSA (both languages side by side). W54–W61 = deep Java DSA with 4 courses. 6 weeks from the removed Agentic AI phase give extra depth here.',
     courses: [
-      '🐍 Scott Barrett 4.8★ — Java Data Structures & Algorithms + LeetCode (10h) · W57 — Java + Python side by side',
-      'Andrei Neagoie ZTM — Master the Coding Interview DS + Algorithms (20h) · W58–W60',
-      'Tim Buchalka 112K — DS & Algorithms Deep Dive Using Java (16h) · W60–W61',
-      'Elshad Karimov — Java DS & Algorithms Masterclass 45h (45h) · W61–W63',
-      'Andrei Neagoie ZTM — Master Coding Interview Big Tech FAANG (8h) · W63',
+      '🐍 Scott Barrett 4.8★ — Java DS & Algorithms + LeetCode (10h) · W53 — Java + Python side by side',
+      'Andrei Neagoie ZTM — Master the Coding Interview DS + Algorithms (20h) · W54–W56',
+      'Tim Buchalka 112K — DS & Algorithms Deep Dive Using Java (16h) · W56–W58',
+      'Elshad Karimov — Java DS & Algorithms Masterclass (45h) · W58–W62',
+      'Andrei Neagoie ZTM — Master Coding Interview Big Tech FAANG (8h) · W61',
     ],
     weekPlan: [
       {
-        w: 59,
+        w: 53,
         focus: '🐍 Python + Java DSA',
         topics:
-          'Scott Barrett Java+LeetCode course: solves every problem in both Java and Python. Big O, Arrays, Hash Maps, Linked Lists — two languages simultaneously.',
+          'Scott Barrett Java+LeetCode: Big O, Arrays, Hash Maps, Linked Lists — problems in Java AND Python',
       },
       {
-        w: 60,
+        w: 54,
         focus: 'Trees + BST in Java',
         topics:
-          'DFS preorder/inorder/postorder, BFS level-order, BST insert/delete/validate — all in Java',
+          'DFS preorder/inorder/postorder, BFS level-order, BST insert/delete/validate in Java',
       },
       {
-        w: 61,
-        focus: 'Heaps + Graphs in Java',
+        w: 55,
+        focus: 'Heaps + Priority Queues',
         topics:
-          'Java PriorityQueue, Top-K patterns, BFS/DFS on graphs, topological sort, Union-Find',
+          'Java PriorityQueue, Top-K patterns, merge K lists, find median from data stream',
       },
       {
-        w: 62,
+        w: 56,
+        focus: 'Graphs in Java',
+        topics:
+          'BFS/DFS on graphs, topological sort, Union-Find, Dijkstra — Java adjacency list',
+      },
+      {
+        w: 57,
         focus: 'Sorting + Searching',
         topics:
-          'All sorting algorithms in Java — QuickSort, MergeSort, HeapSort — with complexity proofs',
+          'All sorting algorithms in Java — QuickSort, MergeSort — with complexity proofs',
       },
       {
-        w: 63,
+        w: 58,
         focus: 'DP Foundations',
         topics:
           '1D DP: coin change, house robber, jump game. Top-down memoisation in Java.',
       },
       {
-        w: 64,
-        focus: 'Advanced DP + Backtracking',
-        topics:
-          '2D DP, interval DP, backtracking N-Queens, Sudoku — Java solutions',
+        w: 59,
+        focus: 'Advanced DP',
+        topics: '2D DP, interval DP, LCS, edit distance — Java solutions',
       },
       {
-        w: 65,
+        w: 60,
+        focus: 'Backtracking + Tries',
+        topics:
+          'N-Queens, Sudoku, word search — Trie implementation and problems in Java',
+      },
+      {
+        w: 61,
         focus: 'FAANG Hard + Revision',
         topics:
-          'Hard graph, advanced DP — FAANG course. Rebuild 3 structures from scratch cold.',
+          'Hard graph, advanced DP from FAANG course. Rebuild 3 structures from scratch cold.',
       },
     ],
   },
   {
     id: 'sd',
-    block: 3,
-    seq: 9,
+    block: 2,
+    seq: 8,
     icon: '🏗',
     color: '#16A34A',
     dark: '#15803D',
     bg: '#F0FDF4',
     border: '#BBF7D0',
     name: 'System Design',
-    blockLabel: 'Block 3',
-    weeks: 4,
-    days: 28,
-    dayStart: 456,
-    dayEnd: 483,
-    wkStart: 66,
-    wkEnd: 69,
-    startDate: 'Sep 13, 2027',
-    endDate: 'Oct 10, 2027',
-    hours: '~84h',
+    blockLabel: 'Block 2 · DSA + System Design',
+    weeks: 5,
+    days: 35,
+    dayStart: 428,
+    dayEnd: 462,
+    wkStart: 62,
+    wkEnd: 66,
+    startDate: 'Aug 16, 2027',
+    endDate: 'Sep 19, 2027',
+    hours: '~105h',
     courseH: '63h',
-    practiceH: '21h',
-    milestone: '🏗 System Design Complete · Day 483',
+    practiceH: '42h',
+    milestone: '🏗 System Design Complete · Day 462',
     summary:
-      '4 weeks · 28 days · 5 courses. Design 1 system from scratch each day spoken aloud. FPO IS a system design answer — multi-tenant SaaS, Lambda microservices, DynamoDB at scale.',
+      '5 weeks · 35 days · 5 courses. Design 1 system from scratch each day spoken aloud. The extra week from Agentic AI gives deeper coverage of advanced distributed system designs.',
     courses: [
-      'Frank Kane ex-Amazon — Mastering the System Design Interview (5h) · W66',
-      'Michael Pogrebinsky 93K — Software Architecture Modern Large Scale Systems (20h) · W66–W67',
-      'Mikhail Smarshchok — System Design Interview Guide 20+ designs (18h) · W67–W68',
-      'Bogdan Stashchuk — Pragmatic System Design real trade-offs (12h) · W68–W69',
-      'FAANG Insiders — System Design Masterclass 2026 (8h) · W69',
+      'Frank Kane ex-Amazon — Mastering the System Design Interview (5h) · W62',
+      'Michael Pogrebinsky 93K — Software Architecture Modern Large Scale Systems (20h) · W62–W63',
+      'Mikhail Smarshchok — System Design Interview Guide 20+ designs (18h) · W63–W65',
+      'Bogdan Stashchuk — Pragmatic System Design real trade-offs (12h) · W65–W66',
+      'FAANG Insiders — System Design Masterclass 2026 (8h) · W66',
     ],
     weekPlan: [
       {
-        w: 66,
+        w: 62,
         focus: 'SD Framework + Architecture',
         topics:
           'Frank Kane 5-step template. CQRS, Event Sourcing, Saga, API Gateway — all maps to FPO',
       },
       {
-        w: 67,
+        w: 63,
         focus: 'Classic Designs 1',
         topics:
           'URL Shortener, WhatsApp, Twitter — Requirements→Estimation→HLD→DB→API each day',
       },
       {
-        w: 68,
+        w: 64,
         focus: 'Classic Designs 2',
         topics:
           'Netflix, Uber, Notification System, Rate Limiter — 45 min each spoken aloud, cold',
       },
       {
-        w: 69,
+        w: 65,
         focus: 'Advanced + FPO Design',
         topics:
-          'Payment System, FPO Flight Optimiser (your system!), Distributed Cache, Leaderboard',
+          'Payment System, FPO Flight Optimiser, Distributed Cache — trade-off discussion',
+      },
+      {
+        w: 66,
+        focus: 'FAANG SD + Revision',
+        topics:
+          'FAANG Insiders template — YouTube, Newsfeed, WhatsApp. Revise weakest designs.',
       },
     ],
   },
   {
     id: 'review',
-    block: 3,
-    seq: 10,
+    block: 2,
+    seq: 9,
     icon: '🏁',
     color: '#F59E0B',
     dark: '#D97706',
     bg: '#FFFBEB',
     border: '#FDE68A',
     name: 'DSA + SD Review',
-    blockLabel: 'Block 3 · Final Review',
+    blockLabel: 'Block 2 · Final Review',
+    weeks: 3,
+    days: 21,
+    dayStart: 463,
+    dayEnd: 483,
+    wkStart: 67,
+    wkEnd: 69,
+    startDate: 'Sep 20, 2027',
+    endDate: 'Oct 10, 2027',
+    hours: '~63h',
+    courseH: '0h',
+    practiceH: '63h',
+    milestone: '🏁 DSA + SD Review Complete',
+    summary:
+      '3 weeks · 21 days · pure practice. Rebuild Java data structures cold, system design mocks spoken aloud, Pramp peer sessions, resume polish and FPO pitch rehearsal.',
+    courses: [
+      'W67: DSA Revision — rebuild Heap, Dijkstra, Trie, AVL Tree, LRU Cache in Java cold — no reference',
+      'W68: System Design mocks — 7 designs spoken 45 min each, paper diagram first (Twitter, Netflix, Uber, FPO…)',
+      'W69: Pramp.com peer mocks + weak-spot drill + Resume polish + FPO 90-sec pitch rehearsal cold',
+    ],
+    weekPlan: [
+      {
+        w: 67,
+        focus: 'DSA Revision in Java',
+        topics:
+          'Rebuild 5 structures cold: Heap, Graph+Dijkstra, Trie, AVL Tree, LRU Cache — no reference',
+      },
+      {
+        w: 68,
+        focus: 'System Design Mocks',
+        topics:
+          'Twitter, Netflix, Uber, FPO, Payment System — 45 min each spoken, paper diagram first',
+      },
+      {
+        w: 69,
+        focus: 'Pramp + Final Polish',
+        topics:
+          'Pramp.com 3 peer sessions. Weak-spot drill. Resume quantified bullets. FPO pitch 90-sec cold.',
+      },
+    ],
+  },
+  // ══ BLOCK 3 — INTERVIEW PREPARATION · 8 weeks ════════════════════════════
+  {
+    id: 'int_java',
+    block: 3,
+    seq: 10,
+    icon: '☕',
+    color: '#16A34A',
+    dark: '#15803D',
+    bg: '#F0FDF4',
+    border: '#BBF7D0',
+    name: 'Java + Spring Interview',
+    blockLabel: 'Block 3 · Interview Prep',
     weeks: 2,
     days: 14,
     dayStart: 484,
@@ -746,51 +744,6 @@ const PHASES = [
     wkEnd: 71,
     startDate: 'Oct 11, 2027',
     endDate: 'Oct 24, 2027',
-    hours: '~84h',
-    courseH: '0h',
-    practiceH: '84h',
-    milestone: '🏁 100-Day Review Complete',
-    summary:
-      '2 weeks · 14 days · pure practice. No new courses. DSA revision in Java, system design mocks, Pramp peer sessions, weak-spot drilling, resume polish.',
-    courses: [
-      'W70: DSA Revision — rebuild Heap, Dijkstra, Trie, AVL Tree, LRU Cache in Java cold',
-      'W71: System Design mocks + Pramp.com peer sessions + Resume polish + FPO 90-sec pitch cold',
-    ],
-    weekPlan: [
-      {
-        w: 70,
-        focus: 'DSA Revision in Java',
-        topics:
-          'Rebuild 5 structures cold: Heap, Graph+Dijkstra, Trie, AVL Tree, LRU Cache — no reference',
-      },
-      {
-        w: 71,
-        focus: 'System Design Mocks + Final Polish',
-        topics:
-          'Twitter, Netflix, Uber, FPO, Payment System — 45 min each spoken, paper diagram first',
-      },
-    ],
-  },
-  // ══ BLOCK 3 — INTERVIEW PREPARATION (6 weeks) ════════════════════════════
-  {
-    id: 'int_java',
-    block: 4,
-    seq: 11,
-    icon: '☕',
-    color: '#16A34A',
-    dark: '#15803D',
-    bg: '#F0FDF4',
-    border: '#BBF7D0',
-    name: 'Java + Spring Interview',
-    blockLabel: 'Block 4 · Interview Prep',
-    weeks: 2,
-    days: 14,
-    dayStart: 498,
-    dayEnd: 511,
-    wkStart: 72,
-    wkEnd: 73,
-    startDate: 'Oct 25, 2027',
-    endDate: 'Nov 7, 2027',
     hours: '~42h',
     courseH: '33h',
     practiceH: '9h',
@@ -798,19 +751,19 @@ const PHASES = [
     summary:
       '2 weeks · 14 days · 3 courses · 600+ Java+Spring Q&A. Write every code answer from memory. 30 questions per morning as warm-up.',
     courses: [
-      'Ranga Karanam in28minutes — Java Programming Interview Guide 200+ Q&A 4.5★ (10h) · W72',
-      'Ranga Karanam in28minutes — Spring & Spring Boot Interview Guide 200+ Q&A 4.5★ (10h) · W72–W73',
-      'Happy Rawat — Java Interview Masterclass 350 Questions 2026 +PDF 4.6★ (13h) · W73',
+      'Ranga Karanam in28minutes — Java Programming Interview Guide 200+ Q&A 4.5★ 80K students (10h) · W70',
+      'Ranga Karanam in28minutes — Spring & Spring Boot Interview Guide 200+ Q&A 4.5★ 60K students (10h) · W70–W71',
+      'Happy Rawat — Java Interview Masterclass 350 Questions 2026 +PDF 4.6★ 3K students (13h) · W71',
     ],
     weekPlan: [
       {
-        w: 72,
+        w: 70,
         focus: 'Java + Spring 400 Q',
         topics:
           'Java 200 Q then Spring 200 Q — OOP, Streams, Collections, IoC, JPA, AOP, @Transactional',
       },
       {
-        w: 73,
+        w: 71,
         focus: '350 Q Masterclass',
         topics:
           'Happy Rawat 350 Q — Core Java, Multithreading, Design Patterns, Spring Security, Microservices',
@@ -819,23 +772,23 @@ const PHASES = [
   },
   {
     id: 'int_react',
-    block: 4,
-    seq: 12,
+    block: 3,
+    seq: 11,
     icon: '⚛',
     color: '#0EA5E9',
     dark: '#0369A1',
     bg: '#F0F9FF',
     border: '#BAE6FD',
     name: 'React + RN Interview',
-    blockLabel: 'Block 4 · Interview Prep',
+    blockLabel: 'Block 3 · Interview Prep',
     weeks: 1,
     days: 7,
-    dayStart: 512,
-    dayEnd: 518,
-    wkStart: 74,
-    wkEnd: 74,
-    startDate: 'Nov 8, 2027',
-    endDate: 'Nov 14, 2027',
+    dayStart: 498,
+    dayEnd: 504,
+    wkStart: 72,
+    wkEnd: 72,
+    startDate: 'Oct 25, 2027',
+    endDate: 'Oct 31, 2027',
     hours: '~21h',
     courseH: '15h',
     practiceH: '6h',
@@ -848,44 +801,44 @@ const PHASES = [
     ],
     weekPlan: [
       {
-        w: 74,
+        w: 72,
         focus: 'React + RN 200 Q',
         topics:
-          'Virtual DOM, reconciliation, fiber, hooks rules, useMemo vs useCallback, TS patterns, RN differences',
+          'Virtual DOM, reconciliation, fiber, hooks rules, useMemo vs useCallback, TypeScript, RN differences',
       },
     ],
   },
   {
     id: 'int_micro',
-    block: 4,
-    seq: 13,
+    block: 3,
+    seq: 12,
     icon: '🏛',
     color: '#E11D48',
     dark: '#BE123C',
     bg: '#FFF1F2',
     border: '#FECDD3',
     name: 'Microservices Interview',
-    blockLabel: 'Block 4 · Interview Prep',
+    blockLabel: 'Block 3 · Interview Prep',
     weeks: 1,
     days: 7,
-    dayStart: 519,
-    dayEnd: 525,
-    wkStart: 75,
-    wkEnd: 75,
-    startDate: 'Nov 15, 2027',
-    endDate: 'Nov 21, 2027',
+    dayStart: 505,
+    dayEnd: 511,
+    wkStart: 73,
+    wkEnd: 73,
+    startDate: 'Nov 1, 2027',
+    endDate: 'Nov 7, 2027',
     hours: '~21h',
     courseH: '18h',
     practiceH: '3h',
     milestone: null,
     summary:
-      "1 week · 7 days. Chad Darby's comprehensive Java+Spring Boot+Microservices+DevOps+Cloud interview course — full-picture Q&A including Docker, K8s, CI/CD, AWS.",
+      "1 week · 7 days. Chad Darby's comprehensive Java+Spring Boot+Microservices+DevOps+Cloud interview course — full-picture Q&A.",
     courses: [
       'Chad Darby — Java Interview Help: Java Spring Boot Microservices DevOps Cloud 4.6★ 30K students (18h)',
     ],
     weekPlan: [
       {
-        w: 75,
+        w: 73,
         focus: 'Microservices Full Q&A',
         topics:
           'Kafka, Circuit Breaker, Saga, CQRS, K8s, Docker, AWS, CI/CD — all Q&A coded on whiteboard',
@@ -894,23 +847,23 @@ const PHASES = [
   },
   {
     id: 'int_python',
-    block: 4,
-    seq: 14,
+    block: 3,
+    seq: 13,
     icon: '🤖',
     color: '#7C3AED',
     dark: '#6D28D9',
     bg: '#F5F3FF',
     border: '#DDD6FE',
     name: 'Python + AI Interview',
-    blockLabel: 'Block 4 · Interview Prep',
+    blockLabel: 'Block 3 · Interview Prep',
     weeks: 1,
     days: 7,
-    dayStart: 526,
-    dayEnd: 532,
-    wkStart: 76,
-    wkEnd: 76,
-    startDate: 'Nov 22, 2027',
-    endDate: 'Nov 28, 2027',
+    dayStart: 512,
+    dayEnd: 518,
+    wkStart: 74,
+    wkEnd: 74,
+    startDate: 'Nov 8, 2027',
+    endDate: 'Nov 14, 2027',
     hours: '~21h',
     courseH: '18h',
     practiceH: '3h',
@@ -923,7 +876,7 @@ const PHASES = [
     ],
     weekPlan: [
       {
-        w: 76,
+        w: 74,
         focus: 'Python + AI Q&A',
         topics:
           'RAG, LangGraph agents, MCP, OOP, decorators, generators, async — explain each out loud',
@@ -932,47 +885,57 @@ const PHASES = [
   },
   {
     id: 'int_mock',
-    block: 4,
-    seq: 15,
+    block: 3,
+    seq: 14,
     icon: '🎯',
     color: '#F59E0B',
     dark: '#D97706',
     bg: '#FFFBEB',
     border: '#FDE68A',
     name: 'Mock + Final Polish',
-    blockLabel: 'Block 4 · Week 77 · FINAL',
-    weeks: 1,
-    days: 7,
-    dayStart: 533,
+    blockLabel: 'Block 3 · Week 77 · FINAL',
+    weeks: 3,
+    days: 21,
+    dayStart: 519,
     dayEnd: 539,
-    wkStart: 77,
+    wkStart: 75,
     wkEnd: 77,
-    startDate: 'Nov 29, 2027',
+    startDate: 'Nov 15, 2027',
     endDate: 'Dec 5, 2027',
-    hours: '~21h',
+    hours: '~63h',
     courseH: '10h',
-    practiceH: '11h',
+    practiceH: '53h',
     milestone: '🎯 Interview Prep Complete · Week 77 · Dec 5, 2027',
     summary:
-      'Final week · 7 days. Non-technical interview mastery Mon–Thu, then 3 days of pure mock interview simulation. Last day is Sunday Dec 5, 2027 — end of 77 weeks.',
+      'Final 3 weeks — W75–W77. Non-technical course (W75) then 2 full weeks of mock interview simulation. Every day is a mock. Last day Sunday Dec 5, 2027 — end of 77 weeks.',
     courses: [
-      'Andrei Neagoie ZTM — Master Coding Interview Non-Technical Resume+Salary+STAR 4.7★ (10h) · Nov 29–Dec 2',
-      'Dec 3 (Wed): Full mock — coding + system design + behavioural — Pramp session',
-      'Dec 4 (Thu): Cold system design FPO + salary negotiation role-play',
-      'Dec 5 (Sun): Final day — FPO 90-sec pitch · LinkedIn + Resume final · Interview Ready',
+      'Andrei Neagoie ZTM — Master Coding Interview Non-Technical Resume+Salary+STAR 4.7★ (10h) · W75',
+      'W76: Full mock week — coding + system design + behavioural every day — Pramp sessions',
+      'W77: Final mock week — cold system design FPO + salary negotiation + interview-ready day Dec 5',
     ],
     weekPlan: [
       {
-        w: 77,
-        focus: 'Non-Tech + Full Mocks',
+        w: 75,
+        focus: 'Non-Tech Mastery',
         topics:
-          'Resume, salary, STAR stories from FPO. Then 3 cold mocks. Dec 5 Sunday = 77 weeks = DONE.',
+          'Resume, salary negotiation, STAR stories from FPO. Andrei Non-Technical course.',
+      },
+      {
+        w: 76,
+        focus: 'Mock Interview Week 1',
+        topics:
+          'Pramp.com sessions daily. 2 coding mocks (45 min each) + 1 system design mock (45 min) per day.',
+      },
+      {
+        w: 77,
+        focus: 'Mock Interview Week 2',
+        topics:
+          'Final cold mocks. FPO 90-sec pitch rehearsed. LinkedIn headline final. Dec 5 Sunday = 77 weeks = DONE.',
       },
     ],
   },
 ];
 
-// ── MILESTONES (all end on Sundays) ──────────────────────────────────────────
 const MILESTONES = [
   {
     day: 91,
@@ -1019,29 +982,21 @@ const MILESTONES = [
     wk: 52,
     date: 'Jun 13, 2027',
     icon: '⚙',
-    label: 'DevOps Complete · Day 364 · W52',
+    label: 'DevOps Complete · Day 364 · Week 52',
     color: '#EA580C',
   },
   {
-    day: 406,
-    wk: 58,
-    date: 'Jul 25, 2027',
-    icon: '🤖',
-    label: 'Agentic AI using Python Complete',
-    color: '#7C3AED',
-  },
-  {
-    day: 455,
-    wk: 65,
-    date: 'Sep 12, 2027',
+    day: 427,
+    wk: 61,
+    date: 'Aug 15, 2027',
     icon: '🧩',
-    label: 'Java DSA + Python DSA Complete',
+    label: 'Java DSA Complete',
     color: '#6366F1',
   },
   {
-    day: 483,
-    wk: 69,
-    date: 'Oct 10, 2027',
+    day: 462,
+    wk: 66,
+    date: 'Sep 19, 2027',
     icon: '🏗',
     label: 'System Design Complete',
     color: '#16A34A',
@@ -1075,7 +1030,6 @@ function curWk() {
   return Math.min(TOTAL_WEEKS, Math.floor(daysSince() / 7) + 1);
 }
 
-// ── CARD ──────────────────────────────────────────────────────────────────────
 function Card({ p, isOpen, onToggle, isCurrent, isDone }) {
   const [wkOpen, setWkOpen] = useState(false);
   const hasPy = !!p.pythonWeek;
@@ -1104,7 +1058,6 @@ function Card({ p, isOpen, onToggle, isCurrent, isDone }) {
         transition: 'all 0.22s',
       }}
     >
-      {/* Header */}
       <button
         onClick={onToggle}
         style={{
@@ -1154,7 +1107,6 @@ function Card({ p, isOpen, onToggle, isCurrent, isDone }) {
             #{p.seq}
           </span>
         </div>
-
         <div style={{ flex: 1, minWidth: 0 }}>
           <div
             style={{
@@ -1223,27 +1175,21 @@ function Card({ p, isOpen, onToggle, isCurrent, isDone }) {
                   p.block === 1
                     ? '#EEF2FF'
                     : p.block === 2
-                      ? '#F5F3FF'
-                      : p.block === 3
-                        ? '#F0FDF4'
-                        : '#FFFBEB',
+                      ? '#F0FDF4'
+                      : '#FFFBEB',
                 color:
                   p.block === 1
                     ? '#4338CA'
                     : p.block === 2
-                      ? '#6D28D9'
-                      : p.block === 3
-                        ? '#15803D'
-                        : '#D97706',
+                      ? '#15803D'
+                      : '#D97706',
                 border:
                   '1px solid ' +
                   (p.block === 1
                     ? '#C7D2FE'
                     : p.block === 2
-                      ? '#DDD6FE'
-                      : p.block === 3
-                        ? '#BBF7D0'
-                        : '#FDE68A'),
+                      ? '#BBF7D0'
+                      : '#FDE68A'),
               }}
             >
               W{String(p.wkStart).padStart(2, '0')}–W
@@ -1268,7 +1214,6 @@ function Card({ p, isOpen, onToggle, isCurrent, isDone }) {
             </div>
           )}
         </div>
-
         <div style={{ textAlign: 'right', flexShrink: 0 }}>
           <div
             style={{
@@ -1286,7 +1231,6 @@ function Card({ p, isOpen, onToggle, isCurrent, isDone }) {
           </div>
           <div style={{ fontSize: 9, color: '#94A3B8' }}>{p.days}d</div>
         </div>
-
         <span
           style={{
             color: p.color,
@@ -1300,8 +1244,6 @@ function Card({ p, isOpen, onToggle, isCurrent, isDone }) {
           ›
         </span>
       </button>
-
-      {/* Body */}
       {isOpen && (
         <div
           style={{
@@ -1309,7 +1251,6 @@ function Card({ p, isOpen, onToggle, isCurrent, isDone }) {
             padding: '12px 14px 16px',
           }}
         >
-          {/* Python badge if embedded */}
           {hasPy && (
             <div
               style={{
@@ -1323,7 +1264,7 @@ function Card({ p, isOpen, onToggle, isCurrent, isDone }) {
                 gap: 8,
               }}
             >
-              <span style={{ fontSize: 20, flexShrink: 0 }}>🐍</span>
+              <span style={{ fontSize: 18, flexShrink: 0 }}>🐍</span>
               <div>
                 <div
                   style={{ fontSize: 11, fontWeight: 800, color: '#047857' }}
@@ -1333,19 +1274,13 @@ function Card({ p, isOpen, onToggle, isCurrent, isDone }) {
                 <div
                   style={{ fontSize: 10, color: '#166534', lineHeight: 1.6 }}
                 >
-                  No standalone Python phase — Python is learned in the context
-                  where you will actually use it. This week covers Python{' '}
                   {p.id === 'devops'
-                    ? 'scripting for DevOps automation (boto3, subprocess, regex)'
-                    : p.id === 'agentic'
-                      ? 'foundations (Angela Yu Days 1–30) so you can code LangChain agents immediately after'
-                      : 'problem-solving alongside Java (Scott Barrett Java+Python LeetCode course)'}
-                  .
+                    ? 'Python automation scripting (boto3, subprocess, log parsing) — learned in DevOps context where you will actually use it.'
+                    : 'Python problem-solving alongside Java (Scott Barrett Java+Python LeetCode course) — both languages simultaneously.'}
                 </div>
               </div>
             </div>
           )}
-
           <div
             style={{
               background: p.color + '0A',
@@ -1360,7 +1295,6 @@ function Card({ p, isOpen, onToggle, isCurrent, isDone }) {
           >
             {p.summary}
           </div>
-
           <div
             style={{
               display: 'grid',
@@ -1395,7 +1329,7 @@ function Card({ p, isOpen, onToggle, isCurrent, isDone }) {
                 >
                   <span
                     style={{
-                      color: c.startsWith('🐍') ? p.color : p.color,
+                      color: p.color,
                       fontSize: 9,
                       flexShrink: 0,
                       marginTop: 2,
@@ -1417,7 +1351,6 @@ function Card({ p, isOpen, onToggle, isCurrent, isDone }) {
                 </div>
               ))}
             </div>
-
             <div
               style={{
                 background: '#F8FAFF',
@@ -1484,8 +1417,6 @@ function Card({ p, isOpen, onToggle, isCurrent, isDone }) {
               )}
             </div>
           </div>
-
-          {/* Weekly plan */}
           <button
             onClick={(e) => {
               e.stopPropagation();
@@ -1513,21 +1444,16 @@ function Card({ p, isOpen, onToggle, isCurrent, isDone }) {
               {wkOpen ? '▲' : '▼'}
             </span>
           </button>
-
           {wkOpen && (
             <div style={{ display: 'flex', flexDirection: 'column', gap: 6 }}>
               {p.weekPlan.map((wk) => (
                 <div
                   key={wk.w}
                   style={{
-                    background: '#fff',
+                    background: wk.focus.includes('🐍') ? '#F0FDF4' : '#fff',
                     borderRadius: 8,
                     padding: '9px 11px',
-                    border: `1.5px solid ${wk.topics.includes('🐍') || wk.focus.includes('🐍') ? `#86EFAC` : p.color + '18'}`,
-                    background:
-                      wk.topics.includes('🐍') || wk.focus.includes('🐍')
-                        ? '#F0FDF4'
-                        : '#fff',
+                    border: `1.5px solid ${wk.focus.includes('🐍') ? '#86EFAC' : p.color + '18'}`,
                     display: 'flex',
                     gap: 10,
                     alignItems: 'flex-start',
@@ -1555,13 +1481,18 @@ function Card({ p, isOpen, onToggle, isCurrent, isDone }) {
                       {wk.focus.includes('🐍') ? '🐍' : 'W'}
                     </span>
                     <span
-                      style={{ fontSize: 13, fontWeight: 900, lineHeight: 1 }}
+                      style={{ fontSize: 12, fontWeight: 900, lineHeight: 1 }}
                     >
                       {wk.focus.includes('🐍') ? '' : wk.w}
                     </span>
                     {!wk.focus.includes('🐍') && (
                       <span
-                        style={{ fontSize: 8, fontWeight: 600, opacity: 0.6 }}
+                        style={{
+                          fontSize: 8,
+                          fontWeight: 600,
+                          opacity: 0.6,
+                          lineHeight: 1,
+                        }}
                       >
                         {wk.w}
                       </span>
@@ -1613,7 +1544,6 @@ function Card({ p, isOpen, onToggle, isCurrent, isDone }) {
   );
 }
 
-// ── APP ───────────────────────────────────────────────────────────────────────
 export default function App() {
   const [open, setOpen] = useState(null);
   const [showMs, setShowMs] = useState(true);
@@ -1636,8 +1566,7 @@ export default function App() {
   };
   const b1 = PHASES.filter((p) => p.block === 1),
     b2 = PHASES.filter((p) => p.block === 2),
-    b3 = PHASES.filter((p) => p.block === 3),
-    b4 = PHASES.filter((p) => p.block === 4);
+    b3 = PHASES.filter((p) => p.block === 3);
 
   return (
     <div
@@ -1649,7 +1578,6 @@ export default function App() {
         overflowX: 'hidden',
       }}
     >
-      {/* HERO */}
       <div
         style={{
           background:
@@ -1677,7 +1605,6 @@ export default function App() {
             zIndex: 1,
           }}
         >
-          {/* Title */}
           <div
             style={{
               display: 'flex',
@@ -1723,7 +1650,7 @@ export default function App() {
                   lineHeight: 1.1,
                 }}
               >
-                77 Weeks Of Code
+                77 Weeks Coding Journey
               </div>
               <div
                 style={{
@@ -1733,16 +1660,14 @@ export default function App() {
                 }}
               >
                 Mon Jun 15, 2026 → Sun Dec 5, 2027 · 539 days · {TOTAL_HOURS}h ·
-                6:00 AM–9:00 AM · every phase ends on Sunday · 🐍 Python merged
+                6:00 AM–9:00 AM · every phase ends Sunday
               </div>
             </div>
           </div>
-
-          {/* 4-block summary */}
           <div
             style={{
               display: 'grid',
-              gridTemplateColumns: 'repeat(2,1fr)',
+              gridTemplateColumns: 'repeat(3,1fr)',
               gap: 7,
               marginBottom: 14,
             }}
@@ -1751,33 +1676,25 @@ export default function App() {
               {
                 icon: '📚',
                 n: 'Block 1',
-                t: '1 Year of Full-Stack Development',
+                t: '1 year of Full Stack',
                 s: 'W01–W52 · Days 1–364',
                 d: 'React · RN · Next.js · Spring Boot · Microservices · DevOps',
                 col: '#6366F1',
               },
               {
-                icon: '🤖',
-                n: 'Block 2',
-                t: 'Agentic AI using Python',
-                s: 'W53–W58 · Days 365–406',
-                d: 'GenAI Foundations · LangChain · LangGraph · Ed Donner 8 Projects',
-                col: '#7C3AED',
-              },
-              {
                 icon: '💯',
-                n: 'Block 3',
+                n: 'Block 2',
                 t: 'DSA + System Design',
-                s: 'W59–W71 · Days 407–497',
-                d: 'Java DSA · System Design courses · Final Review & Mocks',
+                s: 'W53–W69 · Days 365–483',
+                d: 'Java DSA (9w) · System Design (5w) · Review (3w)',
                 col: '#16A34A',
               },
               {
                 icon: '🎯',
-                n: 'Block 4',
+                n: 'Block 3',
                 t: 'Interview Preparation',
-                s: 'W72–W77 · Days 498–539',
-                d: 'Java · React+RN · Microservices · Python+AI · Mock+Polish',
+                s: 'W70–W77 · Days 484–539',
+                d: 'Java · React+RN · Microservices · Python+AI · Mock (3w)',
                 col: '#F59E0B',
               },
             ].map(({ icon, n, t, s, d, col }) => (
@@ -1832,8 +1749,6 @@ export default function App() {
               </div>
             ))}
           </div>
-
-          {/* 77-week bar */}
           <div style={{ marginBottom: 10 }}>
             <div
               style={{
@@ -1859,24 +1774,10 @@ export default function App() {
                           : p.color + '38',
                     borderRight: '1px solid rgba(0,0,0,0.1)',
                     transition: 'background 0.3s',
-                    position: 'relative',
                   }}
                   onClick={() => jump(p.id)}
                   title={`${p.name} · W${p.wkStart}–W${p.wkEnd}`}
-                >
-                  {p.pythonWeek && (
-                    <div
-                      style={{
-                        position: 'absolute',
-                        bottom: 0,
-                        right: 0,
-                        width: '15%',
-                        height: '100%',
-                        background: 'rgba(52,211,153,0.5)',
-                      }}
-                    />
-                  )}
-                </div>
+                />
               ))}
             </div>
             <div
@@ -1920,14 +1821,9 @@ export default function App() {
               }}
             >
               <span>Jun 15, 2026 (Mon)</span>
-              <span style={{ color: 'rgba(110,231,183,0.7)' }}>
-                🐍 = Python merged weeks
-              </span>
               <span>Dec 5, 2027 (Sun)</span>
             </div>
           </div>
-
-          {/* Milestones */}
           <button
             onClick={() => setShowMs(!showMs)}
             style={{
@@ -1952,7 +1848,7 @@ export default function App() {
               }}
             >
               🏆 Completion Announcements — {msDone} of {MILESTONES.length}{' '}
-              unlocked · every phase ends Sunday
+              unlocked
             </span>
             <span
               style={{
@@ -1965,7 +1861,6 @@ export default function App() {
               ›
             </span>
           </button>
-
           {showMs && (
             <div
               style={{
@@ -2048,8 +1943,6 @@ export default function App() {
           )}
         </div>
       </div>
-
-      {/* BODY */}
       <div
         style={{ maxWidth: 940, margin: '0 auto', padding: '12px 12px 48px' }}
       >
@@ -2057,34 +1950,26 @@ export default function App() {
           {
             b: 1,
             icon: '📚',
-            label: 'BLOCK 1 — 1 year of Full-stack',
-            sub: 'Weeks 01–52 · Days 1–364 · Jun 15 2026 → Jun 13 2027',
+            label: 'BLOCK 1 — 1 year of Full Stack',
+            sub: 'Weeks 01–52 · Days 1–364 · Jun 15 2026 → Jun 13 2027 · ends Day 364 Sunday',
             col: '#6366F1',
             phases: b1,
           },
           {
             b: 2,
-            icon: '🤖',
-            label: 'BLOCK 2 — AGENTIC AI USING PYTHON',
-            sub: 'Weeks 53–58 · Days 365–406 · Jun 14 → Jul 25 2027',
-            col: '#7C3AED',
+            icon: '💯',
+            label: 'BLOCK 2 — DSA + SYSTEM DESIGN',
+            sub: 'Weeks 53–69 · Days 365–483 · Jun 14 → Oct 10 2027 · Java DSA 9w + SD 5w + Review 3w',
+            col: '#16A34A',
             phases: b2,
           },
           {
             b: 3,
-            icon: '💯',
-            label: 'BLOCK 3 — DSA + SYSTEM DESIGN',
-            sub: 'Weeks 59–71 · Days 407–497 · Jul 26 → Oct 24 2027',
-            col: '#16A34A',
-            phases: b3,
-          },
-          {
-            b: 4,
             icon: '🎯',
-            label: 'BLOCK 4 — INTERVIEW PREPARATION',
-            sub: 'Weeks 72–77 · Days 498–539 · Oct 25 → Dec 5 2027 · Last day Sunday',
+            label: 'BLOCK 3 — INTERVIEW PREPARATION',
+            sub: 'Weeks 70–77 · Days 484–539 · Oct 11 → Dec 5 2027 · 5 tracks + 3-week mock finale',
             col: '#F59E0B',
-            phases: b4,
+            phases: b3,
           },
         ].map(({ b, icon, label, sub, col, phases }) => (
           <div key={b}>
@@ -2125,7 +2010,6 @@ export default function App() {
                 }}
               />
             </div>
-
             {b === 3 && (
               <div
                 style={{
@@ -2140,7 +2024,7 @@ export default function App() {
                   ['⚛', 'React+RN', '#0EA5E9'],
                   ['🏛', 'Microservices', '#E11D48'],
                   ['🤖', 'Python+AI', '#7C3AED'],
-                  ['🎯', 'Mock', '#F59E0B'],
+                  ['🎯', 'Mock (3w)', '#F59E0B'],
                 ].map(([ic, lbl, c]) => (
                   <span
                     key={lbl}
@@ -2162,7 +2046,6 @@ export default function App() {
                 ))}
               </div>
             )}
-
             <div style={{ display: 'flex', flexDirection: 'column', gap: 8 }}>
               {phases.map((p) => (
                 <Card
@@ -2177,8 +2060,6 @@ export default function App() {
             </div>
           </div>
         ))}
-
-        {/* Footer */}
         <div
           style={{
             marginTop: 18,
@@ -2203,11 +2084,11 @@ export default function App() {
             style={{
               fontSize: 11,
               color: 'rgba(255,255,255,0.5)',
-              marginBottom: 6,
+              marginBottom: 8,
             }}
           >
             539 days · 1,617 hours · 6:00 AM–9:00 AM · every phase ends Sunday ·
-            🐍 Python merged — no wasted week
+            3 blocks
           </div>
           <div
             style={{
@@ -2231,9 +2112,6 @@ export default function App() {
                   }}
                 >
                   {m.icon} {m.label.split(' ')[0]}
-                  {m.label.includes('🐍') || m.label.includes('Python')
-                    ? ' 🐍'
-                    : ''}
                 </span>
                 {i < a.length - 1 && (
                   <span style={{ color: 'rgba(255,255,255,0.2)', fontSize: 9 }}>
