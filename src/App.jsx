@@ -2,11 +2,11 @@ import { useState } from 'react';
 
 // ── 77 WEEKS · 539 DAYS · Mon Jun 15, 2026 → Sun Dec 5, 2027 ────────────────
 // 6:00 AM – 9:00 AM daily · 3h/day · 1,617h total
-// Every phase ends on a Sunday ·  DevOps, Agentic AI, Java DSA
+// Every phase ends on a Sunday · Python merged into DevOps, Agentic AI, Java DSA
 const START = new Date('2026-06-15');
 
 const PHASES = [
-  // ══ BLOCK 1 — 365 DAYS OF CODE (56 weeks) ════════════════════════════════
+  // ══ BLOCK 1 — 1 year of Full Stack (56 weeks) ════════════════════════════════
   {
     id: 'react',
     block: 1,
@@ -27,93 +27,94 @@ const PHASES = [
     startDate: 'Jun 15, 2026',
     endDate: 'Sep 13, 2026',
     hours: '~273h',
-    courseH: '175h',
-    practiceH: '98h',
+    courseH: '116.5h',
+    practiceH: '156.5h',
     milestone: '⚛ React Complete',
     summary:
-      '13 weeks · 91 days · 4 courses. Jonas primary (84h), Max second angle (55h), Smilga projects (25h), Hindi interview Q&A (11h). Build FPO Flight Status dashboard incrementally each week.',
+      '13 weeks · 91 days · 3 courses. John Smilga primary — 50.5h, 25+ real projects (your first Udemy course). Max Schwarzmüller second angle — TypeScript, testing, Redux Toolkit deep. Hindi interview Q&A final week.',
     courses: [
-      'Jonas Schmedtmann — The Ultimate React Course 2025 (84h)',
-      'Max Schwarzmüller — React The Complete Guide 2025 (55h)',
-      'John Smilga — React Tutorial & Projects Course (25h)',
-      'Hindi Instructor — React Interview Masterclass 200 Q (11h)',
+      'John Smilga — React Tutorial & Projects Course 2025 (50.5h) ★ START HERE — 25+ real projects',
+      'Max Schwarzmüller — React The Complete Guide 2025 (55h) — second angle, TypeScript, testing',
+      'Hindi Instructor — React Interview Masterclass 200 Q (11h) — final week interview drill',
     ],
     weekPlan: [
       {
         w: 1,
-        focus: 'Setup + Components',
+        focus: 'Smilga: Setup + JSX',
         topics:
-          'Vite, JSX, props, component patterns — code along every example in VSCode',
+          'John Smilga Course 1 — Vite, JSX, props, component patterns, NPM basics — 25+ projects begin',
       },
       {
         w: 2,
-        focus: 'State + Events',
+        focus: 'Smilga: State + Events',
         topics:
-          'useState, event handlers, forms, controlled inputs — build counter + todo app',
+          'useState, event handlers, forms, controlled inputs — Person List, City Tours, Todo projects',
       },
       {
         w: 3,
-        focus: 'Effects + Data',
+        focus: 'Smilga: Hooks + Data',
         topics:
-          'useEffect, fetch API, async/await — pull mock flight data from fake API',
+          'useEffect, fetch API, async/await — Food Recipe project, Beachwalk Resort project',
       },
       {
         w: 4,
-        focus: 'React Router',
+        focus: 'Smilga: React Router',
         topics:
-          'Client-side routing, nested routes, dynamic params — multi-page FPO app',
+          'React Router v6, nested routes, dynamic params — Tech Store E-commerce project',
       },
       {
         w: 5,
-        focus: 'Context API',
+        focus: 'Smilga: Context + Hooks',
         topics:
-          'createContext, useContext, Provider pattern — global state without Redux',
+          'createContext, useContext, custom hooks, useReducer — Budget Calculator project',
       },
       {
         w: 6,
-        focus: 'React Query',
+        focus: 'Smilga: React Query',
         topics:
-          'useQuery, useMutation, caching, background refetch — replace raw fetch calls',
+          'useQuery, useMutation, caching, background refetch — Axios integration project',
       },
       {
         w: 7,
-        focus: 'Redux Toolkit',
+        focus: 'Smilga: Redux Toolkit',
         topics:
-          'createSlice, configureStore, RTK Query — airline filter state in FPO',
+          'createSlice, configureStore, RTK Query — full e-commerce state management project',
       },
       {
         w: 8,
-        focus: 'Performance',
+        focus: 'Smilga: TypeScript + Tailwind',
         topics:
-          'useMemo, useCallback, React.memo, lazy, Suspense — profile with DevTools',
+          'TypeScript in React, Tailwind CSS — Smilga final projects with TS. 50.5h Smilga course complete.',
       },
       {
         w: 9,
-        focus: 'TypeScript in React',
+        focus: 'Max: TypeScript Deep',
         topics:
-          'Component types, generic hooks, typed props — convert Week 4 app to TS',
+          'Max course begins — generic components, utility types (Pick/Omit/Partial), typed hooks, strict TS',
       },
       {
         w: 10,
-        focus: 'Tailwind + Styling',
+        focus: 'Max: Performance + Testing',
         topics:
-          'Tailwind utility classes, dark mode, responsive — restyle FPO dashboard',
+          'useMemo, useCallback, React.memo, lazy/Suspense, React Testing Library, Mockito',
       },
       {
         w: 11,
-        focus: 'Testing',
-        topics: 'React Testing Library, jest-dom, mock service worker',
+        focus: 'Max: Advanced Patterns',
+        topics:
+          'Compound components, render props, forwardRef, HOC, custom hooks library — Max course',
       },
       {
         w: 12,
-        focus: 'Advanced Patterns',
-        topics: 'Compound components, render props, custom hooks library',
+        focus: 'Max: Redux + Next.js',
+        topics:
+          'Max — Redux Toolkit deep, RTK Query advanced, Next.js intro chapters, deployment',
       },
       {
         w: 13,
-        focus: 'Revision + Interview Q',
+        focus: 'Hindi: 200 Q&A + FPO',
         topics:
-          'Rebuild FPO Flight Status app from scratch cold. React 200 Q&A drill.',
+          'Hindi Interview Masterclass — 200 React Q&A. Rebuild FPO Flight Status app from scratch. Both courses complete.',
       },
     ],
   },
@@ -1724,7 +1725,7 @@ export default function App() {
                   lineHeight: 1.1,
                 }}
               >
-                77 Weeks of Code
+                77 Weeks Coding Journey
               </div>
               <div
                 style={{
@@ -1734,7 +1735,7 @@ export default function App() {
                 }}
               >
                 Mon Jun 15, 2026 → Sun Dec 5, 2027 · 539 days · {TOTAL_HOURS}h ·
-                6:00 AM–9:00 AM · every phase ends on Sunday
+                6:00 AM–9:00 AM · every phase ends on Sunday · 🐍 Python merged
               </div>
             </div>
           </div>
@@ -1752,7 +1753,7 @@ export default function App() {
               {
                 icon: '📚',
                 n: 'Block 1',
-                t: '1 Year of Full Stack',
+                t: '1 year of Full Stack',
                 s: 'W01–W50 · Days 1–350',
                 d: 'React · RN · Next.js · Spring Boot · Microservices · DevOps',
                 col: '#6366F1',
@@ -2058,7 +2059,7 @@ export default function App() {
           {
             b: 1,
             icon: '📚',
-            label: 'BLOCK 1 — 1 Year OF Full Stack',
+            label: 'BLOCK 1 — 1 year of Full Stack',
             sub: 'Weeks 01–50 · Days 1–350 · Jun 15 2026 → May 30 2027',
             col: '#6366F1',
             phases: b1,
@@ -2208,6 +2209,7 @@ export default function App() {
             }}
           >
             539 days · 1,617 hours · 6:00 AM–9:00 AM · every phase ends Sunday ·
+            🐍 Python merged — no wasted week
           </div>
           <div
             style={{
