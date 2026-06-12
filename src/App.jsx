@@ -2,7 +2,7 @@ import { useState } from 'react';
 
 // ── 77 WEEKS · 539 DAYS · Mon Jun 15, 2026 → Sun Dec 5, 2027 ────────────────
 // 6:00 AM – 9:00 AM daily · 3h/day · 1,617h total
-// Every phase ends on a Sunday · Python merged into DevOps, Agentic AI, Java DSA
+// Every phase ends on a Sunday ·  DevOps, Agentic AI, Java DSA
 const START = new Date('2026-06-15');
 
 const PHASES = [
@@ -1734,7 +1734,7 @@ export default function App() {
                 }}
               >
                 Mon Jun 15, 2026 → Sun Dec 5, 2027 · 539 days · {TOTAL_HOURS}h ·
-                6:00 AM–9:00 AM · every phase ends on Sunday · 🐍 Python merged
+                6:00 AM–9:00 AM · every phase ends on Sunday
               </div>
             </div>
           </div>
@@ -2208,7 +2208,7 @@ export default function App() {
             }}
           >
             539 days · 1,617 hours · 6:00 AM–9:00 AM · every phase ends Sunday ·
-            🐍 Python merged — no wasted week
+            🐍 Python merged
           </div>
           <div
             style={{
