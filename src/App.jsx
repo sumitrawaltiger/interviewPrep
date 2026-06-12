@@ -1751,7 +1751,7 @@ export default function App() {
               {
                 icon: '📚',
                 n: 'Block 1',
-                t: '400 Days of Code',
+                t: '1 Year of Full-Stack Development',
                 s: 'W01–W52 · Days 1–364',
                 d: 'React · RN · Next.js · Spring Boot · Microservices · DevOps',
                 col: '#6366F1',
@@ -2057,7 +2057,7 @@ export default function App() {
           {
             b: 1,
             icon: '📚',
-            label: 'BLOCK 1 — 400 DAYS OF CODE',
+            label: 'BLOCK 1 — 1 year of Full-stack',
             sub: 'Weeks 01–52 · Days 1–364 · Jun 15 2026 → Jun 13 2027',
             col: '#6366F1',
             phases: b1,
