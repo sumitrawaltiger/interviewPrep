@@ -2208,7 +2208,6 @@ export default function App() {
             }}
           >
             539 days · 1,617 hours · 6:00 AM–9:00 AM · every phase ends Sunday ·
-            🐍 Python merged
           </div>
           <div
             style={{
