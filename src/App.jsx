@@ -1,13 +1,9 @@
 import { useState } from 'react';
 
-// ── 540 DAYS · Sun Jun 14, 2026 → Sun Dec 5, 2027 ────────────────────────────
-// 6:00 AM – 9:00 AM · 3h/day · 1,620h total
-// Block 1: 365 days (1 Year Full Stack) · Block 2: 175 days (25 weeks, 5×5)
-// Every phase ends on Sunday
 const START = new Date('2026-06-14');
+const TOTAL = 540;
 
 const PHASES = [
-  // ══ BLOCK 1 — 1 YEAR OF FULL STACK · 365 days ════════════════════════════
   {
     id: 'react',
     block: 1,
@@ -18,104 +14,92 @@ const PHASES = [
     bg: '#F0F9FF',
     border: '#BAE6FD',
     name: 'React',
-    blockLabel: 'Block 1 · 1 Year of Full Stack',
+    label: 'Block 1 · 1 Year Full Stack',
     days: 92,
-    dayStart: 1,
-    dayEnd: 92,
-    startDate: 'Jun 14, 2026',
-    endDate: 'Sep 13, 2026',
+    ds: 1,
+    de: 92,
+    period: 'Jun 14 – Sep 13, 2026',
+    weeks: '13w',
     hours: '~276h',
-    courseH: '116.5h',
-    practiceH: '159.5h',
-    milestone: '⚛ React Complete · Day 92',
-    summary:
-      '92 days · 3 courses. John Smilga first (50.5h, 25+ real projects), Max second angle (TypeScript, testing, Redux), Hindi interview Q&A final week.',
+    ch: '116.5h',
+    ph: '159.5h',
+    ms: '⚛ React Complete · Day 92',
+    about:
+      '92 days · 3 courses. John Smilga first (50.5h, 25+ real projects), Max Schwarzmüller second angle (TypeScript, testing, Redux Toolkit), Hindi interview Q&A final week.',
     courses: [
-      'John Smilga — React Tutorial & Projects Course 2025 (50.5h) ★ START HERE — 25+ real projects',
-      'Max Schwarzmüller — React The Complete Guide 2025 (55h) — TypeScript, testing, Redux Toolkit',
-      'Hindi Instructor — React Interview Masterclass 200 Q (11h) — final week interview drill',
+      'John Smilga — React Tutorial & Projects Course 2025 (50.5h) ★ START HERE',
+      'Max Schwarzmüller — React The Complete Guide 2025 (55h)',
+      'Hindi Instructor — React Interview Masterclass 200 Q (11h)',
     ],
-    weekPlan: [
+    weeks_plan: [
       {
         w: 1,
-        focus: 'Smilga: Setup + JSX',
-        topics:
-          'Vite, JSX, props, component patterns — 25+ projects begin, code along in VSCode',
+        f: 'Smilga: Setup + JSX',
+        t: 'Vite, JSX, props, component patterns — 25+ projects begin',
       },
       {
         w: 2,
-        focus: 'Smilga: State + Events',
-        topics:
-          'useState, event handlers, forms — Person List, City Tours, Todo projects',
+        f: 'Smilga: State + Events',
+        t: 'useState, event handlers, forms — Person List, City Tours, Todo',
       },
       {
         w: 3,
-        focus: 'Smilga: Hooks + Data',
-        topics:
-          'useEffect, fetch API, async/await — Food Recipe project, Beachwalk Resort',
+        f: 'Smilga: Hooks + Data',
+        t: 'useEffect, fetch API, async/await — Food Recipe, Beachwalk Resort',
       },
       {
         w: 4,
-        focus: 'Smilga: React Router',
-        topics:
-          'React Router v6, nested routes, dynamic params — Tech Store E-commerce project',
+        f: 'Smilga: React Router',
+        t: 'React Router v6, nested routes — Tech Store E-commerce project',
       },
       {
         w: 5,
-        focus: 'Smilga: Context + Hooks',
-        topics:
-          'createContext, useContext, custom hooks, useReducer — Budget Calculator project',
+        f: 'Smilga: Context + Hooks',
+        t: 'createContext, useContext, useReducer — Budget Calculator',
       },
       {
         w: 6,
-        focus: 'Smilga: React Query',
-        topics:
-          'useQuery, useMutation, caching, background refetch — Axios integration project',
+        f: 'Smilga: React Query',
+        t: 'useQuery, useMutation, caching — Axios integration project',
       },
       {
         w: 7,
-        focus: 'Smilga: Redux Toolkit',
-        topics:
-          'createSlice, configureStore, RTK Query — full e-commerce state management',
+        f: 'Smilga: Redux Toolkit',
+        t: 'createSlice, configureStore, RTK Query — e-commerce state',
       },
       {
         w: 8,
-        focus: 'Smilga: TS + Tailwind',
-        topics:
-          'TypeScript in React, Tailwind CSS — Smilga final projects. 50.5h course complete.',
+        f: 'Smilga: TS + Tailwind',
+        t: 'TypeScript in React, Tailwind CSS — Smilga final projects. Course done.',
       },
       {
         w: 9,
-        focus: 'Max: TypeScript Deep',
-        topics:
-          'Generic components, utility types (Pick/Omit/Partial), typed hooks, strict TS',
+        f: 'Max: TypeScript Deep',
+        t: 'Generic components, utility types (Pick/Omit/Partial), strict TS',
       },
       {
         w: 10,
-        focus: 'Max: Performance+Testing',
-        topics:
-          'useMemo, useCallback, React.memo, lazy/Suspense, React Testing Library',
+        f: 'Max: Performance+Testing',
+        t: 'useMemo, useCallback, React.memo, lazy/Suspense, Testing Library',
       },
       {
         w: 11,
-        focus: 'Max: Advanced Patterns',
-        topics:
-          'Compound components, render props, forwardRef, HOC, custom hooks library',
+        f: 'Max: Advanced Patterns',
+        t: 'Compound components, render props, forwardRef, custom hooks',
       },
       {
         w: 12,
-        focus: 'Max: Redux + Next.js',
-        topics:
-          'Redux Toolkit deep, RTK Query advanced, Next.js intro, deployment',
+        f: 'Max: Redux + Next.js',
+        t: 'Redux Toolkit deep, RTK Query advanced, Next.js intro',
       },
       {
         w: 13,
-        focus: 'Hindi 200 Q&A + Revision',
-        topics:
-          'Hindi 200 React Q&A. Rebuild FPO Flight Status app cold. Day 92 ✅',
+        f: 'Hindi 200 Q&A + Revision',
+        t: 'Hindi 200 React Q&A. Rebuild FPO Flight Status app cold. Day 92.',
       },
     ],
   },
+
   {
     id: 'rn',
     block: 1,
@@ -126,48 +110,46 @@ const PHASES = [
     bg: '#F5F3FF',
     border: '#DDD6FE',
     name: 'React Native',
-    blockLabel: 'Block 1 · 1 Year of Full Stack',
+    label: 'Block 1 · 1 Year Full Stack',
     days: 28,
-    dayStart: 93,
-    dayEnd: 120,
-    startDate: 'Sep 14, 2026',
-    endDate: 'Oct 11, 2026',
+    ds: 93,
+    de: 120,
+    period: 'Sep 14 – Oct 11, 2026',
+    weeks: '4w',
     hours: '~84h',
-    courseH: '52h',
-    practiceH: '32h',
-    milestone: '📱 React Native Complete · Day 120',
-    summary:
+    ch: '52h',
+    ph: '32h',
+    ms: '📱 React Native Complete · Day 120',
+    about:
       '28 days · 4 weeks · 2 courses. Run every exercise on your real iPad via Expo Go. Build FPO-style flight list app with React Navigation.',
     courses: [
       'Stephen Grider — The Complete React Native + Hooks Course 4.8★ (38h)',
       'Max Schwarzmüller — React Native The Practical Guide 2025 (14h)',
     ],
-    weekPlan: [
+    weeks_plan: [
       {
         w: 14,
-        focus: 'Core Components',
-        topics:
-          'View, Text, Image, StyleSheet, Flexbox, FlatList — reproduce exercises on iPad',
+        f: 'Core Components',
+        t: 'View, Text, Image, StyleSheet, Flexbox, FlatList — exercises on iPad',
       },
       {
         w: 15,
-        focus: 'Navigation',
-        topics:
-          'React Navigation v6 — Stack, Tab, Drawer — FPO flight list with 3 screens',
+        f: 'Navigation',
+        t: 'React Navigation v6 — Stack, Tab, Drawer — FPO flight list app',
       },
       {
         w: 16,
-        focus: 'Device APIs',
-        topics:
-          'Camera, Location, AsyncStorage, Notifications — Expo SDK modules',
+        f: 'Device APIs',
+        t: 'Camera, Location, AsyncStorage, Notifications — Expo SDK modules',
       },
       {
         w: 17,
-        focus: 'Polish + Deploy',
-        topics: 'Animations, iOS vs Android, EAS Build, TestFlight submit',
+        f: 'Polish + Deploy',
+        t: 'Animations, iOS vs Android differences, EAS Build, TestFlight',
       },
     ],
   },
+
   {
     id: 'nextjs',
     block: 1,
@@ -178,54 +160,52 @@ const PHASES = [
     bg: '#F9FAFB',
     border: '#D1D5DB',
     name: 'Next.js',
-    blockLabel: 'Block 1 · 1 Year of Full Stack',
+    label: 'Block 1 · 1 Year Full Stack',
     days: 35,
-    dayStart: 121,
-    dayEnd: 155,
-    startDate: 'Oct 12, 2026',
-    endDate: 'Nov 15, 2026',
+    ds: 121,
+    de: 155,
+    period: 'Oct 12 – Nov 15, 2026',
+    weeks: '5w',
     hours: '~105h',
-    courseH: '65h',
-    practiceH: '40h',
-    milestone: '▲ Next.js Complete · Day 155',
-    summary:
+    ch: '65h',
+    ph: '40h',
+    ms: '▲ Next.js Complete · Day 155',
+    about:
       '35 days · 5 weeks · 3 courses. App Router, Server Components, Server Actions, NextAuth v5, Prisma. Deploy to Vercel after every chapter.',
     courses: [
       'Max Schwarzmüller — Next.js & React The Complete Guide (25h)',
       'John Smilga — React Tutorial & Projects Next.js sections (20h)',
       'Anil Dollor — Next.js Full Stack Development Hindi (20h)',
     ],
-    weekPlan: [
+    weeks_plan: [
       {
         w: 18,
-        focus: 'App Router Basics',
-        topics:
-          'File-based routing, layouts, loading states, error boundaries, metadata API',
+        f: 'App Router Basics',
+        t: 'File-based routing, layouts, loading states, error boundaries',
       },
       {
         w: 19,
-        focus: 'Server Components',
-        topics: 'RSC vs Client Components, data fetching, streaming, Suspense',
+        f: 'Server Components',
+        t: 'RSC vs Client Components, data fetching, streaming, Suspense',
       },
       {
         w: 20,
-        focus: 'Server Actions + DB',
-        topics:
-          'Form actions, Prisma ORM, PostgreSQL, revalidatePath, optimistic UI',
+        f: 'Server Actions + DB',
+        t: 'Form actions, Prisma ORM, PostgreSQL, revalidatePath',
       },
       {
         w: 21,
-        focus: 'Auth + Security',
-        topics:
-          'NextAuth v5, OAuth providers, middleware, protected routes, JWT sessions',
+        f: 'Auth + Security',
+        t: 'NextAuth v5, OAuth providers, middleware, protected routes',
       },
       {
         w: 22,
-        focus: 'Deploy + Capstone',
-        topics: 'Vercel deploy, env vars — build FPO web portal as capstone',
+        f: 'Deploy + Capstone',
+        t: 'Vercel deploy, env vars — FPO web portal as capstone project',
       },
     ],
   },
+
   {
     id: 'spring',
     block: 1,
@@ -236,18 +216,18 @@ const PHASES = [
     bg: '#F0FDF4',
     border: '#BBF7D0',
     name: 'Spring Boot',
-    blockLabel: 'Block 1 · MAX ⭐ · 1 Year Full Stack',
+    label: 'Block 1 · MAX ⭐',
     days: 105,
-    dayStart: 156,
-    dayEnd: 260,
-    startDate: 'Nov 16, 2026',
-    endDate: 'Feb 28, 2027',
+    ds: 156,
+    de: 260,
+    period: 'Nov 16, 2026 – Feb 28, 2027',
+    weeks: '15w',
     hours: '~315h',
-    courseH: '185h',
-    practiceH: '130h',
-    milestone: '🌱 Spring Boot Complete · Day 260',
-    summary:
-      '105 days · 15 weeks · 5 courses. Java 8 fast-track, JPA/Hibernate deep, Spring Security with Cognito OAuth2. Every concept maps to FPO: Bean=Lambda, JPA=DynamoDB.',
+    ch: '185h',
+    ph: '130h',
+    ms: '🌱 Spring Boot Complete · Day 260',
+    about:
+      '105 days · 15 weeks · MAX TIME · 5 courses. Java 8 fast-track, JPA/Hibernate deep, Spring Security with Cognito OAuth2. Every concept maps to FPO: Bean=Lambda, JPA=DynamoDB.',
     courses: [
       'Navin Reddy Telusko — Java 8 New Features (20h)',
       'John Thompson — Hibernate & Spring Data JPA Beginner to Guru (55h)',
@@ -255,93 +235,85 @@ const PHASES = [
       'John Thompson — Spring Framework 6 Beginner to Guru (40h)',
       'Ranga Karanam — Master Spring Boot 3 & Spring Framework 6 (36h)',
     ],
-    weekPlan: [
+    weeks_plan: [
       {
         w: 23,
-        focus: 'Java 8 Fast-Track',
-        topics:
-          'Lambdas, Streams, Optional, CompletableFuture — fast using C# background',
+        f: 'Java 8 Fast-Track',
+        t: 'Lambdas, Streams, Optional, CompletableFuture — fast using C# background',
       },
       {
         w: 24,
-        focus: 'JPA Foundations',
-        topics: '@Entity, @Id, relationships, EntityManager lifecycle',
+        f: 'JPA Foundations',
+        t: '@Entity, @Id, relationships, EntityManager lifecycle',
       },
       {
         w: 25,
-        focus: 'Spring Data JPA',
-        topics: 'JpaRepository, JPQL, @Query, Pageable, @Transactional',
+        f: 'Spring Data JPA',
+        t: 'JpaRepository, JPQL, @Query, Pageable, @Transactional',
       },
       {
         w: 26,
-        focus: 'N+1 & Performance',
-        topics: 'N+1 problem, @EntityGraph, JOIN FETCH, lazy vs eager',
+        f: 'N+1 & Performance',
+        t: 'N+1 problem, @EntityGraph, JOIN FETCH, lazy vs eager',
       },
       {
         w: 27,
-        focus: 'Spring Boot Basics',
-        topics:
-          'Auto-configuration, starters, Actuator, profiles, application.yml',
+        f: 'Spring Boot Basics',
+        t: 'Auto-configuration, starters, Actuator, profiles',
       },
       {
         w: 28,
-        focus: 'REST APIs',
-        topics:
-          '@RestController, ResponseEntity, @ExceptionHandler, validation, OpenAPI',
+        f: 'REST APIs',
+        t: '@RestController, ResponseEntity, @ExceptionHandler, OpenAPI',
       },
       {
         w: 29,
-        focus: 'Spring MVC + Testing',
-        topics: '@WebMvcTest, MockMvc, @DataJpaTest, Testcontainers, Mockito',
+        f: 'Spring MVC + Testing',
+        t: '@WebMvcTest, MockMvc, @DataJpaTest, Testcontainers, Mockito',
       },
       {
         w: 30,
-        focus: 'Spring IoC Deep',
-        topics: 'Bean lifecycle, AOP, @Transactional propagation, @Conditional',
+        f: 'Spring IoC Deep',
+        t: 'Bean lifecycle, AOP, @Transactional propagation',
       },
       {
         w: 31,
-        focus: 'Spring Security',
-        topics:
-          'SecurityFilterChain, JWT filter, UserDetailsService, password encoding',
+        f: 'Spring Security',
+        t: 'SecurityFilterChain, JWT filter, UserDetailsService',
       },
       {
         w: 32,
-        focus: 'OAuth2 + Cognito',
-        topics:
-          'Resource server, JWT validation, Cognito JWKS — your FPO auth pattern exactly',
+        f: 'OAuth2 + Cognito',
+        t: 'Resource server, JWT validation, Cognito JWKS — your FPO pattern',
       },
       {
         w: 33,
-        focus: 'Docker + Maven',
-        topics: 'Dockerfile for Spring Boot, multi-stage build, docker-compose',
+        f: 'Docker + Maven',
+        t: 'Dockerfile, multi-stage build, docker-compose, Maven lifecycle',
       },
       {
         w: 34,
-        focus: 'Full-Stack Connect',
-        topics:
-          'Spring Boot API + React frontend — connect your React app to Spring Boot',
+        f: 'Full-Stack Connect',
+        t: 'Spring Boot API + React frontend — connect apps together',
       },
       {
         w: 35,
-        focus: 'Spring Boot 4 Preview',
-        topics:
-          'Spring Boot 4, GraalVM native image, virtual threads (Project Loom)',
+        f: 'Spring Boot 4 Preview',
+        t: 'Spring Boot 4, GraalVM native image, virtual threads',
       },
       {
         w: 36,
-        focus: 'Capstone Project',
-        topics:
-          'Build complete REST API + JWT + JPA from scratch — production quality',
+        f: 'Capstone Project',
+        t: 'Build REST API + JWT + JPA from scratch — production quality',
       },
       {
         w: 37,
-        focus: 'Revision + 200 Q&A',
-        topics:
-          'Rebuild REST API + JWT auth cold. Spring 200 interview Q&A drill.',
+        f: 'Revision + 200 Q&A',
+        t: 'Rebuild REST API + JWT auth cold. 200 Spring Q&A drill.',
       },
     ],
   },
+
   {
     id: 'micro',
     block: 1,
@@ -352,72 +324,68 @@ const PHASES = [
     bg: '#FFF1F2',
     border: '#FECDD3',
     name: 'Microservices',
-    blockLabel: 'Block 1 · MAX ⭐ · 1 Year Full Stack',
+    label: 'Block 1 · MAX ⭐',
     days: 56,
-    dayStart: 261,
-    dayEnd: 316,
-    startDate: 'Mar 1, 2027',
-    endDate: 'Apr 25, 2027',
+    ds: 261,
+    de: 316,
+    period: 'Mar 1 – Apr 25, 2027',
+    weeks: '8w',
     hours: '~168h',
-    courseH: '90h',
-    practiceH: '78h',
-    milestone: '🏛 Microservices Complete · Day 316',
-    summary:
-      '56 days · 8 weeks · 4 courses. Kafka, CQRS, Event Sourcing, Saga, K8s, Circuit Breaker. Every pattern maps to FPO Cloud: EventBridge→Kafka, Step Functions→Saga.',
+    ch: '90h',
+    ph: '78h',
+    ms: '🏛 Microservices Complete · Day 316',
+    about:
+      '56 days · 8 weeks · MAX TIME · 4 courses. Kafka, CQRS, Event Sourcing, Saga, K8s, Circuit Breaker. Every pattern maps to FPO Cloud: EventBridge→Kafka, Step Functions→Saga.',
     courses: [
       'Ranga Karanam — Java Spring Boot Microservices with K8s & Docker (35h)',
       'Sergey Kargopolov — Building Microservices with Spring Cloud (30h)',
       'John Thompson — Spring Boot Microservices Beginner to Guru (15h)',
       'Sean Campbell — Master Spring Boot Microservices CQRS & Event Sourcing (10h)',
     ],
-    weekPlan: [
+    weeks_plan: [
       {
         w: 38,
-        focus: 'Service Decomposition',
-        topics:
-          'DDD bounded contexts, service boundaries, inter-service communication',
+        f: 'Service Decomposition',
+        t: 'DDD bounded contexts, service boundaries, REST vs events',
       },
       {
         w: 39,
-        focus: 'Spring Cloud',
-        topics: 'Eureka, Spring Cloud Gateway, config server, Feign clients',
+        f: 'Spring Cloud',
+        t: 'Eureka, Spring Cloud Gateway, config server, Feign',
       },
       {
         w: 40,
-        focus: 'Resilience Patterns',
-        topics:
-          'Resilience4j circuit breaker, retry, bulkhead — your FPO uses this!',
+        f: 'Resilience Patterns',
+        t: 'Resilience4j circuit breaker, retry, bulkhead — FPO uses this!',
       },
       {
         w: 41,
-        focus: 'Kafka Deep Dive',
-        topics:
-          'Producer, consumer, groups, partitions — relate to FPO EventBridge',
+        f: 'Kafka Deep Dive',
+        t: 'Producer, consumer, groups, partitions — relates to FPO EventBridge',
       },
       {
         w: 42,
-        focus: 'CQRS + Event Sourcing',
-        topics:
-          'Separate read/write models, Axon Framework, event store, replay',
+        f: 'CQRS + Event Sourcing',
+        t: 'Separate read/write models, Axon Framework, event store',
       },
       {
         w: 43,
-        focus: 'Saga Pattern',
-        topics: 'Orchestration vs choreography — Step Functions = Saga!',
+        f: 'Saga Pattern',
+        t: 'Orchestration vs choreography — Step Functions = Saga!',
       },
       {
         w: 44,
-        focus: 'K8s Deployment',
-        topics: 'Deploy microservices to K8s, Ingress, ConfigMaps, Secrets',
+        f: 'K8s Deployment',
+        t: 'Deploy microservices to K8s, Ingress, ConfigMaps, Secrets',
       },
       {
         w: 45,
-        focus: 'Revision + ADR',
-        topics:
-          'Rebuild one microservice from scratch. Write 1 Architecture Decision Record.',
+        f: 'Revision + ADR',
+        t: 'Rebuild one microservice cold. Write 1 Architecture Decision Record.',
       },
     ],
   },
+
   {
     id: 'devops',
     block: 1,
@@ -428,77 +396,67 @@ const PHASES = [
     bg: '#FFF7ED',
     border: '#FED7AA',
     name: 'DevOps',
-    blockLabel: 'Block 1 · Day 365 🏁 · 1 Year Full Stack',
+    label: 'Block 1 · Day 365 🏁',
     days: 49,
-    dayStart: 317,
-    dayEnd: 365,
-    startDate: 'Apr 26, 2027',
-    endDate: 'Jun 13, 2027',
+    ds: 317,
+    de: 365,
+    period: 'Apr 26 – Jun 13, 2027',
+    weeks: '7w',
     hours: '~147h',
-    courseH: '79h',
-    practiceH: '68h',
-    milestone: '⚙ DevOps Complete · Day 365 · 1 Year of Full Stack 🎉',
-    pythonWeek: 'W52',
-    summary:
+    ch: '79h',
+    ph: '68h',
+    ms: '⚙ DevOps Complete · Day 365 · 1 Year 🎉',
+    about:
       '49 days · 7 weeks. DevOps courses (W46–W51) + Python automation scripting in W52. Day 365 = Sunday Jun 13, 2027 — 1 full year of Full Stack complete.',
     courses: [
       'Nana Janashia TechWorld — DevOps Bootcamp (35h) · W46–W49',
       'Mumshad Mannambeth KodeKloud — The Complete DevOps Bootcamp (20h) · W49–W50',
       'Anil Dollor — Mastering DevOps Hindi (8h) · W50',
-      'Mumshad Mannambeth — Terraform for Absolute Beginners with Labs (9h) · W51',
-      '🐍 Al Sweigart — Automate the Boring Stuff with Python (9h) · W52 — Python for DevOps',
+      'Mumshad Mannambeth — Terraform Beginners with Labs (9h) · W51',
+      '🐍 Al Sweigart — Automate the Boring Stuff with Python (9h) · W52',
     ],
-    weekPlan: [
+    weeks_plan: [
       {
         w: 46,
-        focus: 'Linux + Docker',
-        topics:
-          'Linux essentials, Docker images, containers, volumes, docker-compose — KodeKloud labs',
+        f: 'Linux + Docker',
+        t: 'Linux essentials, Docker images, containers, docker-compose — KodeKloud labs',
       },
       {
         w: 47,
-        focus: 'Kubernetes',
-        topics:
-          'Pods, Deployments, Services, Ingress, ConfigMaps, Secrets, AWS EKS',
+        f: 'Kubernetes',
+        t: 'Pods, Deployments, Services, Ingress, ConfigMaps, AWS EKS',
       },
       {
         w: 48,
-        focus: 'CI/CD Pipelines',
-        topics:
-          'GitHub Actions workflows, OIDC keyless AWS auth, build/test/deploy pipelines',
+        f: 'CI/CD Pipelines',
+        t: 'GitHub Actions, OIDC keyless AWS auth, build/test/deploy',
       },
       {
         w: 49,
-        focus: 'Terraform IaC',
-        topics:
-          'HCL, resources, state, modules — provision FPO AWS resources with Terraform',
+        f: 'Terraform IaC',
+        t: 'HCL, resources, state, modules — provision FPO AWS resources',
       },
       {
         w: 50,
-        focus: 'Monitoring + Observability',
-        topics:
-          'Prometheus, Grafana, Datadog (your FPO tool), alerts, dashboards',
+        f: 'Monitoring + Observability',
+        t: 'Prometheus, Grafana, Datadog (your FPO tool), alerts',
       },
       {
         w: 51,
-        focus: 'DevOps Hindi Recap',
-        topics:
-          'Anil Dollor Hindi DevOps — advanced GitHub Actions + CI/CD deep dive',
+        f: 'DevOps Hindi Recap',
+        t: 'Anil Dollor Hindi DevOps — advanced GitHub Actions CI/CD deep',
       },
       {
         w: 52,
-        focus: '🐍 Python for DevOps',
-        topics:
-          'Automate the Boring Stuff: boto3 FPO Lambda lister, CloudWatch log parser, subprocess, S3 scripts — Day 365 ✅',
+        f: '🐍 Python for DevOps',
+        t: 'boto3 FPO Lambda lister, CloudWatch log parser, subprocess, S3 scripts — Day 365 ✅',
       },
     ],
   },
-  // ══ BLOCK 2 — 25 WEEKS · 5×5 SKILLS ══════════════════════════════════════
-  // Agentic AI + Kafka Streams + PySpark+Azure: skills you already have from SCB & Bangkok Bank
-  // Java DSA + System Design: interview preparation
+
   {
     id: 'agentic',
-    block: 2,
+    block: 1,
     seq: 7,
     icon: '🤖',
     color: '#7C3AED',
@@ -506,296 +464,214 @@ const PHASES = [
     bg: '#F5F3FF',
     border: '#DDD6FE',
     name: 'Agentic AI using Python',
-    blockLabel: 'Block 2 · SCB / Bangkok Bank Skills',
+    label: 'Block 1 · Day 400',
     days: 35,
-    dayStart: 366,
-    dayEnd: 400,
-    startDate: 'Jun 14, 2027',
-    endDate: 'Jul 18, 2027',
+    ds: 366,
+    de: 400,
+    period: 'Jun 14 – Jul 18, 2027',
+    weeks: '5w',
     hours: '~105h',
-    courseH: '74h',
-    practiceH: '31h',
-    milestone: '🤖 Agentic AI Complete · Day 400',
-    summary:
-      '35 days · 5 weeks · 3 courses. LangChain, LangGraph, Ed Donner 8 real projects. Python foundation from W52 DevOps lets you dive straight in. Your SCB LangGraph/LangChain work makes this revision + deepening, not starting from scratch. Build FPO AI assistant as capstone.',
+    ch: '74h',
+    ph: '31h',
+    ms: '🤖 Agentic AI Complete · Day 400',
+    about:
+      '35 days · 5 weeks · 3 courses. Python from W52 lets you dive straight in. LangChain, LangGraph, Ed Donner 8 real projects. Build FPO AI assistant as capstone. Your SCB LangChain/LangGraph work = deepening, not starting from scratch.',
     courses: [
       'Dr. Frank Kane — ChatGPT + Generative AI Masterclass 2026 (22h) · W53–W54',
       'Ed Donner — Complete Agentic AI Engineering Course 2026 (30h) · W54–W56',
       'Eden Marco — LangChain Develop LLM Powered Applications (22h) · W56–W57',
     ],
-    weekPlan: [
+    weeks_plan: [
       {
         w: 53,
-        focus: 'GenAI Foundations',
-        topics:
-          'LLMs, embeddings, RAG, prompt engineering (CoT, ReAct), AWS Bedrock — Frank Kane. Revise your SCB LangChain patterns.',
+        f: 'GenAI Foundations',
+        t: 'LLMs, embeddings, RAG, prompt engineering, AWS Bedrock — Frank Kane',
       },
       {
         w: 54,
-        focus: 'LangChain Core',
-        topics:
-          'Chains, agents, tools, memory, LCEL, vector databases (Pinecone, FAISS). Deepen beyond SCB work.',
+        f: 'LangChain Core',
+        t: 'Chains, agents, tools, memory, LCEL, vector DBs (Pinecone, FAISS)',
       },
       {
         w: 55,
-        focus: 'LangGraph + Multi-Agent',
-        topics:
-          'State machines, conditional edges, multi-agent orchestration — revisit your SCB LangGraph patterns with deeper theory',
+        f: 'LangGraph + Multi-Agent',
+        t: 'State machines, conditional edges, multi-agent orchestration',
       },
       {
         w: 56,
-        focus: 'Ed Donner: 8 Projects',
-        topics:
-          'Career Digital Twin, Deep Research agent, SDR Agent, Engineering Team in Docker, Browser Agent, MCP',
+        f: 'Ed Donner: 8 Projects',
+        t: 'Career Digital Twin, Deep Research agent, SDR Agent, Browser Agent',
       },
       {
         w: 57,
-        focus: 'FPO AI Assistant',
-        topics:
-          'Build FPO AI: natural language query over flight data using LangChain + DynamoDB. Deploy to Lambda. Portfolio demo.',
+        f: 'FPO AI Assistant',
+        t: 'Natural language query over flight data. Deploy to Lambda. Portfolio demo.',
       },
     ],
   },
-  {
-    id: 'kafka',
-    block: 2,
-    seq: 8,
-    icon: '📨',
-    color: '#DC2626',
-    dark: '#B91C1C',
-    bg: '#FEF2F2',
-    border: '#FECACA',
-    name: 'Kafka Streams',
-    blockLabel: 'Block 2 · SCB / Bangkok Bank Skills',
-    days: 35,
-    dayStart: 401,
-    dayEnd: 435,
-    startDate: 'Jul 19, 2027',
-    endDate: 'Aug 22, 2027',
-    hours: '~105h',
-    courseH: '50h',
-    practiceH: '55h',
-    milestone: '📨 Kafka Streams Complete · Day 435',
-    summary:
-      '35 days · 5 weeks · 2 courses. Kafka Streams API, KStream/KTable, stateful operations, windowing, exactly-once semantics. Builds directly on your FPO EventBridge + Microservices Kafka experience AND your SCB/Bangkok Bank event streaming work.',
-    courses: [
-      'Stephane Maarek — Apache Kafka Series: Kafka Streams for Data Processing 4.7★ 30K students (14h) · W58–W59',
-      'Confluent — Kafka Streams in Java complete (16h) · W59–W60',
-    ],
-    weekPlan: [
-      {
-        w: 58,
-        focus: 'Kafka Streams Core',
-        topics:
-          'KStream, KTable, KGroupedStream, aggregations, joins — Stephane Maarek. Relate to your SCB streaming pipelines.',
-      },
-      {
-        w: 59,
-        focus: 'Windowing + Joins',
-        topics:
-          'Time windows (tumbling, hopping, session), stream-stream joins, stream-table joins',
-      },
-      {
-        w: 60,
-        focus: 'Stateful Operations',
-        topics:
-          'State stores, interactive queries, changelog topics, RocksDB internals',
-      },
-      {
-        w: 61,
-        focus: 'Exactly-Once + Scaling',
-        topics:
-          'Exactly-once semantics, fault tolerance, partition scaling, monitoring Kafka Streams apps',
-      },
-      {
-        w: 62,
-        focus: 'Capstone + FPO Integration',
-        topics:
-          'Build FPO real-time flight event streaming pipeline. Connect to FPO Kafka cluster. Deploy.',
-      },
-    ],
-  },
-  {
-    id: 'pyspark',
-    block: 2,
-    seq: 9,
-    icon: '⚡',
-    color: '#F59E0B',
-    dark: '#D97706',
-    bg: '#FFFBEB',
-    border: '#FDE68A',
-    name: 'PySpark + Azure Databricks + ADF',
-    blockLabel: 'Block 2 · SCB / Bangkok Bank Skills',
-    days: 35,
-    dayStart: 436,
-    dayEnd: 470,
-    startDate: 'Aug 23, 2027',
-    endDate: 'Sep 26, 2027',
-    hours: '~105h',
-    courseH: '60h',
-    practiceH: '45h',
-    milestone: '⚡ PySpark + Azure Complete · Day 470',
-    summary:
-      '35 days · 5 weeks · 3 courses. PySpark, Azure Databricks, Azure Data Factory. Your SCB Thailand core banking modernization with Azure Databricks/PySpark + Bangkok Bank work is your biggest differentiator. This is deepening and formalizing, not starting from scratch.',
-    courses: [
-      'Ramkumar Ramakrishnan — PySpark Essentials for Data Scientists 4.6★ 35K students (14h) · W63–W64',
-      'Eshant Garg — Azure Databricks & Spark for Data Engineers 4.5★ 25K students (25h) · W64–W65',
-      'Mr K Learning — Azure Data Factory Pipeline Activities 4.7★ 18K students (21h) · W66–W67',
-    ],
-    weekPlan: [
-      {
-        w: 63,
-        focus: 'PySpark Core',
-        topics:
-          'RDDs, DataFrames, Spark SQL, transformations, actions — revisit your SCB PySpark patterns formally',
-      },
-      {
-        w: 64,
-        focus: 'Spark Optimisation',
-        topics:
-          'Catalyst optimizer, broadcast joins, partitioning, caching, AQE — go deeper than SCB work',
-      },
-      {
-        w: 65,
-        focus: 'Azure Databricks',
-        topics:
-          'Databricks workspace, Delta Lake, Unity Catalog, notebooks, cluster config, MLflow — your SCB environment',
-      },
-      {
-        w: 66,
-        focus: 'Databricks Pipelines + ADF',
-        topics:
-          'Databricks pipelines, DLT. ADF triggers, linked services, datasets, integration runtimes.',
-      },
-      {
-        w: 67,
-        focus: 'ADF + Capstone ETL',
-        topics:
-          'Full Azure Data Factory pipeline: ingest → transform → load. Build SCB-style banking data ETL for portfolio.',
-      },
-    ],
-  },
+
   {
     id: 'dsa',
     block: 2,
-    seq: 10,
+    seq: 8,
     icon: '🧩',
     color: '#6366F1',
     dark: '#4338CA',
     bg: '#EEF2FF',
     border: '#C7D2FE',
     name: 'Java DSA',
-    blockLabel: 'Block 2 · Interview Preparation',
-    days: 35,
-    dayStart: 471,
-    dayEnd: 505,
-    startDate: 'Sep 27, 2027',
-    endDate: 'Oct 31, 2027',
-    hours: '~105h',
-    courseH: '54h',
-    practiceH: '51h',
-    milestone: '🧩 Java DSA Complete · Day 505',
-    pythonWeek: 'W68',
-    summary:
-      '35 days · 5 weeks · 4 courses. W68 = Scott Barrett Java+Python DSA side by side. W69–W72 = interview-focused courses. Code every problem in Java. Strong DSA for all job types — Full Stack, Data Engineering, AI Engineering, Backend.',
+    label: 'Block 2 · Interview Prep',
+    days: 70,
+    ds: 401,
+    de: 470,
+    period: 'Jul 19 – Sep 26, 2027',
+    weeks: '10w',
+    hours: '~210h',
+    ch: '99h',
+    ph: '111h',
+    ms: '🧩 Java DSA Complete · Day 470',
+    about:
+      '70 days · 10 weeks · 5 courses. W58 = Scott Barrett Java+Python simultaneously. W59–W67 deep Java DSA with 4 courses. Extensive practice — code every problem in Java. Strong DSA for Full Stack, Data Engineering, AI Engineering, Backend roles.',
     courses: [
-      '🐍 Scott Barrett 4.8★ — Java DS & Algorithms + LeetCode (10h) · W68 — Java + Python simultaneously',
-      'Andrei Neagoie ZTM — Master the Coding Interview DS + Algorithms (20h) · W69–W70',
-      'Tim Buchalka 112K — DS & Algorithms Deep Dive Using Java (16h) · W70–W71',
-      'Andrei Neagoie ZTM — Master Coding Interview Big Tech FAANG (8h) · W72',
+      '🐍 Scott Barrett 4.8★ — Java DS & Algorithms + LeetCode (10h) · W58 — Java + Python',
+      'Andrei Neagoie ZTM — Master the Coding Interview DS + Algorithms (20h) · W59–W61',
+      'Tim Buchalka 112K — DS & Algorithms Deep Dive Using Java (16h) · W61–W63',
+      'Elshad Karimov — Java DS & Algorithms Masterclass (45h) · W63–W67',
+      'Andrei Neagoie ZTM — Master Coding Interview Big Tech FAANG (8h) · W67',
     ],
-    weekPlan: [
+    weeks_plan: [
       {
-        w: 68,
-        focus: '🐍 Java + Python DSA',
-        topics:
-          'Scott Barrett: Big O, Arrays, Hash Maps, Linked Lists, Trees — problems in Java AND Python',
+        w: 58,
+        f: '🐍 Java + Python DSA',
+        t: 'Scott Barrett: Big O, Arrays, Hash Maps, Linked Lists, Trees — Java AND Python',
       },
       {
-        w: 69,
-        focus: 'Trees + Graphs',
-        topics:
-          'BST, DFS/BFS, topological sort, Dijkstra, Union-Find — Java implementations timed',
+        w: 59,
+        f: 'Arrays + Hash Maps',
+        t: 'Two Pointers, Sliding Window, Frequency Counter — Java, timed',
       },
       {
-        w: 70,
-        focus: 'Heaps + DP Foundations',
-        topics:
-          'Java PriorityQueue, Top-K patterns, 1D DP: coin change, house robber, jump game',
+        w: 60,
+        f: 'Linked Lists + Stacks',
+        t: 'Singly/Doubly LL, Floyd cycle detection, Monotonic Stack — Java',
       },
       {
-        w: 71,
-        focus: 'Advanced DP + Sorting',
-        topics:
-          '2D DP, backtracking, all sorting algorithms with complexity proofs in Java',
+        w: 61,
+        f: 'Trees + BST',
+        t: 'DFS pre/in/postorder, BFS level-order, BST insert/delete/validate',
       },
       {
-        w: 72,
-        focus: 'FAANG Patterns + Review',
-        topics:
-          'Hard graph + advanced DP from FAANG course. Rebuild 3 structures from scratch cold.',
+        w: 62,
+        f: 'Heaps + Priority Queues',
+        t: 'Java PriorityQueue, Top-K patterns, median data stream',
+      },
+      {
+        w: 63,
+        f: 'Graphs in Java',
+        t: 'BFS/DFS, topological sort, Dijkstra, Bellman-Ford, Union-Find',
+      },
+      {
+        w: 64,
+        f: 'Sorting + Binary Search',
+        t: 'All sorting algorithms with complexity proofs, binary search variants',
+      },
+      {
+        w: 65,
+        f: 'Dynamic Programming 1',
+        t: '1D DP: coin change, house robber, jump game — top-down + bottom-up',
+      },
+      {
+        w: 66,
+        f: 'Dynamic Programming 2',
+        t: '2D DP, LCS, edit distance, knapsack, interval DP — timed',
+      },
+      {
+        w: 67,
+        f: 'FAANG Patterns',
+        t: 'Hard graph, advanced DP, backtracking — FAANG course. 3 structures cold.',
       },
     ],
   },
+
   {
     id: 'sd',
     block: 2,
-    seq: 11,
+    seq: 9,
     icon: '🏗',
     color: '#16A34A',
     dark: '#15803D',
     bg: '#F0FDF4',
     border: '#BBF7D0',
     name: 'System Design',
-    blockLabel: 'Block 2 · Interview Preparation',
-    days: 35,
-    dayStart: 506,
-    dayEnd: 540,
-    startDate: 'Nov 1, 2027',
-    endDate: 'Dec 5, 2027',
-    hours: '~105h',
-    courseH: '63h',
-    practiceH: '42h',
-    milestone: '🏗 System Design Complete · Day 540 · Dec 5, 2027 🎯',
-    summary:
-      "35 days · 5 weeks · 5 courses. Design 1 system per day spoken aloud. Your FPO multi-tenant SaaS, Kafka Streams, PySpark pipelines, Lambda microservices = real production system design experience that most candidates don't have. Last day Sunday Dec 5, 2027.",
+    label: 'Block 2 · Interview Prep',
+    days: 70,
+    ds: 471,
+    de: 540,
+    period: 'Sep 27 – Dec 5, 2027',
+    weeks: '10w',
+    hours: '~210h',
+    ch: '63h',
+    ph: '147h',
+    ms: '🏗 System Design Complete · Day 540 · Dec 5 🎯',
+    about:
+      "70 days · 10 weeks · 5 courses. Design 1 system per day spoken aloud. FPO multi-tenant SaaS, Kafka, Lambda microservices = real production experience most candidates don't have. Last day Sunday Dec 5, 2027.",
     courses: [
-      'Frank Kane ex-Amazon — Mastering the System Design Interview (5h) · W73',
-      'Michael Pogrebinsky 93K — Software Architecture Modern Large Scale Systems (20h) · W73–W74',
-      'Mikhail Smarshchok — System Design Interview Guide 20+ designs (18h) · W74–W75',
-      'Bogdan Stashchuk — Pragmatic System Design real trade-offs (12h) · W75–W76',
-      'FAANG Insiders — System Design Masterclass 2026 (8h) · W76–W77',
+      'Frank Kane ex-Amazon — Mastering the System Design Interview (5h) · W68',
+      'Michael Pogrebinsky 93K — Software Architecture Modern Large Scale Systems (20h) · W68–W70',
+      'Mikhail Smarshchok — System Design Interview Guide 20+ designs (18h) · W70–W72',
+      'Bogdan Stashchuk — Pragmatic System Design real trade-offs (12h) · W72–W74',
+      'FAANG Insiders — System Design Masterclass 2026 (8h) · W74–W77',
     ],
-    weekPlan: [
+    weeks_plan: [
+      {
+        w: 68,
+        f: 'SD Framework + Frank Kane',
+        t: '5-step template: Requirements→Capacity→API→HLD→Deep Dive. 6 mocks.',
+      },
+      {
+        w: 69,
+        f: 'Distributed Architecture',
+        t: 'CQRS, Event Sourcing, Saga, API Gateway — all maps to FPO',
+      },
+      {
+        w: 70,
+        f: 'Classic Designs 1',
+        t: 'URL Shortener, WhatsApp, Twitter — spoken 45 min each',
+      },
+      {
+        w: 71,
+        f: 'Classic Designs 2',
+        t: 'Netflix, Uber, Notification System — Mikhail Smarshchok course',
+      },
+      {
+        w: 72,
+        f: 'Classic Designs 3',
+        t: 'Rate Limiter, Search Autocomplete, Distributed Cache, Leaderboard',
+      },
       {
         w: 73,
-        focus: 'SD Framework + Arch',
-        topics:
-          'Frank Kane 5-step template. CQRS, Event Sourcing, Saga, API Gateway — all maps to FPO. Michael Pogrebinsky distributed systems.',
+        f: 'Trade-offs + Production',
+        t: 'Bogdan: Netflix, Uber, Airbnb real decisions — WHY not just WHAT',
       },
       {
         w: 74,
-        focus: 'Classic Designs 1',
-        topics:
-          'URL Shortener, WhatsApp, Twitter, Netflix — Requirements→Estimation→HLD→DB→API spoken 45 min each',
+        f: 'Advanced Designs',
+        t: 'Payment System, FPO Flight Optimiser (your system!), Kafka pipeline',
       },
       {
         w: 75,
-        focus: 'Classic Designs 2',
-        topics:
-          'Uber, Notification System, Rate Limiter, Distributed Cache — Bogdan trade-off reasoning',
+        f: 'FAANG Template + Mocks',
+        t: 'FAANG Insiders 5-step — YouTube, Newsfeed, WhatsApp. Cold designs daily.',
       },
       {
         w: 76,
-        focus: 'Advanced + FPO Design',
-        topics:
-          'Payment System, FPO Flight Optimiser (your system!), Kafka Streaming pipeline, Databricks ETL — FAANG template',
+        f: 'Mock Design Week',
+        t: '5 cold designs per day, 45 min each, no notes — focus on weakest 3',
       },
       {
         w: 77,
-        focus: 'Mock Designs + Final Day',
-        topics:
-          '5 cold mock designs spoken aloud — no notes. Dec 5, 2027 = Day 540 = 540-Day Journey COMPLETE 🎯',
+        f: 'Final Mock · Day 540',
+        t: 'Last cold designs. Dec 5, 2027 = Day 540 = Journey Complete 🎯',
       },
     ],
   },
@@ -841,91 +717,67 @@ const MILESTONES = [
     day: 365,
     date: 'Jun 13, 2027',
     icon: '⚙',
-    label: 'DevOps Complete · 1 Year Full Stack 🎉',
+    label: 'DevOps Complete · 1 Year Done 🎉',
     color: '#EA580C',
   },
   {
     day: 400,
     date: 'Jul 18, 2027',
     icon: '🤖',
-    label: 'Agentic AI Complete',
+    label: 'Agentic AI Complete · Day 400',
     color: '#7C3AED',
-  },
-  {
-    day: 435,
-    date: 'Aug 22, 2027',
-    icon: '📨',
-    label: 'Kafka Streams Complete',
-    color: '#DC2626',
   },
   {
     day: 470,
     date: 'Sep 26, 2027',
-    icon: '⚡',
-    label: 'PySpark + Azure Complete',
-    color: '#F59E0B',
-  },
-  {
-    day: 505,
-    date: 'Oct 31, 2027',
     icon: '🧩',
-    label: 'Java DSA Complete',
+    label: 'Java DSA Complete · Day 470',
     color: '#6366F1',
   },
   {
     day: 540,
     date: 'Dec 5, 2027',
     icon: '🏗',
-    label: 'System Design Complete · Day 540 · Dec 5 🎯',
+    label: 'System Design Complete · Day 540 🎯',
     color: '#16A34A',
   },
 ];
 
-const TOTAL_DAYS = 540,
-  TOTAL_HOURS = 1620;
-
-function daysSince() {
+function daysIn() {
   return Math.max(0, Math.floor((new Date() - START) / 864e5));
 }
-function curPhaseId() {
-  const d = daysSince() + 1;
-  for (const p of PHASES) if (d <= p.dayEnd) return p.id;
+function curId() {
+  const d = daysIn() + 1;
+  for (const p of PHASES) if (d <= p.de) return p.id;
   return null;
 }
 function pct() {
-  return Math.min(100, Math.round((daysSince() / TOTAL_DAYS) * 100));
+  return Math.min(100, Math.round((daysIn() / TOTAL) * 100));
 }
 
-function Card({ p, isOpen, onToggle, isCurrent, isDone }) {
+function PhaseCard({ p, open, onToggle, isCurrent, isDone }) {
   const [wkOpen, setWkOpen] = useState(false);
-  const hasPy = !!p.pythonWeek;
-  const bc =
-    p.block === 1
-      ? { bg: '#EEF2FF', color: '#4338CA', border: '#C7D2FE' }
-      : { bg: '#FFF7ED', color: '#C2410C', border: '#FED7AA' };
+  const hasPy = p.id === 'devops' || p.id === 'dsa';
+  const b1col = { bg: '#EEF2FF', color: '#4338CA', border: '#C7D2FE' };
+  const b2col = { bg: '#FFF7ED', color: '#C2410C', border: '#FED7AA' };
+  const bc = p.block === 1 ? b1col : b2col;
+
   return (
     <div
-      id={'p' + p.id}
+      id={'p-' + p.id}
       style={{
         borderRadius: 12,
-        border:
-          '2px solid ' +
-          (isOpen
-            ? p.color + '80'
-            : isCurrent
-              ? '#F59E0B80'
-              : isDone
-                ? p.color + '28'
-                : p.border),
-        background: isOpen ? p.bg : isDone ? '#FAFBFF' : '#fff',
-        opacity: isDone ? 0.72 : 1,
-        boxShadow: isOpen
-          ? `0 6px 22px ${p.color}14`
+        border: `2px solid ${open ? p.color + '90' : isCurrent ? '#F59E0B' : isDone ? p.color + '30' : p.border}`,
+        background: open ? p.bg : isDone ? '#FAFBFF' : '#fff',
+        opacity: isDone ? 0.75 : 1,
+        boxShadow: open
+          ? `0 6px 24px ${p.color}18`
           : isCurrent
-            ? '0 0 0 3px #FEF3C7,0 2px 8px rgba(0,0,0,0.06)'
+            ? '0 0 0 3px #FEF3C7,0 2px 8px rgba(0,0,0,0.07)'
             : '0 1px 4px rgba(0,0,0,0.05)',
         overflow: 'hidden',
         transition: 'all 0.22s',
+        marginBottom: 8,
       }}
     >
       <button
@@ -935,10 +787,10 @@ function Card({ p, isOpen, onToggle, isCurrent, isDone }) {
           background: 'none',
           border: 'none',
           cursor: 'pointer',
-          padding: '12px 14px',
+          padding: '13px 15px',
           display: 'flex',
           alignItems: 'center',
-          gap: 10,
+          gap: 11,
           textAlign: 'left',
           fontFamily: 'inherit',
         }}
@@ -949,7 +801,7 @@ function Card({ p, isOpen, onToggle, isCurrent, isDone }) {
             height: 52,
             borderRadius: 12,
             flexShrink: 0,
-            background: isOpen
+            background: open
               ? `linear-gradient(135deg,${p.color},${p.dark})`
               : isDone
                 ? '#F1F5F9'
@@ -959,8 +811,8 @@ function Card({ p, isOpen, onToggle, isCurrent, isDone }) {
             flexDirection: 'column',
             alignItems: 'center',
             justifyContent: 'center',
+            boxShadow: open ? `0 4px 12px ${p.color}45` : 'none',
             transition: 'all 0.22s',
-            boxShadow: isOpen ? `0 4px 12px ${p.color}40` : 'none',
           }}
         >
           <span style={{ fontSize: 18, lineHeight: 1 }}>
@@ -970,7 +822,7 @@ function Card({ p, isOpen, onToggle, isCurrent, isDone }) {
             style={{
               fontSize: 8,
               fontWeight: 700,
-              color: isOpen ? 'rgba(255,255,255,0.6)' : p.color,
+              color: open ? 'rgba(255,255,255,0.65)' : p.color,
               marginTop: 1,
             }}
           >
@@ -985,7 +837,7 @@ function Card({ p, isOpen, onToggle, isCurrent, isDone }) {
               gap: 5,
               alignItems: 'center',
               flexWrap: 'wrap',
-              marginBottom: 2,
+              marginBottom: 3,
             }}
           >
             {isCurrent && (
@@ -993,7 +845,7 @@ function Card({ p, isOpen, onToggle, isCurrent, isDone }) {
                 style={{
                   fontSize: 9,
                   fontWeight: 800,
-                  padding: '1px 6px',
+                  padding: '1px 7px',
                   borderRadius: 12,
                   background: '#FEF3C7',
                   color: '#D97706',
@@ -1009,7 +861,7 @@ function Card({ p, isOpen, onToggle, isCurrent, isDone }) {
                 style={{
                   fontSize: 9,
                   fontWeight: 800,
-                  padding: '1px 6px',
+                  padding: '1px 7px',
                   borderRadius: 12,
                   background: '#DCFCE7',
                   color: '#15803D',
@@ -1024,7 +876,7 @@ function Card({ p, isOpen, onToggle, isCurrent, isDone }) {
                 style={{
                   fontSize: 9,
                   fontWeight: 800,
-                  padding: '1px 6px',
+                  padding: '1px 7px',
                   borderRadius: 12,
                   background: '#DCFCE7',
                   color: '#047857',
@@ -1032,22 +884,22 @@ function Card({ p, isOpen, onToggle, isCurrent, isDone }) {
                   whiteSpace: 'nowrap',
                 }}
               >
-                🐍 {p.pythonWeek}
+                🐍 Python
               </span>
             )}
             <span
               style={{
                 fontSize: 9,
                 fontWeight: 700,
-                padding: '1px 6px',
+                padding: '1px 7px',
                 borderRadius: 12,
-                whiteSpace: 'nowrap',
                 background: bc.bg,
                 color: bc.color,
                 border: `1px solid ${bc.border}`,
+                whiteSpace: 'nowrap',
               }}
             >
-              {p.blockLabel}
+              {p.label}
             </span>
             <span
               style={{
@@ -1060,11 +912,11 @@ function Card({ p, isOpen, onToggle, isCurrent, isDone }) {
             </span>
           </div>
           <div style={{ fontSize: 10, color: '#64748B', marginBottom: 1 }}>
-            {p.startDate} → {p.endDate} · D{p.dayStart}–D{p.dayEnd} · {p.days}d
+            {p.period} · D{p.ds}–D{p.de} · {p.days}d · {p.weeks}
           </div>
-          {p.milestone && (
+          {p.ms && (
             <div style={{ fontSize: 9, fontWeight: 800, color: p.color }}>
-              🏆 {p.milestone}
+              🏆 {p.ms}
             </div>
           )}
         </div>
@@ -1072,72 +924,41 @@ function Card({ p, isOpen, onToggle, isCurrent, isDone }) {
         <div style={{ textAlign: 'right', flexShrink: 0 }}>
           <div
             style={{
-              fontSize: 12,
+              fontSize: 13,
               fontWeight: 900,
               color: p.color,
               background: p.color + '12',
-              padding: '2px 9px',
+              padding: '2px 10px',
               borderRadius: 14,
               border: `1px solid ${p.color}22`,
               marginBottom: 2,
             }}
           >
-            {p.days}d
+            {p.weeks}
           </div>
-          <div style={{ fontSize: 9, color: '#94A3B8' }}>{p.hours}</div>
+          <div style={{ fontSize: 9, color: '#94A3B8' }}>{p.days}d</div>
         </div>
         <span
           style={{
             color: p.color,
             fontSize: 18,
             flexShrink: 0,
-            transform: isOpen ? 'rotate(90deg)' : 'none',
+            transform: open ? 'rotate(90deg)' : 'none',
             transition: 'transform 0.2s',
-            opacity: isOpen ? 1 : 0.3,
+            opacity: open ? 1 : 0.3,
           }}
         >
           ›
         </span>
       </button>
 
-      {isOpen && (
+      {open && (
         <div
           style={{
             borderTop: `2px solid ${p.color}18`,
-            padding: '12px 14px 16px',
+            padding: '13px 15px 16px',
           }}
         >
-          {hasPy && (
-            <div
-              style={{
-                background: 'linear-gradient(90deg,#DCFCE7,#F0FDF4)',
-                border: '1px solid #86EFAC',
-                borderRadius: 9,
-                padding: '9px 12px',
-                marginBottom: 10,
-                display: 'flex',
-                alignItems: 'center',
-                gap: 8,
-              }}
-            >
-              <span style={{ fontSize: 18, flexShrink: 0 }}>🐍</span>
-              <div>
-                <div
-                  style={{ fontSize: 11, fontWeight: 800, color: '#047857' }}
-                >
-                  Python merged into {p.pythonWeek}
-                </div>
-                <div
-                  style={{ fontSize: 10, color: '#166534', lineHeight: 1.6 }}
-                >
-                  {p.id === 'devops'
-                    ? 'Python automation scripting (boto3, subprocess, log parsing) — learned in DevOps context.'
-                    : 'Python DSA alongside Java (Scott Barrett Java+Python LeetCode course).'}
-                </div>
-              </div>
-            </div>
-          )}
-
           <div
             style={{
               background: p.color + '0A',
@@ -1147,10 +968,10 @@ function Card({ p, isOpen, onToggle, isCurrent, isDone }) {
               marginBottom: 10,
               fontSize: 12,
               color: '#334155',
-              lineHeight: 1.8,
+              lineHeight: 1.85,
             }}
           >
-            {p.summary}
+            {p.about}
           </div>
 
           <div
@@ -1180,7 +1001,7 @@ function Card({ p, isOpen, onToggle, isCurrent, isDone }) {
               >
                 📚 COURSES
               </div>
-              {p.courses.map((crs, i) => (
+              {p.courses.map((c, i) => (
                 <div
                   key={i}
                   style={{ display: 'flex', gap: 5, padding: '2px 0' }}
@@ -1191,25 +1012,24 @@ function Card({ p, isOpen, onToggle, isCurrent, isDone }) {
                       flexShrink: 0,
                       marginTop: 2,
                       fontWeight: 700,
-                      color: crs.startsWith('🐍') ? p.color : p.color,
+                      color: c.startsWith('🐍') ? p.color : p.color,
                     }}
                   >
-                    {crs.startsWith('🐍') ? '🐍' : i + 1 + '.'}
+                    {c.startsWith('🐍') ? '🐍' : i + 1 + '.'}
                   </span>
                   <span
                     style={{
                       fontSize: 10,
-                      color: crs.startsWith('🐍') ? '#047857' : '#374151',
+                      color: c.startsWith('🐍') ? '#047857' : '#374151',
                       lineHeight: 1.6,
-                      fontWeight: crs.startsWith('🐍') ? 600 : 400,
+                      fontWeight: c.startsWith('🐍') ? 600 : 400,
                     }}
                   >
-                    {crs}
+                    {c}
                   </span>
                 </div>
               ))}
             </div>
-
             <div
               style={{
                 background: '#F8FAFF',
@@ -1224,18 +1044,18 @@ function Card({ p, isOpen, onToggle, isCurrent, isDone }) {
                   fontWeight: 800,
                   color: '#4F46E5',
                   letterSpacing: '0.08em',
-                  marginBottom: 5,
+                  marginBottom: 6,
                 }}
               >
-                ⏰ 6:00 AM–9:00 AM · {p.hours}
+                ⏰ 6:00 AM – 9:00 AM · {p.hours}
               </div>
               <div style={{ display: 'flex', gap: 7, marginBottom: 7 }}>
                 {[
-                  ['📺', 'Course', p.courseH],
-                  ['💻', 'Practice', p.practiceH],
-                ].map(([ic, lbl, h]) => (
+                  ['📺', 'Course', p.ch],
+                  ['💻', 'Practice', p.ph],
+                ].map(([ic, lb, h]) => (
                   <div
-                    key={lbl}
+                    key={lb}
                     style={{
                       flex: 1,
                       background: '#fff',
@@ -1255,11 +1075,11 @@ function Card({ p, isOpen, onToggle, isCurrent, isDone }) {
                     >
                       {h}
                     </div>
-                    <div style={{ fontSize: 9, color: '#94A3B8' }}>{lbl}</div>
+                    <div style={{ fontSize: 9, color: '#94A3B8' }}>{lb}</div>
                   </div>
                 ))}
               </div>
-              {p.milestone && (
+              {p.ms && (
                 <div
                   style={{
                     background: `${p.color}12`,
@@ -1271,7 +1091,7 @@ function Card({ p, isOpen, onToggle, isCurrent, isDone }) {
                     color: p.color,
                   }}
                 >
-                  🏆 {p.milestone}
+                  🏆 {p.ms}
                 </div>
               )}
             </div>
@@ -1297,8 +1117,7 @@ function Card({ p, isOpen, onToggle, isCurrent, isDone }) {
             }}
           >
             <span style={{ fontSize: 10, fontWeight: 700, color: p.color }}>
-              📅 Week-by-Week Plan — {p.weekPlan.length} week
-              {p.weekPlan.length > 1 ? 's' : ''}
+              📅 Week-by-Week Plan — {p.weeks_plan.length} weeks
             </span>
             <span style={{ fontSize: 12, color: p.color }}>
               {wkOpen ? '▲' : '▼'}
@@ -1306,97 +1125,94 @@ function Card({ p, isOpen, onToggle, isCurrent, isDone }) {
           </button>
 
           {wkOpen && (
-            <div style={{ display: 'flex', flexDirection: 'column', gap: 6 }}>
-              {p.weekPlan.map((wk) => (
-                <div
-                  key={wk.w}
-                  style={{
-                    background: wk.focus.includes('🐍') ? '#F0FDF4' : '#fff',
-                    borderRadius: 8,
-                    padding: '9px 11px',
-                    border: `1.5px solid ${wk.focus.includes('🐍') ? '#86EFAC' : p.color + '18'}`,
-                    display: 'flex',
-                    gap: 10,
-                    alignItems: 'flex-start',
-                  }}
-                >
+            <div style={{ display: 'flex', flexDirection: 'column', gap: 5 }}>
+              {p.weeks_plan.map((wk) => {
+                const isPy = wk.f.includes('🐍');
+                return (
                   <div
+                    key={wk.w}
                     style={{
-                      width: 38,
-                      height: 38,
+                      background: isPy ? '#F0FDF4' : '#fff',
                       borderRadius: 8,
-                      background: wk.focus.includes('🐍')
-                        ? '#DCFCE7'
-                        : p.color + '18',
-                      color: wk.focus.includes('🐍') ? '#15803D' : p.color,
+                      padding: '9px 11px',
+                      border: `1.5px solid ${isPy ? '#86EFAC' : p.color + '18'}`,
                       display: 'flex',
-                      flexDirection: 'column',
-                      alignItems: 'center',
-                      justifyContent: 'center',
-                      flexShrink: 0,
+                      gap: 10,
+                      alignItems: 'flex-start',
                     }}
                   >
-                    <span
-                      style={{ fontSize: 8, fontWeight: 700, lineHeight: 1 }}
+                    <div
+                      style={{
+                        width: 36,
+                        height: 36,
+                        borderRadius: 8,
+                        flexShrink: 0,
+                        background: isPy ? '#DCFCE7' : p.color + '18',
+                        color: isPy ? '#15803D' : p.color,
+                        display: 'flex',
+                        flexDirection: 'column',
+                        alignItems: 'center',
+                        justifyContent: 'center',
+                      }}
                     >
-                      {wk.focus.includes('🐍') ? '🐍' : 'W'}
-                    </span>
-                    <span
-                      style={{ fontSize: 12, fontWeight: 900, lineHeight: 1 }}
-                    >
-                      {wk.focus.includes('🐍') ? '' : wk.w}
-                    </span>
-                    {!wk.focus.includes('🐍') && (
                       <span
                         style={{
-                          fontSize: 8,
-                          fontWeight: 600,
-                          opacity: 0.6,
+                          fontSize: isPy ? 14 : 8,
+                          fontWeight: 700,
                           lineHeight: 1,
                         }}
                       >
-                        {wk.w}
+                        {isPy ? '🐍' : 'W'}
                       </span>
-                    )}
-                  </div>
-                  <div style={{ flex: 1, minWidth: 0 }}>
-                    <div
-                      style={{
-                        display: 'flex',
-                        gap: 5,
-                        alignItems: 'center',
-                        marginBottom: 2,
-                      }}
-                    >
-                      <span
-                        style={{
-                          fontSize: 11,
-                          fontWeight: 700,
-                          color: wk.focus.includes('🐍')
-                            ? '#047857'
-                            : '#0F172A',
-                        }}
-                      >
-                        {wk.focus}
-                      </span>
-                      {!wk.focus.includes('🐍') && (
-                        <span style={{ fontSize: 9, color: '#94A3B8' }}>
-                          W{wk.w}
+                      {!isPy && (
+                        <span
+                          style={{
+                            fontSize: 12,
+                            fontWeight: 900,
+                            lineHeight: 1,
+                          }}
+                        >
+                          {wk.w}
                         </span>
                       )}
                     </div>
-                    <div
-                      style={{
-                        fontSize: 10,
-                        color: wk.focus.includes('🐍') ? '#166534' : '#64748B',
-                        lineHeight: 1.6,
-                      }}
-                    >
-                      {wk.topics}
+                    <div style={{ flex: 1, minWidth: 0 }}>
+                      <div
+                        style={{
+                          display: 'flex',
+                          gap: 5,
+                          alignItems: 'center',
+                          marginBottom: 2,
+                        }}
+                      >
+                        <span
+                          style={{
+                            fontSize: 11,
+                            fontWeight: 700,
+                            color: isPy ? '#047857' : '#0F172A',
+                          }}
+                        >
+                          {wk.f}
+                        </span>
+                        {!isPy && (
+                          <span style={{ fontSize: 9, color: '#94A3B8' }}>
+                            W{wk.w}
+                          </span>
+                        )}
+                      </div>
+                      <div
+                        style={{
+                          fontSize: 10,
+                          color: isPy ? '#166534' : '#64748B',
+                          lineHeight: 1.6,
+                        }}
+                      >
+                        {wk.t}
+                      </div>
                     </div>
                   </div>
-                </div>
-              ))}
+                );
+              })}
             </div>
           )}
         </div>
@@ -1406,42 +1222,43 @@ function Card({ p, isOpen, onToggle, isCurrent, isDone }) {
 }
 
 export default function App() {
-  const [open, setOpen] = useState(null);
+  const [openId, setOpenId] = useState(null);
   const [showMs, setShowMs] = useState(true);
-  const dIn = daysSince(),
-    cId = curPhaseId(),
-    prog = pct();
-  const msDone = MILESTONES.filter((m) => m.day <= dIn + 1).length;
-  const nextMs = MILESTONES.find((m) => m.day > dIn + 1);
-  const toggle = (id) => setOpen(open === id ? null : id);
+
+  const d = daysIn();
+  const cid = curId();
+  const prog = pct();
+  const msDone = MILESTONES.filter((m) => m.day <= d + 1).length;
+  const nextMs = MILESTONES.find((m) => m.day > d + 1);
+  const toggle = (id) => setOpenId(openId === id ? null : id);
   const jump = (id) => {
-    setOpen(id);
+    setOpenId(id);
     setTimeout(
       () =>
         document
-          .getElementById('p' + id)
+          .getElementById('p-' + id)
           ?.scrollIntoView({ behavior: 'smooth', block: 'start' }),
       80,
     );
   };
-  const b1 = PHASES.filter((p) => p.block === 1),
-    b2 = PHASES.filter((p) => p.block === 2);
+  const b1 = PHASES.filter((p) => p.block === 1);
+  const b2 = PHASES.filter((p) => p.block === 2);
 
   return (
     <div
       style={{
         minHeight: '100vh',
         background: '#F0F4FF',
-        fontFamily: "'Segoe UI',system-ui,-apple-system,sans-serif",
+        fontFamily: "'Segoe UI',system-ui,sans-serif",
         color: '#0F172A',
         overflowX: 'hidden',
       }}
     >
-      {/* ── HERO ── */}
+      {/* HERO */}
       <div
         style={{
           background:
-            'linear-gradient(135deg,#1E1B4B 0%,#4338CA 50%,#1A365D 100%)',
+            'linear-gradient(135deg,#1E1B4B 0%,#4338CA 52%,#1A365D 100%)',
           padding: '22px 14px 18px',
           position: 'relative',
           overflow: 'hidden',
@@ -1457,7 +1274,6 @@ export default function App() {
             backgroundSize: '22px 22px',
           }}
         />
-
         <div
           style={{
             maxWidth: 940,
@@ -1466,7 +1282,6 @@ export default function App() {
             zIndex: 1,
           }}
         >
-          {/* Title */}
           <div
             style={{
               display: 'flex',
@@ -1512,27 +1327,26 @@ export default function App() {
                   lineHeight: 1.1,
                 }}
               >
-                540-Days of Code
+                540-Day Coding Journey
               </div>
               <div
                 style={{
                   fontSize: 10,
-                  color: 'rgba(255,255,255,0.38)',
+                  color: 'rgba(255,255,255,0.4)',
                   marginTop: 2,
                 }}
               >
-                Sun Jun 14, 2026 → Sun Dec 5, 2027 · 540 days · {TOTAL_HOURS}h ·
-                6:00 AM–9:00 AM
+                Sun Jun 14, 2026 → Sun Dec 5, 2027 · 540 days · 1,620h · 6:00
+                AM–9:00 AM
               </div>
             </div>
           </div>
 
-          {/* 2-block summary */}
           <div
             style={{
               display: 'grid',
               gridTemplateColumns: '1fr 1fr',
-              gap: 7,
+              gap: 8,
               marginBottom: 14,
             }}
           >
@@ -1541,26 +1355,26 @@ export default function App() {
                 icon: '📚',
                 n: 'Block 1',
                 t: '1 Year of Full Stack',
-                s: 'Days 1–365 · Jun 14 2026 → Jun 13 2027',
-                d: 'React (92d) · React Native · Next.js · Spring Boot · Microservices · DevOps',
+                s: 'Days 1–400 · Jun 14 2026 → Jul 18 2027',
+                desc: 'React · RN · Next.js · Spring Boot · Microservices · DevOps · Agentic AI',
                 col: '#6366F1',
               },
               {
-                icon: '🚀',
+                icon: '💡',
                 n: 'Block 2',
-                t: '5×5 Skills',
-                s: 'Days 366–540 · Jun 14 → Dec 5 2027 · 25 weeks',
-                d: 'Agentic AI 5w · Kafka Streams 5w · PySpark+Azure 5w · Java DSA 5w · System Design 5w',
-                col: '#F59E0B',
+                t: 'DSA + System Design',
+                s: 'Days 401–540 · Jul 19 → Dec 5 2027',
+                desc: 'Java DSA 10 weeks (D401–D470) · System Design 10 weeks (D471–D540)',
+                col: '#16A34A',
               },
-            ].map(({ icon, n, t, s, d, col }) => (
+            ].map(({ icon, n, t, s, desc, col }) => (
               <div
                 key={n}
                 style={{
                   background: 'rgba(255,255,255,0.07)',
                   borderRadius: 10,
                   padding: '11px 12px',
-                  border: `1px solid ${col}45`,
+                  border: `1px solid ${col}50`,
                 }}
               >
                 <div style={{ fontSize: 18, marginBottom: 3 }}>{icon}</div>
@@ -1576,7 +1390,7 @@ export default function App() {
                 </div>
                 <div
                   style={{
-                    fontSize: 'clamp(10px,2.5vw,13px)',
+                    fontSize: 'clamp(10px,2.8vw,13px)',
                     fontWeight: 800,
                     color: '#fff',
                     marginBottom: 3,
@@ -1587,7 +1401,7 @@ export default function App() {
                 <div
                   style={{
                     fontSize: 9,
-                    color: 'rgba(255,255,255,0.4)',
+                    color: 'rgba(255,255,255,0.42)',
                     marginBottom: 4,
                   }}
                 >
@@ -1600,81 +1414,12 @@ export default function App() {
                     lineHeight: 1.55,
                   }}
                 >
-                  {d}
+                  {desc}
                 </div>
               </div>
             ))}
           </div>
 
-          {/* SCB callout */}
-          <div
-            style={{
-              background: 'rgba(245,158,11,0.15)',
-              border: '1px solid rgba(245,158,11,0.4)',
-              borderRadius: 10,
-              padding: '9px 14px',
-              marginBottom: 12,
-              display: 'flex',
-              alignItems: 'center',
-              gap: 10,
-            }}
-          >
-            <span style={{ fontSize: 20, flexShrink: 0 }}>💼</span>
-            <div>
-              <div style={{ fontSize: 11, fontWeight: 800, color: '#FDE68A' }}>
-                Block 2 Skills — you already have real production experience in
-                3 of 5
-              </div>
-              <div style={{ fontSize: 10, color: 'rgba(255,255,255,0.5)' }}>
-                SCB Thailand &amp; Bangkok Bank: LangChain/LangGraph (Agentic
-                AI) · Kafka Streams · Azure Databricks/PySpark/ADF — Block 2
-                deepens what you already know
-              </div>
-            </div>
-          </div>
-
-          {/* Skill tags */}
-          <div
-            style={{
-              display: 'flex',
-              gap: 5,
-              flexWrap: 'wrap',
-              marginBottom: 14,
-            }}
-          >
-            {[
-              ['⚛', 'React+RN+Next', '#0EA5E9'],
-              ['🌱', 'Spring Boot', '#16A34A'],
-              ['🏛', 'Microservices', '#E11D48'],
-              ['⚙', 'DevOps', '#EA580C'],
-              ['🤖', 'Agentic AI', '#7C3AED'],
-              ['📨', 'Kafka Streams', '#DC2626'],
-              ['⚡', 'PySpark+Azure', '#F59E0B'],
-              ['🧩', 'Java DSA', '#6366F1'],
-              ['🏗', 'System Design', '#16A34A'],
-            ].map(([ic, lbl, col]) => (
-              <span
-                key={lbl}
-                style={{
-                  display: 'inline-flex',
-                  alignItems: 'center',
-                  gap: 3,
-                  background: col + '20',
-                  border: `1px solid ${col}40`,
-                  borderRadius: 20,
-                  padding: '3px 9px',
-                  fontSize: 9,
-                  fontWeight: 700,
-                  color: col,
-                  whiteSpace: 'nowrap',
-                }}
-              >
-                {ic} {lbl}
-              </span>
-            ))}
-          </div>
-
-          {/* Progress bar */}
           <div style={{ marginBottom: 10 }}>
             <div
               style={{
@@ -1693,16 +1438,16 @@ export default function App() {
                     flex: p.days,
                     cursor: 'pointer',
                     background:
-                      dIn + 1 > p.dayEnd
+                      d + 1 > p.de
                         ? p.color + '70'
-                        : dIn + 1 >= p.dayStart
+                        : d + 1 >= p.ds
                           ? p.color
                           : p.color + '38',
                     borderRight: '1px solid rgba(0,0,0,0.1)',
                     transition: 'background 0.3s',
                   }}
                   onClick={() => jump(p.id)}
-                  title={`${p.name} · D${p.dayStart}–D${p.dayEnd}`}
+                  title={p.name + ' D' + p.ds + '–D' + p.de}
                 />
               ))}
             </div>
@@ -1713,9 +1458,9 @@ export default function App() {
                 marginTop: 5,
               }}
             >
-              {[1, 92, 155, 260, 316, 365, 400, 435, 470, 505, 540].map((d) => (
+              {[1, 92, 155, 260, 316, 365, 400, 470, 540].map((day) => (
                 <div
-                  key={d}
+                  key={day}
                   style={{
                     display: 'flex',
                     flexDirection: 'column',
@@ -1732,7 +1477,7 @@ export default function App() {
                   <span
                     style={{ fontSize: 7, color: 'rgba(255,255,255,0.35)' }}
                   >
-                    D{d}
+                    D{day}
                   </span>
                 </div>
               ))}
@@ -1743,20 +1488,17 @@ export default function App() {
                 justifyContent: 'space-between',
                 marginTop: 2,
                 fontSize: 8,
-                color: 'rgba(255,255,255,0.28)',
+                color: 'rgba(255,255,255,0.3)',
               }}
             >
               <span>Jun 14, 2026</span>
-              <span
-                style={{ color: 'rgba(255,255,255,0.55)', fontWeight: 700 }}
-              >
-                {prog}% · Day {Math.min(dIn + 1, 540)} of 540
+              <span style={{ color: 'rgba(255,255,255,0.6)', fontWeight: 700 }}>
+                {prog}% · Day {Math.min(d + 1, 540)} of 540
               </span>
               <span>Dec 5, 2027</span>
             </div>
           </div>
 
-          {/* Milestones */}
           <button
             onClick={() => setShowMs(!showMs)}
             style={{
@@ -1804,7 +1546,7 @@ export default function App() {
               }}
             >
               {MILESTONES.map((m, i) => {
-                const done = m.day <= dIn + 1,
+                const done = m.day <= d + 1,
                   isNext = nextMs && nextMs.day === m.day;
                 return (
                   <div
@@ -1878,17 +1620,16 @@ export default function App() {
         </div>
       </div>
 
-      {/* ── BODY ── */}
+      {/* BODY */}
       <div
-        style={{ maxWidth: 940, margin: '0 auto', padding: '12px 12px 48px' }}
+        style={{ maxWidth: 940, margin: '0 auto', padding: '14px 12px 48px' }}
       >
-        {/* Block 1 */}
         <div
           style={{
             display: 'flex',
             alignItems: 'center',
             gap: 10,
-            marginBottom: 9,
+            marginBottom: 10,
             marginTop: 2,
           }}
         >
@@ -1911,7 +1652,8 @@ export default function App() {
               📚 BLOCK 1 — 1 YEAR OF FULL STACK
             </div>
             <div style={{ fontSize: 9, color: '#94A3B8' }}>
-              Days 1–365 · Jun 14 2026 → Jun 13 2027 · 52 weeks + 1 day
+              Days 1–400 · Jun 14 2026 → Jul 18 2027 · React, RN, Next.js,
+              Spring Boot, Microservices, DevOps, Agentic AI
             </div>
           </div>
           <div
@@ -1931,31 +1673,30 @@ export default function App() {
           }}
         >
           {b1.map((p) => (
-            <Card
+            <PhaseCard
               key={p.id}
               p={p}
-              isOpen={open === p.id}
+              open={openId === p.id}
               onToggle={() => toggle(p.id)}
-              isCurrent={cId === p.id}
-              isDone={dIn + 1 > p.dayEnd}
+              isCurrent={cid === p.id}
+              isDone={d + 1 > p.de}
             />
           ))}
         </div>
 
-        {/* Block 2 */}
         <div
           style={{
             display: 'flex',
             alignItems: 'center',
             gap: 10,
-            marginBottom: 9,
+            marginBottom: 10,
           }}
         >
           <div
             style={{
               height: 2,
               flex: 1,
-              background: 'linear-gradient(90deg,#F59E0B,#F59E0B10)',
+              background: 'linear-gradient(90deg,#16A34A,#16A34A10)',
             }}
           />
           <div style={{ textAlign: 'center', flexShrink: 0 }}>
@@ -1963,22 +1704,22 @@ export default function App() {
               style={{
                 fontSize: 11,
                 fontWeight: 800,
-                color: '#D97706',
+                color: '#16A34A',
                 letterSpacing: '0.1em',
               }}
             >
-              🚀 BLOCK 2 — 5×5 SKILLS
+              💡 BLOCK 2 — DSA + SYSTEM DESIGN
             </div>
             <div style={{ fontSize: 9, color: '#94A3B8' }}>
-              Days 366–540 · Jun 14 → Dec 5 2027 · 5 skills × 5 weeks each = 25
-              weeks
+              Days 401–540 · Jul 19 → Dec 5 2027 · 10 weeks Java DSA + 10 weeks
+              System Design
             </div>
           </div>
           <div
             style={{
               height: 2,
               flex: 1,
-              background: 'linear-gradient(90deg,#F59E0B10,#F59E0B)',
+              background: 'linear-gradient(90deg,#16A34A10,#16A34A)',
             }}
           />
         </div>
@@ -1991,18 +1732,17 @@ export default function App() {
           }}
         >
           {b2.map((p) => (
-            <Card
+            <PhaseCard
               key={p.id}
               p={p}
-              isOpen={open === p.id}
+              open={openId === p.id}
               onToggle={() => toggle(p.id)}
-              isCurrent={cId === p.id}
-              isDone={dIn + 1 > p.dayEnd}
+              isCurrent={cid === p.id}
+              isDone={d + 1 > p.de}
             />
           ))}
         </div>
 
-        {/* Footer */}
         <div
           style={{
             background: 'linear-gradient(135deg,#1E1B4B,#4338CA)',
@@ -2029,14 +1769,14 @@ export default function App() {
               marginBottom: 8,
             }}
           >
-            1,620 hours · 6:00 AM–9:00 AM · Block 1: 1 Year Full Stack · Block
-            2: 5×5 Skills
+            1,620 hours · 6:00 AM–9:00 AM · Block 1: 400 Days · Block 2: 20
+            Weeks DSA + System Design
           </div>
           <div
             style={{
               display: 'flex',
               justifyContent: 'center',
-              gap: 3,
+              gap: 4,
               flexWrap: 'wrap',
             }}
           >
@@ -2050,7 +1790,7 @@ export default function App() {
                     fontSize: 9,
                     color: m.color,
                     fontWeight: 700,
-                    opacity: m.day <= dIn + 1 ? 1 : 0.4,
+                    opacity: m.day <= d + 1 ? 1 : 0.38,
                   }}
                 >
                   {m.icon} {m.label.split(' ')[0]}
