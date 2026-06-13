@@ -1,9 +1,9 @@
 import { useState } from 'react';
 
 const START = new Date('2026-06-14');
-const TOTAL = 540;
 
 const PHASES = [
+  // ══ BLOCK 1 — 1 YEAR OF FULL STACK · 365 days · 6 phases ══════════════════
   {
     id: 'react',
     block: 1,
@@ -14,24 +14,21 @@ const PHASES = [
     bg: '#F0F9FF',
     border: '#BAE6FD',
     name: 'React',
-    label: 'Block 1 · 1 Year Full Stack',
+    bLabel: 'Block 1 · 1 Year of Full Stack',
     days: 92,
     ds: 1,
     de: 92,
     period: 'Jun 14 – Sep 13, 2026',
     weeks: '13w',
-    hours: '~276h',
-    ch: '116.5h',
-    ph: '159.5h',
     ms: '⚛ React Complete · Day 92',
     about:
-      '92 days · 3 courses. John Smilga first (50.5h, 25+ real projects), Max Schwarzmüller second angle (TypeScript, testing, Redux Toolkit), Hindi interview Q&A final week.',
+      '92 days · 13 weeks · 3 courses. John Smilga first (50.5h, 25+ real projects), Max Schwarzmüller second angle (TypeScript, testing, Redux), Hindi Q&A final week.',
     courses: [
       'John Smilga — React Tutorial & Projects Course 2025 (50.5h) ★ START HERE',
       'Max Schwarzmüller — React The Complete Guide 2025 (55h)',
       'Hindi Instructor — React Interview Masterclass 200 Q (11h)',
     ],
-    weeks_plan: [
+    wplan: [
       {
         w: 1,
         f: 'Smilga: Setup + JSX',
@@ -45,7 +42,7 @@ const PHASES = [
       {
         w: 3,
         f: 'Smilga: Hooks + Data',
-        t: 'useEffect, fetch API, async/await — Food Recipe, Beachwalk Resort',
+        t: 'useEffect, fetch, async/await — Food Recipe, Beachwalk Resort',
       },
       {
         w: 4,
@@ -70,7 +67,7 @@ const PHASES = [
       {
         w: 8,
         f: 'Smilga: TS + Tailwind',
-        t: 'TypeScript in React, Tailwind CSS — Smilga final projects. Course done.',
+        t: 'TypeScript in React, Tailwind CSS — final projects. Course done.',
       },
       {
         w: 9,
@@ -110,15 +107,12 @@ const PHASES = [
     bg: '#F5F3FF',
     border: '#DDD6FE',
     name: 'React Native',
-    label: 'Block 1 · 1 Year Full Stack',
+    bLabel: 'Block 1 · 1 Year of Full Stack',
     days: 28,
     ds: 93,
     de: 120,
     period: 'Sep 14 – Oct 11, 2026',
     weeks: '4w',
-    hours: '~84h',
-    ch: '52h',
-    ph: '32h',
     ms: '📱 React Native Complete · Day 120',
     about:
       '28 days · 4 weeks · 2 courses. Run every exercise on your real iPad via Expo Go. Build FPO-style flight list app with React Navigation.',
@@ -126,7 +120,7 @@ const PHASES = [
       'Stephen Grider — The Complete React Native + Hooks Course 4.8★ (38h)',
       'Max Schwarzmüller — React Native The Practical Guide 2025 (14h)',
     ],
-    weeks_plan: [
+    wplan: [
       {
         w: 14,
         f: 'Core Components',
@@ -140,7 +134,7 @@ const PHASES = [
       {
         w: 16,
         f: 'Device APIs',
-        t: 'Camera, Location, AsyncStorage, Notifications — Expo SDK modules',
+        t: 'Camera, Location, AsyncStorage, Notifications — Expo SDK',
       },
       {
         w: 17,
@@ -160,15 +154,12 @@ const PHASES = [
     bg: '#F9FAFB',
     border: '#D1D5DB',
     name: 'Next.js',
-    label: 'Block 1 · 1 Year Full Stack',
+    bLabel: 'Block 1 · 1 Year of Full Stack',
     days: 35,
     ds: 121,
     de: 155,
     period: 'Oct 12 – Nov 15, 2026',
     weeks: '5w',
-    hours: '~105h',
-    ch: '65h',
-    ph: '40h',
     ms: '▲ Next.js Complete · Day 155',
     about:
       '35 days · 5 weeks · 3 courses. App Router, Server Components, Server Actions, NextAuth v5, Prisma. Deploy to Vercel after every chapter.',
@@ -177,7 +168,7 @@ const PHASES = [
       'John Smilga — React Tutorial & Projects Next.js sections (20h)',
       'Anil Dollor — Next.js Full Stack Development Hindi (20h)',
     ],
-    weeks_plan: [
+    wplan: [
       {
         w: 18,
         f: 'App Router Basics',
@@ -201,7 +192,7 @@ const PHASES = [
       {
         w: 22,
         f: 'Deploy + Capstone',
-        t: 'Vercel deploy, env vars — FPO web portal as capstone project',
+        t: 'Vercel deploy — FPO web portal as capstone project',
       },
     ],
   },
@@ -216,15 +207,12 @@ const PHASES = [
     bg: '#F0FDF4',
     border: '#BBF7D0',
     name: 'Spring Boot',
-    label: 'Block 1 · MAX ⭐',
+    bLabel: 'Block 1 · MAX ⭐',
     days: 105,
     ds: 156,
     de: 260,
     period: 'Nov 16, 2026 – Feb 28, 2027',
     weeks: '15w',
-    hours: '~315h',
-    ch: '185h',
-    ph: '130h',
     ms: '🌱 Spring Boot Complete · Day 260',
     about:
       '105 days · 15 weeks · MAX TIME · 5 courses. Java 8 fast-track, JPA/Hibernate deep, Spring Security with Cognito OAuth2. Every concept maps to FPO: Bean=Lambda, JPA=DynamoDB.',
@@ -235,7 +223,7 @@ const PHASES = [
       'John Thompson — Spring Framework 6 Beginner to Guru (40h)',
       'Ranga Karanam — Master Spring Boot 3 & Spring Framework 6 (36h)',
     ],
-    weeks_plan: [
+    wplan: [
       {
         w: 23,
         f: 'Java 8 Fast-Track',
@@ -294,7 +282,7 @@ const PHASES = [
       {
         w: 34,
         f: 'Full-Stack Connect',
-        t: 'Spring Boot API + React frontend — connect apps together',
+        t: 'Spring Boot API + React frontend — connect both apps',
       },
       {
         w: 35,
@@ -324,44 +312,41 @@ const PHASES = [
     bg: '#FFF1F2',
     border: '#FECDD3',
     name: 'Microservices',
-    label: 'Block 1 · MAX ⭐',
+    bLabel: 'Block 1 · MAX ⭐',
     days: 56,
     ds: 261,
     de: 316,
     period: 'Mar 1 – Apr 25, 2027',
     weeks: '8w',
-    hours: '~168h',
-    ch: '90h',
-    ph: '78h',
     ms: '🏛 Microservices Complete · Day 316',
     about:
-      '56 days · 8 weeks · MAX TIME · 4 courses. Kafka, CQRS, Event Sourcing, Saga, K8s, Circuit Breaker. Every pattern maps to FPO Cloud: EventBridge→Kafka, Step Functions→Saga.',
+      '56 days · 8 weeks · MAX TIME · 4 courses. Kafka, CQRS, Event Sourcing, Saga, K8s. Every pattern maps to FPO: EventBridge→Kafka, Step Functions→Saga.',
     courses: [
       'Ranga Karanam — Java Spring Boot Microservices with K8s & Docker (35h)',
       'Sergey Kargopolov — Building Microservices with Spring Cloud (30h)',
       'John Thompson — Spring Boot Microservices Beginner to Guru (15h)',
       'Sean Campbell — Master Spring Boot Microservices CQRS & Event Sourcing (10h)',
     ],
-    weeks_plan: [
+    wplan: [
       {
         w: 38,
         f: 'Service Decomposition',
-        t: 'DDD bounded contexts, service boundaries, REST vs events',
+        t: 'DDD bounded contexts, service boundaries, inter-service communication',
       },
       {
         w: 39,
         f: 'Spring Cloud',
-        t: 'Eureka, Spring Cloud Gateway, config server, Feign',
+        t: 'Eureka, Spring Cloud Gateway, config server, Feign clients',
       },
       {
         w: 40,
         f: 'Resilience Patterns',
-        t: 'Resilience4j circuit breaker, retry, bulkhead — FPO uses this!',
+        t: 'Resilience4j circuit breaker, retry, bulkhead — your FPO uses this!',
       },
       {
         w: 41,
         f: 'Kafka Deep Dive',
-        t: 'Producer, consumer, groups, partitions — relates to FPO EventBridge',
+        t: 'Producer, consumer, groups, partitions — maps to FPO EventBridge',
       },
       {
         w: 42,
@@ -396,30 +381,27 @@ const PHASES = [
     bg: '#FFF7ED',
     border: '#FED7AA',
     name: 'DevOps',
-    label: 'Block 1 · Day 365 🏁',
+    bLabel: 'Block 1 · Day 365 · 1 Year 🎉',
     days: 49,
     ds: 317,
     de: 365,
     period: 'Apr 26 – Jun 13, 2027',
     weeks: '7w',
-    hours: '~147h',
-    ch: '79h',
-    ph: '68h',
-    ms: '⚙ DevOps Complete · Day 365 · 1 Year 🎉',
+    ms: '⚙ DevOps Complete · 1 Year of Full Stack Done 🎉 · Day 365',
     about:
-      '49 days · 7 weeks. DevOps courses (W46–W51) + Python automation scripting in W52. Day 365 = Sunday Jun 13, 2027 — 1 full year of Full Stack complete.',
+      '49 days · 7 weeks. DevOps courses W46–W51 + 🐍 Python automation scripting in W52. Day 365 = Sunday Jun 13, 2027 — exactly 1 year of Full Stack.',
     courses: [
       'Nana Janashia TechWorld — DevOps Bootcamp (35h) · W46–W49',
       'Mumshad Mannambeth KodeKloud — The Complete DevOps Bootcamp (20h) · W49–W50',
       'Anil Dollor — Mastering DevOps Hindi (8h) · W50',
-      'Mumshad Mannambeth — Terraform Beginners with Labs (9h) · W51',
+      'Mumshad Mannambeth — Terraform for Absolute Beginners with Labs (9h) · W51',
       '🐍 Al Sweigart — Automate the Boring Stuff with Python (9h) · W52',
     ],
-    weeks_plan: [
+    wplan: [
       {
         w: 46,
         f: 'Linux + Docker',
-        t: 'Linux essentials, Docker images, containers, docker-compose — KodeKloud labs',
+        t: 'Linux essentials, Docker images, containers, volumes, docker-compose',
       },
       {
         w: 47,
@@ -429,22 +411,22 @@ const PHASES = [
       {
         w: 48,
         f: 'CI/CD Pipelines',
-        t: 'GitHub Actions, OIDC keyless AWS auth, build/test/deploy',
+        t: 'GitHub Actions, OIDC keyless AWS auth, build/test/deploy pipelines',
       },
       {
         w: 49,
         f: 'Terraform IaC',
-        t: 'HCL, resources, state, modules — provision FPO AWS resources',
+        t: 'HCL, resources, state, modules — provision FPO AWS with Terraform',
       },
       {
         w: 50,
         f: 'Monitoring + Observability',
-        t: 'Prometheus, Grafana, Datadog (your FPO tool), alerts',
+        t: 'Prometheus, Grafana, Datadog (your FPO tool), alerts, dashboards',
       },
       {
         w: 51,
         f: 'DevOps Hindi Recap',
-        t: 'Anil Dollor Hindi DevOps — advanced GitHub Actions CI/CD deep',
+        t: 'Anil Dollor Hindi DevOps — advanced GitHub Actions + CI/CD',
       },
       {
         w: 52,
@@ -454,9 +436,10 @@ const PHASES = [
     ],
   },
 
+  // ══ BLOCK 2 — AGENTIC AI USING PYTHON · 35 days · 5 weeks ═════════════════
   {
     id: 'agentic',
-    block: 1,
+    block: 2,
     seq: 7,
     icon: '🤖',
     color: '#7C3AED',
@@ -464,214 +447,207 @@ const PHASES = [
     bg: '#F5F3FF',
     border: '#DDD6FE',
     name: 'Agentic AI using Python',
-    label: 'Block 1 · Day 400',
+    bLabel: 'Block 2 · Agentic AI using Python',
     days: 35,
     ds: 366,
     de: 400,
     period: 'Jun 14 – Jul 18, 2027',
     weeks: '5w',
-    hours: '~105h',
-    ch: '74h',
-    ph: '31h',
     ms: '🤖 Agentic AI Complete · Day 400',
     about:
-      '35 days · 5 weeks · 3 courses. Python from W52 lets you dive straight in. LangChain, LangGraph, Ed Donner 8 real projects. Build FPO AI assistant as capstone. Your SCB LangChain/LangGraph work = deepening, not starting from scratch.',
+      '35 days · 5 weeks · 3 courses. LangChain, LangGraph, Ed Donner 8 real projects. Python foundation from DevOps W52 lets you dive straight in. Your SCB Thailand LangChain/LangGraph work makes this revision + deepening. Build FPO AI assistant as capstone.',
     courses: [
       'Dr. Frank Kane — ChatGPT + Generative AI Masterclass 2026 (22h) · W53–W54',
       'Ed Donner — Complete Agentic AI Engineering Course 2026 (30h) · W54–W56',
       'Eden Marco — LangChain Develop LLM Powered Applications (22h) · W56–W57',
     ],
-    weeks_plan: [
+    wplan: [
       {
         w: 53,
         f: 'GenAI Foundations',
-        t: 'LLMs, embeddings, RAG, prompt engineering, AWS Bedrock — Frank Kane',
+        t: 'LLMs, embeddings, RAG, prompt engineering (CoT, ReAct), AWS Bedrock — Frank Kane',
       },
       {
         w: 54,
         f: 'LangChain Core',
-        t: 'Chains, agents, tools, memory, LCEL, vector DBs (Pinecone, FAISS)',
+        t: 'Chains, agents, tools, memory, LCEL, vector databases (Pinecone, FAISS)',
       },
       {
         w: 55,
         f: 'LangGraph + Multi-Agent',
-        t: 'State machines, conditional edges, multi-agent orchestration',
+        t: 'State machines, conditional edges, multi-agent orchestration — Ed Donner',
       },
       {
         w: 56,
         f: 'Ed Donner: 8 Projects',
-        t: 'Career Digital Twin, Deep Research agent, SDR Agent, Browser Agent',
+        t: 'Career Digital Twin, Deep Research, SDR Agent, Browser Agent, MCP integration',
       },
       {
         w: 57,
         f: 'FPO AI Assistant',
-        t: 'Natural language query over flight data. Deploy to Lambda. Portfolio demo.',
+        t: 'Build FPO AI: natural language query over flight data. Deploy to Lambda. Portfolio demo.',
       },
     ],
   },
 
-  {
-    id: 'dsa',
-    block: 2,
-    seq: 8,
-    icon: '🧩',
-    color: '#6366F1',
-    dark: '#4338CA',
-    bg: '#EEF2FF',
-    border: '#C7D2FE',
-    name: 'Java DSA',
-    label: 'Block 2 · Interview Prep',
-    days: 70,
-    ds: 401,
-    de: 470,
-    period: 'Jul 19 – Sep 26, 2027',
-    weeks: '10w',
-    hours: '~210h',
-    ch: '99h',
-    ph: '111h',
-    ms: '🧩 Java DSA Complete · Day 470',
-    about:
-      '70 days · 10 weeks · 5 courses. W58 = Scott Barrett Java+Python simultaneously. W59–W67 deep Java DSA with 4 courses. Extensive practice — code every problem in Java. Strong DSA for Full Stack, Data Engineering, AI Engineering, Backend roles.',
-    courses: [
-      '🐍 Scott Barrett 4.8★ — Java DS & Algorithms + LeetCode (10h) · W58 — Java + Python',
-      'Andrei Neagoie ZTM — Master the Coding Interview DS + Algorithms (20h) · W59–W61',
-      'Tim Buchalka 112K — DS & Algorithms Deep Dive Using Java (16h) · W61–W63',
-      'Elshad Karimov — Java DS & Algorithms Masterclass (45h) · W63–W67',
-      'Andrei Neagoie ZTM — Master Coding Interview Big Tech FAANG (8h) · W67',
-    ],
-    weeks_plan: [
-      {
-        w: 58,
-        f: '🐍 Java + Python DSA',
-        t: 'Scott Barrett: Big O, Arrays, Hash Maps, Linked Lists, Trees — Java AND Python',
-      },
-      {
-        w: 59,
-        f: 'Arrays + Hash Maps',
-        t: 'Two Pointers, Sliding Window, Frequency Counter — Java, timed',
-      },
-      {
-        w: 60,
-        f: 'Linked Lists + Stacks',
-        t: 'Singly/Doubly LL, Floyd cycle detection, Monotonic Stack — Java',
-      },
-      {
-        w: 61,
-        f: 'Trees + BST',
-        t: 'DFS pre/in/postorder, BFS level-order, BST insert/delete/validate',
-      },
-      {
-        w: 62,
-        f: 'Heaps + Priority Queues',
-        t: 'Java PriorityQueue, Top-K patterns, median data stream',
-      },
-      {
-        w: 63,
-        f: 'Graphs in Java',
-        t: 'BFS/DFS, topological sort, Dijkstra, Bellman-Ford, Union-Find',
-      },
-      {
-        w: 64,
-        f: 'Sorting + Binary Search',
-        t: 'All sorting algorithms with complexity proofs, binary search variants',
-      },
-      {
-        w: 65,
-        f: 'Dynamic Programming 1',
-        t: '1D DP: coin change, house robber, jump game — top-down + bottom-up',
-      },
-      {
-        w: 66,
-        f: 'Dynamic Programming 2',
-        t: '2D DP, LCS, edit distance, knapsack, interval DP — timed',
-      },
-      {
-        w: 67,
-        f: 'FAANG Patterns',
-        t: 'Hard graph, advanced DP, backtracking — FAANG course. 3 structures cold.',
-      },
-    ],
-  },
-
+  // ══ BLOCK 3 — SYSTEM DESIGN · 70 days · 10 weeks ══════════════════════════
   {
     id: 'sd',
-    block: 2,
-    seq: 9,
+    block: 3,
+    seq: 8,
     icon: '🏗',
     color: '#16A34A',
     dark: '#15803D',
     bg: '#F0FDF4',
     border: '#BBF7D0',
     name: 'System Design',
-    label: 'Block 2 · Interview Prep',
+    bLabel: 'Block 3 · System Design',
+    days: 70,
+    ds: 401,
+    de: 470,
+    period: 'Jul 19 – Sep 26, 2027',
+    weeks: '10w',
+    ms: '🏗 System Design Complete · Day 470',
+    about:
+      '70 days · 10 weeks · 5 courses. Design 1 system per day spoken aloud from W59 onwards. Your FPO multi-tenant SaaS, Kafka, Lambda microservices = real production experience most candidates never have.',
+    courses: [
+      'Frank Kane ex-Amazon — Mastering the System Design Interview (5h) · W58',
+      'Michael Pogrebinsky 93K — Software Architecture Modern Large Scale Systems (20h) · W58–W60',
+      'Mikhail Smarshchok — System Design Interview Guide 20+ designs (18h) · W60–W63',
+      'Bogdan Stashchuk — Pragmatic System Design real trade-offs (12h) · W63–W65',
+      'FAANG Insiders — System Design Masterclass 2026 (8h) · W66–W67',
+    ],
+    wplan: [
+      {
+        w: 58,
+        f: 'SD Framework + Frank Kane',
+        t: 'Frank Kane 5-step template. CQRS, Event Sourcing, Saga, API Gateway — all maps to FPO',
+      },
+      {
+        w: 59,
+        f: 'Distributed Architecture',
+        t: 'Michael Pogrebinsky: CAP theorem, replication, consistency, microservices patterns',
+      },
+      {
+        w: 60,
+        f: 'Classic Designs 1',
+        t: 'URL Shortener, WhatsApp, Twitter — Requirements→Estimation→HLD→DB→API spoken 45 min',
+      },
+      {
+        w: 61,
+        f: 'Classic Designs 2',
+        t: 'Netflix, Uber, Notification System — Mikhail Smarshchok 20+ designs course',
+      },
+      {
+        w: 62,
+        f: 'Classic Designs 3',
+        t: 'Rate Limiter, Search Autocomplete, Distributed Cache, Leaderboard, Web Crawler',
+      },
+      {
+        w: 63,
+        f: 'Classic Designs 4',
+        t: 'Payment System, News Feed, Ride Sharing, Video Upload — continue Mikhail',
+      },
+      {
+        w: 64,
+        f: 'Trade-offs + Production',
+        t: 'Bogdan Stashchuk: Netflix, Uber, Airbnb — WHY production decisions were made',
+      },
+      {
+        w: 65,
+        f: 'Advanced Designs',
+        t: 'FPO Flight Optimiser (your system!), Kafka Streaming Pipeline, Databricks ETL',
+      },
+      {
+        w: 66,
+        f: 'FAANG Template Mocks',
+        t: 'FAANG Insiders 5-step template — YouTube, Newsfeed, WhatsApp cold designs',
+      },
+      {
+        w: 67,
+        f: 'Final Mock Designs',
+        t: '10 cold designs spoken aloud — no notes — 45 min each — weakest systems focus',
+      },
+    ],
+  },
+
+  // ══ BLOCK 4 — DATA STRUCTURES USING JAVA · 70 days · 10 weeks ═════════════
+  {
+    id: 'dsa',
+    block: 4,
+    seq: 9,
+    icon: '🧩',
+    color: '#6366F1',
+    dark: '#4338CA',
+    bg: '#EEF2FF',
+    border: '#C7D2FE',
+    name: 'Data Structures using Java',
+    bLabel: 'Block 4 · DSA · FINAL',
     days: 70,
     ds: 471,
     de: 540,
     period: 'Sep 27 – Dec 5, 2027',
     weeks: '10w',
-    hours: '~210h',
-    ch: '63h',
-    ph: '147h',
-    ms: '🏗 System Design Complete · Day 540 · Dec 5 🎯',
+    ms: '🧩 Java DSA Complete · Day 540 · Dec 5, 2027 🎯',
     about:
-      "70 days · 10 weeks · 5 courses. Design 1 system per day spoken aloud. FPO multi-tenant SaaS, Kafka, Lambda microservices = real production experience most candidates don't have. Last day Sunday Dec 5, 2027.",
+      '70 days · 10 weeks · 5 courses. 🐍 W68 = Scott Barrett Java+Python DSA side by side. W69–W77 deep Java DSA. Code every problem in Java. Last day Sunday Dec 5, 2027 — 540-day journey complete.',
     courses: [
-      'Frank Kane ex-Amazon — Mastering the System Design Interview (5h) · W68',
-      'Michael Pogrebinsky 93K — Software Architecture Modern Large Scale Systems (20h) · W68–W70',
-      'Mikhail Smarshchok — System Design Interview Guide 20+ designs (18h) · W70–W72',
-      'Bogdan Stashchuk — Pragmatic System Design real trade-offs (12h) · W72–W74',
-      'FAANG Insiders — System Design Masterclass 2026 (8h) · W74–W77',
+      '🐍 Scott Barrett 4.8★ — Java DS & Algorithms + LeetCode (10h) · W68 — Java + Python simultaneously',
+      'Andrei Neagoie ZTM — Master the Coding Interview DS + Algorithms (20h) · W68–W71',
+      'Tim Buchalka 112K — DS & Algorithms Deep Dive Using Java (16h) · W71–W73',
+      'Elshad Karimov — Java DS & Algorithms Masterclass (45h) · W73–W77',
+      'Andrei Neagoie ZTM — Master Coding Interview Big Tech FAANG (8h) · W77',
     ],
-    weeks_plan: [
+    wplan: [
       {
         w: 68,
-        f: 'SD Framework + Frank Kane',
-        t: '5-step template: Requirements→Capacity→API→HLD→Deep Dive. 6 mocks.',
+        f: '🐍 Java + Python DSA',
+        t: 'Scott Barrett: Big O, Arrays, Hash Maps, Linked Lists, Trees — Java AND Python simultaneously',
       },
       {
         w: 69,
-        f: 'Distributed Architecture',
-        t: 'CQRS, Event Sourcing, Saga, API Gateway — all maps to FPO',
+        f: 'Trees + BST in Java',
+        t: 'DFS preorder/inorder/postorder, BFS level-order, BST insert/delete/validate',
       },
       {
         w: 70,
-        f: 'Classic Designs 1',
-        t: 'URL Shortener, WhatsApp, Twitter — spoken 45 min each',
+        f: 'Heaps + Priority Queue',
+        t: 'Java PriorityQueue, Top-K patterns, median data stream, merge K lists',
       },
       {
         w: 71,
-        f: 'Classic Designs 2',
-        t: 'Netflix, Uber, Notification System — Mikhail Smarshchok course',
+        f: 'Graphs in Java',
+        t: 'BFS/DFS on graphs, topological sort, Dijkstra, Union-Find — Tim Buchalka',
       },
       {
         w: 72,
-        f: 'Classic Designs 3',
-        t: 'Rate Limiter, Search Autocomplete, Distributed Cache, Leaderboard',
+        f: 'Sorting + Binary Search',
+        t: 'All sorting algorithms with complexity proofs, binary search variants in Java',
       },
       {
         w: 73,
-        f: 'Trade-offs + Production',
-        t: 'Bogdan: Netflix, Uber, Airbnb real decisions — WHY not just WHAT',
+        f: 'DP Foundations',
+        t: '1D DP: coin change, house robber, jump game — top-down + bottom-up in Java',
       },
       {
         w: 74,
-        f: 'Advanced Designs',
-        t: 'Payment System, FPO Flight Optimiser (your system!), Kafka pipeline',
+        f: 'Advanced DP',
+        t: '2D DP, LCS, edit distance, knapsack — Elshad Karimov Masterclass',
       },
       {
         w: 75,
-        f: 'FAANG Template + Mocks',
-        t: 'FAANG Insiders 5-step — YouTube, Newsfeed, WhatsApp. Cold designs daily.',
+        f: 'Backtracking + Tries',
+        t: 'N-Queens, Sudoku, word search — Trie implementation and problems in Java',
       },
       {
         w: 76,
-        f: 'Mock Design Week',
-        t: '5 cold designs per day, 45 min each, no notes — focus on weakest 3',
+        f: 'FAANG Hard Patterns',
+        t: 'Hard graph, advanced DP from FAANG course — timed, spoken aloud',
       },
       {
         w: 77,
-        f: 'Final Mock · Day 540',
-        t: 'Last cold designs. Dec 5, 2027 = Day 540 = Journey Complete 🎯',
+        f: 'Final Day · Dec 5 🎯',
+        t: 'Rebuild 3 structures cold. Dec 5, 2027 = Day 540 = 540-Day Journey COMPLETE 🎯',
       },
     ],
   },
@@ -724,27 +700,27 @@ const MILESTONES = [
     day: 400,
     date: 'Jul 18, 2027',
     icon: '🤖',
-    label: 'Agentic AI Complete · Day 400',
+    label: 'Agentic AI Complete',
     color: '#7C3AED',
   },
   {
     day: 470,
     date: 'Sep 26, 2027',
-    icon: '🧩',
-    label: 'Java DSA Complete · Day 470',
-    color: '#6366F1',
+    icon: '🏗',
+    label: 'System Design Complete',
+    color: '#16A34A',
   },
   {
     day: 540,
     date: 'Dec 5, 2027',
-    icon: '🏗',
-    label: 'System Design Complete · Day 540 🎯',
-    color: '#16A34A',
+    icon: '🧩',
+    label: 'Java DSA Complete · Day 540 🎯',
+    color: '#6366F1',
   },
 ];
 
 function daysIn() {
-  return Math.max(0, Math.floor((new Date() - START) / 864e5));
+  return Math.max(0, Math.floor((new Date() - START) / 86400000));
 }
 function curId() {
   const d = daysIn() + 1;
@@ -752,32 +728,34 @@ function curId() {
   return null;
 }
 function pct() {
-  return Math.min(100, Math.round((daysIn() / TOTAL) * 100));
+  return Math.min(100, Math.round((daysIn() / 540) * 100));
 }
 
-function PhaseCard({ p, open, onToggle, isCurrent, isDone }) {
+function Card({ p, open, onToggle, isCurrent, isDone }) {
   const [wkOpen, setWkOpen] = useState(false);
-  const hasPy = p.id === 'devops' || p.id === 'dsa';
-  const b1col = { bg: '#EEF2FF', color: '#4338CA', border: '#C7D2FE' };
-  const b2col = { bg: '#FFF7ED', color: '#C2410C', border: '#FED7AA' };
-  const bc = p.block === 1 ? b1col : b2col;
+  const hasPy = p.id === 'dsa' || p.id === 'devops';
+  const bc = {
+    1: { bg: '#EEF2FF', color: '#4338CA', border: '#C7D2FE' },
+    2: { bg: '#F5F3FF', color: '#6D28D9', border: '#DDD6FE' },
+    3: { bg: '#F0FDF4', color: '#15803D', border: '#BBF7D0' },
+    4: { bg: '#EEF2FF', color: '#4338CA', border: '#C7D2FE' },
+  }[p.block];
 
   return (
     <div
       id={'p-' + p.id}
       style={{
         borderRadius: 12,
-        border: `2px solid ${open ? p.color + '90' : isCurrent ? '#F59E0B' : isDone ? p.color + '30' : p.border}`,
+        overflow: 'hidden',
+        transition: 'all 0.22s',
+        border: `2px solid ${open ? p.color + '80' : isCurrent ? '#F59E0B80' : isDone ? p.color + '28' : p.border}`,
         background: open ? p.bg : isDone ? '#FAFBFF' : '#fff',
         opacity: isDone ? 0.75 : 1,
         boxShadow: open
-          ? `0 6px 24px ${p.color}18`
+          ? `0 6px 22px ${p.color}14`
           : isCurrent
-            ? '0 0 0 3px #FEF3C7,0 2px 8px rgba(0,0,0,0.07)'
+            ? '0 0 0 3px #FEF3C7,0 2px 8px rgba(0,0,0,0.06)'
             : '0 1px 4px rgba(0,0,0,0.05)',
-        overflow: 'hidden',
-        transition: 'all 0.22s',
-        marginBottom: 8,
       }}
     >
       <button
@@ -787,10 +765,10 @@ function PhaseCard({ p, open, onToggle, isCurrent, isDone }) {
           background: 'none',
           border: 'none',
           cursor: 'pointer',
-          padding: '13px 15px',
+          padding: '12px 14px',
           display: 'flex',
           alignItems: 'center',
-          gap: 11,
+          gap: 10,
           textAlign: 'left',
           fontFamily: 'inherit',
         }}
@@ -801,6 +779,7 @@ function PhaseCard({ p, open, onToggle, isCurrent, isDone }) {
             height: 52,
             borderRadius: 12,
             flexShrink: 0,
+            transition: 'all 0.22s',
             background: open
               ? `linear-gradient(135deg,${p.color},${p.dark})`
               : isDone
@@ -812,7 +791,6 @@ function PhaseCard({ p, open, onToggle, isCurrent, isDone }) {
             alignItems: 'center',
             justifyContent: 'center',
             boxShadow: open ? `0 4px 12px ${p.color}45` : 'none',
-            transition: 'all 0.22s',
           }}
         >
           <span style={{ fontSize: 18, lineHeight: 1 }}>
@@ -893,13 +871,13 @@ function PhaseCard({ p, open, onToggle, isCurrent, isDone }) {
                 fontWeight: 700,
                 padding: '1px 7px',
                 borderRadius: 12,
+                whiteSpace: 'nowrap',
                 background: bc.bg,
                 color: bc.color,
                 border: `1px solid ${bc.border}`,
-                whiteSpace: 'nowrap',
               }}
             >
-              {p.label}
+              {p.bLabel}
             </span>
             <span
               style={{
@@ -943,9 +921,9 @@ function PhaseCard({ p, open, onToggle, isCurrent, isDone }) {
             color: p.color,
             fontSize: 18,
             flexShrink: 0,
+            opacity: open ? 1 : 0.3,
             transform: open ? 'rotate(90deg)' : 'none',
             transition: 'transform 0.2s',
-            opacity: open ? 1 : 0.3,
           }}
         >
           ›
@@ -956,7 +934,7 @@ function PhaseCard({ p, open, onToggle, isCurrent, isDone }) {
         <div
           style={{
             borderTop: `2px solid ${p.color}18`,
-            padding: '13px 15px 16px',
+            padding: '12px 14px 16px',
           }}
         >
           <div
@@ -968,7 +946,7 @@ function PhaseCard({ p, open, onToggle, isCurrent, isDone }) {
               marginBottom: 10,
               fontSize: 12,
               color: '#334155',
-              lineHeight: 1.85,
+              lineHeight: 1.8,
             }}
           >
             {p.about}
@@ -1001,7 +979,7 @@ function PhaseCard({ p, open, onToggle, isCurrent, isDone }) {
               >
                 📚 COURSES
               </div>
-              {p.courses.map((c, i) => (
+              {p.courses.map((crs, i) => (
                 <div
                   key={i}
                   style={{ display: 'flex', gap: 5, padding: '2px 0' }}
@@ -1012,20 +990,20 @@ function PhaseCard({ p, open, onToggle, isCurrent, isDone }) {
                       flexShrink: 0,
                       marginTop: 2,
                       fontWeight: 700,
-                      color: c.startsWith('🐍') ? p.color : p.color,
+                      color: crs.startsWith('🐍') ? '#047857' : p.color,
                     }}
                   >
-                    {c.startsWith('🐍') ? '🐍' : i + 1 + '.'}
+                    {crs.startsWith('🐍') ? '🐍' : i + 1 + '.'}
                   </span>
                   <span
                     style={{
                       fontSize: 10,
-                      color: c.startsWith('🐍') ? '#047857' : '#374151',
                       lineHeight: 1.6,
-                      fontWeight: c.startsWith('🐍') ? 600 : 400,
+                      color: crs.startsWith('🐍') ? '#047857' : '#374151',
+                      fontWeight: crs.startsWith('🐍') ? 600 : 400,
                     }}
                   >
-                    {c}
+                    {crs}
                   </span>
                 </div>
               ))}
@@ -1047,37 +1025,7 @@ function PhaseCard({ p, open, onToggle, isCurrent, isDone }) {
                   marginBottom: 6,
                 }}
               >
-                ⏰ 6:00 AM – 9:00 AM · {p.hours}
-              </div>
-              <div style={{ display: 'flex', gap: 7, marginBottom: 7 }}>
-                {[
-                  ['📺', 'Course', p.ch],
-                  ['💻', 'Practice', p.ph],
-                ].map(([ic, lb, h]) => (
-                  <div
-                    key={lb}
-                    style={{
-                      flex: 1,
-                      background: '#fff',
-                      borderRadius: 7,
-                      padding: '6px 7px',
-                      border: '1px solid #E2E8F0',
-                      textAlign: 'center',
-                    }}
-                  >
-                    <div style={{ fontSize: 13 }}>{ic}</div>
-                    <div
-                      style={{
-                        fontSize: 11,
-                        fontWeight: 700,
-                        color: '#0F172A',
-                      }}
-                    >
-                      {h}
-                    </div>
-                    <div style={{ fontSize: 9, color: '#94A3B8' }}>{lb}</div>
-                  </div>
-                ))}
+                ⏰ 6:00 AM – 9:00 AM
               </div>
               {p.ms && (
                 <div
@@ -1089,6 +1037,7 @@ function PhaseCard({ p, open, onToggle, isCurrent, isDone }) {
                     fontSize: 10,
                     fontWeight: 700,
                     color: p.color,
+                    marginTop: 4,
                   }}
                 >
                   🏆 {p.ms}
@@ -1117,7 +1066,7 @@ function PhaseCard({ p, open, onToggle, isCurrent, isDone }) {
             }}
           >
             <span style={{ fontSize: 10, fontWeight: 700, color: p.color }}>
-              📅 Week-by-Week Plan — {p.weeks_plan.length} weeks
+              📅 Week-by-Week Plan — {p.wplan.length} weeks
             </span>
             <span style={{ fontSize: 12, color: p.color }}>
               {wkOpen ? '▲' : '▼'}
@@ -1126,19 +1075,19 @@ function PhaseCard({ p, open, onToggle, isCurrent, isDone }) {
 
           {wkOpen && (
             <div style={{ display: 'flex', flexDirection: 'column', gap: 5 }}>
-              {p.weeks_plan.map((wk) => {
+              {p.wplan.map((wk) => {
                 const isPy = wk.f.includes('🐍');
                 return (
                   <div
                     key={wk.w}
                     style={{
+                      display: 'flex',
+                      gap: 10,
+                      alignItems: 'flex-start',
                       background: isPy ? '#F0FDF4' : '#fff',
                       borderRadius: 8,
                       padding: '9px 11px',
                       border: `1.5px solid ${isPy ? '#86EFAC' : p.color + '18'}`,
-                      display: 'flex',
-                      gap: 10,
-                      alignItems: 'flex-start',
                     }}
                   >
                     <div
@@ -1230,6 +1179,7 @@ export default function App() {
   const prog = pct();
   const msDone = MILESTONES.filter((m) => m.day <= d + 1).length;
   const nextMs = MILESTONES.find((m) => m.day > d + 1);
+
   const toggle = (id) => setOpenId(openId === id ? null : id);
   const jump = (id) => {
     setOpenId(id);
@@ -1241,8 +1191,11 @@ export default function App() {
       80,
     );
   };
+
   const b1 = PHASES.filter((p) => p.block === 1);
   const b2 = PHASES.filter((p) => p.block === 2);
+  const b3 = PHASES.filter((p) => p.block === 3);
+  const b4 = PHASES.filter((p) => p.block === 4);
 
   return (
     <div
@@ -1258,7 +1211,7 @@ export default function App() {
       <div
         style={{
           background:
-            'linear-gradient(135deg,#1E1B4B 0%,#4338CA 52%,#1A365D 100%)',
+            'linear-gradient(135deg,#1a237e 0%,#283593 40%,#1565C0 100%)',
           padding: '22px 14px 18px',
           position: 'relative',
           overflow: 'hidden',
@@ -1327,12 +1280,12 @@ export default function App() {
                   lineHeight: 1.1,
                 }}
               >
-                540-Day Coding Journey
+                540 Days of Code
               </div>
               <div
                 style={{
                   fontSize: 10,
-                  color: 'rgba(255,255,255,0.4)',
+                  color: 'rgba(255,255,255,0.6)',
                   marginTop: 2,
                 }}
               >
@@ -1345,8 +1298,8 @@ export default function App() {
           <div
             style={{
               display: 'grid',
-              gridTemplateColumns: '1fr 1fr',
-              gap: 8,
+              gridTemplateColumns: 'repeat(2,1fr)',
+              gap: 7,
               marginBottom: 14,
             }}
           >
@@ -1355,29 +1308,45 @@ export default function App() {
                 icon: '📚',
                 n: 'Block 1',
                 t: '1 Year of Full Stack',
-                s: 'Days 1–400 · Jun 14 2026 → Jul 18 2027',
-                desc: 'React · RN · Next.js · Spring Boot · Microservices · DevOps · Agentic AI',
+                s: 'D1–D365 · Jun 14 2026 – Jun 13 2027',
+                desc: 'React · RN · Next.js · Spring Boot · Microservices · DevOps',
                 col: '#6366F1',
               },
               {
-                icon: '💡',
+                icon: '🤖',
                 n: 'Block 2',
-                t: 'DSA + System Design',
-                s: 'Days 401–540 · Jul 19 → Dec 5 2027',
-                desc: 'Java DSA 10 weeks (D401–D470) · System Design 10 weeks (D471–D540)',
+                t: 'Agentic AI using Python',
+                s: 'D366–D400 · Jun 14 – Jul 18 2027 · 5w',
+                desc: 'LangChain · LangGraph · Ed Donner 8 Projects · FPO AI Assistant',
+                col: '#7C3AED',
+              },
+              {
+                icon: '🏗',
+                n: 'Block 3',
+                t: 'System Design',
+                s: 'D401–D470 · Jul 19 – Sep 26 2027 · 10w',
+                desc: '5 courses · Frank Kane → Pogrebinsky → Mikhail → Bogdan → FAANG',
                 col: '#16A34A',
+              },
+              {
+                icon: '🧩',
+                n: 'Block 4',
+                t: 'Data Structures using Java',
+                s: 'D471–D540 · Sep 27 – Dec 5 2027 · 10w 🎯',
+                desc: '5 Java DSA courses · Scott Barrett Java+Python · Last day Dec 5',
+                col: '#6366F1',
               },
             ].map(({ icon, n, t, s, desc, col }) => (
               <div
                 key={n}
                 style={{
-                  background: 'rgba(255,255,255,0.07)',
+                  background: 'rgba(255,255,255,0.12)',
                   borderRadius: 10,
-                  padding: '11px 12px',
-                  border: `1px solid ${col}50`,
+                  padding: '10px 12px',
+                  border: `1px solid ${col}70`,
                 }}
               >
-                <div style={{ fontSize: 18, marginBottom: 3 }}>{icon}</div>
+                <div style={{ fontSize: 16, marginBottom: 3 }}>{icon}</div>
                 <div
                   style={{
                     fontSize: 9,
@@ -1390,7 +1359,7 @@ export default function App() {
                 </div>
                 <div
                   style={{
-                    fontSize: 'clamp(10px,2.8vw,13px)',
+                    fontSize: 'clamp(10px,2.5vw,12px)',
                     fontWeight: 800,
                     color: '#fff',
                     marginBottom: 3,
@@ -1401,7 +1370,7 @@ export default function App() {
                 <div
                   style={{
                     fontSize: 9,
-                    color: 'rgba(255,255,255,0.42)',
+                    color: 'rgba(255,255,255,0.6)',
                     marginBottom: 4,
                   }}
                 >
@@ -1410,8 +1379,8 @@ export default function App() {
                 <div
                   style={{
                     fontSize: 9,
-                    color: 'rgba(255,255,255,0.3)',
-                    lineHeight: 1.55,
+                    color: 'rgba(255,255,255,0.45)',
+                    lineHeight: 1.5,
                   }}
                 >
                   {desc}
@@ -1437,14 +1406,14 @@ export default function App() {
                   style={{
                     flex: p.days,
                     cursor: 'pointer',
+                    transition: 'background 0.3s',
+                    borderRight: '1px solid rgba(0,0,0,0.1)',
                     background:
                       d + 1 > p.de
                         ? p.color + '70'
                         : d + 1 >= p.ds
                           ? p.color
                           : p.color + '38',
-                    borderRight: '1px solid rgba(0,0,0,0.1)',
-                    transition: 'background 0.3s',
                   }}
                   onClick={() => jump(p.id)}
                   title={p.name + ' D' + p.ds + '–D' + p.de}
@@ -1522,8 +1491,7 @@ export default function App() {
                 color: 'rgba(255,255,255,0.7)',
               }}
             >
-              🏆 Completion Announcements — {msDone} of {MILESTONES.length}{' '}
-              unlocked
+              🏆 Completion Announcements — {msDone} of 9 unlocked
             </span>
             <span
               style={{
@@ -1541,7 +1509,7 @@ export default function App() {
             <div
               style={{
                 display: 'grid',
-                gridTemplateColumns: 'repeat(auto-fill,minmax(220px,1fr))',
+                gridTemplateColumns: 'repeat(3,1fr)',
                 gap: 5,
               }}
             >
@@ -1554,49 +1522,49 @@ export default function App() {
                     style={{
                       display: 'flex',
                       alignItems: 'center',
-                      gap: 8,
-                      background: isNext
-                        ? 'rgba(245,158,11,0.18)'
-                        : done
-                          ? 'rgba(255,255,255,0.1)'
-                          : 'rgba(255,255,255,0.04)',
+                      gap: 7,
                       borderRadius: 8,
-                      padding: '7px 10px',
+                      padding: '7px 9px',
+                      background: isNext
+                        ? 'rgba(245,158,11,0.25)'
+                        : done
+                          ? 'rgba(255,255,255,0.18)'
+                          : 'rgba(255,255,255,0.09)',
                       border: `1px solid ${isNext ? 'rgba(245,158,11,0.5)' : done ? m.color + '45' : 'rgba(255,255,255,0.07)'}`,
                     }}
                   >
-                    <span style={{ fontSize: 16, flexShrink: 0 }}>
+                    <span style={{ fontSize: 15, flexShrink: 0 }}>
                       {done ? '✅' : isNext ? '🎯' : m.icon}
                     </span>
                     <div style={{ flex: 1, minWidth: 0 }}>
                       <div
                         style={{
-                          fontSize: 10,
+                          fontSize: 9,
                           fontWeight: 700,
+                          overflow: 'hidden',
+                          textOverflow: 'ellipsis',
+                          whiteSpace: 'nowrap',
                           color: done
                             ? '#fff'
                             : isNext
                               ? '#FDE68A'
-                              : 'rgba(255,255,255,0.38)',
-                          overflow: 'hidden',
-                          textOverflow: 'ellipsis',
-                          whiteSpace: 'nowrap',
+                              : 'rgba(255,255,255,0.65)',
                         }}
                       >
                         {m.label}
                       </div>
                       <div
-                        style={{ fontSize: 9, color: 'rgba(255,255,255,0.28)' }}
+                        style={{ fontSize: 8, color: 'rgba(255,255,255,0.28)' }}
                       >
                         Day {m.day} · {m.date}
                       </div>
                     </div>
                     <span
                       style={{
-                        fontSize: 9,
+                        fontSize: 8,
                         fontWeight: 800,
-                        padding: '1px 6px',
-                        borderRadius: 10,
+                        padding: '1px 5px',
+                        borderRadius: 8,
                         flexShrink: 0,
                         background: done
                           ? m.color + '28'
@@ -1624,127 +1592,92 @@ export default function App() {
       <div
         style={{ maxWidth: 940, margin: '0 auto', padding: '14px 12px 48px' }}
       >
-        <div
-          style={{
-            display: 'flex',
-            alignItems: 'center',
-            gap: 10,
-            marginBottom: 10,
-            marginTop: 2,
-          }}
-        >
-          <div
-            style={{
-              height: 2,
-              flex: 1,
-              background: 'linear-gradient(90deg,#6366F1,#6366F110)',
-            }}
-          />
-          <div style={{ textAlign: 'center', flexShrink: 0 }}>
+        {[
+          {
+            col: '#6366F1',
+            icon: '📚',
+            title: 'BLOCK 1 — 1 YEAR OF FULL STACK',
+            sub: 'Days 1–365 · Jun 14 2026 → Jun 13 2027 · 52 weeks + 1 day · React, RN, Next.js, Spring Boot, Microservices, DevOps',
+            phases: b1,
+          },
+          {
+            col: '#7C3AED',
+            icon: '🤖',
+            title: 'BLOCK 2 — AGENTIC AI USING PYTHON',
+            sub: 'Days 366–400 · Jun 14 → Jul 18 2027 · 5 weeks · LangChain, LangGraph, Ed Donner 8 Projects',
+            phases: b2,
+          },
+          {
+            col: '#16A34A',
+            icon: '🏗',
+            title: 'BLOCK 3 — SYSTEM DESIGN',
+            sub: 'Days 401–470 · Jul 19 → Sep 26 2027 · 10 weeks · 1 system per day spoken aloud',
+            phases: b3,
+          },
+          {
+            col: '#6366F1',
+            icon: '🧩',
+            title: 'BLOCK 4 — DATA STRUCTURES USING JAVA',
+            sub: 'Days 471–540 · Sep 27 → Dec 5 2027 · 10 weeks · Last day = Day 540 🎯',
+            phases: b4,
+          },
+        ].map(({ col, icon, title, sub, phases }) => (
+          <div key={title}>
             <div
               style={{
-                fontSize: 11,
-                fontWeight: 800,
-                color: '#6366F1',
-                letterSpacing: '0.1em',
+                display: 'flex',
+                alignItems: 'center',
+                gap: 10,
+                marginBottom: 10,
+                marginTop: 18,
               }}
             >
-              📚 BLOCK 1 — 1 YEAR OF FULL STACK
+              <div
+                style={{
+                  height: 2,
+                  flex: 1,
+                  background: `linear-gradient(90deg,${col},${col}10)`,
+                }}
+              />
+              <div style={{ textAlign: 'center', flexShrink: 0 }}>
+                <div
+                  style={{
+                    fontSize: 11,
+                    fontWeight: 800,
+                    color: col,
+                    letterSpacing: '0.1em',
+                  }}
+                >
+                  {icon} {title}
+                </div>
+                <div style={{ fontSize: 9, color: '#94A3B8' }}>{sub}</div>
+              </div>
+              <div
+                style={{
+                  height: 2,
+                  flex: 1,
+                  background: `linear-gradient(90deg,${col}10,${col})`,
+                }}
+              />
             </div>
-            <div style={{ fontSize: 9, color: '#94A3B8' }}>
-              Days 1–400 · Jun 14 2026 → Jul 18 2027 · React, RN, Next.js,
-              Spring Boot, Microservices, DevOps, Agentic AI
+            <div style={{ display: 'flex', flexDirection: 'column', gap: 8 }}>
+              {phases.map((p) => (
+                <Card
+                  key={p.id}
+                  p={p}
+                  open={openId === p.id}
+                  onToggle={() => toggle(p.id)}
+                  isCurrent={cid === p.id}
+                  isDone={d + 1 > p.de}
+                />
+              ))}
             </div>
           </div>
-          <div
-            style={{
-              height: 2,
-              flex: 1,
-              background: 'linear-gradient(90deg,#6366F110,#6366F1)',
-            }}
-          />
-        </div>
-        <div
-          style={{
-            display: 'flex',
-            flexDirection: 'column',
-            gap: 8,
-            marginBottom: 18,
-          }}
-        >
-          {b1.map((p) => (
-            <PhaseCard
-              key={p.id}
-              p={p}
-              open={openId === p.id}
-              onToggle={() => toggle(p.id)}
-              isCurrent={cid === p.id}
-              isDone={d + 1 > p.de}
-            />
-          ))}
-        </div>
+        ))}
 
         <div
           style={{
-            display: 'flex',
-            alignItems: 'center',
-            gap: 10,
-            marginBottom: 10,
-          }}
-        >
-          <div
-            style={{
-              height: 2,
-              flex: 1,
-              background: 'linear-gradient(90deg,#16A34A,#16A34A10)',
-            }}
-          />
-          <div style={{ textAlign: 'center', flexShrink: 0 }}>
-            <div
-              style={{
-                fontSize: 11,
-                fontWeight: 800,
-                color: '#16A34A',
-                letterSpacing: '0.1em',
-              }}
-            >
-              💡 BLOCK 2 — DSA + SYSTEM DESIGN
-            </div>
-            <div style={{ fontSize: 9, color: '#94A3B8' }}>
-              Days 401–540 · Jul 19 → Dec 5 2027 · 10 weeks Java DSA + 10 weeks
-              System Design
-            </div>
-          </div>
-          <div
-            style={{
-              height: 2,
-              flex: 1,
-              background: 'linear-gradient(90deg,#16A34A10,#16A34A)',
-            }}
-          />
-        </div>
-        <div
-          style={{
-            display: 'flex',
-            flexDirection: 'column',
-            gap: 8,
-            marginBottom: 18,
-          }}
-        >
-          {b2.map((p) => (
-            <PhaseCard
-              key={p.id}
-              p={p}
-              open={openId === p.id}
-              onToggle={() => toggle(p.id)}
-              isCurrent={cid === p.id}
-              isDone={d + 1 > p.de}
-            />
-          ))}
-        </div>
-
-        <div
-          style={{
+            marginTop: 24,
             background: 'linear-gradient(135deg,#1E1B4B,#4338CA)',
             borderRadius: 14,
             padding: '16px 18px',
@@ -1769,14 +1702,14 @@ export default function App() {
               marginBottom: 8,
             }}
           >
-            1,620 hours · 6:00 AM–9:00 AM · Block 1: 400 Days · Block 2: 20
-            Weeks DSA + System Design
+            1,620 hours · 6:00 AM–9:00 AM · 4 Blocks · 9 Milestones · every
+            phase ends Sunday
           </div>
           <div
             style={{
               display: 'flex',
               justifyContent: 'center',
-              gap: 4,
+              gap: 3,
               flexWrap: 'wrap',
             }}
           >
