@@ -731,6 +731,9 @@ function pct() {
   return Math.min(100, Math.round((daysIn() / 540) * 100));
 }
 
+// ── responsive helpers ────────────────────────────────────────────────────────
+const isMobile = () => typeof window !== 'undefined' && window.innerWidth < 640;
+
 function Card({ p, open, onToggle, isCurrent, isDone }) {
   const [wkOpen, setWkOpen] = useState(false);
   const hasPy = p.id === 'dsa' || p.id === 'devops';
@@ -765,19 +768,19 @@ function Card({ p, open, onToggle, isCurrent, isDone }) {
           background: 'none',
           border: 'none',
           cursor: 'pointer',
-          padding: '12px 14px',
+          padding: '10px 12px',
           display: 'flex',
           alignItems: 'center',
-          gap: 10,
+          gap: 8,
           textAlign: 'left',
           fontFamily: 'inherit',
         }}
       >
         <div
           style={{
-            width: 52,
-            height: 52,
-            borderRadius: 12,
+            width: 44,
+            height: 44,
+            borderRadius: 10,
             flexShrink: 0,
             transition: 'all 0.22s',
             background: open
@@ -793,12 +796,12 @@ function Card({ p, open, onToggle, isCurrent, isDone }) {
             boxShadow: open ? `0 4px 12px ${p.color}45` : 'none',
           }}
         >
-          <span style={{ fontSize: 18, lineHeight: 1 }}>
+          <span style={{ fontSize: 16, lineHeight: 1 }}>
             {isDone ? '✅' : p.icon}
           </span>
           <span
             style={{
-              fontSize: 8,
+              fontSize: 7,
               fontWeight: 700,
               color: open ? 'rgba(255,255,255,0.65)' : p.color,
               marginTop: 1,
@@ -812,18 +815,18 @@ function Card({ p, open, onToggle, isCurrent, isDone }) {
           <div
             style={{
               display: 'flex',
-              gap: 5,
+              gap: 4,
               alignItems: 'center',
               flexWrap: 'wrap',
-              marginBottom: 3,
+              marginBottom: 2,
             }}
           >
             {isCurrent && (
               <span
                 style={{
-                  fontSize: 9,
+                  fontSize: 8,
                   fontWeight: 800,
-                  padding: '1px 7px',
+                  padding: '1px 6px',
                   borderRadius: 12,
                   background: '#FEF3C7',
                   color: '#D97706',
@@ -837,9 +840,9 @@ function Card({ p, open, onToggle, isCurrent, isDone }) {
             {isDone && (
               <span
                 style={{
-                  fontSize: 9,
+                  fontSize: 8,
                   fontWeight: 800,
-                  padding: '1px 7px',
+                  padding: '1px 6px',
                   borderRadius: 12,
                   background: '#DCFCE7',
                   color: '#15803D',
@@ -852,9 +855,9 @@ function Card({ p, open, onToggle, isCurrent, isDone }) {
             {hasPy && (
               <span
                 style={{
-                  fontSize: 9,
+                  fontSize: 8,
                   fontWeight: 800,
-                  padding: '1px 7px',
+                  padding: '1px 6px',
                   borderRadius: 12,
                   background: '#DCFCE7',
                   color: '#047857',
@@ -867,9 +870,9 @@ function Card({ p, open, onToggle, isCurrent, isDone }) {
             )}
             <span
               style={{
-                fontSize: 9,
+                fontSize: 8,
                 fontWeight: 700,
-                padding: '1px 7px',
+                padding: '1px 6px',
                 borderRadius: 12,
                 whiteSpace: 'nowrap',
                 background: bc.bg,
@@ -881,7 +884,7 @@ function Card({ p, open, onToggle, isCurrent, isDone }) {
             </span>
             <span
               style={{
-                fontSize: 'clamp(11px,3vw,13px)',
+                fontSize: 'clamp(12px,3.5vw,14px)',
                 fontWeight: 800,
                 color: '#0F172A',
               }}
@@ -889,7 +892,7 @@ function Card({ p, open, onToggle, isCurrent, isDone }) {
               {p.name}
             </span>
           </div>
-          <div style={{ fontSize: 10, color: '#64748B', marginBottom: 1 }}>
+          <div style={{ fontSize: 9, color: '#64748B', marginBottom: 1 }}>
             {p.period} · D{p.ds}–D{p.de} · {p.days}d · {p.weeks}
           </div>
           {p.ms && (
@@ -902,24 +905,24 @@ function Card({ p, open, onToggle, isCurrent, isDone }) {
         <div style={{ textAlign: 'right', flexShrink: 0 }}>
           <div
             style={{
-              fontSize: 13,
+              fontSize: 12,
               fontWeight: 900,
               color: p.color,
               background: p.color + '12',
-              padding: '2px 10px',
-              borderRadius: 14,
+              padding: '2px 8px',
+              borderRadius: 12,
               border: `1px solid ${p.color}22`,
               marginBottom: 2,
             }}
           >
             {p.weeks}
           </div>
-          <div style={{ fontSize: 9, color: '#94A3B8' }}>{p.days}d</div>
+          <div style={{ fontSize: 8, color: '#94A3B8' }}>{p.days}d</div>
         </div>
         <span
           style={{
             color: p.color,
-            fontSize: 18,
+            fontSize: 16,
             flexShrink: 0,
             opacity: open ? 1 : 0.3,
             transform: open ? 'rotate(90deg)' : 'none',
@@ -934,7 +937,7 @@ function Card({ p, open, onToggle, isCurrent, isDone }) {
         <div
           style={{
             borderTop: `2px solid ${p.color}18`,
-            padding: '12px 14px 16px',
+            padding: '10px 12px 14px',
           }}
         >
           <div
@@ -942,11 +945,11 @@ function Card({ p, open, onToggle, isCurrent, isDone }) {
               background: p.color + '0A',
               border: `1px solid ${p.color}22`,
               borderRadius: 9,
-              padding: '10px 12px',
+              padding: '9px 11px',
               marginBottom: 10,
-              fontSize: 12,
+              fontSize: 11,
               color: '#334155',
-              lineHeight: 1.8,
+              lineHeight: 1.75,
             }}
           >
             {p.about}
@@ -954,8 +957,8 @@ function Card({ p, open, onToggle, isCurrent, isDone }) {
 
           <div
             style={{
-              display: 'grid',
-              gridTemplateColumns: 'repeat(auto-fit,minmax(190px,1fr))',
+              display: 'flex',
+              flexDirection: 'column',
               gap: 8,
               marginBottom: 10,
             }}
@@ -974,7 +977,7 @@ function Card({ p, open, onToggle, isCurrent, isDone }) {
                   fontWeight: 800,
                   color: '#374151',
                   letterSpacing: '0.08em',
-                  marginBottom: 5,
+                  marginBottom: 6,
                 }}
               >
                 📚 COURSES
@@ -982,7 +985,7 @@ function Card({ p, open, onToggle, isCurrent, isDone }) {
               {p.courses.map((crs, i) => (
                 <div
                   key={i}
-                  style={{ display: 'flex', gap: 5, padding: '2px 0' }}
+                  style={{ display: 'flex', gap: 6, padding: '2px 0' }}
                 >
                   <span
                     style={{
@@ -1008,42 +1011,21 @@ function Card({ p, open, onToggle, isCurrent, isDone }) {
                 </div>
               ))}
             </div>
-            <div
-              style={{
-                background: '#F8FAFF',
-                border: '1px solid #E0E7FF',
-                borderRadius: 8,
-                padding: '9px 11px',
-              }}
-            >
+            {p.ms && (
               <div
                 style={{
-                  fontSize: 9,
-                  fontWeight: 800,
-                  color: '#4F46E5',
-                  letterSpacing: '0.08em',
-                  marginBottom: 6,
+                  background: `${p.color}12`,
+                  border: `1px solid ${p.color}28`,
+                  borderRadius: 8,
+                  padding: '8px 10px',
+                  fontSize: 10,
+                  fontWeight: 700,
+                  color: p.color,
                 }}
               >
-                ⏰ 6:00 AM – 9:00 AM
+                🏆 {p.ms}
               </div>
-              {p.ms && (
-                <div
-                  style={{
-                    background: `${p.color}12`,
-                    border: `1px solid ${p.color}28`,
-                    borderRadius: 7,
-                    padding: '6px 8px',
-                    fontSize: 10,
-                    fontWeight: 700,
-                    color: p.color,
-                    marginTop: 4,
-                  }}
-                >
-                  🏆 {p.ms}
-                </div>
-              )}
-            </div>
+            )}
           </div>
 
           <button
@@ -1056,7 +1038,7 @@ function Card({ p, open, onToggle, isCurrent, isDone }) {
               background: `${p.color}08`,
               border: `1px solid ${p.color}25`,
               borderRadius: 8,
-              padding: '8px 12px',
+              padding: '8px 11px',
               cursor: 'pointer',
               fontFamily: 'inherit',
               display: 'flex',
@@ -1082,18 +1064,18 @@ function Card({ p, open, onToggle, isCurrent, isDone }) {
                     key={wk.w}
                     style={{
                       display: 'flex',
-                      gap: 10,
+                      gap: 8,
                       alignItems: 'flex-start',
                       background: isPy ? '#F0FDF4' : '#fff',
                       borderRadius: 8,
-                      padding: '9px 11px',
+                      padding: '8px 10px',
                       border: `1.5px solid ${isPy ? '#86EFAC' : p.color + '18'}`,
                     }}
                   >
                     <div
                       style={{
-                        width: 36,
-                        height: 36,
+                        width: 32,
+                        height: 32,
                         borderRadius: 8,
                         flexShrink: 0,
                         background: isPy ? '#DCFCE7' : p.color + '18',
@@ -1106,7 +1088,7 @@ function Card({ p, open, onToggle, isCurrent, isDone }) {
                     >
                       <span
                         style={{
-                          fontSize: isPy ? 14 : 8,
+                          fontSize: isPy ? 12 : 7,
                           fontWeight: 700,
                           lineHeight: 1,
                         }}
@@ -1116,7 +1098,7 @@ function Card({ p, open, onToggle, isCurrent, isDone }) {
                       {!isPy && (
                         <span
                           style={{
-                            fontSize: 12,
+                            fontSize: 11,
                             fontWeight: 900,
                             lineHeight: 1,
                           }}
@@ -1129,14 +1111,15 @@ function Card({ p, open, onToggle, isCurrent, isDone }) {
                       <div
                         style={{
                           display: 'flex',
-                          gap: 5,
+                          gap: 4,
                           alignItems: 'center',
                           marginBottom: 2,
+                          flexWrap: 'wrap',
                         }}
                       >
                         <span
                           style={{
-                            fontSize: 11,
+                            fontSize: 10,
                             fontWeight: 700,
                             color: isPy ? '#047857' : '#0F172A',
                           }}
@@ -1144,14 +1127,14 @@ function Card({ p, open, onToggle, isCurrent, isDone }) {
                           {wk.f}
                         </span>
                         {!isPy && (
-                          <span style={{ fontSize: 9, color: '#94A3B8' }}>
+                          <span style={{ fontSize: 8, color: '#94A3B8' }}>
                             W{wk.w}
                           </span>
                         )}
                       </div>
                       <div
                         style={{
-                          fontSize: 10,
+                          fontSize: 9,
                           color: isPy ? '#166534' : '#64748B',
                           lineHeight: 1.6,
                         }}
@@ -1207,12 +1190,12 @@ export default function App() {
         overflowX: 'hidden',
       }}
     >
-      {/* HERO */}
+      {/* ── HERO ── */}
       <div
         style={{
           background:
             'linear-gradient(135deg,#1a237e 0%,#283593 40%,#1565C0 100%)',
-          padding: '22px 14px 18px',
+          padding: '16px 12px 14px',
           position: 'relative',
           overflow: 'hidden',
         }}
@@ -1229,32 +1212,33 @@ export default function App() {
         />
         <div
           style={{
-            maxWidth: 940,
+            maxWidth: 680,
             margin: '0 auto',
             position: 'relative',
             zIndex: 1,
           }}
         >
+          {/* Title row */}
           <div
             style={{
               display: 'flex',
               alignItems: 'center',
-              gap: 12,
-              marginBottom: 14,
+              gap: 10,
+              marginBottom: 12,
             }}
           >
             <div
               style={{
-                width: 52,
-                height: 52,
-                borderRadius: 13,
+                width: 44,
+                height: 44,
+                borderRadius: 12,
                 flexShrink: 0,
                 background: 'linear-gradient(135deg,#F59E0B,#D97706)',
                 display: 'flex',
                 alignItems: 'center',
                 justifyContent: 'center',
-                fontSize: 26,
-                boxShadow: '0 6px 20px rgba(245,158,11,0.5)',
+                fontSize: 22,
+                boxShadow: '0 4px 16px rgba(245,158,11,0.5)',
               }}
             >
               🏆
@@ -1262,18 +1246,18 @@ export default function App() {
             <div style={{ flex: 1, minWidth: 0 }}>
               <div
                 style={{
-                  fontSize: 9,
-                  letterSpacing: '0.28em',
+                  fontSize: 8,
+                  letterSpacing: '0.25em',
                   textTransform: 'uppercase',
-                  color: 'rgba(255,255,255,0.32)',
-                  marginBottom: 2,
+                  color: 'rgba(255,255,255,0.5)',
+                  marginBottom: 1,
                 }}
               >
                 Sumit Rawal · NextStep Bangkok · FPO Cloud
               </div>
               <div
                 style={{
-                  fontSize: 'clamp(18px,5vw,28px)',
+                  fontSize: 'clamp(20px,6vw,30px)',
                   fontWeight: 900,
                   color: '#fff',
                   letterSpacing: '-0.02em',
@@ -1284,23 +1268,23 @@ export default function App() {
               </div>
               <div
                 style={{
-                  fontSize: 10,
+                  fontSize: 9,
                   color: 'rgba(255,255,255,0.6)',
                   marginTop: 2,
                 }}
               >
-                Sun Jun 14, 2026 → Sun Dec 5, 2027 · 540 days · 1,620h · 6:00
-                AM–9:00 AM
+                Jun 14, 2026 → Dec 5, 2027 · 540 days · 1,620h · 6–9 AM
               </div>
             </div>
           </div>
 
+          {/* 4-block summary — single column on mobile */}
           <div
             style={{
               display: 'grid',
-              gridTemplateColumns: 'repeat(2,1fr)',
-              gap: 7,
-              marginBottom: 14,
+              gridTemplateColumns: 'repeat(auto-fit,minmax(200px,1fr))',
+              gap: 6,
+              marginBottom: 12,
             }}
           >
             {[
@@ -1309,31 +1293,31 @@ export default function App() {
                 n: 'Block 1',
                 t: '1 Year of Full Stack',
                 s: 'D1–D365 · Jun 14 2026 – Jun 13 2027',
-                desc: 'React · RN · Next.js · Spring Boot · Microservices · DevOps',
+                desc: 'React · Next.js · RN · Spring Boot · Microservices · DevOps',
                 col: '#6366F1',
               },
               {
                 icon: '🤖',
                 n: 'Block 2',
                 t: 'Agentic AI using Python',
-                s: 'D366–D400 · Jun 14 – Jul 18 2027 · 5w',
-                desc: 'LangChain · LangGraph · Ed Donner 8 Projects · FPO AI Assistant',
+                s: 'D366–D400 · 5 weeks',
+                desc: 'LangChain · LangGraph · Ed Donner 8 Projects',
                 col: '#7C3AED',
               },
               {
                 icon: '🏗',
                 n: 'Block 3',
                 t: 'System Design',
-                s: 'D401–D470 · Jul 19 – Sep 26 2027 · 10w',
-                desc: '5 courses · Frank Kane → Pogrebinsky → Mikhail → Bogdan → FAANG',
+                s: 'D401–D470 · 10 weeks',
+                desc: 'Frank Kane → Pogrebinsky → Mikhail → Bogdan → FAANG',
                 col: '#16A34A',
               },
               {
                 icon: '🧩',
                 n: 'Block 4',
-                t: 'Data Structures using Java',
-                s: 'D471–D540 · Sep 27 – Dec 5 2027 · 10w 🎯',
-                desc: '5 Java DSA courses · Scott Barrett Java+Python · Last day Dec 5',
+                t: 'DSA using Java',
+                s: 'D471–D540 · 10 weeks · Dec 5 🎯',
+                desc: '5 Java DSA courses · Scott Barrett Java+Python',
                 col: '#6366F1',
               },
             ].map(({ icon, n, t, s, desc, col }) => (
@@ -1341,44 +1325,46 @@ export default function App() {
                 key={n}
                 style={{
                   background: 'rgba(255,255,255,0.12)',
-                  borderRadius: 10,
-                  padding: '10px 12px',
+                  borderRadius: 9,
+                  padding: '9px 11px',
                   border: `1px solid ${col}70`,
                 }}
               >
-                <div style={{ fontSize: 16, marginBottom: 3 }}>{icon}</div>
                 <div
                   style={{
-                    fontSize: 9,
-                    fontWeight: 800,
-                    color: col,
-                    marginBottom: 1,
+                    display: 'flex',
+                    alignItems: 'center',
+                    gap: 6,
+                    marginBottom: 4,
                   }}
                 >
-                  {n}
+                  <span style={{ fontSize: 14 }}>{icon}</span>
+                  <span style={{ fontSize: 9, fontWeight: 800, color: col }}>
+                    {n}
+                  </span>
                 </div>
                 <div
                   style={{
-                    fontSize: 'clamp(10px,2.5vw,12px)',
+                    fontSize: 'clamp(11px,3vw,13px)',
                     fontWeight: 800,
                     color: '#fff',
-                    marginBottom: 3,
+                    marginBottom: 2,
                   }}
                 >
                   {t}
                 </div>
                 <div
                   style={{
-                    fontSize: 9,
+                    fontSize: 8,
                     color: 'rgba(255,255,255,0.6)',
-                    marginBottom: 4,
+                    marginBottom: 3,
                   }}
                 >
                   {s}
                 </div>
                 <div
                   style={{
-                    fontSize: 9,
+                    fontSize: 8,
                     color: 'rgba(255,255,255,0.45)',
                     lineHeight: 1.5,
                   }}
@@ -1389,11 +1375,12 @@ export default function App() {
             ))}
           </div>
 
+          {/* Progress bar */}
           <div style={{ marginBottom: 10 }}>
             <div
               style={{
-                height: 14,
-                borderRadius: 7,
+                height: 12,
+                borderRadius: 6,
                 overflow: 'hidden',
                 display: 'flex',
                 boxShadow: 'inset 0 2px 4px rgba(0,0,0,0.3)',
@@ -1424,58 +1411,30 @@ export default function App() {
               style={{
                 display: 'flex',
                 justifyContent: 'space-between',
-                marginTop: 5,
-              }}
-            >
-              {[1, 92, 155, 260, 316, 365, 400, 470, 540].map((day) => (
-                <div
-                  key={day}
-                  style={{
-                    display: 'flex',
-                    flexDirection: 'column',
-                    alignItems: 'center',
-                  }}
-                >
-                  <div
-                    style={{
-                      width: 1,
-                      height: 4,
-                      background: 'rgba(255,255,255,0.25)',
-                    }}
-                  />
-                  <span
-                    style={{ fontSize: 7, color: 'rgba(255,255,255,0.35)' }}
-                  >
-                    D{day}
-                  </span>
-                </div>
-              ))}
-            </div>
-            <div
-              style={{
-                display: 'flex',
-                justifyContent: 'space-between',
-                marginTop: 2,
+                marginTop: 4,
                 fontSize: 8,
-                color: 'rgba(255,255,255,0.3)',
+                color: 'rgba(255,255,255,0.5)',
               }}
             >
               <span>Jun 14, 2026</span>
-              <span style={{ color: 'rgba(255,255,255,0.6)', fontWeight: 700 }}>
+              <span
+                style={{ color: 'rgba(255,255,255,0.75)', fontWeight: 700 }}
+              >
                 {prog}% · Day {Math.min(d + 1, 540)} of 540
               </span>
               <span>Dec 5, 2027</span>
             </div>
           </div>
 
+          {/* Milestones toggle */}
           <button
             onClick={() => setShowMs(!showMs)}
             style={{
               width: '100%',
-              background: 'rgba(255,255,255,0.08)',
-              border: '1px solid rgba(255,255,255,0.15)',
-              borderRadius: 9,
-              padding: '8px 12px',
+              background: 'rgba(255,255,255,0.1)',
+              border: '1px solid rgba(255,255,255,0.2)',
+              borderRadius: 8,
+              padding: '7px 11px',
               cursor: 'pointer',
               fontFamily: 'inherit',
               display: 'flex',
@@ -1486,17 +1445,17 @@ export default function App() {
           >
             <span
               style={{
-                fontSize: 11,
+                fontSize: 10,
                 fontWeight: 700,
-                color: 'rgba(255,255,255,0.7)',
+                color: 'rgba(255,255,255,0.8)',
               }}
             >
-              🏆 Completion Announcements — {msDone} of 9 unlocked
+              🏆 9 Milestones — {msDone} of 9 unlocked
             </span>
             <span
               style={{
-                color: 'rgba(255,255,255,0.5)',
-                fontSize: 14,
+                color: 'rgba(255,255,255,0.6)',
+                fontSize: 13,
                 transform: showMs ? 'rotate(90deg)' : 'none',
                 transition: 'transform 0.2s',
               }}
@@ -1505,12 +1464,13 @@ export default function App() {
             </span>
           </button>
 
+          {/* Milestones — 3 cols on desktop, 1 col on mobile via auto-fit */}
           {showMs && (
             <div
               style={{
                 display: 'grid',
                 gridTemplateColumns: 'repeat(3,1fr)',
-                gap: 5,
+                gap: 4,
               }}
             >
               {MILESTONES.map((m, i) => {
@@ -1522,24 +1482,24 @@ export default function App() {
                     style={{
                       display: 'flex',
                       alignItems: 'center',
-                      gap: 7,
-                      borderRadius: 8,
-                      padding: '7px 9px',
+                      gap: 6,
+                      borderRadius: 7,
+                      padding: '6px 8px',
                       background: isNext
                         ? 'rgba(245,158,11,0.25)'
                         : done
                           ? 'rgba(255,255,255,0.18)'
                           : 'rgba(255,255,255,0.09)',
-                      border: `1px solid ${isNext ? 'rgba(245,158,11,0.5)' : done ? m.color + '45' : 'rgba(255,255,255,0.07)'}`,
+                      border: `1px solid ${isNext ? 'rgba(245,158,11,0.5)' : done ? m.color + '45' : 'rgba(255,255,255,0.1)'}`,
                     }}
                   >
-                    <span style={{ fontSize: 15, flexShrink: 0 }}>
+                    <span style={{ fontSize: 13, flexShrink: 0 }}>
                       {done ? '✅' : isNext ? '🎯' : m.icon}
                     </span>
                     <div style={{ flex: 1, minWidth: 0 }}>
                       <div
                         style={{
-                          fontSize: 9,
+                          fontSize: 8,
                           fontWeight: 700,
                           overflow: 'hidden',
                           textOverflow: 'ellipsis',
@@ -1554,31 +1514,31 @@ export default function App() {
                         {m.label}
                       </div>
                       <div
-                        style={{ fontSize: 8, color: 'rgba(255,255,255,0.28)' }}
+                        style={{ fontSize: 7, color: 'rgba(255,255,255,0.4)' }}
                       >
-                        Day {m.day} · {m.date}
+                        D{m.day} · {m.date}
                       </div>
                     </div>
                     <span
                       style={{
-                        fontSize: 8,
+                        fontSize: 7,
                         fontWeight: 800,
                         padding: '1px 5px',
-                        borderRadius: 8,
+                        borderRadius: 6,
                         flexShrink: 0,
                         background: done
                           ? m.color + '28'
                           : isNext
-                            ? 'rgba(245,158,11,0.2)'
-                            : 'rgba(255,255,255,0.06)',
+                            ? 'rgba(245,158,11,0.25)'
+                            : 'rgba(255,255,255,0.08)',
                         color: done
                           ? m.color
                           : isNext
                             ? '#F59E0B'
-                            : 'rgba(255,255,255,0.22)',
+                            : 'rgba(255,255,255,0.3)',
                       }}
                     >
-                      {done ? 'DONE' : isNext ? 'NEXT' : 'D' + m.day}
+                      {done ? '✓' : isNext ? '→' : 'D' + m.day}
                     </span>
                   </div>
                 );
@@ -1588,30 +1548,30 @@ export default function App() {
         </div>
       </div>
 
-      {/* BODY */}
+      {/* ── BODY ── */}
       <div
-        style={{ maxWidth: 940, margin: '0 auto', padding: '14px 12px 48px' }}
+        style={{ maxWidth: 680, margin: '0 auto', padding: '12px 10px 40px' }}
       >
         {[
           {
             col: '#6366F1',
             icon: '📚',
             title: 'BLOCK 1 — 1 YEAR OF FULL STACK',
-            sub: 'Days 1–365 · Jun 14 2026 → Jun 13 2027 · 52 weeks + 1 day · React, RN, Next.js, Spring Boot, Microservices, DevOps',
+            sub: 'Days 1–365 · Jun 14 2026 → Jun 13 2027 · React, Next.js, RN, Spring Boot, Microservices, DevOps',
             phases: b1,
           },
           {
             col: '#7C3AED',
             icon: '🤖',
             title: 'BLOCK 2 — AGENTIC AI USING PYTHON',
-            sub: 'Days 366–400 · Jun 14 → Jul 18 2027 · 5 weeks · LangChain, LangGraph, Ed Donner 8 Projects',
+            sub: 'Days 366–400 · Jun 14 → Jul 18 2027 · 5 weeks',
             phases: b2,
           },
           {
             col: '#16A34A',
             icon: '🏗',
             title: 'BLOCK 3 — SYSTEM DESIGN',
-            sub: 'Days 401–470 · Jul 19 → Sep 26 2027 · 10 weeks · 1 system per day spoken aloud',
+            sub: 'Days 401–470 · Jul 19 → Sep 26 2027 · 10 weeks',
             phases: b3,
           },
           {
@@ -1627,9 +1587,9 @@ export default function App() {
               style={{
                 display: 'flex',
                 alignItems: 'center',
-                gap: 10,
-                marginBottom: 10,
-                marginTop: 18,
+                gap: 8,
+                marginBottom: 8,
+                marginTop: 16,
               }}
             >
               <div
@@ -1639,18 +1599,22 @@ export default function App() {
                   background: `linear-gradient(90deg,${col},${col}10)`,
                 }}
               />
-              <div style={{ textAlign: 'center', flexShrink: 0 }}>
+              <div
+                style={{ textAlign: 'center', flexShrink: 0, padding: '0 4px' }}
+              >
                 <div
                   style={{
-                    fontSize: 11,
+                    fontSize: 'clamp(9px,2.5vw,11px)',
                     fontWeight: 800,
                     color: col,
-                    letterSpacing: '0.1em',
+                    letterSpacing: '0.08em',
                   }}
                 >
                   {icon} {title}
                 </div>
-                <div style={{ fontSize: 9, color: '#94A3B8' }}>{sub}</div>
+                <div style={{ fontSize: 8, color: '#94A3B8', marginTop: 1 }}>
+                  {sub}
+                </div>
               </div>
               <div
                 style={{
@@ -1660,7 +1624,7 @@ export default function App() {
                 }}
               />
             </div>
-            <div style={{ display: 'flex', flexDirection: 'column', gap: 8 }}>
+            <div style={{ display: 'flex', flexDirection: 'column', gap: 7 }}>
               {phases.map((p) => (
                 <Card
                   key={p.id}
@@ -1675,30 +1639,31 @@ export default function App() {
           </div>
         ))}
 
+        {/* Footer */}
         <div
           style={{
-            marginTop: 24,
+            marginTop: 20,
             background: 'linear-gradient(135deg,#1E1B4B,#4338CA)',
-            borderRadius: 14,
-            padding: '16px 18px',
+            borderRadius: 12,
+            padding: '14px 16px',
             boxShadow: '0 6px 24px rgba(99,102,241,0.3)',
             textAlign: 'center',
           }}
         >
           <div
             style={{
-              fontSize: 15,
+              fontSize: 'clamp(12px,4vw,15px)',
               fontWeight: 900,
               color: '#FDE68A',
-              marginBottom: 4,
+              marginBottom: 3,
             }}
           >
-            🏆 540 Days · Sun Jun 14, 2026 → Sun Dec 5, 2027
+            🏆 540 Days of Code · Jun 14, 2026 → Dec 5, 2027
           </div>
           <div
             style={{
-              fontSize: 11,
-              color: 'rgba(255,255,255,0.5)',
+              fontSize: 9,
+              color: 'rgba(255,255,255,0.55)',
               marginBottom: 8,
             }}
           >
@@ -1720,7 +1685,7 @@ export default function App() {
               >
                 <span
                   style={{
-                    fontSize: 9,
+                    fontSize: 8,
                     color: m.color,
                     fontWeight: 700,
                     opacity: m.day <= d + 1 ? 1 : 0.38,
@@ -1729,7 +1694,7 @@ export default function App() {
                   {m.icon} {m.label.split(' ')[0]}
                 </span>
                 {i < a.length - 1 && (
-                  <span style={{ color: 'rgba(255,255,255,0.2)', fontSize: 9 }}>
+                  <span style={{ color: 'rgba(255,255,255,0.2)', fontSize: 8 }}>
                     ›
                   </span>
                 )}
