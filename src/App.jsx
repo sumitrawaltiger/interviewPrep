@@ -1273,7 +1273,7 @@ export default function App() {
                   marginTop: 2,
                 }}
               >
-                Jun 14, 2026 → Dec 5, 2027 · 540 days · 1,620h · 6–9 AM
+                Jun 14, 2026 → Dec 5, 2027 · 540 days · 1,620h · 5:30–8:30 AM
               </div>
             </div>
           </div>
@@ -1667,7 +1667,7 @@ export default function App() {
               marginBottom: 8,
             }}
           >
-            1,620 hours · 6:00 AM–9:00 AM · 4 Blocks · 9 Milestones · every
+            1,620 hours · 5:30 AM–8:30 AM · 4 Blocks · 9 Milestones · every
             phase ends Sunday
           </div>
           <div
