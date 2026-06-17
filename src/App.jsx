@@ -1,1036 +1,856 @@
 import { useState } from 'react';
 
-// 545 Days of Code
-// Thu Jun 18, 2026 to Thu Dec 9, 2027
-// 5:30 AM to 8:30 AM daily mandatory + weekends maximum
-// Block 1: OKLABS Batch D1-D365
-// Block 2: React Native D366-D400
-// Block 3: Agentic AI Python D401-D440
-// Block 4: Interview Prep D441-D540
+// 18 Months of Code
+// Mon Jun 15, 2026 to Tue Dec 14, 2027 — 548 days
+// 1 Skill per Month · 5:30 AM to 8:30 AM daily mandatory
 
-const START = new Date('2026-06-18');
-const TOTAL = 545;
+const START = new Date('2026-06-15');
+const TOTAL = 548;
 
 const PHASES = [
-  // ══ BLOCK 1: OKLABS BATCH · 365 days ═══════════════════════════════════════
-
   {
-    id: 'p01',
-    block: 1,
+    id: 'm01',
     seq: 1,
-    icon: '📡',
-    color: '#6366F1',
-    dark: '#4338CA',
-    bg: '#EEF2FF',
-    border: '#C7D2FE',
-    name: 'Computer Fundamentals',
-    label: 'Block 1 · OKLABS',
-    days: 14,
-    ds: 1,
-    de: 14,
-    period: 'Jun 18 - Jul 1, 2026',
-    wks: 'W01-W02',
-    ms: 'Computer Fundamentals Done · D14',
-    about:
-      '2 weeks. IT Fundamentals (SDLC, Agile, Scrum, DevOps culture) + Networking (LAN/WAN/IP/DNS/DHCP/VPN/Firewalls) + OSI 7-layer model + TCP/IP protocols. Foundation for everything in the batch.',
-    courses: [
-      'OKLABS Phase 1-3: IT Fundamentals, Networking, OSI Model and TCP/IP',
-    ],
-    wplan: [
-      {
-        w: 1,
-        f: 'IT Fundamentals + Networking',
-        t: 'SDLC, Agile, Scrum, DevOps culture. LAN/WAN, IP addressing, DNS, DHCP, NAT, VPN, Firewalls, Routing and Switching',
-      },
-      {
-        w: 2,
-        f: 'OSI Model + Protocols + Labs',
-        t: 'OSI 7 layers, TCP vs UDP, HTTP/HTTPS, SSH, SMTP. Wireshark packet analysis, CIDR calculations, DNS troubleshooting',
-      },
-    ],
-  },
-  {
-    id: 'p02',
-    block: 1,
-    seq: 2,
-    icon: '🐧',
-    color: '#EA580C',
-    dark: '#C2410C',
-    bg: '#FFF7ED',
-    border: '#FED7AA',
-    name: 'Linux OS Fundamentals',
-    label: 'Block 1 · OKLABS',
-    days: 21,
-    ds: 15,
-    de: 35,
-    period: 'Jul 2 - Jul 22, 2026',
-    wks: 'W03-W05',
-    ms: 'Linux Done · D35',
-    about:
-      '3 weeks. Linux architecture, 10+ distros, 100+ commands across file ops, process management, user admin, networking, package management, web servers. Projects: Production Linux Server Setup, Secure SSH Config, Apache Reverse Proxy.',
-    courses: [
-      'OKLABS Phase 4-12: OS Fundamentals, Linux Commands, User Admin, File System, Process Mgmt, Package Mgmt, Networking, Web Servers, Monitoring',
-    ],
-    wplan: [
-      {
-        w: 3,
-        f: 'Linux Architecture + Core Commands',
-        t: 'OS types, Linux layers, distros. File ops (ls/cp/mv/rm), directory mgmt, search (find/grep), text processing (awk/sed/cut)',
-      },
-      {
-        w: 4,
-        f: 'Permissions + Process + Users',
-        t: 'chmod/chown/umask, ps/kill/top/htop, useradd/usermod, systemctl, cron jobs, package managers (apt/yum/dnf)',
-      },
-      {
-        w: 5,
-        f: 'Web Servers + Monitoring + Projects',
-        t: "Apache, Nginx, reverse proxy, SSL/Let's Encrypt, journalctl, syslog. Project: Production Linux server + Secure SSH + Apache proxy",
-      },
-    ],
-  },
-  {
-    id: 'p03',
-    block: 1,
-    seq: 3,
-    icon: '💻',
-    color: '#374151',
-    dark: '#111827',
-    bg: '#F9FAFB',
-    border: '#D1D5DB',
-    name: 'Shell Scripting and Bash',
-    label: 'Block 1 · OKLABS',
-    days: 14,
-    ds: 36,
-    de: 49,
-    period: 'Jul 23 - Aug 5, 2026',
-    wks: 'W06-W07',
-    ms: 'Bash Scripting Done · D49',
-    about:
-      '2 weeks. Bash scripting from variables to error handling. Automation scripts for backups, log rotation, health monitoring, user provisioning. Projects: Automated Server Monitoring, Daily Backup System, User Management Automation.',
-    courses: ['OKLABS Phase 13-14: Bash Scripting, Linux Automation'],
-    wplan: [
-      {
-        w: 6,
-        f: 'Bash Fundamentals',
-        t: 'Variables, functions, loops (for/while/until), conditions (if/case), arrays, error handling, exit codes, cron scheduling',
-      },
-      {
-        w: 7,
-        f: 'Automation + Projects',
-        t: 'Backup scripts, log rotation, health monitoring, user provisioning. Projects: Automated Server Monitor, Daily Backup, User Mgmt Automation',
-      },
-    ],
-  },
-  {
-    id: 'p04',
-    block: 1,
-    seq: 4,
-    icon: '🐍',
-    color: '#16A34A',
-    dark: '#15803D',
-    bg: '#F0FDF4',
-    border: '#BBF7D0',
-    name: 'Python for DevOps',
-    label: 'Block 1 · OKLABS',
-    days: 21,
-    ds: 50,
-    de: 70,
-    period: 'Aug 6 - Aug 26, 2026',
-    wks: 'W08-W10',
-    ms: 'Python for DevOps Done · D70',
-    about:
-      '3 weeks. Python fundamentals through OOP through AWS automation. Projects: EC2 Provisioning Tool, Automated Backup Utility, Infrastructure Health Dashboard. Your SCB Thailand Python/boto3 background makes this fast.',
-    courses: [
-      'OKLABS Phase 15-18: Python Fundamentals, Intermediate Python, Advanced Python, DevOps with Python (boto3, AWS automation)',
-    ],
-    wplan: [
-      {
-        w: 8,
-        f: 'Python Fundamentals + OOP',
-        t: 'Variables, data types, loops, functions, OOP (classes/inheritance), modules, packages, exception handling',
-      },
-      {
-        w: 9,
-        f: 'Advanced Python + APIs',
-        t: 'File handling, JSON processing, API integration, multithreading, boto3 AWS automation, monitoring scripts, log parsing',
-      },
-      {
-        w: 10,
-        f: 'DevOps Python Projects',
-        t: 'EC2 Provisioning Tool, Automated Backup Utility, Infrastructure Health Dashboard - all 3 built and documented',
-      },
-    ],
-  },
-  {
-    id: 'p05',
-    block: 1,
-    seq: 5,
-    icon: '🔀',
+    icon: '🟨',
     color: '#F59E0B',
     dark: '#D97706',
     bg: '#FFFBEB',
     border: '#FDE68A',
-    name: 'Git and GitHub',
-    label: 'Block 1 · OKLABS',
-    days: 7,
-    ds: 71,
-    de: 77,
-    period: 'Aug 27 - Sep 2, 2026',
-    wks: 'W11',
-    ms: 'Git and GitHub Done · D77',
+    name: 'JavaScript',
+    period: 'Jun 15 - Jul 14, 2026',
+    days: 30,
+    ds: 1,
+    de: 30,
+    ms: 'JavaScript Complete · D30',
     about:
-      '1 week. Git fundamentals, branching strategy, merge conflicts. GitHub: repositories, pull requests, code reviews, security. Projects: Team Collaboration Project + Git Workflow Implementation.',
-    courses: ['OKLABS Phase 19-20: Version Control System, GitHub'],
+      '30 days. Complete JavaScript from fundamentals to advanced. Variables, data types, functions, DOM manipulation, events, ES6+ (arrow functions, destructuring, spread/rest, template literals, modules), Promises, async/await, fetch API, closures, prototypes, classes. Build 3 mini projects.',
+    topics: [
+      'Fundamentals: variables (let/const/var), data types, operators, control flow, loops, functions',
+      'ES6+: arrow functions, destructuring, spread/rest, template literals, default params, modules (import/export)',
+      'DOM: querySelector, addEventListener, innerHTML, classList, createElement, event bubbling/delegation',
+      'Async: callbacks, Promises (.then/.catch/.finally), async/await, fetch API, error handling',
+      "Advanced: closures, hoisting, scope, prototypes, classes, 'this' keyword, call/apply/bind",
+      'Projects: To-Do App, Weather App (fetch API), Quiz App',
+    ],
     wplan: [
       {
-        w: 11,
-        f: 'Git + GitHub + Projects',
-        t: 'Git fundamentals, branching (feature/hotfix), merge vs rebase, PRs, code reviews, GitHub security. Team Collaboration + Git Workflow projects',
+        w: 1,
+        f: 'JS Fundamentals',
+        t: 'Variables, data types, operators, if/else/switch, loops (for/while/forEach), functions (declarations vs expressions)',
+      },
+      {
+        w: 2,
+        f: 'ES6+ Modern JS',
+        t: 'Arrow functions, destructuring (array/object), spread/rest, template literals, default params, optional chaining, nullish coalescing',
+      },
+      {
+        w: 3,
+        f: 'DOM + Async',
+        t: 'DOM manipulation, events, event delegation. Promises, async/await, fetch API, error handling, JSON',
+      },
+      {
+        w: 4,
+        f: 'Advanced + Projects',
+        t: 'Closures, hoisting, scope chain, prototypes, ES6 classes, modules. Build To-Do App + Weather App + Quiz App',
       },
     ],
   },
   {
-    id: 'p06',
-    block: 1,
-    seq: 6,
+    id: 'm02',
+    seq: 2,
+    icon: '🔷',
+    color: '#3B82F6',
+    dark: '#1D4ED8',
+    bg: '#EFF6FF',
+    border: '#BFDBFE',
+    name: 'TypeScript',
+    period: 'Jul 15 - Aug 14, 2026',
+    days: 31,
+    ds: 31,
+    de: 61,
+    ms: 'TypeScript Complete · D61',
+    about:
+      '31 days. TypeScript from scratch on top of your JavaScript knowledge. Type system, interfaces, generics, enums, utility types, decorators, strict mode. Convert your JS projects to TS. Directly applicable to FPO Cloud (already uses TypeScript CDK for AWS Step Functions).',
+    topics: [
+      'Type system: primitives, arrays, tuples, enums, union/intersection types, type guards, type assertions',
+      'Interfaces and Types: interface vs type alias, extending, implements, index signatures',
+      'Generics: generic functions, generic interfaces, generic classes, constraints (<T extends ...>)',
+      'Utility Types: Partial, Required, Readonly, Pick, Omit, Record, Exclude, Extract',
+      'Advanced: decorators, namespace, declaration files (.d.ts), strict mode, tsconfig.json',
+      'Projects: Convert JS projects to TS + build a typed REST API client',
+    ],
+    wplan: [
+      {
+        w: 5,
+        f: 'TS Type System',
+        t: 'Basic types, type annotations, type inference, union/intersection, literal types, enums, tuples, arrays',
+      },
+      {
+        w: 6,
+        f: 'Interfaces + Classes',
+        t: 'Interfaces vs type aliases, extending interfaces, implements, access modifiers (public/private/protected), abstract classes',
+      },
+      {
+        w: 7,
+        f: 'Generics + Utility',
+        t: 'Generic functions, generic interfaces, constraints, Partial/Required/Readonly/Pick/Omit/Record utility types, conditional types',
+      },
+      {
+        w: 8,
+        f: 'Advanced TS + Config',
+        t: 'Decorators, declaration files, tsconfig.json strict mode, module resolution. Convert all JS projects to TypeScript. Typed API client.',
+      },
+    ],
+  },
+  {
+    id: 'm03',
+    seq: 3,
     icon: '⚛',
     color: '#0EA5E9',
     dark: '#0369A1',
     bg: '#F0F9FF',
     border: '#BAE6FD',
-    name: 'Frontend: HTML / CSS / JS / React',
-    label: 'Block 1 · OKLABS',
-    days: 28,
-    ds: 78,
-    de: 105,
-    period: 'Sep 3 - Sep 30, 2026',
-    wks: 'W12-W15',
-    ms: 'Frontend React Done · D105',
+    name: 'React',
+    period: 'Aug 15 - Sep 14, 2026',
+    days: 31,
+    ds: 62,
+    de: 92,
+    ms: 'React Complete · D92',
     about:
-      '4 weeks. SPA architecture, component-based development, React fundamentals and advanced patterns. Project: DevOps Monitoring Dashboard UI. Builds directly on your existing React knowledge from FPO Cloud.',
-    courses: [
-      'OKLABS Phase 21-23: Frontend Engineering (HTML5/CSS3/JS/Bootstrap), React Fundamentals, React Advanced',
+      '31 days. React with TypeScript. Components, props, state, hooks, React Router v6, Context API, Redux Toolkit, React Query, testing with React Testing Library. Build a full FPO flight dashboard as capstone. Builds on your existing React knowledge from FPO Cloud.',
+    topics: [
+      'Foundations: JSX, functional components, props, state (useState), conditional rendering, lists and keys',
+      'Core Hooks: useEffect, useContext, useRef, useMemo, useCallback, custom hooks',
+      'React Router v6: file-based routing, nested routes, dynamic routes, useParams, useNavigate, loaders',
+      'State Management: Context API + useReducer, Redux Toolkit (createSlice, configureStore, RTK Query)',
+      'Advanced: React.memo, lazy/Suspense, error boundaries, portals, forwardRef, compound components',
+      'Testing: React Testing Library, Jest, @testing-library/user-event, mocking',
     ],
     wplan: [
+      {
+        w: 9,
+        f: 'React Foundations',
+        t: 'JSX, components, props, useState, conditional rendering, lists, keys. Vite setup with TypeScript.',
+      },
+      {
+        w: 10,
+        f: 'Hooks + Router',
+        t: 'useEffect, useRef, useMemo, useCallback, custom hooks. React Router v6 nested routes, dynamic params.',
+      },
+      {
+        w: 11,
+        f: 'State Management',
+        t: 'Context API + useReducer pattern, Redux Toolkit createSlice/configureStore, RTK Query for API calls',
+      },
       {
         w: 12,
-        f: 'HTML/CSS/JS/Bootstrap',
-        t: 'HTML5 semantics, CSS3 flexbox/grid, JavaScript ES6+ (arrow functions, promises, async/await), jQuery, Bootstrap responsive design',
-      },
-      {
-        w: 13,
-        f: 'React Fundamentals',
-        t: 'React architecture, JSX, components, props, state, events, conditional rendering, lists - OKLABS React modules',
-      },
-      {
-        w: 14,
-        f: 'React Hooks + Advanced',
-        t: 'useState, useEffect, useContext, useRef, custom hooks, React Router v6, API integration, Context API',
-      },
-      {
-        w: 15,
-        f: 'DevOps Dashboard Project',
-        t: 'Build DevOps Monitoring Dashboard UI - server health, pipeline status, deployment metrics. Full capstone project.',
+        f: 'Advanced + Capstone',
+        t: 'React.memo, lazy/Suspense, error boundaries. Build FPO Flight Dashboard: real-time flight list, weather overlay, status cards.',
       },
     ],
   },
   {
-    id: 'p07',
-    block: 1,
-    seq: 7,
-    icon: '🚀',
-    color: '#7C3AED',
-    dark: '#6D28D9',
-    bg: '#F5F3FF',
-    border: '#DDD6FE',
-    name: 'Backend: Python / Flask / FastAPI',
-    label: 'Block 1 · OKLABS',
-    days: 21,
-    ds: 106,
-    de: 126,
-    period: 'Oct 1 - Oct 21, 2026',
-    wks: 'W16-W18',
-    ms: 'Backend Python Done · D126',
-    about:
-      '3 weeks. Backend architecture, REST principles, Flask and FastAPI frameworks, JWT authentication, PostgreSQL. Projects: Employee Management API, Cloud Resource Management API.',
-    courses: [
-      'OKLABS Phase 24-26: Backend Fundamentals, Python Backend (Flask/FastAPI), Database Concepts (PostgreSQL)',
-    ],
-    wplan: [
-      {
-        w: 16,
-        f: 'Flask + REST Fundamentals',
-        t: 'Backend architecture, REST principles, Flask routes, blueprints, JWT authentication, authorization',
-      },
-      {
-        w: 17,
-        f: 'FastAPI + PostgreSQL',
-        t: 'FastAPI async endpoints, Pydantic models, PostgreSQL with SQLAlchemy ORM, Alembic migrations',
-      },
-      {
-        w: 18,
-        f: 'Backend Projects',
-        t: 'Employee Management API + Cloud Resource Management API - both built, tested, and documented',
-      },
-    ],
-  },
-  {
-    id: 'p08',
-    block: 1,
-    seq: 8,
-    icon: '🔌',
-    color: '#E11D48',
-    dark: '#BE123C',
-    bg: '#FFF1F2',
-    border: '#FECDD3',
-    name: 'APIs and Integrations',
-    label: 'Block 1 · OKLABS',
-    days: 7,
-    ds: 127,
-    de: 133,
-    period: 'Oct 22 - Oct 28, 2026',
-    wks: 'W19',
-    ms: 'APIs Done · D133',
-    about:
-      '1 week. REST, GraphQL, SOAP, Webhook APIs. Security: OAuth2, JWT, API Keys, Rate Limiting. Projects: REST API Development + GraphQL API Integration.',
-    courses: [
-      'OKLABS Phase 27-28: API Fundamentals, API Security (OAuth2/JWT/Rate Limiting)',
-    ],
-    wplan: [
-      {
-        w: 19,
-        f: 'API Types + Security + Projects',
-        t: 'REST/GraphQL/SOAP/Webhook deep dive, OAuth2 flows, JWT, rate limiting. Build REST API + GraphQL API projects',
-      },
-    ],
-  },
-  {
-    id: 'p09',
-    block: 1,
-    seq: 9,
-    icon: '📋',
-    color: '#059669',
-    dark: '#047857',
-    bg: '#ECFDF5',
-    border: '#A7F3D0',
-    name: 'Jira and Confluence',
-    label: 'Block 1 · OKLABS',
-    days: 7,
-    ds: 134,
-    de: 140,
-    period: 'Oct 29 - Nov 4, 2026',
-    wks: 'W20',
-    ms: 'Jira and Confluence Done · D140',
-    about:
-      '1 week. Jira: Scrum boards, sprint planning, user stories, epics. Confluence: documentation, knowledge base. Project: Complete Agile Sprint Lifecycle.',
-    courses: ['OKLABS Phase 29-30: Jira, Confluence'],
-    wplan: [
-      {
-        w: 20,
-        f: 'Jira + Confluence + Agile Sprint',
-        t: 'Jira Scrum boards, sprint planning, user stories, epics. Confluence docs. Full Agile sprint lifecycle project.',
-      },
-    ],
-  },
-  {
-    id: 'p10',
-    block: 1,
-    seq: 10,
-    icon: '🐳',
-    color: '#0369A1',
-    dark: '#1e40af',
-    bg: '#EFF6FF',
-    border: '#BFDBFE',
-    name: 'Docker',
-    label: 'Block 1 · OKLABS',
-    days: 21,
-    ds: 141,
-    de: 161,
-    period: 'Nov 5 - Nov 25, 2026',
-    wks: 'W21-W23',
-    ms: 'Docker Done · D161',
-    about:
-      '3 weeks. Container fundamentals vs virtualization, Docker images/containers/networking/volumes, Docker Compose. Projects: React + Python App Containerization, Production Docker Deployment.',
-    courses: [
-      'OKLABS Phase 31-33: Container Fundamentals, Docker, Docker Compose',
-    ],
-    wplan: [
-      {
-        w: 21,
-        f: 'Container Fundamentals + Docker Core',
-        t: 'Virt vs containers, Dockerfile, docker build/run/stop/rm, images, ports, environment variables',
-      },
-      {
-        w: 22,
-        f: 'Docker Networking + Volumes + Compose',
-        t: 'Bridge/host/overlay networks, volumes, bind mounts, Docker Compose multi-service stacks',
-      },
-      {
-        w: 23,
-        f: 'Docker Projects',
-        t: 'React + Python app containerization. Production Docker deployment with Nginx reverse proxy. Push to ECR.',
-      },
-    ],
-  },
-  {
-    id: 'p11',
-    block: 1,
-    seq: 11,
-    icon: '☸',
-    color: '#4338CA',
-    dark: '#3730A3',
-    bg: '#EEF2FF',
-    border: '#C7D2FE',
-    name: 'Kubernetes',
-    label: 'Block 1 · OKLABS',
-    days: 28,
-    ds: 162,
-    de: 189,
-    period: 'Nov 26 - Dec 23, 2026',
-    wks: 'W24-W27',
-    ms: 'Kubernetes Done · D189',
-    about:
-      '4 weeks. K8s architecture, Pods/Deployments/Services/ConfigMaps/Secrets, storage (PV/PVC), Ingress, RBAC. Projects: Production K8s Cluster + Highly Available App Deployment on AWS EKS.',
-    courses: [
-      'OKLABS Phase 34-38: K8s Fundamentals, K8s Objects, K8s Storage, K8s Networking, K8s Security',
-    ],
-    wplan: [
-      {
-        w: 24,
-        f: 'K8s Architecture + Core Objects',
-        t: 'Control plane, worker nodes, kubectl, Pods, Deployments, ReplicaSets - KodeKloud/Killercoda hands-on labs',
-      },
-      {
-        w: 25,
-        f: 'Services + ConfigMaps + Storage',
-        t: 'ClusterIP/NodePort/LoadBalancer, ConfigMaps, Secrets, PersistentVolumes, PVCs, StorageClasses',
-      },
-      {
-        w: 26,
-        f: 'Ingress + Security + RBAC',
-        t: 'Ingress controllers, service discovery, RBAC roles/rolebindings, NetworkPolicies, security contexts',
-      },
-      {
-        w: 27,
-        f: 'K8s Projects on AWS EKS',
-        t: 'Production K8s cluster + Highly Available application deployment on AWS EKS with autoscaling',
-      },
-    ],
-  },
-  {
-    id: 'p12',
-    block: 1,
-    seq: 12,
-    icon: '⚙',
-    color: '#DC2626',
-    dark: '#B91C1C',
-    bg: '#FEF2F2',
-    border: '#FECACA',
-    name: 'CI/CD: Jenkins + GitHub Actions',
-    label: 'Block 1 · OKLABS',
-    days: 21,
-    ds: 190,
-    de: 210,
-    period: 'Dec 24, 2026 - Jan 13, 2027',
-    wks: 'W28-W30',
-    ms: 'CI/CD Done · D210',
-    about:
-      '3 weeks. CI/CD fundamentals, Blue-Green/Rolling/Canary deployments. Jenkins (master-agent, Jenkinsfile, pipelines, SonarQube integration). GitHub Actions (workflows, matrix builds, reusable workflows).',
-    courses: [
-      'OKLABS Phase 39-41: CI/CD Fundamentals, Jenkins, GitHub Actions',
-    ],
-    wplan: [
-      {
-        w: 28,
-        f: 'CI/CD Fundamentals + Jenkins Core',
-        t: 'CI/CD concepts, Blue-Green/Rolling/Canary, Jenkins install, master-agent, Jenkinsfile declarative pipelines',
-      },
-      {
-        w: 29,
-        f: 'Jenkins Integrations + GitHub Actions',
-        t: 'Jenkins with Docker/K8s/AWS/SonarQube, GitHub Actions workflows, matrix builds, reusable workflows, secrets',
-      },
-      {
-        w: 30,
-        f: 'CI/CD Projects',
-        t: 'Docker Build Pipeline, K8s Deployment Pipeline, React App CI/CD, Python API CI/CD via Jenkins and GitHub Actions',
-      },
-    ],
-  },
-  {
-    id: 'p13',
-    block: 1,
-    seq: 13,
-    icon: '🏗',
-    color: '#B45309',
-    dark: '#92400E',
-    bg: '#FFFBEB',
-    border: '#FDE68A',
-    name: 'Terraform IaC',
-    label: 'Block 1 · OKLABS',
-    days: 14,
-    ds: 211,
-    de: 224,
-    period: 'Jan 14 - Jan 27, 2027',
-    wks: 'W31-W32',
-    ms: 'Terraform Done · D224',
-    about:
-      '2 weeks. HCL syntax, providers, resources, variables, modules, state management, remote state (S3+DynamoDB), multi-environment deployment. Projects: AWS Infrastructure Provisioning + EKS Cluster Deployment.',
-    courses: ['OKLABS Phase 41-42: Terraform, Advanced Terraform'],
-    wplan: [
-      {
-        w: 31,
-        f: 'Terraform Core',
-        t: 'HCL syntax, providers, resources, variables, outputs, locals, data sources, state management, modules',
-      },
-      {
-        w: 32,
-        f: 'Advanced Terraform + Projects',
-        t: 'Remote state (S3+DynamoDB locking), workspaces, multi-env (dev/staging/prod). AWS Infra + EKS Cluster projects',
-      },
-    ],
-  },
-  {
-    id: 'p14',
-    block: 1,
-    seq: 14,
-    icon: '☁',
-    color: '#D97706',
-    dark: '#B45309',
-    bg: '#FFFBEB',
-    border: '#FDE68A',
-    name: 'AWS Cloud Engineering',
-    label: 'Block 1 · OKLABS · MAX',
-    days: 56,
-    ds: 225,
-    de: 280,
-    period: 'Jan 28 - Mar 24, 2027',
-    wks: 'W33-W40',
-    ms: 'AWS Done · D280',
-    about:
-      '8 weeks MAX TIME. IAM, EC2, EBS, S3, VPC, Route Tables, NAT/IGW, Security Groups, NACL, RDS, DynamoDB, ALB/NLB, CloudWatch, CloudTrail, ECS/ECR/EKS, Lambda, API Gateway, Secrets Manager. Maps directly to your FPO Cloud production architecture.',
-    courses: [
-      'OKLABS Phase 43: AWS Fundamentals (global infra, regions, shared responsibility)',
-      'OKLABS Phase 44-45: AWS Core Services (IAM/EC2/EBS/S3) and Networking (VPC/subnets/NAT/IGW/Security Groups/NACL)',
-      'OKLABS Phase 46-48: Databases (RDS/DynamoDB), Load Balancing (ALB/NLB), Monitoring (CloudWatch/CloudTrail)',
-      'OKLABS Phase 49-51: Containers (ECS/ECR/EKS), Serverless (Lambda/API Gateway), Security (IAM/KMS/Secrets Manager)',
-    ],
-    wplan: [
-      {
-        w: 33,
-        f: 'AWS Fundamentals + IAM',
-        t: 'Global infra, regions/AZs, shared responsibility. IAM users/groups/roles/policies/MFA/STS - directly used in FPO Cloud',
-      },
-      {
-        w: 34,
-        f: 'EC2 + EBS + S3',
-        t: 'EC2 instance types, EBS volume types/snapshots, S3 buckets/policies/versioning/lifecycle/encryption',
-      },
-      {
-        w: 35,
-        f: 'VPC + Networking',
-        t: 'VPC creation, public/private subnets, route tables, NAT gateway, Internet gateway, Security Groups, NACL, VPC peering',
-      },
-      {
-        w: 36,
-        f: 'Databases + Load Balancing',
-        t: 'RDS (PostgreSQL), DynamoDB (your FPO database!), ALB/NLB, target groups, health checks, Auto Scaling Groups',
-      },
-      {
-        w: 37,
-        f: 'Monitoring + Containers',
-        t: 'CloudWatch metrics/logs/alarms/dashboards, CloudTrail, ECS task defs, ECR image registry, EKS cluster mgmt',
-      },
-      {
-        w: 38,
-        f: 'Serverless + Security',
-        t: 'Lambda functions (your FPO!), API Gateway, Step Functions, Secrets Manager, KMS encryption, IAM best practices',
-      },
-      {
-        w: 39,
-        f: 'AWS Projects Part 1',
-        t: 'Three-Tier Architecture (ALB + EC2 + RDS) + Highly Available Web Application with auto scaling',
-      },
-      {
-        w: 40,
-        f: 'AWS Projects Part 2',
-        t: 'Kubernetes on AWS EKS + Serverless Application Deployment - relate to FPO Cloud Lambda architecture',
-      },
-    ],
-  },
-  {
-    id: 'p15',
-    block: 1,
-    seq: 15,
-    icon: '📊',
-    color: '#0EA5E9',
-    dark: '#0369A1',
-    bg: '#F0F9FF',
-    border: '#BAE6FD',
-    name: 'DevOps Monitoring and Observability',
-    label: 'Block 1 · OKLABS',
-    days: 14,
-    ds: 281,
-    de: 294,
-    period: 'Mar 25 - Apr 7, 2027',
-    wks: 'W41-W42',
-    ms: 'Monitoring Done · D294',
-    about:
-      '2 weeks. Prometheus metrics, Grafana dashboards, centralized logging, log aggregation, alert rules, incident response. Projects: Complete Monitoring Stack + Infrastructure Observability Platform. Maps to Datadog you use on FPO.',
-    courses: [
-      'OKLABS Phase 52-54: Monitoring (Prometheus/Grafana), Logging, Alerting',
-    ],
-    wplan: [
-      {
-        w: 41,
-        f: 'Prometheus + Grafana',
-        t: 'Prometheus exporters, PromQL, alertmanager. Grafana dashboards for infra metrics - compare to Datadog on FPO',
-      },
-      {
-        w: 42,
-        f: 'Centralized Logging + Projects',
-        t: 'ELK stack or Grafana Loki, log aggregation, alerting. Complete Monitoring Stack + Observability Platform projects',
-      },
-    ],
-  },
-  {
-    id: 'p16',
-    block: 1,
-    seq: 16,
-    icon: '✅',
-    color: '#16A34A',
-    dark: '#15803D',
-    bg: '#F0FDF4',
-    border: '#BBF7D0',
-    name: 'SonarQube and QA',
-    label: 'Block 1 · OKLABS',
-    days: 14,
-    ds: 295,
-    de: 308,
-    period: 'Apr 8 - Apr 21, 2027',
-    wks: 'W43-W44',
-    ms: 'SonarQube Done · D308',
-    about:
-      '2 weeks. Static code analysis, quality gates, technical debt, code smells, vulnerability detection. Jenkins + GitHub Actions integration, PR analysis, coverage reports. Projects: Enterprise SonarQube Deployment + Automated Quality Gate Pipeline.',
-    courses: [
-      'OKLABS Phase 17 (QA): SonarQube fundamentals, administration, integrations, security analysis',
-    ],
-    wplan: [
-      {
-        w: 43,
-        f: 'SonarQube Core + Administration',
-        t: 'Install/configure SonarQube, quality gates, code smells, technical debt, security hotspots, vulnerability detection',
-      },
-      {
-        w: 44,
-        f: 'Integrations + Projects',
-        t: 'Jenkins + GitHub Actions PR analysis, coverage reports. Enterprise SonarQube Deployment + Quality Gate Pipeline projects',
-      },
-    ],
-  },
-  {
-    id: 'p17',
-    block: 1,
-    seq: 17,
-    icon: '🔒',
-    color: '#E11D48',
-    dark: '#BE123C',
-    bg: '#FFF1F2',
-    border: '#FECADA',
-    name: 'DevSecOps and Security',
-    label: 'Block 1 · OKLABS',
-    days: 14,
-    ds: 309,
-    de: 322,
-    period: 'Apr 22 - May 5, 2027',
-    wks: 'W45-W46',
-    ms: 'DevSecOps Done · D322',
-    about:
-      '2 weeks. Security in SDLC, secure coding, threat modeling, Docker/K8s security, Trivy image scanning, OWASP dependency check. Secrets management (GitHub/Jenkins/AWS Secrets Manager). Projects: Secure CI/CD Pipeline + Container Security Automation.',
-    courses: [
-      'OKLABS Phase 18 (DevSecOps): DevSecOps fundamentals, container security, security scanning tools, secrets management',
-    ],
-    wplan: [
-      {
-        w: 45,
-        f: 'DevSecOps Fundamentals + Tools',
-        t: 'Security in SDLC, threat modeling, Docker security, K8s RBAC/NetworkPolicies, Trivy image scanning, OWASP',
-      },
-      {
-        w: 46,
-        f: 'Secrets Management + Projects',
-        t: 'GitHub Secrets, Jenkins Credentials, AWS Secrets Manager. Secure CI/CD Pipeline + Container Security Automation projects',
-      },
-    ],
-  },
-  {
-    id: 'p18',
-    block: 1,
-    seq: 18,
-    icon: '🏆',
-    color: '#7C3AED',
-    dark: '#6D28D9',
-    bg: '#F5F3FF',
-    border: '#DDD6FE',
-    name: 'Capstone Projects',
-    label: 'Block 1 · OKLABS',
-    days: 28,
-    ds: 323,
-    de: 350,
-    period: 'May 6 - Jun 2, 2027',
-    wks: 'W47-W50',
-    ms: 'Capstone Projects Done · D350',
-    about:
-      '4 weeks. Enterprise-grade end-to-end projects. Pipeline: GitHub to Jenkins/GitHub Actions to SonarQube to Docker build to Trivy scan to ECR push to Terraform infra to EKS deployment to Smoke tests to Prometheus/Grafana monitoring.',
-    courses: [
-      'Project 1: Terraform + GitHub Actions + Kubernetes End-to-End CI/CD Pipeline',
-      'Project 2: Production EKS Cluster with Prometheus/Grafana Monitoring and Centralized Logging',
-      'Project 3: Multi-Environment Cloud Infrastructure Automation (dev/staging/prod)',
-      'Project 4: Complete DevOps Platform Engineering Project - all tools integrated',
-    ],
-    wplan: [
-      {
-        w: 47,
-        f: 'Project 1: E2E CI/CD Pipeline',
-        t: 'GitHub to GHA/Jenkins to SonarQube to Docker to Trivy to ECR to Terraform to EKS - full enterprise pipeline',
-      },
-      {
-        w: 48,
-        f: 'Project 2: Production EKS + Monitoring',
-        t: 'EKS cluster, Prometheus/Grafana monitoring, Loki logging, alertmanager, auto-scaling, rolling deployments',
-      },
-      {
-        w: 49,
-        f: 'Project 3: Multi-Env Infrastructure',
-        t: 'Terraform workspaces for dev/staging/prod. Different VPCs, sizes, configs per environment.',
-      },
-      {
-        w: 50,
-        f: 'Project 4: Full DevOps Platform',
-        t: 'Complete platform: Jenkins/GHA/SonarQube/Docker/K8s/Terraform/AWS/Prometheus all integrated end-to-end',
-      },
-    ],
-  },
-  {
-    id: 'p19',
-    block: 1,
-    seq: 19,
-    icon: '🎯',
+    id: 'm04',
+    seq: 4,
+    icon: '▲',
     color: '#374151',
     dark: '#111827',
     bg: '#F9FAFB',
     border: '#D1D5DB',
-    name: 'OKLABS Revision and Job Prep',
-    label: 'Block 1 · OKLABS · FINAL',
-    days: 15,
-    ds: 351,
-    de: 365,
-    period: 'Jun 3 - Jun 17, 2027',
-    wks: 'W51-W52',
-    ms: 'OKLABS Year 1 COMPLETE · D365',
+    name: 'Next.js',
+    period: 'Sep 15 - Oct 14, 2026',
+    days: 30,
+    ds: 93,
+    de: 122,
+    ms: 'Next.js Complete · D122',
     about:
-      '2 weeks + 1 day. Revise all 18 OKLABS phases. Polish GitHub portfolio (professional READMEs, architecture diagrams). Update LinkedIn and resume for DevOps/Cloud/SRE/Platform Engineer roles. Mock interview practice.',
-    courses: [
-      'Full revision: Linux, Docker, K8s, CI/CD, Terraform, AWS - focus on weakest areas',
-      'GitHub portfolio polish: READMEs, architecture diagrams, demo GIFs for all projects',
-      'Interview Q&A: DevOps/Cloud/SRE/Platform Engineer roles - salary research for Bangkok market',
+      '30 days. Next.js 15 with App Router. Server Components, Server Actions, data fetching, caching, NextAuth v5, Prisma ORM, PostgreSQL, Vercel deployment. Build FPO web portal as capstone. Directly applicable to full-stack development roles.',
+    topics: [
+      'App Router: file-based routing, layouts, loading.tsx, error.tsx, not-found.tsx, route groups',
+      "Server vs Client: React Server Components, 'use client' directive, streaming, Suspense boundaries",
+      'Data Fetching: fetch with revalidation, generateStaticParams, dynamic routes, ISR, SSG, SSR',
+      'Server Actions: form actions, mutations, revalidatePath, revalidateTag, optimistic updates',
+      'Auth + Database: NextAuth v5, OAuth providers, middleware, Prisma ORM, PostgreSQL, Drizzle ORM option',
+      'Deploy: Vercel deployment, environment variables, edge runtime, image optimization',
     ],
     wplan: [
       {
-        w: 51,
-        f: 'Full Revision + GitHub Portfolio',
-        t: 'Revise Linux, Docker, K8s, CI/CD, Terraform, AWS. Write professional READMEs. Architecture diagrams for all projects.',
+        w: 13,
+        f: 'App Router Foundations',
+        t: 'File-based routing, layouts, nested routes, loading/error/not-found pages, route groups, parallel routes',
       },
       {
-        w: 52,
-        f: 'Interview Q&A + Mock Interviews',
-        t: 'DevOps/Cloud/SRE interview Q&A, mock interviews. Day 365 = 1 year of OKLABS COMPLETE.',
+        w: 14,
+        f: 'Server Components + Data',
+        t: 'RSC vs Client Components, fetch caching, revalidation strategies (ISR/SSG/SSR), Suspense streaming',
       },
       {
-        w: 53,
-        f: 'Wrap up + Transition to Block 2',
-        t: 'Final day of Block 1. Polish everything, update CV, LinkedIn. Ready to start React Native dedicated study.',
+        w: 15,
+        f: 'Server Actions + Auth',
+        t: 'Form Server Actions, mutations, revalidatePath, NextAuth v5 OAuth providers, middleware, protected routes',
+      },
+      {
+        w: 16,
+        f: 'Database + Deploy',
+        t: 'Prisma ORM with PostgreSQL, schema design, migrations. Vercel deploy. FPO web portal capstone.',
       },
     ],
   },
-
-  // ══ BLOCK 2: REACT NATIVE · 35 days ════════════════════════════════════════
-
   {
-    id: 'p20',
-    block: 2,
-    seq: 20,
+    id: 'm05',
+    seq: 5,
     icon: '📱',
     color: '#7C3AED',
     dark: '#6D28D9',
     bg: '#F5F3FF',
     border: '#DDD6FE',
-    name: 'React Native (Chaicode)',
-    label: 'Block 2 · React Native',
-    days: 35,
-    ds: 366,
-    de: 400,
-    period: 'Jun 18 - Jul 22, 2027',
-    wks: 'W53-W57',
-    ms: 'React Native COMPLETE · D400',
+    name: 'React Native',
+    period: 'Oct 15 - Nov 14, 2026',
+    days: 31,
+    ds: 123,
+    de: 153,
+    ms: 'React Native Complete · D153',
     about:
-      '5 weeks dedicated. Chaicode React Native course - full focus now that OKLABS is done. Core components, React Navigation v6, Redux Toolkit in RN, device APIs, animations, EAS Build. Build and deploy FPO mobile flight app to TestFlight on your iPad.',
-    courses: [
-      'Chaicode - React Native Full Course (primary - Hindi + English, free)',
-      'Stephen Grider - The Complete React Native + Hooks Course 4.8 stars (38h) - supplementary reference',
-      'Expo documentation - EAS Build, TestFlight submission, Expo Go debugging',
+      '31 days. React Native via Chaicode + Stephen Grider. Core components, React Navigation v6, Redux Toolkit in RN, device APIs (Camera/Location/Notifications), Expo SDK, animations, EAS Build. Build FPO mobile flight app deployed to TestFlight on your iPad.',
+    topics: [
+      'Core Components: View, Text, Image, TextInput, TouchableOpacity, FlatList, SectionList, ScrollView, StyleSheet',
+      'Navigation: React Navigation v6 — Stack, Tab (Bottom/Material Top), Drawer navigators',
+      'State: Redux Toolkit in React Native, AsyncStorage persistence, Context API, Zustand option',
+      'Device APIs: Camera (Expo), Location, Push Notifications, Expo ImagePicker, Expo FileSystem',
+      'Animations: Animated API, Reanimated 2 (useSharedValue, useAnimatedStyle), Gesture Handler',
+      'Build: EAS Build, TestFlight submission, App Store Connect, platform-specific code (Platform.OS)',
     ],
     wplan: [
       {
-        w: 53,
-        f: 'Core Components + Styling',
-        t: 'View, Text, Image, TextInput, StyleSheet, Flexbox, FlatList, ScrollView, SectionList - exercises on iPad via Expo Go',
+        w: 17,
+        f: 'Core Components + Layout',
+        t: 'View/Text/Image/TextInput, StyleSheet, Flexbox layout, FlatList, SectionList — exercises on iPad via Expo Go',
       },
       {
-        w: 54,
+        w: 18,
         f: 'React Navigation v6',
-        t: 'Stack Navigator, Tab Navigator (bottom/material top), Drawer Navigator. Build FPO flight list with multiple screens.',
+        t: 'Stack Navigator, Bottom Tab Navigator, Drawer Navigator, nested navigation, passing params, deep linking',
       },
       {
-        w: 55,
-        f: 'State + AsyncStorage',
-        t: 'Redux Toolkit in React Native, AsyncStorage persistence, Context API, useReducer, offline state management',
+        w: 19,
+        f: 'State + Device APIs',
+        t: 'Redux Toolkit in RN, AsyncStorage, Camera, Location, Push Notifications, Expo SDK modules',
       },
       {
-        w: 56,
-        f: 'Device APIs + Networking',
-        t: 'Camera, Location, Push Notifications, Expo SDK modules, fetch/axios for FPO API calls, error handling',
-      },
-      {
-        w: 57,
-        f: 'Animations + Build + Deploy',
-        t: 'React Native Animated API, Reanimated 2, gesture handling. EAS Build config, TestFlight submission, FPO app portfolio demo.',
+        w: 20,
+        f: 'Animations + EAS + Deploy',
+        t: 'Reanimated 2, Gesture Handler, platform differences. EAS Build config, TestFlight. FPO mobile app deployed.',
       },
     ],
   },
-
-  // ══ BLOCK 3: AGENTIC AI USING PYTHON · 40 days ═════════════════════════════
-
   {
-    id: 'p21',
-    block: 3,
-    seq: 21,
+    id: 'm06',
+    seq: 6,
+    icon: '🐍',
+    color: '#16A34A',
+    dark: '#15803D',
+    bg: '#F0FDF4',
+    border: '#BBF7D0',
+    name: 'Python',
+    period: 'Nov 15 - Dec 14, 2026',
+    days: 30,
+    ds: 154,
+    de: 183,
+    ms: 'Python Complete · D183',
+    about:
+      '30 days. Python from fundamentals to advanced. OOP, file handling, JSON, regex, APIs, multithreading, virtual environments, packaging. AWS automation with boto3. Your SCB Thailand Python work means this is fast revision + deepening. Foundation for Flask and Agentic AI months.',
+    topics: [
+      'Fundamentals: variables, data types, operators, control flow, functions, list/dict/set/tuple comprehensions',
+      'OOP: classes, inheritance, polymorphism, dunder methods, dataclasses, abstract classes, mixins',
+      'File + JSON: file I/O (open/read/write), pathlib, JSON (json.loads/dumps), CSV, environment variables',
+      'APIs + HTTP: requests library, REST API calls, authentication (API key/OAuth), JSON parsing, error handling',
+      'Advanced: decorators, generators, context managers, type hints, regex (re module), asyncio basics',
+      'AWS with boto3: EC2/S3/Lambda/DynamoDB automation — builds directly on your FPO Cloud knowledge',
+    ],
+    wplan: [
+      {
+        w: 21,
+        f: 'Python Fundamentals + OOP',
+        t: 'Variables, data types, control flow, functions, list/dict comprehensions, OOP classes, inheritance, dunder methods',
+      },
+      {
+        w: 22,
+        f: 'File Handling + APIs',
+        t: 'File I/O, pathlib, JSON processing, requests library, REST API calls, authentication, error handling',
+      },
+      {
+        w: 23,
+        f: 'Advanced Python',
+        t: 'Decorators, generators, context managers, type hints, regex, asyncio basics, dataclasses, virtual environments',
+      },
+      {
+        w: 24,
+        f: 'Python + AWS boto3',
+        t: 'boto3: EC2 provisioning, S3 operations, Lambda invoke, DynamoDB CRUD, CloudWatch logs — maps to your FPO Cloud work',
+      },
+    ],
+  },
+  {
+    id: 'm07',
+    seq: 7,
+    icon: '🌶',
+    color: '#059669',
+    dark: '#047857',
+    bg: '#ECFDF5',
+    border: '#A7F3D0',
+    name: 'Flask',
+    period: 'Dec 15, 2026 - Jan 14, 2027',
+    days: 31,
+    ds: 184,
+    de: 214,
+    ms: 'Flask Complete · D214',
+    about:
+      '31 days. Flask web framework — routing, Blueprints, Jinja2 templates, SQLAlchemy ORM, Flask-RESTful, JWT authentication, Flask-Login, Flask-Mail, deployment. Build a production-grade REST API as capstone. Foundation before moving to FastAPI and Agentic AI.',
+    topics: [
+      'Flask Core: routing, HTTP methods, request/response, Blueprints, application factory pattern',
+      'Templates: Jinja2 templating, template inheritance, macros, filters, context processors',
+      'Database: Flask-SQLAlchemy (ORM), models, relationships, migrations (Flask-Migrate/Alembic)',
+      'REST API: Flask-RESTful, request parsing, marshal, authentication (Flask-JWT-Extended), CORS',
+      'Security: Flask-Login (session auth), password hashing (bcrypt), CSRF protection, rate limiting',
+      'Testing + Deploy: pytest for Flask, test client, Docker containerization, Gunicorn + Nginx deployment',
+    ],
+    wplan: [
+      {
+        w: 25,
+        f: 'Flask Core + Routing',
+        t: 'App factory pattern, Blueprints, routing, HTTP methods, request/response objects, Jinja2 templates, static files',
+      },
+      {
+        w: 26,
+        f: 'Database + SQLAlchemy',
+        t: 'Flask-SQLAlchemy models, relationships (one-to-many/many-to-many), queries, Flask-Migrate Alembic migrations',
+      },
+      {
+        w: 27,
+        f: 'REST API + Auth',
+        t: 'Flask-RESTful resources, JWT auth (Flask-JWT-Extended), role-based access, CORS, request validation, error handlers',
+      },
+      {
+        w: 28,
+        f: 'Testing + Deploy + Capstone',
+        t: 'pytest for Flask, test client, Docker + Gunicorn + Nginx. Build Employee Management REST API capstone.',
+      },
+    ],
+  },
+  {
+    id: 'm08',
+    seq: 8,
     icon: '🤖',
     color: '#6366F1',
     dark: '#4338CA',
     bg: '#EEF2FF',
     border: '#C7D2FE',
     name: 'Agentic AI using Python',
-    label: 'Block 3 · Agentic AI',
-    days: 40,
-    ds: 401,
-    de: 440,
-    period: 'Jul 23 - Aug 31, 2027',
-    wks: 'W58-W63',
-    ms: 'Agentic AI COMPLETE · D440',
+    period: 'Jan 15 - Feb 14, 2027',
+    days: 31,
+    ds: 215,
+    de: 245,
+    ms: 'Agentic AI Complete · D245',
     about:
-      '40 days, ~6 weeks. LangChain, LangGraph, multi-agent systems, RAG pipelines. Ed Donner 8 real projects. Your SCB Thailand LangChain/LangGraph experience means this is deep revision + extension. Python already solid from OKLABS. Capstone: FPO AI assistant deployed to Lambda.',
-    courses: [
-      'Dr. Frank Kane - ChatGPT + Generative AI Masterclass 2026 (22h) - W58-W59',
-      'Ed Donner - Complete Agentic AI Engineering Course 2026 (30h) - W59-W61',
-      'Eden Marco - LangChain Develop LLM Powered Applications (22h) - W61-W63',
+      '31 days. LangChain, LangGraph, RAG pipelines, multi-agent systems, MCP protocol, Ed Donner 8 real projects. Your SCB Thailand LangChain/LangGraph experience = deep revision + extension. Build FPO AI assistant as capstone: natural language query over flight data, deployed to Lambda.',
+    topics: [
+      'GenAI Foundations: LLMs, tokens, embeddings, vector databases (Pinecone/FAISS), RAG architecture',
+      'LangChain: chains, agents, tools, memory, LCEL expression language, custom tools, callbacks',
+      'LangGraph: state machines, nodes, edges, conditional routing, multi-agent supervisor pattern',
+      'Ed Donner Projects: Career Digital Twin, Deep Research Agent, SDR Agent, Browser Agent',
+      'MCP Protocol: Model Context Protocol servers, Claude Desktop integration, custom MCP tools',
+      'Production: prompt engineering (CoT/ReAct/few-shot), error handling, streaming, cost management',
     ],
     wplan: [
       {
-        w: 58,
-        f: 'GenAI Foundations',
-        t: 'LLMs, embeddings, RAG, prompt engineering (CoT/ReAct/few-shot), AWS Bedrock, vector databases (Pinecone/FAISS) - Frank Kane',
+        w: 29,
+        f: 'GenAI + LangChain Core',
+        t: 'LLMs, embeddings, RAG (retrieval-augmented generation), LangChain chains, tools, memory, LCEL — Frank Kane course',
       },
       {
-        w: 59,
-        f: 'LangChain Core',
-        t: 'Chains, agents, tools, memory, LCEL expression language, Pinecone integration. Revisit and extend your SCB LangChain work.',
-      },
-      {
-        w: 60,
+        w: 30,
         f: 'LangGraph + Multi-Agent',
-        t: 'State machines, conditional edges, supervisor agents, multi-agent orchestration, parallel execution - Ed Donner',
+        t: 'State machines, conditional edges, supervisor agents, parallel execution, human-in-the-loop — Ed Donner course',
       },
       {
-        w: 61,
-        f: 'Ed Donner Projects 1',
-        t: 'Career Digital Twin, Deep Research Agent, SDR Agent, Engineering Team in Docker containers',
+        w: 31,
+        f: 'Ed Donner 8 Projects',
+        t: 'Career Digital Twin, Deep Research Agent, SDR Agent, Browser Agent, MCP server integration, Docker containers',
       },
       {
-        w: 62,
-        f: 'Ed Donner Projects 2 + MCP',
-        t: 'Browser Agent, Model Context Protocol (MCP) integration, production deployment, cost and rate management',
-      },
-      {
-        w: 63,
+        w: 32,
         f: 'FPO AI Capstone',
-        t: 'Build FPO AI Assistant: natural language query over flight data using LangChain + DynamoDB + Lambda. Deploy and demo.',
+        t: 'FPO AI Assistant: natural language flight queries via LangChain + DynamoDB + Lambda. Deploy, test, and demo.',
       },
     ],
   },
-
-  // ══ BLOCK 4: JAVA · SPRING BOOT · MICROSERVICES · 100 days ════════════════
-
   {
-    id: 'p22',
-    block: 4,
-    seq: 22,
+    id: 'm09',
+    seq: 9,
     icon: '☕',
-    color: '#F59E0B',
-    dark: '#D97706',
+    color: '#D97706',
+    dark: '#B45309',
     bg: '#FFFBEB',
     border: '#FDE68A',
-    name: 'Java Fundamentals',
-    label: 'Block 4 · Java',
-    days: 21,
-    ds: 441,
-    de: 461,
-    period: 'Sep 1 - Sep 21, 2027',
-    wks: 'W64-W66',
-    ms: 'Java Foundations Done · D461',
+    name: 'J2SE (Java Core)',
+    period: 'Feb 15 - Mar 14, 2027',
+    days: 28,
+    ds: 246,
+    de: 273,
+    ms: 'Java J2SE Complete · D273',
     about:
-      '20 days. Java 8+ fast-track using your C# .NET background. Lambdas, Streams, Optional, CompletableFuture, OOP principles, Collections, Generics, Exception Handling, Multithreading. C# to Java transition is smooth - same OOP concepts, different syntax.',
-    courses: [
-      'Navin Reddy Telusko - Java Programming for Complete Beginners (fast-track, 20h)',
-      'Navin Reddy Telusko - Java 8 New Features: Lambdas, Streams, Optional, CompletableFuture (8h)',
-      'Java Brains - Core Java playlist (YouTube, free) - supplement for gaps',
+      '28 days. Java Core using your C# .NET background for fast learning. Syntax differences C# vs Java, OOP, Collections framework, Generics, Exception handling, Multithreading, Java 8+ features (Streams, Lambdas, Optional, CompletableFuture), I/O, Serialization. Foundation for J2EE and Spring Boot.',
+    topics: [
+      'Java Basics: JDK/JVM/JRE, syntax vs C#, data types, operators, control flow, arrays, String manipulation',
+      'OOP: classes, constructors, inheritance, polymorphism, abstraction, interfaces, access modifiers, static',
+      'Collections: ArrayList, LinkedList, HashMap, HashSet, TreeMap, Iterator, Comparator, Comparable',
+      'Java 8+: Lambdas, Stream API (filter/map/reduce/collect), Optional, method references, default methods',
+      'Concurrency: Thread, Runnable, ExecutorService, synchronized, volatile, CompletableFuture, atomic',
+      'I/O + Modern: File I/O (NIO), serialization, Java 9-21 features (records, sealed classes, pattern matching)',
     ],
     wplan: [
       {
-        w: 64,
+        w: 33,
         f: 'Java Syntax + OOP',
-        t: 'Variables, data types, operators, control flow, arrays. Classes, objects, inheritance, polymorphism, abstraction, interfaces - fast using C# background',
+        t: 'JDK setup, syntax vs C#, classes, inheritance, polymorphism, interfaces, abstract classes, access modifiers, static',
       },
       {
-        w: 65,
-        f: 'Java Collections + Generics',
-        t: 'ArrayList, LinkedList, HashMap, HashSet, TreeMap, Iterator, Comparator, Comparable, Generics (same concept as C# generics)',
+        w: 34,
+        f: 'Collections + Generics',
+        t: 'ArrayList, LinkedList, HashMap, HashSet, TreeMap, generics (<T>), Comparator, Collections utility class, varargs',
       },
       {
-        w: 66,
-        f: 'Java 8 Features + Threads',
-        t: 'Lambdas, Streams (filter/map/reduce), Optional, CompletableFuture, method references, default interface methods, multithreading basics',
+        w: 35,
+        f: 'Java 8+ Streams + Lambdas',
+        t: 'Lambda expressions, Stream API (filter/map/reduce/collect/flatMap), Optional, method references, default interface methods',
       },
       {
-        w: 67,
-        f: 'Java Practice + Mock Coding',
-        t: 'LeetCode easy Java problems, coding patterns in Java, collection manipulation, streams puzzles. Solidify before Spring Boot begins.',
+        w: 36,
+        f: 'Concurrency + Modern Java',
+        t: 'Thread/Runnable, ExecutorService, CompletableFuture, synchronized. Java 14-21: records, sealed classes, pattern matching, text blocks',
       },
     ],
   },
   {
-    id: 'p23',
-    block: 4,
-    seq: 23,
+    id: 'm10',
+    seq: 10,
+    icon: '🏭',
+    color: '#EA580C',
+    dark: '#C2410C',
+    bg: '#FFF7ED',
+    border: '#FED7AA',
+    name: 'J2EE (Java Enterprise)',
+    period: 'Mar 15 - Apr 14, 2027',
+    days: 31,
+    ds: 274,
+    de: 304,
+    ms: 'Java J2EE Complete · D304',
+    about:
+      '31 days. Java Enterprise Edition — Servlets, JSP, JNDI, EJB concepts, CDI, JAX-RS (REST APIs in Java), JAX-WS (SOAP), JMS (messaging), JDBC, connection pooling. Foundation for modern Spring Boot which replaces/simplifies all J2EE specs.',
+    topics: [
+      'Servlets: HttpServlet, request/response lifecycle, doGet/doPost, filters, listeners, session management',
+      'JSP: scriptlets, directives, EL (Expression Language), JSTL, MVC pattern with Servlets+JSP',
+      'JDBC: DriverManager, Connection, PreparedStatement, ResultSet, transactions, connection pooling (HikariCP)',
+      'JAX-RS: @Path, @GET/@POST/@PUT/@DELETE, @PathParam, @QueryParam, MediaType, JSON binding (Jackson)',
+      'CDI + EJB: dependency injection concepts, @Inject, @ApplicationScoped, @RequestScoped, EJB session beans',
+      'JMS: message brokers, queues vs topics, point-to-point vs pub-sub — foundation for Kafka next month',
+    ],
+    wplan: [
+      {
+        w: 37,
+        f: 'Servlets + JSP + JDBC',
+        t: 'HttpServlet lifecycle, doGet/doPost, filters, session management. JSP with EL/JSTL. JDBC with HikariCP connection pooling.',
+      },
+      {
+        w: 38,
+        f: 'JAX-RS REST APIs',
+        t: '@Path, @GET/@POST/@PUT/@DELETE, @PathParam, @QueryParam, JSON binding with Jackson, content negotiation, error handling',
+      },
+      {
+        w: 39,
+        f: 'CDI + EJB Concepts',
+        t: 'Dependency injection with CDI (@Inject, @ApplicationScoped), EJB session beans, lifecycle callbacks, interceptors',
+      },
+      {
+        w: 40,
+        f: 'JMS + Integration',
+        t: 'JMS (queues vs topics, point-to-point vs pub-sub), JNDI lookup, integration patterns — bridges to Kafka in Microservices month',
+      },
+    ],
+  },
+  {
+    id: 'm11',
+    seq: 11,
+    icon: '🗄',
+    color: '#B45309',
+    dark: '#92400E',
+    bg: '#FFFBEB',
+    border: '#FDE68A',
+    name: 'JPA (Java Persistence API)',
+    period: 'Apr 15 - May 14, 2027',
+    days: 30,
+    ds: 305,
+    de: 334,
+    ms: 'JPA / Hibernate Complete · D334',
+    about:
+      '30 days. JPA and Hibernate deep dive. Entity mapping, relationships (One-to-One/One-to-Many/Many-to-Many), JPQL, Criteria API, caching (L1/L2), N+1 problem and solutions, transactions, Spring Data JPA. Every concept maps to FPO Cloud: DynamoDB replaces relational DB but patterns are same.',
+    topics: [
+      'JPA Basics: @Entity, @Id, @GeneratedValue, @Column, @Table, EntityManager, persistence.xml',
+      'Relationships: @OneToOne, @OneToMany, @ManyToOne, @ManyToMany, CascadeType, FetchType, @JoinColumn',
+      'JPQL + Criteria: JPQL queries, @NamedQuery, Criteria API, Metamodel, TypedQuery, pagination',
+      'N+1 Problem: lazy vs eager loading, @EntityGraph, JOIN FETCH, batch fetching, FetchMode',
+      'Transactions: @Transactional, propagation levels (REQUIRED/REQUIRES_NEW), isolation levels, rollback',
+      'Caching + Spring Data JPA: L1/L2 cache (EhCache), Hibernate statistics, JpaRepository, @Query, Pageable',
+    ],
+    wplan: [
+      {
+        w: 41,
+        f: 'JPA Entity Mapping',
+        t: '@Entity, @Id, @GeneratedValue, @Column, @Table, @Embedded, @Embeddable, inheritance strategies (SINGLE_TABLE/JOINED)',
+      },
+      {
+        w: 42,
+        f: 'Relationships + JPQL',
+        t: '@OneToMany, @ManyToMany, cascade types, fetch types, @JoinColumn. JPQL queries, @NamedQuery, pagination with Pageable',
+      },
+      {
+        w: 43,
+        f: 'N+1 Problem + Transactions',
+        t: 'Identifying N+1, @EntityGraph, JOIN FETCH solutions. @Transactional propagation, isolation levels, optimistic locking (@Version)',
+      },
+      {
+        w: 44,
+        f: 'Spring Data JPA + Caching',
+        t: 'JpaRepository, @Query, Specification, QueryDSL. L1/L2 caching (EhCache), Hibernate statistics, performance tuning',
+      },
+    ],
+  },
+  {
+    id: 'm12',
+    seq: 12,
     icon: '🌱',
     color: '#16A34A',
     dark: '#15803D',
     bg: '#F0FDF4',
     border: '#BBF7D0',
     name: 'Spring Boot',
-    label: 'Block 4 · Spring Boot · MAX',
-    days: 49,
-    ds: 462,
-    de: 510,
-    period: 'Sep 22 - Nov 9, 2027',
-    wks: 'W67-W73',
-    ms: 'Spring Boot COMPLETE · D510',
+    period: 'May 15 - Jun 14, 2027',
+    days: 31,
+    ds: 335,
+    de: 365,
+    ms: 'Spring Boot Complete · D365',
     about:
-      '45 days MAX TIME. Spring Boot 3, JPA/Hibernate, Spring Security with JWT and OAuth2, REST API design, testing (JUnit5/Mockito/Testcontainers). Every concept maps directly to FPO Cloud: Bean=Lambda, JPA=DynamoDB, Cognito OAuth2=your exact auth pattern. Your C# .NET 8 background makes this very fast.',
-    courses: [
-      'John Thompson - Hibernate and Spring Data JPA Beginner to Guru (55h) - W67-W69',
-      'Ranga Karanam - Spring Boot 3 with IntelliJ Real-World Project (34h) - W69-W70',
-      'John Thompson - Spring Framework 6 Beginner to Guru (40h) - W70-W71',
-      'Ranga Karanam - Master Spring Boot 3 and Spring Framework 6 (36h) - W71-W72',
+      '31 days. Spring Boot 3 with everything from J2SE, J2EE, JPA months coming together. Auto-configuration, Spring MVC, REST APIs, Spring Security (JWT + OAuth2), testing (JUnit5/Mockito/Testcontainers). Your C# .NET 8 + Cognito OAuth2 background maps exactly. Build production-grade API as capstone.',
+    topics: [
+      'Spring Core: IoC container, @Bean, @Component/@Service/@Repository, @Autowired, @Configuration, AOP',
+      'Spring MVC: @RestController, @RequestMapping, ResponseEntity, @ExceptionHandler, @ControllerAdvice, OpenAPI',
+      'Spring Security: SecurityFilterChain, JWT filter chain, UserDetailsService, BCrypt, method security (@PreAuthorize)',
+      'OAuth2: Resource server config, JWT validation, JWKS endpoint — same pattern as your FPO Cognito setup!',
+      'Testing: @SpringBootTest, @WebMvcTest, MockMvc, @DataJpaTest, Testcontainers, Mockito, WireMock',
+      'Actuator + Deploy: Spring Boot Actuator, health checks, metrics, Docker multi-stage build, Maven plugins',
     ],
     wplan: [
       {
-        w: 67,
-        f: 'Spring Boot + JPA Foundations',
-        t: 'Spring Boot auto-config, starters, @RestController, @Service, @Repository. @Entity, @Id, relationships, EntityManager, JPA lifecycle',
+        w: 45,
+        f: 'Spring Boot Core + IoC',
+        t: 'Auto-configuration, @Bean/@Component/@Service/@Repository, @Autowired, constructor injection, @ConfigurationProperties',
       },
       {
-        w: 68,
-        f: 'Spring Data JPA Deep Dive',
-        t: 'JpaRepository, JPQL, @Query, N+1 problem, @EntityGraph, JOIN FETCH, lazy vs eager, @Transactional propagation',
+        w: 46,
+        f: 'Spring MVC + REST APIs',
+        t: '@RestController, @RequestMapping, ResponseEntity, validation (@Valid), @ExceptionHandler, OpenAPI/Swagger, DTO + MapStruct',
       },
       {
-        w: 69,
-        f: 'REST APIs + Exception Handling',
-        t: 'ResponseEntity, @ExceptionHandler, @ControllerAdvice, OpenAPI/Swagger, @Valid, DTO pattern, MapStruct (you use this on DBOT!)',
+        w: 47,
+        f: 'Spring Security + OAuth2',
+        t: 'SecurityFilterChain, JWT filter, UserDetailsService, BCrypt. OAuth2 resource server + JWKS — your exact FPO Cognito pattern!',
       },
       {
-        w: 70,
-        f: 'Spring Security + JWT',
-        t: 'SecurityFilterChain, JWT filter, UserDetailsService, BCrypt, role-based access. Maps to FPO Cloud Cognito JWT validation exactly.',
-      },
-      {
-        w: 71,
-        f: 'OAuth2 + Testing',
-        t: 'OAuth2 resource server, JWKS endpoint, @WebMvcTest, MockMvc, @DataJpaTest, Testcontainers, Mockito - same BDD patterns as your Reqnroll',
-      },
-      {
-        w: 72,
-        f: 'Spring Boot Capstone',
-        t: 'Build REST API + JWT + JPA + OAuth2 from scratch cold. Docker + Maven. Deploy to AWS ECS. Connect to React frontend.',
-      },
-      {
-        w: 73,
-        f: '200 Spring Boot Q&A + Mock',
-        t: '200 Spring Boot interview Q&A drill. Mock interview with Spring Boot scenario questions. Cover all 6 weeks of content.',
+        w: 48,
+        f: 'Testing + Capstone',
+        t: '@WebMvcTest, MockMvc, @DataJpaTest, Testcontainers, Mockito. Build complete REST API + JWT + JPA + Docker. 200 Spring Q&A.',
       },
     ],
   },
   {
-    id: 'p24',
-    block: 4,
-    seq: 24,
+    id: 'm13',
+    seq: 13,
     icon: '🏛',
     color: '#E11D48',
     dark: '#BE123C',
     bg: '#FFF1F2',
     border: '#FECDD3',
     name: 'Microservices',
-    label: 'Block 4 · Microservices · FINAL',
-    days: 35,
-    ds: 511,
-    de: 545,
-    period: 'Nov 10 - Dec 14, 2027',
-    wks: 'W74-W77',
-    ms: '545 DAYS OF CODE COMPLETE · Dec 14, 2027',
+    period: 'Jun 15 - Jul 14, 2027',
+    days: 30,
+    ds: 366,
+    de: 395,
+    ms: 'Microservices Complete · D395',
     about:
-      '35 days. Microservices with Spring Cloud, Kafka, CQRS, Event Sourcing, Saga pattern, Kubernetes deployment. Every pattern maps directly to FPO Cloud: EventBridge→Kafka, Step Functions→Saga, Lambda→Microservice, DynamoDB streams→Event Sourcing. This is your deepest professional strength area.',
-    courses: [
-      'Ranga Karanam - Java Spring Boot Microservices with K8s and Docker (35h) - W73-W75',
-      'Sergey Kargopolov - Building Microservices with Spring Cloud (30h) - W75-W76',
-      'Sean Campbell - Master Spring Boot Microservices CQRS and Event Sourcing (10h) - W76-W77',
+      '30 days. Microservices with Spring Cloud, Kafka, CQRS, Event Sourcing, Saga pattern. Every pattern maps directly to FPO Cloud: EventBridge→Kafka, Step Functions→Saga, Lambda→Microservice, DynamoDB streams→Event Sourcing. Your FPO production experience is a massive advantage.',
+    topics: [
+      'Service Design: DDD bounded contexts, service decomposition, inter-service communication patterns',
+      'Spring Cloud: Eureka service discovery, Spring Cloud Gateway, config server, Feign clients, load balancing',
+      'Resilience: Resilience4j circuit breaker, retry, rate limiter, bulkhead — maps to FPO Step Function error handling',
+      'Kafka: producers, consumers, consumer groups, partitions, offsets — maps to FPO EventBridge + your DBOT Kafka work',
+      'CQRS + Event Sourcing: separate read/write models, event store, event replay — maps to FPO mission-feed table',
+      'Saga Pattern: orchestration vs choreography — AWS Step Functions IS a Saga orchestrator (your FPO!)',
     ],
     wplan: [
       {
-        w: 73,
-        f: 'Service Decomposition + Spring Cloud',
-        t: 'DDD bounded contexts, Eureka service discovery, Spring Cloud Gateway, config server, Feign clients, load balancing',
+        w: 49,
+        f: 'Service Design + Spring Cloud',
+        t: 'DDD contexts, Eureka discovery, Spring Cloud Gateway, config server, Feign clients — all map to FPO architecture',
       },
       {
-        w: 74,
-        f: 'Resilience Patterns',
-        t: 'Resilience4j circuit breaker, retry, rate limiter, bulkhead - your FPO Cloud uses these patterns via AWS Step Functions',
+        w: 50,
+        f: 'Resilience Patterns + Kafka',
+        t: 'Resilience4j circuit breaker/retry/bulkhead. Kafka producers/consumers/partitions — your FPO EventBridge equivalent',
       },
       {
-        w: 75,
-        f: 'Kafka Deep Dive',
-        t: 'Producer/consumer/groups/partitions/offsets, Kafka Streams - maps directly to FPO EventBridge and Kafka you already use',
+        w: 51,
+        f: 'CQRS + Event Sourcing',
+        t: 'Read/write model separation, event store with Axon Framework, event replay — maps to FPO mission-feed event sourcing',
       },
       {
-        w: 76,
-        f: 'CQRS + Event Sourcing + Saga',
-        t: 'Separate read/write models, event store, replay. Orchestration vs choreography Saga - Step Functions IS a Saga orchestrator!',
+        w: 52,
+        f: 'Saga + K8s Deployment',
+        t: 'Orchestration vs choreography Saga (Step Functions=Saga!), compensating transactions. Deploy microservices to K8s.',
+      },
+    ],
+  },
+  {
+    id: 'm14',
+    seq: 14,
+    icon: '🐳',
+    color: '#0369A1',
+    dark: '#1e40af',
+    bg: '#EFF6FF',
+    border: '#BFDBFE',
+    name: 'Docker',
+    period: 'Jul 15 - Aug 14, 2027',
+    days: 31,
+    ds: 396,
+    de: 426,
+    ms: 'Docker Complete · D426',
+    about:
+      '31 days. Container fundamentals, Docker CLI, Dockerfile best practices, multi-stage builds, Docker Compose, Docker networking, volumes, Docker Hub/ECR, container security. Build and containerize all your previous projects (React/Flask/Spring Boot/Microservices) into a production stack.',
+    topics: [
+      'Container Fundamentals: VMs vs containers, container architecture, namespaces, cgroups, images vs containers',
+      'Docker CLI: pull/build/run/stop/rm/exec/logs/inspect, image layers, Dockerfile instructions (FROM/RUN/COPY/CMD/ENTRYPOINT)',
+      'Dockerfile: multi-stage builds, .dockerignore, non-root user, health checks, slim base images, build cache optimization',
+      'Docker Compose: services, networks, volumes, depends_on, environment files, profiles, scaling',
+      'Networking + Volumes: bridge/host/overlay, named volumes, bind mounts, tmpfs, storage drivers',
+      'Security + Registry: Docker Scout, image scanning (Trivy), least privilege, read-only filesystems, ECR push/pull',
+    ],
+    wplan: [
+      {
+        w: 53,
+        f: 'Docker Core + CLI',
+        t: 'Container vs VM, Docker install, pull/run/stop/rm/exec/logs, image layers, commit. Dockerfile FROM/RUN/COPY/EXPOSE/CMD',
       },
       {
-        w: 77,
-        f: 'K8s Deploy + Final Day 545',
-        t: 'Deploy microservices to K8s, Ingress, ConfigMaps, Secrets. Write 1 ADR. Rebuild 1 service cold. Day 545 = Dec 14, 2027 DONE.',
+        w: 54,
+        f: 'Dockerfile Best Practices',
+        t: 'Multi-stage builds (separate build/runtime), .dockerignore, non-root user, health checks, slim images, build arg/env',
+      },
+      {
+        w: 55,
+        f: 'Docker Compose + Networking',
+        t: 'Multi-service Compose files, networks (bridge/overlay), named volumes, bind mounts, environment files, depends_on, scaling',
+      },
+      {
+        w: 56,
+        f: 'Security + Registry + Stack',
+        t: 'Trivy scanning, non-root, read-only FS, ECR push. Containerize React+Flask+Spring Boot+Microservices into full stack.',
+      },
+    ],
+  },
+  {
+    id: 'm15',
+    seq: 15,
+    icon: '☸',
+    color: '#4338CA',
+    dark: '#3730A3',
+    bg: '#EEF2FF',
+    border: '#C7D2FE',
+    name: 'Kubernetes',
+    period: 'Aug 15 - Sep 14, 2027',
+    days: 31,
+    ds: 427,
+    de: 457,
+    ms: 'Kubernetes Complete · D457',
+    about:
+      '31 days. Kubernetes architecture and all core objects. Pods, Deployments, Services, ConfigMaps, Secrets, PVs, Ingress, RBAC, HPA, NetworkPolicies. AWS EKS deployment. Helm charts. Your CKA certification background makes this a structured revision and deepening.',
+    topics: [
+      'Architecture: control plane (API server/etcd/scheduler/controller manager), worker nodes (kubelet/kube-proxy), kubectl',
+      'Core Objects: Pods, ReplicaSets, Deployments, DaemonSets, StatefulSets, Jobs, CronJobs, Namespaces',
+      'Networking: Services (ClusterIP/NodePort/LoadBalancer), Ingress controllers (nginx), DNS, NetworkPolicies',
+      'Config + Storage: ConfigMaps, Secrets, PersistentVolumes, PVCs, StorageClasses, volume types',
+      'Security: RBAC (Role/ClusterRole/RoleBinding), ServiceAccounts, PodSecurity, OPA Gatekeeper',
+      'Advanced: HPA, VPA, cluster autoscaler, Helm charts, Kustomize, GitOps with ArgoCD, AWS EKS',
+    ],
+    wplan: [
+      {
+        w: 57,
+        f: 'K8s Architecture + Core Objects',
+        t: 'Control plane, worker nodes, kubectl, Pods, ReplicaSets, Deployments, DaemonSets, StatefulSets, Namespaces',
+      },
+      {
+        w: 58,
+        f: 'Services + Networking + Config',
+        t: 'ClusterIP/NodePort/LoadBalancer, Ingress (nginx), DNS, NetworkPolicies, ConfigMaps, Secrets, PVs, PVCs',
+      },
+      {
+        w: 59,
+        f: 'Security + RBAC + HPA',
+        t: 'RBAC (Role/ClusterRole/RoleBinding), ServiceAccounts, PodSecurity standards, HPA with custom metrics, VPA',
+      },
+      {
+        w: 60,
+        f: 'Helm + EKS + GitOps',
+        t: 'Helm charts (create/install/upgrade), Kustomize, AWS EKS deployment, ArgoCD GitOps. Deploy full stack to EKS.',
+      },
+    ],
+  },
+  {
+    id: 'm16',
+    seq: 16,
+    icon: '⚙',
+    color: '#DC2626',
+    dark: '#B91C1C',
+    bg: '#FEF2F2',
+    border: '#FECACA',
+    name: 'DevOps',
+    period: 'Sep 15 - Oct 14, 2027',
+    days: 30,
+    ds: 458,
+    de: 487,
+    ms: 'DevOps Complete · D487',
+    about:
+      '30 days. DevOps practices and tools — CI/CD with Jenkins and GitHub Actions, SonarQube for code quality, Terraform for IaC, Prometheus/Grafana for monitoring, Datadog (your FPO tool!), DevSecOps with Trivy/OWASP. Build a complete enterprise pipeline end-to-end as capstone.',
+    topics: [
+      'CI/CD: Jenkins (master-agent, Jenkinsfile, shared libraries) + GitHub Actions (workflows, matrix, reusable), Blue-Green/Canary',
+      'Code Quality: SonarQube (quality gates, technical debt, security hotspots, PR analysis integration)',
+      'IaC: Terraform (HCL, providers, modules, state management, remote state with S3+DynamoDB, workspaces)',
+      'Monitoring: Prometheus (exporters, PromQL, alertmanager) + Grafana (dashboards) + Datadog APM (your FPO!)',
+      'DevSecOps: Trivy image scanning, OWASP dependency check, secrets management (GitHub Secrets/AWS Secrets Manager)',
+      'Enterprise Pipeline: GitHub to Jenkins/GHA to SonarQube to Docker to Trivy to ECR to Terraform to EKS to Monitor',
+    ],
+    wplan: [
+      {
+        w: 61,
+        f: 'CI/CD: Jenkins + GitHub Actions',
+        t: 'Jenkins master-agent, Jenkinsfile declarative pipelines, GitHub Actions workflows, matrix builds, Blue-Green/Canary',
+      },
+      {
+        w: 62,
+        f: 'SonarQube + Terraform',
+        t: 'SonarQube quality gates, code smells, Jenkins/GHA integration. Terraform HCL, modules, remote state, workspaces',
+      },
+      {
+        w: 63,
+        f: 'Monitoring + DevSecOps',
+        t: 'Prometheus/Grafana, Datadog APM (compare to your FPO!), Trivy scanning, OWASP, AWS Secrets Manager',
+      },
+      {
+        w: 64,
+        f: 'Enterprise Pipeline Capstone',
+        t: 'Build complete: GitHub to GHA to SonarQube to Docker to Trivy to ECR to Terraform to EKS to Prometheus/Grafana',
+      },
+    ],
+  },
+  {
+    id: 'm17',
+    seq: 17,
+    icon: '🏗',
+    color: '#7C3AED',
+    dark: '#6D28D9',
+    bg: '#F5F3FF',
+    border: '#DDD6FE',
+    name: 'System Design',
+    period: 'Oct 15 - Nov 14, 2027',
+    days: 31,
+    ds: 488,
+    de: 518,
+    ms: 'System Design Complete · D518',
+    about:
+      '31 days. System design interview mastery. Frank Kane 5-step template. Design 1 system per day spoken aloud, no notes, 45 minutes each. Your FPO multi-tenant SaaS + Kafka + Lambda microservices + DynamoDB production experience is a massive advantage over other candidates.',
+    topics: [
+      'Framework: Frank Kane 5-step (Requirements→Estimation→HLD→Detailed Design→Scale), capacity estimation',
+      'Core Concepts: CAP theorem, consistency models, replication, partitioning, load balancing, caching strategies',
+      'Classic Designs: URL Shortener, WhatsApp, Twitter/X, Netflix, Uber, YouTube, Instagram, Notification System',
+      'Advanced Designs: Rate Limiter, Distributed Cache, News Feed, Payment System, Search Autocomplete, Leaderboard',
+      'FPO Designs: Flight Optimiser multi-tenant SaaS (your system!), Kafka streaming pipeline, Serverless Lambda system',
+      'Trade-offs: SQL vs NoSQL, sync vs async, monolith vs microservices, consistency vs availability',
+    ],
+    wplan: [
+      {
+        w: 65,
+        f: 'SD Framework + Classic Designs 1',
+        t: 'Frank Kane 5-step template. URL Shortener, WhatsApp, Twitter — Requirements to HLD to DB to API spoken 45 min',
+      },
+      {
+        w: 66,
+        f: 'Classic Designs 2 + Advanced',
+        t: 'Netflix, Uber, Rate Limiter, Distributed Cache, Notification System — Mikhail Smarshchok 20+ designs course',
+      },
+      {
+        w: 67,
+        f: 'Trade-offs + Production Systems',
+        t: 'Bogdan Stashchuk WHY decisions, Payment System, News Feed. FPO Flight Optimiser — design YOUR system!',
+      },
+      {
+        w: 68,
+        f: 'Mock System Design x10',
+        t: '10 cold designs spoken aloud — no notes — 45 min each — focus on weakest 3 systems. Architecture Decision Records.',
+      },
+    ],
+  },
+  {
+    id: 'm18',
+    seq: 18,
+    icon: '🧩',
+    color: '#374151',
+    dark: '#111827',
+    bg: '#F9FAFB',
+    border: '#D1D5DB',
+    name: 'Data Structures (Java)',
+    period: 'Nov 15 - Dec 14, 2027',
+    days: 30,
+    ds: 519,
+    de: 548,
+    ms: '545 DAYS COMPLETE · Dec 14, 2027',
+    about:
+      '30 days. Data Structures and Algorithms in Java. Arrays, Linked Lists, Stacks, Queues, Trees, BST, Heaps, Graphs, Sorting algorithms, Dynamic Programming. LeetCode problem solving in Java. Scott Barrett Java DSA course side-by-side with Python. Final month — Day 548 = Dec 14, 2027.',
+    topics: [
+      'Arrays + Strings: two pointers, sliding window, prefix sums, sorting, binary search patterns',
+      'Linked Lists: singly/doubly linked, slow/fast pointer, reverse, cycle detection, merge',
+      'Stacks + Queues: monotonic stack, min-stack, queue with stacks, deque, priority queue (heap)',
+      'Trees: BST (insert/delete/search/validate), DFS (preorder/inorder/postorder), BFS (level order), trie',
+      'Graphs: adjacency list/matrix, BFS, DFS, topological sort, Dijkstra, union-find, cycle detection',
+      'Dynamic Programming: memoization vs tabulation, 1D DP (coin change, house robber), 2D DP (LCS, knapsack)',
+    ],
+    wplan: [
+      {
+        w: 69,
+        f: 'Arrays + Linked Lists + Stacks',
+        t: 'Two pointers, sliding window, binary search. Linked list (reverse/cycle/merge). Monotonic stack, min-stack patterns in Java',
+      },
+      {
+        w: 70,
+        f: 'Trees + Heaps',
+        t: 'BST operations, DFS (pre/in/post-order), BFS level-order, trie, heap (PriorityQueue), Top-K patterns, heap sort',
+      },
+      {
+        w: 71,
+        f: 'Graphs + Sorting',
+        t: 'BFS/DFS on graphs, topological sort, Dijkstra, union-find. All sorting algorithms (merge/quick/heap) with complexity proofs',
+      },
+      {
+        w: 72,
+        f: 'DP + Final Day 548',
+        t: '1D DP (coin change/house robber/jump game), 2D DP (LCS/knapsack), backtracking. Dec 14, 2027 = Day 548 = COMPLETE.',
       },
     ],
   },
@@ -1038,165 +858,130 @@ const PHASES = [
 
 const MILESTONES = [
   {
-    day: 14,
-    icon: '📡',
-    label: 'Computer Fundamentals',
-    date: 'Jul 1, 2026',
-    color: '#6366F1',
-  },
-  {
-    day: 35,
-    icon: '🐧',
-    label: 'Linux Done',
-    date: 'Jul 22, 2026',
-    color: '#EA580C',
-  },
-  {
-    day: 70,
-    icon: '🐍',
-    label: 'Python for DevOps',
-    date: 'Aug 26, 2026',
-    color: '#16A34A',
-  },
-  {
-    day: 105,
-    icon: '⚛',
-    label: 'Frontend React',
-    date: 'Sep 30, 2026',
-    color: '#0EA5E9',
-  },
-  {
-    day: 140,
-    icon: '📋',
-    label: 'Backend + Jira + APIs',
-    date: 'Nov 4, 2026',
-    color: '#059669',
-  },
-  {
-    day: 161,
-    icon: '🐳',
-    label: 'Docker Done',
-    date: 'Nov 25, 2026',
-    color: '#0369A1',
-  },
-  {
-    day: 189,
-    icon: '☸',
-    label: 'Kubernetes Done',
-    date: 'Dec 23, 2026',
-    color: '#4338CA',
-  },
-  {
-    day: 210,
-    icon: '⚙',
-    label: 'CI/CD Done',
-    date: 'Jan 13, 2027',
-    color: '#DC2626',
-  },
-  {
-    day: 224,
-    icon: '🏗',
-    label: 'Terraform Done',
-    date: 'Jan 27, 2027',
-    color: '#B45309',
-  },
-  {
-    day: 280,
-    icon: '☁',
-    label: 'AWS Done',
-    date: 'Mar 24, 2027',
-    color: '#D97706',
-  },
-  {
-    day: 322,
-    icon: '🔒',
-    label: 'DevSecOps Done',
-    date: 'May 5, 2027',
-    color: '#E11D48',
-  },
-  {
-    day: 350,
-    icon: '🏆',
-    label: 'Capstone Projects Done',
-    date: 'Jun 2, 2027',
-    color: '#7C3AED',
-  },
-  {
-    day: 365,
-    icon: '🎯',
-    label: 'OKLABS Year 1 DONE',
-    date: 'Jun 17, 2027',
-    color: '#374151',
-  },
-  {
-    day: 400,
-    icon: '📱',
-    label: 'React Native DONE',
-    date: 'Jul 22, 2027',
-    color: '#7C3AED',
-  },
-  {
-    day: 440,
-    icon: '🤖',
-    label: 'Agentic AI DONE',
-    date: 'Aug 31, 2027',
-    color: '#6366F1',
-  },
-  {
-    day: 461,
-    icon: '☕',
-    label: 'Java Foundations Done',
-    date: 'Sep 21, 2027',
+    day: 30,
+    icon: '🟨',
+    label: 'JavaScript',
+    date: 'Jul 14, 2026',
     color: '#F59E0B',
   },
   {
-    day: 510,
-    icon: '🌱',
-    label: 'Spring Boot COMPLETE',
-    date: 'Nov 9, 2027',
+    day: 61,
+    icon: '🔷',
+    label: 'TypeScript',
+    date: 'Aug 14, 2026',
+    color: '#3B82F6',
+  },
+  {
+    day: 92,
+    icon: '⚛',
+    label: 'React',
+    date: 'Sep 14, 2026',
+    color: '#0EA5E9',
+  },
+  {
+    day: 122,
+    icon: '▲',
+    label: 'Next.js',
+    date: 'Oct 14, 2026',
+    color: '#374151',
+  },
+  {
+    day: 153,
+    icon: '📱',
+    label: 'React Native',
+    date: 'Nov 14, 2026',
+    color: '#7C3AED',
+  },
+  {
+    day: 183,
+    icon: '🐍',
+    label: 'Python',
+    date: 'Dec 14, 2026',
     color: '#16A34A',
   },
   {
-    day: 545,
-    icon: '🏆',
-    label: '545 Days of Code DONE',
-    date: 'Dec 14, 2027',
+    day: 214,
+    icon: '🌶',
+    label: 'Flask',
+    date: 'Jan 14, 2027',
+    color: '#059669',
+  },
+  {
+    day: 245,
+    icon: '🤖',
+    label: 'Agentic AI',
+    date: 'Feb 14, 2027',
+    color: '#6366F1',
+  },
+  {
+    day: 273,
+    icon: '☕',
+    label: 'J2SE Java Core',
+    date: 'Mar 14, 2027',
+    color: '#D97706',
+  },
+  {
+    day: 304,
+    icon: '🏭',
+    label: 'J2EE Enterprise',
+    date: 'Apr 14, 2027',
+    color: '#EA580C',
+  },
+  {
+    day: 334,
+    icon: '🗄',
+    label: 'JPA / Hibernate',
+    date: 'May 14, 2027',
+    color: '#B45309',
+  },
+  {
+    day: 365,
+    icon: '🌱',
+    label: 'Spring Boot',
+    date: 'Jun 14, 2027',
+    color: '#16A34A',
+  },
+  {
+    day: 395,
+    icon: '🏛',
+    label: 'Microservices',
+    date: 'Jul 14, 2027',
     color: '#E11D48',
   },
-];
-
-const BLOCK_META = [
   {
-    n: 1,
-    icon: '🎓',
-    title: 'OKLABS Batch',
-    sub: 'D1-D365 · Jun 18 2026 to Jun 17 2027 · 19 phases',
-    col: '#6366F1',
-    days: 365,
+    day: 426,
+    icon: '🐳',
+    label: 'Docker',
+    date: 'Aug 14, 2027',
+    color: '#0369A1',
   },
   {
-    n: 2,
-    icon: '📱',
-    title: 'React Native',
-    sub: 'D366-D400 · Jun 18 to Jul 22 2027 · 5 weeks',
-    col: '#7C3AED',
-    days: 35,
+    day: 457,
+    icon: '☸',
+    label: 'Kubernetes',
+    date: 'Sep 14, 2027',
+    color: '#4338CA',
   },
   {
-    n: 3,
-    icon: '🤖',
-    title: 'Agentic AI Python',
-    sub: 'D401-D440 · Jul 23 to Aug 31 2027 · 6 weeks',
-    col: '#6366F1',
-    days: 40,
+    day: 487,
+    icon: '⚙',
+    label: 'DevOps',
+    date: 'Oct 14, 2027',
+    color: '#DC2626',
   },
   {
-    n: 4,
-    icon: '☕',
-    title: 'Java + Spring Boot + Microservices',
-    sub: 'D441-D545 · Sep 1 to Dec 14 2027 · Java(21d) + Spring Boot(49d) + Microservices(35d) · 15 weeks',
-    col: '#16A34A',
-    days: 105,
+    day: 518,
+    icon: '🏗',
+    label: 'System Design',
+    date: 'Nov 14, 2027',
+    color: '#7C3AED',
+  },
+  {
+    day: 548,
+    icon: '🧩',
+    label: 'DSA Java — DONE',
+    date: 'Dec 14, 2027',
+    color: '#374151',
   },
 ];
 
@@ -1213,10 +998,8 @@ function pct() {
 }
 
 function Card({ p, open, onToggle, isCurrent, isDone }) {
+  const [topicOpen, setTopicOpen] = useState(false);
   const [wkOpen, setWkOpen] = useState(false);
-  const bcolors = { 1: '#4338CA', 2: '#6D28D9', 3: '#4338CA', 4: '#B91C1C' };
-  const bBg = { 1: '#EEF2FF', 2: '#F5F3FF', 3: '#EEF2FF', 4: '#FEF2F2' };
-  const bBorder = { 1: '#C7D2FE', 2: '#DDD6FE', 3: '#C7D2FE', 4: '#FECACA' };
   return (
     <div
       id={'ph-' + p.id}
@@ -1234,9 +1017,9 @@ function Card({ p, open, onToggle, isCurrent, isDone }) {
                 ? p.color + '28'
                 : p.border),
         background: open ? p.bg : isDone ? '#FAFBFF' : '#fff',
-        opacity: isDone ? 0.75 : 1,
+        opacity: isDone ? 0.78 : 1,
         boxShadow: open
-          ? '0 6px 22px ' + p.color + '14'
+          ? '0 6px 24px ' + p.color + '18'
           : isCurrent
             ? '0 0 0 3px #FEF3C7,0 2px 8px rgba(0,0,0,0.06)'
             : '0 1px 4px rgba(0,0,0,0.05)',
@@ -1249,19 +1032,19 @@ function Card({ p, open, onToggle, isCurrent, isDone }) {
           background: 'none',
           border: 'none',
           cursor: 'pointer',
-          padding: '10px 12px',
+          padding: '11px 13px',
           display: 'flex',
           alignItems: 'center',
-          gap: 8,
+          gap: 9,
           textAlign: 'left',
           fontFamily: 'inherit',
         }}
       >
         <div
           style={{
-            width: 44,
-            height: 44,
-            borderRadius: 10,
+            width: 48,
+            height: 48,
+            borderRadius: 11,
             flexShrink: 0,
             background: open
               ? 'linear-gradient(135deg,' + p.color + ',' + p.dark + ')'
@@ -1273,21 +1056,21 @@ function Card({ p, open, onToggle, isCurrent, isDone }) {
             flexDirection: 'column',
             alignItems: 'center',
             justifyContent: 'center',
-            boxShadow: open ? '0 4px 12px ' + p.color + '45' : 'none',
+            boxShadow: open ? '0 4px 14px ' + p.color + '45' : 'none',
           }}
         >
-          <span style={{ fontSize: 15, lineHeight: 1 }}>
+          <span style={{ fontSize: 17, lineHeight: 1 }}>
             {isDone ? '✅' : p.icon}
           </span>
           <span
             style={{
-              fontSize: 7,
+              fontSize: 8,
               fontWeight: 700,
-              color: open ? 'rgba(255,255,255,0.65)' : p.color,
+              color: open ? 'rgba(255,255,255,0.6)' : p.color,
               marginTop: 1,
             }}
           >
-            {'#' + p.seq}
+            {'M' + p.seq}
           </span>
         </div>
         <div style={{ flex: 1, minWidth: 0 }}>
@@ -1336,19 +1119,19 @@ function Card({ p, open, onToggle, isCurrent, isDone }) {
                 fontSize: 8,
                 fontWeight: 700,
                 padding: '1px 6px',
-                borderRadius: 12,
+                borderRadius: 10,
+                background: p.color + '15',
+                color: p.color,
+                border: '1px solid ' + p.color + '30',
                 whiteSpace: 'nowrap',
-                background: bBg[p.block],
-                color: bcolors[p.block],
-                border: '1px solid ' + bBorder[p.block],
               }}
             >
-              {p.label}
+              {'Month ' + p.seq}
             </span>
             <span
               style={{
-                fontSize: 'clamp(11px,3.5vw,13px)',
-                fontWeight: 800,
+                fontSize: 'clamp(12px,3.8vw,14px)',
+                fontWeight: 900,
                 color: '#0F172A',
               }}
             >
@@ -1356,20 +1139,20 @@ function Card({ p, open, onToggle, isCurrent, isDone }) {
             </span>
           </div>
           <div style={{ fontSize: 9, color: '#64748B', marginBottom: 1 }}>
-            {p.period + ' · D' + p.ds + '-D' + p.de + ' · ' + p.wks}
+            {p.period + ' · ' + p.days + ' days · D' + p.ds + '-D' + p.de}
           </div>
-          <div style={{ fontSize: 8, fontWeight: 800, color: p.color }}>
+          <div style={{ fontSize: 8, fontWeight: 700, color: p.color }}>
             {'🏆 ' + p.ms}
           </div>
         </div>
         <div style={{ textAlign: 'right', flexShrink: 0 }}>
           <div
             style={{
-              fontSize: 11,
+              fontSize: 12,
               fontWeight: 900,
               color: p.color,
               background: p.color + '12',
-              padding: '2px 8px',
+              padding: '2px 9px',
               borderRadius: 12,
               border: '1px solid ' + p.color + '22',
               marginBottom: 2,
@@ -1377,12 +1160,12 @@ function Card({ p, open, onToggle, isCurrent, isDone }) {
           >
             {p.days + 'd'}
           </div>
-          <div style={{ fontSize: 8, color: '#94A3B8' }}>{p.wks}</div>
+          <div style={{ fontSize: 8, color: '#94A3B8' }}>{'4 weeks'}</div>
         </div>
         <span
           style={{
             color: p.color,
-            fontSize: 16,
+            fontSize: 17,
             flexShrink: 0,
             opacity: open ? 1 : 0.3,
             transform: open ? 'rotate(90deg)' : 'none',
@@ -1392,11 +1175,12 @@ function Card({ p, open, onToggle, isCurrent, isDone }) {
           {'›'}
         </span>
       </button>
+
       {open && (
         <div
           style={{
             borderTop: '2px solid ' + p.color + '18',
-            padding: '10px 12px 14px',
+            padding: '10px 13px 15px',
           }}
         >
           <div
@@ -1404,59 +1188,84 @@ function Card({ p, open, onToggle, isCurrent, isDone }) {
               background: p.color + '0A',
               border: '1px solid ' + p.color + '22',
               borderRadius: 9,
-              padding: '9px 11px',
+              padding: '9px 12px',
               marginBottom: 10,
               fontSize: 11,
               color: '#334155',
-              lineHeight: 1.75,
+              lineHeight: 1.8,
             }}
           >
             {p.about}
           </div>
-          <div
+
+          <button
+            onClick={(e) => {
+              e.stopPropagation();
+              setTopicOpen(!topicOpen);
+            }}
             style={{
-              background: '#F8FAFC',
+              width: '100%',
+              background: p.color + '06',
+              border: '1px solid ' + p.color + '20',
               borderRadius: 8,
-              padding: '9px 11px',
-              border: '1px solid #E2E8F0',
-              marginBottom: 10,
+              padding: '7px 11px',
+              cursor: 'pointer',
+              fontFamily: 'inherit',
+              display: 'flex',
+              justifyContent: 'space-between',
+              alignItems: 'center',
+              marginBottom: topicOpen ? 7 : 10,
             }}
           >
+            <span style={{ fontSize: 10, fontWeight: 700, color: p.color }}>
+              {'📋 Topics Covered — ' + p.topics.length + ' areas'}
+            </span>
+            <span style={{ fontSize: 11, color: p.color }}>
+              {topicOpen ? '▲' : '▼'}
+            </span>
+          </button>
+          {topicOpen && (
             <div
               style={{
-                fontSize: 9,
-                fontWeight: 800,
-                color: '#374151',
-                letterSpacing: '0.08em',
-                marginBottom: 5,
+                marginBottom: 10,
+                display: 'flex',
+                flexDirection: 'column',
+                gap: 4,
               }}
             >
-              {'📚 RESOURCES'}
-            </div>
-            {p.courses.map((c, i) => (
-              <div
-                key={i}
-                style={{ display: 'flex', gap: 5, padding: '2px 0' }}
-              >
-                <span
+              {p.topics.map((t, i) => (
+                <div
+                  key={i}
                   style={{
-                    fontSize: 9,
-                    flexShrink: 0,
-                    marginTop: 2,
-                    fontWeight: 700,
-                    color: p.color,
+                    display: 'flex',
+                    gap: 7,
+                    padding: '6px 9px',
+                    background: '#F8FAFC',
+                    borderRadius: 7,
+                    border: '1px solid #E2E8F0',
                   }}
                 >
-                  {i + 1 + '.'}
-                </span>
-                <span
-                  style={{ fontSize: 10, color: '#374151', lineHeight: 1.6 }}
-                >
-                  {c}
-                </span>
-              </div>
-            ))}
-          </div>
+                  <span
+                    style={{
+                      fontSize: 9,
+                      fontWeight: 800,
+                      color: p.color,
+                      flexShrink: 0,
+                      marginTop: 1,
+                    }}
+                  >
+                    {i + 1 + '.'}
+                  </span>
+                  <span
+                    style={{ fontSize: 10, color: '#374151', lineHeight: 1.6 }}
+                  >
+                    {t}
+                  </span>
+                </div>
+              ))}
+            </div>
+          )}
+
           <button
             onClick={(e) => {
               e.stopPropagation();
@@ -1477,11 +1286,9 @@ function Card({ p, open, onToggle, isCurrent, isDone }) {
             }}
           >
             <span style={{ fontSize: 10, fontWeight: 700, color: p.color }}>
-              {'📅 Week-by-Week Plan — ' +
-                p.wplan.length +
-                (p.wplan.length > 1 ? ' weeks' : ' week')}
+              {'📅 Week-by-Week Plan — 4 weeks'}
             </span>
-            <span style={{ fontSize: 12, color: p.color }}>
+            <span style={{ fontSize: 11, color: p.color }}>
               {wkOpen ? '▲' : '▼'}
             </span>
           </button>
@@ -1502,11 +1309,11 @@ function Card({ p, open, onToggle, isCurrent, isDone }) {
                 >
                   <div
                     style={{
-                      width: 32,
-                      height: 32,
+                      width: 34,
+                      height: 34,
                       borderRadius: 8,
                       flexShrink: 0,
-                      background: p.color + '18',
+                      background: p.color + '15',
                       color: p.color,
                       display: 'flex',
                       flexDirection: 'column',
@@ -1520,7 +1327,7 @@ function Card({ p, open, onToggle, isCurrent, isDone }) {
                       {'W'}
                     </span>
                     <span
-                      style={{ fontSize: 11, fontWeight: 900, lineHeight: 1 }}
+                      style={{ fontSize: 12, fontWeight: 900, lineHeight: 1 }}
                     >
                       {wk.w}
                     </span>
@@ -1596,7 +1403,7 @@ export default function App() {
       <div
         style={{
           background:
-            'linear-gradient(135deg,#1a237e 0%,#283593 40%,#1565C0 100%)',
+            'linear-gradient(135deg,#1a237e 0%,#283593 42%,#1565C0 100%)',
           padding: '16px 12px 14px',
           position: 'relative',
           overflow: 'hidden',
@@ -1608,13 +1415,13 @@ export default function App() {
             inset: 0,
             pointerEvents: 'none',
             backgroundImage:
-              'radial-gradient(circle,rgba(255,255,255,0.055) 1px,transparent 1px)',
-            backgroundSize: '22px 22px',
+              'radial-gradient(circle,rgba(255,255,255,0.05) 1px,transparent 1px)',
+            backgroundSize: '24px 24px',
           }}
         />
         <div
           style={{
-            maxWidth: 680,
+            maxWidth: 700,
             margin: '0 auto',
             position: 'relative',
             zIndex: 1,
@@ -1624,22 +1431,22 @@ export default function App() {
             style={{
               display: 'flex',
               alignItems: 'center',
-              gap: 10,
-              marginBottom: 12,
+              gap: 11,
+              marginBottom: 13,
             }}
           >
             <div
               style={{
-                width: 46,
-                height: 46,
+                width: 48,
+                height: 48,
                 borderRadius: 12,
                 flexShrink: 0,
                 background: 'linear-gradient(135deg,#F59E0B,#D97706)',
                 display: 'flex',
                 alignItems: 'center',
                 justifyContent: 'center',
-                fontSize: 22,
-                boxShadow: '0 4px 16px rgba(245,158,11,0.5)',
+                fontSize: 24,
+                boxShadow: '0 4px 18px rgba(245,158,11,0.5)',
               }}
             >
               {'🏆'}
@@ -1648,9 +1455,9 @@ export default function App() {
               <div
                 style={{
                   fontSize: 8,
-                  letterSpacing: '0.22em',
+                  letterSpacing: '0.24em',
                   textTransform: 'uppercase',
-                  color: 'rgba(255,255,255,0.5)',
+                  color: 'rgba(255,255,255,0.45)',
                   marginBottom: 1,
                 }}
               >
@@ -1658,7 +1465,7 @@ export default function App() {
               </div>
               <div
                 style={{
-                  fontSize: 'clamp(20px,6vw,28px)',
+                  fontSize: 'clamp(22px,6vw,30px)',
                   fontWeight: 900,
                   color: '#fff',
                   letterSpacing: '-0.02em',
@@ -1675,7 +1482,32 @@ export default function App() {
                 }}
               >
                 {
-                  'Thu Jun 18, 2026 to Tue Dec 14, 2027 · 545 days · 18 months · 5:30 AM – 8:30 AM daily mandatory'
+                  'Mon Jun 15, 2026 to Tue Dec 14, 2027 · 548 days · 1 skill per month'
+                }
+              </div>
+            </div>
+          </div>
+
+          <div
+            style={{
+              background: 'rgba(245,158,11,0.18)',
+              border: '1px solid rgba(245,158,11,0.4)',
+              borderRadius: 8,
+              padding: '8px 12px',
+              marginBottom: 12,
+              display: 'flex',
+              gap: 9,
+              alignItems: 'center',
+            }}
+          >
+            <span style={{ fontSize: 17, flexShrink: 0 }}>{'⏰'}</span>
+            <div>
+              <div style={{ fontSize: 10, fontWeight: 800, color: '#FDE68A' }}>
+                {'5:30 AM – 8:30 AM daily · MANDATORY · Weekends: Maximum Time'}
+              </div>
+              <div style={{ fontSize: 8, color: 'rgba(255,255,255,0.5)' }}>
+                {
+                  '1 skill per month · 18 skills · 18 months · Mon Jun 15, 2026 to Tue Dec 14, 2027'
                 }
               </div>
             </div>
@@ -1684,19 +1516,26 @@ export default function App() {
           <div
             style={{
               display: 'grid',
-              gridTemplateColumns: 'repeat(2,1fr)',
-              gap: 6,
+              gridTemplateColumns: 'repeat(auto-fill,minmax(140px,1fr))',
+              gap: 5,
               marginBottom: 12,
             }}
           >
-            {BLOCK_META.map((b) => (
+            {PHASES.map((p) => (
               <div
-                key={b.n}
+                key={p.id}
+                onClick={() => jump(p.id)}
                 style={{
-                  background: 'rgba(255,255,255,0.12)',
-                  borderRadius: 9,
-                  padding: '9px 11px',
-                  border: '1px solid ' + b.col + '70',
+                  background: 'rgba(255,255,255,0.1)',
+                  borderRadius: 8,
+                  padding: '7px 9px',
+                  border:
+                    '1px solid ' +
+                    p.color +
+                    (d + 1 > p.de ? '60' : d + 1 >= p.ds ? '90' : '30'),
+                  cursor: 'pointer',
+                  transition: 'all 0.2s',
+                  opacity: d + 1 > p.de ? 0.6 : 1,
                 }}
               >
                 <div
@@ -1704,76 +1543,46 @@ export default function App() {
                     display: 'flex',
                     alignItems: 'center',
                     gap: 5,
-                    marginBottom: 3,
-                  }}
-                >
-                  <span style={{ fontSize: 13 }}>{b.icon}</span>
-                  <span style={{ fontSize: 8, fontWeight: 800, color: b.col }}>
-                    {'Block ' + b.n}
-                  </span>
-                  <span
-                    style={{
-                      fontSize: 8,
-                      color: 'rgba(255,255,255,0.4)',
-                      marginLeft: 'auto',
-                    }}
-                  >
-                    {b.days + 'd'}
-                  </span>
-                </div>
-                <div
-                  style={{
-                    fontSize: 'clamp(10px,3vw,12px)',
-                    fontWeight: 800,
-                    color: '#fff',
                     marginBottom: 2,
                   }}
                 >
-                  {b.title}
+                  <span style={{ fontSize: 13 }}>
+                    {d + 1 > p.de ? '✅' : d + 1 >= p.ds ? '🔥' : p.icon}
+                  </span>
+                  <span
+                    style={{ fontSize: 8, fontWeight: 800, color: p.color }}
+                  >
+                    {'M' + p.seq}
+                  </span>
                 </div>
                 <div
                   style={{
-                    fontSize: 8,
-                    color: 'rgba(255,255,255,0.5)',
-                    lineHeight: 1.5,
+                    fontSize: 'clamp(9px,2.5vw,10px)',
+                    fontWeight: 700,
+                    color: '#fff',
+                    lineHeight: 1.3,
                   }}
                 >
-                  {b.sub}
+                  {p.name}
+                </div>
+                <div
+                  style={{
+                    fontSize: 7,
+                    color: 'rgba(255,255,255,0.4)',
+                    marginTop: 2,
+                  }}
+                >
+                  {p.period.split(' - ')[0]}
                 </div>
               </div>
             ))}
           </div>
 
-          <div
-            style={{
-              background: 'rgba(245,158,11,0.18)',
-              border: '1px solid rgba(245,158,11,0.4)',
-              borderRadius: 8,
-              padding: '7px 11px',
-              marginBottom: 10,
-              display: 'flex',
-              gap: 8,
-              alignItems: 'center',
-            }}
-          >
-            <span style={{ fontSize: 15, flexShrink: 0 }}>{'⏰'}</span>
-            <div>
-              <div style={{ fontSize: 10, fontWeight: 800, color: '#FDE68A' }}>
-                {'5:30 AM – 8:30 AM daily · MANDATORY · Weekends: Maximum Time'}
-              </div>
-              <div style={{ fontSize: 8, color: 'rgba(255,255,255,0.5)' }}>
-                {
-                  'OKLABS batch runs in the day · React Native (Chaicode) runs at 5:30-8:30 AM during Block 1 · FPO Cloud work alongside'
-                }
-              </div>
-            </div>
-          </div>
-
           <div style={{ marginBottom: 10 }}>
             <div
               style={{
-                height: 12,
-                borderRadius: 6,
+                height: 11,
+                borderRadius: 5,
                 overflow: 'hidden',
                 display: 'flex',
                 boxShadow: 'inset 0 2px 4px rgba(0,0,0,0.3)',
@@ -1787,16 +1596,16 @@ export default function App() {
                     flex: p.days,
                     cursor: 'pointer',
                     transition: 'background 0.3s',
-                    borderRight: '1px solid rgba(0,0,0,0.08)',
+                    borderRight: '1px solid rgba(0,0,0,0.1)',
                     background:
                       d + 1 > p.de
-                        ? p.color + '70'
+                        ? p.color + '75'
                         : d + 1 >= p.ds
                           ? p.color
-                          : p.color + '35',
+                          : p.color + '30',
                   }}
                   onClick={() => jump(p.id)}
-                  title={p.name}
+                  title={'Month ' + p.seq + ': ' + p.name}
                 />
               ))}
             </div>
@@ -1806,14 +1615,14 @@ export default function App() {
                 justifyContent: 'space-between',
                 marginTop: 3,
                 fontSize: 8,
-                color: 'rgba(255,255,255,0.45)',
+                color: 'rgba(255,255,255,0.4)',
               }}
             >
-              <span>{'Jun 18, 2026'}</span>
+              <span>{'Jun 15, 2026'}</span>
               <span
                 style={{ color: 'rgba(255,255,255,0.75)', fontWeight: 700 }}
               >
-                {prog + '% · Day ' + Math.min(d + 1, 545) + ' of 545'}
+                {prog + '% · Day ' + Math.min(d + 1, 548) + ' of 548'}
               </span>
               <span>{'Dec 14, 2027'}</span>
             </div>
@@ -1823,8 +1632,8 @@ export default function App() {
             onClick={() => setShowMs(!showMs)}
             style={{
               width: '100%',
-              background: 'rgba(255,255,255,0.1)',
-              border: '1px solid rgba(255,255,255,0.2)',
+              background: 'rgba(255,255,255,0.09)',
+              border: '1px solid rgba(255,255,255,0.18)',
               borderRadius: 8,
               padding: '7px 11px',
               cursor: 'pointer',
@@ -1842,15 +1651,11 @@ export default function App() {
                 color: 'rgba(255,255,255,0.8)',
               }}
             >
-              {'🏆 ' +
-                MILESTONES.length +
-                ' Milestones — ' +
-                msDone +
-                ' unlocked'}
+              {'🏆 18 Monthly Milestones — ' + msDone + ' completed'}
             </span>
             <span
               style={{
-                color: 'rgba(255,255,255,0.6)',
+                color: 'rgba(255,255,255,0.55)',
                 fontSize: 13,
                 transform: showMs ? 'rotate(90deg)' : 'none',
                 transition: 'transform 0.2s',
@@ -1876,9 +1681,9 @@ export default function App() {
                     style={{
                       display: 'flex',
                       alignItems: 'center',
-                      gap: 5,
+                      gap: 6,
                       borderRadius: 7,
-                      padding: '5px 8px',
+                      padding: '6px 8px',
                       background: isNext
                         ? 'rgba(245,158,11,0.25)'
                         : done
@@ -1889,17 +1694,17 @@ export default function App() {
                         (isNext
                           ? 'rgba(245,158,11,0.5)'
                           : done
-                            ? m.color + '50'
+                            ? m.color + '55'
                             : 'rgba(255,255,255,0.1)'),
                     }}
                   >
-                    <span style={{ fontSize: 12, flexShrink: 0 }}>
+                    <span style={{ fontSize: 13, flexShrink: 0 }}>
                       {done ? '✅' : isNext ? '🎯' : m.icon}
                     </span>
                     <div style={{ flex: 1, minWidth: 0 }}>
                       <div
                         style={{
-                          fontSize: 8,
+                          fontSize: 9,
                           fontWeight: 700,
                           overflow: 'hidden',
                           textOverflow: 'ellipsis',
@@ -1949,82 +1754,68 @@ export default function App() {
       </div>
 
       <div
-        style={{ maxWidth: 680, margin: '0 auto', padding: '12px 10px 40px' }}
+        style={{ maxWidth: 700, margin: '0 auto', padding: '14px 10px 44px' }}
       >
-        {[1, 2, 3, 4].map((bn) => {
-          const bm = BLOCK_META[bn - 1];
-          const bPhases = PHASES.filter((p) => p.block === bn);
-          return (
-            <div key={bn}>
-              <div
-                style={{
-                  display: 'flex',
-                  alignItems: 'center',
-                  gap: 8,
-                  marginBottom: 8,
-                  marginTop: bn === 1 ? 4 : 18,
-                }}
-              >
-                <div
-                  style={{
-                    height: 2,
-                    flex: 1,
-                    background:
-                      'linear-gradient(90deg,' + bm.col + ',' + bm.col + '10)',
-                  }}
-                />
-                <div
-                  style={{
-                    textAlign: 'center',
-                    flexShrink: 0,
-                    padding: '0 6px',
-                  }}
-                >
-                  <div
-                    style={{
-                      fontSize: 'clamp(9px,2.5vw,11px)',
-                      fontWeight: 800,
-                      color: bm.col,
-                      letterSpacing: '0.08em',
-                    }}
-                  >
-                    {bm.icon + ' BLOCK ' + bn + ' — ' + bm.title.toUpperCase()}
-                  </div>
-                  <div style={{ fontSize: 8, color: '#94A3B8', marginTop: 1 }}>
-                    {bm.sub}
-                  </div>
-                </div>
-                <div
-                  style={{
-                    height: 2,
-                    flex: 1,
-                    background:
-                      'linear-gradient(90deg,' + bm.col + '10,' + bm.col + ')',
-                  }}
-                />
-              </div>
-              <div style={{ display: 'flex', flexDirection: 'column', gap: 7 }}>
-                {bPhases.map((p) => (
-                  <Card
-                    key={p.id}
-                    p={p}
-                    open={openId === p.id}
-                    onToggle={() => toggle(p.id)}
-                    isCurrent={cid === p.id}
-                    isDone={d + 1 > p.de}
-                  />
-                ))}
-              </div>
+        <div
+          style={{
+            display: 'flex',
+            alignItems: 'center',
+            gap: 8,
+            marginBottom: 10,
+          }}
+        >
+          <div
+            style={{
+              height: 2,
+              flex: 1,
+              background: 'linear-gradient(90deg,#6366F1,#6366F110)',
+            }}
+          />
+          <div style={{ textAlign: 'center', flexShrink: 0, padding: '0 6px' }}>
+            <div
+              style={{
+                fontSize: 'clamp(9px,2.5vw,11px)',
+                fontWeight: 800,
+                color: '#6366F1',
+                letterSpacing: '0.08em',
+              }}
+            >
+              {'🗓 18 MONTHS · 18 SKILLS · 1 SKILL PER MONTH'}
             </div>
-          );
-        })}
+            <div style={{ fontSize: 8, color: '#94A3B8', marginTop: 1 }}>
+              {'Click any month card to expand · Progress bar shows Day ' +
+                Math.min(d + 1, 548) +
+                ' of 548'}
+            </div>
+          </div>
+          <div
+            style={{
+              height: 2,
+              flex: 1,
+              background: 'linear-gradient(90deg,#6366F110,#6366F1)',
+            }}
+          />
+        </div>
+
+        <div style={{ display: 'flex', flexDirection: 'column', gap: 8 }}>
+          {PHASES.map((p) => (
+            <Card
+              key={p.id}
+              p={p}
+              open={openId === p.id}
+              onToggle={() => toggle(p.id)}
+              isCurrent={cid === p.id}
+              isDone={d + 1 > p.de}
+            />
+          ))}
+        </div>
 
         <div
           style={{
-            marginTop: 20,
+            marginTop: 22,
             background: 'linear-gradient(135deg,#1a237e,#1565C0)',
             borderRadius: 12,
-            padding: '14px 16px',
+            padding: '15px 17px',
             boxShadow: '0 6px 24px rgba(99,102,241,0.3)',
             textAlign: 'center',
           }}
@@ -2037,7 +1828,7 @@ export default function App() {
               marginBottom: 3,
             }}
           >
-            {'🏆 18 Months of Code · Jun 18, 2026 to Dec 14, 2027'}
+            {'🏆 18 Months of Code · Jun 15, 2026 to Dec 14, 2027'}
           </div>
           <div
             style={{
@@ -2047,34 +1838,34 @@ export default function App() {
             }}
           >
             {
-              'Block 1: OKLABS 365d · Block 2: React Native 35d · Block 3: Agentic AI 40d · Block 4: Java+Spring Boot+Microservices 105d (15w)'
+              '548 days · 5:30 AM to 8:30 AM mandatory daily · 1 skill per month · Sumit Rawal'
             }
           </div>
           <div
             style={{
               display: 'flex',
               justifyContent: 'center',
-              gap: 3,
+              gap: 4,
               flexWrap: 'wrap',
             }}
           >
-            {MILESTONES.map((m, i, a) => (
+            {PHASES.map((p, i, a) => (
               <span
-                key={m.label}
+                key={p.id}
                 style={{ display: 'flex', alignItems: 'center', gap: 2 }}
               >
                 <span
                   style={{
-                    fontSize: 7,
-                    color: m.color,
+                    fontSize: 8,
+                    color: p.color,
                     fontWeight: 700,
-                    opacity: m.day <= d + 1 ? 1 : 0.4,
+                    opacity: d + 1 > p.de ? 1 : 0.35,
                   }}
                 >
-                  {m.icon + ' ' + m.label.split(' ')[0]}
+                  {p.icon + ' ' + p.name.split(' ')[0]}
                 </span>
                 {i < a.length - 1 && (
-                  <span style={{ color: 'rgba(255,255,255,0.2)', fontSize: 7 }}>
+                  <span style={{ color: 'rgba(255,255,255,0.2)', fontSize: 8 }}>
                     {'·'}
                   </span>
                 )}
