@@ -1,6 +1,6 @@
 import { useState } from 'react';
 
-// 540 Days of Code
+// 545 Days of Code
 // Thu Jun 18, 2026 to Thu Dec 9, 2027
 // 5:30 AM to 8:30 AM daily mandatory + weekends maximum
 // Block 1: OKLABS Batch D1-D365
@@ -9,7 +9,7 @@ import { useState } from 'react';
 // Block 4: Interview Prep D441-D540
 
 const START = new Date('2026-06-18');
-const TOTAL = 540;
+const TOTAL = 545;
 
 const PHASES = [
   // ══ BLOCK 1: OKLABS BATCH · 365 days ═══════════════════════════════════════
@@ -883,12 +883,12 @@ const PHASES = [
     border: '#FDE68A',
     name: 'Java Fundamentals',
     label: 'Block 4 · Java',
-    days: 20,
+    days: 21,
     ds: 441,
-    de: 460,
-    period: 'Sep 1 - Sep 20, 2027',
+    de: 461,
+    period: 'Sep 1 - Sep 21, 2027',
     wks: 'W64-W66',
-    ms: 'Java Foundations Done · D460',
+    ms: 'Java Foundations Done · D461',
     about:
       '20 days. Java 8+ fast-track using your C# .NET background. Lambdas, Streams, Optional, CompletableFuture, OOP principles, Collections, Generics, Exception Handling, Multithreading. C# to Java transition is smooth - same OOP concepts, different syntax.',
     courses: [
@@ -912,6 +912,11 @@ const PHASES = [
         f: 'Java 8 Features + Threads',
         t: 'Lambdas, Streams (filter/map/reduce), Optional, CompletableFuture, method references, default interface methods, multithreading basics',
       },
+      {
+        w: 67,
+        f: 'Java Practice + Mock Coding',
+        t: 'LeetCode easy Java problems, coding patterns in Java, collection manipulation, streams puzzles. Solidify before Spring Boot begins.',
+      },
     ],
   },
   {
@@ -925,12 +930,12 @@ const PHASES = [
     border: '#BBF7D0',
     name: 'Spring Boot',
     label: 'Block 4 · Spring Boot · MAX',
-    days: 45,
-    ds: 461,
-    de: 505,
-    period: 'Sep 21 - Nov 4, 2027',
-    wks: 'W67-W72',
-    ms: 'Spring Boot COMPLETE · D505',
+    days: 49,
+    ds: 462,
+    de: 510,
+    period: 'Sep 22 - Nov 9, 2027',
+    wks: 'W67-W73',
+    ms: 'Spring Boot COMPLETE · D510',
     about:
       '45 days MAX TIME. Spring Boot 3, JPA/Hibernate, Spring Security with JWT and OAuth2, REST API design, testing (JUnit5/Mockito/Testcontainers). Every concept maps directly to FPO Cloud: Bean=Lambda, JPA=DynamoDB, Cognito OAuth2=your exact auth pattern. Your C# .NET 8 background makes this very fast.',
     courses: [
@@ -967,8 +972,13 @@ const PHASES = [
       },
       {
         w: 72,
-        f: 'Spring Boot Capstone + 200 Q&A',
-        t: 'Build REST API + JWT + JPA + OAuth2 from scratch cold. Docker + Maven. 200 Spring Boot interview Q&A drill. Connect to React frontend.',
+        f: 'Spring Boot Capstone',
+        t: 'Build REST API + JWT + JPA + OAuth2 from scratch cold. Docker + Maven. Deploy to AWS ECS. Connect to React frontend.',
+      },
+      {
+        w: 73,
+        f: '200 Spring Boot Q&A + Mock',
+        t: '200 Spring Boot interview Q&A drill. Mock interview with Spring Boot scenario questions. Cover all 6 weeks of content.',
       },
     ],
   },
@@ -984,11 +994,11 @@ const PHASES = [
     name: 'Microservices',
     label: 'Block 4 · Microservices · FINAL',
     days: 35,
-    ds: 506,
-    de: 540,
-    period: 'Nov 5 - Dec 9, 2027',
-    wks: 'W73-W77',
-    ms: '540 DAYS OF CODE COMPLETE · Dec 9, 2027',
+    ds: 511,
+    de: 545,
+    period: 'Nov 10 - Dec 14, 2027',
+    wks: 'W74-W77',
+    ms: '545 DAYS OF CODE COMPLETE · Dec 14, 2027',
     about:
       '35 days. Microservices with Spring Cloud, Kafka, CQRS, Event Sourcing, Saga pattern, Kubernetes deployment. Every pattern maps directly to FPO Cloud: EventBridge→Kafka, Step Functions→Saga, Lambda→Microservice, DynamoDB streams→Event Sourcing. This is your deepest professional strength area.',
     courses: [
@@ -1019,8 +1029,8 @@ const PHASES = [
       },
       {
         w: 77,
-        f: 'K8s Deploy + Final Day 540',
-        t: 'Deploy microservices to K8s, Ingress, ConfigMaps, Secrets. Write 1 ADR. Rebuild 1 service cold. Day 540 = Dec 9, 2027 DONE.',
+        f: 'K8s Deploy + Final Day 545',
+        t: 'Deploy microservices to K8s, Ingress, ConfigMaps, Secrets. Write 1 ADR. Rebuild 1 service cold. Day 545 = Dec 14, 2027 DONE.',
       },
     ],
   },
@@ -1133,24 +1143,24 @@ const MILESTONES = [
     color: '#6366F1',
   },
   {
-    day: 460,
+    day: 461,
     icon: '☕',
     label: 'Java Foundations Done',
-    date: 'Sep 20, 2027',
+    date: 'Sep 21, 2027',
     color: '#F59E0B',
   },
   {
-    day: 505,
+    day: 510,
     icon: '🌱',
     label: 'Spring Boot COMPLETE',
-    date: 'Nov 4, 2027',
+    date: 'Nov 9, 2027',
     color: '#16A34A',
   },
   {
-    day: 540,
+    day: 545,
     icon: '🏆',
-    label: '540 Days of Code DONE',
-    date: 'Dec 9, 2027',
+    label: '545 Days of Code DONE',
+    date: 'Dec 14, 2027',
     color: '#E11D48',
   },
 ];
@@ -1184,9 +1194,9 @@ const BLOCK_META = [
     n: 4,
     icon: '☕',
     title: 'Java + Spring Boot + Microservices',
-    sub: 'D441-D540 · Sep 1 to Dec 9 2027 · Java(20d) + Spring Boot(45d) + Microservices(35d)',
+    sub: 'D441-D545 · Sep 1 to Dec 14 2027 · Java(21d) + Spring Boot(49d) + Microservices(35d) · 15 weeks',
     col: '#16A34A',
-    days: 100,
+    days: 105,
   },
 ];
 
@@ -1655,7 +1665,7 @@ export default function App() {
                   lineHeight: 1.1,
                 }}
               >
-                {'540 Days of Code'}
+                {'18 Months of Code'}
               </div>
               <div
                 style={{
@@ -1665,7 +1675,7 @@ export default function App() {
                 }}
               >
                 {
-                  'Thu Jun 18, 2026 to Thu Dec 9, 2027 · 540 days · 5:30 AM to 8:30 AM daily'
+                  'Thu Jun 18, 2026 to Tue Dec 14, 2027 · 545 days · 18 months · 5:30 AM – 8:30 AM daily mandatory'
                 }
               </div>
             </div>
@@ -1749,9 +1759,7 @@ export default function App() {
             <span style={{ fontSize: 15, flexShrink: 0 }}>{'⏰'}</span>
             <div>
               <div style={{ fontSize: 10, fontWeight: 800, color: '#FDE68A' }}>
-                {
-                  '5:30 AM to 8:30 AM daily · MANDATORY · Weekends: Maximum Time'
-                }
+                {'5:30 AM – 8:30 AM daily · MANDATORY · Weekends: Maximum Time'}
               </div>
               <div style={{ fontSize: 8, color: 'rgba(255,255,255,0.5)' }}>
                 {
@@ -1805,9 +1813,9 @@ export default function App() {
               <span
                 style={{ color: 'rgba(255,255,255,0.75)', fontWeight: 700 }}
               >
-                {prog + '% · Day ' + Math.min(d + 1, 540) + ' of 540'}
+                {prog + '% · Day ' + Math.min(d + 1, 545) + ' of 545'}
               </span>
-              <span>{'Dec 9, 2027'}</span>
+              <span>{'Dec 14, 2027'}</span>
             </div>
           </div>
 
@@ -2029,7 +2037,7 @@ export default function App() {
               marginBottom: 3,
             }}
           >
-            {'🏆 540 Days of Code · Jun 18, 2026 to Dec 9, 2027'}
+            {'🏆 18 Months of Code · Jun 18, 2026 to Dec 14, 2027'}
           </div>
           <div
             style={{
@@ -2039,7 +2047,7 @@ export default function App() {
             }}
           >
             {
-              'Block 1: OKLABS 365d · Block 2: React Native 35d · Block 3: Agentic AI 40d · Block 4: Java + Spring Boot + Microservices 100d'
+              'Block 1: OKLABS 365d · Block 2: React Native 35d · Block 3: Agentic AI 40d · Block 4: Java+Spring Boot+Microservices 105d (15w)'
             }
           </div>
           <div
