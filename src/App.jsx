@@ -1,16 +1,22 @@
 import { useState } from 'react';
 
-// 365 Days of Code
-// Tue Jun 16, 2026 to Mon Jun 15, 2027
-// 5:30 AM to 8:30 AM daily (mandatory)
-// OKLABS batch (daytime) + React Native via Chaicode (5:30-8:30 AM in parallel)
+// 540 Days of Code
+// Thu Jun 18, 2026 to Thu Dec 9, 2027
+// 5:30 AM to 8:30 AM daily mandatory + weekends maximum
+// Block 1: OKLABS Batch D1-D365
+// Block 2: React Native D366-D400
+// Block 3: Agentic AI Python D401-D440
+// Block 4: Interview Prep D441-D540
 
-const START = new Date('2026-06-16');
-const TOTAL = 442;
+const START = new Date('2026-06-18');
+const TOTAL = 540;
 
 const PHASES = [
+  // ══ BLOCK 1: OKLABS BATCH · 365 days ═══════════════════════════════════════
+
   {
     id: 'p01',
+    block: 1,
     seq: 1,
     icon: '📡',
     color: '#6366F1',
@@ -18,34 +24,34 @@ const PHASES = [
     bg: '#EEF2FF',
     border: '#C7D2FE',
     name: 'Computer Fundamentals',
+    label: 'Block 1 · OKLABS',
     days: 14,
     ds: 1,
     de: 14,
-    period: 'Jun 16 - Jun 29, 2026',
+    period: 'Jun 18 - Jul 1, 2026',
     wks: 'W01-W02',
-    ms: 'Computer Fundamentals Done',
+    ms: 'Computer Fundamentals Done · D14',
     about:
-      '2 weeks. IT Fundamentals (SDLC, Agile, Scrum, DevOps culture) + Networking (LAN/WAN/IP/DNS/DHCP/VPN/Firewalls) + OSI 7-layer model + TCP/IP protocols. Foundation for everything else in the batch.',
+      '2 weeks. IT Fundamentals (SDLC, Agile, Scrum, DevOps culture) + Networking (LAN/WAN/IP/DNS/DHCP/VPN/Firewalls) + OSI 7-layer model + TCP/IP protocols. Foundation for everything in the batch.',
     courses: [
-      'OKLABS Phase 1 - IT Fundamentals: SDLC, Agile, Scrum, DevOps culture, Waterfall vs Agile',
-      'OKLABS Phase 2 - Networking: LAN/WAN, IP addressing, DNS, DHCP, NAT, VPN, Firewalls',
-      'OKLABS Phase 3 - OSI Model: 7 layers, TCP/IP, HTTP/HTTPS, SSH, SMTP, Wireshark labs',
+      'OKLABS Phase 1-3: IT Fundamentals, Networking, OSI Model and TCP/IP',
     ],
     wplan: [
       {
         w: 1,
         f: 'IT Fundamentals + Networking',
-        t: 'SDLC, Agile, Scrum, DevOps principles, LAN/WAN, IP addressing, DNS, DHCP, VPN, Firewalls',
+        t: 'SDLC, Agile, Scrum, DevOps culture. LAN/WAN, IP addressing, DNS, DHCP, NAT, VPN, Firewalls, Routing and Switching',
       },
       {
         w: 2,
         f: 'OSI Model + Protocols + Labs',
-        t: 'OSI 7 layers, TCP vs UDP, HTTP/HTTPS, SSH, SMTP. Wireshark packet analysis, CIDR calculations, DNS troubleshooting labs',
+        t: 'OSI 7 layers, TCP vs UDP, HTTP/HTTPS, SSH, SMTP. Wireshark packet analysis, CIDR calculations, DNS troubleshooting',
       },
     ],
   },
   {
     id: 'p02',
+    block: 1,
     seq: 2,
     icon: '🐧',
     color: '#EA580C',
@@ -53,39 +59,39 @@ const PHASES = [
     bg: '#FFF7ED',
     border: '#FED7AA',
     name: 'Linux OS Fundamentals',
+    label: 'Block 1 · OKLABS',
     days: 21,
     ds: 15,
     de: 35,
-    period: 'Jun 30 - Jul 20, 2026',
+    period: 'Jul 2 - Jul 22, 2026',
     wks: 'W03-W05',
-    ms: 'Linux Done',
+    ms: 'Linux Done · D35',
     about:
       '3 weeks. Linux architecture, 10+ distros, 100+ commands across file ops, process management, user admin, networking, package management, web servers. Projects: Production Linux Server Setup, Secure SSH Config, Apache Reverse Proxy.',
     courses: [
-      'OKLABS Phase 4 - OS Fundamentals: Linux architecture, distros (Ubuntu/Fedora/Amazon Linux)',
-      'OKLABS Phase 5 - Linux Commands: 100+ commands across all categories',
-      'OKLABS Phase 6-12 - User admin, file system, process mgmt, package mgmt, networking, web servers (Apache/Nginx), monitoring',
+      'OKLABS Phase 4-12: OS Fundamentals, Linux Commands, User Admin, File System, Process Mgmt, Package Mgmt, Networking, Web Servers, Monitoring',
     ],
     wplan: [
       {
         w: 3,
         f: 'Linux Architecture + Core Commands',
-        t: 'OS types, Linux layers, distros. File ops (ls/cp/mv/rm), directory mgmt, search (find/grep/locate), text processing (awk/sed)',
+        t: 'OS types, Linux layers, distros. File ops (ls/cp/mv/rm), directory mgmt, search (find/grep), text processing (awk/sed/cut)',
       },
       {
         w: 4,
         f: 'Permissions + Process + Users',
-        t: 'chmod/chown/umask, ps/kill/top, useradd/usermod, groupadd, systemctl, cron jobs, SSH hardening',
+        t: 'chmod/chown/umask, ps/kill/top/htop, useradd/usermod, systemctl, cron jobs, package managers (apt/yum/dnf)',
       },
       {
         w: 5,
         f: 'Web Servers + Monitoring + Projects',
-        t: "Apache, Nginx, reverse proxy, SSL/Let's Encrypt, journalctl. Project: Production Linux server + Secure SSH + Apache Reverse Proxy",
+        t: "Apache, Nginx, reverse proxy, SSL/Let's Encrypt, journalctl, syslog. Project: Production Linux server + Secure SSH + Apache proxy",
       },
     ],
   },
   {
     id: 'p03',
+    block: 1,
     seq: 3,
     icon: '💻',
     color: '#374151',
@@ -93,18 +99,16 @@ const PHASES = [
     bg: '#F9FAFB',
     border: '#D1D5DB',
     name: 'Shell Scripting and Bash',
+    label: 'Block 1 · OKLABS',
     days: 14,
     ds: 36,
     de: 49,
-    period: 'Jul 21 - Aug 3, 2026',
+    period: 'Jul 23 - Aug 5, 2026',
     wks: 'W06-W07',
-    ms: 'Bash Scripting Done',
+    ms: 'Bash Scripting Done · D49',
     about:
       '2 weeks. Bash scripting from variables to error handling. Automation scripts for backups, log rotation, health monitoring, user provisioning. Projects: Automated Server Monitoring, Daily Backup System, User Management Automation.',
-    courses: [
-      'OKLABS Phase 13 - Bash Scripting: variables, functions, loops, conditions, arrays, error handling',
-      'OKLABS Phase 14 - Linux Automation: backup scripts, log rotation, health monitoring, user provisioning',
-    ],
+    courses: ['OKLABS Phase 13-14: Bash Scripting, Linux Automation'],
     wplan: [
       {
         w: 6,
@@ -114,12 +118,13 @@ const PHASES = [
       {
         w: 7,
         f: 'Automation + Projects',
-        t: 'Backup scripts, log rotation, health monitoring scripts, user provisioning. All 3 projects: Automated Server Monitor, Daily Backup, User Mgmt',
+        t: 'Backup scripts, log rotation, health monitoring, user provisioning. Projects: Automated Server Monitor, Daily Backup, User Mgmt Automation',
       },
     ],
   },
   {
     id: 'p04',
+    block: 1,
     seq: 4,
     icon: '🐍',
     color: '#16A34A',
@@ -127,24 +132,23 @@ const PHASES = [
     bg: '#F0FDF4',
     border: '#BBF7D0',
     name: 'Python for DevOps',
+    label: 'Block 1 · OKLABS',
     days: 21,
     ds: 50,
     de: 70,
-    period: 'Aug 4 - Aug 24, 2026',
+    period: 'Aug 6 - Aug 26, 2026',
     wks: 'W08-W10',
-    ms: 'Python for DevOps Done',
+    ms: 'Python for DevOps Done · D70',
     about:
       '3 weeks. Python fundamentals through OOP through AWS automation. Projects: EC2 Provisioning Tool, Automated Backup Utility, Infrastructure Health Dashboard. Your SCB Thailand Python/boto3 background makes this fast.',
     courses: [
-      'OKLABS Phase 15 - Python Fundamentals: variables, data types, operators, loops, functions',
-      'OKLABS Phase 16-17 - Intermediate/Advanced Python: OOP, modules, exception handling, file handling, JSON, API integration, multithreading',
-      'OKLABS Phase 18 - DevOps with Python: AWS automation (boto3), infrastructure automation, monitoring scripts, log parsing',
+      'OKLABS Phase 15-18: Python Fundamentals, Intermediate Python, Advanced Python, DevOps with Python (boto3, AWS automation)',
     ],
     wplan: [
       {
         w: 8,
         f: 'Python Fundamentals + OOP',
-        t: 'Variables, data types, loops, functions, OOP (classes/inheritance/polymorphism), modules, packages, exception handling',
+        t: 'Variables, data types, loops, functions, OOP (classes/inheritance), modules, packages, exception handling',
       },
       {
         w: 9,
@@ -154,12 +158,13 @@ const PHASES = [
       {
         w: 10,
         f: 'DevOps Python Projects',
-        t: 'EC2 Provisioning Tool, Automated Backup Utility, Infrastructure Health Dashboard - all 3 deployed and documented',
+        t: 'EC2 Provisioning Tool, Automated Backup Utility, Infrastructure Health Dashboard - all 3 built and documented',
       },
     ],
   },
   {
     id: 'p05',
+    block: 1,
     seq: 5,
     icon: '🔀',
     color: '#F59E0B',
@@ -167,28 +172,27 @@ const PHASES = [
     bg: '#FFFBEB',
     border: '#FDE68A',
     name: 'Git and GitHub',
+    label: 'Block 1 · OKLABS',
     days: 7,
     ds: 71,
     de: 77,
-    period: 'Aug 25 - Aug 31, 2026',
+    period: 'Aug 27 - Sep 2, 2026',
     wks: 'W11',
-    ms: 'Git and GitHub Done',
+    ms: 'Git and GitHub Done · D77',
     about:
       '1 week. Git fundamentals, branching strategy, merge conflicts. GitHub: repositories, pull requests, code reviews, security. Projects: Team Collaboration Project + Git Workflow Implementation.',
-    courses: [
-      'OKLABS Phase 19 - Version Control: Git init/clone/branch/merge/rebase, repository management, branching strategy, merge conflicts',
-      'OKLABS Phase 20 - GitHub: repositories, pull requests, code reviews, GitHub security, Actions basics',
-    ],
+    courses: ['OKLABS Phase 19-20: Version Control System, GitHub'],
     wplan: [
       {
         w: 11,
         f: 'Git + GitHub + Projects',
-        t: 'Git fundamentals, branching (feature/hotfix/release), merge vs rebase, PRs, code reviews, branching strategy. Team Collaboration + Git Workflow projects',
+        t: 'Git fundamentals, branching (feature/hotfix), merge vs rebase, PRs, code reviews, GitHub security. Team Collaboration + Git Workflow projects',
       },
     ],
   },
   {
     id: 'p06',
+    block: 1,
     seq: 6,
     icon: '⚛',
     color: '#0EA5E9',
@@ -196,44 +200,44 @@ const PHASES = [
     bg: '#F0F9FF',
     border: '#BAE6FD',
     name: 'Frontend: HTML / CSS / JS / React',
+    label: 'Block 1 · OKLABS',
     days: 28,
     ds: 78,
     de: 105,
-    period: 'Sep 1 - Sep 28, 2026',
+    period: 'Sep 3 - Sep 30, 2026',
     wks: 'W12-W15',
-    ms: 'Frontend Done',
+    ms: 'Frontend React Done · D105',
     about:
-      '4 weeks. SPA architecture, component-based development, React fundamentals and advanced patterns. Project: DevOps Monitoring Dashboard UI. Builds on your existing React knowledge from FPO Cloud work.',
+      '4 weeks. SPA architecture, component-based development, React fundamentals and advanced patterns. Project: DevOps Monitoring Dashboard UI. Builds directly on your existing React knowledge from FPO Cloud.',
     courses: [
-      'OKLABS Phase 21 - Frontend Engineering: HTML5, CSS3, JavaScript ES6+, jQuery, Bootstrap, SPA architecture',
-      'OKLABS Phase 22 - React Fundamentals: JSX, components, props, state, events',
-      'OKLABS Phase 23 - React Advanced: hooks, routing, API integration, Context API',
+      'OKLABS Phase 21-23: Frontend Engineering (HTML5/CSS3/JS/Bootstrap), React Fundamentals, React Advanced',
     ],
     wplan: [
       {
         w: 12,
         f: 'HTML/CSS/JS/Bootstrap',
-        t: 'HTML5 semantics, CSS3 flexbox/grid, JavaScript ES6+ (arrow functions, promises, async/await), jQuery, Bootstrap responsive',
+        t: 'HTML5 semantics, CSS3 flexbox/grid, JavaScript ES6+ (arrow functions, promises, async/await), jQuery, Bootstrap responsive design',
       },
       {
         w: 13,
         f: 'React Fundamentals',
-        t: 'React architecture, JSX, functional components, props, state, events, conditional rendering, lists - OKLABS React modules',
+        t: 'React architecture, JSX, components, props, state, events, conditional rendering, lists - OKLABS React modules',
       },
       {
         w: 14,
-        f: 'React Advanced + Hooks',
-        t: 'useState, useEffect, useContext, useRef, custom hooks, React Router, API integration with axios/fetch',
+        f: 'React Hooks + Advanced',
+        t: 'useState, useEffect, useContext, useRef, custom hooks, React Router v6, API integration, Context API',
       },
       {
         w: 15,
         f: 'DevOps Dashboard Project',
-        t: 'Build DevOps Monitoring Dashboard UI - shows server health, pipeline status, deployment metrics. Full capstone project.',
+        t: 'Build DevOps Monitoring Dashboard UI - server health, pipeline status, deployment metrics. Full capstone project.',
       },
     ],
   },
   {
     id: 'p07',
+    block: 1,
     seq: 7,
     icon: '🚀',
     color: '#7C3AED',
@@ -241,39 +245,39 @@ const PHASES = [
     bg: '#F5F3FF',
     border: '#DDD6FE',
     name: 'Backend: Python / Flask / FastAPI',
+    label: 'Block 1 · OKLABS',
     days: 21,
     ds: 106,
     de: 126,
-    period: 'Sep 29 - Oct 19, 2026',
+    period: 'Oct 1 - Oct 21, 2026',
     wks: 'W16-W18',
-    ms: 'Backend Python Done',
+    ms: 'Backend Python Done · D126',
     about:
-      '3 weeks. Backend architecture, REST principles, Flask and FastAPI frameworks, authentication/authorization with JWT, PostgreSQL. Projects: Employee Management API, Cloud Resource Management API.',
+      '3 weeks. Backend architecture, REST principles, Flask and FastAPI frameworks, JWT authentication, PostgreSQL. Projects: Employee Management API, Cloud Resource Management API.',
     courses: [
-      'OKLABS Phase 24 - Backend Fundamentals: backend architecture, client-server communication, REST principles',
-      'OKLABS Phase 25 - Python Backend: Flask (routes/templates/auth), FastAPI (async/Pydantic/OpenAPI), JWT authentication, authorization',
-      'OKLABS Phase 26 - Database Concepts: PostgreSQL, relational design, SQLAlchemy ORM, migrations',
+      'OKLABS Phase 24-26: Backend Fundamentals, Python Backend (Flask/FastAPI), Database Concepts (PostgreSQL)',
     ],
     wplan: [
       {
         w: 16,
         f: 'Flask + REST Fundamentals',
-        t: 'Backend architecture, REST principles, Flask routes, blueprints, templates, request/response cycle, JWT authentication',
+        t: 'Backend architecture, REST principles, Flask routes, blueprints, JWT authentication, authorization',
       },
       {
         w: 17,
         f: 'FastAPI + PostgreSQL',
-        t: 'FastAPI async endpoints, Pydantic models, dependency injection, PostgreSQL with SQLAlchemy ORM, Alembic migrations',
+        t: 'FastAPI async endpoints, Pydantic models, PostgreSQL with SQLAlchemy ORM, Alembic migrations',
       },
       {
         w: 18,
         f: 'Backend Projects',
-        t: 'Employee Management API + Cloud Resource Management API - both fully built, tested, and documented',
+        t: 'Employee Management API + Cloud Resource Management API - both built, tested, and documented',
       },
     ],
   },
   {
     id: 'p08',
+    block: 1,
     seq: 8,
     icon: '🔌',
     color: '#E11D48',
@@ -281,27 +285,29 @@ const PHASES = [
     bg: '#FFF1F2',
     border: '#FECDD3',
     name: 'APIs and Integrations',
+    label: 'Block 1 · OKLABS',
     days: 7,
     ds: 127,
     de: 133,
-    period: 'Oct 20 - Oct 26, 2026',
+    period: 'Oct 22 - Oct 28, 2026',
     wks: 'W19',
-    ms: 'APIs Done',
+    ms: 'APIs Done · D133',
     about:
-      '1 week. REST, GraphQL, SOAP, Webhook APIs. Security: OAuth2, JWT, API keys, rate limiting. Projects: REST API Development + GraphQL API Integration.',
+      '1 week. REST, GraphQL, SOAP, Webhook APIs. Security: OAuth2, JWT, API Keys, Rate Limiting. Projects: REST API Development + GraphQL API Integration.',
     courses: [
-      'OKLABS Phase 27-28 - API Fundamentals and Security: REST/GraphQL/SOAP/Webhook, OAuth2, JWT, API keys, rate limiting',
+      'OKLABS Phase 27-28: API Fundamentals, API Security (OAuth2/JWT/Rate Limiting)',
     ],
     wplan: [
       {
         w: 19,
         f: 'API Types + Security + Projects',
-        t: 'REST/GraphQL/SOAP/Webhook deep dive, OAuth2 flows, JWT, rate limiting. Build REST API project + GraphQL API integration',
+        t: 'REST/GraphQL/SOAP/Webhook deep dive, OAuth2 flows, JWT, rate limiting. Build REST API + GraphQL API projects',
       },
     ],
   },
   {
     id: 'p09',
+    block: 1,
     seq: 9,
     icon: '📋',
     color: '#059669',
@@ -309,27 +315,27 @@ const PHASES = [
     bg: '#ECFDF5',
     border: '#A7F3D0',
     name: 'Jira and Confluence',
+    label: 'Block 1 · OKLABS',
     days: 7,
     ds: 134,
     de: 140,
-    period: 'Oct 27 - Nov 2, 2026',
+    period: 'Oct 29 - Nov 4, 2026',
     wks: 'W20',
-    ms: 'Jira and Confluence Done',
+    ms: 'Jira and Confluence Done · D140',
     about:
-      '1 week. Jira: project creation, Scrum boards, sprint planning, user stories, epics. Confluence: documentation, knowledge base, team collaboration. Project: Complete Agile Sprint Lifecycle.',
-    courses: [
-      'OKLABS Phase 29-30 - Jira and Confluence: Scrum boards, sprint planning, user stories, epics, documentation, knowledge base',
-    ],
+      '1 week. Jira: Scrum boards, sprint planning, user stories, epics. Confluence: documentation, knowledge base. Project: Complete Agile Sprint Lifecycle.',
+    courses: ['OKLABS Phase 29-30: Jira, Confluence'],
     wplan: [
       {
         w: 20,
         f: 'Jira + Confluence + Agile Sprint',
-        t: 'Jira project setup, Scrum boards, sprint planning, user stories, epics, backlog grooming. Confluence docs. Full Agile sprint lifecycle project',
+        t: 'Jira Scrum boards, sprint planning, user stories, epics. Confluence docs. Full Agile sprint lifecycle project.',
       },
     ],
   },
   {
     id: 'p10',
+    block: 1,
     seq: 10,
     icon: '🐳',
     color: '#0369A1',
@@ -337,39 +343,39 @@ const PHASES = [
     bg: '#EFF6FF',
     border: '#BFDBFE',
     name: 'Docker',
+    label: 'Block 1 · OKLABS',
     days: 21,
     ds: 141,
     de: 161,
-    period: 'Nov 3 - Nov 23, 2026',
+    period: 'Nov 5 - Nov 25, 2026',
     wks: 'W21-W23',
-    ms: 'Docker Done',
+    ms: 'Docker Done · D161',
     about:
-      '3 weeks. Container fundamentals vs virtualization, Docker images/containers/networking/volumes, Docker Compose for multi-container apps. Projects: React + Python App Containerization, Production Docker Deployment.',
+      '3 weeks. Container fundamentals vs virtualization, Docker images/containers/networking/volumes, Docker Compose. Projects: React + Python App Containerization, Production Docker Deployment.',
     courses: [
-      'OKLABS Phase 31 - Container Fundamentals: virtualization vs containers, container architecture',
-      'OKLABS Phase 32 - Docker: images, containers, networking, volumes, Dockerfile best practices',
-      'OKLABS Phase 33 - Docker Compose: multi-container apps, environment management, service orchestration',
+      'OKLABS Phase 31-33: Container Fundamentals, Docker, Docker Compose',
     ],
     wplan: [
       {
         w: 21,
         f: 'Container Fundamentals + Docker Core',
-        t: 'Virt vs containers, Docker install, pull/build/tag/push images, run/stop/rm containers, Dockerfile instructions, .dockerignore',
+        t: 'Virt vs containers, Dockerfile, docker build/run/stop/rm, images, ports, environment variables',
       },
       {
         w: 22,
         f: 'Docker Networking + Volumes + Compose',
-        t: 'Bridge/host/overlay networks, named volumes, bind mounts, Docker Compose YAML, multi-service stacks, environment variables',
+        t: 'Bridge/host/overlay networks, volumes, bind mounts, Docker Compose multi-service stacks',
       },
       {
         w: 23,
         f: 'Docker Projects',
-        t: 'React + Python app containerization with Docker Compose. Production Docker deployment with Nginx reverse proxy. Push to DockerHub/ECR.',
+        t: 'React + Python app containerization. Production Docker deployment with Nginx reverse proxy. Push to ECR.',
       },
     ],
   },
   {
     id: 'p11',
+    block: 1,
     seq: 11,
     icon: '☸',
     color: '#4338CA',
@@ -377,24 +383,23 @@ const PHASES = [
     bg: '#EEF2FF',
     border: '#C7D2FE',
     name: 'Kubernetes',
+    label: 'Block 1 · OKLABS',
     days: 28,
     ds: 162,
     de: 189,
-    period: 'Nov 24 - Dec 21, 2026',
+    period: 'Nov 26 - Dec 23, 2026',
     wks: 'W24-W27',
-    ms: 'Kubernetes Done',
+    ms: 'Kubernetes Done · D189',
     about:
-      '4 weeks. K8s architecture (control plane, worker nodes), core objects (Pods/Deployments/Services/ConfigMaps/Secrets), storage (PV/PVC), Ingress, RBAC security. Projects: Production K8s Cluster + Highly Available App Deployment.',
+      '4 weeks. K8s architecture, Pods/Deployments/Services/ConfigMaps/Secrets, storage (PV/PVC), Ingress, RBAC. Projects: Production K8s Cluster + Highly Available App Deployment on AWS EKS.',
     courses: [
-      'OKLABS Phase 34 - K8s Fundamentals: architecture, control plane, worker nodes, kubectl',
-      'OKLABS Phase 35-36 - K8s Objects and Storage: Pods, Deployments, ReplicaSets, Services, ConfigMaps, Secrets, PVs, PVCs',
-      'OKLABS Phase 37-38 - K8s Networking and Security: Ingress, service discovery, RBAC, NetworkPolicies',
+      'OKLABS Phase 34-38: K8s Fundamentals, K8s Objects, K8s Storage, K8s Networking, K8s Security',
     ],
     wplan: [
       {
         w: 24,
         f: 'K8s Architecture + Core Objects',
-        t: 'Control plane components, worker nodes, kubectl, Pods, Deployments, ReplicaSets - KodeKloud/Killercoda hands-on labs',
+        t: 'Control plane, worker nodes, kubectl, Pods, Deployments, ReplicaSets - KodeKloud/Killercoda hands-on labs',
       },
       {
         w: 25,
@@ -404,17 +409,18 @@ const PHASES = [
       {
         w: 26,
         f: 'Ingress + Security + RBAC',
-        t: 'Ingress controllers (nginx), service discovery, RBAC roles/rolebindings, NetworkPolicies, security contexts',
+        t: 'Ingress controllers, service discovery, RBAC roles/rolebindings, NetworkPolicies, security contexts',
       },
       {
         w: 27,
         f: 'K8s Projects on AWS EKS',
-        t: 'Production K8s cluster setup + Highly Available application deployment on AWS EKS with autoscaling',
+        t: 'Production K8s cluster + Highly Available application deployment on AWS EKS with autoscaling',
       },
     ],
   },
   {
     id: 'p12',
+    block: 1,
     seq: 12,
     icon: '⚙',
     color: '#DC2626',
@@ -422,39 +428,39 @@ const PHASES = [
     bg: '#FEF2F2',
     border: '#FECACA',
     name: 'CI/CD: Jenkins + GitHub Actions',
+    label: 'Block 1 · OKLABS',
     days: 21,
     ds: 190,
     de: 210,
-    period: 'Dec 22, 2026 - Jan 11, 2027',
+    period: 'Dec 24, 2026 - Jan 13, 2027',
     wks: 'W28-W30',
-    ms: 'CI/CD Done',
+    ms: 'CI/CD Done · D210',
     about:
-      '3 weeks. CI/CD fundamentals, Blue-Green/Rolling/Canary deployments. Jenkins (master-agent, Jenkinsfile, pipelines, integrations with Docker/K8s/SonarQube). GitHub Actions (workflows, matrix builds, reusable workflows). SonarQube for code quality.',
+      '3 weeks. CI/CD fundamentals, Blue-Green/Rolling/Canary deployments. Jenkins (master-agent, Jenkinsfile, pipelines, SonarQube integration). GitHub Actions (workflows, matrix builds, reusable workflows).',
     courses: [
-      'OKLABS Phase 39 - CI/CD Fundamentals: CI/CD concepts, pipeline design, shift left, deployment strategies (Blue-Green/Rolling/Canary)',
-      'OKLABS Phase 40 - Jenkins: architecture, master-agent, Jenkinsfile, declarative/scripted pipelines, shared libraries, integrations',
-      'OKLABS Phase 41 - GitHub Actions: workflow architecture, events/triggers, build/test/deploy workflows, matrix builds, reusable workflows',
+      'OKLABS Phase 39-41: CI/CD Fundamentals, Jenkins, GitHub Actions',
     ],
     wplan: [
       {
         w: 28,
         f: 'CI/CD Fundamentals + Jenkins Core',
-        t: 'CI/CD concepts, Blue-Green/Rolling/Canary strategies, Jenkins install, master-agent architecture, Jenkinsfile declarative pipelines',
+        t: 'CI/CD concepts, Blue-Green/Rolling/Canary, Jenkins install, master-agent, Jenkinsfile declarative pipelines',
       },
       {
         w: 29,
         f: 'Jenkins Integrations + GitHub Actions',
-        t: 'Jenkins with Docker/K8s/AWS/SonarQube. GitHub Actions workflows, events, matrix builds, secrets, self-hosted runners',
+        t: 'Jenkins with Docker/K8s/AWS/SonarQube, GitHub Actions workflows, matrix builds, reusable workflows, secrets',
       },
       {
         w: 30,
         f: 'CI/CD Projects',
-        t: 'Docker Build Pipeline, K8s Deployment Pipeline, React App CI/CD, Python API CI/CD - all via Jenkins and GitHub Actions',
+        t: 'Docker Build Pipeline, K8s Deployment Pipeline, React App CI/CD, Python API CI/CD via Jenkins and GitHub Actions',
       },
     ],
   },
   {
     id: 'p13',
+    block: 1,
     seq: 13,
     icon: '🏗',
     color: '#B45309',
@@ -462,33 +468,32 @@ const PHASES = [
     bg: '#FFFBEB',
     border: '#FDE68A',
     name: 'Terraform IaC',
+    label: 'Block 1 · OKLABS',
     days: 14,
     ds: 211,
     de: 224,
-    period: 'Jan 12 - Jan 25, 2027',
+    period: 'Jan 14 - Jan 27, 2027',
     wks: 'W31-W32',
-    ms: 'Terraform Done',
+    ms: 'Terraform Done · D224',
     about:
-      '2 weeks. HCL syntax, providers, resources, variables, modules, state management, remote state (S3+DynamoDB), multi-environment deployment. Projects: AWS Infrastructure Provisioning + EKS Cluster Deployment with Terraform.',
-    courses: [
-      'OKLABS Phase 41 - Terraform: basics, providers, variables, modules, state management',
-      'OKLABS Phase 42 - Advanced Terraform: remote state, workspaces, multi-environment deployment',
-    ],
+      '2 weeks. HCL syntax, providers, resources, variables, modules, state management, remote state (S3+DynamoDB), multi-environment deployment. Projects: AWS Infrastructure Provisioning + EKS Cluster Deployment.',
+    courses: ['OKLABS Phase 41-42: Terraform, Advanced Terraform'],
     wplan: [
       {
         w: 31,
         f: 'Terraform Core',
-        t: 'HCL syntax, providers (AWS), resources, variables, outputs, locals, data sources, state management, modules - provision VPC/EC2/S3',
+        t: 'HCL syntax, providers, resources, variables, outputs, locals, data sources, state management, modules',
       },
       {
         w: 32,
         f: 'Advanced Terraform + Projects',
-        t: 'Remote state (S3 backend + DynamoDB locking), workspaces, multi-env (dev/staging/prod). Projects: AWS Infrastructure + EKS Cluster',
+        t: 'Remote state (S3+DynamoDB locking), workspaces, multi-env (dev/staging/prod). AWS Infra + EKS Cluster projects',
       },
     ],
   },
   {
     id: 'p14',
+    block: 1,
     seq: 14,
     icon: '☁',
     color: '#D97706',
@@ -496,31 +501,31 @@ const PHASES = [
     bg: '#FFFBEB',
     border: '#FDE68A',
     name: 'AWS Cloud Engineering',
+    label: 'Block 1 · OKLABS · MAX',
     days: 56,
     ds: 225,
     de: 280,
-    period: 'Jan 26 - Mar 22, 2027',
+    period: 'Jan 28 - Mar 24, 2027',
     wks: 'W33-W40',
-    ms: 'AWS Done',
+    ms: 'AWS Done · D280',
     about:
-      '8 weeks MAX TIME. IAM, EC2, EBS, S3, VPC, Route Tables, NAT/IGW, Security Groups, NACL, RDS, DynamoDB, ALB/NLB, CloudWatch, CloudTrail, ECS/ECR/EKS, Lambda, API Gateway, Secrets Manager. 4 capstone projects. Maps directly to your FPO Cloud production experience.',
+      '8 weeks MAX TIME. IAM, EC2, EBS, S3, VPC, Route Tables, NAT/IGW, Security Groups, NACL, RDS, DynamoDB, ALB/NLB, CloudWatch, CloudTrail, ECS/ECR/EKS, Lambda, API Gateway, Secrets Manager. Maps directly to your FPO Cloud production architecture.',
     courses: [
-      'OKLABS Phase 43 - AWS Fundamentals: global infrastructure, regions/AZs, shared responsibility model',
-      'OKLABS Phase 44-45 - AWS Core + Networking: IAM, EC2, EBS, S3, VPC, route tables, NAT, IGW, Security Groups, NACL',
-      'OKLABS Phase 46-48 - Databases + Load Balancing + Monitoring: RDS, DynamoDB, ALB/NLB, CloudWatch, CloudTrail',
-      'OKLABS Phase 49-50 - Containers + Serverless: ECS, ECR, EKS, Lambda (your FPO!), API Gateway',
-      'OKLABS Phase 51 - AWS Security: IAM best practices, KMS encryption, Secrets Manager',
+      'OKLABS Phase 43: AWS Fundamentals (global infra, regions, shared responsibility)',
+      'OKLABS Phase 44-45: AWS Core Services (IAM/EC2/EBS/S3) and Networking (VPC/subnets/NAT/IGW/Security Groups/NACL)',
+      'OKLABS Phase 46-48: Databases (RDS/DynamoDB), Load Balancing (ALB/NLB), Monitoring (CloudWatch/CloudTrail)',
+      'OKLABS Phase 49-51: Containers (ECS/ECR/EKS), Serverless (Lambda/API Gateway), Security (IAM/KMS/Secrets Manager)',
     ],
     wplan: [
       {
         w: 33,
         f: 'AWS Fundamentals + IAM',
-        t: 'Global infra, regions/AZs, shared responsibility. IAM users/groups/roles/policies/MFA/STS - your FPO uses IAM extensively',
+        t: 'Global infra, regions/AZs, shared responsibility. IAM users/groups/roles/policies/MFA/STS - directly used in FPO Cloud',
       },
       {
         w: 34,
         f: 'EC2 + EBS + S3',
-        t: 'EC2 instance types/launch/connect, EBS volume types/snapshots, S3 buckets/policies/versioning/lifecycle/encryption',
+        t: 'EC2 instance types, EBS volume types/snapshots, S3 buckets/policies/versioning/lifecycle/encryption',
       },
       {
         w: 35,
@@ -530,32 +535,33 @@ const PHASES = [
       {
         w: 36,
         f: 'Databases + Load Balancing',
-        t: 'RDS (PostgreSQL), DynamoDB (your FPO database!), ALB/NLB target groups, health checks, auto scaling groups',
+        t: 'RDS (PostgreSQL), DynamoDB (your FPO database!), ALB/NLB, target groups, health checks, Auto Scaling Groups',
       },
       {
         w: 37,
         f: 'Monitoring + Containers',
-        t: 'CloudWatch metrics/logs/alarms/dashboards, CloudTrail, ECS task definitions, ECR image registry, EKS cluster management',
+        t: 'CloudWatch metrics/logs/alarms/dashboards, CloudTrail, ECS task defs, ECR image registry, EKS cluster mgmt',
       },
       {
         w: 38,
         f: 'Serverless + Security',
-        t: 'Lambda functions (your FPO architecture!), API Gateway, Step Functions, Secrets Manager, KMS, IAM best practices',
+        t: 'Lambda functions (your FPO!), API Gateway, Step Functions, Secrets Manager, KMS encryption, IAM best practices',
       },
       {
         w: 39,
         f: 'AWS Projects Part 1',
-        t: 'Three-Tier Architecture (ALB + EC2 + RDS) + Highly Available Web Application with auto scaling - full deployment',
+        t: 'Three-Tier Architecture (ALB + EC2 + RDS) + Highly Available Web Application with auto scaling',
       },
       {
         w: 40,
         f: 'AWS Projects Part 2',
-        t: 'Kubernetes on AWS EKS + Serverless Application Deployment - relate everything to your FPO Cloud Lambda architecture',
+        t: 'Kubernetes on AWS EKS + Serverless Application Deployment - relate to FPO Cloud Lambda architecture',
       },
     ],
   },
   {
     id: 'p15',
+    block: 1,
     seq: 15,
     icon: '📊',
     color: '#0EA5E9',
@@ -563,33 +569,34 @@ const PHASES = [
     bg: '#F0F9FF',
     border: '#BAE6FD',
     name: 'DevOps Monitoring and Observability',
+    label: 'Block 1 · OKLABS',
     days: 14,
     ds: 281,
     de: 294,
-    period: 'Mar 23 - Apr 5, 2027',
+    period: 'Mar 25 - Apr 7, 2027',
     wks: 'W41-W42',
-    ms: 'Monitoring Done',
+    ms: 'Monitoring Done · D294',
     about:
-      '2 weeks. Prometheus metrics collection, Grafana dashboards, centralized logging, log aggregation. Alert rules and incident response. Projects: Complete Monitoring Stack + Infrastructure Observability Platform. Maps to Datadog you already use on FPO.',
+      '2 weeks. Prometheus metrics, Grafana dashboards, centralized logging, log aggregation, alert rules, incident response. Projects: Complete Monitoring Stack + Infrastructure Observability Platform. Maps to Datadog you use on FPO.',
     courses: [
-      'OKLABS Phase 52 - Monitoring: Prometheus (metrics/exporters/alertmanager), Grafana (dashboards/alerts)',
-      'OKLABS Phase 53-54 - Logging and Alerting: centralized logging (ELK/Loki), log aggregation, alert rules, incident response',
+      'OKLABS Phase 52-54: Monitoring (Prometheus/Grafana), Logging, Alerting',
     ],
     wplan: [
       {
         w: 41,
         f: 'Prometheus + Grafana',
-        t: 'Prometheus exporters, PromQL queries, alertmanager rules. Grafana dashboards for infra metrics - compare to Datadog you use on FPO',
+        t: 'Prometheus exporters, PromQL, alertmanager. Grafana dashboards for infra metrics - compare to Datadog on FPO',
       },
       {
         w: 42,
         f: 'Centralized Logging + Projects',
-        t: 'ELK stack or Grafana Loki for log aggregation, log parsing, alerting. Projects: Complete Monitoring Stack + Infrastructure Observability Platform',
+        t: 'ELK stack or Grafana Loki, log aggregation, alerting. Complete Monitoring Stack + Observability Platform projects',
       },
     ],
   },
   {
     id: 'p16',
+    block: 1,
     seq: 16,
     icon: '✅',
     color: '#16A34A',
@@ -597,33 +604,34 @@ const PHASES = [
     bg: '#F0FDF4',
     border: '#BBF7D0',
     name: 'SonarQube and QA',
+    label: 'Block 1 · OKLABS',
     days: 14,
     ds: 295,
     de: 308,
-    period: 'Apr 6 - Apr 19, 2027',
+    period: 'Apr 8 - Apr 21, 2027',
     wks: 'W43-W44',
-    ms: 'SonarQube Done',
+    ms: 'SonarQube Done · D308',
     about:
-      '2 weeks. Static code analysis, quality gates, technical debt measurement, code smells, bug and vulnerability detection. Jenkins + GitHub Actions integration. Projects: Enterprise SonarQube Deployment + Automated Quality Gate Pipeline.',
+      '2 weeks. Static code analysis, quality gates, technical debt, code smells, vulnerability detection. Jenkins + GitHub Actions integration, PR analysis, coverage reports. Projects: Enterprise SonarQube Deployment + Automated Quality Gate Pipeline.',
     courses: [
-      'OKLABS Phase 42 - SonarQube: static code analysis, quality gates, technical debt, vulnerability detection',
-      'SonarQube integrations: Jenkins pipeline integration, GitHub Actions PR analysis, coverage reports, security hotspots',
+      'OKLABS Phase 17 (QA): SonarQube fundamentals, administration, integrations, security analysis',
     ],
     wplan: [
       {
         w: 43,
         f: 'SonarQube Core + Administration',
-        t: 'Install/configure SonarQube, quality gates, code smells, technical debt, security hotspots, vulnerability detection, user management',
+        t: 'Install/configure SonarQube, quality gates, code smells, technical debt, security hotspots, vulnerability detection',
       },
       {
         w: 44,
         f: 'Integrations + Projects',
-        t: 'Jenkins integration, GitHub Actions PR analysis, branch analysis, coverage reports. Enterprise SonarQube Deployment + Quality Gate Pipeline projects',
+        t: 'Jenkins + GitHub Actions PR analysis, coverage reports. Enterprise SonarQube Deployment + Quality Gate Pipeline projects',
       },
     ],
   },
   {
     id: 'p17',
+    block: 1,
     seq: 17,
     icon: '🔒',
     color: '#E11D48',
@@ -631,34 +639,34 @@ const PHASES = [
     bg: '#FFF1F2',
     border: '#FECADA',
     name: 'DevSecOps and Security',
+    label: 'Block 1 · OKLABS',
     days: 14,
     ds: 309,
     de: 322,
-    period: 'Apr 20 - May 3, 2027',
+    period: 'Apr 22 - May 5, 2027',
     wks: 'W45-W46',
-    ms: 'DevSecOps Done',
+    ms: 'DevSecOps Done · D322',
     about:
-      '2 weeks. Security in SDLC, secure coding practices, threat modeling. Docker/K8s security, Trivy image scanning, OWASP dependency check. Secrets management with GitHub Secrets/Jenkins Credentials/AWS Secrets Manager. Projects: Secure CI/CD Pipeline + Container Security Automation.',
+      '2 weeks. Security in SDLC, secure coding, threat modeling, Docker/K8s security, Trivy image scanning, OWASP dependency check. Secrets management (GitHub/Jenkins/AWS Secrets Manager). Projects: Secure CI/CD Pipeline + Container Security Automation.',
     courses: [
-      'OKLABS Phase 43 - DevSecOps Fundamentals: security in SDLC, secure coding, threat modeling, shift-left security',
-      'Container security: Docker security best practices, K8s security policies, Trivy image scanning, OWASP dependency check',
-      'Secrets management: GitHub Secrets, Jenkins Credentials, AWS Secrets Manager, HashiCorp Vault basics',
+      'OKLABS Phase 18 (DevSecOps): DevSecOps fundamentals, container security, security scanning tools, secrets management',
     ],
     wplan: [
       {
         w: 45,
         f: 'DevSecOps Fundamentals + Tools',
-        t: 'Security in SDLC, threat modeling, Docker security, K8s RBAC/NetworkPolicies, Trivy image scanning, OWASP dependency check',
+        t: 'Security in SDLC, threat modeling, Docker security, K8s RBAC/NetworkPolicies, Trivy image scanning, OWASP',
       },
       {
         w: 46,
         f: 'Secrets Management + Projects',
-        t: 'GitHub Secrets, Jenkins Credentials, AWS Secrets Manager. Projects: Secure CI/CD Pipeline + Container Security Automation pipeline',
+        t: 'GitHub Secrets, Jenkins Credentials, AWS Secrets Manager. Secure CI/CD Pipeline + Container Security Automation projects',
       },
     ],
   },
   {
     id: 'p18',
+    block: 1,
     seq: 18,
     icon: '🏆',
     color: '#7C3AED',
@@ -666,86 +674,92 @@ const PHASES = [
     bg: '#F5F3FF',
     border: '#DDD6FE',
     name: 'Capstone Projects',
+    label: 'Block 1 · OKLABS',
     days: 28,
     ds: 323,
     de: 350,
-    period: 'May 4 - May 31, 2027',
+    period: 'May 6 - Jun 2, 2027',
     wks: 'W47-W50',
-    ms: 'Capstone Projects Done',
+    ms: 'Capstone Projects Done · D350',
     about:
-      '4 weeks. Enterprise-grade end-to-end projects integrating everything learned. Pipeline: GitHub Repo to Jenkins/GitHub Actions to SonarQube scan to Docker build to Trivy scan to ECR push to Terraform infra to EKS deployment to Smoke tests to Prometheus/Grafana monitoring.',
+      '4 weeks. Enterprise-grade end-to-end projects. Pipeline: GitHub to Jenkins/GitHub Actions to SonarQube to Docker build to Trivy scan to ECR push to Terraform infra to EKS deployment to Smoke tests to Prometheus/Grafana monitoring.',
     courses: [
       'Project 1: Terraform + GitHub Actions + Kubernetes End-to-End CI/CD Pipeline',
       'Project 2: Production EKS Cluster with Prometheus/Grafana Monitoring and Centralized Logging',
-      'Project 3: Multi-Environment Cloud Infrastructure Automation (dev/staging/prod with Terraform workspaces)',
-      'Project 4: Complete DevOps Platform Engineering Project - all tools integrated end-to-end',
+      'Project 3: Multi-Environment Cloud Infrastructure Automation (dev/staging/prod)',
+      'Project 4: Complete DevOps Platform Engineering Project - all tools integrated',
     ],
     wplan: [
       {
         w: 47,
         f: 'Project 1: E2E CI/CD Pipeline',
-        t: 'GitHub Repo to GitHub Actions/Jenkins to SonarQube to Docker build to Trivy scan to ECR to Terraform to EKS - full enterprise pipeline',
+        t: 'GitHub to GHA/Jenkins to SonarQube to Docker to Trivy to ECR to Terraform to EKS - full enterprise pipeline',
       },
       {
         w: 48,
         f: 'Project 2: Production EKS + Monitoring',
-        t: 'EKS cluster with Prometheus/Grafana monitoring, Loki logging, alertmanager, auto-scaling, rolling deployments',
+        t: 'EKS cluster, Prometheus/Grafana monitoring, Loki logging, alertmanager, auto-scaling, rolling deployments',
       },
       {
         w: 49,
         f: 'Project 3: Multi-Env Infrastructure',
-        t: 'Terraform workspaces for dev/staging/prod. Different VPCs, sizes, configs per environment. ArgoCD GitOps optional.',
+        t: 'Terraform workspaces for dev/staging/prod. Different VPCs, sizes, configs per environment.',
       },
       {
         w: 50,
         f: 'Project 4: Full DevOps Platform',
-        t: 'Complete platform: all tools (Jenkins/GHA/SonarQube/Docker/K8s/Terraform/AWS/Prometheus) integrated into one system',
+        t: 'Complete platform: Jenkins/GHA/SonarQube/Docker/K8s/Terraform/AWS/Prometheus all integrated end-to-end',
       },
     ],
   },
   {
     id: 'p19',
+    block: 1,
     seq: 19,
     icon: '🎯',
     color: '#374151',
     dark: '#111827',
     bg: '#F9FAFB',
     border: '#D1D5DB',
-    name: 'Revision and Interview Prep',
+    name: 'OKLABS Revision and Job Prep',
+    label: 'Block 1 · OKLABS · FINAL',
     days: 15,
     ds: 351,
     de: 365,
-    period: 'Jun 1 - Jun 15, 2027',
+    period: 'Jun 3 - Jun 17, 2027',
     wks: 'W51-W52',
-    ms: '365 Days of Code COMPLETE',
+    ms: 'OKLABS Year 1 COMPLETE · D365',
     about:
-      '2 weeks + 1 day. Revise all 18 OKLABS phases. Polish GitHub portfolio (README for every project). Update LinkedIn and resume for DevOps/Cloud/SRE/Platform Engineer roles. Mock interview practice. React Native final polish. Day 365 = June 15, 2027.',
+      '2 weeks + 1 day. Revise all 18 OKLABS phases. Polish GitHub portfolio (professional READMEs, architecture diagrams). Update LinkedIn and resume for DevOps/Cloud/SRE/Platform Engineer roles. Mock interview practice.',
     courses: [
-      'Full revision: Linux commands, Docker, K8s, CI/CD, Terraform, AWS services - revise weakest areas',
-      'GitHub portfolio polish: professional READMEs, architecture diagrams, demo GIFs for all projects',
-      'Interview prep: DevOps/Cloud/SRE interview Q&A, system design for infrastructure, salary research for Bangkok market',
+      'Full revision: Linux, Docker, K8s, CI/CD, Terraform, AWS - focus on weakest areas',
+      'GitHub portfolio polish: READMEs, architecture diagrams, demo GIFs for all projects',
+      'Interview Q&A: DevOps/Cloud/SRE/Platform Engineer roles - salary research for Bangkok market',
     ],
     wplan: [
       {
         w: 51,
         f: 'Full Revision + GitHub Portfolio',
-        t: 'Revise Linux, Docker, K8s, CI/CD, Terraform, AWS. Write professional READMEs for all projects. Architecture diagrams.',
+        t: 'Revise Linux, Docker, K8s, CI/CD, Terraform, AWS. Write professional READMEs. Architecture diagrams for all projects.',
       },
       {
         w: 52,
         f: 'Interview Q&A + Mock Interviews',
-        t: 'DevOps/Cloud/SRE interview questions, Linux/K8s/AWS deep dives, mock interview with peers or Pramp. Day 365 DONE.',
+        t: 'DevOps/Cloud/SRE interview Q&A, mock interviews. Day 365 = 1 year of OKLABS COMPLETE.',
       },
       {
         w: 53,
-        f: 'React Native Final Polish + Day 365',
-        t: 'React Native Chaicode final week - deploy app to TestFlight. June 15, 2027 = Day 365 = 1 Year of Code COMPLETE.',
+        f: 'Wrap up + Transition to Block 2',
+        t: 'Final day of Block 1. Polish everything, update CV, LinkedIn. Ready to start React Native dedicated study.',
       },
     ],
   },
-  ,
+
+  // ══ BLOCK 2: REACT NATIVE · 35 days ════════════════════════════════════════
+
   {
     id: 'p20',
+    block: 2,
     seq: 20,
     icon: '📱',
     color: '#7C3AED',
@@ -753,49 +767,54 @@ const PHASES = [
     bg: '#F5F3FF',
     border: '#DDD6FE',
     name: 'React Native (Chaicode)',
+    label: 'Block 2 · React Native',
     days: 35,
     ds: 366,
     de: 400,
-    period: 'Jun 16 - Jul 20, 2027',
+    period: 'Jun 18 - Jul 22, 2027',
     wks: 'W53-W57',
-    ms: 'React Native COMPLETE · Day 400',
+    ms: 'React Native COMPLETE · D400',
     about:
-      '6 weeks dedicated to React Native via Chaicode. Now that OKLABS is done you have full focus. Core components, navigation, device APIs, Redux Toolkit in RN, animations, EAS Build. Build and deploy FPO mobile flight app to TestFlight on your iPad.',
+      '5 weeks dedicated. Chaicode React Native course - full focus now that OKLABS is done. Core components, React Navigation v6, Redux Toolkit in RN, device APIs, animations, EAS Build. Build and deploy FPO mobile flight app to TestFlight on your iPad.',
     courses: [
-      'Chaicode - React Native Full Course (primary, free, Hindi + English)',
+      'Chaicode - React Native Full Course (primary - Hindi + English, free)',
       'Stephen Grider - The Complete React Native + Hooks Course 4.8 stars (38h) - supplementary reference',
-      'Expo documentation - EAS Build, TestFlight submission, Expo SDK modules',
+      'Expo documentation - EAS Build, TestFlight submission, Expo Go debugging',
     ],
     wplan: [
       {
         w: 53,
         f: 'Core Components + Styling',
-        t: 'View, Text, Image, TextInput, StyleSheet, Flexbox layout, FlatList, ScrollView, SectionList - Chaicode exercises on iPad via Expo Go',
+        t: 'View, Text, Image, TextInput, StyleSheet, Flexbox, FlatList, ScrollView, SectionList - exercises on iPad via Expo Go',
       },
       {
         w: 54,
-        f: 'Navigation',
-        t: 'React Navigation v6 - Stack Navigator, Tab Navigator, Drawer Navigator. Build FPO flight list app with multiple screens.',
+        f: 'React Navigation v6',
+        t: 'Stack Navigator, Tab Navigator (bottom/material top), Drawer Navigator. Build FPO flight list with multiple screens.',
       },
       {
         w: 55,
-        f: 'State + Async Storage',
-        t: 'Redux Toolkit in React Native, AsyncStorage for persistence, Context API, useReducer - offline state management',
+        f: 'State + AsyncStorage',
+        t: 'Redux Toolkit in React Native, AsyncStorage persistence, Context API, useReducer, offline state management',
       },
       {
         w: 56,
         f: 'Device APIs + Networking',
-        t: 'Camera, Location, Push Notifications, Expo SDK modules, fetch/axios for API calls, error handling, loading states',
+        t: 'Camera, Location, Push Notifications, Expo SDK modules, fetch/axios for FPO API calls, error handling',
       },
       {
         w: 57,
         f: 'Animations + Build + Deploy',
-        t: 'Reanimated 2, gestures, iOS vs Android differences. EAS Build, TestFlight submission. FPO mobile app final polish and portfolio demo.',
+        t: 'React Native Animated API, Reanimated 2, gesture handling. EAS Build config, TestFlight submission, FPO app portfolio demo.',
       },
     ],
   },
+
+  // ══ BLOCK 3: AGENTIC AI USING PYTHON · 40 days ═════════════════════════════
+
   {
     id: 'p21',
+    block: 3,
     seq: 21,
     icon: '🤖',
     color: '#6366F1',
@@ -803,18 +822,19 @@ const PHASES = [
     bg: '#EEF2FF',
     border: '#C7D2FE',
     name: 'Agentic AI using Python',
-    days: 42,
+    label: 'Block 3 · Agentic AI',
+    days: 40,
     ds: 401,
-    de: 442,
-    period: 'Jul 21 - Aug 31, 2027',
+    de: 440,
+    period: 'Jul 23 - Aug 31, 2027',
     wks: 'W58-W63',
-    ms: 'Agentic AI COMPLETE · Day 442',
+    ms: 'Agentic AI COMPLETE · D440',
     about:
-      '6 weeks · 3 courses. LangChain, LangGraph, multi-agent systems, RAG pipelines, Ed Donner 8 real projects. Your SCB Thailand LangChain/LangGraph background makes this a deep revision + extension. Python already solid from OKLABS. Build FPO AI assistant as capstone.',
+      '40 days, ~6 weeks. LangChain, LangGraph, multi-agent systems, RAG pipelines. Ed Donner 8 real projects. Your SCB Thailand LangChain/LangGraph experience means this is deep revision + extension. Python already solid from OKLABS. Capstone: FPO AI assistant deployed to Lambda.',
     courses: [
-      'Dr. Frank Kane - ChatGPT + Generative AI Masterclass 2026 (22h) · W58-W59',
-      'Ed Donner - Complete Agentic AI Engineering Course 2026 (30h) · W59-W61',
-      'Eden Marco - LangChain Develop LLM Powered Applications (22h) · W61-W63',
+      'Dr. Frank Kane - ChatGPT + Generative AI Masterclass 2026 (22h) - W58-W59',
+      'Ed Donner - Complete Agentic AI Engineering Course 2026 (30h) - W59-W61',
+      'Eden Marco - LangChain Develop LLM Powered Applications (22h) - W61-W63',
     ],
     wplan: [
       {
@@ -825,12 +845,12 @@ const PHASES = [
       {
         w: 59,
         f: 'LangChain Core',
-        t: 'Chains, agents, tools, memory, LCEL expression language, Pinecone integration - Eden Marco. Revisit your SCB Thailand patterns.',
+        t: 'Chains, agents, tools, memory, LCEL expression language, Pinecone integration. Revisit and extend your SCB LangChain work.',
       },
       {
         w: 60,
         f: 'LangGraph + Multi-Agent',
-        t: 'State machines, conditional edges, supervisor agents, multi-agent orchestration, parallel execution - Ed Donner deep dive',
+        t: 'State machines, conditional edges, supervisor agents, multi-agent orchestration, parallel execution - Ed Donner',
       },
       {
         w: 61,
@@ -839,13 +859,199 @@ const PHASES = [
       },
       {
         w: 62,
-        f: 'Ed Donner Projects 2',
-        t: 'Browser Agent, MCP (Model Context Protocol) integration, production deployment patterns, cost management',
+        f: 'Ed Donner Projects 2 + MCP',
+        t: 'Browser Agent, Model Context Protocol (MCP) integration, production deployment, cost and rate management',
       },
       {
         w: 63,
         f: 'FPO AI Capstone',
         t: 'Build FPO AI Assistant: natural language query over flight data using LangChain + DynamoDB + Lambda. Deploy and demo.',
+      },
+    ],
+  },
+
+  // ══ BLOCK 4: INTERVIEW PREPARATION · 100 days ══════════════════════════════
+
+  {
+    id: 'p22',
+    block: 4,
+    seq: 22,
+    icon: '⚛',
+    color: '#0EA5E9',
+    dark: '#0369A1',
+    bg: '#F0F9FF',
+    border: '#BAE6FD',
+    name: 'React and React Native Interview Prep',
+    label: 'Block 4 · Interview Prep',
+    days: 20,
+    ds: 441,
+    de: 460,
+    period: 'Sep 1 - Sep 20, 2027',
+    wks: 'W64-W66',
+    ms: 'React / React Native Interview Ready · D460',
+    about:
+      '20 days. Deep dive interview preparation for React and React Native. 200+ Q&A, coding challenges, common patterns, performance optimization questions. Cover hooks, reconciliation, virtual DOM, navigation patterns, Redux, performance, testing.',
+    courses: [
+      'Hindi Instructor - React Interview Masterclass 200 Q (11h)',
+      'LeetCode / Frontend Interview Handbook - React-specific coding patterns',
+      'React Native specific: navigation, performance, platform differences, EAS Build pipeline questions',
+    ],
+    wplan: [
+      {
+        w: 64,
+        f: 'React Core Interview Q&A',
+        t: 'JSX, virtual DOM, reconciliation, component lifecycle, hooks (useState/useEffect/useMemo/useCallback), custom hooks, 100 Q&A',
+      },
+      {
+        w: 65,
+        f: 'React Advanced + Redux Q&A',
+        t: 'React Router, Context API, Redux Toolkit, RTK Query, code splitting, lazy loading, Suspense, testing with Jest/RTL',
+      },
+      {
+        w: 66,
+        f: 'React Native Interview Q&A',
+        t: 'RN architecture, bridge vs JSI, navigation patterns, device APIs, EAS Build, performance (FlatList, memo, PureComponent)',
+      },
+    ],
+  },
+  {
+    id: 'p23',
+    block: 4,
+    seq: 23,
+    icon: '🏗',
+    color: '#B45309',
+    dark: '#92400E',
+    bg: '#FFFBEB',
+    border: '#FDE68A',
+    name: 'System Design Interview Prep',
+    label: 'Block 4 · Interview Prep',
+    days: 25,
+    ds: 461,
+    de: 485,
+    period: 'Sep 21 - Oct 15, 2027',
+    wks: 'W66-W69',
+    ms: 'System Design Interview Ready · D485',
+    about:
+      '25 days. System design interview mastery. Frank Kane 5-step template. Design 1 system per day spoken aloud, no notes, 45 minutes. Your FPO multi-tenant SaaS + Kafka + Lambda production experience is a massive advantage - use it.',
+    courses: [
+      'Frank Kane ex-Amazon - Mastering the System Design Interview (5h) - template and framework',
+      'Mikhail Smarshchok - System Design Interview Guide 20+ designs (18h) - classic designs',
+      'Bogdan Stashchuk - Pragmatic System Design real trade-offs (12h) - WHY decisions were made',
+    ],
+    wplan: [
+      {
+        w: 66,
+        f: 'SD Framework + Classic Designs 1',
+        t: 'Frank Kane 5-step template. URL Shortener, WhatsApp, Twitter - Requirements to HLD to DB to API spoken 45 min',
+      },
+      {
+        w: 67,
+        f: 'Classic Designs 2',
+        t: 'Netflix, Uber, Notification System, Rate Limiter, Distributed Cache - Mikhail Smarshchok 20+ designs',
+      },
+      {
+        w: 68,
+        f: 'Advanced Designs + Trade-offs',
+        t: 'Payment System, News Feed, Ride Sharing - Bogdan Stashchuk production trade-offs. FPO Flight Optimiser (your system!)',
+      },
+      {
+        w: 69,
+        f: 'Mock System Designs',
+        t: '10 cold designs spoken aloud - no notes - 45 min each. Focus on weakest systems. Architecture Decision Records.',
+      },
+    ],
+  },
+  {
+    id: 'p24',
+    block: 4,
+    seq: 24,
+    icon: '🌱',
+    color: '#16A34A',
+    dark: '#15803D',
+    bg: '#F0FDF4',
+    border: '#BBF7D0',
+    name: 'Java Spring Boot Interview Prep',
+    label: 'Block 4 · Interview Prep',
+    days: 30,
+    ds: 486,
+    de: 515,
+    period: 'Oct 16 - Nov 14, 2027',
+    wks: 'W70-W73',
+    ms: 'Java Spring Boot Interview Ready · D515',
+    about:
+      '30 days. Java 8+ features, Spring Boot architecture, JPA/Hibernate, Spring Security, REST API design, microservices patterns. Your C# .NET background makes Java concepts familiar. Maps directly to FPO Cloud backend patterns.',
+    courses: [
+      'Navin Reddy Telusko - Java 8 New Features for fast-track (lambdas/streams/Optional)',
+      'Ranga Karanam - Spring Boot with IntelliJ Real-World Project (interview-focused chapters)',
+      'Java Spring Boot interview Q&A resources - 200 most common questions',
+    ],
+    wplan: [
+      {
+        w: 70,
+        f: 'Java 8 + OOP Foundations',
+        t: 'Lambdas, Streams, Optional, CompletableFuture. OOP (solid concepts from C# background). Collections, generics, exceptions.',
+      },
+      {
+        w: 71,
+        f: 'Spring Boot Core + REST',
+        t: 'Auto-configuration, Actuator, @RestController, @Service, @Repository, ResponseEntity, @ExceptionHandler, OpenAPI docs',
+      },
+      {
+        w: 72,
+        f: 'JPA + Spring Security + OAuth2',
+        t: '@Entity, JpaRepository, JPQL, N+1 problem, @Transactional. SecurityFilterChain, JWT, OAuth2 - same as your FPO Cognito',
+      },
+      {
+        w: 73,
+        f: 'Spring Boot 200 Q&A + Mock',
+        t: '200 Spring Boot interview Q&A, build REST API + JWT + JPA from scratch cold, mock interview practice',
+      },
+    ],
+  },
+  {
+    id: 'p25',
+    block: 4,
+    seq: 25,
+    icon: '⚙',
+    color: '#DC2626',
+    dark: '#B91C1C',
+    bg: '#FEF2F2',
+    border: '#FECACA',
+    name: 'DevOps and Cloud Interview Prep',
+    label: 'Block 4 · Interview Prep · FINAL',
+    days: 25,
+    ds: 516,
+    de: 540,
+    period: 'Nov 15 - Dec 9, 2027',
+    wks: 'W74-W77',
+    ms: '540 Days of Code COMPLETE · Dec 9, 2027',
+    about:
+      '25 days. Final block. DevOps, Kubernetes, AWS, CI/CD, Terraform, Docker interview Q&A. Scenario-based questions. Your OKLABS capstone projects + FPO Cloud production experience = very strong candidate. Final mock interviews. Day 540 = Dec 9, 2027.',
+    courses: [
+      'DevOps/K8s/Docker/AWS interview Q&A - CKA-style K8s questions (leverage your CKA certification)',
+      'Terraform/CI/CD/GitHub Actions scenario-based interview questions',
+      'Mock interviews: Pramp, Interviewing.io, peers - aim for 5+ full mock DevOps interviews',
+    ],
+    wplan: [
+      {
+        w: 74,
+        f: 'Docker + K8s Deep Q&A',
+        t: 'Container architecture, Dockerfile best practices, K8s networking/RBAC/storage deep dives - CKA-level questions',
+      },
+      {
+        w: 75,
+        f: 'AWS + Terraform Interview Q&A',
+        t: 'AWS architecture scenarios, IAM/VPC/Lambda/EKS deep dives, Terraform state management, multi-env patterns',
+      },
+      {
+        w: 76,
+        f: 'CI/CD + DevSecOps Q&A',
+        t: 'Jenkins pipelines, GitHub Actions workflows, SonarQube quality gates, DevSecOps scenarios, Trivy, OWASP',
+      },
+      {
+        w: 77,
+        f: 'Final Mock Interviews + Day 540',
+        t: '5 full mock DevOps/Cloud/SRE interviews. Resume final polish. Day 540 = Dec 9, 2027 = 540 DAYS OF CODE COMPLETE.',
       },
     ],
   },
@@ -856,141 +1062,169 @@ const MILESTONES = [
     day: 14,
     icon: '📡',
     label: 'Computer Fundamentals',
-    date: 'Jun 29, 2026',
+    date: 'Jul 1, 2026',
     color: '#6366F1',
   },
   {
     day: 35,
     icon: '🐧',
-    label: 'Linux Complete',
-    date: 'Jul 20, 2026',
+    label: 'Linux Done',
+    date: 'Jul 22, 2026',
     color: '#EA580C',
-  },
-  {
-    day: 49,
-    icon: '💻',
-    label: 'Bash Scripting',
-    date: 'Aug 3, 2026',
-    color: '#374151',
   },
   {
     day: 70,
     icon: '🐍',
     label: 'Python for DevOps',
-    date: 'Aug 24, 2026',
+    date: 'Aug 26, 2026',
     color: '#16A34A',
-  },
-  {
-    day: 77,
-    icon: '🔀',
-    label: 'Git and GitHub',
-    date: 'Aug 31, 2026',
-    color: '#F59E0B',
   },
   {
     day: 105,
     icon: '⚛',
     label: 'Frontend React',
-    date: 'Sep 28, 2026',
+    date: 'Sep 30, 2026',
     color: '#0EA5E9',
-  },
-  {
-    day: 126,
-    icon: '🚀',
-    label: 'Backend Python',
-    date: 'Oct 19, 2026',
-    color: '#7C3AED',
   },
   {
     day: 140,
     icon: '📋',
-    label: 'Jira and APIs',
-    date: 'Nov 2, 2026',
+    label: 'Backend + Jira + APIs',
+    date: 'Nov 4, 2026',
     color: '#059669',
   },
   {
     day: 161,
     icon: '🐳',
-    label: 'Docker Complete',
-    date: 'Nov 23, 2026',
+    label: 'Docker Done',
+    date: 'Nov 25, 2026',
     color: '#0369A1',
   },
   {
     day: 189,
     icon: '☸',
-    label: 'Kubernetes Complete',
-    date: 'Dec 21, 2026',
+    label: 'Kubernetes Done',
+    date: 'Dec 23, 2026',
     color: '#4338CA',
   },
   {
     day: 210,
     icon: '⚙',
-    label: 'CI/CD Complete',
-    date: 'Jan 11, 2027',
+    label: 'CI/CD Done',
+    date: 'Jan 13, 2027',
     color: '#DC2626',
   },
   {
     day: 224,
     icon: '🏗',
-    label: 'Terraform Complete',
-    date: 'Jan 25, 2027',
+    label: 'Terraform Done',
+    date: 'Jan 27, 2027',
     color: '#B45309',
   },
   {
     day: 280,
     icon: '☁',
-    label: 'AWS Complete',
-    date: 'Mar 22, 2027',
+    label: 'AWS Done',
+    date: 'Mar 24, 2027',
     color: '#D97706',
-  },
-  {
-    day: 294,
-    icon: '📊',
-    label: 'Monitoring Complete',
-    date: 'Apr 5, 2027',
-    color: '#0EA5E9',
-  },
-  {
-    day: 308,
-    icon: '✅',
-    label: 'SonarQube Complete',
-    date: 'Apr 19, 2027',
-    color: '#16A34A',
   },
   {
     day: 322,
     icon: '🔒',
-    label: 'DevSecOps Complete',
-    date: 'May 3, 2027',
+    label: 'DevSecOps Done',
+    date: 'May 5, 2027',
     color: '#E11D48',
   },
   {
     day: 350,
     icon: '🏆',
-    label: 'Capstone Projects',
-    date: 'May 31, 2027',
+    label: 'Capstone Projects Done',
+    date: 'Jun 2, 2027',
     color: '#7C3AED',
   },
   {
     day: 365,
     icon: '🎯',
-    label: 'OKLABS Year DONE',
-    date: 'Jun 15, 2027',
+    label: 'OKLABS Year 1 DONE',
+    date: 'Jun 17, 2027',
     color: '#374151',
   },
   {
     day: 400,
     icon: '📱',
     label: 'React Native DONE',
-    date: 'Jul 20, 2027',
+    date: 'Jul 22, 2027',
     color: '#7C3AED',
   },
   {
-    day: 442,
+    day: 440,
     icon: '🤖',
     label: 'Agentic AI DONE',
     date: 'Aug 31, 2027',
     color: '#6366F1',
+  },
+  {
+    day: 460,
+    icon: '⚛',
+    label: 'React / RN Interview',
+    date: 'Sep 20, 2027',
+    color: '#0EA5E9',
+  },
+  {
+    day: 485,
+    icon: '🏗',
+    label: 'System Design Interview',
+    date: 'Oct 15, 2027',
+    color: '#B45309',
+  },
+  {
+    day: 515,
+    icon: '🌱',
+    label: 'Spring Boot Interview',
+    date: 'Nov 14, 2027',
+    color: '#16A34A',
+  },
+  {
+    day: 540,
+    icon: '🏆',
+    label: '540 Days COMPLETE',
+    date: 'Dec 9, 2027',
+    color: '#DC2626',
+  },
+];
+
+const BLOCK_META = [
+  {
+    n: 1,
+    icon: '🎓',
+    title: 'OKLABS Batch',
+    sub: 'D1-D365 · Jun 18 2026 to Jun 17 2027 · 19 phases',
+    col: '#6366F1',
+    days: 365,
+  },
+  {
+    n: 2,
+    icon: '📱',
+    title: 'React Native',
+    sub: 'D366-D400 · Jun 18 to Jul 22 2027 · 5 weeks',
+    col: '#7C3AED',
+    days: 35,
+  },
+  {
+    n: 3,
+    icon: '🤖',
+    title: 'Agentic AI Python',
+    sub: 'D401-D440 · Jul 23 to Aug 31 2027 · 6 weeks',
+    col: '#6366F1',
+    days: 40,
+  },
+  {
+    n: 4,
+    icon: '🎤',
+    title: 'Interview Prep',
+    sub: 'D441-D540 · Sep 1 to Dec 9 2027 · React/SD/Java/DevOps',
+    col: '#DC2626',
+    days: 100,
   },
 ];
 
@@ -1008,6 +1242,9 @@ function pct() {
 
 function Card({ p, open, onToggle, isCurrent, isDone }) {
   const [wkOpen, setWkOpen] = useState(false);
+  const bcolors = { 1: '#4338CA', 2: '#6D28D9', 3: '#4338CA', 4: '#B91C1C' };
+  const bBg = { 1: '#EEF2FF', 2: '#F5F3FF', 3: '#EEF2FF', 4: '#FEF2F2' };
+  const bBorder = { 1: '#C7D2FE', 2: '#DDD6FE', 3: '#C7D2FE', 4: '#FECACA' };
   return (
     <div
       id={'ph-' + p.id}
@@ -1054,7 +1291,6 @@ function Card({ p, open, onToggle, isCurrent, isDone }) {
             height: 44,
             borderRadius: 10,
             flexShrink: 0,
-            transition: 'all 0.22s',
             background: open
               ? 'linear-gradient(135deg,' + p.color + ',' + p.dark + ')'
               : isDone
@@ -1082,7 +1318,6 @@ function Card({ p, open, onToggle, isCurrent, isDone }) {
             {'#' + p.seq}
           </span>
         </div>
-
         <div style={{ flex: 1, minWidth: 0 }}>
           <div
             style={{
@@ -1131,12 +1366,12 @@ function Card({ p, open, onToggle, isCurrent, isDone }) {
                 padding: '1px 6px',
                 borderRadius: 12,
                 whiteSpace: 'nowrap',
-                background: '#EEF2FF',
-                color: '#4338CA',
-                border: '1px solid #C7D2FE',
+                background: bBg[p.block],
+                color: bcolors[p.block],
+                border: '1px solid ' + bBorder[p.block],
               }}
             >
-              {'OKLABS'}
+              {p.label}
             </span>
             <span
               style={{
@@ -1155,7 +1390,6 @@ function Card({ p, open, onToggle, isCurrent, isDone }) {
             {'🏆 ' + p.ms}
           </div>
         </div>
-
         <div style={{ textAlign: 'right', flexShrink: 0 }}>
           <div
             style={{
@@ -1173,7 +1407,6 @@ function Card({ p, open, onToggle, isCurrent, isDone }) {
           </div>
           <div style={{ fontSize: 8, color: '#94A3B8' }}>{p.wks}</div>
         </div>
-
         <span
           style={{
             color: p.color,
@@ -1187,7 +1420,6 @@ function Card({ p, open, onToggle, isCurrent, isDone }) {
           {'›'}
         </span>
       </button>
-
       {open && (
         <div
           style={{
@@ -1209,7 +1441,6 @@ function Card({ p, open, onToggle, isCurrent, isDone }) {
           >
             {p.about}
           </div>
-
           <div
             style={{
               background: '#F8FAFC',
@@ -1254,7 +1485,6 @@ function Card({ p, open, onToggle, isCurrent, isDone }) {
               </div>
             ))}
           </div>
-
           <button
             onClick={(e) => {
               e.stopPropagation();
@@ -1283,7 +1513,6 @@ function Card({ p, open, onToggle, isCurrent, isDone }) {
               {wkOpen ? '▲' : '▼'}
             </span>
           </button>
-
           {wkOpen && (
             <div style={{ display: 'flex', flexDirection: 'column', gap: 5 }}>
               {p.wplan.map((wk) => (
@@ -1365,13 +1594,11 @@ function Card({ p, open, onToggle, isCurrent, isDone }) {
 export default function App() {
   const [openId, setOpenId] = useState(null);
   const [showMs, setShowMs] = useState(true);
-
-  const d = daysIn();
-  const cid = curId();
-  const prog = pct();
+  const d = daysIn(),
+    cid = curId(),
+    prog = pct();
   const msDone = MILESTONES.filter((m) => m.day <= d + 1).length;
   const nextMs = MILESTONES.find((m) => m.day > d + 1);
-
   const toggle = (id) => setOpenId(openId === id ? null : id);
   const jump = (id) => {
     setOpenId(id);
@@ -1413,7 +1640,6 @@ export default function App() {
             backgroundSize: '22px 22px',
           }}
         />
-
         <div
           style={{
             maxWidth: 680,
@@ -1467,7 +1693,7 @@ export default function App() {
                   lineHeight: 1.1,
                 }}
               >
-                {'442 Days of Code'}
+                {'540 Days of Code'}
               </div>
               <div
                 style={{
@@ -1477,7 +1703,7 @@ export default function App() {
                 }}
               >
                 {
-                  'Tue Jun 16, 2026  →  Tue Aug 31, 2027 · 442 days · 5:30 AM to 8:30 AM daily'
+                  'Thu Jun 18, 2026 to Thu Dec 9, 2027 · 540 days · 5:30 AM to 8:30 AM daily'
                 }
               </div>
             </div>
@@ -1486,61 +1712,61 @@ export default function App() {
           <div
             style={{
               display: 'grid',
-              gridTemplateColumns: '1fr 1fr',
+              gridTemplateColumns: 'repeat(2,1fr)',
               gap: 6,
               marginBottom: 12,
             }}
           >
-            {[
-              {
-                icon: '🎓',
-                label: 'OKLABS Batch',
-                desc: '19 phases: Linux, Python, Git, React, Flask, Docker, K8s, CI/CD, Terraform, AWS, DevSecOps, Capstone Projects',
-                col: '#6366F1',
-              },
-              {
-                icon: '📱',
-                label: 'React Native (Chaicode)',
-                desc: 'D366-D400 · 5 weeks dedicated after OKLABS. Core components, Navigation, Redux, Device APIs, EAS Build, TestFlight.',
-                col: '#7C3AED',
-              },
-              {
-                icon: '🤖',
-                label: 'Agentic AI using Python',
-                desc: 'D401-D442 · 6 weeks. LangChain, LangGraph, Ed Donner 8 projects. Build FPO AI assistant. Opens GenAI Engineer roles.',
-                col: '#6366F1',
-              },
-            ].map(({ icon, label, desc, col }) => (
+            {BLOCK_META.map((b) => (
               <div
-                key={label}
+                key={b.n}
                 style={{
                   background: 'rgba(255,255,255,0.12)',
                   borderRadius: 9,
                   padding: '9px 11px',
-                  border: '1px solid ' + col + '70',
+                  border: '1px solid ' + b.col + '70',
                 }}
               >
                 <div
                   style={{
                     display: 'flex',
                     alignItems: 'center',
-                    gap: 6,
-                    marginBottom: 4,
+                    gap: 5,
+                    marginBottom: 3,
                   }}
                 >
-                  <span style={{ fontSize: 16 }}>{icon}</span>
-                  <span style={{ fontSize: 10, fontWeight: 800, color: col }}>
-                    {label}
+                  <span style={{ fontSize: 13 }}>{b.icon}</span>
+                  <span style={{ fontSize: 8, fontWeight: 800, color: b.col }}>
+                    {'Block ' + b.n}
                   </span>
+                  <span
+                    style={{
+                      fontSize: 8,
+                      color: 'rgba(255,255,255,0.4)',
+                      marginLeft: 'auto',
+                    }}
+                  >
+                    {b.days + 'd'}
+                  </span>
+                </div>
+                <div
+                  style={{
+                    fontSize: 'clamp(10px,3vw,12px)',
+                    fontWeight: 800,
+                    color: '#fff',
+                    marginBottom: 2,
+                  }}
+                >
+                  {b.title}
                 </div>
                 <div
                   style={{
                     fontSize: 8,
                     color: 'rgba(255,255,255,0.5)',
-                    lineHeight: 1.55,
+                    lineHeight: 1.5,
                   }}
                 >
-                  {desc}
+                  {b.sub}
                 </div>
               </div>
             ))}
@@ -1551,21 +1777,23 @@ export default function App() {
               background: 'rgba(245,158,11,0.18)',
               border: '1px solid rgba(245,158,11,0.4)',
               borderRadius: 8,
-              padding: '8px 11px',
-              marginBottom: 12,
+              padding: '7px 11px',
+              marginBottom: 10,
               display: 'flex',
               gap: 8,
               alignItems: 'center',
             }}
           >
-            <span style={{ fontSize: 16, flexShrink: 0 }}>{'⏰'}</span>
+            <span style={{ fontSize: 15, flexShrink: 0 }}>{'⏰'}</span>
             <div>
               <div style={{ fontSize: 10, fontWeight: 800, color: '#FDE68A' }}>
-                {'5:30 AM – 8:30 AM daily · MANDATORY · Weekends: Maximum Time'}
-              </div>
-              <div style={{ fontSize: 9, color: 'rgba(255,255,255,0.55)' }}>
                 {
-                  'OKLABS batch runs in the day · React Native Chaicode runs at 5:30-8:30 AM · FPO Cloud work alongside'
+                  '5:30 AM to 8:30 AM daily · MANDATORY · Weekends: Maximum Time'
+                }
+              </div>
+              <div style={{ fontSize: 8, color: 'rgba(255,255,255,0.5)' }}>
+                {
+                  'OKLABS batch runs in the day · React Native (Chaicode) runs at 5:30-8:30 AM during Block 1 · FPO Cloud work alongside'
                 }
               </div>
             </div>
@@ -1611,13 +1839,13 @@ export default function App() {
                 color: 'rgba(255,255,255,0.45)',
               }}
             >
-              <span>{'Jun 16, 2026'}</span>
+              <span>{'Jun 18, 2026'}</span>
               <span
                 style={{ color: 'rgba(255,255,255,0.75)', fontWeight: 700 }}
               >
-                {prog + '% · Day ' + Math.min(d + 1, 442) + ' of 442'}
+                {prog + '% · Day ' + Math.min(d + 1, 540) + ' of 540'}
               </span>
-              <span>{'Aug 31, 2027'}</span>
+              <span>{'Dec 9, 2027'}</span>
             </div>
           </div>
 
@@ -1661,27 +1889,26 @@ export default function App() {
               {'›'}
             </span>
           </button>
-
           {showMs && (
             <div
               style={{
                 display: 'grid',
-                gridTemplateColumns: 'repeat(auto-fill,minmax(155px,1fr))',
+                gridTemplateColumns: 'repeat(auto-fill,minmax(150px,1fr))',
                 gap: 4,
               }}
             >
               {MILESTONES.map((m, i) => {
-                const done = m.day <= d + 1;
-                const isNext = nextMs && nextMs.day === m.day;
+                const done = m.day <= d + 1,
+                  isNext = nextMs && nextMs.day === m.day;
                 return (
                   <div
                     key={i}
                     style={{
                       display: 'flex',
                       alignItems: 'center',
-                      gap: 6,
+                      gap: 5,
                       borderRadius: 7,
-                      padding: '6px 8px',
+                      padding: '5px 8px',
                       background: isNext
                         ? 'rgba(245,158,11,0.25)'
                         : done
@@ -1696,7 +1923,7 @@ export default function App() {
                             : 'rgba(255,255,255,0.1)'),
                     }}
                   >
-                    <span style={{ fontSize: 13, flexShrink: 0 }}>
+                    <span style={{ fontSize: 12, flexShrink: 0 }}>
                       {done ? '✅' : isNext ? '🎯' : m.icon}
                     </span>
                     <div style={{ flex: 1, minWidth: 0 }}>
@@ -1717,7 +1944,7 @@ export default function App() {
                         {m.label}
                       </div>
                       <div
-                        style={{ fontSize: 7, color: 'rgba(255,255,255,0.38)' }}
+                        style={{ fontSize: 7, color: 'rgba(255,255,255,0.35)' }}
                       >
                         {'D' + m.day + ' · ' + m.date}
                       </div>
@@ -1727,7 +1954,7 @@ export default function App() {
                         fontSize: 7,
                         fontWeight: 800,
                         padding: '1px 4px',
-                        borderRadius: 6,
+                        borderRadius: 5,
                         flexShrink: 0,
                         background: done
                           ? m.color + '28'
@@ -1754,60 +1981,73 @@ export default function App() {
       <div
         style={{ maxWidth: 680, margin: '0 auto', padding: '12px 10px 40px' }}
       >
-        <div
-          style={{
-            display: 'flex',
-            alignItems: 'center',
-            gap: 8,
-            marginBottom: 10,
-            marginTop: 4,
-          }}
-        >
-          <div
-            style={{
-              height: 2,
-              flex: 1,
-              background: 'linear-gradient(90deg,#6366F1,#6366F110)',
-            }}
-          />
-          <div style={{ textAlign: 'center', flexShrink: 0, padding: '0 6px' }}>
-            <div
-              style={{
-                fontSize: 'clamp(9px,2.5vw,11px)',
-                fontWeight: 800,
-                color: '#6366F1',
-                letterSpacing: '0.08em',
-              }}
-            >
-              {'🎓 OKLABS + REACT NATIVE + AGENTIC AI — 21 PHASES'}
+        {[1, 2, 3, 4].map((bn) => {
+          const bm = BLOCK_META[bn - 1];
+          const bPhases = PHASES.filter((p) => p.block === bn);
+          return (
+            <div key={bn}>
+              <div
+                style={{
+                  display: 'flex',
+                  alignItems: 'center',
+                  gap: 8,
+                  marginBottom: 8,
+                  marginTop: bn === 1 ? 4 : 18,
+                }}
+              >
+                <div
+                  style={{
+                    height: 2,
+                    flex: 1,
+                    background:
+                      'linear-gradient(90deg,' + bm.col + ',' + bm.col + '10)',
+                  }}
+                />
+                <div
+                  style={{
+                    textAlign: 'center',
+                    flexShrink: 0,
+                    padding: '0 6px',
+                  }}
+                >
+                  <div
+                    style={{
+                      fontSize: 'clamp(9px,2.5vw,11px)',
+                      fontWeight: 800,
+                      color: bm.col,
+                      letterSpacing: '0.08em',
+                    }}
+                  >
+                    {bm.icon + ' BLOCK ' + bn + ' — ' + bm.title.toUpperCase()}
+                  </div>
+                  <div style={{ fontSize: 8, color: '#94A3B8', marginTop: 1 }}>
+                    {bm.sub}
+                  </div>
+                </div>
+                <div
+                  style={{
+                    height: 2,
+                    flex: 1,
+                    background:
+                      'linear-gradient(90deg,' + bm.col + '10,' + bm.col + ')',
+                  }}
+                />
+              </div>
+              <div style={{ display: 'flex', flexDirection: 'column', gap: 7 }}>
+                {bPhases.map((p) => (
+                  <Card
+                    key={p.id}
+                    p={p}
+                    open={openId === p.id}
+                    onToggle={() => toggle(p.id)}
+                    isCurrent={cid === p.id}
+                    isDone={d + 1 > p.de}
+                  />
+                ))}
+              </div>
             </div>
-            <div style={{ fontSize: 8, color: '#94A3B8', marginTop: 1 }}>
-              {
-                'D1-D365: OKLABS · D366-D400: React Native · D401-D442: Agentic AI · Ends Aug 31, 2027'
-              }
-            </div>
-          </div>
-          <div
-            style={{
-              height: 2,
-              flex: 1,
-              background: 'linear-gradient(90deg,#6366F110,#6366F1)',
-            }}
-          />
-        </div>
-
-        <div style={{ display: 'flex', flexDirection: 'column', gap: 7 }}>
-          {PHASES.map((p) => (
-            <Card
-              key={p.id}
-              p={p}
-              open={openId === p.id}
-              onToggle={() => toggle(p.id)}
-              isCurrent={cid === p.id}
-              isDone={d + 1 > p.de}
-            />
-          ))}
-        </div>
+          );
+        })}
 
         <div
           style={{
@@ -1827,7 +2067,7 @@ export default function App() {
               marginBottom: 3,
             }}
           >
-            {'🏆 442 Days of Code · Jun 16, 2026 to Aug 31, 2027'}
+            {'🏆 540 Days of Code · Jun 18, 2026 to Dec 9, 2027'}
           </div>
           <div
             style={{
@@ -1837,7 +2077,7 @@ export default function App() {
             }}
           >
             {
-              'OKLABS (19 phases) + React Native (Chaicode) + Agentic AI (Python) · 5:30–8:30 AM mandatory'
+              'Block 1: OKLABS 365d · Block 2: React Native 35d · Block 3: Agentic AI 40d · Block 4: Interview Prep 100d'
             }
           </div>
           <div
@@ -1855,16 +2095,16 @@ export default function App() {
               >
                 <span
                   style={{
-                    fontSize: 8,
+                    fontSize: 7,
                     color: m.color,
                     fontWeight: 700,
-                    opacity: m.day <= d + 1 ? 1 : 0.38,
+                    opacity: m.day <= d + 1 ? 1 : 0.4,
                   }}
                 >
                   {m.icon + ' ' + m.label.split(' ')[0]}
                 </span>
                 {i < a.length - 1 && (
-                  <span style={{ color: 'rgba(255,255,255,0.2)', fontSize: 8 }}>
+                  <span style={{ color: 'rgba(255,255,255,0.2)', fontSize: 7 }}>
                     {'·'}
                   </span>
                 )}
