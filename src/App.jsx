@@ -1,13 +1,13 @@
 import { useState } from 'react';
 
 // 18 Months of Code — AWS Centric
-// Thu Jun 18, 2026 to Fri Dec 17, 2027 — 548 days
+// Mon Jun 15, 2026 to Tue Dec 14, 2027 — 548 days
 // 5:30 AM to 8:30 AM daily mandatory
 // AWS = Months 1-3 (PRIORITY per Karsten)
 // React Native = Month 4 (FPO frontend)
 // Then 14 more skills M05-M18
 
-const START = new Date('2026-06-18');
+const START = new Date('2026-06-15');
 const TOTAL = 548;
 
 const PHASES = [
@@ -26,7 +26,7 @@ const PHASES = [
     days: 30,
     ds: 1,
     de: 30,
-    period: 'Jun 18 - Jul 17, 2026',
+    period: 'Jun 15 - Jul 14, 2026',
     ms: 'AWS Core Services Done · D30',
     about:
       '30 days. AWS foundations with Educative + Udemy. IAM (users/roles/policies/STS), EC2 (instance types/AMI/EBS/auto scaling), S3 (buckets/policies/versioning/lifecycle/encryption), VPC (subnets/route tables/NAT/IGW/Security Groups/NACL), RDS (PostgreSQL/MySQL), DynamoDB (YOUR FPO database — tables/GSI/LSI/streams), CloudWatch, CloudTrail. Everything maps to your FPO production architecture.',
@@ -73,7 +73,7 @@ const PHASES = [
     days: 31,
     ds: 31,
     de: 61,
-    period: 'Jul 18 - Aug 17, 2026',
+    period: 'Jul 15 - Aug 14, 2026',
     ms: 'AWS DevOps + Serverless Done · D61',
     about:
       '31 days. Lambda (your FPO architecture!), Step Functions (your FPO workflows!), API Gateway, SQS/SNS/EventBridge (your FPO events!), ECS Fargate, ECR, EKS basics, CodePipeline/CodeBuild/CodeDeploy, GitHub Actions to AWS, Terraform CDK (TypeScript — your FPO stack!). This is your daily work — go deep.',
@@ -120,7 +120,7 @@ const PHASES = [
     days: 31,
     ds: 62,
     de: 92,
-    period: 'Aug 18 - Sep 17, 2026',
+    period: 'Aug 15 - Sep 14, 2026',
     ms: 'AWS Advanced + SAA Ready · D92',
     about:
       '31 days. Advanced AWS — Route 53, CloudFront, ElastiCache, Cognito (your FPO auth!), Secrets Manager/KMS, WAF/Shield, Organizations/Control Tower (your FPO governance work!), Well-Architected Framework, cost optimization. SAA-C03 exam prep. Multi-tenant SaaS patterns (your FPO). Advanced CDK patterns.',
@@ -169,7 +169,7 @@ const PHASES = [
     days: 30,
     ds: 93,
     de: 122,
-    period: 'Sep 18 - Oct 17, 2026',
+    period: 'Sep 15 - Oct 14, 2026',
     ms: 'React Native Done · D122',
     about:
       '30 days. React Native via Chaicode — FPO Cloud mobile frontend. Core components, React Navigation v6, Redux Toolkit in RN, Expo SDK device APIs, animations, EAS Build. Deploy FPO mobile flight status app to TestFlight on your iPad. Uses your AWS knowledge from M01-M03 for backend calls.',
@@ -218,7 +218,7 @@ const PHASES = [
     days: 31,
     ds: 123,
     de: 153,
-    period: 'Oct 18 - Nov 17, 2026',
+    period: 'Oct 15 - Nov 14, 2026',
     ms: 'JavaScript Done · D153',
     about:
       '31 days. JavaScript fundamentals through advanced. ES6+ features, DOM manipulation, Promises, async/await, closures, prototypes, classes. Build 3 projects. Foundation for TypeScript, React, Next.js months ahead.',
@@ -263,7 +263,7 @@ const PHASES = [
     days: 30,
     ds: 154,
     de: 183,
-    period: 'Nov 18 - Dec 17, 2026',
+    period: 'Nov 15 - Dec 14, 2026',
     ms: 'TypeScript Done · D183',
     about:
       '30 days. TypeScript on top of JavaScript. Type system, interfaces, generics, utility types, strict mode, declaration files. Your FPO Cloud AWS CDK and Step Functions are already TypeScript — this formalises that knowledge.',
@@ -308,7 +308,7 @@ const PHASES = [
     days: 31,
     ds: 184,
     de: 214,
-    period: 'Dec 18, 2026 - Jan 17, 2027',
+    period: 'Dec 15, 2026 - Jan 14, 2027',
     ms: 'React Done · D214',
     about:
       '31 days. React with TypeScript. Components, hooks, React Router v6, Redux Toolkit, RTK Query, testing with React Testing Library. Build FPO flight dashboard capstone — calls your AWS API Gateway from M01-M03. Builds on your existing React knowledge from FPO Cloud work.',
@@ -353,7 +353,7 @@ const PHASES = [
     days: 31,
     ds: 215,
     de: 245,
-    period: 'Jan 18 - Feb 17, 2027',
+    period: 'Jan 15 - Feb 14, 2027',
     ms: 'Next.js Done · D245',
     about:
       '31 days. Next.js 15 with App Router. Server Components, Server Actions, NextAuth v5, Prisma ORM, PostgreSQL, deploy to Vercel. Build FPO web portal as capstone — authenticated flight ops dashboard deployed publicly.',
@@ -398,7 +398,7 @@ const PHASES = [
     days: 28,
     ds: 246,
     de: 273,
-    period: 'Feb 18 - Mar 17, 2027',
+    period: 'Feb 15 - Mar 14, 2027',
     ms: 'Python Done · D273',
     about:
       '28 days. Python fundamentals through advanced plus AWS boto3 automation. OOP, file handling, JSON, APIs, decorators, asyncio. Your SCB Thailand Python work means fast revision. boto3 extends your M01-M03 AWS knowledge into scripting and automation.',
@@ -444,7 +444,7 @@ const PHASES = [
     days: 31,
     ds: 274,
     de: 304,
-    period: 'Mar 18 - Apr 17, 2027',
+    period: 'Mar 15 - Apr 14, 2027',
     ms: 'Flask Done · D304',
     about:
       '31 days. Flask web framework — routing, Blueprints, SQLAlchemy ORM, Flask-RESTful, JWT auth, testing, deploy to AWS ECS (using your M01-M03 knowledge). Build Employee Management REST API as capstone, containerised and deployed to AWS.',
@@ -489,7 +489,7 @@ const PHASES = [
     days: 30,
     ds: 305,
     de: 334,
-    period: 'Apr 18 - May 17, 2027',
+    period: 'Apr 15 - May 14, 2027',
     ms: 'Agentic AI Done · D334',
     about:
       '30 days. LangChain, LangGraph, RAG pipelines, multi-agent systems, MCP protocol, Ed Donner 8 projects. Your SCB Thailand LangChain/LangGraph experience = deep revision plus extension. Capstone: FPO AI assistant (natural language flight queries via LangChain + DynamoDB + Lambda on AWS).',
@@ -535,7 +535,7 @@ const PHASES = [
     days: 31,
     ds: 335,
     de: 365,
-    period: 'May 18 - Jun 17, 2027',
+    period: 'May 15 - Jun 14, 2027',
     ms: 'Java Foundations Done · D365',
     about:
       '31 days. Compressed Java foundations — J2SE (Java 8+, Collections, Streams, Lambdas), J2EE core concepts (Servlets/JDBC/JAX-RS), JPA/Hibernate (entity mapping, relationships, N+1, @Transactional). Your C# .NET 8 background makes Java syntax fast. Foundation for Spring Boot and Microservices months.',
@@ -581,7 +581,7 @@ const PHASES = [
     days: 30,
     ds: 366,
     de: 395,
-    period: 'Jun 18 - Jul 17, 2027',
+    period: 'Jun 15 - Jul 14, 2027',
     ms: 'Spring Boot Done · D395',
     about:
       '30 days. Spring Boot 3 — IoC, Spring MVC REST APIs, Spring Security + JWT + OAuth2, testing (JUnit5/Mockito/Testcontainers). Your C# .NET 8 + FPO Cognito OAuth2 background maps exactly. Deploy to AWS ECS using M01-M03 skills. Build production-grade API.',
@@ -626,7 +626,7 @@ const PHASES = [
     days: 31,
     ds: 396,
     de: 426,
-    period: 'Jul 18 - Aug 17, 2027',
+    period: 'Jul 15 - Aug 14, 2027',
     ms: 'Microservices Done · D426',
     about:
       '31 days. Microservices with Spring Cloud, Kafka, CQRS, Event Sourcing, Saga pattern, deploy to AWS EKS. Every single pattern maps to your FPO production work: EventBridge = Kafka, Step Functions = Saga, Lambda = Microservice, DynamoDB streams = Event Sourcing.',
@@ -671,7 +671,7 @@ const PHASES = [
     days: 31,
     ds: 427,
     de: 457,
-    period: 'Aug 18 - Sep 17, 2027',
+    period: 'Aug 15 - Sep 14, 2027',
     ms: 'SRE Done · D457',
     about:
       '31 days. SRE principles with Docker as the core practical tool. Docker fundamentals through advanced, multi-stage builds, container security, Trivy scanning. SLOs/SLIs/error budgets, incident response, on-call practices, observability (metrics/logs/traces). Your FPO Cloud on-call experience maps directly.',
@@ -717,7 +717,7 @@ const PHASES = [
     days: 30,
     ds: 458,
     de: 487,
-    period: 'Sep 18 - Oct 17, 2027',
+    period: 'Sep 15 - Oct 14, 2027',
     ms: 'QE Done · D487',
     about:
       '30 days. QE with Kubernetes as the core infrastructure tool. K8s architecture through EKS deployment, Helm charts, ArgoCD GitOps. Test automation (Jest/Playwright/Postman), BDD Cucumber (maps to your Reqnroll/SpecFlow on FPO!), k6 performance testing, SonarQube quality gates.',
@@ -763,7 +763,7 @@ const PHASES = [
     days: 31,
     ds: 488,
     de: 518,
-    period: 'Oct 18 - Nov 17, 2027',
+    period: 'Oct 15 - Nov 14, 2027',
     ms: 'System Design Done · D518',
     about:
       '31 days. System design interview mastery. Frank Kane 5-step template. Design 1 system per day spoken aloud, 45 minutes, no notes. Your FPO multi-tenant SaaS + Lambda + DynamoDB + Kafka production architecture is a huge advantage. Design YOUR OWN system as one of the practice designs.',
@@ -809,8 +809,8 @@ const PHASES = [
     days: 30,
     ds: 519,
     de: 548,
-    period: 'Nov 18 - Dec 17, 2027',
-    ms: '548 DAYS COMPLETE · Dec 17, 2027',
+    period: 'Nov 15 - Dec 14, 2027',
+    ms: '548 DAYS COMPLETE · Dec 14, 2027',
     about:
       '30 days. Data Structures and Algorithms in Java. Arrays, Linked Lists, Stacks, Queues, Trees, Heaps, Graphs, Sorting, Dynamic Programming. LeetCode in Java. Last month — Day 548 = December 17, 2027 = 18 Months of Code COMPLETE.',
     courses: [
@@ -836,7 +836,7 @@ const PHASES = [
       {
         w: 72,
         f: 'DP + Final Day 548',
-        t: '1D DP (coin change/house robber/jump game), 2D DP (LCS/knapsack), backtracking. Dec 17, 2027 = DONE.',
+        t: '1D DP (coin change/house robber/jump game), 2D DP (LCS/knapsack), backtracking. Dec 14, 2027 = DONE.',
       },
     ],
   },
@@ -847,126 +847,126 @@ const MILESTONES = [
     day: 30,
     icon: '☁',
     label: 'AWS Core Services Done',
-    date: 'Jul 17, 2026',
+    date: 'Jul 14, 2026',
     color: '#D97706',
   },
   {
     day: 61,
     icon: '⚡',
     label: 'AWS DevOps + Serverless',
-    date: 'Aug 17, 2026',
+    date: 'Aug 14, 2026',
     color: '#F59E0B',
   },
   {
     day: 92,
     icon: '🏆',
     label: 'AWS Advanced + SAA Ready',
-    date: 'Sep 17, 2026',
+    date: 'Sep 14, 2026',
     color: '#B45309',
   },
   {
     day: 122,
     icon: '📱',
     label: 'React Native Done',
-    date: 'Oct 17, 2026',
+    date: 'Oct 14, 2026',
     color: '#7C3AED',
   },
   {
     day: 153,
     icon: '🟨',
     label: 'JavaScript',
-    date: 'Nov 17, 2026',
+    date: 'Nov 14, 2026',
     color: '#F59E0B',
   },
   {
     day: 183,
     icon: '🔷',
     label: 'TypeScript',
-    date: 'Dec 17, 2026',
+    date: 'Dec 14, 2026',
     color: '#3B82F6',
   },
   {
     day: 214,
     icon: '⚛',
     label: 'React',
-    date: 'Jan 17, 2027',
+    date: 'Jan 14, 2027',
     color: '#0EA5E9',
   },
   {
     day: 245,
     icon: '▲',
     label: 'Next.js',
-    date: 'Feb 17, 2027',
+    date: 'Feb 14, 2027',
     color: '#374151',
   },
   {
     day: 273,
     icon: '🐍',
     label: 'Python',
-    date: 'Mar 17, 2027',
+    date: 'Mar 14, 2027',
     color: '#16A34A',
   },
   {
     day: 304,
     icon: '🌶',
     label: 'Flask',
-    date: 'Apr 17, 2027',
+    date: 'Apr 14, 2027',
     color: '#059669',
   },
   {
     day: 334,
     icon: '🤖',
     label: 'Agentic AI',
-    date: 'May 17, 2027',
+    date: 'May 14, 2027',
     color: '#6366F1',
   },
   {
     day: 365,
     icon: '☕',
     label: 'Java (J2SE+J2EE+JPA)',
-    date: 'Jun 17, 2027',
+    date: 'Jun 14, 2027',
     color: '#D97706',
   },
   {
     day: 395,
     icon: '🌱',
     label: 'Spring Boot',
-    date: 'Jul 17, 2027',
+    date: 'Jul 14, 2027',
     color: '#16A34A',
   },
   {
     day: 426,
     icon: '🏛',
     label: 'Microservices',
-    date: 'Aug 17, 2027',
+    date: 'Aug 14, 2027',
     color: '#E11D48',
   },
   {
     day: 457,
     icon: '🛡',
     label: 'SRE + Docker',
-    date: 'Sep 17, 2027',
+    date: 'Sep 14, 2027',
     color: '#0369A1',
   },
   {
     day: 487,
     icon: '🔬',
     label: 'QE + Kubernetes',
-    date: 'Oct 17, 2027',
+    date: 'Oct 14, 2027',
     color: '#4338CA',
   },
   {
     day: 518,
     icon: '🏗',
     label: 'System Design',
-    date: 'Nov 17, 2027',
+    date: 'Nov 14, 2027',
     color: '#7C3AED',
   },
   {
     day: 548,
     icon: '🧩',
     label: 'DSA Java DONE',
-    date: 'Dec 17, 2027',
+    date: 'Dec 14, 2027',
     color: '#374151',
   },
 ];
@@ -1487,7 +1487,7 @@ export default function App() {
                 }}
               >
                 {
-                  'Thu Jun 18, 2026 to Fri Dec 17, 2027 · 548 days · 5:30 AM to 8:30 AM daily mandatory'
+                  'Mon Jun 15, 2026 to Tue Dec 14, 2027 · 548 days · 5:30 AM to 8:30 AM daily mandatory'
                 }
               </div>
             </div>
@@ -1617,13 +1617,13 @@ export default function App() {
                 color: 'rgba(255,255,255,0.4)',
               }}
             >
-              <span>{'Jun 18, 2026'}</span>
+              <span>{'Jun 15, 2026'}</span>
               <span
                 style={{ color: 'rgba(255,255,255,0.75)', fontWeight: 700 }}
               >
                 {prog + '% · Day ' + Math.min(d + 1, 548) + ' of 548'}
               </span>
-              <span>{'Dec 17, 2027'}</span>
+              <span>{'Dec 14, 2027'}</span>
             </div>
           </div>
 
@@ -1758,19 +1758,19 @@ export default function App() {
         {[
           {
             label: '⭐ MONTHS 1-3 · AWS PRIORITY',
-            sub: 'D1-D92 · Jun 18 – Sep 17, 2026 · Core Services + DevOps/Serverless + Advanced/SAA-C03',
+            sub: 'D1-D92 · Jun 15 – Sep 14, 2026 · Core Services + DevOps/Serverless + Advanced/SAA-C03',
             col: '#D97706',
             ids: ['m01', 'm02', 'm03'],
           },
           {
             label: '📱 MONTH 4 · REACT NATIVE',
-            sub: 'D93-D122 · Sep 18 – Oct 17, 2026 · Chaicode course · FPO mobile app on iPad',
+            sub: 'D93-D122 · Sep 15 – Oct 14, 2026 · Chaicode course · FPO mobile app on iPad',
             col: '#7C3AED',
             ids: ['m04'],
           },
           {
             label: '📚 MONTHS 5-18 · REMAINING SKILLS',
-            sub: 'D123-D548 · Oct 18, 2026 – Dec 17, 2027 · JS, TS, React, Next.js, Python, Flask, AI, Java, Spring Boot, Microservices, SRE, QE, SD, DSA',
+            sub: 'D123-D548 · Oct 15, 2026 – Dec 14, 2027 · JS, TS, React, Next.js, Python, Flask, AI, Java, Spring Boot, Microservices, SRE, QE, SD, DSA',
             col: '#6366F1',
             ids: [
               'm05',
@@ -1875,7 +1875,7 @@ export default function App() {
               marginBottom: 3,
             }}
           >
-            {'🏆 18 Months of Code · Jun 18, 2026 to Dec 17, 2027'}
+            {'🏆 18 Months of Code · Jun 15, 2026 to Dec 14, 2027'}
           </div>
           <div
             style={{
