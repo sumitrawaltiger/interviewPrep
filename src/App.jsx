@@ -2,45 +2,78 @@ import { useState } from 'react';
 
 // 16 Months of Code
 // Sat Jun 20, 2026 to Tue Oct 19, 2027 — 487 days
-// 5:30 AM to 8:30 AM daily mandatory · 1 skill per month
+// 5:30 AM to 8:30 AM daily mandatory
+// Block 1: DevOps (3 months) → Block 2: Frontend (5 months) → Block 3: Python (3 months) → Block 4: Java (5 months)
 
 const START = new Date('2026-06-20');
 const TOTAL = 487;
 
+const BLOCKS = [
+  {
+    id: 'devops',
+    label: '🔧 DevOps',
+    sub: 'Months 1-3 · D1-D93 · Jun 20 – Sep 20, 2026',
+    col: '#D97706',
+    months: 3,
+  },
+  {
+    id: 'frontend',
+    label: '⚡ Frontend',
+    sub: 'Months 4-8 · D94-D247 · Sep 21, 2026 – Feb 21, 2027',
+    col: '#0EA5E9',
+    months: 5,
+  },
+  {
+    id: 'python',
+    label: '🐍 Python',
+    sub: 'Months 9-11 · D248-D337 · Feb 22 – May 22, 2027',
+    col: '#16A34A',
+    months: 3,
+  },
+  {
+    id: 'java',
+    label: '☕ Java',
+    sub: 'Months 12-16 · D338-D487 · May 23 – Oct 19, 2027',
+    col: '#D97706',
+    months: 5,
+  },
+];
+
 const PHASES = [
+  // ── BLOCK 1: DEVOPS (3 months) ──────────────────────────────────────────
   {
     id: 'm01',
     seq: 1,
+    block: 'devops',
     icon: '🔧',
     color: '#D97706',
     dark: '#B45309',
     bg: '#FFFBEB',
     border: '#FDE68A',
     name: 'DevOps with AWS',
-    label: 'Month 1 · AWS Priority',
     days: 31,
     ds: 1,
     de: 31,
     period: 'Jun 20 - Jul 20, 2026',
     ms: 'DevOps with AWS Done · D31',
     about:
-      '31 days. DevOps practices using AWS as the platform. CI/CD with CodePipeline/CodeBuild/CodeDeploy and GitHub Actions (OIDC keyless auth to AWS). Docker on AWS (ECR, ECS Fargate). AWS CDK TypeScript (your FPO IaC!). Terraform for AWS infra. IAM, EC2, S3, VPC foundations. Jenkins pipelines. SonarQube quality gates. Everything maps to your FPO Cloud daily work.',
+      '31 days. DevOps on AWS — IAM, EC2, S3, VPC, ECS Fargate, ECR, CI/CD (CodePipeline/CodeBuild/CodeDeploy + GitHub Actions OIDC), Docker, Jenkins, SonarQube, AWS CDK TypeScript (your FPO IaC!), Terraform. Everything maps directly to your FPO Cloud daily work.',
     courses: [
-      'Stephane Maarek — Ultimate AWS Certified Developer Associate 2026 (Udemy) · CI/CD + Lambda + DynamoDB',
+      'Stephane Maarek — AWS Certified Developer Associate 2026 (Udemy)',
       'Nana Janashia TechWorld — DevOps Bootcamp (YouTube/Udemy) · Docker, Jenkins, GitHub Actions',
-      'AWS Skill Builder — free hands-on labs daily (CodePipeline, CodeBuild, ECS labs)',
+      'AWS Skill Builder — free hands-on labs daily · CodePipeline, CodeBuild, ECS labs',
       'AWS CDK TypeScript docs — you already use this for FPO infrastructure as code',
     ],
     wplan: [
       {
         w: 1,
         f: 'AWS Core: IAM + EC2 + S3 + VPC',
-        t: 'IAM users/roles/policies/MFA, EC2 instance types/AMI/EBS, S3 buckets/policies/versioning/encryption, VPC/Security Groups/NACL',
+        t: 'IAM users/roles/policies/MFA, EC2 instance types/AMI/EBS, S3 buckets/policies/versioning/encryption, VPC/subnets/Security Groups',
       },
       {
         w: 2,
         f: 'Docker on AWS: ECR + ECS Fargate',
-        t: 'Dockerfile/multi-stage builds, ECR push/pull, ECS task definitions/Fargate/services, ALB + ECS, container health checks',
+        t: 'Dockerfile/multi-stage builds, ECR push/pull, ECS task definitions/Fargate/services, ALB + ECS integration, health checks',
       },
       {
         w: 3,
@@ -50,37 +83,37 @@ const PHASES = [
       {
         w: 4,
         f: 'AWS CDK + Terraform + IaC',
-        t: 'CDK TypeScript stacks/constructs (your FPO pattern!), multi-env deploy. Terraform HCL, providers, state, modules, S3 remote state.',
+        t: 'CDK TypeScript stacks/constructs (your FPO pattern!). Terraform HCL, providers, modules, S3 remote state, workspaces.',
       },
       {
         w: 5,
-        f: 'Projects + Review',
-        t: 'Build: end-to-end CI/CD pipeline (GitHub to ECS), containerise a DJango app with ECR/ECS, Terraform AWS infra provisioning.',
+        f: 'Projects',
+        t: 'End-to-end CI/CD pipeline (GitHub → ECS), containerise Flask app with ECR/ECS, Terraform AWS infra provisioning project.',
       },
     ],
   },
   {
     id: 'm02',
     seq: 2,
+    block: 'devops',
     icon: '🛡',
     color: '#0369A1',
     dark: '#1e40af',
     bg: '#EFF6FF',
     border: '#BFDBFE',
     name: 'SRE with AWS',
-    label: 'Month 2 · AWS Priority',
     days: 31,
     ds: 32,
     de: 62,
     period: 'Jul 21 - Aug 20, 2026',
     ms: 'SRE with AWS Done · D62',
     about:
-      '31 days. Site Reliability Engineering using AWS tools. Lambda (your FPO architecture!), Step Functions (your FPO workflows!), EventBridge (your FPO events!), SQS/SNS, CloudWatch, Datadog APM (your FPO tool!), X-Ray distributed tracing. SLOs/SLIs/error budgets, incident response, on-call, blameless post-mortems. Directly applicable to FPO Cloud production on-call.',
+      '31 days. Site Reliability Engineering on AWS — Lambda (your FPO!), Step Functions (your FPO workflows!), EventBridge (your FPO events!), SQS/SNS, DynamoDB (your FPO DB!), CloudWatch, Datadog APM (your FPO tool!), X-Ray tracing. SLOs/SLIs/error budgets, incident response, blameless post-mortems.',
     courses: [
-      'Stephane Maarek — AWS SAA-C03 Solutions Architect (Udemy) · architecture + reliability patterns',
+      'Stephane Maarek — AWS Solutions Architect SAA-C03 (Udemy) · architecture + reliability',
       'Google SRE Book (free — sre.google) · chapters 1-10: SLOs, error budgets, on-call, post-mortems',
       'Datadog docs — APM, distributed tracing, SLO monitoring (your live FPO tool — go deep!)',
-      'AWS re:Invent — Serverless best practices (Lambda/Step Functions patterns from your FPO stack)',
+      'AWS re:Invent — Serverless best practices talks (Lambda/Step Functions from your FPO stack)',
     ],
     wplan: [
       {
@@ -90,7 +123,7 @@ const PHASES = [
       },
       {
         w: 7,
-        f: 'SQS + SNS + DynamoDB Streams + Kinesis',
+        f: 'SQS + SNS + DynamoDB + Kinesis',
         t: 'SQS queues/DLQ/FIFO, SNS topics/subscriptions, DynamoDB tables/GSI/streams/TTL (YOUR FPO DB!), Kinesis streams',
       },
       {
@@ -105,33 +138,33 @@ const PHASES = [
       },
       {
         w: 10,
-        f: 'Projects + Review',
-        t: 'Build: SLO dashboard on CloudWatch, FPO-style serverless pipeline (Lambda + Step Functions + EventBridge + DynamoDB), post-mortem template.',
+        f: 'Projects',
+        t: 'SLO dashboard on CloudWatch, FPO-style serverless pipeline (Lambda + Step Functions + EventBridge + DynamoDB), post-mortem template.',
       },
     ],
   },
   {
     id: 'm03',
     seq: 3,
+    block: 'devops',
     icon: '🔬',
     color: '#4338CA',
     dark: '#3730A3',
     bg: '#EEF2FF',
     border: '#C7D2FE',
     name: 'QE with AWS',
-    label: 'Month 3 · AWS Priority',
     days: 31,
     ds: 63,
     de: 93,
     period: 'Aug 21 - Sep 20, 2026',
     ms: 'QE with AWS Done · D93',
     about:
-      '31 days. Quality Engineering using AWS infrastructure. EKS (Kubernetes on AWS), Cognito (your FPO auth!), Secrets Manager/KMS, WAF, AWS Organizations/Control Tower (your LZA governance work!). Test automation: Jest, Playwright, Postman/Newman, BDD Cucumber (maps to your Reqnroll/SpecFlow on FPO!), k6 performance testing.',
+      '31 days. Quality Engineering on AWS — EKS (Kubernetes), Cognito (your FPO auth!), Secrets Manager/KMS, WAF, AWS Organizations/Control Tower (your LZA work!). Test automation: Jest, Playwright, Postman/Newman, BDD Cucumber (maps to your Reqnroll/SpecFlow on FPO!), k6 performance testing. SAA-C03 exam prep.',
     courses: [
-      'Stephane Maarek — SAA-C03 Practice Tests + Tutorials Dojo 600 questions · AWS certification prep',
+      'Tutorials Dojo — SAA-C03 Practice Exams 600+ questions · AWS certification prep',
       'Mumshad Mannambeth — Kubernetes for Beginners (KodeKloud) · EKS hands-on',
-      'Playwright docs + Cucumber.js · test automation (maps to your Reqnroll BDD on FPO Cloud)',
-      'AWS Cognito docs — user pools/identity pools/JWT deep dive (your exact FPO auth pattern)',
+      'Playwright docs + Cucumber.js · test automation (maps to your Reqnroll BDD on FPO)',
+      'AWS Cognito docs — user pools/identity pools/JWT (your exact FPO auth pattern)',
     ],
     wplan: [
       {
@@ -147,280 +180,284 @@ const PHASES = [
       {
         w: 13,
         f: 'AWS Organizations + Well-Architected',
-        t: 'Organizations/SCPs, Control Tower (your LZA work!), Well-Architected 6 pillars, Trusted Advisor, cost optimization, SAA-C03 prep',
+        t: 'Organizations/SCPs, Control Tower (your LZA work!), Well-Architected 6 pillars, Trusted Advisor, cost optimization',
       },
       {
         w: 14,
         f: 'Test Automation: Jest + Playwright + BDD',
-        t: 'Jest unit tests, Playwright/Cypress e2e, Postman/Newman API testing, BDD Cucumber/Gherkin (maps to your Reqnroll on FPO!)',
+        t: 'Jest unit tests, Playwright/Cypress e2e, Postman/Newman API, BDD Cucumber/Gherkin (= your Reqnroll on FPO!), k6 load testing',
       },
       {
         w: 15,
-        f: 'k6 Performance + SAA-C03 Mock Exams',
-        t: 'k6/JMeter load testing on AWS infrastructure, SonarQube quality gates. Tutorials Dojo 600 questions. SAA-C03 exam ready.',
+        f: 'SAA-C03 Mock Exams + Projects',
+        t: 'Tutorials Dojo 600 questions, weak area revision. k6 load testing on AWS infra. SonarQube quality gates. SAA-C03 exam ready.',
       },
     ],
   },
+
+  // ── BLOCK 2: FRONTEND (5 months) ────────────────────────────────────────
   {
     id: 'm04',
     seq: 4,
-    icon: '🔷',
-    color: '#3B82F6',
-    dark: '#1D4ED8',
-    bg: '#EFF6FF',
-    border: '#BFDBFE',
-    name: 'TypeScript',
-    label: 'Month 4',
-    days: 31,
-    ds: 94,
-    de: 124,
-    period: 'Sep 21 - Oct 21, 2026',
-    ms: 'TypeScript Done · D124',
-    about:
-      '31 days. TypeScript — type system, interfaces, generics, utility types, strict mode, decorators, declaration files. Your FPO Cloud AWS CDK and Step Functions are already TypeScript — this formalises and deepens that existing knowledge.',
-    courses: [
-      'Matt Pocock — Total TypeScript (free fundamentals + advanced) · best TS learning path',
-      'Stephen Grider — TypeScript The Complete Developers Guide (Udemy) · comprehensive with projects',
-    ],
-    wplan: [
-      {
-        w: 16,
-        f: 'TS Type System',
-        t: 'Basic types, annotations, inference, union/intersection, literal types, enums, tuples, unknown vs any vs never',
-      },
-      {
-        w: 17,
-        f: 'Interfaces + Classes',
-        t: 'Interface vs type alias, extending, implements, access modifiers, abstract classes, readonly, optional properties',
-      },
-      {
-        w: 18,
-        f: 'Generics + Utility Types',
-        t: 'Generic functions/interfaces/classes, constraints, Partial/Required/Readonly/Pick/Omit/Record, conditional types',
-      },
-      {
-        w: 19,
-        f: 'Advanced TS + Config',
-        t: 'Decorators, declaration files (.d.ts), tsconfig strict mode, module resolution. Convert JS projects to TS. Typed AWS CDK patterns.',
-      },
-      {
-        w: 20,
-        f: 'TS Projects + Review',
-        t: 'Build: typed REST API client, typed Redux Toolkit store, typed CDK stack. Convert existing JS code to strict TypeScript.',
-      },
-    ],
-  },
-  {
-    id: 'm05',
-    seq: 5,
-    icon: '📱',
-    color: '#7C3AED',
-    dark: '#6D28D9',
-    bg: '#F5F3FF',
-    border: '#DDD6FE',
-    name: 'React Native',
-    label: 'Month 5 · FPO Frontend',
-    days: 31,
-    ds: 125,
-    de: 155,
-    period: 'Oct 22 - Nov 21, 2026',
-    ms: 'React Native Done · D155',
-    about:
-      '31 days. React Native via Chaicode — FPO Cloud mobile frontend. Core components, React Navigation v6, Redux Toolkit in RN, Expo SDK device APIs, Reanimated 2 animations, EAS Build. Deploy FPO mobile flight status app to TestFlight on your iPad. Calls AWS API Gateway + Lambda + DynamoDB from M01-M03.',
-    courses: [
-      'Chaicode — React Native Full Course (primary, free, Hindi + English)',
-      'Stephen Grider — The Complete React Native + Hooks Course 4.8 stars (38h) · supplementary',
-      'Expo docs — EAS Build, TestFlight submission, Expo Go debugging on your iPad',
-    ],
-    wplan: [
-      {
-        w: 21,
-        f: 'Core Components + Layout',
-        t: 'View, Text, Image, TextInput, StyleSheet, Flexbox, FlatList, SectionList — all exercises on iPad via Expo Go',
-      },
-      {
-        w: 22,
-        f: 'React Navigation v6',
-        t: 'Stack Navigator, Bottom Tab Navigator, Drawer Navigator, nested navigation, passing params, deep linking',
-      },
-      {
-        w: 23,
-        f: 'State + AsyncStorage + Device APIs',
-        t: 'Redux Toolkit in RN, AsyncStorage persistence, Camera, Location, Push Notifications, Expo SDK modules',
-      },
-      {
-        w: 24,
-        f: 'Animations + EAS Build',
-        t: 'Reanimated 2 (useSharedValue/useAnimatedStyle), Gesture Handler, PanGestureHandler, EAS Build config, TestFlight submission',
-      },
-      {
-        w: 25,
-        f: 'FPO Mobile App + Deploy',
-        t: 'Build FPO mobile flight status app: list flights, check status, weather overlay. Deploy to TestFlight. Portfolio demo.',
-      },
-    ],
-  },
-  {
-    id: 'm06',
-    seq: 6,
+    block: 'frontend',
     icon: '🟨',
     color: '#F59E0B',
     dark: '#D97706',
     bg: '#FFFBEB',
     border: '#FDE68A',
     name: 'JavaScript',
-    label: 'Month 6',
     days: 31,
-    ds: 156,
-    de: 186,
-    period: 'Nov 22 - Dec 22, 2026',
-    ms: 'JavaScript Done · D186',
+    ds: 94,
+    de: 124,
+    period: 'Sep 21 - Oct 21, 2026',
+    ms: 'JavaScript Done · D124',
     about:
-      '31 days. JavaScript fundamentals through advanced. ES6+ features, DOM, Promises, async/await, closures, prototypes, classes. Build 3 projects. Foundation for React and Next.js months ahead.',
+      '31 days. JavaScript from fundamentals to advanced. ES6+ features, DOM, Promises, async/await, closures, prototypes, classes. Build 3 projects. Foundation for TypeScript, React, Next.js months ahead.',
     courses: [
       'Jonas Schmedtmann — The Complete JavaScript Course 2026 (Udemy, 69h) · most comprehensive',
       'javascript.info — free online book, best JS reference alongside the course',
     ],
     wplan: [
       {
-        w: 26,
+        w: 16,
         f: 'JS Fundamentals',
         t: 'Variables (let/const/var), data types, operators, control flow, loops, functions, scope, hoisting',
       },
       {
-        w: 27,
+        w: 17,
         f: 'ES6+ Modern JS',
-        t: 'Arrow functions, destructuring, spread/rest, template literals, optional chaining, nullish coalescing, modules',
+        t: 'Arrow functions, destructuring, spread/rest, template literals, optional chaining, nullish coalescing, modules (import/export)',
       },
       {
-        w: 28,
+        w: 18,
         f: 'DOM + Async JS',
-        t: 'DOM manipulation, events, event delegation. Promises, async/await, fetch API, error handling, JSON',
+        t: 'DOM manipulation, events, event delegation. Promises (.then/.catch), async/await, fetch API, error handling, JSON',
       },
       {
-        w: 29,
+        w: 19,
         f: 'Advanced JS',
-        t: "Closures, prototypes, ES6 classes, 'this' keyword, call/apply/bind, WeakMap/WeakSet, Proxy, Reflect",
+        t: "Closures, prototypes, ES6 classes, 'this' keyword, call/apply/bind, WeakMap, Proxy, Reflect, Symbol",
       },
       {
-        w: 30,
-        f: 'JS Projects + Review',
-        t: 'Build: To-Do App (DOM/events), Weather App (fetch + async/await), Quiz App (ES6 classes + local storage)',
+        w: 20,
+        f: 'Projects',
+        t: 'Build: To-Do App (DOM/events), Weather App (fetch + async/await + API key), Quiz App (ES6 classes + localStorage)',
       },
     ],
   },
   {
-    id: 'm07',
-    seq: 7,
+    id: 'm05',
+    seq: 5,
+    block: 'frontend',
+    icon: '🔷',
+    color: '#3B82F6',
+    dark: '#1D4ED8',
+    bg: '#EFF6FF',
+    border: '#BFDBFE',
+    name: 'TypeScript',
+    days: 31,
+    ds: 125,
+    de: 155,
+    period: 'Oct 22 - Nov 21, 2026',
+    ms: 'TypeScript Done · D155',
+    about:
+      '31 days. TypeScript — type system, interfaces, generics, utility types, strict mode, decorators. Your FPO Cloud AWS CDK and Step Functions are already TypeScript — this formalises and deepens that existing knowledge.',
+    courses: [
+      'Matt Pocock — Total TypeScript (free fundamentals + advanced) · best TS learning path',
+      'Stephen Grider — TypeScript The Complete Developers Guide (Udemy) · comprehensive with projects',
+    ],
+    wplan: [
+      {
+        w: 21,
+        f: 'TS Type System',
+        t: 'Basic types, annotations, inference, union/intersection, literal types, enums, tuples, unknown vs any vs never',
+      },
+      {
+        w: 22,
+        f: 'Interfaces + Classes',
+        t: 'Interface vs type alias, extending, implements, access modifiers, abstract classes, readonly, optional properties',
+      },
+      {
+        w: 23,
+        f: 'Generics + Utility',
+        t: 'Generic functions/interfaces/classes, constraints, Partial/Required/Readonly/Pick/Omit/Record, conditional types',
+      },
+      {
+        w: 24,
+        f: 'Advanced TS',
+        t: 'Decorators, declaration files (.d.ts), tsconfig strict mode, module resolution. Typed AWS CDK patterns.',
+      },
+      {
+        w: 25,
+        f: 'Projects',
+        t: 'Convert JS projects to TypeScript. Build typed REST API client. Typed Redux Toolkit store. Typed CDK stack.',
+      },
+    ],
+  },
+  {
+    id: 'm06',
+    seq: 6,
+    block: 'frontend',
     icon: '⚛',
     color: '#0EA5E9',
     dark: '#0369A1',
     bg: '#F0F9FF',
     border: '#BAE6FD',
     name: 'React',
-    label: 'Month 7',
     days: 31,
-    ds: 187,
-    de: 217,
-    period: 'Dec 23, 2026 - Jan 22, 2027',
-    ms: 'React Done · D217',
+    ds: 156,
+    de: 186,
+    period: 'Nov 22 - Dec 22, 2026',
+    ms: 'React Done · D186',
     about:
-      '31 days. React with TypeScript. Components, hooks, React Router v6, Redux Toolkit, RTK Query. Build FPO flight dashboard calling AWS API Gateway + Lambda + DynamoDB from M01-M03. Builds on your existing React knowledge from FPO Cloud work.',
+      '31 days. React with TypeScript. Components, hooks, React Router v6, Redux Toolkit, RTK Query. Build FPO flight dashboard capstone calling AWS API Gateway + Lambda + DynamoDB from Block 1.',
     courses: [
       'John Smilga — React 18 Tutorial and Projects Course 2026 (Udemy, 50h) · 25+ real projects',
       'Max Schwarzmuller — React The Complete Guide 2026 (Udemy) · TypeScript + testing + Redux',
     ],
     wplan: [
       {
-        w: 31,
+        w: 26,
         f: 'React Foundations',
-        t: 'JSX, components, props, useState, conditional rendering, lists/keys. Vite + TypeScript setup.',
+        t: 'JSX, components, props, useState, conditional rendering, lists/keys, event handling. Vite + TypeScript setup.',
       },
       {
-        w: 32,
+        w: 27,
         f: 'Core Hooks + Router',
         t: 'useEffect, useRef, useMemo, useCallback, custom hooks. React Router v6 nested routes, dynamic params, loaders.',
       },
       {
-        w: 33,
+        w: 28,
         f: 'State Management',
-        t: 'Context API + useReducer, Redux Toolkit createSlice/configureStore, RTK Query for async API state',
+        t: 'Context API + useReducer, Redux Toolkit (createSlice/configureStore), RTK Query for async API state management',
       },
       {
-        w: 34,
+        w: 29,
         f: 'Advanced React',
-        t: 'React.memo, lazy/Suspense, error boundaries, portals, forwardRef, React Testing Library + Jest',
+        t: 'React.memo, lazy/Suspense, error boundaries, portals, forwardRef. React Testing Library + Jest unit tests.',
       },
       {
-        w: 35,
-        f: 'FPO Dashboard Capstone',
-        t: 'Build FPO Flight Dashboard: flight list, status cards, weather overlay. Calls AWS API Gateway + Lambda + DynamoDB from M01.',
+        w: 30,
+        f: 'FPO Dashboard',
+        t: 'Build FPO Flight Dashboard: flight list, status cards, weather overlay. Calls AWS API Gateway + Lambda + DynamoDB from Block 1.',
       },
     ],
   },
   {
-    id: 'm08',
-    seq: 8,
+    id: 'm07',
+    seq: 7,
+    block: 'frontend',
     icon: '▲',
     color: '#374151',
     dark: '#111827',
     bg: '#F9FAFB',
     border: '#D1D5DB',
     name: 'Next.js',
-    label: 'Month 8',
-    days: 30,
-    ds: 218,
-    de: 247,
-    period: 'Jan 23 - Feb 21, 2027',
-    ms: 'Next.js Done · D247',
+    days: 31,
+    ds: 187,
+    de: 217,
+    period: 'Dec 23, 2026 - Jan 22, 2027',
+    ms: 'Next.js Done · D217',
     about:
-      '30 days. Next.js 15 App Router. Server Components, Server Actions, NextAuth v5, Prisma ORM, PostgreSQL, Vercel deploy. Build FPO web portal as capstone — authenticated flight ops dashboard deployed publicly.',
+      '31 days. Next.js 15 App Router. Server Components, Server Actions, NextAuth v5, Prisma ORM, PostgreSQL, Vercel deploy. Build FPO web portal — authenticated flight ops dashboard deployed publicly.',
     courses: [
-      'Max Schwarzmuller — Next.js and React The Complete Guide (Udemy, 25h) · App Router focused',
+      'Max Schwarzmuller — Next.js and React The Complete Guide (Udemy, 25h) · App Router',
       'Lee Robinson (Vercel) — Next.js Learn (free official course) · App Router fundamentals',
     ],
     wplan: [
       {
-        w: 36,
+        w: 31,
         f: 'App Router Foundations',
-        t: 'File-based routing, layouts, loading/error/not-found pages, route groups, parallel routes, intercepting routes',
+        t: 'File-based routing, layouts, loading/error/not-found pages, route groups, parallel routes',
       },
       {
-        w: 37,
-        f: 'Server Components + Data Fetching',
+        w: 32,
+        f: 'Server Components + Data',
         t: 'RSC vs Client Components, fetch caching/revalidation, ISR/SSG/SSR strategies, Suspense streaming, Server Actions',
       },
       {
-        w: 38,
+        w: 33,
         f: 'Auth + Database',
-        t: 'NextAuth v5 OAuth providers (Google/GitHub), middleware, protected routes, Prisma ORM + PostgreSQL, Alembic migrations',
+        t: 'NextAuth v5 OAuth (Google/GitHub), middleware, protected routes, Prisma ORM + PostgreSQL, migrations',
       },
       {
-        w: 39,
-        f: 'Deploy + FPO Web Portal Capstone',
+        w: 34,
+        f: 'Deploy + FPO Portal',
         t: 'Vercel deployment, env vars, image optimization. FPO web portal: auth + flight dashboard + AWS API Gateway backend.',
+      },
+      {
+        w: 35,
+        f: 'Performance + SEO',
+        t: 'Core Web Vitals, next/image, next/font, metadata API, OpenGraph tags, static generation, dynamic rendering trade-offs.',
       },
     ],
   },
   {
+    id: 'm08',
+    seq: 8,
+    block: 'frontend',
+    icon: '📱',
+    color: '#7C3AED',
+    dark: '#6D28D9',
+    bg: '#F5F3FF',
+    border: '#DDD6FE',
+    name: 'React Native',
+    days: 30,
+    ds: 218,
+    de: 247,
+    period: 'Jan 23 - Feb 21, 2027',
+    ms: 'React Native Done · D247',
+    about:
+      '30 days. React Native via Chaicode — FPO Cloud mobile frontend. Core components, React Navigation v6, Redux Toolkit in RN, Expo SDK device APIs, Reanimated 2 animations, EAS Build. Deploy FPO mobile flight status app to TestFlight on your iPad. Calls AWS API Gateway + Lambda from Block 1.',
+    courses: [
+      'Chaicode — React Native Full Course (primary, free, Hindi + English)',
+      'Stephen Grider — The Complete React Native + Hooks Course 4.8 stars (38h) · supplementary',
+      'Expo docs — EAS Build, TestFlight submission, Expo Go debugging on iPad',
+    ],
+    wplan: [
+      {
+        w: 36,
+        f: 'Core Components + Layout',
+        t: 'View, Text, Image, TextInput, StyleSheet, Flexbox, FlatList, SectionList — exercises on iPad via Expo Go',
+      },
+      {
+        w: 37,
+        f: 'React Navigation v6',
+        t: 'Stack, Bottom Tab, Drawer navigators, nested navigation, passing params, deep linking',
+      },
+      {
+        w: 38,
+        f: 'State + Device APIs',
+        t: 'Redux Toolkit in RN, AsyncStorage, Camera, Location, Push Notifications, Expo SDK modules',
+      },
+      {
+        w: 39,
+        f: 'Animations + EAS + FPO',
+        t: 'Reanimated 2, Gesture Handler, EAS Build config, TestFlight. Deploy FPO mobile flight status app to iPad.',
+      },
+    ],
+  },
+
+  // ── BLOCK 3: PYTHON (3 months) ──────────────────────────────────────────
+  {
     id: 'm09',
     seq: 9,
+    block: 'python',
     icon: '🐍',
     color: '#16A34A',
     dark: '#15803D',
     bg: '#F0FDF4',
     border: '#BBF7D0',
     name: 'Python',
-    label: 'Month 9',
     days: 30,
     ds: 248,
     de: 277,
     period: 'Feb 22 - Mar 23, 2027',
     ms: 'Python Done · D277',
     about:
-      '30 days. Python fundamentals through advanced plus AWS boto3 automation. OOP, file handling, JSON, APIs, decorators, asyncio. Your SCB Thailand Python/boto3 experience means fast revision and deepening. Foundation for Agentic AI and DJango months.',
+      '30 days. Python fundamentals through advanced plus AWS boto3 automation. OOP, file handling, JSON, APIs, decorators, asyncio. Your SCB Thailand Python/boto3 experience means fast revision and deepening. Foundation for Agentic AI and Django months.',
     courses: [
-      'Automate the Boring Stuff with Python (Al Sweigart, free online) · practical Python automation',
+      'Automate the Boring Stuff with Python (Al Sweigart, free online) · practical Python',
       'Corey Schafer — Python YouTube playlist (free) · best OOP + decorators coverage',
     ],
     wplan: [
@@ -432,51 +469,51 @@ const PHASES = [
       {
         w: 41,
         f: 'File + JSON + APIs',
-        t: 'File I/O, pathlib, JSON processing, requests library, REST API calls, OAuth2 auth, error handling, sessions',
+        t: 'File I/O, pathlib, JSON processing, requests library, REST API calls, OAuth2 auth, error handling',
       },
       {
         w: 42,
         f: 'Advanced Python',
-        t: 'Decorators, generators, context managers, type hints, regex (re module), asyncio basics, virtual environments, packaging',
+        t: 'Decorators, generators, context managers, type hints, regex, asyncio basics, virtual environments, packaging',
       },
       {
         w: 43,
-        f: 'boto3 + AWS Automation + Review',
-        t: 'boto3: EC2 provisioning, S3 ops, Lambda invoke, DynamoDB CRUD, CloudWatch log queries — extend M01-M03 AWS skills',
+        f: 'boto3 + AWS Automation',
+        t: 'boto3: EC2 provisioning, S3 ops, Lambda invoke, DynamoDB CRUD, CloudWatch log queries — extend Block 1 AWS skills',
       },
     ],
   },
   {
     id: 'm10',
     seq: 10,
+    block: 'python',
     icon: '🤖',
     color: '#6366F1',
     dark: '#4338CA',
     bg: '#EEF2FF',
     border: '#C7D2FE',
     name: 'Agentic AI using Python',
-    label: 'Month 10',
     days: 30,
     ds: 278,
     de: 307,
     period: 'Mar 24 - Apr 22, 2027',
     ms: 'Agentic AI Done · D307',
     about:
-      '30 days. LangChain, LangGraph, RAG pipelines, multi-agent systems, MCP protocol, Ed Donner 8 projects. Your SCB Thailand LangChain/LangGraph experience = deep revision + extension. Capstone: FPO AI assistant (natural language flight queries via LangChain + DynamoDB + Lambda on AWS).',
+      '30 days. LangChain, LangGraph, RAG pipelines, multi-agent systems, MCP protocol, Ed Donner 8 projects. Your SCB Thailand LangChain/LangGraph experience = deep revision + extension. Capstone: FPO AI assistant deployed to Lambda on AWS from Block 1.',
     courses: [
-      'Ed Donner — Complete Agentic AI Engineering Course 2026 (Udemy/own site, 30h) · 8 real projects',
+      'Ed Donner — Complete Agentic AI Engineering Course 2026 (Udemy/own site, 30h) · 8 projects',
       'Eden Marco — LangChain Develop LLM Powered Applications (Udemy, 22h) · LangChain deep dive',
     ],
     wplan: [
       {
         w: 44,
-        f: 'GenAI Foundations + LangChain Core',
-        t: 'LLMs, embeddings, RAG architecture, LangChain chains/tools/memory/LCEL. Vector DBs (Pinecone/FAISS). Revisit SCB LangChain work.',
+        f: 'GenAI + LangChain Core',
+        t: 'LLMs, embeddings, RAG, LangChain chains/tools/memory/LCEL. Vector DBs (Pinecone/FAISS). Revisit SCB LangChain work.',
       },
       {
         w: 45,
-        f: 'LangGraph + Multi-Agent Systems',
-        t: 'State machines, conditional edges, supervisor agents, parallel execution, human-in-the-loop patterns — Ed Donner course',
+        f: 'LangGraph + Multi-Agent',
+        t: 'State machines, conditional edges, supervisor agents, parallel execution, human-in-the-loop — Ed Donner',
       },
       {
         w: 46,
@@ -486,80 +523,82 @@ const PHASES = [
       {
         w: 47,
         f: 'FPO AI Capstone on AWS',
-        t: 'FPO AI Assistant: natural language flight queries via LangChain + DynamoDB + Lambda. Deploy to AWS. Portfolio demo.',
+        t: 'FPO AI: natural language flight queries via LangChain + DynamoDB + Lambda. Deploy to AWS from Block 1.',
       },
     ],
   },
   {
     id: 'm11',
     seq: 11,
-    icon: '🌶',
+    block: 'python',
+    icon: '🎸',
     color: '#059669',
     dark: '#047857',
     bg: '#ECFDF5',
     border: '#A7F3D0',
-    name: 'DJango',
-    label: 'Month 11',
+    name: 'Django',
     days: 30,
     ds: 308,
     de: 337,
     period: 'Apr 23 - May 22, 2027',
-    ms: 'DJango Done · D337',
+    ms: 'Django Done · D337',
     about:
-      '30 days. DJango web framework — routing, Blueprints, SQLAlchemy ORM, DJango-RESTful, JWT auth, testing, deploy to AWS ECS Fargate. Build Employee Management REST API capstone containerised and deployed to AWS using M01 skills.',
+      '30 days. Django full-stack web framework — MVT architecture, ORM, Django REST Framework (DRF), JWT auth, admin interface, testing. Build production-grade REST API deployed to AWS ECS using Block 1 skills. Replaces Flask with a more opinionated batteries-included framework.',
     courses: [
-      'Jose Salvatierra — REST APIs with DJango and Python (Udemy) · best DJango REST API course',
-      'Corey Schafer — DJango YouTube series (free) · foundations and Blueprints',
+      'Dennis Ivy — Python Django 7 Hour Course (YouTube, free) · best Django fundamentals',
+      'Jose Salvatierra — REST APIs with Django REST Framework (Udemy) · DRF deep dive',
     ],
     wplan: [
       {
         w: 48,
-        f: 'DJango Core + Blueprints',
-        t: 'App factory pattern, Blueprints, routing, HTTP methods, request/response, Jinja2 templates, config management',
+        f: 'Django Core + MVT',
+        t: 'Django project/app structure, MVT architecture, URL routing, views (FBV/CBV), templates, static files, Django ORM',
       },
       {
         w: 49,
-        f: 'Database + SQLAlchemy',
-        t: 'DJango-SQLAlchemy models, one-to-many/many-to-many relationships, DJango-Migrate Alembic migrations, query patterns',
+        f: 'Django ORM + Admin',
+        t: 'Models, migrations, querysets, relationships (ForeignKey/ManyToMany), Django admin customisation, signals',
       },
       {
         w: 50,
-        f: 'REST API + JWT Auth',
-        t: 'DJango-RESTful resources, JWT (DJango-JWT-Extended), CORS, request validation (@validate_args), role-based access, error handlers',
+        f: 'Django REST Framework',
+        t: 'DRF serializers, ViewSets, routers, permissions, JWT auth (djangorestframework-simplejwt), filtering, pagination, throttling',
       },
       {
         w: 51,
-        f: 'Testing + Deploy to AWS ECS',
-        t: 'pytest + DJango test client, Docker + Gunicorn + Nginx, deploy to AWS ECS Fargate from M01 skills. Employee Management API capstone.',
+        f: 'Testing + Deploy to AWS',
+        t: 'pytest-django, APIClient tests, Docker + Gunicorn + Nginx, deploy to AWS ECS Fargate from Block 1. Full REST API capstone.',
       },
     ],
   },
+
+  // ── BLOCK 4: JAVA (5 months) ─────────────────────────────────────────────
   {
     id: 'm12',
     seq: 12,
+    block: 'java',
     icon: '☕',
     color: '#D97706',
     dark: '#B45309',
     bg: '#FFFBEB',
     border: '#FDE68A',
     name: 'J2SE (Java Core)',
-    label: 'Month 12 · Java Block',
     days: 30,
     ds: 338,
     de: 367,
     period: 'May 23 - Jun 21, 2027',
     ms: 'J2SE Done · D367',
     about:
-      '30 days. Java Core using your C# .NET background for fast learning. Syntax C# vs Java, OOP, Collections framework, Generics, Java 8+ (Streams, Lambdas, Optional, CompletableFuture), Multithreading, modern Java (records, sealed classes, pattern matching). Foundation for J2EE, JPA and Spring Boot.',
+      '30 days. Java Core using your C# .NET background for fast learning. Syntax C# vs Java, OOP, Collections, Generics, Java 8+ (Streams, Lambdas, Optional, CompletableFuture), Multithreading, modern Java (records, sealed classes, pattern matching). Foundation for J2EE, JPA and Spring Boot.',
     courses: [
-      'Navin Reddy Telusko — Java Programming (YouTube free, comprehensive) · J2SE fast-track',
+      'Navin Reddy Telusko — Java Programming (YouTube free) · J2SE fast-track',
       'Tim Buchalka — Java Masterclass 2026 (Udemy, 80h) · most comprehensive Java course',
     ],
     wplan: [
       {
         w: 52,
         f: 'Java Syntax + OOP',
-        t: 'JDK/JVM/JRE, syntax vs C#, classes, inheritance, polymorphism, interfaces, abstract classes, access modifiers, static members',
+        t: 'JDK/JVM/JRE, syntax vs C#, classes, inheritance, polymorphism, interfaces, abstract classes, access modifiers, static',
       },
       {
         w: 53,
@@ -574,36 +613,36 @@ const PHASES = [
       {
         w: 55,
         f: 'Concurrency + Modern Java',
-        t: 'Thread/Runnable, ExecutorService, CompletableFuture. Java 14-21: records, sealed classes, pattern matching, text blocks, switch expressions',
+        t: 'Thread/Runnable, ExecutorService, CompletableFuture. Java 14-21: records, sealed classes, pattern matching, text blocks',
       },
     ],
   },
   {
     id: 'm13',
     seq: 13,
+    block: 'java',
     icon: '🏭',
     color: '#EA580C',
     dark: '#C2410C',
     bg: '#FFF7ED',
     border: '#FED7AA',
     name: 'J2EE (Java Enterprise)',
-    label: 'Month 13 · Java Block',
     days: 30,
     ds: 368,
     de: 397,
     period: 'Jun 22 - Jul 21, 2027',
     ms: 'J2EE Done · D397',
     about:
-      '30 days. Java Enterprise Edition — Servlets, JSP, JDBC, JAX-RS (REST APIs in Java), CDI dependency injection, EJB session beans, JMS messaging. Foundation for Spring Boot which simplifies all J2EE specs. JMS directly bridges to Kafka in Microservices month.',
+      '30 days. Java Enterprise Edition — Servlets, JSP, JDBC, JAX-RS REST APIs, CDI dependency injection, EJB session beans, JMS messaging. Foundation for Spring Boot which simplifies all J2EE specs. JMS bridges directly to Kafka in Microservices month.',
     courses: [
-      'Baeldung.com — Java EE articles (free, best J2EE reference) · Servlets, JDBC, JAX-RS, CDI',
+      'Baeldung.com — Java EE articles (free) · Servlets, JDBC, JAX-RS, CDI reference',
       'Ranga Karanam — Java EE and Jakarta EE (Udemy) · practical J2EE projects',
     ],
     wplan: [
       {
         w: 56,
         f: 'Servlets + JSP + JDBC',
-        t: 'HttpServlet lifecycle, doGet/doPost, filters, session management. JSP EL/JSTL MVC pattern. JDBC with HikariCP connection pooling.',
+        t: 'HttpServlet lifecycle, doGet/doPost, filters, session management. JSP EL/JSTL MVC pattern. JDBC with HikariCP pooling.',
       },
       {
         w: 57,
@@ -625,29 +664,29 @@ const PHASES = [
   {
     id: 'm14',
     seq: 14,
+    block: 'java',
     icon: '🗄',
     color: '#B45309',
     dark: '#92400E',
     bg: '#FFFBEB',
     border: '#FDE68A',
     name: 'JPA / Hibernate',
-    label: 'Month 14 · Java Block',
     days: 30,
     ds: 398,
     de: 427,
     period: 'Jul 22 - Aug 20, 2027',
     ms: 'JPA / Hibernate Done · D427',
     about:
-      '30 days. JPA and Hibernate deep dive. Entity mapping, relationships (OneToOne/OneToMany/ManyToMany), JPQL, Criteria API, N+1 problem solutions, @Transactional, Spring Data JPA. Every concept maps to FPO Cloud: DynamoDB replaces relational DB but all ORM patterns transfer directly.',
+      '30 days. JPA and Hibernate deep dive. Entity mapping, relationships (OneToOne/OneToMany/ManyToMany), JPQL, N+1 problem solutions, @Transactional, Spring Data JPA. Every concept maps to FPO Cloud: DynamoDB replaces relational DB but all ORM patterns transfer directly.',
     courses: [
       'John Thompson — Hibernate and Spring Data JPA Beginner to Guru (Udemy, 55h) · best JPA course',
-      'Baeldung.com — JPA/Hibernate articles (free) · N+1, caching, transactions deep reference',
+      'Baeldung.com — JPA/Hibernate articles (free) · N+1, caching, transactions reference',
     ],
     wplan: [
       {
         w: 60,
         f: 'JPA Entity Mapping',
-        t: '@Entity, @Id, @GeneratedValue, @Column, @Table, @Embedded/@Embeddable, EntityManager, entity lifecycle states',
+        t: '@Entity, @Id, @GeneratedValue, @Column, @Table, @Embedded, EntityManager, entity lifecycle states, persistence.xml',
       },
       {
         w: 61,
@@ -656,33 +695,33 @@ const PHASES = [
       },
       {
         w: 62,
-        f: 'N+1 Problem + Transactions',
-        t: 'Identifying N+1 with SQL logging, @EntityGraph, JOIN FETCH solutions. @Transactional propagation, isolation levels, optimistic locking (@Version)',
+        f: 'N+1 + Transactions',
+        t: 'Identifying N+1 with SQL logging, @EntityGraph, JOIN FETCH solutions. @Transactional propagation, isolation levels, @Version',
       },
       {
         w: 63,
         f: 'Spring Data JPA + Caching',
-        t: 'JpaRepository, @Query, Specification API. L1/L2 caching (EhCache), Hibernate statistics, Spring Data projections, QueryDSL',
+        t: 'JpaRepository, @Query, Specification API, L1/L2 caching (EhCache), Hibernate statistics, Spring Data projections',
       },
     ],
   },
   {
     id: 'm15',
     seq: 15,
+    block: 'java',
     icon: '🌱',
     color: '#16A34A',
     dark: '#15803D',
     bg: '#F0FDF4',
     border: '#BBF7D0',
     name: 'Spring Boot',
-    label: 'Month 15 · Java Block',
     days: 30,
     ds: 428,
     de: 457,
     period: 'Aug 21 - Sep 19, 2027',
     ms: 'Spring Boot Done · D457',
     about:
-      '30 days. Spring Boot 3 — IoC container, Spring MVC, REST APIs, Spring Security with JWT and OAuth2, testing (JUnit5/Mockito/Testcontainers). Your C# .NET 8 + FPO Cognito OAuth2 background maps exactly to Spring Security. Deploy production API to AWS ECS using M01 skills.',
+      '30 days. Spring Boot 3 — IoC container, Spring MVC, REST APIs, Spring Security with JWT and OAuth2, testing (JUnit5/Mockito/Testcontainers). Your C# .NET 8 + FPO Cognito OAuth2 background maps exactly to Spring Security. Deploy API to AWS ECS from Block 1.',
     courses: [
       'John Thompson — Spring Framework 6 Beginner to Guru (Udemy, 40h) · most comprehensive',
       'Ranga Karanam — Master Spring Boot 3 and Spring Framework 6 (Udemy, 36h) · practical projects',
@@ -696,37 +735,37 @@ const PHASES = [
       {
         w: 65,
         f: 'Spring MVC + REST APIs',
-        t: '@RestController, ResponseEntity, @Valid, @ExceptionHandler, @ControllerAdvice, OpenAPI/Swagger, DTO + MapStruct (your FPO pattern!)',
+        t: '@RestController, ResponseEntity, @Valid, @ExceptionHandler, @ControllerAdvice, OpenAPI/Swagger, DTO + MapStruct',
       },
       {
         w: 66,
         f: 'Spring Security + OAuth2',
-        t: 'SecurityFilterChain, JWT filter chain, UserDetailsService, BCrypt. OAuth2 resource server + JWKS endpoint = your exact FPO Cognito pattern!',
+        t: 'SecurityFilterChain, JWT filter chain, UserDetailsService, BCrypt. OAuth2 resource server + JWKS = your FPO Cognito pattern!',
       },
       {
         w: 67,
-        f: 'Testing + Capstone + AWS Deploy',
-        t: '@WebMvcTest, MockMvc, @DataJpaTest, Testcontainers, Mockito. Build full REST API + JWT + JPA + Docker. Deploy to AWS ECS from M01.',
+        f: 'Testing + Capstone + AWS',
+        t: '@WebMvcTest, MockMvc, @DataJpaTest, Testcontainers, Mockito. Full REST API + JWT + JPA + Docker. Deploy to AWS ECS.',
       },
     ],
   },
   {
     id: 'm16',
     seq: 16,
+    block: 'java',
     icon: '🏛',
     color: '#E11D48',
     dark: '#BE123C',
     bg: '#FFF1F2',
     border: '#FECDD3',
     name: 'Microservices',
-    label: 'Month 16 · Java Block · FINAL',
     days: 30,
     ds: 458,
     de: 487,
     period: 'Sep 20 - Oct 19, 2027',
     ms: '487 DAYS COMPLETE · Oct 19, 2027',
     about:
-      '30 days. Microservices with Spring Cloud, Kafka, CQRS, Event Sourcing, Saga pattern, deploy to AWS EKS. Every single pattern maps to FPO Cloud: EventBridge = Kafka, Step Functions = Saga, Lambda = Microservice, DynamoDB streams = Event Sourcing. Your FPO production experience is a massive advantage. Day 487 = Oct 19, 2027 = 16 Months COMPLETE.',
+      '30 days. Microservices with Spring Cloud, Kafka, CQRS, Event Sourcing, Saga pattern, deploy to AWS EKS. Every pattern maps to FPO Cloud: EventBridge = Kafka, Step Functions = Saga, Lambda = Microservice, DynamoDB streams = Event Sourcing. Day 487 = Oct 19, 2027 = 16 Months COMPLETE.',
     courses: [
       'Ranga Karanam — Java Spring Boot Microservices with K8s and Docker (Udemy, 35h)',
       'Sean Campbell — Master Spring Boot Microservices CQRS and Event Sourcing (Udemy, 10h)',
@@ -740,17 +779,17 @@ const PHASES = [
       {
         w: 69,
         f: 'Resilience + Kafka',
-        t: 'Resilience4j circuit breaker/retry/bulkhead. Kafka producers/consumers/partitions/offsets — maps to your FPO EventBridge',
+        t: 'Resilience4j circuit breaker/retry/bulkhead. Kafka producers/consumers/partitions — maps to your FPO EventBridge',
       },
       {
         w: 70,
         f: 'CQRS + Event Sourcing',
-        t: 'Read/write model separation, Axon Framework event store, event replay — maps to FPO mission-feed event sourcing table',
+        t: 'Read/write separation, Axon event store, event replay — maps to FPO mission-feed event sourcing table',
       },
       {
         w: 71,
-        f: 'Saga + EKS Deploy + Final Day',
-        t: 'Orchestration vs choreography (Step Functions = Saga!). Deploy microservices to AWS EKS from M01-M03. Day 487 = DONE.',
+        f: 'Saga + EKS Deploy + Day 487',
+        t: 'Step Functions = Saga! Deploy microservices to AWS EKS from Block 1. Write 1 ADR. Day 487 = Oct 19, 2027 = DONE.',
       },
     ],
   },
@@ -780,38 +819,38 @@ const MILESTONES = [
   },
   {
     day: 124,
-    icon: '🔷',
-    label: 'TypeScript',
-    date: 'Oct 21, 2026',
-    color: '#3B82F6',
-  },
-  {
-    day: 155,
-    icon: '📱',
-    label: 'React Native',
-    date: 'Nov 21, 2026',
-    color: '#7C3AED',
-  },
-  {
-    day: 186,
     icon: '🟨',
     label: 'JavaScript',
-    date: 'Dec 22, 2026',
+    date: 'Oct 21, 2026',
     color: '#F59E0B',
   },
   {
-    day: 217,
+    day: 155,
+    icon: '🔷',
+    label: 'TypeScript',
+    date: 'Nov 21, 2026',
+    color: '#3B82F6',
+  },
+  {
+    day: 186,
     icon: '⚛',
     label: 'React',
-    date: 'Jan 22, 2027',
+    date: 'Dec 22, 2026',
     color: '#0EA5E9',
   },
   {
-    day: 247,
+    day: 217,
     icon: '▲',
     label: 'Next.js',
-    date: 'Feb 21, 2027',
+    date: 'Jan 22, 2027',
     color: '#374151',
+  },
+  {
+    day: 247,
+    icon: '📱',
+    label: 'React Native',
+    date: 'Feb 21, 2027',
+    color: '#7C3AED',
   },
   {
     day: 277,
@@ -829,8 +868,8 @@ const MILESTONES = [
   },
   {
     day: 337,
-    icon: '🌶',
-    label: 'DJango',
+    icon: '🎸',
+    label: 'Django',
     date: 'May 22, 2027',
     color: '#059669',
   },
@@ -885,9 +924,30 @@ function pct() {
 
 function Card({ p, open, onToggle, isCurrent, isDone }) {
   const [wkOpen, setWkOpen] = useState(false);
-  const isAWS = p.seq <= 3;
-  const isRN = p.seq === 5;
-  const isJava = p.seq >= 12;
+  const bColors = {
+    devops: '#D97706',
+    frontend: '#0EA5E9',
+    python: '#16A34A',
+    java: '#D97706',
+  };
+  const bBg = {
+    devops: '#FFF7ED',
+    frontend: '#F0F9FF',
+    python: '#F0FDF4',
+    java: '#FFFBEB',
+  };
+  const bBorder = {
+    devops: '#FED7AA',
+    frontend: '#BAE6FD',
+    python: '#BBF7D0',
+    java: '#FDE68A',
+  };
+  const bLabel = {
+    devops: 'DevOps',
+    frontend: 'Frontend',
+    python: 'Python',
+    java: 'Java',
+  };
   return (
     <div
       id={'ph-' + p.id}
@@ -1002,67 +1062,19 @@ function Card({ p, open, onToggle, isCurrent, isDone }) {
                 {'✅ DONE'}
               </span>
             )}
-            {isAWS && !isDone && (
-              <span
-                style={{
-                  fontSize: 8,
-                  fontWeight: 800,
-                  padding: '1px 6px',
-                  borderRadius: 12,
-                  background: '#FEF3C7',
-                  color: '#B45309',
-                  border: '1px solid #FDE68A',
-                  whiteSpace: 'nowrap',
-                }}
-              >
-                {'⭐ PRIORITY'}
-              </span>
-            )}
-            {isRN && !isDone && (
-              <span
-                style={{
-                  fontSize: 8,
-                  fontWeight: 800,
-                  padding: '1px 6px',
-                  borderRadius: 12,
-                  background: '#F5F3FF',
-                  color: '#6D28D9',
-                  border: '1px solid #DDD6FE',
-                  whiteSpace: 'nowrap',
-                }}
-              >
-                {'📱 FPO Frontend'}
-              </span>
-            )}
-            {isJava && !isDone && (
-              <span
-                style={{
-                  fontSize: 8,
-                  fontWeight: 800,
-                  padding: '1px 6px',
-                  borderRadius: 12,
-                  background: '#FFF7ED',
-                  color: '#B45309',
-                  border: '1px solid #FED7AA',
-                  whiteSpace: 'nowrap',
-                }}
-              >
-                {'☕ Java'}
-              </span>
-            )}
             <span
               style={{
                 fontSize: 8,
                 fontWeight: 700,
                 padding: '1px 6px',
                 borderRadius: 10,
-                background: p.color + '15',
-                color: p.color,
-                border: '1px solid ' + p.color + '30',
+                background: bBg[p.block],
+                color: bColors[p.block],
+                border: '1px solid ' + bBorder[p.block],
                 whiteSpace: 'nowrap',
               }}
             >
-              {p.label}
+              {bLabel[p.block]}
             </span>
             <span
               style={{
@@ -1163,7 +1175,6 @@ function Card({ p, open, onToggle, isCurrent, isDone }) {
                   style={{
                     fontSize: 9,
                     flexShrink: 0,
-                    marginTop: 1,
                     fontWeight: 700,
                     color: p.color,
                   }}
@@ -1245,14 +1256,7 @@ function Card({ p, open, onToggle, isCurrent, isDone }) {
                     </span>
                   </div>
                   <div style={{ flex: 1, minWidth: 0 }}>
-                    <div
-                      style={{
-                        display: 'flex',
-                        gap: 4,
-                        alignItems: 'center',
-                        marginBottom: 2,
-                      }}
-                    >
+                    <div style={{ display: 'flex', gap: 4, marginBottom: 2 }}>
                       <span
                         style={{
                           fontSize: 10,
@@ -1301,27 +1305,6 @@ export default function App() {
       80,
     );
   };
-
-  const sections = [
-    {
-      col: '#D97706',
-      title: 'MONTHS 1-3 · AWS PRIORITY',
-      sub: 'D1-D93 · Jun 20 – Sep 20, 2026 · DevOps with AWS · SRE with AWS · QE with AWS',
-      ids: ['m01', 'm02', 'm03'],
-    },
-    {
-      col: '#3B82F6',
-      title: 'MONTHS 4-11 · CORE SKILLS',
-      sub: 'D94-D337 · Sep 21, 2026 – May 22, 2027 · TypeScript · React Native · JS · React · Next.js · Python · Agentic AI · DJango',
-      ids: ['m04', 'm05', 'm06', 'm07', 'm08', 'm09', 'm10', 'm11'],
-    },
-    {
-      col: '#D97706',
-      title: 'MONTHS 12-16 · JAVA BLOCK',
-      sub: 'D338-D487 · May 23 2027 – Oct 19 2027 · J2SE · J2EE · JPA · Spring Boot · Microservices',
-      ids: ['m12', 'm13', 'm14', 'm15', 'm16'],
-    },
-  ];
 
   return (
     <div
@@ -1421,67 +1404,100 @@ export default function App() {
             </div>
           </div>
 
+          {/* 4 block summary */}
           <div
             style={{
               display: 'grid',
-              gridTemplateColumns: 'repeat(auto-fill,minmax(120px,1fr))',
-              gap: 5,
+              gridTemplateColumns: 'repeat(2,1fr)',
+              gap: 6,
               marginBottom: 11,
             }}
           >
-            {PHASES.map((p, i) => {
-              const done = d + 1 > p.de,
-                cur = d + 1 >= p.ds && d + 1 <= p.de;
-              return (
+            {[
+              {
+                icon: '🔧',
+                label: 'DevOps',
+                months: 'M01-M03',
+                sub: 'DevOps · SRE · QE — all with AWS',
+                col: '#D97706',
+                days: 'D1-D93',
+              },
+              {
+                icon: '⚡',
+                label: 'Frontend',
+                months: 'M04-M08',
+                sub: 'JS · TS · React · Next.js · React Native',
+                col: '#0EA5E9',
+                days: 'D94-D247',
+              },
+              {
+                icon: '🐍',
+                label: 'Python',
+                months: 'M09-M11',
+                sub: 'Python · Agentic AI · Django',
+                col: '#16A34A',
+                days: 'D248-D337',
+              },
+              {
+                icon: '☕',
+                label: 'Java',
+                months: 'M12-M16',
+                sub: 'J2SE · J2EE · JPA · Spring Boot · Microservices',
+                col: '#D97706',
+                days: 'D338-D487',
+              },
+            ].map((b) => (
+              <div
+                key={b.label}
+                style={{
+                  background: 'rgba(255,255,255,0.1)',
+                  borderRadius: 9,
+                  padding: '9px 11px',
+                  border: '1px solid ' + b.col + '50',
+                }}
+              >
                 <div
-                  key={p.id}
-                  onClick={() => jump(p.id)}
                   style={{
-                    background: 'rgba(255,255,255,0.1)',
-                    borderRadius: 8,
-                    padding: '7px 9px',
-                    border:
-                      '1px solid ' +
-                      (cur
-                        ? '#F59E0B80'
-                        : done
-                          ? p.color + '60'
-                          : p.color + '30'),
-                    cursor: 'pointer',
-                    opacity: done ? 0.6 : 1,
-                    transition: 'all 0.2s',
+                    display: 'flex',
+                    alignItems: 'center',
+                    gap: 6,
+                    marginBottom: 3,
                   }}
                 >
-                  <div
+                  <span style={{ fontSize: 16 }}>{b.icon}</span>
+                  <span style={{ fontSize: 10, fontWeight: 800, color: b.col }}>
+                    {b.label}
+                  </span>
+                  <span
                     style={{
-                      display: 'flex',
-                      alignItems: 'center',
-                      gap: 5,
-                      marginBottom: 2,
+                      fontSize: 8,
+                      color: 'rgba(255,255,255,0.4)',
+                      marginLeft: 'auto',
                     }}
                   >
-                    <span style={{ fontSize: 13 }}>
-                      {done ? '✅' : cur ? '🔥' : p.icon}
-                    </span>
-                    <span
-                      style={{ fontSize: 8, fontWeight: 800, color: p.color }}
-                    >
-                      {'M' + p.seq}
-                    </span>
-                  </div>
-                  <div
-                    style={{
-                      fontSize: 9,
-                      fontWeight: 700,
-                      color: '#fff',
-                      lineHeight: 1.3,
-                    }}
-                  >
-                    {p.name.split(' ')[0] + ' ' + (p.name.split(' ')[1] || '')}
-                  </div>
+                    {b.months}
+                  </span>
                 </div>
-              );
-            })}
+                <div
+                  style={{
+                    fontSize: 8,
+                    color: 'rgba(255,255,255,0.6)',
+                    marginBottom: 2,
+                  }}
+                >
+                  {b.days}
+                </div>
+                <div
+                  style={{
+                    fontSize: 8,
+                    color: 'rgba(255,255,255,0.45)',
+                    lineHeight: 1.5,
+                  }}
+                >
+                  {b.sub}
+                </div>
+              </div>
+            ))}
           </div>
 
           <div
@@ -1496,10 +1512,10 @@ export default function App() {
               alignItems: 'center',
             }}
           >
-            <span style={{ fontSize: 15, flexShrink: 0 }}>{'⏰'}</span>
+            <span style={{ fontSize: 15 }}>{'⏰'}</span>
             <div style={{ fontSize: 9, color: 'rgba(255,255,255,0.7)' }}>
               {
-                '5:30 AM – 8:30 AM daily · MANDATORY · Weekends: Maximum Time · 1 skill per month · 16 skills'
+                '5:30 AM – 8:30 AM daily · MANDATORY · Weekends: Maximum Time · 1 skill per month'
               }
             </div>
           </div>
@@ -1682,65 +1698,80 @@ export default function App() {
       <div
         style={{ maxWidth: 700, margin: '0 auto', padding: '14px 10px 44px' }}
       >
-        {sections.map((sec) => (
-          <div key={sec.title}>
-            <div
-              style={{
-                display: 'flex',
-                alignItems: 'center',
-                gap: 8,
-                marginBottom: 8,
-                marginTop: 16,
-              }}
-            >
+        {BLOCKS.map((blk) => {
+          const bPhases = PHASES.filter((p) => p.block === blk.id);
+          return (
+            <div key={blk.id}>
               <div
                 style={{
-                  height: 2,
-                  flex: 1,
-                  background:
-                    'linear-gradient(90deg,' + sec.col + ',' + sec.col + '10)',
+                  display: 'flex',
+                  alignItems: 'center',
+                  gap: 8,
+                  marginBottom: 8,
+                  marginTop: 16,
                 }}
-              />
-              <div
-                style={{ textAlign: 'center', flexShrink: 0, padding: '0 6px' }}
               >
                 <div
                   style={{
-                    fontSize: 'clamp(9px,2.5vw,11px)',
-                    fontWeight: 800,
-                    color: sec.col,
-                    letterSpacing: '0.08em',
+                    height: 2,
+                    flex: 1,
+                    background:
+                      'linear-gradient(90deg,' +
+                      blk.col +
+                      ',' +
+                      blk.col +
+                      '10)',
+                  }}
+                />
+                <div
+                  style={{
+                    textAlign: 'center',
+                    flexShrink: 0,
+                    padding: '0 6px',
                   }}
                 >
-                  {sec.title}
+                  <div
+                    style={{
+                      fontSize: 'clamp(9px,2.5vw,11px)',
+                      fontWeight: 800,
+                      color: blk.col,
+                      letterSpacing: '0.08em',
+                    }}
+                  >
+                    {blk.label + ' — ' + blk.months + ' MONTHS'}
+                  </div>
+                  <div style={{ fontSize: 8, color: '#94A3B8', marginTop: 1 }}>
+                    {blk.sub}
+                  </div>
                 </div>
-                <div style={{ fontSize: 8, color: '#94A3B8', marginTop: 1 }}>
-                  {sec.sub}
-                </div>
-              </div>
-              <div
-                style={{
-                  height: 2,
-                  flex: 1,
-                  background:
-                    'linear-gradient(90deg,' + sec.col + '10,' + sec.col + ')',
-                }}
-              />
-            </div>
-            <div style={{ display: 'flex', flexDirection: 'column', gap: 8 }}>
-              {PHASES.filter((p) => sec.ids.includes(p.id)).map((p) => (
-                <Card
-                  key={p.id}
-                  p={p}
-                  open={openId === p.id}
-                  onToggle={() => toggle(p.id)}
-                  isCurrent={cid === p.id}
-                  isDone={d + 1 > p.de}
+                <div
+                  style={{
+                    height: 2,
+                    flex: 1,
+                    background:
+                      'linear-gradient(90deg,' +
+                      blk.col +
+                      '10,' +
+                      blk.col +
+                      ')',
+                  }}
                 />
-              ))}
+              </div>
+              <div style={{ display: 'flex', flexDirection: 'column', gap: 8 }}>
+                {bPhases.map((p) => (
+                  <Card
+                    key={p.id}
+                    p={p}
+                    open={openId === p.id}
+                    onToggle={() => toggle(p.id)}
+                    isCurrent={cid === p.id}
+                    isDone={d + 1 > p.de}
+                  />
+                ))}
+              </div>
             </div>
-          </div>
-        ))}
+          );
+        })}
 
         <div
           style={{
@@ -1770,7 +1801,7 @@ export default function App() {
             }}
           >
             {
-              '487 days · 5:30 AM to 8:30 AM mandatory · AWS first · Java block last · 1 skill per month'
+              '487 days · 5:30 AM to 8:30 AM mandatory · DevOps(3) → Frontend(5) → Python(3) → Java(5)'
             }
           </div>
           <div
