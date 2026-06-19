@@ -55,7 +55,7 @@ const PHASES = [
       {
         w: 5,
         f: 'Projects + Review',
-        t: 'Build: end-to-end CI/CD pipeline (GitHub to ECS), containerise a Flask app with ECR/ECS, Terraform AWS infra provisioning.',
+        t: 'Build: end-to-end CI/CD pipeline (GitHub to ECS), containerise a DJango app with ECR/ECS, Terraform AWS infra provisioning.',
       },
     ],
   },
@@ -418,7 +418,7 @@ const PHASES = [
     period: 'Feb 22 - Mar 23, 2027',
     ms: 'Python Done · D277',
     about:
-      '30 days. Python fundamentals through advanced plus AWS boto3 automation. OOP, file handling, JSON, APIs, decorators, asyncio. Your SCB Thailand Python/boto3 experience means fast revision and deepening. Foundation for Agentic AI and Flask months.',
+      '30 days. Python fundamentals through advanced plus AWS boto3 automation. OOP, file handling, JSON, APIs, decorators, asyncio. Your SCB Thailand Python/boto3 experience means fast revision and deepening. Foundation for Agentic AI and DJango months.',
     courses: [
       'Automate the Boring Stuff with Python (Al Sweigart, free online) · practical Python automation',
       'Corey Schafer — Python YouTube playlist (free) · best OOP + decorators coverage',
@@ -498,39 +498,39 @@ const PHASES = [
     dark: '#047857',
     bg: '#ECFDF5',
     border: '#A7F3D0',
-    name: 'Flask',
+    name: 'DJango',
     label: 'Month 11',
     days: 30,
     ds: 308,
     de: 337,
     period: 'Apr 23 - May 22, 2027',
-    ms: 'Flask Done · D337',
+    ms: 'DJango Done · D337',
     about:
-      '30 days. Flask web framework — routing, Blueprints, SQLAlchemy ORM, Flask-RESTful, JWT auth, testing, deploy to AWS ECS Fargate. Build Employee Management REST API capstone containerised and deployed to AWS using M01 skills.',
+      '30 days. DJango web framework — routing, Blueprints, SQLAlchemy ORM, DJango-RESTful, JWT auth, testing, deploy to AWS ECS Fargate. Build Employee Management REST API capstone containerised and deployed to AWS using M01 skills.',
     courses: [
-      'Jose Salvatierra — REST APIs with Flask and Python (Udemy) · best Flask REST API course',
-      'Corey Schafer — Flask YouTube series (free) · foundations and Blueprints',
+      'Jose Salvatierra — REST APIs with DJango and Python (Udemy) · best DJango REST API course',
+      'Corey Schafer — DJango YouTube series (free) · foundations and Blueprints',
     ],
     wplan: [
       {
         w: 48,
-        f: 'Flask Core + Blueprints',
+        f: 'DJango Core + Blueprints',
         t: 'App factory pattern, Blueprints, routing, HTTP methods, request/response, Jinja2 templates, config management',
       },
       {
         w: 49,
         f: 'Database + SQLAlchemy',
-        t: 'Flask-SQLAlchemy models, one-to-many/many-to-many relationships, Flask-Migrate Alembic migrations, query patterns',
+        t: 'DJango-SQLAlchemy models, one-to-many/many-to-many relationships, DJango-Migrate Alembic migrations, query patterns',
       },
       {
         w: 50,
         f: 'REST API + JWT Auth',
-        t: 'Flask-RESTful resources, JWT (Flask-JWT-Extended), CORS, request validation (@validate_args), role-based access, error handlers',
+        t: 'DJango-RESTful resources, JWT (DJango-JWT-Extended), CORS, request validation (@validate_args), role-based access, error handlers',
       },
       {
         w: 51,
         f: 'Testing + Deploy to AWS ECS',
-        t: 'pytest + Flask test client, Docker + Gunicorn + Nginx, deploy to AWS ECS Fargate from M01 skills. Employee Management API capstone.',
+        t: 'pytest + DJango test client, Docker + Gunicorn + Nginx, deploy to AWS ECS Fargate from M01 skills. Employee Management API capstone.',
       },
     ],
   },
@@ -830,7 +830,7 @@ const MILESTONES = [
   {
     day: 337,
     icon: '🌶',
-    label: 'Flask',
+    label: 'DJango',
     date: 'May 22, 2027',
     color: '#059669',
   },
@@ -1312,7 +1312,7 @@ export default function App() {
     {
       col: '#3B82F6',
       title: 'MONTHS 4-11 · CORE SKILLS',
-      sub: 'D94-D337 · Sep 21, 2026 – May 22, 2027 · TypeScript · React Native · JS · React · Next.js · Python · Agentic AI · Flask',
+      sub: 'D94-D337 · Sep 21, 2026 – May 22, 2027 · TypeScript · React Native · JS · React · Next.js · Python · Agentic AI · DJango',
       ids: ['m04', 'm05', 'm06', 'm07', 'm08', 'm09', 'm10', 'm11'],
     },
     {
