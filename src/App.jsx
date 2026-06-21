@@ -1,12 +1,15 @@
 import { useState } from 'react';
 
-// 1064 Days of Code — 152 Weeks
+// 1052 Study Days + 12-Day Vipassana Break = 1064 Calendar Days
 // Sat Jun 20, 2026 to Fri May 18, 2029
-// 5:30 AM to 8:30 AM daily mandatory
-// Block 1: 16 Months (D1-D487) → Block 2: Data Structures (D488-D852) → Block 3: System Design (D853-D1064)
+// Block 1 D1-D487: 5:30-8:30 AM (3h) · Block 2-3 D488-D1052: 6:45-8:45 AM (2h)
+// Vipassana break Oct 20-31 2027 (not counted) · Vipassana morning 5:30-6:35 AM from Nov 1 2027
 
 const START = new Date('2026-06-20');
-const TOTAL = 1064;
+const TOTAL = 1052;
+const VIP_START = new Date('2027-10-20'); // Vipassana break starts
+const VIP_END = new Date('2027-10-31'); // Vipassana break ends
+const STUDY_END = new Date('2029-05-18'); // Final day D1052
 
 const BLOCKS = [
   {
@@ -38,18 +41,26 @@ const BLOCKS = [
     months: 5,
   },
   {
+    id: 'vipassana_break',
+    label: '🧘 Vipassana Camp',
+    sub: 'Oct 20–31, 2027 · 12-day break · Not counted',
+    col: '#9B6DFF',
+    months: null,
+    isBreak: true,
+  },
+  {
     id: 'dsa',
     label: '🧩 Data Structures',
-    sub: 'D488-D852 · Oct 20, 2027 – Oct 18, 2028 · 52 weeks · Arrays→DP→Graphs→Tries',
+    sub: 'D488-D851 · Nov 1, 2027 – Oct 29, 2028 · 52 weeks · 6:45-8:45 AM daily',
     col: '#6366F1',
-    months: 12,
+    months: null,
   },
   {
     id: 'sd',
     label: '🏗 System Design',
-    sub: 'D853-D1064 · Oct 19, 2028 – May 18, 2029 · 30 weeks · HLD→Scalability→Classic Designs→Mock',
+    sub: 'D852-D1052 · Oct 30, 2028 – May 18, 2029 · 28 weeks · 6:45-8:45 AM daily',
     col: '#7C3AED',
-    months: 7,
+    months: null,
   },
 ];
 
@@ -821,10 +832,10 @@ const PHASES = [
     days: 28,
     ds: 488,
     de: 515,
-    period: 'Oct 20 - Nov 16, 2027',
+    period: 'Nov 1 - Nov 28, 2027',
     ms: 'Arrays + Strings Done · D515',
     about:
-      '4 weeks. Two pointers, sliding window, prefix sums, binary search patterns, string manipulation. 50+ LeetCode problems in Java. Foundation for all other DSA topics. Your C# background makes syntax translation fast.',
+      '4 weeks. Two pointers, sliding window, prefix sums, binary search patterns, string manipulation. 50+ LeetCode problems in Java. Foundation for all DSA topics. NOTE: New daily schedule from Nov 1 — Vipassana meditation 5:30-6:35 AM, then study 6:45-8:45 AM (2 hours). Discipline upgrade.',
     courses: [
       'Scott Barrett — Java DSA + LeetCode Exercises (Udemy, 4.8★) · Java implementations',
       'NeetCode 150 — Arrays + Strings playlist (YouTube free) · pattern-based approach',
@@ -865,7 +876,7 @@ const PHASES = [
     days: 21,
     ds: 516,
     de: 536,
-    period: 'Nov 17 - Dec 7, 2027',
+    period: 'Nov 29 - Dec 19, 2027',
     ms: 'Linked Lists Done · D536',
     about:
       '3 weeks. Singly and doubly linked lists, fast/slow pointer technique, reversals, cycle detection, merge operations. 30+ LeetCode problems. Pointer manipulation builds C# reference intuition.',
@@ -904,7 +915,7 @@ const PHASES = [
     days: 21,
     ds: 537,
     de: 557,
-    period: 'Dec 8 - Dec 28, 2027',
+    period: 'Dec 20 - Jan 9, 2028',
     ms: 'Stacks + Queues Done · D557',
     about:
       '3 weeks. Stack and queue implementations, monotonic stack pattern, min-stack, BFS with queues, deque. 25+ LeetCode problems. Directly applicable to expression parsing and FPO workflow sequencing.',
@@ -943,7 +954,7 @@ const PHASES = [
     days: 35,
     ds: 558,
     de: 592,
-    period: 'Dec 29, 2027 - Feb 1, 2028',
+    period: 'Jan 10 - Feb 13, 2028',
     ms: 'Trees + BST Done · D592',
     about:
       '5 weeks. Binary trees, BST (insert/delete/validate), DFS (pre/in/post-order), BFS (level-order), lowest common ancestor, path sum problems. 50+ LeetCode problems. Trees are the most tested interview topic.',
@@ -992,7 +1003,7 @@ const PHASES = [
     days: 21,
     ds: 593,
     de: 613,
-    period: 'Feb 2 - Feb 22, 2028',
+    period: 'Feb 14 - Mar 5, 2028',
     ms: 'Heaps Done · D613',
     about:
       '3 weeks. Min-heap, max-heap, PriorityQueue in Java, heap sort, Top-K pattern, two-heap pattern (median), K-way merge. 25+ LeetCode problems. Heaps power scheduling and optimization systems.',
@@ -1031,7 +1042,7 @@ const PHASES = [
     days: 35,
     ds: 614,
     de: 648,
-    period: 'Feb 23 - Mar 28, 2028',
+    period: 'Mar 6 - Apr 9, 2028',
     ms: 'Graphs Done · D648',
     about:
       "5 weeks. Graph representations, BFS/DFS on graphs, topological sort, Dijkstra's algorithm, Union-Find (DSU), cycle detection. 50+ LeetCode problems. Your distributed microservices knowledge maps directly to graph theory.",
@@ -1081,7 +1092,7 @@ const PHASES = [
     days: 21,
     ds: 649,
     de: 669,
-    period: 'Mar 29 - Apr 18, 2028',
+    period: 'Apr 10 - Apr 30, 2028',
     ms: 'Hashing Done · D669',
     about:
       '3 weeks. HashMap, HashSet, collision handling, custom hash functions, frequency maps, two-sum pattern, grouping problems. 25+ LeetCode problems. Hashing powers O(1) lookups — used everywhere in FPO Cloud DynamoDB access patterns.',
@@ -1120,7 +1131,7 @@ const PHASES = [
     days: 28,
     ds: 670,
     de: 697,
-    period: 'Apr 19 - May 16, 2028',
+    period: 'May 1 - May 28, 2028',
     ms: 'Sorting + Searching Done · D697',
     about:
       '4 weeks. All sorting algorithms with complexity proofs, binary search variants, search in rotated array, matrix search. 35+ LeetCode problems. Understanding sort internals is essential for system design trade-offs.',
@@ -1164,7 +1175,7 @@ const PHASES = [
     days: 56,
     ds: 698,
     de: 753,
-    period: 'May 17 - Jul 11, 2028',
+    period: 'May 29 - Jul 23, 2028',
     ms: 'Dynamic Programming Done · D753',
     about:
       '8 weeks MAX TIME. The hardest DSA topic. 1D DP (coin change, house robber, climb stairs), 2D DP (LCS, LIS, knapsack, edit distance), DP on trees, DP on strings. 80+ LeetCode problems. Master this and you stand out in every interview.',
@@ -1229,7 +1240,7 @@ const PHASES = [
     days: 28,
     ds: 754,
     de: 781,
-    period: 'Jul 12 - Aug 8, 2028',
+    period: 'Jul 24 - Aug 20, 2028',
     ms: 'Backtracking Done · D781',
     about:
       '4 weeks. Recursion fundamentals, backtracking template, subsets, permutations, combinations, N-Queens, Sudoku solver, word search. 30+ LeetCode problems. Backtracking is the foundation of constraint satisfaction and combinatorial search.',
@@ -1273,7 +1284,7 @@ const PHASES = [
     days: 21,
     ds: 782,
     de: 802,
-    period: 'Aug 9 - Aug 29, 2028',
+    period: 'Aug 21 - Sep 10, 2028',
     ms: 'Greedy Done · D802',
     about:
       '3 weeks. Greedy choice property, activity selection, interval scheduling, jump game, task scheduler, Huffman coding concept. 20+ LeetCode problems. Greedy algorithms often replace DP with O(n) solutions.',
@@ -1312,7 +1323,7 @@ const PHASES = [
     days: 21,
     ds: 803,
     de: 823,
-    period: 'Aug 30 - Sep 19, 2028',
+    period: 'Sep 11 - Oct 1, 2028',
     ms: 'Tries + Advanced Trees Done · D823',
     about:
       '3 weeks. Trie (prefix tree) insert/search/startsWith, word dictionary, prefix matching. Segment tree and Fenwick tree (BIT) for range queries. 20+ LeetCode problems.',
@@ -1348,10 +1359,10 @@ const PHASES = [
     bg: '#EEF2FF',
     border: '#C7D2FE',
     name: 'LeetCode Revision + Mocks',
-    days: 29,
+    days: 28,
     ds: 824,
-    de: 852,
-    period: 'Sep 20 - Oct 18, 2028',
+    de: 851,
+    period: 'Oct 2 - Oct 29, 2028',
     ms: 'DATA STRUCTURES COMPLETE · D852',
     about:
       '4 weeks + 1 day. Full DSA revision and mock interview simulation. Solve 100 problems timed. 1 mock interview per day in final week (spoken aloud, no IDE, whiteboard style). Day 852 = Data Structures COMPLETE.',
@@ -1396,10 +1407,10 @@ const PHASES = [
     border: '#DDD6FE',
     name: 'SD Fundamentals + HLD',
     days: 28,
-    ds: 853,
-    de: 880,
-    period: 'Oct 19 - Nov 15, 2028',
-    ms: 'SD Fundamentals Done · D880',
+    ds: 852,
+    de: 879,
+    period: 'Oct 30 - Nov 26, 2028',
+    ms: 'SD Fundamentals Done · D879',
     about:
       '4 weeks. System design interview framework, Frank Kane 5-step template, capacity estimation (users/storage/bandwidth), client-server architecture, APIs (REST/GraphQL/gRPC), HTTP/HTTPS, DNS, CDN, load balancers. Your FPO Cloud multi-tenant SaaS is a real system design case study.',
     courses: [
@@ -1441,10 +1452,10 @@ const PHASES = [
     border: '#DDD6FE',
     name: 'Scalability + Load Balancing',
     days: 21,
-    ds: 881,
-    de: 901,
-    period: 'Nov 16 - Dec 6, 2028',
-    ms: 'Scalability Done · D901',
+    ds: 880,
+    de: 900,
+    period: 'Nov 27 - Dec 17, 2028',
+    ms: 'Scalability Done · D900',
     about:
       '3 weeks. Horizontal vs vertical scaling, auto-scaling, load balancing algorithms, rate limiting, circuit breakers (your FPO uses Resilience4j!), API gateway patterns, stateless vs stateful services.',
     courses: [
@@ -1480,10 +1491,10 @@ const PHASES = [
     border: '#DDD6FE',
     name: 'Databases + Caching',
     days: 28,
-    ds: 902,
-    de: 929,
-    period: 'Dec 7, 2028 - Jan 3, 2029',
-    ms: 'Databases + Caching Done · D929',
+    ds: 901,
+    de: 928,
+    period: 'Dec 18 - Jan 14, 2029',
+    ms: 'Databases + Caching Done · D928',
     about:
       '4 weeks. SQL vs NoSQL trade-offs, sharding, replication, CAP theorem, DynamoDB single-table design (your FPO!), Redis caching, consistent hashing, database indexing. This is your strongest area — FPO Cloud uses DynamoDB at scale.',
     courses: [
@@ -1525,10 +1536,10 @@ const PHASES = [
     border: '#DDD6FE',
     name: 'Distributed Systems',
     days: 28,
-    ds: 930,
-    de: 957,
-    period: 'Jan 4 - Jan 31, 2029',
-    ms: 'Distributed Systems Done · D957',
+    ds: 929,
+    de: 956,
+    period: 'Jan 15 - Feb 11, 2029',
+    ms: 'Distributed Systems Done · D956',
     about:
       '4 weeks. Consistency models, consensus algorithms (Raft/Paxos concepts), distributed transactions, event sourcing (your FPO mission-feed!), Saga pattern (your Step Functions!), message queues (SQS/Kafka), CQRS.',
     courses: [
@@ -1569,10 +1580,10 @@ const PHASES = [
     border: '#DDD6FE',
     name: 'Microservices Architecture',
     days: 21,
-    ds: 958,
-    de: 978,
-    period: 'Feb 1 - Feb 21, 2029',
-    ms: 'Microservices SD Done · D978',
+    ds: 957,
+    de: 977,
+    period: 'Feb 12 - Mar 4, 2029',
+    ms: 'Microservices SD Done · D977',
     about:
       '3 weeks. Service decomposition (DDD), API gateway patterns, service mesh, inter-service communication (REST vs gRPC vs async messaging), observability (your Datadog FPO setup!), deployment patterns (blue-green, canary).',
     courses: [
@@ -1608,10 +1619,10 @@ const PHASES = [
     border: '#DDD6FE',
     name: 'Classic Designs',
     days: 35,
-    ds: 979,
-    de: 1013,
-    period: 'Feb 22 - Mar 28, 2029',
-    ms: 'Classic Designs Done · D1013',
+    ds: 978,
+    de: 1012,
+    period: 'Mar 5 - Apr 8, 2029',
+    ms: 'Classic Designs Done · D1012',
     about:
       '5 weeks. Design 1 system per day spoken aloud, 45 minutes, no notes. Cover all classic interview systems: URL shortener, WhatsApp, Twitter, YouTube, Netflix, Uber, Airbnb, Instagram, Google Search, Amazon, Ticketmaster, Slack. Your FPO multi-tenant SaaS = one of the designs.',
     courses: [
@@ -1658,10 +1669,10 @@ const PHASES = [
     border: '#DDD6FE',
     name: 'Advanced Designs + Trade-offs',
     days: 21,
-    ds: 1014,
-    de: 1034,
-    period: 'Mar 29 - Apr 18, 2029',
-    ms: 'Advanced Designs Done · D1034',
+    ds: 1013,
+    de: 1033,
+    period: 'Apr 9 - Apr 29, 2029',
+    ms: 'Advanced Designs Done · D1033',
     about:
       '3 weeks. Distributed cache, search engine, payment system, stock exchange, leaderboard. Deep trade-off analysis — why THIS database, why THIS queue, why THIS consistency model. Bogdan Stashchuk production WHY decisions.',
     courses: [
@@ -1696,11 +1707,11 @@ const PHASES = [
     bg: '#FFF1F2',
     border: '#FECDD3',
     name: 'Mock Interviews + ADRs + DONE',
-    days: 30,
-    ds: 1035,
-    de: 1064,
-    period: 'Apr 19 - May 18, 2029',
-    ms: '1064 DAYS · 152 WEEKS COMPLETE · May 18, 2029',
+    days: 19,
+    ds: 1034,
+    de: 1052,
+    period: 'Apr 30 - May 18, 2029',
+    ms: '1052 STUDY DAYS COMPLETE · May 18, 2029',
     about:
       '4+ weeks. Final sprint. 20 full cold system design interviews (spoken aloud, 45 min, no notes). Write Architecture Decision Records for 5 systems. Update GitHub portfolio with all SD diagrams. Day 1064 = May 18, 2029 = 1064 Days of Code COMPLETE.',
     courses: [
@@ -1896,44 +1907,44 @@ const MILESTONES = [
     color: '#6366F1',
   },
   {
-    day: 852,
+    day: 851,
     icon: '🏁',
     label: 'DSA COMPLETE',
-    date: 'Oct 18, 2028',
+    date: 'Oct 29, 2028',
     color: '#6366F1',
   },
   {
-    day: 880,
+    day: 879,
     icon: '🏗',
     label: 'SD Fundamentals',
-    date: 'Nov 15, 2028',
+    date: 'Nov 26, 2028',
     color: '#7C3AED',
   },
   {
-    day: 929,
+    day: 928,
     icon: '🗄',
     label: 'Databases + Caching',
-    date: 'Jan 3, 2029',
+    date: 'Jan 14, 2029',
     color: '#7C3AED',
   },
   {
-    day: 957,
+    day: 956,
     icon: '🌐',
     label: 'Distributed Systems',
-    date: 'Jan 31, 2029',
+    date: 'Feb 11, 2029',
     color: '#7C3AED',
   },
   {
-    day: 1013,
+    day: 1012,
     icon: '📐',
     label: 'Classic Designs',
-    date: 'Mar 28, 2029',
+    date: 'Apr 8, 2029',
     color: '#7C3AED',
   },
   {
-    day: 1064,
+    day: 1052,
     icon: '🏆',
-    label: '1064 Days — COMPLETE',
+    label: '1052 Study Days — COMPLETE',
     date: 'May 18, 2029',
     color: '#E11D48',
   },
@@ -2427,7 +2438,7 @@ export default function App() {
                 }}
               >
                 {
-                  'Sat Jun 20, 2026 to Fri May 18, 2029 · 1064 days · 152 weeks · 5:30 AM to 8:30 AM daily mandatory'
+                  'Sat Jun 20, 2026 to Fri May 18, 2029 · 1052 study days + 12-day Vipassana break · D1-D487: 5:30-8:30 AM · D488+: 6:45-8:45 AM'
                 }
               </div>
             </div>
@@ -2478,18 +2489,18 @@ export default function App() {
               {
                 icon: '🧩',
                 label: 'Data Structures',
-                months: 'D488-D852',
-                sub: 'Arrays · LinkedList · Trees · Graphs · DP · Backtracking · Tries · Mocks',
+                months: 'D488-D851',
+                sub: 'Nov 1 2027 – Oct 29 2028 · 52 weeks · After Vipassana break · 6:45-8:45 AM + Vipassana 5:30-6:35 AM',
                 col: '#6366F1',
                 days: '52 weeks',
               },
               {
                 icon: '🏗',
                 label: 'System Design',
-                months: 'D853-D1064',
-                sub: 'HLD · Scalability · Databases · Distributed Systems · Classic Designs · Mocks',
+                months: 'D852-D1052',
+                sub: 'Oct 30 2028 – May 18 2029 · 28 weeks · 6:45-8:45 AM daily',
                 col: '#7C3AED',
-                days: '30 weeks',
+                days: '28 weeks',
               },
             ].map((b) => (
               <div
@@ -2609,7 +2620,10 @@ export default function App() {
               <span
                 style={{ color: 'rgba(255,255,255,0.75)', fontWeight: 700 }}
               >
-                {prog + '% · Day ' + Math.min(d + 1, 1064) + ' of 1064'}
+                {prog +
+                  '% · Day ' +
+                  Math.min(d + 1, 1052) +
+                  ' of 1052 study days'}
               </span>
               <span>{'May 18, 2029'}</span>
             </div>
@@ -2743,7 +2757,203 @@ export default function App() {
       <div
         style={{ maxWidth: 700, margin: '0 auto', padding: '14px 10px 44px' }}
       >
-        {BLOCKS.map((blk) => {
+        {BLOCKS.map((blk, blkIdx) => {
+          if (blk.isBreak)
+            return (
+              <div key="vipassana" style={{ marginTop: 20 }}>
+                <div
+                  style={{
+                    display: 'flex',
+                    alignItems: 'center',
+                    gap: 8,
+                    marginBottom: 12,
+                  }}
+                >
+                  <div
+                    style={{
+                      height: 2,
+                      flex: 1,
+                      background: 'linear-gradient(90deg,#9B6DFF,#9B6DFF10)',
+                    }}
+                  />
+                  <div
+                    style={{
+                      textAlign: 'center',
+                      flexShrink: 0,
+                      padding: '0 6px',
+                    }}
+                  >
+                    <div
+                      style={{
+                        fontSize: 'clamp(9px,2.5vw,11px)',
+                        fontWeight: 800,
+                        color: '#9B6DFF',
+                        letterSpacing: '0.08em',
+                      }}
+                    >
+                      {'🧘 VIPASSANA CAMP · BREAK · NOT COUNTED IN STUDY DAYS'}
+                    </div>
+                    <div
+                      style={{ fontSize: 8, color: '#94A3B8', marginTop: 1 }}
+                    >
+                      {
+                        'Oct 20–31, 2027 · 12 days · Silent retreat · Digital detox · Reset before Data Structures'
+                      }
+                    </div>
+                  </div>
+                  <div
+                    style={{
+                      height: 2,
+                      flex: 1,
+                      background: 'linear-gradient(90deg,#9B6DFF10,#9B6DFF)',
+                    }}
+                  />
+                </div>
+                <div
+                  style={{
+                    background: 'linear-gradient(135deg,#1a0a3e,#120a2e)',
+                    border: '2px solid #9B6DFF40',
+                    borderRadius: 16,
+                    padding: '24px 28px',
+                    display: 'grid',
+                    gridTemplateColumns: 'auto 1fr auto',
+                    gap: 20,
+                    alignItems: 'center',
+                    position: 'relative',
+                    overflow: 'hidden',
+                  }}
+                >
+                  <div
+                    style={{
+                      position: 'absolute',
+                      bottom: -30,
+                      right: -30,
+                      width: 150,
+                      height: 150,
+                      background:
+                        'radial-gradient(circle,#9B6DFF25,transparent 70%)',
+                      borderRadius: '50%',
+                    }}
+                  />
+                  <div style={{ fontSize: 52 }}>{'🧘'}</div>
+                  <div>
+                    <div
+                      style={{
+                        fontFamily: "'Syne',sans-serif",
+                        fontWeight: 800,
+                        fontSize: 'clamp(16px,4vw,22px)',
+                        color: '#C4A0FF',
+                        marginBottom: 6,
+                      }}
+                    >
+                      {'Vipassana Meditation Camp'}
+                    </div>
+                    <div
+                      style={{
+                        fontSize: 12,
+                        color: '#9A92B4',
+                        lineHeight: 1.75,
+                        marginBottom: 12,
+                      }}
+                    >
+                      {
+                        'Wednesday Oct 20 → Sunday Oct 31, 2027 — 12 days of noble silence, no devices, no study. Pure reset after 487 days of intense learning before starting Data Structures on Nov 1.'
+                      }
+                    </div>
+                    <div style={{ display: 'flex', flexWrap: 'wrap', gap: 7 }}>
+                      {[
+                        '🔇 Noble Silence',
+                        '📵 No Devices',
+                        '🧘 10h Meditation/day',
+                        '🌅 Wake 4:00 AM',
+                        '✨ Complete Reset',
+                        '📿 Vipassana Technique',
+                        '⛺ Residential Camp',
+                        '🍃 Vegetarian Food',
+                      ].map((t) => (
+                        <span
+                          key={t}
+                          style={{
+                            fontSize: 10,
+                            fontWeight: 500,
+                            padding: '4px 11px',
+                            borderRadius: 8,
+                            background: '#9B6DFF18',
+                            color: '#C4A0FF',
+                            border: '1px solid #9B6DFF30',
+                          }}
+                        >
+                          {t}
+                        </span>
+                      ))}
+                    </div>
+                    <div
+                      style={{
+                        marginTop: 14,
+                        padding: '10px 14px',
+                        background: '#9B6DFF12',
+                        borderRadius: 10,
+                        border: '1px solid #9B6DFF25',
+                      }}
+                    >
+                      <div
+                        style={{
+                          fontSize: 10,
+                          fontWeight: 700,
+                          color: '#C4A0FF',
+                          marginBottom: 3,
+                        }}
+                      >
+                        {'📅 New Schedule from Nov 1, 2027 (D488 onwards)'}
+                      </div>
+                      <div style={{ fontSize: 11, color: '#9A92B4' }}>
+                        {
+                          '🕰 5:30–6:35 AM · Vipassana meditation (65 min) · 6:45–8:45 AM · Study (2 hours) · Daily until May 18, 2029'
+                        }
+                      </div>
+                    </div>
+                  </div>
+                  <div style={{ textAlign: 'center', minWidth: 80 }}>
+                    <div
+                      style={{
+                        fontFamily: "'Syne',sans-serif",
+                        fontWeight: 800,
+                        fontSize: 40,
+                        color: '#9B6DFF',
+                        lineHeight: 1,
+                      }}
+                    >
+                      {'12'}
+                    </div>
+                    <div
+                      style={{
+                        fontSize: 9,
+                        color: '#6B6480',
+                        letterSpacing: '0.1em',
+                        textTransform: 'uppercase',
+                        marginBottom: 8,
+                      }}
+                    >
+                      {'days'}
+                    </div>
+                    <div
+                      style={{
+                        fontFamily: "'Syne',sans-serif",
+                        fontWeight: 800,
+                        fontSize: 10,
+                        color: '#C4A0FF',
+                        background: '#9B6DFF18',
+                        border: '1px solid #9B6DFF30',
+                        borderRadius: 8,
+                        padding: '5px 8px',
+                      }}
+                    >
+                      {'NOT COUNTED'}
+                    </div>
+                  </div>
+                </div>
+              </div>
+            );
           const bPhases = PHASES.filter((p) => p.block === blk.id);
           return (
             <div key={blk.id}>
@@ -2783,7 +2993,9 @@ export default function App() {
                       letterSpacing: '0.08em',
                     }}
                   >
-                    {blk.label + ' — ' + blk.months + ' MONTHS'}
+                    {blk.months && !isNaN(blk.months)
+                      ? blk.label + ' — ' + blk.months + ' MONTHS'
+                      : blk.label}
                   </div>
                   <div style={{ fontSize: 8, color: '#94A3B8', marginTop: 1 }}>
                     {blk.sub}
@@ -2836,7 +3048,9 @@ export default function App() {
               marginBottom: 3,
             }}
           >
-            {'🏆 1064 Days · 152 Weeks of Code · Jun 20, 2026 to May 18, 2029'}
+            {
+              '🏆 1052 Study Days + 12-Day Vipassana Break · Jun 20, 2026 to May 18, 2029'
+            }
           </div>
           <div
             style={{
@@ -2846,7 +3060,7 @@ export default function App() {
             }}
           >
             {
-              '1064 days · 152 weeks · 5:30 AM to 8:30 AM mandatory · 16 Months(D1-D487) → DSA(D488-D852) → System Design(D853-D1064)'
+              'D1-D487: 5:30-8:30 AM · Break: Oct 20-31, 2027 Vipassana · D488+: Vipassana 5:30-6:35 AM then Study 6:45-8:45 AM daily'
             }
           </div>
           <div
