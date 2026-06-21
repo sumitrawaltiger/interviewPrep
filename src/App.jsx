@@ -830,7 +830,7 @@ const PHASES = [
     border: '#C7D2FE',
     name: 'Arrays + Strings',
     days: 28,
-    ds: 488,
+    ds: 500,
     de: 515,
     period: 'Nov 1 - Nov 28, 2027',
     ms: 'Arrays + Strings Done · D515',
