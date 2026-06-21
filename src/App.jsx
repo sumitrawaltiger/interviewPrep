@@ -1,12 +1,12 @@
 import { useState } from 'react';
 
-// 16 Months of Code
-// Sat Jun 20, 2026 to Tue Oct 19, 2027 — 487 days
+// 1064 Days of Code — 152 Weeks
+// Sat Jun 20, 2026 to Fri May 18, 2029
 // 5:30 AM to 8:30 AM daily mandatory
-// Block 1: DevOps (3 months) → Block 2: Frontend (5 months) → Block 3: Python (3 months) → Block 4: Java (5 months)
+// Block 1: 16 Months (D1-D487) → Block 2: Data Structures (D488-D852) → Block 3: System Design (D853-D1064)
 
 const START = new Date('2026-06-20');
-const TOTAL = 487;
+const TOTAL = 1064;
 
 const BLOCKS = [
   {
@@ -36,6 +36,20 @@ const BLOCKS = [
     sub: 'Months 12-16 · D338-D487 · May 23 – Oct 19, 2027',
     col: '#D97706',
     months: 5,
+  },
+  {
+    id: 'dsa',
+    label: '🧩 Data Structures',
+    sub: 'D488-D852 · Oct 20, 2027 – Oct 18, 2028 · 52 weeks · Arrays→DP→Graphs→Tries',
+    col: '#6366F1',
+    months: 12,
+  },
+  {
+    id: 'sd',
+    label: '🏗 System Design',
+    sub: 'D853-D1064 · Oct 19, 2028 – May 18, 2029 · 30 weeks · HLD→Scalability→Classic Designs→Mock',
+    col: '#7C3AED',
+    months: 7,
   },
 ];
 
@@ -793,6 +807,930 @@ const PHASES = [
       },
     ],
   },
+  // ── BLOCK 5: DATA STRUCTURES (365 days · 52 weeks) ──────────────────────
+  {
+    id: 'p17',
+    block: 'dsa',
+    seq: 17,
+    icon: '🧩',
+    color: '#6366F1',
+    dark: '#4338CA',
+    bg: '#EEF2FF',
+    border: '#C7D2FE',
+    name: 'Arrays + Strings',
+    days: 28,
+    ds: 488,
+    de: 515,
+    period: 'Oct 20 - Nov 16, 2027',
+    ms: 'Arrays + Strings Done · D515',
+    about:
+      '4 weeks. Two pointers, sliding window, prefix sums, binary search patterns, string manipulation. 50+ LeetCode problems in Java. Foundation for all other DSA topics. Your C# background makes syntax translation fast.',
+    courses: [
+      'Scott Barrett — Java DSA + LeetCode Exercises (Udemy, 4.8★) · Java implementations',
+      'NeetCode 150 — Arrays + Strings playlist (YouTube free) · pattern-based approach',
+    ],
+    wplan: [
+      {
+        w: 1,
+        f: 'Array Fundamentals + Two Pointers',
+        t: 'Static vs dynamic arrays, two-pointer technique (Two Sum, Container With Most Water, 3Sum), sorted array problems',
+      },
+      {
+        w: 2,
+        f: 'Sliding Window',
+        t: 'Fixed window (max sum subarray), variable window (longest substring no repeat), pattern recognition',
+      },
+      {
+        w: 3,
+        f: 'Binary Search on Arrays',
+        t: 'Classic binary search, rotated array search, search in 2D matrix, find peak element, binary search on answer',
+      },
+      {
+        w: 4,
+        f: 'String Algorithms',
+        t: 'String reversal, palindrome check, anagram detection, KMP pattern matching, substring problems. 20 LeetCode problems.',
+      },
+    ],
+  },
+  {
+    id: 'p18',
+    block: 'dsa',
+    seq: 18,
+    icon: '🔗',
+    color: '#6366F1',
+    dark: '#4338CA',
+    bg: '#EEF2FF',
+    border: '#C7D2FE',
+    name: 'Linked Lists',
+    days: 21,
+    ds: 516,
+    de: 536,
+    period: 'Nov 17 - Dec 7, 2027',
+    ms: 'Linked Lists Done · D536',
+    about:
+      '3 weeks. Singly and doubly linked lists, fast/slow pointer technique, reversals, cycle detection, merge operations. 30+ LeetCode problems. Pointer manipulation builds C# reference intuition.',
+    courses: [
+      'Scott Barrett — Java DSA Linked Lists chapter',
+      "NeetCode — Linked List playlist (YouTube) · Floyd's cycle detection explained clearly",
+    ],
+    wplan: [
+      {
+        w: 5,
+        f: 'Singly Linked List + Reversal',
+        t: 'Node structure, insert/delete/traverse, reverse a list iteratively and recursively, reverse k groups',
+      },
+      {
+        w: 6,
+        f: 'Fast + Slow Pointers',
+        t: "Detect cycle (Floyd's algorithm), find middle node, palindrome linked list, linked list cycle II",
+      },
+      {
+        w: 7,
+        f: 'Merge + Complex Operations',
+        t: 'Merge two sorted lists, merge k sorted lists, reorder list, LRU Cache implementation. 15 LeetCode problems.',
+      },
+    ],
+  },
+  {
+    id: 'p19',
+    block: 'dsa',
+    seq: 19,
+    icon: '📚',
+    color: '#6366F1',
+    dark: '#4338CA',
+    bg: '#EEF2FF',
+    border: '#C7D2FE',
+    name: 'Stacks + Queues',
+    days: 21,
+    ds: 537,
+    de: 557,
+    period: 'Dec 8 - Dec 28, 2027',
+    ms: 'Stacks + Queues Done · D557',
+    about:
+      '3 weeks. Stack and queue implementations, monotonic stack pattern, min-stack, BFS with queues, deque. 25+ LeetCode problems. Directly applicable to expression parsing and FPO workflow sequencing.',
+    courses: [
+      'Scott Barrett — Java DSA Stacks + Queues chapter',
+      'NeetCode — Stack playlist (YouTube) · monotonic stack pattern mastery',
+    ],
+    wplan: [
+      {
+        w: 8,
+        f: 'Stack Fundamentals + Min Stack',
+        t: 'Stack via array/linked list, Valid Parentheses, Min Stack, Evaluate Reverse Polish Notation, Daily Temperatures',
+      },
+      {
+        w: 9,
+        f: 'Monotonic Stack',
+        t: 'Next Greater Element, Largest Rectangle in Histogram, Trapping Rain Water, Stock Span Problem — classic patterns',
+      },
+      {
+        w: 10,
+        f: 'Queues + Deque',
+        t: 'Queue via stacks, sliding window maximum (deque), BFS basics with queue, circular queue implementation',
+      },
+    ],
+  },
+  {
+    id: 'p20',
+    block: 'dsa',
+    seq: 20,
+    icon: '🌲',
+    color: '#6366F1',
+    dark: '#4338CA',
+    bg: '#EEF2FF',
+    border: '#C7D2FE',
+    name: 'Trees + BST',
+    days: 35,
+    ds: 558,
+    de: 592,
+    period: 'Dec 29, 2027 - Feb 1, 2028',
+    ms: 'Trees + BST Done · D592',
+    about:
+      '5 weeks. Binary trees, BST (insert/delete/validate), DFS (pre/in/post-order), BFS (level-order), lowest common ancestor, path sum problems. 50+ LeetCode problems. Trees are the most tested interview topic.',
+    courses: [
+      'Scott Barrett — Java DSA Trees chapter · comprehensive',
+      'NeetCode — Trees playlist (YouTube) · 15 must-know tree patterns',
+    ],
+    wplan: [
+      {
+        w: 11,
+        f: 'Binary Tree Traversals',
+        t: 'Pre/in/post-order DFS (iterative + recursive), BFS level-order traversal, zigzag level order, right side view',
+      },
+      {
+        w: 12,
+        f: 'Binary Tree Problems',
+        t: 'Max depth, diameter, balanced tree check, same tree, symmetric tree, invert tree, path sum I + II',
+      },
+      {
+        w: 13,
+        f: 'BST Operations',
+        t: 'Insert, delete, search, validate BST, kth smallest in BST, BST iterator, convert sorted array to BST',
+      },
+      {
+        w: 14,
+        f: 'Advanced Tree Problems',
+        t: 'LCA (binary tree + BST), serialize/deserialize binary tree, construct from traversals, binary tree cameras',
+      },
+      {
+        w: 15,
+        f: 'Tree Revision + 20 LeetCode',
+        t: 'Timed practice — 20 tree problems cold, no hints, target < 20 min each. Track accuracy and time.',
+      },
+    ],
+  },
+  {
+    id: 'p21',
+    block: 'dsa',
+    seq: 21,
+    icon: '⛰️',
+    color: '#6366F1',
+    dark: '#4338CA',
+    bg: '#EEF2FF',
+    border: '#C7D2FE',
+    name: 'Heaps + Priority Queue',
+    days: 21,
+    ds: 593,
+    de: 613,
+    period: 'Feb 2 - Feb 22, 2028',
+    ms: 'Heaps Done · D613',
+    about:
+      '3 weeks. Min-heap, max-heap, PriorityQueue in Java, heap sort, Top-K pattern, two-heap pattern (median), K-way merge. 25+ LeetCode problems. Heaps power scheduling and optimization systems.',
+    courses: [
+      'Scott Barrett — Java DSA Heaps chapter',
+      'NeetCode — Heap/Priority Queue playlist (YouTube) · Top-K pattern explained',
+    ],
+    wplan: [
+      {
+        w: 16,
+        f: 'Heap Fundamentals + PriorityQueue',
+        t: 'Min/max heap concepts, Java PriorityQueue, heap sort, Kth largest element, Top K frequent elements',
+      },
+      {
+        w: 17,
+        f: 'Two Heaps Pattern',
+        t: 'Find median from data stream (min-heap + max-heap), sliding window median, IPO problem',
+      },
+      {
+        w: 18,
+        f: 'K-Way Merge + Advanced',
+        t: 'Merge k sorted lists (heap), K closest points to origin, smallest range covering all lists',
+      },
+    ],
+  },
+  {
+    id: 'p22',
+    block: 'dsa',
+    seq: 22,
+    icon: '🕸️',
+    color: '#6366F1',
+    dark: '#4338CA',
+    bg: '#EEF2FF',
+    border: '#C7D2FE',
+    name: 'Graphs',
+    days: 35,
+    ds: 614,
+    de: 648,
+    period: 'Feb 23 - Mar 28, 2028',
+    ms: 'Graphs Done · D648',
+    about:
+      "5 weeks. Graph representations, BFS/DFS on graphs, topological sort, Dijkstra's algorithm, Union-Find (DSU), cycle detection. 50+ LeetCode problems. Your distributed microservices knowledge maps directly to graph theory.",
+    courses: [
+      'Scott Barrett — Java DSA Graphs chapter',
+      'NeetCode — Graphs playlist (YouTube) · BFS + DFS + Union-Find patterns',
+      'William Fiset — Graph Theory Algorithms (YouTube) · Dijkstra, Bellman-Ford deep dives',
+    ],
+    wplan: [
+      {
+        w: 19,
+        f: 'Graph BFS + DFS',
+        t: 'Adjacency list/matrix, BFS (shortest path in unweighted graph), DFS (connected components, path existence, islands)',
+      },
+      {
+        w: 20,
+        f: 'Topological Sort',
+        t: "Kahn's algorithm (BFS-based), DFS-based toposort, cycle detection in directed graph, course schedule problems",
+      },
+      {
+        w: 21,
+        f: 'Union-Find (DSU)',
+        t: 'Quick union, union by rank, path compression, number of connected components, redundant connection',
+      },
+      {
+        w: 22,
+        f: 'Shortest Path Algorithms',
+        t: 'Dijkstra (single source, non-negative weights), Bellman-Ford (negative weights), Floyd-Warshall (all pairs)',
+      },
+      {
+        w: 23,
+        f: 'Advanced Graph Problems',
+        t: 'Word ladder (BFS), Pacific Atlantic water flow, alien dictionary (toposort), network delay time. 15 LeetCode cold.',
+      },
+    ],
+  },
+  {
+    id: 'p23',
+    block: 'dsa',
+    seq: 23,
+    icon: '#️⃣',
+    color: '#6366F1',
+    dark: '#4338CA',
+    bg: '#EEF2FF',
+    border: '#C7D2FE',
+    name: 'Hashing + Hash Maps',
+    days: 21,
+    ds: 649,
+    de: 669,
+    period: 'Mar 29 - Apr 18, 2028',
+    ms: 'Hashing Done · D669',
+    about:
+      '3 weeks. HashMap, HashSet, collision handling, custom hash functions, frequency maps, two-sum pattern, grouping problems. 25+ LeetCode problems. Hashing powers O(1) lookups — used everywhere in FPO Cloud DynamoDB access patterns.',
+    courses: [
+      'Scott Barrett — Java DSA Hashing chapter',
+      'NeetCode — Hashing playlist (YouTube) · frequency map patterns',
+    ],
+    wplan: [
+      {
+        w: 24,
+        f: 'HashMap + HashSet Patterns',
+        t: 'Two Sum, Group Anagrams, Top K frequent elements, valid Sudoku, longest consecutive sequence',
+      },
+      {
+        w: 25,
+        f: 'Frequency Maps + Sliding Window',
+        t: 'Substring with all words concatenated, minimum window substring, permutation in string — hash + window combo',
+      },
+      {
+        w: 26,
+        f: 'Custom Hashing + Advanced',
+        t: 'Design HashMap, design HashSet, find duplicates, longest subarray with equal 0s and 1s',
+      },
+    ],
+  },
+  {
+    id: 'p24',
+    block: 'dsa',
+    seq: 24,
+    icon: '🔄',
+    color: '#6366F1',
+    dark: '#4338CA',
+    bg: '#EEF2FF',
+    border: '#C7D2FE',
+    name: 'Sorting + Searching',
+    days: 28,
+    ds: 670,
+    de: 697,
+    period: 'Apr 19 - May 16, 2028',
+    ms: 'Sorting + Searching Done · D697',
+    about:
+      '4 weeks. All sorting algorithms with complexity proofs, binary search variants, search in rotated array, matrix search. 35+ LeetCode problems. Understanding sort internals is essential for system design trade-offs.',
+    courses: [
+      'Scott Barrett — Java DSA Sorting chapter · merge sort, quick sort implementations',
+      'NeetCode — Binary Search playlist (YouTube) · binary search on answer technique',
+    ],
+    wplan: [
+      {
+        w: 27,
+        f: 'Sorting Algorithms',
+        t: 'Bubble/selection/insertion O(n²), merge sort O(n log n), quick sort O(n log n avg), counting sort, radix sort — implement all in Java',
+      },
+      {
+        w: 28,
+        f: 'Binary Search Variants',
+        t: 'Classic, first/last occurrence, find minimum in rotated array, search in rotated array, find peak element',
+      },
+      {
+        w: 29,
+        f: 'Binary Search on Answer',
+        t: 'Capacity to ship packages, Koko eating bananas, split array largest sum, median of two sorted arrays',
+      },
+      {
+        w: 30,
+        f: 'Matrix Search + Complex',
+        t: 'Search a 2D matrix, search in sorted matrix, find K closest elements. 15 LeetCode cold timed problems.',
+      },
+    ],
+  },
+  {
+    id: 'p25',
+    block: 'dsa',
+    seq: 25,
+    icon: '💎',
+    color: '#4F46E5',
+    dark: '#3730A3',
+    bg: '#EEF2FF',
+    border: '#C7D2FE',
+    name: 'Dynamic Programming',
+    days: 56,
+    ds: 698,
+    de: 753,
+    period: 'May 17 - Jul 11, 2028',
+    ms: 'Dynamic Programming Done · D753',
+    about:
+      '8 weeks MAX TIME. The hardest DSA topic. 1D DP (coin change, house robber, climb stairs), 2D DP (LCS, LIS, knapsack, edit distance), DP on trees, DP on strings. 80+ LeetCode problems. Master this and you stand out in every interview.',
+    courses: [
+      'NeetCode — DP playlist (YouTube) · pattern-based approach, best DP resource free',
+      'Aditya Verma — DP YouTube playlist (Hindi) · knapsack pattern master series',
+      'LeetCode DP Study Plan — structured 30-day progression',
+    ],
+    wplan: [
+      {
+        w: 31,
+        f: '1D DP Fundamentals',
+        t: 'Fibonacci (memoization vs tabulation), climb stairs, house robber I + II, coin change, min cost climbing stairs',
+      },
+      {
+        w: 32,
+        f: '1D DP Intermediate',
+        t: 'Jump game I + II, word break, decode ways, longest increasing subsequence (LIS), partition equal subset sum',
+      },
+      {
+        w: 33,
+        f: '2D DP: Knapsack Pattern',
+        t: '0/1 knapsack, unbounded knapsack, target sum (subset sum), last stone weight II — classic knapsack problems',
+      },
+      {
+        w: 34,
+        f: '2D DP: String Problems',
+        t: 'Longest common subsequence (LCS), edit distance, distinct subsequences, interleaving string, wildcard matching',
+      },
+      {
+        w: 35,
+        f: 'DP on Grids',
+        t: 'Unique paths I + II, min path sum, triangle, dungeon game, cherry pickup — 2D grid traversal DP',
+      },
+      {
+        w: 36,
+        f: 'Interval + Stock DP',
+        t: 'Best time to buy/sell stock I-IV + cooldown + fee, burst balloons, strange printer — interval DP',
+      },
+      {
+        w: 37,
+        f: 'DP on Trees + Digits',
+        t: 'House robber III (on tree), diameter via DP, digit DP patterns, counting numbers with unique digits',
+      },
+      {
+        w: 38,
+        f: 'DP Revision + 30 LeetCode Cold',
+        t: '30 DP problems timed, no hints. Identify patterns — 1D/2D/knapsack/string. Write pattern recognition cheatsheet.',
+      },
+    ],
+  },
+  {
+    id: 'p26',
+    block: 'dsa',
+    seq: 26,
+    icon: '🔙',
+    color: '#6366F1',
+    dark: '#4338CA',
+    bg: '#EEF2FF',
+    border: '#C7D2FE',
+    name: 'Backtracking + Recursion',
+    days: 28,
+    ds: 754,
+    de: 781,
+    period: 'Jul 12 - Aug 8, 2028',
+    ms: 'Backtracking Done · D781',
+    about:
+      '4 weeks. Recursion fundamentals, backtracking template, subsets, permutations, combinations, N-Queens, Sudoku solver, word search. 30+ LeetCode problems. Backtracking is the foundation of constraint satisfaction and combinatorial search.',
+    courses: [
+      'NeetCode — Backtracking playlist (YouTube) · template approach to all problems',
+      'Aditya Verma — Recursion + Backtracking (YouTube Hindi) · systematic recursion tree method',
+    ],
+    wplan: [
+      {
+        w: 39,
+        f: 'Recursion Fundamentals',
+        t: 'Call stack, recursion tree, memoization, subsets (power set), combinations, permutations — exhaustive generation',
+      },
+      {
+        w: 40,
+        f: 'Backtracking Template',
+        t: 'Choose-Explore-Unchoose pattern, combination sum I+II, phone number letter combinations, palindrome partitioning',
+      },
+      {
+        w: 41,
+        f: 'Grid Backtracking',
+        t: 'Word search I+II (board DFS), N-Queens, Sudoku solver, rat in a maze — 2D grid backtracking',
+      },
+      {
+        w: 42,
+        f: 'Advanced Backtracking',
+        t: 'Expression add operators, remove invalid parentheses, restore IP addresses. 10 cold timed backtracking problems.',
+      },
+    ],
+  },
+  {
+    id: 'p27',
+    block: 'dsa',
+    seq: 27,
+    icon: '🌿',
+    color: '#6366F1',
+    dark: '#4338CA',
+    bg: '#EEF2FF',
+    border: '#C7D2FE',
+    name: 'Greedy Algorithms',
+    days: 21,
+    ds: 782,
+    de: 802,
+    period: 'Aug 9 - Aug 29, 2028',
+    ms: 'Greedy Done · D802',
+    about:
+      '3 weeks. Greedy choice property, activity selection, interval scheduling, jump game, task scheduler, Huffman coding concept. 20+ LeetCode problems. Greedy algorithms often replace DP with O(n) solutions.',
+    courses: [
+      'NeetCode — Greedy playlist (YouTube)',
+      'LeetCode Greedy tag — top 20 problems by frequency',
+    ],
+    wplan: [
+      {
+        w: 43,
+        f: 'Greedy Fundamentals + Intervals',
+        t: 'Activity selection, meeting rooms I+II, non-overlapping intervals, merge intervals, insert interval',
+      },
+      {
+        w: 44,
+        f: 'Greedy on Arrays + Strings',
+        t: 'Jump game I+II, gas station, task scheduler, hand of straights, reconstruct itinerary',
+      },
+      {
+        w: 45,
+        f: 'Advanced Greedy',
+        t: 'Candy, minimum number of arrows to burst balloons, partition labels, two city scheduling',
+      },
+    ],
+  },
+  {
+    id: 'p28',
+    block: 'dsa',
+    seq: 28,
+    icon: '🌳',
+    color: '#6366F1',
+    dark: '#4338CA',
+    bg: '#EEF2FF',
+    border: '#C7D2FE',
+    name: 'Tries + Advanced Trees',
+    days: 21,
+    ds: 803,
+    de: 823,
+    period: 'Aug 30 - Sep 19, 2028',
+    ms: 'Tries + Advanced Trees Done · D823',
+    about:
+      '3 weeks. Trie (prefix tree) insert/search/startsWith, word dictionary, prefix matching. Segment tree and Fenwick tree (BIT) for range queries. 20+ LeetCode problems.',
+    courses: [
+      'NeetCode — Tries playlist (YouTube) · implement from scratch',
+      'NeetCode — Advanced Trees (segment tree, BIT concepts)',
+    ],
+    wplan: [
+      {
+        w: 46,
+        f: 'Trie Implementation + Problems',
+        t: 'Implement Trie from scratch in Java, implement magic dictionary, search suggestions system, word search II',
+      },
+      {
+        w: 47,
+        f: 'Design Trie Problems',
+        t: 'Add and search word, replace words, index pairs of a string, maximum XOR (binary trie)',
+      },
+      {
+        w: 48,
+        f: 'Segment Tree + Fenwick Tree',
+        t: 'Range sum query (mutable), range minimum query, BIT (Fenwick tree) for prefix sums, count of range sum',
+      },
+    ],
+  },
+  {
+    id: 'p29',
+    block: 'dsa',
+    seq: 29,
+    icon: '🏁',
+    color: '#6366F1',
+    dark: '#4338CA',
+    bg: '#EEF2FF',
+    border: '#C7D2FE',
+    name: 'LeetCode Revision + Mocks',
+    days: 29,
+    ds: 824,
+    de: 852,
+    period: 'Sep 20 - Oct 18, 2028',
+    ms: 'DATA STRUCTURES COMPLETE · D852',
+    about:
+      '4 weeks + 1 day. Full DSA revision and mock interview simulation. Solve 100 problems timed. 1 mock interview per day in final week (spoken aloud, no IDE, whiteboard style). Day 852 = Data Structures COMPLETE.',
+    courses: [
+      'LeetCode Top Interview 150 · complete all remaining',
+      'Pramp.com · free peer mock interviews',
+      'Interviewing.io · anonymous mock interviews with FAANG engineers',
+    ],
+    wplan: [
+      {
+        w: 49,
+        f: 'Arrays + Strings + LinkedList Revision',
+        t: 'Re-solve 20 problems from these topics cold. Note patterns missed. Update personal cheatsheet.',
+      },
+      {
+        w: 50,
+        f: 'Trees + Graphs + Heap Revision',
+        t: 'Re-solve 20 problems cold. Focus on BFS/DFS graph variants and tree DP patterns.',
+      },
+      {
+        w: 51,
+        f: 'DP + Backtracking + Greedy Revision',
+        t: 'Re-solve 20 problems cold. DP is hardest — spend most time here. Pattern matching drill.',
+      },
+      {
+        w: 52,
+        f: 'Full Mock Interviews — Day 852 DONE',
+        t: '7 full mock interviews (1/day). Spoken aloud, 45 min each, no IDE. Day 852 = Data Structures COMPLETE 🎉',
+      },
+    ],
+  },
+
+  // ── BLOCK 6: SYSTEM DESIGN (212 days · 30 weeks) ──────────────────────────
+  {
+    id: 'p30',
+    block: 'sd',
+    seq: 30,
+    icon: '🏗',
+    color: '#7C3AED',
+    dark: '#6D28D9',
+    bg: '#F5F3FF',
+    border: '#DDD6FE',
+    name: 'SD Fundamentals + HLD',
+    days: 28,
+    ds: 853,
+    de: 880,
+    period: 'Oct 19 - Nov 15, 2028',
+    ms: 'SD Fundamentals Done · D880',
+    about:
+      '4 weeks. System design interview framework, Frank Kane 5-step template, capacity estimation (users/storage/bandwidth), client-server architecture, APIs (REST/GraphQL/gRPC), HTTP/HTTPS, DNS, CDN, load balancers. Your FPO Cloud multi-tenant SaaS is a real system design case study.',
+    courses: [
+      'Frank Kane ex-Amazon — Mastering the System Design Interview (Udemy, 5h) · framework first',
+      'Alex Xu — System Design Interview Vol 1 (book, 309 pages) · must-read',
+      'ByteByteGo newsletter (free) — weekly system design breakdowns',
+    ],
+    wplan: [
+      {
+        w: 1,
+        f: 'SD Framework + Estimation',
+        t: 'Frank Kane 5-step template: Clarify requirements → Estimate scale → High-level design → Deep dive → Wrap up. Capacity estimation formulas.',
+      },
+      {
+        w: 2,
+        f: 'APIs + Network Layer',
+        t: 'REST vs GraphQL vs gRPC, API gateway, HTTP methods, status codes, DNS resolution, CDN (CloudFront = your FPO!), reverse proxy',
+      },
+      {
+        w: 3,
+        f: 'Load Balancing + Caching',
+        t: 'L4 vs L7 load balancers, round robin/least connections/IP hash, horizontal vs vertical scaling, Redis caching strategies (LRU/LFU/FIFO)',
+      },
+      {
+        w: 4,
+        f: 'FPO System Design — Your System',
+        t: 'Design FPO Cloud: multi-tenant SaaS, Lambda + Step Functions + DynamoDB + EventBridge + Cognito. Draw the architecture you work on daily.',
+      },
+    ],
+  },
+  {
+    id: 'p31',
+    block: 'sd',
+    seq: 31,
+    icon: '📈',
+    color: '#7C3AED',
+    dark: '#6D28D9',
+    bg: '#F5F3FF',
+    border: '#DDD6FE',
+    name: 'Scalability + Load Balancing',
+    days: 21,
+    ds: 881,
+    de: 901,
+    period: 'Nov 16 - Dec 6, 2028',
+    ms: 'Scalability Done · D901',
+    about:
+      '3 weeks. Horizontal vs vertical scaling, auto-scaling, load balancing algorithms, rate limiting, circuit breakers (your FPO uses Resilience4j!), API gateway patterns, stateless vs stateful services.',
+    courses: [
+      'Alex Xu — System Design Interview Vol 1 chapters on Scalability + Rate Limiter',
+      'Resilience4j docs — circuit breaker patterns (you use this in FPO Cloud Microservices)',
+    ],
+    wplan: [
+      {
+        w: 5,
+        f: 'Horizontal Scaling + Auto-Scaling',
+        t: 'Stateless vs stateful services, session management, auto-scaling groups (AWS ASG — your FPO!), scaling metrics and triggers',
+      },
+      {
+        w: 6,
+        f: 'Rate Limiting + Circuit Breaker',
+        t: 'Token bucket, leaky bucket, sliding window algorithms. Circuit breaker states (closed/open/half-open) — Resilience4j pattern from your FPO',
+      },
+      {
+        w: 7,
+        f: 'Design: Rate Limiter + URL Shortener',
+        t: 'Full design: Rate Limiter (token bucket + Redis) and URL Shortener (Base62 encoding + DynamoDB) — spoken 45 min each',
+      },
+    ],
+  },
+  {
+    id: 'p32',
+    block: 'sd',
+    seq: 32,
+    icon: '🗄',
+    color: '#7C3AED',
+    dark: '#6D28D9',
+    bg: '#F5F3FF',
+    border: '#DDD6FE',
+    name: 'Databases + Caching',
+    days: 28,
+    ds: 902,
+    de: 929,
+    period: 'Dec 7, 2028 - Jan 3, 2029',
+    ms: 'Databases + Caching Done · D929',
+    about:
+      '4 weeks. SQL vs NoSQL trade-offs, sharding, replication, CAP theorem, DynamoDB single-table design (your FPO!), Redis caching, consistent hashing, database indexing. This is your strongest area — FPO Cloud uses DynamoDB at scale.',
+    courses: [
+      'Alex Xu — System Design Interview chapters on Databases',
+      'DynamoDB Advanced Patterns re:Invent talks (your FPO uses single-table design!)',
+      'Martin Kleppmann — Designing Data-Intensive Applications (DDIA, key chapters)',
+    ],
+    wplan: [
+      {
+        w: 8,
+        f: 'SQL vs NoSQL + CAP Theorem',
+        t: 'ACID vs BASE, CAP theorem (consistency vs availability), SQL (strong consistency), NoSQL (eventual consistency), when to use each',
+      },
+      {
+        w: 9,
+        f: 'Sharding + Replication',
+        t: 'Horizontal partitioning (hash/range sharding), consistent hashing, read replicas, leader-follower replication, multi-leader',
+      },
+      {
+        w: 10,
+        f: 'DynamoDB Deep Dive (your FPO!)',
+        t: 'Single-table design, partition keys, GSI/LSI, DynamoDB streams — relate everything to how FPO Cloud uses DynamoDB',
+      },
+      {
+        w: 11,
+        f: 'Design: Key-Value Store + Chat',
+        t: 'Design: Key-Value Store (consistent hashing + replication) and WhatsApp (WebSocket + message queue). Spoken 45 min each.',
+      },
+    ],
+  },
+  {
+    id: 'p33',
+    block: 'sd',
+    seq: 33,
+    icon: '🌐',
+    color: '#7C3AED',
+    dark: '#6D28D9',
+    bg: '#F5F3FF',
+    border: '#DDD6FE',
+    name: 'Distributed Systems',
+    days: 28,
+    ds: 930,
+    de: 957,
+    period: 'Jan 4 - Jan 31, 2029',
+    ms: 'Distributed Systems Done · D957',
+    about:
+      '4 weeks. Consistency models, consensus algorithms (Raft/Paxos concepts), distributed transactions, event sourcing (your FPO mission-feed!), Saga pattern (your Step Functions!), message queues (SQS/Kafka), CQRS.',
+    courses: [
+      'Martin Kleppmann — DDIA chapters 8-9 (distributed systems fundamentals)',
+      'AWS re:Invent — Event Sourcing and CQRS on AWS (your FPO patterns)',
+    ],
+    wplan: [
+      {
+        w: 12,
+        f: 'Consistency + Consensus',
+        t: 'Strong vs eventual consistency, linearizability, Raft consensus algorithm concept, leader election, distributed locks',
+      },
+      {
+        w: 13,
+        f: 'Message Queues + Event Sourcing',
+        t: 'SQS vs Kafka vs EventBridge (your FPO!), pub-sub, event sourcing (your FPO mission-feed table!), CQRS pattern',
+      },
+      {
+        w: 14,
+        f: 'Distributed Transactions + Saga',
+        t: '2PC (two-phase commit), Saga pattern orchestration vs choreography (Step Functions = Saga in your FPO!)',
+      },
+      {
+        w: 15,
+        f: 'Design: Notification System + News Feed',
+        t: 'Full designs spoken 45 min each — Notification System (push/pull/fan-out) and Twitter News Feed (fan-out on write vs read)',
+      },
+    ],
+  },
+  {
+    id: 'p34',
+    block: 'sd',
+    seq: 34,
+    icon: '🏛',
+    color: '#7C3AED',
+    dark: '#6D28D9',
+    bg: '#F5F3FF',
+    border: '#DDD6FE',
+    name: 'Microservices Architecture',
+    days: 21,
+    ds: 958,
+    de: 978,
+    period: 'Feb 1 - Feb 21, 2029',
+    ms: 'Microservices SD Done · D978',
+    about:
+      '3 weeks. Service decomposition (DDD), API gateway patterns, service mesh, inter-service communication (REST vs gRPC vs async messaging), observability (your Datadog FPO setup!), deployment patterns (blue-green, canary).',
+    courses: [
+      'Sam Newman — Building Microservices (book, key chapters)',
+      'Chris Richardson — microservices.io patterns catalogue (free online)',
+    ],
+    wplan: [
+      {
+        w: 16,
+        f: 'Service Decomposition + DDD',
+        t: 'Domain-driven design, bounded contexts, strangler fig pattern, decompose monolith. Map to FPO Cloud service boundaries.',
+      },
+      {
+        w: 17,
+        f: 'API Gateway + Service Mesh',
+        t: 'API gateway (AWS API Gateway — your FPO!), service discovery, sidecar proxy, Istio concepts, inter-service auth',
+      },
+      {
+        w: 18,
+        f: 'Design: Uber + Design: Dropbox',
+        t: 'Full Uber design (ride matching, GPS, dynamic pricing) + Dropbox design (file sync, chunking, delta sync). 45 min each.',
+      },
+    ],
+  },
+  {
+    id: 'p35',
+    block: 'sd',
+    seq: 35,
+    icon: '📐',
+    color: '#7C3AED',
+    dark: '#6D28D9',
+    bg: '#F5F3FF',
+    border: '#DDD6FE',
+    name: 'Classic Designs',
+    days: 35,
+    ds: 979,
+    de: 1013,
+    period: 'Feb 22 - Mar 28, 2029',
+    ms: 'Classic Designs Done · D1013',
+    about:
+      '5 weeks. Design 1 system per day spoken aloud, 45 minutes, no notes. Cover all classic interview systems: URL shortener, WhatsApp, Twitter, YouTube, Netflix, Uber, Airbnb, Instagram, Google Search, Amazon, Ticketmaster, Slack. Your FPO multi-tenant SaaS = one of the designs.',
+    courses: [
+      'Alex Xu — System Design Interview Vol 1 + Vol 2 (both books)',
+      'Mikhail Smarshchok — System Design Interview Guide 20+ designs (Udemy, 18h)',
+      'Bogdan Stashchuk — Pragmatic System Design: WHY decisions were made (Udemy, 12h)',
+    ],
+    wplan: [
+      {
+        w: 19,
+        f: 'URL Shortener + Pastebin + Typeahead',
+        t: 'URL Shortener (Base62, DynamoDB, cache), Pastebin (object storage S3), Typeahead (trie + cache). 45 min each spoken.',
+      },
+      {
+        w: 20,
+        f: 'WhatsApp + Facebook Messenger',
+        t: 'WebSocket connection, message delivery guarantees, group chats, presence system, E2E encryption concepts',
+      },
+      {
+        w: 21,
+        f: 'YouTube + Netflix',
+        t: 'Video upload pipeline, CDN streaming, adaptive bitrate, recommendation engine basics, storage tier strategy',
+      },
+      {
+        w: 22,
+        f: 'Twitter + Instagram + News Feed',
+        t: 'Fan-out on write vs read, celebrity problem, graph DB for follows, photo storage, timeline generation',
+      },
+      {
+        w: 23,
+        f: 'Uber + Airbnb + Google Maps',
+        t: 'Real-time location tracking, geospatial indexing (QuadTree/GeoHash), ride matching, search/ranking, map tile serving',
+      },
+    ],
+  },
+  {
+    id: 'p36',
+    block: 'sd',
+    seq: 36,
+    icon: '⚡',
+    color: '#7C3AED',
+    dark: '#6D28D9',
+    bg: '#F5F3FF',
+    border: '#DDD6FE',
+    name: 'Advanced Designs + Trade-offs',
+    days: 21,
+    ds: 1014,
+    de: 1034,
+    period: 'Mar 29 - Apr 18, 2029',
+    ms: 'Advanced Designs Done · D1034',
+    about:
+      '3 weeks. Distributed cache, search engine, payment system, stock exchange, leaderboard. Deep trade-off analysis — why THIS database, why THIS queue, why THIS consistency model. Bogdan Stashchuk production WHY decisions.',
+    courses: [
+      'Bogdan Stashchuk — Pragmatic System Design (Udemy, 12h) · production trade-offs',
+      'Alex Xu — System Design Interview Vol 2 (advanced systems)',
+    ],
+    wplan: [
+      {
+        w: 24,
+        f: 'Distributed Cache + Search Engine',
+        t: 'Design Redis-like distributed cache (consistent hashing + eviction) and Google Search (crawling + indexing + ranking). 45 min each.',
+      },
+      {
+        w: 25,
+        f: 'Payment System + Stock Exchange',
+        t: 'Payment (idempotency, double-charge prevention, ACID transactions) + Stock Exchange (order book, matching engine, low latency)',
+      },
+      {
+        w: 26,
+        f: 'Production Trade-off Masterclass',
+        t: 'For each system: WHY DynamoDB vs PostgreSQL? WHY Kafka vs SQS? WHY gRPC vs REST? Write 1 ADR per design.',
+      },
+    ],
+  },
+  {
+    id: 'p37',
+    block: 'sd',
+    seq: 37,
+    icon: '🎯',
+    color: '#E11D48',
+    dark: '#BE123C',
+    bg: '#FFF1F2',
+    border: '#FECDD3',
+    name: 'Mock Interviews + ADRs + DONE',
+    days: 30,
+    ds: 1035,
+    de: 1064,
+    period: 'Apr 19 - May 18, 2029',
+    ms: '1064 DAYS · 152 WEEKS COMPLETE · May 18, 2029',
+    about:
+      '4+ weeks. Final sprint. 20 full cold system design interviews (spoken aloud, 45 min, no notes). Write Architecture Decision Records for 5 systems. Update GitHub portfolio with all SD diagrams. Day 1064 = May 18, 2029 = 1064 Days of Code COMPLETE.',
+    courses: [
+      'Pramp.com — free peer system design mock interviews',
+      'Interviewing.io — anonymous mock interviews with FAANG engineers',
+      'excalidraw.com — draw architecture diagrams for portfolio',
+    ],
+    wplan: [
+      {
+        w: 27,
+        f: 'Mock SD Interviews 1-7',
+        t: '7 full mocks — Day 1035-1041. 45 min each, spoken aloud, no notes. Focus on weakest 3 systems from Classic Designs block.',
+      },
+      {
+        w: 28,
+        f: 'Mock SD Interviews 8-14',
+        t: '7 more mocks — different systems. Start with requirements clarification. Practice CAP theorem + trade-off articulation.',
+      },
+      {
+        w: 29,
+        f: 'ADRs + Portfolio',
+        t: 'Write 5 Architecture Decision Records. Draw clean diagrams for portfolio. Update LinkedIn. GitHub portfolio SD section.',
+      },
+      {
+        w: 30,
+        f: 'Final Mock + Day 1064 DONE',
+        t: '6 final mocks. Day 1064 = May 18, 2029 = 1064 Days · 152 Weeks of Code COMPLETE. 🎉',
+      },
+    ],
+  },
 ];
 
 const MILESTONES = [
@@ -905,7 +1843,98 @@ const MILESTONES = [
     day: 487,
     icon: '🏁',
     label: 'Microservices — DONE',
-    date: 'Oct 19, 2027',
+    date: 'May 18, 2029',
+    color: '#E11D48',
+  },
+  {
+    day: 515,
+    icon: '🧩',
+    label: 'Arrays + Strings',
+    date: 'Nov 16, 2027',
+    color: '#6366F1',
+  },
+  {
+    day: 557,
+    icon: '📚',
+    label: 'Stacks + Queues',
+    date: 'Dec 28, 2027',
+    color: '#6366F1',
+  },
+  {
+    day: 592,
+    icon: '🌲',
+    label: 'Trees + BST',
+    date: 'Feb 1, 2028',
+    color: '#6366F1',
+  },
+  {
+    day: 648,
+    icon: '🕸',
+    label: 'Graphs',
+    date: 'Mar 28, 2028',
+    color: '#6366F1',
+  },
+  {
+    day: 697,
+    icon: '🔄',
+    label: 'Sorting + Searching',
+    date: 'May 16, 2028',
+    color: '#6366F1',
+  },
+  {
+    day: 753,
+    icon: '💎',
+    label: 'Dynamic Programming',
+    date: 'Jul 11, 2028',
+    color: '#4F46E5',
+  },
+  {
+    day: 823,
+    icon: '🌳',
+    label: 'Tries + Advanced Trees',
+    date: 'Sep 19, 2028',
+    color: '#6366F1',
+  },
+  {
+    day: 852,
+    icon: '🏁',
+    label: 'DSA COMPLETE',
+    date: 'Oct 18, 2028',
+    color: '#6366F1',
+  },
+  {
+    day: 880,
+    icon: '🏗',
+    label: 'SD Fundamentals',
+    date: 'Nov 15, 2028',
+    color: '#7C3AED',
+  },
+  {
+    day: 929,
+    icon: '🗄',
+    label: 'Databases + Caching',
+    date: 'Jan 3, 2029',
+    color: '#7C3AED',
+  },
+  {
+    day: 957,
+    icon: '🌐',
+    label: 'Distributed Systems',
+    date: 'Jan 31, 2029',
+    color: '#7C3AED',
+  },
+  {
+    day: 1013,
+    icon: '📐',
+    label: 'Classic Designs',
+    date: 'Mar 28, 2029',
+    color: '#7C3AED',
+  },
+  {
+    day: 1064,
+    icon: '🏆',
+    label: '1064 Days — COMPLETE',
+    date: 'May 18, 2029',
     color: '#E11D48',
   },
 ];
@@ -1388,7 +2417,7 @@ export default function App() {
                   lineHeight: 1.1,
                 }}
               >
-                {'16 Months of Code'}
+                {'1064 Days of Code'}
               </div>
               <div
                 style={{
@@ -1398,7 +2427,7 @@ export default function App() {
                 }}
               >
                 {
-                  'Sat Jun 20, 2026 to Tue Oct 19, 2027 · 487 days · 5:30 AM to 8:30 AM daily mandatory'
+                  'Sat Jun 20, 2026 to Fri May 18, 2029 · 1064 days · 152 weeks · 5:30 AM to 8:30 AM daily mandatory'
                 }
               </div>
             </div>
@@ -1445,6 +2474,22 @@ export default function App() {
                 sub: 'J2SE · J2EE · JPA · Spring Boot · Microservices',
                 col: '#D97706',
                 days: 'D338-D487',
+              },
+              {
+                icon: '🧩',
+                label: 'Data Structures',
+                months: 'D488-D852',
+                sub: 'Arrays · LinkedList · Trees · Graphs · DP · Backtracking · Tries · Mocks',
+                col: '#6366F1',
+                days: '52 weeks',
+              },
+              {
+                icon: '🏗',
+                label: 'System Design',
+                months: 'D853-D1064',
+                sub: 'HLD · Scalability · Databases · Distributed Systems · Classic Designs · Mocks',
+                col: '#7C3AED',
+                days: '30 weeks',
               },
             ].map((b) => (
               <div
@@ -1564,9 +2609,9 @@ export default function App() {
               <span
                 style={{ color: 'rgba(255,255,255,0.75)', fontWeight: 700 }}
               >
-                {prog + '% · Day ' + Math.min(d + 1, 487) + ' of 487'}
+                {prog + '% · Day ' + Math.min(d + 1, 1064) + ' of 1064'}
               </span>
-              <span>{'Oct 19, 2027'}</span>
+              <span>{'May 18, 2029'}</span>
             </div>
           </div>
 
@@ -1791,7 +2836,7 @@ export default function App() {
               marginBottom: 3,
             }}
           >
-            {'🏆 16 Months of Code · Jun 20, 2026 to Oct 19, 2027'}
+            {'🏆 1064 Days · 152 Weeks of Code · Jun 20, 2026 to May 18, 2029'}
           </div>
           <div
             style={{
@@ -1801,7 +2846,7 @@ export default function App() {
             }}
           >
             {
-              '487 days · 5:30 AM to 8:30 AM mandatory · DevOps(3) → Frontend(5) → Python(3) → Java(5)'
+              '1064 days · 152 weeks · 5:30 AM to 8:30 AM mandatory · 16 Months(D1-D487) → DSA(D488-D852) → System Design(D853-D1064)'
             }
           </div>
           <div
