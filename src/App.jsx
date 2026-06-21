@@ -2,7 +2,7 @@ import { useState } from 'react';
 
 // 1052 Study Days + 12-Day Vipassana Break = 1064 Calendar Days
 // Sat Jun 20, 2026 to Fri May 18, 2029
-// Block 1 D1-D487: 5:30-8:30 AM (3h) · Block 2-3 D488-D1052: 6:45-8:45 AM (2h)
+// Block 1 D1-D487: 5:30-8:30 AM (3h) · Block 2-3 D500-D1052: 6:45-8:45 AM (2h)
 // Vipassana break Oct 20-31 2027 (not counted) · Vipassana morning 5:30-6:35 AM from Nov 1 2027
 
 const START = new Date('2026-06-20');
@@ -51,7 +51,7 @@ const BLOCKS = [
   {
     id: 'dsa',
     label: '🧩 Data Structures',
-    sub: 'D488-D851 · Nov 1, 2027 – Oct 29, 2028 · 52 weeks · 6:45-8:45 AM daily',
+    sub: 'D500-D851 · Nov 1, 2027 – Oct 29, 2028 · 52 weeks · 6:45-8:45 AM daily',
     col: '#6366F1',
     months: null,
   },
@@ -2438,7 +2438,7 @@ export default function App() {
                 }}
               >
                 {
-                  'Sat Jun 20, 2026 to Fri May 18, 2029 · 1052 study days + 12-day Vipassana break · D1-D487: 5:30-8:30 AM · D488+: 6:45-8:45 AM'
+                  'Sat Jun 20, 2026 to Fri May 18, 2029 · 1052 study days + 12-day Vipassana break · D1-D487: 5:30-8:30 AM · D500+: 6:45-8:45 AM'
                 }
               </div>
             </div>
@@ -2489,7 +2489,7 @@ export default function App() {
               {
                 icon: '🧩',
                 label: 'Data Structures',
-                months: 'D488-D851',
+                months: 'D500-D851',
                 sub: 'Nov 1 2027 – Oct 29 2028 · 52 weeks · After Vipassana break · 6:45-8:45 AM + Vipassana 5:30-6:35 AM',
                 col: '#6366F1',
                 days: '52 weeks',
@@ -2904,7 +2904,7 @@ export default function App() {
                           marginBottom: 3,
                         }}
                       >
-                        {'📅 New Schedule from Nov 1, 2027 (D488 onwards)'}
+                        {'📅 New Schedule from Nov 1, 2027 (D500 onwards)'}
                       </div>
                       <div style={{ fontSize: 11, color: '#9A92B4' }}>
                         {
@@ -3060,7 +3060,7 @@ export default function App() {
             }}
           >
             {
-              'D1-D487: 5:30-8:30 AM · Break: Oct 20-31, 2027 Vipassana · D488+: Vipassana 5:30-6:35 AM then Study 6:45-8:45 AM daily'
+              'D1-D487: 5:30-8:30 AM · Break: Oct 20-31, 2027 Vipassana · D500+: Vipassana 5:30-6:35 AM then Study 6:45-8:45 AM daily'
             }
           </div>
           <div
