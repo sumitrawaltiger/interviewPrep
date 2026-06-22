@@ -2,7 +2,7 @@ import { useState } from 'react';
 
 // 1052 Study Days + 12-Day Vipassana Break = 1064 Calendar Days
 // Sat Jun 20, 2026 to Fri May 18, 2029
-// Block 1 D1-D487: 5:30-8:30 AM (3h) · Block 2-3 D500-D1052: 6:45-8:45 AM (2h)
+// Block 1 D1-D487: 5:30-8:30 AM (3h) · Block 2-3 D488-D1052: 6:45-8:45 AM (2h)
 // Vipassana break Oct 20-31 2027 (not counted) · Vipassana morning 5:30-6:35 AM from Nov 1 2027
 
 const START = new Date('2026-06-20');
@@ -10,6 +10,8 @@ const TOTAL = 1052;
 const VIP_START = new Date('2027-10-20'); // Vipassana break starts
 const VIP_END = new Date('2027-10-31'); // Vipassana break ends
 const STUDY_END = new Date('2029-05-18'); // Final day D1052
+const SLOT2_START = new Date('2026-06-23'); // 2nd slot begins (Tue)
+const SLOT2_END = new Date('2026-09-30'); // 2nd slot ends (Wed)
 
 const BLOCKS = [
   {
@@ -51,7 +53,7 @@ const BLOCKS = [
   {
     id: 'dsa',
     label: '🧩 Data Structures',
-    sub: 'D500-D851 · Nov 1, 2027 – Oct 29, 2028 · 52 weeks · 6:45-8:45 AM daily',
+    sub: 'D488-D851 · Nov 1, 2027 – Oct 29, 2028 · 52 weeks · 6:45-8:45 AM daily',
     col: '#6366F1',
     months: null,
   },
@@ -830,7 +832,7 @@ const PHASES = [
     border: '#C7D2FE',
     name: 'Arrays + Strings',
     days: 28,
-    ds: 500,
+    ds: 488,
     de: 515,
     period: 'Nov 1 - Nov 28, 2027',
     ms: 'Arrays + Strings Done · D515',
@@ -1953,6 +1955,16 @@ const MILESTONES = [
 function daysIn() {
   return Math.max(0, Math.floor((new Date() - START) / 86400000));
 }
+function inSlot2() {
+  const n = new Date();
+  return n >= SLOT2_START && n <= SLOT2_END;
+}
+function slot2Day() {
+  return Math.max(
+    0,
+    Math.min(100, Math.floor((new Date() - SLOT2_START) / 86400000) + 1),
+  );
+}
 function curId() {
   const d = daysIn() + 1;
   for (const p of PHASES) if (d <= p.de) return p.id;
@@ -2438,7 +2450,7 @@ export default function App() {
                 }}
               >
                 {
-                  'Sat Jun 20, 2026 to Fri May 18, 2029 · 1052 study days + 12-day Vipassana break · D1-D487: 5:30-8:30 AM · D500+: 6:45-8:45 AM'
+                  'Sat Jun 20, 2026 to Fri May 18, 2029 · 1052 study days + 12-day Vipassana break · D1-D487: 5:30-8:30 AM · D488+: 6:45-8:45 AM'
                 }
               </div>
             </div>
@@ -2489,7 +2501,7 @@ export default function App() {
               {
                 icon: '🧩',
                 label: 'Data Structures',
-                months: 'D500-D851',
+                months: 'D488-D851',
                 sub: 'Nov 1 2027 – Oct 29 2028 · 52 weeks · After Vipassana break · 6:45-8:45 AM + Vipassana 5:30-6:35 AM',
                 col: '#6366F1',
                 days: '52 weeks',
@@ -2556,23 +2568,128 @@ export default function App() {
             ))}
           </div>
 
+          {/* ── TIMING BANNERS ── */}
           <div
             style={{
               background: 'rgba(245,158,11,0.15)',
               border: '1px solid rgba(245,158,11,0.35)',
               borderRadius: 8,
-              padding: '7px 11px',
-              marginBottom: 9,
+              padding: '8px 12px',
+              marginBottom: 6,
               display: 'flex',
-              gap: 8,
-              alignItems: 'center',
+              gap: 9,
+              alignItems: 'flex-start',
             }}
           >
-            <span style={{ fontSize: 15 }}>{'⏰'}</span>
-            <div style={{ fontSize: 9, color: 'rgba(255,255,255,0.7)' }}>
-              {
-                '5:30 AM – 8:30 AM daily · MANDATORY · Weekends: Maximum Time · 1 skill per month'
-              }
+            <span style={{ fontSize: 14, flexShrink: 0, marginTop: 1 }}>
+              {'⏰'}
+            </span>
+            <div>
+              <div
+                style={{
+                  fontSize: 10,
+                  fontWeight: 700,
+                  color: '#FDE68A',
+                  marginBottom: 1,
+                }}
+              >
+                {
+                  'D1–D487 · 5:30 AM – 8:30 AM · 3 hours · MANDATORY (Main Study)'
+                }
+              </div>
+              <div style={{ fontSize: 8, color: 'rgba(255,255,255,0.5)' }}>
+                {
+                  '16 Months: DevOps → Frontend → Python → Java · Jun 20, 2026 – Oct 19, 2027'
+                }
+              </div>
+            </div>
+          </div>
+          <div
+            style={{
+              background:
+                'linear-gradient(135deg,rgba(14,165,233,0.12),rgba(124,58,237,0.12))',
+              border: '1px solid rgba(14,165,233,0.4)',
+              borderRadius: 8,
+              padding: '8px 12px',
+              marginBottom: 6,
+              display: 'flex',
+              gap: 9,
+              alignItems: 'flex-start',
+            }}
+          >
+            <span style={{ fontSize: 14, flexShrink: 0, marginTop: 1 }}>
+              {'⚡'}
+            </span>
+            <div style={{ flex: 1 }}>
+              <div
+                style={{
+                  fontSize: 10,
+                  fontWeight: 700,
+                  color: '#7DD3FC',
+                  marginBottom: 2,
+                }}
+              >
+                {
+                  '🆕 2ND SLOT · 9:00 AM – 11:00 AM · First 100 days only · Jun 23 – Sep 30, 2026'
+                }
+              </div>
+              <div style={{ display: 'flex', gap: 5, flexWrap: 'wrap' }}>
+                {[
+                  ['🔷', 'TypeScript', '#3B82F6', 'Jun 23–Jul 26', '34d'],
+                  ['⚛', 'React', '#0EA5E9', 'Jul 27–Aug 28', '33d'],
+                  ['📱', 'React Native', '#7C3AED', 'Aug 29–Sep 30', '33d'],
+                ].map(([ic, n, col, period, d]) => (
+                  <span
+                    key={n}
+                    style={{
+                      fontSize: 8,
+                      fontWeight: 600,
+                      padding: '2px 8px',
+                      borderRadius: 6,
+                      background: col + '20',
+                      color: col,
+                      border: '1px solid ' + col + '40',
+                    }}
+                  >
+                    {ic + ' ' + n + ' · ' + period + ' · ' + d}
+                  </span>
+                ))}
+              </div>
+            </div>
+          </div>
+          <div
+            style={{
+              background: 'rgba(99,102,241,0.12)',
+              border: '1px solid rgba(99,102,241,0.35)',
+              borderRadius: 8,
+              padding: '8px 12px',
+              marginBottom: 9,
+              display: 'flex',
+              gap: 9,
+              alignItems: 'flex-start',
+            }}
+          >
+            <span style={{ fontSize: 14, flexShrink: 0, marginTop: 1 }}>
+              {'🕯️'}
+            </span>
+            <div>
+              <div
+                style={{
+                  fontSize: 10,
+                  fontWeight: 700,
+                  color: '#C4A0FF',
+                  marginBottom: 1,
+                }}
+              >
+                {
+                  'D488+ · From Nov 1, 2027 · Vipassana 5:30–6:35 AM · Main Study 6:45–8:45 AM'
+                }
+              </div>
+              <div style={{ fontSize: 8, color: 'rgba(255,255,255,0.5)' }}>
+                {
+                  'After Vipassana Camp · DSA + System Design · Until May 18, 2029'
+                }
+              </div>
             </div>
           </div>
 
@@ -2757,6 +2874,242 @@ export default function App() {
       <div
         style={{ maxWidth: 700, margin: '0 auto', padding: '14px 10px 44px' }}
       >
+        {/* ── 100-DAY 2ND SLOT CARD ── */}
+        <div
+          style={{
+            background: 'linear-gradient(135deg,#0c1a2e,#0a1628)',
+            border: '2px solid #0EA5E940',
+            borderRadius: 16,
+            padding: '20px 24px',
+            marginBottom: 20,
+            position: 'relative',
+            overflow: 'hidden',
+          }}
+        >
+          <div
+            style={{
+              position: 'absolute',
+              top: -30,
+              right: -30,
+              width: 200,
+              height: 200,
+              background: 'radial-gradient(circle,#0EA5E920,transparent 70%)',
+              borderRadius: '50%',
+              pointerEvents: 'none',
+            }}
+          />
+          <div
+            style={{
+              position: 'absolute',
+              top: 0,
+              left: 0,
+              right: 0,
+              height: 2,
+              background: 'linear-gradient(90deg,#3B82F6,#0EA5E9,#7C3AED)',
+            }}
+          />
+          <div
+            style={{
+              display: 'flex',
+              alignItems: 'center',
+              gap: 10,
+              marginBottom: 14,
+            }}
+          >
+            <div
+              style={{
+                background: 'linear-gradient(135deg,#3B82F6,#7C3AED)',
+                borderRadius: 10,
+                width: 40,
+                height: 40,
+                display: 'flex',
+                alignItems: 'center',
+                justifyContent: 'center',
+                fontSize: 18,
+                flexShrink: 0,
+              }}
+            >
+              {'⚡'}
+            </div>
+            <div>
+              <div
+                style={{
+                  fontFamily: "'Syne',sans-serif",
+                  fontWeight: 800,
+                  fontSize: 'clamp(14px,4vw,18px)',
+                  color: '#fff',
+                }}
+              >
+                {'100-Day Frontend Sprint — 2nd Daily Slot'}
+              </div>
+              <div style={{ fontSize: 9, color: '#64748B' }}>
+                {
+                  'Tue Jun 23 → Wed Sep 30, 2026 · 9:00 AM – 11:00 AM daily · 2 hours · Runs in parallel with main 5:30–8:30 AM study'
+                }
+              </div>
+            </div>
+            <div
+              style={{ marginLeft: 'auto', textAlign: 'center', flexShrink: 0 }}
+            >
+              <div
+                style={{
+                  fontFamily: "'Syne',sans-serif",
+                  fontWeight: 800,
+                  fontSize: 32,
+                  color: '#0EA5E9',
+                  lineHeight: 1,
+                }}
+              >
+                {'100'}
+              </div>
+              <div
+                style={{
+                  fontSize: 8,
+                  color: '#64748B',
+                  letterSpacing: '0.1em',
+                  textTransform: 'uppercase',
+                }}
+              >
+                {'days'}
+              </div>
+            </div>
+          </div>
+          <div
+            style={{
+              display: 'grid',
+              gridTemplateColumns: 'repeat(3,1fr)',
+              gap: 10,
+              marginBottom: 14,
+            }}
+          >
+            {[
+              {
+                icon: '🔷',
+                name: 'TypeScript',
+                col: '#3B82F6',
+                ds: 'Jun 23',
+                de: 'Jul 26, 2026',
+                days: 34,
+                wks: '5w',
+                topics: [
+                  'Type system',
+                  'Interfaces + Generics',
+                  'Utility Types',
+                  'Strict mode',
+                  'FPO CDK types',
+                ],
+              },
+              {
+                icon: '⚛',
+                name: 'React',
+                col: '#0EA5E9',
+                ds: 'Jul 27',
+                de: 'Aug 28, 2026',
+                days: 33,
+                wks: '5w',
+                topics: [
+                  'JSX + Hooks',
+                  'React Router v6',
+                  'Redux Toolkit',
+                  'RTK Query',
+                  'FPO Dashboard',
+                ],
+              },
+              {
+                icon: '📱',
+                name: 'React Native',
+                col: '#7C3AED',
+                ds: 'Aug 29',
+                de: 'Sep 30, 2026',
+                days: 33,
+                wks: '5w',
+                topics: [
+                  'Core components',
+                  'Navigation v6',
+                  'Expo SDK',
+                  'EAS Build',
+                  'FPO Mobile App',
+                ],
+              },
+            ].map((p) => (
+              <div
+                key={p.name}
+                style={{
+                  background: p.col + '0F',
+                  border: '1px solid ' + p.col + '30',
+                  borderRadius: 12,
+                  padding: '14px 14px',
+                  position: 'relative',
+                  overflow: 'hidden',
+                }}
+              >
+                <div
+                  style={{
+                    position: 'absolute',
+                    top: 0,
+                    left: 0,
+                    right: 0,
+                    height: 2,
+                    background:
+                      'linear-gradient(90deg,' + p.col + ',transparent)',
+                  }}
+                />
+                <div style={{ fontSize: 20, marginBottom: 6 }}>{p.icon}</div>
+                <div
+                  style={{
+                    fontFamily: "'Syne',sans-serif",
+                    fontWeight: 800,
+                    fontSize: 14,
+                    color: p.col,
+                    marginBottom: 2,
+                  }}
+                >
+                  {p.name}
+                </div>
+                <div style={{ fontSize: 9, color: '#64748B', marginBottom: 8 }}>
+                  {p.ds + ' – ' + p.de + ' · ' + p.days + 'd · ' + p.wks}
+                </div>
+                {p.topics.map((t) => (
+                  <div
+                    key={t}
+                    style={{ display: 'flex', gap: 5, marginBottom: 3 }}
+                  >
+                    <span
+                      style={{
+                        fontSize: 8,
+                        color: p.col,
+                        flexShrink: 0,
+                        marginTop: 1,
+                      }}
+                    >
+                      {'›'}
+                    </span>
+                    <span style={{ fontSize: 9, color: '#94A3B8' }}>{t}</span>
+                  </div>
+                ))}
+              </div>
+            ))}
+          </div>
+          <div
+            style={{
+              background: '#0EA5E908',
+              border: '1px solid #0EA5E920',
+              borderRadius: 10,
+              padding: '10px 14px',
+              display: 'flex',
+              alignItems: 'center',
+              gap: 10,
+            }}
+          >
+            <span style={{ fontSize: 14 }}>{'💡'}</span>
+            <div style={{ fontSize: 10, color: '#94A3B8', lineHeight: 1.6 }}>
+              {
+                'This 2nd slot runs PARALLEL to your main 5:30–8:30 AM study (AWS/DevOps). After Sep 30, 2026 — the 2nd slot ends and you continue with the main plan only. Chaicode (React Native) + Jonas Schmedtmann (React) + Matt Pocock (TypeScript) · 9:00–11:00 AM daily.'
+              }
+            </div>
+          </div>
+        </div>
+
         {BLOCKS.map((blk, blkIdx) => {
           if (blk.isBreak)
             return (
@@ -2904,7 +3257,7 @@ export default function App() {
                           marginBottom: 3,
                         }}
                       >
-                        {'📅 New Schedule from Nov 1, 2027 (D500 onwards)'}
+                        {'📅 New Schedule from Nov 1, 2027 (D488 onwards)'}
                       </div>
                       <div style={{ fontSize: 11, color: '#9A92B4' }}>
                         {
@@ -3060,7 +3413,7 @@ export default function App() {
             }}
           >
             {
-              'D1-D487: 5:30-8:30 AM · Break: Oct 20-31, 2027 Vipassana · D500+: Vipassana 5:30-6:35 AM then Study 6:45-8:45 AM daily'
+              'D1-D487: 5:30-8:30 AM · Break: Oct 20-31, 2027 Vipassana · D488+: Vipassana 5:30-6:35 AM then Study 6:45-8:45 AM daily'
             }
           </div>
           <div
