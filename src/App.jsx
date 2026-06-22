@@ -509,7 +509,7 @@ const PHASES = [
     days: 182,
     ds: 469,
     de: 650,
-    period: 'Oct 1, 2027 – Mar 30, 2028',
+    period: 'Oct 1, 2027 – Mar 31, 2028',
     ms: 'Agentic AI Complete · D650',
     about:
       '6 months · 182 days. LangChain, LangGraph, RAG pipelines, multi-agent systems, MCP protocol, Ed Donner 8 real projects. Your SCB Thailand LangChain/LangGraph experience = deep revision + extension. Capstone: FPO AI assistant (natural language flight queries) deployed to Lambda on AWS.',
@@ -566,7 +566,7 @@ const PHASES = [
     days: 365,
     ds: 651,
     de: 1015,
-    period: 'Mar 31, 2028 – Mar 30, 2029',
+    period: 'Mar 31, 2028 – Mar 31, 2029',
     ms: 'Data Structures COMPLETE · D1015',
     about:
       '12 months · 365 days · 52 weeks. Complete DSA in Java — Arrays, Linked Lists, Stacks, Queues, Trees, BST, Heaps, Graphs, Hashing, Sorting, Dynamic Programming (8 weeks — hardest), Backtracking, Greedy, Tries. 300+ LeetCode problems. Scott Barrett Java DSA course + NeetCode 150. Master DP and you stand out in every interview.',
@@ -729,14 +729,14 @@ const MILESTONES = [
     day: 650,
     icon: '🤖',
     label: 'Agentic AI DONE',
-    date: 'Mar 30, 2028',
+    date: 'Mar 31, 2028',
     color: '#6366F1',
   },
   {
     day: 1015,
     icon: '🧩',
     label: 'Data Structures DONE',
-    date: 'Mar 30, 2029',
+    date: 'Mar 31, 2029',
     color: '#4F46E5',
   },
   {
