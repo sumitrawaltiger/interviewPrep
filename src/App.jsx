@@ -633,7 +633,7 @@ const PHASES = [
     days: 49,
     ds: 1016,
     de: 1064,
-    period: 'Mar 31 – May 18, 2029',
+    period: 'April 1 – May 18, 2029',
     ms: '1064 DAYS OF CODE COMPLETE · May 18, 2029',
     about:
       '49 days · 7 weeks. System design interview mastery. Frank Kane 5-step template. Design 1 system spoken aloud per day, 45 minutes, no notes. Your FPO multi-tenant SaaS + Lambda + DynamoDB + Kafka production experience is a massive advantage. Day 1064 = May 18, 2029 = COMPLETE.',
