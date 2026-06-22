@@ -37,7 +37,7 @@ const BLOCK_META = [
     title: 'Advanced Studies',
     sub: 'D469–D1064 · Oct 1, 2027 – May 18, 2029 · 596 days',
     detail:
-      'Agentic AI+Django+FastAPI+Express (6mo) → AWS×3+CKA+TF+Java+Python+Spring Certs (12mo) → System Design (7w)',
+      'Agentic AI+Django+FastAPI+DSA Python (6mo) → AWS×3+CKA+TF+Java+Python+Spring Certs (12mo) → System Design (7w)',
     time: '5:30 AM – 8:30 AM daily · 3 hours',
   },
 ];
@@ -504,22 +504,23 @@ const PHASES = [
     dark: '#4338CA',
     bg: '#EEF2FF',
     border: '#C7D2FE',
-    name: 'Agentic AI + Django + FastAPI + Express.js',
+    name: 'Agentic AI + Django + FastAPI + DSA Python',
     label: 'Block 3 · 6 Months',
     days: 183,
     ds: 469,
     de: 651,
     period: 'Oct 1, 2027 – Mar 31, 2028',
-    ms: 'Agentic AI + Django + FastAPI + Express.js Complete · D651',
+    ms: 'Agentic AI + Django + FastAPI + DSA Python Complete · D651',
     about:
-      '182 days · 6 months. Four topics within the same timeframe. Agentic AI (LangChain, LangGraph, RAG, multi-agent, Ed Donner 8 projects) + Django (MVT, ORM, DRF REST APIs) + FastAPI (async, Pydantic, OpenAPI) + Express.js/Node.js (REST APIs, middleware, MongoDB). Your SCB Thailand LangChain/LangGraph experience = deep revision + extension. Capstone: FPO AI assistant deployed to AWS Lambda.',
+      '182 days · 6 months. Four topics within the same timeframe. Agentic AI (LangChain, LangGraph, RAG, multi-agent, Ed Donner 8 projects) + Django (MVT, ORM, DRF REST APIs) + FastAPI (async, Pydantic, OpenAPI) + Data Structures using Python (arrays, linked lists, trees, graphs, DP — NeetCode + Scott Barrett Python DSA). Your SCB Thailand LangChain/LangGraph experience = deep revision + extension. Capstone: FPO AI assistant deployed to AWS Lambda.',
     courses: [
       'Ed Donner — Complete Agentic AI Engineering Course 2026 (Udemy/own site, 30h) · 8 real Agentic AI projects',
       'Eden Marco — LangChain Develop LLM Powered Applications (Udemy, 22h) · LangChain + LangGraph deep dive',
       'Dennis Ivy — Python Django 7 Hour Course (YouTube free) · best Django fundamentals',
       'Jose Salvatierra — REST APIs with Django REST Framework (Udemy) · DRF serializers, ViewSets, JWT',
       'Sebastián Ramírez — FastAPI official docs + tiangolo/fastapi (GitHub) · async, Pydantic, OpenAPI',
-      'Maximilian Schwarzmüller — NodeJS The Complete Guide incl. MVC REST APIs GraphQL (Udemy) · Express.js',
+      'Scott Barrett — Python DSA + LeetCode Exercises (Udemy, 4.8★) · Python DSA implementations',
+      'NeetCode — DSA for Beginners + Advanced (YouTube free) · pattern-based approach in Python',
     ],
     wplan: [
       {
@@ -958,7 +959,7 @@ const MILESTONES = [
   {
     day: 651,
     icon: '🤖',
-    label: 'Agentic AI + Django + FastAPI + Express DONE',
+    label: 'Agentic AI + Django + FastAPI + DSA Python DONE',
     date: 'Mar 31, 2028',
     color: '#6366F1',
   },
