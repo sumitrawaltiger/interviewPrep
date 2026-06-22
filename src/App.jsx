@@ -859,55 +859,55 @@ const PHASES = [
     dark: '#6D28D9',
     bg: '#F5F3FF',
     border: '#DDD6FE',
-    name: 'System Design',
-    label: 'Block 3 · 7 Weeks · FINAL',
+    name: 'Express.js + Node.js',
+    label: 'Block 3 · 48 Days · FINAL',
     days: 48,
     ds: 1017,
     de: 1064,
     period: 'Apr 1 – May 18, 2029',
-    ms: '1064 DAYS COMPLETE · May 18, 2029',
+    ms: 'Express.js + Node.js COMPLETE · Day 1064 · May 18, 2029',
     about:
-      '49 days · 7 weeks. System design interview mastery. Frank Kane 5-step template. Design 1 system spoken aloud per day, 45 minutes, no notes. Your FPO multi-tenant SaaS + Lambda + DynamoDB + Kafka production experience is a massive advantage. Day 1064 = May 18, 2029 = COMPLETE.',
+      '48 days · 7 weeks. Express.js and Node.js — the JavaScript backend runtime. Node.js event loop, CommonJS vs ESM modules, async patterns. Express.js routing, middleware chain, REST API design, error handling. MongoDB with Mongoose ODM, JWT authentication, input validation (Zod), rate limiting. Deploy to AWS (EC2/ECS) using your Block 1 AWS knowledge. Day 1064 = May 18, 2029 = 1064 DAYS COMPLETE.',
     courses: [
-      'Frank Kane ex-Amazon — Mastering the System Design Interview (Udemy, 5h) · framework first',
-      'Alex Xu — System Design Interview Vol 1 + Vol 2 (books) · must-read',
-      'Mikhail Smarshchok — System Design Interview Guide 20+ designs (Udemy, 18h) · classic systems',
+      'Maximilian Schwarzmüller — NodeJS The Complete Guide incl. MVC REST APIs GraphQL (Udemy, 40h) · primary',
+      'Traversy Media — Express.js Crash Course (YouTube free) · quick reference',
+      'MongoDB University — M001 MongoDB Basics (free) · Mongoose + Atlas',
     ],
     wplan: [
       {
         w: 1,
-        f: 'SD Framework + HLD + Estimation',
-        t: 'Frank Kane 5-step template, capacity estimation. Design FPO Cloud (YOUR system!) first — you know it inside out.',
+        f: 'Node.js Core + Event Loop',
+        t: 'Node.js runtime, event loop (phases/macrotask/microtask), CommonJS vs ESM modules, fs/path/http built-ins, npm ecosystem, nodemon, dotenv',
       },
       {
         w: 2,
-        f: 'Classic Designs 1',
-        t: 'URL Shortener, WhatsApp, Twitter — requirements → HLD → DB choice → API → scale. Spoken 45 min each.',
+        f: 'Express.js Foundations',
+        t: 'Express routing (params/query/body), middleware chain (custom/third-party/error), request/response cycle, static files, template engines (EJS)',
       },
       {
         w: 3,
-        f: 'Classic Designs 2',
-        t: 'YouTube, Netflix, Uber, Airbnb, Rate Limiter, Notification System. Trade-offs: SQL vs NoSQL, sync vs async.',
+        f: 'REST API Design + MongoDB',
+        t: 'RESTful API best practices, Express Router, Mongoose ODM (schemas/models/queries/populate), MongoDB Atlas, CRUD operations, indexing',
       },
       {
         w: 4,
-        f: 'Databases + Distributed Systems',
-        t: 'CAP theorem, sharding, replication, consistent hashing, DynamoDB single-table design (your FPO!), Kafka, Saga pattern',
+        f: 'Auth + Security + Validation',
+        t: 'JWT auth middleware (jsonwebtoken), bcrypt password hashing, role-based access control, input validation (Zod/Joi), helmet, cors, rate limiting (express-rate-limit)',
       },
       {
         w: 5,
-        f: 'Advanced Designs',
-        t: 'Payment System, Search Engine, Distributed Cache, Stock Exchange. Bogdan Stashchuk WHY decisions.',
+        f: 'Advanced Express + File Uploads',
+        t: 'Multer file uploads (S3 integration from Block 1), WebSockets (socket.io), streams, caching with Redis, environment config, Morgan logging',
       },
       {
         w: 6,
-        f: 'Mock System Design Interviews',
-        t: '7 full cold mocks (1/day), spoken aloud, 45 min, no notes. Focus on weakest 3 systems.',
+        f: 'Testing + Docker + Deploy to AWS',
+        t: 'Jest + supertest for Express API testing, Docker containerisation, deploy to AWS ECS Fargate from Block 1. GitHub Actions CI/CD pipeline.',
       },
       {
         w: 7,
-        f: 'Final Mocks + Portfolio + Day 1064',
-        t: 'Final mocks. ADRs for 5 systems. GitHub portfolio. Day 1064 = May 18, 2029 = 1064 DAYS COMPLETE 🎉',
+        f: 'Capstone + Day 1064 DONE',
+        t: 'Build full REST API: auth + CRUD + file uploads + WebSockets + MongoDB + Docker + AWS ECS. Day 1064 = May 18, 2029 = COMPLETE 🎉',
       },
     ],
   },
@@ -1007,10 +1007,10 @@ const MILESTONES = [
   },
   {
     day: 1064,
-    icon: '🏆',
-    label: '1064 Days COMPLETE',
+    icon: '🟢',
+    label: 'Express.js + Node — DONE',
     date: 'May 18, 2029',
-    color: '#E11D48',
+    color: '#16A34A',
   },
 ];
 
@@ -1919,7 +1919,9 @@ export default function App() {
               marginBottom: 3,
             }}
           >
-            {'🏆 1064 Days of Code · Jun 20, 2026 → May 18, 2029'}
+            {
+              '🏆 1064 Days of Code · Jun 20, 2026 → May 18, 2029 · Express.js Final'
+            }
           </div>
           <div
             style={{
