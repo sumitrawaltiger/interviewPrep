@@ -25,7 +25,7 @@ const BLOCKS = [
     title: 'Advanced Studies',
     sub: 'D469–D1064 · Oct 1, 2027 – May 18, 2029 · 596 days · 8 phases',
     detail:
-      'DSA (8mo) → System Design (4mo) → AWS×3 Certs (3mo) → CKA+TF+Java+Python+Spring Certs (9 total)',
+      'DSA (5mo) → System Design (2mo) → AWS×3 Certs (7mo) → CKA+TF+Java+Python+Spring Certs (9 total)',
     time: '5:30 AM – 8:30 AM · 3h daily',
   },
 ];
@@ -467,14 +467,14 @@ const PHASES = [
     bg: '#EEF2FF',
     border: '#C7D2FE',
     name: 'Data Structures + Algorithms',
-    label: 'Block 2 · 8 Months',
-    days: 231,
+    label: 'Block 2 · 5 Months',
+    days: 154,
     ds: 469,
-    de: 699,
-    period: 'Oct 1, 2027 – May 18, 2028',
-    ms: 'DSA Complete · D699 · May 18, 2028',
+    de: 622,
+    period: 'Oct 1, 2027 – Mar 2, 2028',
+    ms: 'DSA Complete · D622 · Mar 2, 2028',
     about:
-      '231 days · 8 months. Complete DSA in Python and Java. Arrays, Linked Lists, Stacks, Queues, Trees, BST, Heaps, Graphs, Hashing, Sorting/Searching, Dynamic Programming (hardest — 8 weeks), Backtracking, Greedy, Tries. 400+ LeetCode problems total. Two instructors: Scott Barrett (Python + Java implementations) + NeetCode (pattern-based). Master DP and you stand out in every interview.',
+      '154 days · 5 months. Complete DSA in Python and Java. Arrays, Linked Lists, Stacks, Queues, Trees, BST, Heaps, Graphs, Hashing, Sorting/Searching, Dynamic Programming (hardest — 8 weeks), Backtracking, Greedy, Tries. 400+ LeetCode problems total. Two instructors: Scott Barrett (Python + Java implementations) + NeetCode (pattern-based). Master DP and you stand out in every interview.',
     courses: [
       'Scott Barrett — Python DSA + LeetCode Exercises (Udemy, 4.8★) · Python implementations',
       'Scott Barrett — Java DSA + LeetCode Exercises (Udemy, 4.8★) · Java implementations',
@@ -540,14 +540,14 @@ const PHASES = [
     bg: '#F5F3FF',
     border: '#DDD6FE',
     name: 'System Design',
-    label: 'Block 2 · 4 Months',
-    days: 122,
-    ds: 700,
-    de: 821,
-    period: 'May 19 – Sep 17, 2028',
-    ms: 'System Design Complete · D821',
+    label: 'Block 2 · 2 Months',
+    days: 77,
+    ds: 623,
+    de: 699,
+    period: 'Mar 3 – May 18, 2028',
+    ms: 'System Design Complete · D699 · May 18, 2028',
     about:
-      '122 days · 4 months. System design interview mastery. Frank Kane 5-step template (Clarify → Estimate → HLD → Deep Dive → Wrap Up). Design 1 system spoken aloud per day (45 min, no notes). Your FPO multi-tenant SaaS + Lambda + DynamoDB + Kafka production experience is a massive advantage — FPO Cloud IS a real system design case study. Cover all classic systems: URL Shortener, WhatsApp, Twitter, YouTube, Netflix, Uber, Airbnb, Payment System, Search Engine. Alex Xu Vol 1 + Vol 2.',
+      '77 days · 2 months. System design interview mastery. Frank Kane 5-step template (Clarify → Estimate → HLD → Deep Dive → Wrap Up). Design 1 system spoken aloud per day (45 min, no notes). Your FPO multi-tenant SaaS + Lambda + DynamoDB + Kafka production experience is a massive advantage — FPO Cloud IS a real system design case study. Cover all classic systems: URL Shortener, WhatsApp, Twitter, YouTube, Netflix, Uber, Airbnb, Payment System, Search Engine. Alex Xu Vol 1 + Vol 2.',
     courses: [
       'Frank Kane ex-Amazon — Mastering the System Design Interview (Udemy, 5h) · framework first, do this week 1',
       'Alex Xu — System Design Interview Vol 1 (book, 309 pages) · URL Shortener through Notification System',
@@ -614,7 +614,7 @@ const PHASES = [
       {
         w: 16,
         f: 'Mock System Design Interviews',
-        t: '10 full cold mock interviews (spoken aloud, 45 min each, no notes). Focus on weakest 3 systems. Write ADRs for 3 designs. GitHub portfolio with system diagrams. D821 = Sep 17, 2028 = SD DONE.',
+        t: '10 full cold mock interviews (spoken aloud, 45 min each, no notes). Focus on weakest 3 systems. Write ADRs for 3 designs. GitHub portfolio with system diagrams. D699 = May 18, 2028 = SD DONE.',
       },
     ],
   },
@@ -630,10 +630,10 @@ const PHASES = [
     border: '#FDE68A',
     name: 'AWS Certifications ×3',
     label: 'Block 2 · 7 Months · Certs',
-    days: 92,
-    ds: 822,
+    days: 214,
+    ds: 700,
     de: 913,
-    period: 'Sep 18 – Dec 18, 2028',
+    period: 'May 19 – Dec 18, 2028',
     ms: 'AWS ×3 Certs DONE · D913',
     about:
       '214 days · 7 months. Three AWS certifications back to back. Months 1-2: SAA-C03 (Solutions Architect Associate). Months 3-4: DVA-C02 (Developer Associate) — Lambda, DynamoDB, API Gateway, Cognito, Step Functions (your exact FPO stack!). Months 5-7: DOP-C02 (DevOps Engineer Professional). All Stephane Maarek + Tutorials Dojo practice exams.',
@@ -948,17 +948,17 @@ const MILESTONES = [
   },
 
   {
-    day: 699,
+    day: 622,
     icon: '🧩',
     label: 'DSA Complete',
-    date: 'May 18, 2028',
+    date: 'Mar 2, 2028',
     color: '#4F46E5',
   },
   {
-    day: 821,
+    day: 699,
     icon: '🏗',
     label: 'System Design Done',
-    date: 'Sep 17, 2028',
+    date: 'May 18, 2028',
     color: '#7C3AED',
   },
   {
@@ -1386,7 +1386,7 @@ export default function App() {
     {
       col: '#6366F1',
       title: '🚀 BLOCK 2 · ADVANCED STUDIES',
-      sub: 'D469–D1064 · Oct 1, 2027 – May 18, 2029 · 596 days · 5:30–8:30 AM · DSA → System Design → AWS×3 Certs → CKA+TF+Java+Python+Spring Certs',
+      sub: 'D469–D1064 · Oct 1, 2027 – May 18, 2029 · 596 days · 5:30–8:30 AM · DSA (5mo) → System Design (2mo) → AWS×3 Certs (7mo) → CKA+TF+Java+Python+Spring Certs',
       ids: ['p9', 'p10b', 'p10', 'p11', 'p12', 'p13', 'p14', 'p15'],
     },
   ];
