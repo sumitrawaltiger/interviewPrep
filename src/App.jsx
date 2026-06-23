@@ -1,164 +1,55 @@
 import { useState } from 'react';
-
-// 1064 Days of Code
-// Sat Jun 20, 2026 → Fri May 18, 2029
-// Block 1: Job Survival Sprint  D1-D103    Jun 20 – Sep 30, 2026  (5h/day · 9AM-2PM)
-// Block 2: 12-Month Study Plan  D104-D468  Oct 1, 2026 – Sep 30, 2027 (3h/day · 5:30-8:30AM)
-// Block 3: Advanced Studies     D469-D1064 Oct 1, 2027 – May 18, 2029 (3h/day · 5:30-8:30AM)
+// 1064 Days of Code · Jun 20, 2026 → May 18, 2029
+// 5:30 AM – 8:30 AM daily · 3 hours · No 2nd slot
+// Block 1: 16-Month Skill Plan D1-D468   (Jun 20, 2026 – Sep 30, 2027)
+// Block 2: Advanced Studies    D469-D1064 (Oct 1, 2027 – May 18, 2029)
 
 const START = new Date('2026-06-20');
 const TOTAL = 1064;
 
-const BLOCK_META = [
+const BLOCKS = [
   {
     id: 'b1',
-    icon: '🔥',
-    col: '#E11D48',
-    title: 'Job Survival Sprint',
-    sub: 'D1–D3 done (3h) · D4–D103 · Jun 23 – Sep 30, 2026 · 100 days · 5:30-8:30AM + 9-11AM · 5h/day',
+    icon: '📚',
+    col: '#0EA5E9',
+    title: '16-Month Skill Plan',
+    sub: 'D1–D468 · Jun 20, 2026 – Sep 30, 2027 · 468 days · 5 skills',
     detail:
-      'AWS + React Native + React JS + TypeScript — 5 hours daily to secure your position at NextStep and impress Karsten',
-    time: 'D1–D3 (Jun 20-22) DONE · 5:30-8:30 AM · 3h only · D4–D103 (Jun 23–Sep 30): 5:30-8:30 AM + 9-11 AM · 5h daily',
+      'React+Next.js → React Native → Express.js → Spring Boot → Microservices → DevOps+Python → Django → Agentic AI',
+    time: '5:30 AM – 8:30 AM · 3h daily',
   },
   {
     id: 'b2',
-    icon: '📚',
-    col: '#0EA5E9',
-    title: '12-Month Skill Plan',
-    sub: 'D104–D468 · Oct 1, 2026 – Sep 30, 2027 · 365 days · 6 skills · 5:30-8:30 AM',
-    detail:
-      'React JS+Next.js (3mo) → React Native (2mo) → Spring Boot (3mo) → Microservices (2mo) → DevOps+Python (2mo)',
-    time: '5:30 AM – 8:30 AM daily · 3 hours',
-  },
-  {
-    id: 'b3',
     icon: '🚀',
     col: '#6366F1',
     title: 'Advanced Studies',
-    sub: 'D469–D1064 · Oct 1, 2027 – May 18, 2029 · 596 days',
+    sub: 'D469–D1064 · Oct 1, 2027 – May 18, 2029 · 596 days · 8 phases',
     detail:
-      'Agentic AI+Django+FastAPI+DSA Python (6mo) → AWS×3+CKA+TF+Java+Python+Spring Certs (12mo) → System Design (7w)',
-    time: '5:30 AM – 8:30 AM daily · 3 hours',
+      'DSA (8mo) → System Design (4mo) → AWS×3 Certs (3mo) → CKA+TF+Java+Python+Spring Certs (9 total)',
+    time: '5:30 AM – 8:30 AM · 3h daily',
   },
 ];
 
 const PHASES = [
-  // ══ BLOCK 1: JOB SURVIVAL SPRINT · 103 days ════════════════════════════
-
+  // ══ BLOCK 1: 16-MONTH SKILL PLAN (468 days · 8 skills) ══════════════════
   {
-    id: 'b1p1',
+    id: 'p1',
     block: 'b1',
     seq: 1,
-    icon: '⚡',
-    color: '#E11D48',
-    dark: '#BE123C',
-    bg: '#FFF1F2',
-    border: '#FECDD3',
-    name: 'Job Survival Sprint',
-    label: 'Block 1 · 5h/day',
-    days: 103,
-    ds: 1,
-    de: 103,
-    period: 'Jun 20 – Sep 30, 2026',
-    ms: 'Job Survival Sprint COMPLETE · D103',
-    about:
-      'Days 1-3 (Jun 20-22) COMPLETE — 3h/day (5:30-8:30 AM only). Days 4-103 (Jun 23–Sep 30): 5 hours daily. Slot 1 (5:30-8:30 AM, 3h): AWS deep dive for Karsten/NextStep. Slot 2 (9-11 AM, 2h): 100-day frontend sprint — JavaScript 30d (Jun 23–Jul 22) → TypeScript 10d (Jul 23–Aug 1) → React JS 30d (Aug 2–Aug 31) → React Native 30d (Sep 1–Sep 30). All by Maximilian Schwarzmüller (Udemy) + Chaicode. Your manager Karsten flagged AWS and practical skills as the priority. This block is laser-focused on proving your value at NextStep + FPO Cloud. AWS (Lambda/DynamoDB/Step Functions/CDK — what you use daily) + React Native (FPO mobile) + React JS + TypeScript. No other topics. Pure survival and performance.',
-    courses: [
-      'SLOT 1 (5:30-8:30 AM) — AWS: Stephane Maarek AWS Developer Associate + SAA-C03 (Udemy) · Lambda, DynamoDB, Step Functions, Cognito, ECS, CDK',
-      'SLOT 2 (9-11 AM) JavaScript 30d: Maximilian Schwarzmüller — JavaScript The Complete Guide (Udemy) · Jun 23–Jul 22',
-      'SLOT 2 (9-11 AM) TypeScript 10d: Maximilian Schwarzmüller — Understanding TypeScript (Udemy) · Jul 23–Aug 1',
-      'SLOT 2 (9-11 AM) React 30d: Maximilian Schwarzmüller — React The Complete Guide 2026 (Udemy) · Aug 2–Aug 31',
-      'SLOT 2 (9-11 AM) React Native 30d: Chaicode React Native Full Course (free) + Maximilian Schwarzmüller RN guide · Sep 1–Sep 30',
-    ],
-    wplan: [
-      {
-        w: 1,
-        f: '[SLOT1] AWS: IAM + EC2 + S3 + VPC  ·  [SLOT2 JS W1] Fundamentals',
-        t: 'SLOT1: IAM users/roles/policies, EC2 lifecycle, S3 buckets/policies/versioning, VPC/subnets/Security Groups. SLOT2: Variables, data types, operators, control flow, loops, functions, scope',
-      },
-      {
-        w: 2,
-        f: '[SLOT1] AWS: Lambda + Step Functions  ·  [SLOT2 JS W2] ES6+ Modern JS',
-        t: 'SLOT1: Lambda (your FPO!): layers/concurrency/cold starts, Step Functions Express vs Standard (your FPO workflows!). SLOT2: Arrow functions, destructuring, spread/rest, template literals, modules',
-      },
-      {
-        w: 3,
-        f: '[SLOT1] AWS: DynamoDB + Cognito  ·  [SLOT2 JS W3] DOM + Async JS',
-        t: 'SLOT1: DynamoDB tables/GSI/streams/TTL (your FPO DB!), Cognito user pools/JWT (your FPO auth!). SLOT2: DOM manipulation, events, Promises, async/await, fetch API',
-      },
-      {
-        w: 4,
-        f: '[SLOT1] AWS: ECS + ECR + CDK  ·  [SLOT2 JS W4] Advanced + Projects',
-        t: 'SLOT1: Docker/ECR/ECS Fargate, AWS CDK TypeScript stacks (your FPO IaC!). SLOT2: Closures, prototypes, ES6 classes. Build: To-Do App + Weather App + Quiz App',
-      },
-      {
-        w: 4.3,
-        f: '[SLOT2] TypeScript 10 days  ·  Jul 23 – Aug 1',
-        t: 'SLOT2: Maximilian Schwarzmüller Understanding TypeScript — type system, interfaces, generics, Partial/Required/Omit/Pick, strict mode, tsconfig. Apply to FPO CDK code.',
-      },
-      {
-        w: 5,
-        f: '[SLOT1] AWS: CloudWatch + SRE  ·  [SLOT2 React W1] React Foundations',
-        t: 'SLOT1: CloudWatch metrics/alarms/dashboards, Datadog APM (your FPO tool!), X-Ray tracing, SLOs/error budgets. SLOT2: JSX, components, props, useState, useEffect, conditional rendering',
-      },
-      {
-        w: 6,
-        f: '[SLOT1] AWS: API Gateway + SQS  ·  [SLOT2 React W2] Hooks + Router',
-        t: 'SLOT1: API Gateway REST vs HTTP, SQS/SNS/EventBridge, Kinesis. SLOT2: useRef/useMemo/useCallback, custom hooks, React Router v6, nested routes, dynamic params',
-      },
-      {
-        w: 7,
-        f: '[SLOT1] AWS: Terraform + GitHub Actions  ·  [SLOT2 React W3] State Mgmt',
-        t: 'SLOT1: Terraform HCL/modules/S3 state, GitHub Actions OIDC to AWS, CodePipeline/CodeBuild. SLOT2: Redux Toolkit, RTK Query, Context API + useReducer',
-      },
-      {
-        w: 8,
-        f: '[SLOT1] AWS: Well-Architected  ·  [SLOT2 React W4] Advanced + FPO',
-        t: 'SLOT1: Well-Architected 6 pillars, SAA-C03 prep, Trusted Advisor. SLOT2: React.memo, lazy/Suspense, error boundaries. Build FPO flight dashboard calling AWS Lambda.',
-      },
-      {
-        w: 9,
-        f: '[SLOT1] AWS: EKS + KMS  ·  [SLOT2 RN W1] Core Components',
-        t: 'SLOT1: EKS cluster/kubectl basics, KMS encryption, Secrets Manager. SLOT2: View/Text/Image/TextInput, StyleSheet, Flexbox, FlatList — exercises on iPad via Expo Go',
-      },
-      {
-        w: 10,
-        f: '[SLOT1] AWS: Revision + SAA-C03  ·  [SLOT2 RN W2] Navigation',
-        t: 'SLOT1: Full AWS revision, SAA-C03 practice questions (Tutorials Dojo). SLOT2: React Navigation v6 — Stack/Bottom Tab/Drawer, nested navigation, passing params',
-      },
-      {
-        w: 11,
-        f: '[SLOT1] AWS: Projects  ·  [SLOT2 RN W3] State + Device APIs',
-        t: 'SLOT1: Build 3-tier app (ALB+EC2+RDS) + Serverless pipeline (Lambda+Step Functions+DynamoDB). SLOT2: Redux Toolkit in RN, AsyncStorage, Camera, Location, Push Notifications',
-      },
-      {
-        w: 12,
-        f: '[SLOT1] AWS: Portfolio + Karsten  ·  [SLOT2 RN W4] FPO App + EAS Build',
-        t: 'SLOT1: Write ADR, update Datadog dashboards, polish FPO architecture doc for Karsten. SLOT2: FPO mobile flight app — flight list, status cards, AWS API Gateway calls. EAS Build → TestFlight.',
-      },
-    ],
-  },
-
-  // ══ BLOCK 2: 12-MONTH SKILL PLAN · 365 days · 5 skills ════════════════
-
-  {
-    id: 'b2p1',
-    block: 'b2',
-    seq: 2,
     icon: '⚛',
     color: '#0EA5E9',
     dark: '#0369A1',
     bg: '#F0F9FF',
     border: '#BAE6FD',
     name: 'React JS + Next.js',
-    label: 'Block 2 · Months 1-3',
+    label: 'Skill 1 · 3 Months',
     days: 92,
-    ds: 104,
-    de: 195,
-    period: 'Oct 1 – Dec 31, 2026',
-    ms: 'React JS + Next.js Complete · D195',
+    ds: 1,
+    de: 92,
+    period: 'Jun 20 – Sep 19, 2026',
+    ms: 'React JS + Next.js Complete · D92',
     about:
-      '91 days · 3 months. React JS and Next.js combined. JS and TypeScript already covered in Block 1 Slot 2. Month 1-2: React deep dive — hooks, React Router v6, Redux Toolkit, RTK Query, testing, performance. Build FPO flight dashboard. Month 3: Next.js 15 App Router — Server Components, Server Actions, NextAuth v5, Prisma, PostgreSQL, Vercel. Build FPO web portal. All Maximilian Schwarzmüller.',
+      '92 days · 3 months. Month 1-2: React deep dive — hooks, React Router v6, Redux Toolkit, RTK Query, testing, performance. Build FPO flight dashboard calling AWS API Gateway + Lambda. Month 3: Next.js 15 App Router — Server Components, Server Actions, NextAuth v5, Prisma, PostgreSQL, Vercel. Build FPO web portal. All Maximilian Schwarzmüller.',
     courses: [
       'Maximilian Schwarzmüller — React The Complete Guide 2026 incl. React Router and Redux (Udemy)',
       'Maximilian Schwarzmüller — Next.js 14 and 15 The Complete Guide (Udemy)',
@@ -168,12 +59,12 @@ const PHASES = [
       {
         w: 1,
         f: 'React Foundations + JSX',
-        t: 'JSX, functional components, props, useState, useEffect, conditional rendering, lists/keys. Vite + TypeScript. Re-build Block 1 projects.',
+        t: 'JSX, functional components, props, useState, useEffect, conditional rendering, lists/keys. Vite + TypeScript. 3 mini projects.',
       },
       {
         w: 2,
         f: 'Core Hooks Deep Dive',
-        t: 'useEffect (dependencies/cleanup), useRef, useMemo, useCallback, custom hooks, rules of hooks, performance implications',
+        t: 'useEffect (dependencies/cleanup), useRef, useMemo, useCallback, custom hooks, performance implications',
       },
       {
         w: 3,
@@ -188,17 +79,17 @@ const PHASES = [
       {
         w: 5,
         f: 'Advanced React + Performance',
-        t: 'React.memo, lazy/Suspense, code splitting, error boundaries, portals, forwardRef, compound components, render patterns',
+        t: 'React.memo, lazy/Suspense, code splitting, error boundaries, portals, forwardRef, compound components',
       },
       {
         w: 6,
         f: 'React Testing + TypeScript',
-        t: 'React Testing Library, Jest, user-event, mocking. Strict TypeScript with React: typed components, hooks, Redux store.',
+        t: 'React Testing Library, Jest, user-event, mocking. Strict TypeScript with React: typed components, hooks, Redux.',
       },
       {
         w: 7,
         f: 'FPO Dashboard Capstone',
-        t: 'Build FPO Flight Dashboard: flight list, status cards, weather overlay. Calls AWS API Gateway + Lambda + DynamoDB from Block 1.',
+        t: 'Build FPO Flight Dashboard: flight list, status cards, weather overlay. Calls AWS API Gateway + Lambda + DynamoDB.',
       },
       {
         w: 8,
@@ -208,7 +99,7 @@ const PHASES = [
       {
         w: 9,
         f: 'Server Components + Data Fetching',
-        t: 'RSC vs Client Components, fetch caching/revalidation (ISR/SSG/SSR), Suspense streaming, Server Actions, mutations',
+        t: 'RSC vs Client Components, fetch caching/revalidation (ISR/SSG/SSR), Suspense streaming, Server Actions',
       },
       {
         w: 10,
@@ -218,81 +109,110 @@ const PHASES = [
       {
         w: 11,
         f: 'FPO Web Portal Capstone',
-        t: 'FPO web portal: auth + flight dashboard + AWS API Gateway backend. Deployed on Vercel. Publicly accessible portfolio piece.',
+        t: 'FPO web portal: auth + flight dashboard + AWS API Gateway backend. Deployed on Vercel. Portfolio piece.',
       },
     ],
   },
-
   {
-    id: 'b2p3',
-    block: 'b2',
-    seq: 3,
+    id: 'p2',
+    block: 'b1',
+    seq: 2,
     icon: '📱',
     color: '#7C3AED',
     dark: '#6D28D9',
     bg: '#F5F3FF',
     border: '#DDD6FE',
     name: 'React Native',
-    label: 'Block 2 · Months 4-5',
-    days: 59,
-    ds: 196,
-    de: 254,
-    period: 'Jan 1 – Feb 28, 2027',
-    ms: 'React Native Complete · D254',
+    label: 'Skill 2 · 2 Months',
+    days: 60,
+    ds: 93,
+    de: 152,
+    period: 'Sep 20 – Nov 18, 2026',
+    ms: 'React Native Complete · D152',
     about:
-      '60 days · 2 months. React Native deep dive — building on Block 1 Slot 2 foundations (30 days RN already done). Advanced navigation, performance optimisation, EAS Build CI/CD, Expo SDK, offline support, OTA updates. Ship FPO mobile app v2 to TestFlight. Chaicode + Maximilian Schwarzmüller.',
+      '60 days · 2 months. React Native via Chaicode + Maximilian Schwarzmüller. Core components, React Navigation v6, Redux Toolkit in RN, Expo SDK device APIs, Reanimated 2 animations, EAS Build. Deploy FPO mobile flight status app to TestFlight on your iPad.',
     courses: [
       'Chaicode — React Native Full Course (free, Hindi+English) · primary',
       'Maximilian Schwarzmüller — React Native The Practical Guide (Udemy) · comprehensive reference',
-      'Expo docs — EAS Build, TestFlight submission, OTA updates, Expo SDK modules',
+      'Expo docs — EAS Build, TestFlight, OTA updates, Expo SDK modules',
     ],
     wplan: [
       {
         w: 12,
-        f: 'RN Core Revision + StyleSheet',
-        t: 'Re-build all Block 1 RN components from scratch. StyleSheet deep dive, Flexbox layouts, FlatList optimisation (keyExtractor/getItemLayout).',
+        f: 'RN Core + Layout',
+        t: 'View/Text/Image/TextInput, StyleSheet, Flexbox, FlatList — exercises on iPad via Expo Go',
       },
       {
         w: 13,
-        f: 'React Navigation v6 Advanced',
-        t: 'Nested navigators, modal stacks, custom tab bars, animated transitions, deep linking, authentication flow patterns',
+        f: 'React Navigation v6',
+        t: 'Stack/Tab/Drawer navigators, nested navigation, params, deep linking, auth flow patterns',
       },
       {
         w: 14,
-        f: 'State + Expo SDK + Device APIs',
-        t: 'Redux Toolkit in RN, AsyncStorage/MMKV, Camera, Location, Push Notifications (FCM/APNs), Haptics, SecureStore',
+        f: 'State + Expo SDK + APIs',
+        t: 'Redux Toolkit, AsyncStorage/MMKV, Camera, Location, Push Notifications, Haptics, SecureStore',
       },
       {
         w: 15,
         f: 'Animations + Gestures',
-        t: 'Reanimated 2 (useSharedValue/useAnimatedStyle/withSpring), Gesture Handler, PanGestureHandler, drag/swipe interactions',
+        t: 'Reanimated 2 (useSharedValue/withSpring), Gesture Handler, PanGestureHandler, drag/swipe interactions',
       },
       {
         w: 16,
         f: 'RN Performance + Debugging',
-        t: 'React.memo in RN, useMemo/useCallback, Flipper debugging, Hermes engine, FlatList performance profiling',
+        t: 'React.memo, useMemo/useCallback, Flipper, Hermes engine, FlatList performance profiling',
       },
       {
         w: 17,
-        f: 'EAS Build + OTA + FPO App v2',
-        t: 'EAS Build (dev/preview/prod), EAS Submit to TestFlight, OTA updates. FPO App v2: offline mode, real-time updates, push notifications.',
-      },
-      {
-        w: 18,
-        f: 'RN Testing + Portfolio Polish',
-        t: 'Jest + React Native Testing Library, Detox e2e basics. Polish FPO mobile app for portfolio. Update App Store screenshots.',
-      },
-      {
-        w: 19,
-        f: 'RN Capstone + Handover to Spring',
-        t: 'Final FPO mobile app review, bug fixes, performance audit. Write README. Prepare for Java/Spring Boot block starting Mar 1.',
+        f: 'EAS Build + FPO App',
+        t: 'EAS Build (dev/preview/prod), EAS Submit to TestFlight, OTA updates. FPO mobile flight status app on iPad.',
       },
     ],
   },
-
   {
-    id: 'b2p4',
-    block: 'b2',
+    id: 'p2b',
+    block: 'b1',
+    seq: 3,
+    icon: '🟢',
+    color: '#16A34A',
+    dark: '#15803D',
+    bg: '#F0FDF4',
+    border: '#BBF7D0',
+    name: 'Express.js + Node.js',
+    label: 'Skill 3 · 1 Month',
+    days: 30,
+    ds: 153,
+    de: 182,
+    period: 'Nov 19 – Dec 18, 2026',
+    ms: 'Express.js + Node.js Complete · D182',
+    about:
+      '30 days · 1 month. Express.js and Node.js — the JavaScript backend. Right after React Native so you now have full-stack JS (React + RN frontend, Express backend). Node.js event loop, CommonJS vs ESM, async patterns. Express.js routing, middleware chain, REST API design, error handling. MongoDB with Mongoose ODM, JWT authentication, Zod validation. Deploy to AWS ECS using your existing AWS knowledge.',
+    courses: [
+      'Maximilian Schwarzmüller — NodeJS The Complete Guide incl. MVC REST APIs GraphQL (Udemy, 40h) · primary',
+      'Traversy Media — Express.js Crash Course (YouTube free) · quick reference',
+      'MongoDB University — M001 MongoDB Basics (free) · Mongoose + Atlas',
+    ],
+    wplan: [
+      {
+        w: 18,
+        f: 'Node.js Core + Event Loop',
+        t: 'Node.js runtime, event loop (phases/macrotask/microtask), CommonJS vs ESM, fs/path/http built-ins, npm, nodemon, dotenv',
+      },
+      {
+        w: 19,
+        f: 'Express.js + REST API + MongoDB',
+        t: 'Express routing, middleware chain, Mongoose ODM (schemas/models/queries), MongoDB Atlas, CRUD, JWT auth, bcrypt, Zod validation',
+      },
+      {
+        w: 20,
+        f: 'Testing + Docker + AWS ECS Deploy',
+        t: 'Jest + supertest for Express API testing, Docker containerise, deploy to AWS ECS Fargate. GitHub Actions CI/CD pipeline.',
+      },
+    ],
+  },
+  {
+    id: 'p3',
+    block: 'b1',
     seq: 4,
     icon: '🌱',
     color: '#16A34A',
@@ -300,14 +220,14 @@ const PHASES = [
     bg: '#F0FDF4',
     border: '#BBF7D0',
     name: 'Spring Boot',
-    label: 'Block 2 · Months 6-8 · Java',
+    label: 'Skill 3 · 3 Months · Java',
     days: 92,
-    ds: 255,
-    de: 346,
-    period: 'Mar 1 – May 31, 2027',
-    ms: 'Spring Boot Complete · D346',
+    ds: 183,
+    de: 274,
+    period: 'Dec 19, 2026 – Mar 20, 2027',
+    ms: 'Spring Boot Complete · D274',
     about:
-      '92 days · 3 months. Complete Java backend foundation — covers J2SE, J2EE, JPA/Hibernate and Spring Boot 3 all in one block. Month 1: Java Core (J2SE syntax, OOP, Collections, Streams/Lambdas, J2EE basics, JPA/Hibernate + N+1 solutions). Months 2-3: Spring Boot 3 deep dive (IoC, REST APIs, Spring Security + JWT + OAuth2, testing, deploy to AWS ECS). Your C# .NET 8 + FPO Cognito background maps exactly.',
+      '92 days · 3 months. Complete Java backend — J2SE, J2EE, JPA/Hibernate and Spring Boot 3 all in one block. Month 1: Java Core (syntax vs C#, OOP, Collections, Streams/Lambdas, J2EE basics, JPA/Hibernate). Months 2-3: Spring Boot 3 (IoC, REST APIs, Spring Security + JWT + OAuth2, testing). Your C# .NET 8 + FPO Cognito background maps exactly.',
     courses: [
       'Navin Reddy Telusko — Java Programming (YouTube free) · J2SE fast-track using C# background',
       'John Thompson — Hibernate and Spring Data JPA Beginner to Guru (Udemy, 55h) · JPA deep dive',
@@ -318,59 +238,48 @@ const PHASES = [
       {
         w: 20,
         f: 'J2SE: Java Syntax + OOP',
-        t: 'JDK/JVM/JRE, syntax vs C#, classes, inheritance, polymorphism, interfaces, generics, Collections (ArrayList/HashMap/HashSet/TreeMap)',
+        t: 'JDK/JVM/JRE, syntax vs C#, classes, inheritance, polymorphism, interfaces, generics, Collections (ArrayList/HashMap/HashSet)',
       },
       {
         w: 21,
         f: 'J2SE: Java 8+ Streams + Lambdas',
-        t: 'Lambda expressions, Stream API (filter/map/reduce/collect/flatMap), Optional, CompletableFuture, Java 14-21 (records, sealed classes)',
+        t: 'Lambda expressions, Stream API (filter/map/reduce/collect), Optional, CompletableFuture, Java 14-21 records + sealed classes',
       },
       {
         w: 22,
         f: 'J2EE + JPA Foundations',
-        t: 'Servlets/JDBC/JAX-RS basics, @Entity/@Id, EntityManager, @OneToMany/@ManyToMany, CascadeType, FetchType, JPQL queries, Pageable',
+        t: 'Servlets/JDBC/JAX-RS basics, @Entity/@Id, EntityManager, @OneToMany/@ManyToMany, CascadeType, FetchType, JPQL',
       },
       {
         w: 23,
         f: 'JPA Advanced + Spring Data JPA',
-        t: 'N+1 problem + @EntityGraph/JOIN FETCH solutions, @Transactional propagation/isolation, JpaRepository, @Query, L1/L2 caching',
+        t: 'N+1 + @EntityGraph/JOIN FETCH, @Transactional propagation, JpaRepository, @Query, L1/L2 caching',
       },
       {
         w: 24,
         f: 'Spring Boot Core + IoC + AOP',
-        t: 'Auto-configuration, @Bean/@Component/@Service/@Repository, constructor injection, AOP, @ConfigurationProperties, profiles, Actuator',
+        t: 'Auto-configuration, @Bean/@Component/@Service/@Repository, constructor injection, AOP, @ConfigurationProperties',
       },
       {
         w: 25,
         f: 'Spring MVC + REST APIs',
-        t: '@RestController, ResponseEntity, @Valid, @ExceptionHandler, @ControllerAdvice, OpenAPI/Swagger, DTO pattern + MapStruct',
+        t: '@RestController, ResponseEntity, @Valid, @ExceptionHandler, @ControllerAdvice, OpenAPI/Swagger, DTO + MapStruct',
       },
       {
         w: 26,
-        f: 'Spring Security + JWT',
-        t: 'SecurityFilterChain, JWT filter chain, UserDetailsService, BCrypt, role-based access (@PreAuthorize), method security',
+        f: 'Spring Security + OAuth2',
+        t: 'SecurityFilterChain, JWT filter, UserDetailsService, BCrypt. OAuth2 resource server + JWKS = your FPO Cognito pattern!',
       },
       {
         w: 27,
-        f: 'Spring OAuth2 + Testing',
-        t: 'OAuth2 resource server + JWKS endpoint = your exact FPO Cognito pattern! @WebMvcTest, MockMvc, @DataJpaTest, Testcontainers, Mockito',
-      },
-      {
-        w: 28,
-        f: 'Spring Boot Capstone + AWS Deploy',
-        t: 'Build complete REST API + JWT + JPA + Docker from scratch cold. Deploy to AWS ECS from Block 1. 200 Spring Boot Q&A drill.',
-      },
-      {
-        w: 29,
-        f: 'Spring Boot Revision + Handover',
-        t: 'Revise all Spring concepts. Polish REST API project. Write ADR for Spring Boot architecture decision. Ready for Microservices month.',
+        f: 'Testing + AWS ECS Deploy',
+        t: '@WebMvcTest, MockMvc, @DataJpaTest, Testcontainers, Mockito. Full REST API + JWT + JPA + Docker → AWS ECS.',
       },
     ],
   },
-
   {
-    id: 'b2p5',
-    block: 'b2',
+    id: 'p4',
+    block: 'b1',
     seq: 5,
     icon: '🏛',
     color: '#E11D48',
@@ -378,14 +287,14 @@ const PHASES = [
     bg: '#FFF1F2',
     border: '#FECDD3',
     name: 'Microservices',
-    label: 'Block 2 · Months 9-10 · Java',
+    label: 'Skill 4 · 2 Months · Java',
     days: 61,
-    ds: 347,
-    de: 407,
-    period: 'Jun 1 – Jul 31, 2027',
-    ms: 'Microservices Complete · D407',
+    ds: 275,
+    de: 335,
+    period: 'Mar 21 – May 20, 2027',
+    ms: 'Microservices Complete · D335',
     about:
-      '61 days · 2 months. Microservices with Spring Cloud, Kafka, CQRS, Event Sourcing, Saga pattern, deploy to AWS EKS. Every single pattern maps directly to FPO Cloud: EventBridge = Kafka, Step Functions = Saga, Lambda = Microservice, DynamoDB streams = Event Sourcing. Your FPO production experience is a massive advantage here.',
+      '61 days · 2 months. Microservices with Spring Cloud, Kafka, CQRS, Event Sourcing, Saga pattern, deploy to AWS EKS. Every pattern maps to FPO Cloud: EventBridge=Kafka, Step Functions=Saga, Lambda=Microservice, DynamoDB streams=Event Sourcing. Your FPO production experience is a massive advantage.',
     courses: [
       'Ranga Karanam — Java Spring Boot Microservices with K8s and Docker (Udemy, 35h)',
       'Sean Campbell — Master Spring Boot Microservices CQRS and Event Sourcing (Udemy, 10h)',
@@ -395,44 +304,28 @@ const PHASES = [
       {
         w: 30,
         f: 'Service Design + Spring Cloud',
-        t: 'DDD bounded contexts, Eureka service discovery, Spring Cloud Gateway, config server, Feign clients — map every pattern to FPO architecture',
+        t: 'DDD bounded contexts, Eureka discovery, Spring Cloud Gateway, config server, Feign clients — map every pattern to FPO',
       },
       {
         w: 31,
-        f: 'Resilience Patterns',
-        t: 'Resilience4j circuit breaker/retry/rate limiter/bulkhead — maps to FPO Step Function error handling and retry policies',
+        f: 'Resilience + Kafka',
+        t: 'Resilience4j circuit breaker/retry/bulkhead. Kafka producers/consumers/partitions — maps to FPO EventBridge',
       },
       {
         w: 32,
-        f: 'Kafka Deep Dive',
-        t: 'Kafka producers/consumers/consumer groups/partitions/offsets — maps directly to your FPO EventBridge + Kafka workloads (DLH/AAL/FDX)',
+        f: 'CQRS + Event Sourcing',
+        t: 'Read/write separation, Axon event store, event replay — maps to FPO mission-feed event sourcing table',
       },
       {
         w: 33,
-        f: 'CQRS + Event Sourcing',
-        t: 'Read/write model separation, Axon Framework event store, event replay, projections — maps to FPO mission-feed event sourcing table',
-      },
-      {
-        w: 34,
-        f: 'Saga Pattern',
-        t: 'Orchestration vs choreography Saga — AWS Step Functions IS a Saga orchestrator (your FPO!). Compensating transactions.',
-      },
-      {
-        w: 35,
-        f: 'K8s Deployment + Observability',
-        t: 'Deploy microservices to AWS EKS from Block 1. Prometheus/Grafana for inter-service monitoring. Distributed tracing with X-Ray.',
-      },
-      {
-        w: 36,
-        f: 'Microservices Capstone + ADR',
-        t: 'Full microservices system end-to-end: API Gateway → services → Kafka → CQRS. Write 1 ADR. Map every component to FPO Cloud.',
+        f: 'Saga + EKS Deploy + ADR',
+        t: 'Orchestration vs choreography Saga (Step Functions=Saga in your FPO!). Deploy to AWS EKS. Write 1 ADR.',
       },
     ],
   },
-
   {
-    id: 'b2p6',
-    block: 'b2',
+    id: 'p5',
+    block: 'b1',
     seq: 6,
     icon: '🔧',
     color: '#D97706',
@@ -440,224 +333,374 @@ const PHASES = [
     bg: '#FFFBEB',
     border: '#FDE68A',
     name: 'DevOps with Python',
-    label: 'Block 2 · Months 11-12 · FINAL',
-    days: 61,
-    ds: 408,
-    de: 468,
-    period: 'Aug 1 – Sep 30, 2027',
-    ms: '12-Month Plan COMPLETE · D468 · Sep 30, 2027',
+    label: 'Skill 5 · ~7 Weeks',
+    days: 50,
+    ds: 336,
+    de: 385,
+    period: 'May 21 – Jul 9, 2027',
+    ms: 'DevOps with Python Complete · D385',
     about:
-      '61 days · 2 months. DevOps block covering Python + full DevOps stack. Month 1: Python (fundamentals, OOP, boto3 AWS automation — extends Block 1 AWS + Block 2 skills). Month 2: DevOps (Docker, Kubernetes EKS, CI/CD GitHub Actions + Jenkins, Terraform, Prometheus/Grafana, SonarQube, DevSecOps). Build enterprise pipeline as capstone. Day 468 = Sep 30, 2027 = 12 months COMPLETE.',
+      '50 days · 7 weeks. Focused DevOps block. Python (fundamentals, OOP, boto3 AWS automation). Docker, Kubernetes EKS, CI/CD (GitHub Actions + Jenkins), Terraform, Prometheus/Grafana, SonarQube, DevSecOps. AWS deep dive (Lambda, DynamoDB, CDK TypeScript — your FPO stack!). Shorter than originally planned because Django and Agentic AI now follow immediately after.',
     courses: [
       'Corey Schafer — Python YouTube playlist (free) · OOP + decorators + asyncio + boto3',
-      'Automate the Boring Stuff with Python (Al Sweigart, free online) · Python automation',
       'Nana Janashia TechWorld — DevOps Bootcamp (YouTube/Udemy) · Docker, K8s, CI/CD',
       'Mumshad Mannambeth — Kubernetes for Beginners + CKA (KodeKloud) · leverages your CKA cert',
     ],
     wplan: [
       {
         w: 37,
-        f: 'Python: Fundamentals + OOP',
-        t: 'Variables, data types, control flow, functions, list/dict comprehensions, OOP classes, inheritance, dunder methods, type hints',
+        f: 'Python: Fundamentals + OOP + boto3',
+        t: 'Variables, data types, OOP classes, dunder methods, type hints, decorators, generators. boto3: EC2/S3/Lambda/DynamoDB automation.',
       },
       {
         w: 38,
-        f: 'Python: Advanced + boto3',
-        t: 'Decorators, generators, context managers, asyncio, regex. boto3: EC2/S3/Lambda/DynamoDB/CloudWatch automation — extend Block 1 AWS',
+        f: 'DevOps: Docker + EKS + CI/CD',
+        t: 'Dockerfile/multi-stage, Docker Compose, ECR, ECS Fargate, EKS/kubectl/Helm, GitHub Actions OIDC to AWS, CodePipeline, SonarQube',
       },
       {
         w: 39,
-        f: 'DevOps: Docker + ECR + ECS',
-        t: 'Dockerfile/multi-stage builds, Docker Compose, ECR push/pull, ECS Fargate task defs/services, container health checks, Trivy scanning',
+        f: 'DevOps: Terraform + Monitoring',
+        t: 'Terraform HCL/providers/modules/S3 state, Prometheus/Grafana, Datadog APM (your FPO tool!), SRE practices, Trivy DevSecOps',
       },
       {
         w: 40,
-        f: 'DevOps: Kubernetes + EKS + Helm',
-        t: 'EKS cluster/kubectl, Pods/Deployments/Services/Ingress, ConfigMaps/Secrets, PVs, Helm charts, RBAC, HPA, ArgoCD GitOps',
-      },
-      {
-        w: 41,
-        f: 'DevOps: CI/CD + Terraform',
-        t: 'GitHub Actions OIDC to AWS, CodePipeline/CodeBuild, Jenkins pipelines, SonarQube quality gates, Terraform IaC (HCL/modules/workspaces)',
-      },
-      {
-        w: 42,
-        f: 'DevOps: Monitoring + DevSecOps',
-        t: 'Prometheus/Grafana, Datadog APM (your FPO tool!), OWASP, AWS Secrets Manager. Full pipeline: GitHub→GHA→SonarQube→Docker→ECR→EKS→Monitor.',
-      },
-      {
-        w: 43,
-        f: 'Capstone + Sep 30 Block 2 DONE',
-        t: 'End-to-end enterprise pipeline. GitHub portfolio polish. Update CV. Day 468 = Sep 30, 2027 = 12-Month Plan COMPLETE 🎉',
+        f: 'AWS Deep Dive: FPO Stack',
+        t: 'Lambda/Step Functions/DynamoDB/CDK TypeScript (your FPO!), API Gateway, Cognito, CloudWatch, EventBridge. Enterprise pipeline capstone.',
       },
     ],
   },
-
-  // ══ BLOCK 3: ADVANCED STUDIES · 596 days ═══════════════════════════════
-
   {
-    id: 'b3p1',
-    block: 'b3',
-    seq: 14,
+    id: 'p6',
+    block: 'b1',
+    seq: 7,
+    icon: '🎸',
+    color: '#0891B2',
+    dark: '#0E7490',
+    bg: '#ECFEFF',
+    border: '#A5F3FC',
+    name: 'Django',
+    label: 'Skill 6 · 5 Weeks',
+    days: 35,
+    ds: 386,
+    de: 420,
+    period: 'Jul 10 – Aug 13, 2027',
+    ms: 'Django Complete · D420',
+    about:
+      '35 days · 5 weeks. Django MVT framework, Django ORM, migrations, admin, signals, Django REST Framework (DRF) — serializers, ModelViewSet, routers, JWT auth (simplejwt), permissions, filtering, pagination. Build a full REST API with DRF connecting to your Block 1 AWS infrastructure.',
+    courses: [
+      'Dennis Ivy — Python Django 7 Hour Course (YouTube free) · best Django fundamentals',
+      'Jose Salvatierra — REST APIs with Django REST Framework (Udemy) · DRF deep dive',
+    ],
+    wplan: [
+      {
+        w: 41,
+        f: 'Django Core + MVT + ORM',
+        t: 'Django project/app structure, MVT architecture, URL routing, views (FBV/CBV), ORM models, migrations, Django admin, signals',
+      },
+      {
+        w: 42,
+        f: 'Django REST Framework (DRF)',
+        t: 'DRF serializers, ModelViewSet, routers, JWT auth (simplejwt), permissions (IsAuthenticated/custom), filtering, pagination, throttling',
+      },
+      {
+        w: 43,
+        f: 'DRF Advanced + API Capstone',
+        t: 'Nested serializers, custom actions (@action), API versioning, OpenAPI docs, testing with APIClient. Build full DRF API connected to AWS.',
+      },
+    ],
+  },
+  {
+    id: 'p7',
+    block: 'b1',
+    seq: 8,
     icon: '🤖',
     color: '#6366F1',
     dark: '#4338CA',
     bg: '#EEF2FF',
     border: '#C7D2FE',
-    name: 'Agentic AI + Django + FastAPI + DSA Python',
-    label: 'Block 3 · 6 Months',
-    days: 183,
-    ds: 469,
-    de: 651,
-    period: 'Oct 1, 2027 – Mar 31, 2028',
-    ms: 'Agentic AI + Django + FastAPI + DSA Python Complete · D651',
+    name: 'Agentic AI',
+    label: 'Skill 7 · 7 Weeks',
+    days: 48,
+    ds: 421,
+    de: 468,
+    period: 'Aug 14 – Sep 30, 2027',
+    ms: 'Agentic AI — 16-Month Skill Plan COMPLETE · D468 · Sep 30, 2027',
     about:
-      '182 days · 6 months. Four topics within the same timeframe. Agentic AI (LangChain, LangGraph, RAG, multi-agent, Ed Donner 8 projects) + Django (MVT, ORM, DRF REST APIs) + FastAPI (async, Pydantic, OpenAPI) + Data Structures using Python (arrays, linked lists, trees, graphs, DP — NeetCode + Scott Barrett Python DSA). Your SCB Thailand LangChain/LangGraph experience = deep revision + extension. Capstone: FPO AI assistant deployed to AWS Lambda.',
+      '48 days · 7 weeks. LangChain, LangGraph, RAG pipelines, multi-agent systems, MCP protocol, FastAPI (async, Pydantic v2, OpenAPI, AWS Lambda via Mangum). Ed Donner 8 real projects. Your SCB Thailand LangChain/LangGraph experience = deep revision + extension. Capstone: FPO AI assistant (natural language flight queries) deployed to AWS Lambda.',
     courses: [
-      'Ed Donner — Complete Agentic AI Engineering Course 2026 (Udemy/own site, 30h) · 8 real Agentic AI projects',
-      'Eden Marco — LangChain Develop LLM Powered Applications (Udemy, 22h) · LangChain + LangGraph deep dive',
-      'Dennis Ivy — Python Django 7 Hour Course (YouTube free) · best Django fundamentals',
-      'Jose Salvatierra — REST APIs with Django REST Framework (Udemy) · DRF serializers, ViewSets, JWT',
-      'Sebastián Ramírez — FastAPI official docs + tiangolo/fastapi (GitHub) · async, Pydantic, OpenAPI',
-      'Scott Barrett — Python DSA + LeetCode Exercises (Udemy, 4.8★) · Python DSA implementations',
-      'NeetCode — DSA for Beginners + Advanced (YouTube free) · pattern-based approach in Python',
+      'Ed Donner — Complete Agentic AI Engineering Course 2026 (Udemy, 30h) · 8 real projects',
+      'Eden Marco — LangChain Develop LLM Powered Applications (Udemy, 22h) · LangChain + LangGraph',
+      'Sebastián Ramírez — FastAPI official docs + tiangolo/fastapi (GitHub) · async + Pydantic v2',
+      'AWS Bedrock docs — deploy Agentic AI on your FPO Cloud AWS infrastructure',
     ],
     wplan: [
       {
-        w: 1,
+        w: 44,
         f: 'GenAI Foundations + Prompt Engineering',
         t: 'LLMs, tokens, embeddings, RAG architecture, vector DBs (Pinecone/FAISS), CoT/ReAct/few-shot prompt engineering, AWS Bedrock',
       },
       {
-        w: 2,
-        f: 'LangChain Core',
-        t: 'Chains, agents, tools, memory, LCEL expression language, custom tools, callbacks, streaming. Revisit SCB LangChain work.',
+        w: 45,
+        f: 'LangChain Core + LangGraph',
+        t: 'Chains, agents, tools, memory, LCEL, custom tools. LangGraph: state machines, nodes, conditional routing, supervisor agents',
       },
       {
-        w: 3,
-        f: 'LangGraph + Multi-Agent Systems',
-        t: 'State machines, nodes, edges, conditional routing, supervisor agents, parallel execution, human-in-the-loop — Ed Donner',
+        w: 46,
+        f: 'Ed Donner Projects 1-5',
+        t: 'Career Digital Twin, Deep Research Agent, SDR Agent, Engineering Team in Docker, Browser Agent — build all 5',
       },
       {
-        w: 4,
-        f: 'Ed Donner Projects 1-4',
-        t: 'Career Digital Twin, Deep Research Agent, SDR Agent, Engineering Team in Docker containers — build all 4',
-      },
-      {
-        w: 5,
-        f: 'Ed Donner Projects 5-8',
-        t: 'Browser Agent, MCP (Model Context Protocol) integration, production deployment patterns, cost and rate management',
-      },
-      {
-        w: 6,
-        f: 'FPO AI Capstone + Deploy',
-        t: 'FPO AI Assistant: natural language flight queries via LangChain + DynamoDB + Lambda. Deploy to AWS. Portfolio demo.',
+        w: 47,
+        f: 'FastAPI + MCP + FPO AI Capstone',
+        t: 'FastAPI async/Pydantic v2/Mangum deploy. MCP protocol integration. FPO AI Assistant: natural language flight queries on AWS Lambda.',
       },
     ],
   },
+  // ══ BLOCK 2: ADVANCED STUDIES (596 days) ══════════════════════════════════
   {
-    id: 'b3p2',
-    block: 'b3',
-    seq: 15,
-    icon: '☁',
-    color: '#D97706',
-    dark: '#B45309',
-    bg: '#FFFBEB',
-    border: '#FDE68A',
-    name: 'AWS Certifications (×3)',
-    label: 'Block 3 · 7 Months · Cert',
-    days: 214,
-    ds: 652,
-    de: 865,
-    period: 'Apr 1 – Oct 31, 2028',
-    ms: 'AWS ×3 Certs DONE · D865',
+    id: 'p9',
+    block: 'b2',
+    seq: 9,
+    icon: '🧩',
+    color: '#4F46E5',
+    dark: '#3730A3',
+    bg: '#EEF2FF',
+    border: '#C7D2FE',
+    name: 'Data Structures + Algorithms',
+    label: 'Block 2 · 8 Months',
+    days: 231,
+    ds: 469,
+    de: 699,
+    period: 'Oct 1, 2027 – May 18, 2028',
+    ms: 'DSA Complete · D699 · May 18, 2028',
     about:
-      '214 days · 7 months. Three AWS certifications back to back. Month 1-2: SAA-C03 (Solutions Architect Associate) — the flagship cert, covers all AWS services. Month 3-4: DVA-C02 (Developer Associate) — Lambda, DynamoDB, API Gateway, Cognito, Step Functions (your exact FPO stack!). Month 5-7: DOP-C02 (DevOps Engineer Professional) — most advanced, covers CodePipeline, CloudFormation, Systems Manager, OpsWorks. All via Stephane Maarek (Udemy) + Tutorials Dojo practice exams.',
+      '231 days · 8 months. Complete DSA in Python and Java. Arrays, Linked Lists, Stacks, Queues, Trees, BST, Heaps, Graphs, Hashing, Sorting/Searching, Dynamic Programming (hardest — 8 weeks), Backtracking, Greedy, Tries. 400+ LeetCode problems total. Two instructors: Scott Barrett (Python + Java implementations) + NeetCode (pattern-based). Master DP and you stand out in every interview.',
     courses: [
-      'Stephane Maarek — Ultimate AWS SAA-C03 2026 (Udemy, 27h) · M1-M2',
-      'Tutorials Dojo — SAA-C03 Practice Exams 6 sets 390 questions · M2 exam prep',
-      'Stephane Maarek — AWS Certified Developer Associate DVA-C02 (Udemy, 32h) · M3-M4',
-      'Tutorials Dojo — DVA-C02 Practice Exams · M4 exam prep',
-      'Stephane Maarek — AWS DevOps Engineer Professional DOP-C02 (Udemy, 20h) · M5-M7',
-      'Tutorials Dojo — DOP-C02 Practice Exams · M7 exam prep',
+      'Scott Barrett — Python DSA + LeetCode Exercises (Udemy, 4.8★) · Python implementations',
+      'Scott Barrett — Java DSA + LeetCode Exercises (Udemy, 4.8★) · Java implementations',
+      'NeetCode — Full DSA for Beginners + Advanced (YouTube free) · pattern-based approach',
+      'LeetCode Top Interview 150 — structured problem set · complete all 150',
+      'Pramp.com — free peer mock interviews (final weeks)',
     ],
     wplan: [
       {
         w: 1,
-        f: 'SAA-C03: IAM + EC2 + S3 + VPC',
-        t: 'IAM users/roles/policies/STS, EC2 instance types/AMI/EBS/ASG, S3 buckets/policies/versioning/lifecycle/encryption, VPC/subnets/NAT/IGW/Security Groups',
-      },
-      {
-        w: 3,
-        f: 'SAA-C03: RDS + DynamoDB + ELB + Route53',
-        t: 'RDS Multi-AZ/read replicas, DynamoDB tables/GSI/DAX, ALB/NLB/CLB, Route53 routing policies, CloudFront, Global Accelerator',
+        f: 'Arrays + Strings',
+        t: 'Two pointers, sliding window, prefix sums, binary search on arrays, string manipulation, anagram detection. 50 LeetCode problems in Python + Java.',
       },
       {
         w: 5,
-        f: 'SAA-C03: Serverless + Containers + SRE',
-        t: 'Lambda, API Gateway, Step Functions, ECS/EKS/Fargate, SQS/SNS/EventBridge, CloudWatch/CloudTrail, Disaster Recovery strategies',
+        f: 'Linked Lists + Stacks + Queues',
+        t: 'Fast/slow pointer, cycle detection, reversal. Monotonic stack, deque, BFS with queue. 40 LeetCode problems.',
       },
       {
-        w: 7,
-        f: 'SAA-C03 Exam + DVA-C02 Begin',
-        t: 'Tutorials Dojo full mock exams. Sit SAA-C03. Begin DVA-C02: Lambda deep dive, DynamoDB advanced, API Gateway, Cognito (your FPO auth!)',
-      },
-      {
-        w: 10,
-        f: 'DVA-C02: Step Functions + X-Ray + CDK',
-        t: 'Step Functions workflows (your FPO!), X-Ray distributed tracing, CDK TypeScript (your FPO IaC!), CodeDeploy, Elastic Beanstalk',
+        w: 9,
+        f: 'Trees + BST',
+        t: 'DFS (pre/in/post-order), BFS level-order, BST ops, LCA, serialize/deserialize. 50 LeetCode problems.',
       },
       {
         w: 14,
-        f: 'DVA-C02 Exam + DOP-C02 Begin',
-        t: 'Tutorials Dojo DVA mock exams. Sit DVA-C02. Begin DOP-C02: CodePipeline/CodeBuild/CodeDeploy CI/CD, CloudFormation advanced',
+        f: 'Heaps + Priority Queue',
+        t: 'Min/max heap, Java PriorityQueue, Top-K pattern, two-heap (median), K-way merge. 25 LeetCode problems.',
       },
       {
         w: 17,
-        f: 'DOP-C02: Systems Manager + Config',
-        t: 'AWS Systems Manager (SSM), AWS Config, CloudWatch advanced (custom metrics/Logs Insights), OpsWorks, Service Catalog, Trusted Advisor',
+        f: 'Graphs',
+        t: 'BFS/DFS on graphs, topological sort, Dijkstra, Union-Find (DSU), cycle detection. 50 LeetCode problems.',
       },
       {
-        w: 21,
-        f: 'DOP-C02 Exam',
-        t: 'Tutorials Dojo DOP-C02 mock exams (hardest AWS cert). Sit DOP-C02 exam. All 3 AWS certs achieved. Update LinkedIn + Credly.',
+        w: 22,
+        f: 'Hashing + Sorting + Searching',
+        t: 'Frequency maps, two-sum pattern, all sort algorithms with proofs, binary search variants + binary search on answer. 40 problems.',
+      },
+      {
+        w: 26,
+        f: 'Dynamic Programming (8 weeks)',
+        t: '1D DP (house robber/coin change), 2D DP (LCS/edit distance), knapsack, string DP, grid DP, interval DP. 80 LeetCode problems. Most important topic.',
+      },
+      {
+        w: 34,
+        f: 'Backtracking + Greedy + Tries',
+        t: 'Subsets, permutations, N-Queens, Sudoku solver, activity selection, interval scheduling, trie insert/search/startsWith. 40 problems.',
+      },
+      {
+        w: 30,
+        f: 'Mock Interviews + LeetCode',
+        t: '100 timed cold LeetCode problems. 7 full mock interviews (spoken aloud, 45 min, no IDE). Pattern cheatsheet. Cracking any tech interview.',
+      },
+    ],
+  },
+  {
+    id: 'p10b',
+    block: 'b2',
+    seq: 11,
+    icon: '🏗',
+    color: '#7C3AED',
+    dark: '#6D28D9',
+    bg: '#F5F3FF',
+    border: '#DDD6FE',
+    name: 'System Design',
+    label: 'Block 2 · 4 Months',
+    days: 122,
+    ds: 700,
+    de: 821,
+    period: 'May 19 – Sep 17, 2028',
+    ms: 'System Design Complete · D821',
+    about:
+      '122 days · 4 months. System design interview mastery. Frank Kane 5-step template (Clarify → Estimate → HLD → Deep Dive → Wrap Up). Design 1 system spoken aloud per day (45 min, no notes). Your FPO multi-tenant SaaS + Lambda + DynamoDB + Kafka production experience is a massive advantage — FPO Cloud IS a real system design case study. Cover all classic systems: URL Shortener, WhatsApp, Twitter, YouTube, Netflix, Uber, Airbnb, Payment System, Search Engine. Alex Xu Vol 1 + Vol 2.',
+    courses: [
+      'Frank Kane ex-Amazon — Mastering the System Design Interview (Udemy, 5h) · framework first, do this week 1',
+      'Alex Xu — System Design Interview Vol 1 (book, 309 pages) · URL Shortener through Notification System',
+      'Alex Xu — System Design Interview Vol 2 (book) · Payment System, Search Engine, Stock Exchange',
+      'Mikhail Smarshchok — System Design Interview Guide 20+ designs (Udemy, 18h) · spoken practice',
+      'ByteByteGo (Alex Xu newsletter, free) · weekly system design breakdowns',
+    ],
+    wplan: [
+      {
+        w: 1,
+        f: 'SD Framework + Estimation + FPO Design',
+        t: 'Frank Kane 5-step template: Clarify → Estimate (users/storage/bandwidth) → HLD → Deep Dive → Wrap Up. Design FPO Cloud first — you know it inside out. Multi-tenant SaaS, Lambda, DynamoDB, Step Functions, Cognito.',
+      },
+      {
+        w: 2,
+        f: 'Core Concepts: APIs + Load Balancing + Cache',
+        t: 'REST vs GraphQL vs gRPC, API Gateway patterns, L4/L7 load balancers, horizontal vs vertical scaling, Redis caching strategies (LRU/LFU/TTL), CDN (your FPO CloudFront!).',
+      },
+      {
+        w: 3,
+        f: 'Databases: SQL vs NoSQL + CAP + Sharding',
+        t: 'ACID vs BASE, CAP theorem, SQL (strong consistency) vs NoSQL (eventual), sharding (hash/range), consistent hashing, replication, DynamoDB single-table design (your FPO!).',
+      },
+      {
+        w: 4,
+        f: 'Classic Design 1: URL Shortener + Pastebin',
+        t: 'URL Shortener: Base62 encoding, DynamoDB, cache, CDN. Pastebin: object storage (S3 — your FPO!). Speak each design aloud 45 min with requirements → HLD → DB → API → scale.',
+      },
+      {
+        w: 5,
+        f: 'Classic Design 2: WhatsApp + Messenger',
+        t: 'WebSocket connections, message delivery guarantees, group chats, presence system, end-to-end encryption concepts, message queue (SQS — your FPO!).',
+      },
+      {
+        w: 6,
+        f: 'Classic Design 3: Twitter + Instagram',
+        t: 'Fan-out on write vs read, celebrity problem, graph structure for follows, photo/video storage (S3), timeline generation, news feed ranking.',
+      },
+      {
+        w: 7,
+        f: 'Classic Design 4: YouTube + Netflix',
+        t: 'Video upload pipeline, CDN streaming, adaptive bitrate (HLS), video transcoding workers, recommendation engine basics, storage tiering (S3 Glacier).',
+      },
+      {
+        w: 8,
+        f: 'Classic Design 5: Uber + Airbnb + Maps',
+        t: 'Real-time GPS tracking (WebSocket), geospatial indexing (QuadTree/GeoHash), ride matching algorithm, search + ranking, map tile serving.',
+      },
+      {
+        w: 10,
+        f: 'Distributed Systems Deep Dive',
+        t: 'Event Sourcing (your FPO mission-feed!), CQRS, Saga pattern (Step Functions = Saga!), 2PC vs Saga, Kafka pub-sub (your FPO EventBridge!), distributed locks.',
+      },
+      {
+        w: 12,
+        f: 'Advanced Designs: Payment + Search + Cache',
+        t: 'Payment System (idempotency, double-charge prevention, ACID), Search Engine (crawling/indexing/ranking), Distributed Cache (consistent hashing + eviction), Stock Exchange (order book).',
+      },
+      {
+        w: 14,
+        f: 'Rate Limiter + Notification + Leaderboard',
+        t: 'Rate limiter (token bucket/leaky bucket/sliding window + Redis), Notification System (push/pull/fan-out), Gaming Leaderboard (sorted sets in Redis), Typeahead Search (trie + cache).',
+      },
+      {
+        w: 16,
+        f: 'Mock System Design Interviews',
+        t: '10 full cold mock interviews (spoken aloud, 45 min each, no notes). Focus on weakest 3 systems. Write ADRs for 3 designs. GitHub portfolio with system diagrams. D821 = Sep 17, 2028 = SD DONE.',
       },
     ],
   },
 
   {
-    id: 'b3p2b',
-    block: 'b3',
-    seq: 16,
+    id: 'p10',
+    block: 'b2',
+    seq: 10,
+    icon: '☁',
+    color: '#D97706',
+    dark: '#B45309',
+    bg: '#FFFBEB',
+    border: '#FDE68A',
+    name: 'AWS Certifications ×3',
+    label: 'Block 2 · 7 Months · Certs',
+    days: 92,
+    ds: 822,
+    de: 913,
+    period: 'Sep 18 – Dec 18, 2028',
+    ms: 'AWS ×3 Certs DONE · D913',
+    about:
+      '214 days · 7 months. Three AWS certifications back to back. Months 1-2: SAA-C03 (Solutions Architect Associate). Months 3-4: DVA-C02 (Developer Associate) — Lambda, DynamoDB, API Gateway, Cognito, Step Functions (your exact FPO stack!). Months 5-7: DOP-C02 (DevOps Engineer Professional). All Stephane Maarek + Tutorials Dojo practice exams.',
+    courses: [
+      'Stephane Maarek — Ultimate AWS SAA-C03 2026 (Udemy) · Months 1-2',
+      'Tutorials Dojo — SAA-C03 Practice Exams (390 questions) · Exam prep',
+      'Stephane Maarek — AWS Certified Developer Associate DVA-C02 (Udemy) · Months 3-4',
+      'Tutorials Dojo — DVA-C02 Practice Exams · Exam prep',
+      'Stephane Maarek — AWS DevOps Engineer Professional DOP-C02 (Udemy) · Months 5-7',
+      'Tutorials Dojo — DOP-C02 Practice Exams · Exam prep',
+    ],
+    wplan: [
+      {
+        w: 1,
+        f: 'SAA-C03: Full Course + IAM/EC2/S3/VPC/RDS/DDB/ELB/Serverless',
+        t: 'Stephane Maarek SAA-C03 full course. IAM, EC2, S3, VPC, RDS, DynamoDB/DAX, ALB/NLB, Lambda, API Gateway, Step Functions, ECS/EKS, SQS/SNS, CloudFront, Route53. Disaster Recovery strategies.',
+      },
+      {
+        w: 4,
+        f: 'SAA-C03 Exam → DVA-C02: Lambda + DDB + Cognito + CDK',
+        t: 'Tutorials Dojo SAA-C03 mocks. Sit SAA-C03. Begin DVA-C02: Lambda deep dive, DynamoDB advanced, API Gateway, Cognito (your FPO auth!), Step Functions (your FPO!), CDK TypeScript (your FPO IaC!), X-Ray.',
+      },
+      {
+        w: 7,
+        f: 'DVA-C02 Exam → DOP-C02: CI/CD + CloudFormation + SSM',
+        t: 'Tutorials Dojo DVA-C02 mocks. Sit DVA-C02. Begin DOP-C02: CodePipeline/CodeBuild/CodeDeploy, CloudFormation advanced, Systems Manager, Config, CloudWatch advanced, OpsWorks, Trusted Advisor.',
+      },
+      {
+        w: 11,
+        f: 'DOP-C02 Exam — All 3 AWS Certs Done',
+        t: 'Tutorials Dojo DOP-C02 mocks (hardest AWS cert). Sit DOP-C02. All 3 AWS certifications achieved. Credly badges + LinkedIn update. D913 = Dec 18, 2028 = AWS DONE 🎉',
+      },
+    ],
+  },
+  {
+    id: 'p11',
+    block: 'b2',
+    seq: 12,
     icon: '☸',
     color: '#4338CA',
     dark: '#3730A3',
     bg: '#EEF2FF',
     border: '#C7D2FE',
     name: 'CKA Kubernetes Certification',
-    label: 'Block 3 · Month 8 · Cert',
+    label: 'Block 2 · Month 9 · Cert',
     days: 30,
-    ds: 866,
-    de: 895,
-    period: 'Nov 1 – Nov 30, 2028',
-    ms: 'CKA Done · D895',
+    ds: 914,
+    de: 943,
+    period: 'Dec 19, 2028 – Jan 17, 2029',
+    ms: 'CKA Done · D943',
     about:
-      '30 days · 1 month. CKA (Certified Kubernetes Administrator) — you already hold this cert, so this is deep revision + recertification. KodeKloud Mumshad course, Killer.sh 2 exam simulation sessions (hardest mock available). Focus on weak areas: NetworkPolicies, RBAC, cluster upgrades, etcd backup/restore, troubleshooting.',
+      '30 days · 1 month. CKA (Certified Kubernetes Administrator) — you already hold this cert, so this is deep revision + recertification. Focus on weak areas: NetworkPolicies, RBAC, cluster upgrades, etcd backup/restore, troubleshooting. Killer.sh 2 exam simulation sessions (hardest mock available).',
     courses: [
-      'Mumshad Mannambeth — Certified Kubernetes Administrator CKA (KodeKloud, Udemy) · full course revision',
-      'Killer.sh — CKA exam simulator (2 sessions included) · closest to real exam difficulty',
-      'KodeKloud labs — hands-on K8s labs · practice every topic',
+      'Mumshad Mannambeth — CKA (KodeKloud, Udemy) · full course revision',
+      'Killer.sh — CKA exam simulator (2 sessions) · closest to real exam difficulty',
+      'KodeKloud labs — hands-on K8s cluster practice',
     ],
     wplan: [
       {
         w: 1,
-        f: 'K8s Core Revision: Pods + Deployments + Services',
-        t: 'kubectl commands, Pods/ReplicaSets/Deployments, Services (ClusterIP/NodePort/LoadBalancer), ConfigMaps, Secrets, Namespaces',
+        f: 'K8s Core: Pods + Deployments + Services',
+        t: 'kubectl commands, Pods/ReplicaSets/Deployments, Services (ClusterIP/NodePort/LB), ConfigMaps, Secrets, Namespaces',
       },
       {
         w: 2,
         f: 'K8s Networking + Storage + Security',
-        t: 'Ingress controllers, NetworkPolicies, PV/PVC/StorageClasses, RBAC (Role/ClusterRole/RoleBinding), ServiceAccounts, PodSecurity',
+        t: 'Ingress, NetworkPolicies, PV/PVC/StorageClasses, RBAC (Role/ClusterRole/RoleBinding), ServiceAccounts, PodSecurity',
       },
       {
         w: 3,
@@ -666,30 +709,29 @@ const PHASES = [
       },
       {
         w: 4,
-        f: 'Killer.sh Mock Exams + Sit CKA',
-        t: 'Killer.sh session 1 + session 2 (timed, terminal-based). Review all failures. Sit CKA exam. Update Credly + LinkedIn.',
+        f: 'Killer.sh Mocks + Sit CKA',
+        t: 'Killer.sh session 1 + 2 (timed, terminal). Review all failures. Sit CKA exam. Credly + LinkedIn update.',
       },
     ],
   },
-
   {
-    id: 'b3p2c',
-    block: 'b3',
-    seq: 17,
+    id: 'p12',
+    block: 'b2',
+    seq: 12,
     icon: '🏗',
     color: '#B45309',
     dark: '#92400E',
     bg: '#FFFBEB',
     border: '#FDE68A',
     name: 'Terraform Associate Certification',
-    label: 'Block 3 · Month 9 · Cert',
+    label: 'Block 2 · Month 9 · Cert',
     days: 31,
-    ds: 896,
-    de: 926,
-    period: 'Dec 1 – Dec 31, 2028',
-    ms: 'Terraform Associate Done · D926',
+    ds: 944,
+    de: 974,
+    period: 'Jan 18 – Feb 17, 2029',
+    ms: 'Terraform Associate Done · D974',
     about:
-      '31 days · 1 month. HashiCorp Terraform Associate 003 certification. HCL syntax, providers, resources, variables, outputs, modules, state management, remote state (S3+DynamoDB backend), workspaces, meta-arguments, provisioners, import, Terraform Cloud. You already use Terraform for FPO Cloud infra — this formalises and certifies that knowledge.',
+      '31 days · 1 month. HashiCorp Terraform Associate 003. HCL syntax, providers, resources, variables, outputs, modules, state management, remote state (S3+DynamoDB backend), workspaces, meta-arguments, provisioners, import, Terraform Cloud. You already use Terraform for FPO Cloud — this certifies that knowledge.',
     courses: [
       'Bogdan Stashchuk — HashiCorp Terraform Associate 003 (Udemy) · most practical course',
       'HashiCorp Learn — official Terraform tutorials (free) · hands-on labs',
@@ -698,139 +740,135 @@ const PHASES = [
     wplan: [
       {
         w: 1,
-        f: 'Terraform Core: HCL + Providers + Resources',
-        t: 'HCL syntax, terraform init/plan/apply/destroy, providers (AWS), resources, data sources, variables, outputs, locals, .tfvars files',
+        f: 'HCL + Providers + Resources + State',
+        t: 'HCL syntax, terraform init/plan/apply/destroy, providers (AWS), resources, data sources, variables, outputs, locals, .tfvars',
       },
       {
         w: 2,
-        f: 'Terraform State + Modules + Workspaces',
-        t: 'State file management, remote state (S3+DynamoDB locking), modules (create/use/publish), workspaces, meta-arguments (count/for_each/depends_on)',
+        f: 'Modules + Workspaces + Meta-arguments',
+        t: 'Remote state (S3+DynamoDB locking), modules (create/use/publish), workspaces, count/for_each/depends_on, lifecycle blocks',
       },
       {
         w: 3,
-        f: 'Terraform Advanced + Cloud + Mock Exams',
-        t: 'Provisioners, import, moved blocks, Terraform Cloud/Enterprise basics. ExamPro practice tests. Sit Terraform Associate 003 exam.',
+        f: 'Advanced + Cloud + Mock Exams',
+        t: 'Provisioners, import, moved blocks, Terraform Cloud basics. ExamPro practice tests. Sit Terraform Associate 003 exam.',
       },
     ],
   },
-
   {
-    id: 'b3p2d',
-    block: 'b3',
-    seq: 18,
+    id: 'p13',
+    block: 'b2',
+    seq: 13,
     icon: '☕',
     color: '#EA580C',
     dark: '#C2410C',
     bg: '#FFF7ED',
     border: '#FED7AA',
     name: 'Java SE 17 Certification (1Z0-829)',
-    label: 'Block 3 · Month 10 · Cert',
+    label: 'Block 2 · Month 10 · Cert',
     days: 31,
-    ds: 927,
-    de: 957,
-    period: 'Jan 1 – Jan 31, 2029',
-    ms: 'Oracle Java SE 17 Cert Done · D957',
+    ds: 975,
+    de: 1005,
+    period: 'Feb 18 – Mar 20, 2029',
+    ms: 'Oracle Java SE 17 Cert Done · D1005',
     about:
-      '31 days · 1 month. Oracle Java SE 17 Developer certification (1Z0-829). Covers all Java 17 features: OOP, generics, collections, streams, lambdas, Optional, modules (JPMS), concurrency, I/O, JDBC, records, sealed classes, pattern matching, switch expressions. Enthuware mock exams are the best prep — 1000+ questions.',
+      '31 days · 1 month. Oracle Java SE 17 Developer certification (1Z0-829). OOP, generics, collections, streams, lambdas, Optional, modules (JPMS), concurrency, I/O, JDBC, records, sealed classes, pattern matching, switch expressions. Enthuware mock exams — 1000+ questions.',
     courses: [
-      'Enthuware — Java SE 17 (1Z0-829) mock exam software · 1000+ questions, best prep tool',
-      'Oracle University — Java SE 17 Developer Study Guide (official) · complete topic coverage',
+      'Enthuware — Java SE 17 (1Z0-829) mock exam software · 1000+ questions · best prep tool',
+      'Oracle University — Java SE 17 Developer Study Guide (official) · full topic coverage',
       'Tim Buchalka — Java Masterclass 2026 (Udemy) · reference for any topic gaps',
     ],
     wplan: [
       {
         w: 1,
         f: 'Java 17 OOP + Generics + Collections',
-        t: 'Classes/inheritance/polymorphism, interfaces (default/static methods), generics (<T>/wildcards/bounds), Collections framework, Comparator/Comparable',
+        t: 'Classes/inheritance/polymorphism, interfaces (default/static methods), generics (<T>/wildcards/bounds), Collections, Comparator',
       },
       {
         w: 2,
         f: 'Java 17 Streams + Lambdas + Modules',
-        t: 'Stream API (filter/map/reduce/collect/flatMap), Optional, method references, functional interfaces, JPMS (module-info.java, requires/exports)',
+        t: 'Stream API (filter/map/reduce/collect/flatMap), Optional, method references, functional interfaces, JPMS module-info.java',
       },
       {
         w: 3,
         f: 'Java 17 Concurrency + Records + Mock',
-        t: 'ExecutorService, CompletableFuture, synchronized, volatile. Records, sealed classes, pattern matching, switch expressions. Enthuware 500 mock questions. Sit 1Z0-829.',
+        t: 'ExecutorService, CompletableFuture, synchronized. Records, sealed classes, pattern matching. Enthuware 500 mock Qs. Sit 1Z0-829.',
       },
     ],
   },
-
   {
-    id: 'b3p2e',
-    block: 'b3',
-    seq: 19,
+    id: 'p14',
+    block: 'b2',
+    seq: 14,
     icon: '🐍',
     color: '#16A34A',
     dark: '#15803D',
     bg: '#F0FDF4',
     border: '#BBF7D0',
     name: 'Python PCEP + PCAP Certifications',
-    label: 'Block 3 · Month 11 · Cert',
+    label: 'Block 2 · Month 11 · Cert',
     days: 28,
-    ds: 958,
-    de: 985,
-    period: 'Feb 1 – Feb 28, 2029',
-    ms: 'Python PCEP + PCAP Done · D985',
+    ds: 1006,
+    de: 1033,
+    period: 'Mar 21 – Apr 17, 2029',
+    ms: 'Python PCEP + PCAP Done · D1033',
     about:
-      '28 days · 1 month. Two Python Institute certifications. PCEP (Certified Entry-Level Python Programmer, PE1) — first 2 weeks: Python basics, data types, control flow, functions, exceptions, strings, lists. PCAP (Certified Associate in Python Programming, PE2) — final 2 weeks: OOP, modules/packages, exceptions hierarchy, file I/O, generators, closures, decorators. Python already solid from Block 2 — this is structured revision + exam.',
+      '28 days · 1 month. Two Python Institute certifications. PCEP (weeks 1-2): Python basics, data types, control flow, functions, exceptions, strings, lists. PCAP (weeks 3-4): OOP, modules/packages, exceptions hierarchy, file I/O, generators, closures, decorators. Python already solid from Block 1 DevOps — this is structured revision + exam.',
     courses: [
       'Python Institute — PCEP-30-02 official study guide + OpenEDG practice tests · PCEP',
       'Python Institute — PCAP-31-03 official study guide + OpenEDG practice tests · PCAP',
-      'Corey Schafer — Python YouTube playlist (free) · reference for any topic gaps',
     ],
     wplan: [
       {
         w: 1,
-        f: 'PCEP: Python Basics + Functions + Exceptions',
-        t: 'Variables, data types, operators, control flow, loops, functions, exception handling (try/except/finally/raise), strings, lists, tuples, dicts',
+        f: 'PCEP: Basics + Functions + Exceptions',
+        t: 'Variables, data types, operators, control flow, functions, exception handling (try/except/finally/raise), strings, lists, tuples',
       },
       {
         w: 2,
         f: 'PCEP Mock Exams + Sit PCEP',
-        t: 'OpenEDG PCEP practice tests (100+ questions). Timed mock. Sit PCEP exam. Typically 45 min, 30 questions, 70% to pass.',
+        t: 'OpenEDG PCEP practice tests (100+ questions). Timed mock. Sit PCEP exam. 45 min, 30 questions, 70% to pass.',
       },
       {
         w: 3,
         f: 'PCAP: OOP + Modules + Generators',
-        t: 'OOP (classes/inheritance/MRO/dunder methods), modules/packages, exceptions hierarchy, file I/O (open/read/write), generators, closures',
+        t: 'OOP (classes/inheritance/MRO/dunder methods), modules/packages, file I/O, generators, closures, decorators',
       },
       {
         w: 4,
         f: 'PCAP Mock Exams + Sit PCAP',
-        t: 'OpenEDG PCAP practice tests. Timed mock. Sit PCAP exam. 65 min, 40 questions, 70% to pass. Update Credly + LinkedIn.',
+        t: 'OpenEDG PCAP practice tests. Timed mock. Sit PCAP exam. 65 min, 40 questions, 70% to pass. Credly + LinkedIn.',
       },
     ],
   },
-
   {
-    id: 'b3p2f',
-    block: 'b3',
-    seq: 20,
-    icon: '🌱',
+    id: 'p15',
+    block: 'b2',
+    seq: 15,
+    icon: '🌿',
     color: '#16A34A',
     dark: '#15803D',
     bg: '#F0FDF4',
     border: '#BBF7D0',
     name: 'Spring Professional Certification',
-    label: 'Block 3 · Month 12 · Cert · FINAL',
+    label: 'Block 2 · Month 12 · Cert · FINAL',
     days: 31,
-    ds: 986,
-    de: 1016,
-    period: 'Mar 1 – Mar 31, 2029',
-    ms: 'All 9 Certs COMPLETE · D1016 · Mar 31, 2029',
+    ds: 1034,
+    de: 1064,
+    period: 'Apr 18 – May 18, 2029',
+    ms: 'All 9 Certs + 1064 DAYS COMPLETE · May 18, 2029',
     about:
-      '31 days · 1 month. VMware/Broadcom Spring Professional 2024 (EDU-1202) — the most recognised Java/Spring certification. Covers Spring Core (IoC/DI/AOP), Spring Boot auto-configuration, Spring MVC REST APIs, Spring Data JPA, Spring Security (JWT/OAuth2), Spring Testing (@SpringBootTest/MockMvc/Testcontainers). You built full Spring Boot apps in Block 2 — this consolidates and certifies that knowledge.',
+      '31 days · 1 month. VMware/Broadcom Spring Professional 2024 (EDU-1202) — the most recognised Java/Spring certification. Spring Core (IoC/DI/AOP), Spring Boot auto-configuration, Spring MVC REST APIs, Spring Data JPA, Spring Security (JWT/OAuth2), Spring Testing. You built full Spring Boot apps in Block 1 Skill 3 — this consolidates and certifies that knowledge. Day 1064 = May 18, 2029 = ALL DONE.',
     courses: [
       'VMware/Broadcom — Spring Professional 2024 (EDU-1202) official study guide',
       'John Thompson — Spring Framework 6 Beginner to Guru (Udemy) · reference for gaps',
-      'Udemy — Spring Professional Certification exam mock questions · practice tests',
+      'Udemy — Spring Professional Certification mock exam questions · practice tests',
     ],
     wplan: [
       {
         w: 1,
         f: 'Spring Core + Boot + MVC',
-        t: 'IoC container, @Bean/@Component/@Autowired, AOP (@Aspect/@Around), Spring Boot auto-configuration, starters, Actuator, @RestController, validation',
+        t: 'IoC container, @Bean/@Component/@Autowired, AOP (@Aspect/@Around), Spring Boot auto-configuration, starters, Actuator, @RestController',
       },
       {
         w: 2,
@@ -840,74 +878,12 @@ const PHASES = [
       {
         w: 3,
         f: 'Spring Testing + Mock Exams',
-        t: '@SpringBootTest, @WebMvcTest, MockMvc, @DataJpaTest, Testcontainers, Mockito. EDU-1202 mock exam practice. Sit Spring Professional exam.',
+        t: '@SpringBootTest, @WebMvcTest, MockMvc, @DataJpaTest, Testcontainers, Mockito. EDU-1202 mock practice. Sit Spring Professional exam.',
       },
       {
         w: 4,
-        f: 'Final: All 9 Certs · D1016 DONE',
-        t: 'Spring cert achieved. All 9 certs on Credly: AWS×3, CKA, Terraform, Java, Python, Spring. LinkedIn update. Day 1016 = Mar 31, 2029 = CERTS COMPLETE 🎉',
-      },
-    ],
-  },
-
-  {
-    id: 'b3p3',
-    block: 'b3',
-    seq: 16,
-    icon: '🏗',
-    color: '#7C3AED',
-    dark: '#6D28D9',
-    bg: '#F5F3FF',
-    border: '#DDD6FE',
-    name: 'Express.js + Node.js',
-    label: 'Block 3 · 48 Days · FINAL',
-    days: 48,
-    ds: 1017,
-    de: 1064,
-    period: 'Apr 1 – May 18, 2029',
-    ms: 'Express.js + Node.js COMPLETE · Day 1064 · May 18, 2029',
-    about:
-      '48 days · 7 weeks. Express.js and Node.js — the JavaScript backend runtime. Node.js event loop, CommonJS vs ESM modules, async patterns. Express.js routing, middleware chain, REST API design, error handling. MongoDB with Mongoose ODM, JWT authentication, input validation (Zod), rate limiting. Deploy to AWS (EC2/ECS) using your Block 1 AWS knowledge. Day 1064 = May 18, 2029 = 1064 DAYS COMPLETE.',
-    courses: [
-      'Maximilian Schwarzmüller — NodeJS The Complete Guide incl. MVC REST APIs GraphQL (Udemy, 40h) · primary',
-      'Traversy Media — Express.js Crash Course (YouTube free) · quick reference',
-      'MongoDB University — M001 MongoDB Basics (free) · Mongoose + Atlas',
-    ],
-    wplan: [
-      {
-        w: 1,
-        f: 'Node.js Core + Event Loop',
-        t: 'Node.js runtime, event loop (phases/macrotask/microtask), CommonJS vs ESM modules, fs/path/http built-ins, npm ecosystem, nodemon, dotenv',
-      },
-      {
-        w: 2,
-        f: 'Express.js Foundations',
-        t: 'Express routing (params/query/body), middleware chain (custom/third-party/error), request/response cycle, static files, template engines (EJS)',
-      },
-      {
-        w: 3,
-        f: 'REST API Design + MongoDB',
-        t: 'RESTful API best practices, Express Router, Mongoose ODM (schemas/models/queries/populate), MongoDB Atlas, CRUD operations, indexing',
-      },
-      {
-        w: 4,
-        f: 'Auth + Security + Validation',
-        t: 'JWT auth middleware (jsonwebtoken), bcrypt password hashing, role-based access control, input validation (Zod/Joi), helmet, cors, rate limiting (express-rate-limit)',
-      },
-      {
-        w: 5,
-        f: 'Advanced Express + File Uploads',
-        t: 'Multer file uploads (S3 integration from Block 1), WebSockets (socket.io), streams, caching with Redis, environment config, Morgan logging',
-      },
-      {
-        w: 6,
-        f: 'Testing + Docker + Deploy to AWS',
-        t: 'Jest + supertest for Express API testing, Docker containerisation, deploy to AWS ECS Fargate from Block 1. GitHub Actions CI/CD pipeline.',
-      },
-      {
-        w: 7,
-        f: 'Capstone + Day 1064 DONE',
-        t: 'Build full REST API: auth + CRUD + file uploads + WebSockets + MongoDB + Docker + AWS ECS. Day 1064 = May 18, 2029 = COMPLETE 🎉',
+        f: 'All 9 Certs · Day 1064 DONE',
+        t: 'Spring cert achieved. All 9 badges on Credly: AWS×3, CKA, Terraform, Java, Python, Spring. Day 1064 = May 18, 2029 = 1064 DAYS COMPLETE 🎉',
       },
     ],
   },
@@ -915,102 +891,117 @@ const PHASES = [
 
 const MILESTONES = [
   {
-    day: 103,
-    icon: '🔥',
-    label: 'Job Survival Sprint DONE',
-    date: 'Sep 30, 2026',
-    color: '#E11D48',
-  },
-  {
-    day: 195,
+    day: 92,
     icon: '⚛',
     label: 'React JS + Next.js Done',
-    date: 'Dec 31, 2026',
+    date: 'Sep 19, 2026',
     color: '#0EA5E9',
   },
   {
-    day: 254,
+    day: 152,
     icon: '📱',
     label: 'React Native Done',
-    date: 'Feb 28, 2027',
+    date: 'Nov 18, 2026',
     color: '#7C3AED',
   },
   {
-    day: 346,
-    icon: '🌱',
-    label: 'Spring Boot Done',
-    date: 'May 31, 2027',
+    day: 182,
+    icon: '🟢',
+    label: 'Express.js Done',
+    date: 'Dec 18, 2026',
     color: '#16A34A',
   },
   {
-    day: 407,
+    day: 274,
+    icon: '🌱',
+    label: 'Spring Boot Done',
+    date: 'Mar 20, 2027',
+    color: '#16A34A',
+  },
+  {
+    day: 335,
     icon: '🏛',
     label: 'Microservices Done',
-    date: 'Jul 31, 2027',
+    date: 'May 20, 2027',
     color: '#E11D48',
   },
   {
-    day: 468,
+    day: 385,
     icon: '🔧',
-    label: 'DevOps+Python — 12mo DONE',
-    date: 'Sep 30, 2027',
+    label: 'DevOps+Python Done',
+    date: 'Jul 9, 2027',
     color: '#D97706',
   },
   {
-    day: 651,
+    day: 420,
+    icon: '🎸',
+    label: 'Django Done',
+    date: 'Aug 13, 2027',
+    color: '#0891B2',
+  },
+  {
+    day: 468,
     icon: '🤖',
-    label: 'Agentic AI + Django + FastAPI + DSA Python DONE',
-    date: 'Mar 31, 2028',
+    label: 'Agentic AI — 16mo DONE',
+    date: 'Sep 30, 2027',
     color: '#6366F1',
   },
+
   {
-    day: 865,
+    day: 699,
+    icon: '🧩',
+    label: 'DSA Complete',
+    date: 'May 18, 2028',
+    color: '#4F46E5',
+  },
+  {
+    day: 821,
+    icon: '🏗',
+    label: 'System Design Done',
+    date: 'Sep 17, 2028',
+    color: '#7C3AED',
+  },
+  {
+    day: 913,
     icon: '☁',
     label: 'AWS ×3 Certs Done',
-    date: 'Oct 31, 2028',
+    date: 'Dec 18, 2028',
     color: '#D97706',
   },
   {
-    day: 895,
+    day: 943,
     icon: '☸',
     label: 'CKA Done',
-    date: 'Nov 30, 2028',
+    date: 'Jan 17, 2029',
     color: '#4338CA',
   },
   {
-    day: 926,
+    day: 974,
     icon: '🏗',
-    label: 'Terraform Assoc Done',
-    date: 'Dec 31, 2028',
+    label: 'Terraform Done',
+    date: 'Feb 17, 2029',
     color: '#B45309',
   },
   {
-    day: 957,
+    day: 1005,
     icon: '☕',
-    label: 'Java SE 17 Cert Done',
-    date: 'Jan 31, 2029',
+    label: 'Java SE 17 Done',
+    date: 'Mar 20, 2029',
     color: '#EA580C',
   },
   {
-    day: 985,
+    day: 1033,
     icon: '🐍',
     label: 'Python PCEP+PCAP Done',
-    date: 'Feb 28, 2029',
-    color: '#16A34A',
-  },
-  {
-    day: 1016,
-    icon: '🌱',
-    label: 'Spring Cert — All 9 DONE',
-    date: 'Mar 31, 2029',
+    date: 'Apr 17, 2029',
     color: '#16A34A',
   },
   {
     day: 1064,
-    icon: '🟢',
-    label: 'Express.js + Node — DONE',
+    icon: '🏆',
+    label: 'Spring Cert — ALL 9 DONE',
     date: 'May 18, 2029',
-    color: '#16A34A',
+    color: '#E11D48',
   },
 ];
 
@@ -1028,14 +1019,10 @@ function pct() {
 
 function Card({ p, open, onToggle, isCurrent, isDone }) {
   const [wkOpen, setWkOpen] = useState(false);
-  const bTag = {
-    b1: '🔥 Job Survival',
-    b2: '📚 12-Month Plan',
-    b3: '🚀 Advanced',
-  };
-  const bCol = { b1: '#E11D48', b2: '#0EA5E9', b3: '#6366F1' };
-  const bBg = { b1: '#FFF1F2', b2: '#F0F9FF', b3: '#EEF2FF' };
-  const bBdr = { b1: '#FECDD3', b2: '#BAE6FD', b3: '#C7D2FE' };
+  const bTag = { b1: '📚 Skill Plan', b2: '🚀 Advanced' };
+  const bCol = { b1: '#0EA5E9', b2: '#6366F1' };
+  const bBg = { b1: '#F0F9FF', b2: '#EEF2FF' };
+  const bBdr = { b1: '#BAE6FD', b2: '#C7D2FE' };
   return (
     <div
       id={'ph-' + p.id}
@@ -1345,21 +1332,13 @@ function Card({ p, open, onToggle, isCurrent, isDone }) {
                   <div style={{ flex: 1, minWidth: 0 }}>
                     <div
                       style={{
-                        display: 'flex',
-                        gap: 4,
-                        alignItems: 'center',
+                        fontSize: 10,
+                        fontWeight: 700,
+                        color: '#0F172A',
                         marginBottom: 2,
                       }}
                     >
-                      <span
-                        style={{
-                          fontSize: 10,
-                          fontWeight: 700,
-                          color: '#0F172A',
-                        }}
-                      >
-                        {wk.f}
-                      </span>
+                      {wk.f}
                     </div>
                     <div
                       style={{ fontSize: 9, color: '#64748B', lineHeight: 1.6 }}
@@ -1399,34 +1378,16 @@ export default function App() {
 
   const sections = [
     {
-      col: '#E11D48',
-      title: '🔥 BLOCK 1 · JOB SURVIVAL SPRINT',
-      sub: 'D1–D3 DONE (Jun 20-22 · 3h) · D4–D103 · Jun 23 – Sep 30, 2026 · 100 days remaining · 5:30-8:30 AM (3h) + 9-11 AM (2h) · 5h total',
-      ids: ['b1p1'],
-      bg: '#FFF1F2',
-    },
-    {
       col: '#0EA5E9',
-      title: '📚 BLOCK 2 · 12-MONTH SKILL PLAN',
-      sub: 'D104–D468 · Oct 1, 2026 – Sep 30, 2027 · 365 days · 5:30-8:30 AM · React+Next.js (3mo) → RN (2mo) → Spring Boot (3mo) → Microservices (2mo) → DevOps+Python (2mo)',
-      ids: ['b2p1', 'b2p3', 'b2p4', 'b2p5', 'b2p6'],
-      bg: '#F0F9FF',
+      title: '📚 BLOCK 1 · 16-MONTH SKILL PLAN · 8 SKILLS',
+      sub: 'D1–D468 · Jun 20, 2026 – Sep 30, 2027 · 468 days · 5:30–8:30 AM · React+Next.js → RN → Express.js → Spring Boot → Micro → DevOps+Python → Django → Agentic AI',
+      ids: ['p1', 'p2', 'p2b', 'p3', 'p4', 'p5', 'p6', 'p7'],
     },
     {
       col: '#6366F1',
-      title: '🚀 BLOCK 3 · ADVANCED STUDIES',
-      sub: 'D469–D1064 · Oct 1, 2027 – May 18, 2029 · 596 days · 3 hours/day · 5:30–8:30 AM · Agentic AI → DSA → System Design',
-      ids: [
-        'b3p1',
-        'b3p2',
-        'b3p2b',
-        'b3p2c',
-        'b3p2d',
-        'b3p2e',
-        'b3p2f',
-        'b3p3',
-      ],
-      bg: '#EEF2FF',
+      title: '🚀 BLOCK 2 · ADVANCED STUDIES',
+      sub: 'D469–D1064 · Oct 1, 2027 – May 18, 2029 · 596 days · 5:30–8:30 AM · DSA → System Design → AWS×3 Certs → CKA+TF+Java+Python+Spring Certs',
+      ids: ['p9', 'p10b', 'p10', 'p11', 'p12', 'p13', 'p14', 'p15'],
     },
   ];
 
@@ -1522,22 +1483,21 @@ export default function App() {
                 }}
               >
                 {
-                  'Sat Jun 20, 2026 → Fri May 18, 2029 · 3 blocks · 16 skills · D1-D103: 5:30-8:30AM + 9-11AM'
+                  'Sat Jun 20, 2026 → Fri May 18, 2029 · 5:30 AM – 8:30 AM daily · 3 hours'
                 }
               </div>
             </div>
           </div>
 
-          {/* BLOCK SUMMARY CARDS */}
           <div
             style={{
               display: 'grid',
-              gridTemplateColumns: 'repeat(3,1fr)',
+              gridTemplateColumns: 'repeat(2,1fr)',
               gap: 7,
               marginBottom: 11,
             }}
           >
-            {BLOCK_META.map((b) => (
+            {BLOCKS.map((b) => (
               <div
                 key={b.id}
                 style={{
@@ -1552,10 +1512,10 @@ export default function App() {
                     display: 'flex',
                     alignItems: 'center',
                     gap: 6,
-                    marginBottom: 5,
+                    marginBottom: 4,
                   }}
                 >
-                  <span style={{ fontSize: 16 }}>{b.icon}</span>
+                  <span style={{ fontSize: 15 }}>{b.icon}</span>
                   <span style={{ fontSize: 10, fontWeight: 800, color: b.col }}>
                     {b.title}
                   </span>
@@ -1572,9 +1532,18 @@ export default function App() {
                 </div>
                 <div
                   style={{
+                    fontSize: 8,
+                    color: 'rgba(255,255,255,0.6)',
+                    marginBottom: 3,
+                  }}
+                >
+                  {b.detail}
+                </div>
+                <div
+                  style={{
                     fontSize: 9,
                     fontWeight: 600,
-                    color: 'rgba(255,255,255,0.7)',
+                    color: 'rgba(255,255,255,0.85)',
                     background: b.col + '20',
                     borderRadius: 6,
                     padding: '3px 8px',
@@ -1587,57 +1556,19 @@ export default function App() {
             ))}
           </div>
 
-          {/* TIMING BANNERS */}
           <div
             style={{
-              background: 'rgba(225,29,72,0.15)',
-              border: '1px solid rgba(225,29,72,0.4)',
+              background: 'rgba(14,165,233,0.14)',
+              border: '1px solid rgba(14,165,233,0.4)',
               borderRadius: 8,
               padding: '8px 12px',
-              marginBottom: 6,
+              marginBottom: 10,
               display: 'flex',
               gap: 9,
-              alignItems: 'flex-start',
+              alignItems: 'center',
             }}
           >
-            <span style={{ fontSize: 14, flexShrink: 0, marginTop: 1 }}>
-              {'🔥'}
-            </span>
-            <div>
-              <div
-                style={{
-                  fontSize: 10,
-                  fontWeight: 700,
-                  color: '#FCA5A5',
-                  marginBottom: 1,
-                }}
-              >
-                {
-                  '✅ D1–D3 DONE (Jun 20-22 · 3h) · D4–D103 (Jun 23–Sep 30) · Slot 1: 5:30-8:30 AM AWS (3h) + Slot 2: 9-11 AM Frontend Sprint (2h)'
-                }
-              </div>
-              <div style={{ fontSize: 8, color: 'rgba(255,255,255,0.5)' }}>
-                {
-                  'Slot 2 · 9-11 AM · Jun 23–Sep 30: JS 30d (Jun 23–Jul 22) → TS 10d (Jul 23–Aug 1) → React 30d (Aug 2–Aug 31) → React Native 30d (Sep 1–Sep 30) · All Maximilian + Chaicode'
-                }
-              </div>
-            </div>
-          </div>
-          <div
-            style={{
-              background: 'rgba(14,165,233,0.12)',
-              border: '1px solid rgba(14,165,233,0.35)',
-              borderRadius: 8,
-              padding: '8px 12px',
-              marginBottom: 6,
-              display: 'flex',
-              gap: 9,
-              alignItems: 'flex-start',
-            }}
-          >
-            <span style={{ fontSize: 14, flexShrink: 0, marginTop: 1 }}>
-              {'⏰'}
-            </span>
+            <span style={{ fontSize: 15, flexShrink: 0 }}>{'⏰'}</span>
             <div>
               <div
                 style={{
@@ -1647,17 +1578,18 @@ export default function App() {
                   marginBottom: 1,
                 }}
               >
-                {'D104–D1064 · 5:30 AM – 8:30 AM · 3 hours/day · MANDATORY'}
+                {
+                  '5:30 AM – 8:30 AM daily · 3 hours · MANDATORY · Every day including weekends'
+                }
               </div>
               <div style={{ fontSize: 8, color: 'rgba(255,255,255,0.5)' }}>
                 {
-                  'Oct 1, 2026 onwards · 12-Month Skill Plan then Advanced Studies · Weekends: Maximum Time'
+                  'Jun 20, 2026 → May 18, 2029 · 1064 days · Single focused study slot · No 2nd slot'
                 }
               </div>
             </div>
           </div>
 
-          {/* PROGRESS BAR */}
           <div style={{ marginBottom: 10 }}>
             <div
               style={{
@@ -1708,7 +1640,6 @@ export default function App() {
             </div>
           </div>
 
-          {/* MILESTONES */}
           <button
             onClick={() => setShowMs(!showMs)}
             style={{
@@ -1919,9 +1850,7 @@ export default function App() {
               marginBottom: 3,
             }}
           >
-            {
-              '🏆 1064 Days of Code · Jun 20, 2026 → May 18, 2029 · Express.js Final'
-            }
+            {'🏆 1064 Days of Code · Jun 20, 2026 → May 18, 2029'}
           </div>
           <div
             style={{
@@ -1931,7 +1860,7 @@ export default function App() {
             }}
           >
             {
-              'Block 1: Job Survival (D1-D3 done 3h · D4-D103 Jun 23–Sep 30 · 5h/day) · Block 2: 12 Skills (365d · 3h/day) · Block 3: Advanced (596d · 3h/day)'
+              'Block 1: 16-Month Skills (D1–D468) · Block 2: Advanced Studies (D469–D1064) · 5:30–8:30 AM · 3h daily'
             }
           </div>
           <div
