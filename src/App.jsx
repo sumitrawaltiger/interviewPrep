@@ -1,11 +1,13 @@
 import { useState } from 'react';
-// 3 Years of Code · 1096 Days · Jun 20, 2026 → Jun 19, 2029
-// 5:30 AM – 8:30 AM daily · 3 hours · No 2nd slot
+// 1000 Days of Code · Jun 20, 2026 → Jun 19, 2029
+// 1000 study days · 96 relaxation days · 5:30 AM – 8:30 AM · 3 hours
 // Block 1: 16-Month Skill Plan D1-D487   (Jun 20, 2026 – Oct 19, 2027)
-// Block 2: Advanced Studies    D488-D1096 (Oct 20, 2027 – Jun 19, 2029)
+// Block 2: Advanced Studies    D488-D1000 (Oct 20, 2027 – study complete ~Mar 15, 2029)
 
 const START = new Date('2026-06-20');
-const TOTAL = 1096;
+const TOTAL = 1000;
+const RELAXATION = 96;
+const CALENDAR_END = 'Jun 19, 2029';
 
 const BLOCKS = [
   {
@@ -23,7 +25,7 @@ const BLOCKS = [
     icon: '🚀',
     col: '#6366F1',
     title: 'Advanced Studies',
-    sub: 'D488–D1096 · Oct 20, 2027 – Jun 19, 2029 · 609 days · 9 phases',
+    sub: 'D488–D1000 · Oct 20, 2027 – Jun 19, 2029 · 513 study days · 9 phases · 96 relaxation days',
     detail:
       'DSA (5mo) → System Design (2mo) → AWS×3 Certs (7mo) → CKA+TF+Java+Python+Spring Certs (9 total)',
     time: '5:30 AM – 8:30 AM · 3h daily',
@@ -368,7 +370,7 @@ const PHASES = [
       { w: 4, f: 'AWS FPO Stack + Wrap-Up', t: 'Lambda/Step Functions/DynamoDB/CDK, enterprise pipeline capstone. D487 = Oct 19, 2027 DONE 🎉' },
     ],
   },
-  // ══ BLOCK 2: ADVANCED STUDIES (609 days) ══════════════════════════════════
+  // ══ BLOCK 2: ADVANCED STUDIES (513 study days · 96 relaxation days in window) ══
   {
     id: 'p9',
     block: 'b2',
@@ -380,13 +382,13 @@ const PHASES = [
     border: '#C7D2FE',
     name: 'Data Structures + Algorithms',
     label: 'Block 2 · 5 Months',
-    days: 154,
+    days: 130,
     ds: 488,
-    de: 641,
-    period: 'Oct 20, 2027 – Mar 21, 2028',
-    ms: 'DSA Complete · D641 · Mar 21, 2028',
+    de: 617,
+    period: 'Oct 20, 2027 – Feb 14, 2028',
+    ms: 'DSA Complete · D617',
     about:
-      '154 days · 5 months. Complete DSA in Python and Java. Arrays, Linked Lists, Stacks, Queues, Trees, BST, Heaps, Graphs, Hashing, Sorting/Searching, Dynamic Programming (hardest — 8 weeks), Backtracking, Greedy, Tries. 400+ LeetCode problems total. Two instructors: Scott Barrett (Python + Java implementations) + NeetCode (pattern-based). Master DP and you stand out in every interview.',
+      '130 study days · ~4 months. Complete DSA in Python and Java. Arrays, Linked Lists, Stacks, Queues, Trees, BST, Heaps, Graphs, Hashing, Sorting/Searching, Dynamic Programming (hardest — 8 weeks), Backtracking, Greedy, Tries. 400+ LeetCode problems total. Two instructors: Scott Barrett (Python + Java implementations) + NeetCode (pattern-based). Master DP and you stand out in every interview.',
     courses: [
       'Scott Barrett — Python DSA + LeetCode Exercises (Udemy, 4.8★) · Python implementations',
       'Scott Barrett — Java DSA + LeetCode Exercises (Udemy, 4.8★) · Java implementations',
@@ -453,13 +455,13 @@ const PHASES = [
     border: '#DDD6FE',
     name: 'System Design',
     label: 'Block 2 · 2 Months',
-    days: 77,
-    ds: 642,
-    de: 718,
-    period: 'Mar 22 – Jun 6, 2028',
-    ms: 'System Design Complete · D718 · Jun 6, 2028',
+    days: 65,
+    ds: 618,
+    de: 682,
+    period: 'Feb 15 – Apr 20, 2028',
+    ms: 'System Design Complete · D682',
     about:
-      '77 days · 2 months. System design interview mastery. Frank Kane 5-step template (Clarify → Estimate → HLD → Deep Dive → Wrap Up). Design 1 system spoken aloud per day (45 min, no notes). Your FPO multi-tenant SaaS + Lambda + DynamoDB + Kafka production experience is a massive advantage — FPO Cloud IS a real system design case study. Cover all classic systems: URL Shortener, WhatsApp, Twitter, YouTube, Netflix, Uber, Airbnb, Payment System, Search Engine. Alex Xu Vol 1 + Vol 2.',
+      '65 study days · ~2 months. System design interview mastery. Frank Kane 5-step template (Clarify → Estimate → HLD → Deep Dive → Wrap Up). Design 1 system spoken aloud per day (45 min, no notes). Your FPO multi-tenant SaaS + Lambda + DynamoDB + Kafka production experience is a massive advantage — FPO Cloud IS a real system design case study. Cover all classic systems: URL Shortener, WhatsApp, Twitter, YouTube, Netflix, Uber, Airbnb, Payment System, Search Engine. Alex Xu Vol 1 + Vol 2.',
     courses: [
       'Frank Kane ex-Amazon — Mastering the System Design Interview (Udemy, 5h) · framework first, do this week 1',
       'Alex Xu — System Design Interview Vol 1 (book, 309 pages) · URL Shortener through Notification System',
@@ -526,7 +528,7 @@ const PHASES = [
       {
         w: 16,
         f: 'Mock System Design Interviews',
-        t: '10 full cold mock interviews (spoken aloud, 45 min each, no notes). Focus on weakest 3 systems. Write ADRs for 3 designs. GitHub portfolio with system diagrams. D718 = Jun 6, 2028 = SD DONE.',
+        t: '10 full cold mock interviews (spoken aloud, 45 min each, no notes). Focus on weakest 3 systems. Write ADRs for 3 designs. GitHub portfolio with system diagrams. D682 = SD DONE.',
       },
     ],
   },
@@ -542,13 +544,13 @@ const PHASES = [
     border: '#FDE68A',
     name: 'AWS Certifications ×3',
     label: 'Block 2 · 7 Months · Certs',
-    days: 195,
-    ds: 719,
-    de: 913,
-    period: 'Jun 7 – Dec 18, 2028',
-    ms: 'AWS ×3 Certs DONE · D913',
+    days: 164,
+    ds: 683,
+    de: 846,
+    period: 'Apr 21 – Oct 12, 2028',
+    ms: 'AWS ×3 Certs DONE · D846',
     about:
-      '195 days · 7 months. Three AWS certifications back to back. Months 1-2: SAA-C03 (Solutions Architect Associate). Months 3-4: DVA-C02 (Developer Associate) — Lambda, DynamoDB, API Gateway, Cognito, Step Functions (your exact FPO stack!). Months 5-7: DOP-C02 (DevOps Engineer Professional). All Stephane Maarek + Tutorials Dojo practice exams.',
+      '164 study days · ~5.5 months. Three AWS certifications back to back. Months 1-2: SAA-C03 (Solutions Architect Associate). Months 3-4: DVA-C02 (Developer Associate) — Lambda, DynamoDB, API Gateway, Cognito, Step Functions (your exact FPO stack!). Months 5-7: DOP-C02 (DevOps Engineer Professional). All Stephane Maarek + Tutorials Dojo practice exams.',
     courses: [
       'Stephane Maarek — Ultimate AWS SAA-C03 2026 (Udemy) · Months 1-2',
       'Tutorials Dojo — SAA-C03 Practice Exams (390 questions) · Exam prep',
@@ -576,7 +578,7 @@ const PHASES = [
       {
         w: 11,
         f: 'DOP-C02 Exam — All 3 AWS Certs Done',
-        t: 'Tutorials Dojo DOP-C02 mocks (hardest AWS cert). Sit DOP-C02. All 3 AWS certifications achieved. Credly badges + LinkedIn update. D913 = Dec 18, 2028 = AWS DONE 🎉',
+        t: 'Tutorials Dojo DOP-C02 mocks (hardest AWS cert). Sit DOP-C02. All 3 AWS certifications achieved. Credly badges + LinkedIn update. D846 = AWS DONE 🎉',
       },
     ],
   },
@@ -591,10 +593,10 @@ const PHASES = [
     border: '#C7D2FE',
     name: 'CKA Kubernetes Certification',
     label: 'Block 2 · Month 9 · Cert',
-    days: 30,
-    ds: 914,
-    de: 943,
-    period: 'Dec 19, 2028 – Jan 17, 2029',
+    days: 25,
+    ds: 847,
+    de: 871,
+    period: 'Oct 13 – Nov 6, 2028',
     ms: 'CKA Done · D943',
     about:
       '30 days · 1 month. CKA (Certified Kubernetes Administrator) — you already hold this cert, so this is deep revision + recertification. Focus on weak areas: NetworkPolicies, RBAC, cluster upgrades, etcd backup/restore, troubleshooting. Killer.sh 2 exam simulation sessions (hardest mock available).',
@@ -637,10 +639,10 @@ const PHASES = [
     border: '#FDE68A',
     name: 'Terraform Associate Certification',
     label: 'Block 2 · Month 9 · Cert',
-    days: 31,
-    ds: 944,
-    de: 974,
-    period: 'Jan 18 – Feb 17, 2029',
+    days: 26,
+    ds: 872,
+    de: 897,
+    period: 'Nov 7 – Dec 2, 2028',
     ms: 'Terraform Associate Done · D974',
     about:
       '31 days · 1 month. HashiCorp Terraform Associate 003. HCL syntax, providers, resources, variables, outputs, modules, state management, remote state (S3+DynamoDB backend), workspaces, meta-arguments, provisioners, import, Terraform Cloud. You already use Terraform for FPO Cloud — this certifies that knowledge.',
@@ -678,10 +680,10 @@ const PHASES = [
     border: '#FED7AA',
     name: 'Java SE 17 Certification (1Z0-829)',
     label: 'Block 2 · Month 10 · Cert',
-    days: 31,
-    ds: 975,
-    de: 1005,
-    period: 'Feb 18 – Mar 20, 2029',
+    days: 26,
+    ds: 898,
+    de: 923,
+    period: 'Dec 3, 2028 – Jan 7, 2029',
     ms: 'Oracle Java SE 17 Cert Done · D1005',
     about:
       '31 days · 1 month. Oracle Java SE 17 Developer certification (1Z0-829). OOP, generics, collections, streams, lambdas, Optional, modules (JPMS), concurrency, I/O, JDBC, records, sealed classes, pattern matching, switch expressions. Enthuware mock exams — 1000+ questions.',
@@ -719,10 +721,10 @@ const PHASES = [
     border: '#BBF7D0',
     name: 'Python PCEP + PCAP Certifications',
     label: 'Block 2 · Month 11 · Cert',
-    days: 28,
-    ds: 1006,
-    de: 1033,
-    period: 'Mar 21 – Apr 17, 2029',
+    days: 24,
+    ds: 924,
+    de: 947,
+    period: 'Jan 8 – Jan 31, 2029',
     ms: 'Python PCEP + PCAP Done · D1033',
     about:
       '28 days · 1 month. Two Python Institute certifications. PCEP (weeks 1-2): Python basics, data types, control flow, functions, exceptions, strings, lists. PCAP (weeks 3-4): OOP, modules/packages, exceptions hierarchy, file I/O, generators, closures, decorators. Python already solid from Block 1 DevOps — this is structured revision + exam.',
@@ -764,13 +766,13 @@ const PHASES = [
     border: '#BBF7D0',
     name: 'Spring Professional Certification',
     label: 'Block 2 · Month 12 · Cert',
-    days: 31,
-    ds: 1034,
-    de: 1064,
-    period: 'Apr 18 – May 18, 2029',
-    ms: 'Spring Professional Cert Done · D1064 · May 18, 2029',
+    days: 26,
+    ds: 948,
+    de: 973,
+    period: 'Feb 1 – Feb 26, 2029',
+    ms: 'Spring Professional Cert Done · D973 · All 9 Certs',
     about:
-      '31 days · 1 month. VMware/Broadcom Spring Professional 2024 (EDU-1202) — the most recognised Java/Spring certification. Spring Core (IoC/DI/AOP), Spring Boot auto-configuration, Spring MVC REST APIs, Spring Data JPA, Spring Security (JWT/OAuth2), Spring Testing. You built full Spring Boot apps in Block 1 — this consolidates and certifies that knowledge. All 9 certs achieved by D1064.',
+      '26 study days. VMware/Broadcom Spring Professional 2024 (EDU-1202) — the most recognised Java/Spring certification. Spring Core (IoC/DI/AOP), Spring Boot auto-configuration, Spring MVC REST APIs, Spring Data JPA, Spring Security (JWT/OAuth2), Spring Testing. You built full Spring Boot apps in Block 1 — this consolidates and certifies that knowledge. All 9 certs achieved by D973.',
     courses: [
       'VMware/Broadcom — Spring Professional 2024 (EDU-1202) official study guide',
       'John Thompson — Spring Framework 6 Beginner to Guru (Udemy) · reference for gaps',
@@ -795,7 +797,7 @@ const PHASES = [
       {
         w: 4,
         f: 'Spring Cert + All 9 Badges',
-        t: 'Sit Spring Professional exam. All 9 badges on Credly: AWS×3, CKA, Terraform, Java, Python, Spring. D1064 = May 18, 2029 = ALL 9 CERTS DONE 🎉',
+        t: 'Sit Spring Professional exam. All 9 badges on Credly: AWS×3, CKA, Terraform, Java, Python, Spring. D973 = ALL 9 CERTS DONE 🎉',
       },
     ],
   },
@@ -808,15 +810,15 @@ const PHASES = [
     dark: '#BE123C',
     bg: '#FFF1F2',
     border: '#FECDD3',
-    name: '3-Year Journey Capstone',
-    label: 'Block 2 · Final Month · WRAP-UP',
-    days: 32,
-    ds: 1065,
-    de: 1096,
-    period: 'May 19 – Jun 19, 2029',
-    ms: '3 YEARS COMPLETE · D1096 · Jun 19, 2029',
+    name: '1000 Days Capstone',
+    label: 'Block 2 · Final Phase · WRAP-UP',
+    days: 27,
+    ds: 974,
+    de: 1000,
+    period: 'Feb 27 – Mar 15, 2029 · buffer until Jun 19',
+    ms: '1000 DAYS COMPLETE · D1000 · Mar 15, 2029',
     about:
-      '32 days · ~1 month. Final capstone month after all 9 certifications. Polish GitHub portfolio (FPO Cloud, React, Spring, AI, PySpark projects). Update resume + LinkedIn. Full-stack mock interviews (coding + system design + behavioural). Blog 3 ADRs. Celebrate 3 years: Jun 20, 2026 → Jun 19, 2029 = 1096 days = DONE.',
+      '27 study days. Final capstone after all 9 certifications. Polish GitHub portfolio (FPO Cloud, React, Spring, AI, PySpark projects). Update resume + LinkedIn. Full-stack mock interviews (coding + system design + behavioural). Blog 3 ADRs. D1000 = study plan done — use 96 relaxation days anytime before Jun 19, 2029 if you miss a 5:30 AM slot.',
     courses: [
       'Pramp.com + interviewing.io — mock interviews (coding + system design)',
       'Your GitHub portfolio — README overhaul for all capstone projects',
@@ -840,8 +842,8 @@ const PHASES = [
       },
       {
         w: 4,
-        f: '3 Years Complete · D1096',
-        t: 'Final review: 16 skills ✓ 9 certs ✓ DSA ✓ System Design ✓ AWS ✓. Day 1096 = Jun 19, 2029 = 3 YEARS OF CODE COMPLETE 🏆',
+        f: '1000 Days Complete · D1000',
+        t: 'Final review: 16 skills ✓ 9 certs ✓ DSA ✓ System Design ✓ AWS ✓. D1000 = 1000 DAYS OF CODE COMPLETE 🏆 · 96 relaxation days available until Jun 19, 2029',
       },
     ],
   },
@@ -864,27 +866,30 @@ const MILESTONES = [
   { day: 420, icon: '🤖', label: 'Agentic AI Done', date: 'Aug 13, 2027', color: '#6366F1' },
   { day: 450, icon: '⚡', label: 'PySpark Done', date: 'Sep 12, 2027', color: '#F59E0B' },
   { day: 487, icon: '🔧', label: 'DevOps — 16mo DONE', date: 'Oct 19, 2027', color: '#D97706' },
-  { day: 641, icon: '🧩', label: 'DSA Complete', date: 'Mar 21, 2028', color: '#4F46E5' },
-  { day: 718, icon: '🏗', label: 'System Design Done', date: 'Jun 6, 2028', color: '#7C3AED' },
-  { day: 913, icon: '☁', label: 'AWS ×3 Certs Done', date: 'Dec 18, 2028', color: '#D97706' },
-  { day: 943, icon: '☸', label: 'CKA Done', date: 'Jan 17, 2029', color: '#4338CA' },
-  { day: 974, icon: '🏗', label: 'Terraform Done', date: 'Feb 17, 2029', color: '#B45309' },
-  { day: 1005, icon: '☕', label: 'Java SE 17 Done', date: 'Mar 20, 2029', color: '#EA580C' },
-  { day: 1033, icon: '🐍', label: 'Python PCEP+PCAP Done', date: 'Apr 17, 2029', color: '#16A34A' },
-  { day: 1064, icon: '🌿', label: 'Spring Cert — ALL 9 DONE', date: 'May 18, 2029', color: '#16A34A' },
-  { day: 1096, icon: '🏆', label: '3 YEARS COMPLETE', date: 'Jun 19, 2029', color: '#E11D48' },
+  { day: 617, icon: '🧩', label: 'DSA Complete', date: 'Feb 14, 2028', color: '#4F46E5' },
+  { day: 682, icon: '🏗', label: 'System Design Done', date: 'Apr 20, 2028', color: '#7C3AED' },
+  { day: 846, icon: '☁', label: 'AWS ×3 Certs Done', date: 'Oct 12, 2028', color: '#D97706' },
+  { day: 871, icon: '☸', label: 'CKA Done', date: 'Nov 6, 2028', color: '#4338CA' },
+  { day: 897, icon: '🏗', label: 'Terraform Done', date: 'Dec 2, 2028', color: '#B45309' },
+  { day: 923, icon: '☕', label: 'Java SE 17 Done', date: 'Jan 7, 2029', color: '#EA580C' },
+  { day: 947, icon: '🐍', label: 'Python PCEP+PCAP Done', date: 'Jan 31, 2029', color: '#16A34A' },
+  { day: 973, icon: '🌿', label: 'Spring Cert — ALL 9 DONE', date: 'Feb 26, 2029', color: '#16A34A' },
+  { day: 1000, icon: '🏆', label: '1000 DAYS COMPLETE', date: 'Mar 15, 2029', color: '#E11D48' },
 ];
 
 function daysIn() {
   return Math.max(0, Math.floor((new Date() - START) / 86400000));
 }
+function studyDay() {
+  return Math.min(daysIn() + 1, TOTAL);
+}
 function curId() {
-  const d = daysIn() + 1;
+  const d = studyDay();
   for (const p of PHASES) if (d <= p.de) return p.id;
   return null;
 }
 function pct() {
-  return Math.min(100, Math.round((daysIn() / TOTAL) * 100));
+  return Math.min(100, Math.round((studyDay() / TOTAL) * 100));
 }
 
 function Card({ p, open, onToggle, isCurrent, isDone }) {
@@ -1230,10 +1235,11 @@ export default function App() {
   const [openId, setOpenId] = useState(null);
   const [showMs, setShowMs] = useState(true);
   const d = daysIn(),
+    sd = studyDay(),
     cid = curId(),
     prog = pct();
-  const msDone = MILESTONES.filter((m) => m.day <= d + 1).length;
-  const nextMs = MILESTONES.find((m) => m.day > d + 1);
+  const msDone = MILESTONES.filter((m) => m.day <= sd).length;
+  const nextMs = MILESTONES.find((m) => m.day > sd);
   const toggle = (id) => setOpenId(openId === id ? null : id);
   const jump = (id) => {
     setOpenId(id);
@@ -1256,7 +1262,7 @@ export default function App() {
     {
       col: '#6366F1',
       title: '🚀 BLOCK 2 · ADVANCED STUDIES',
-      sub: 'D488–D1096 · Oct 20, 2027 – Jun 19, 2029 · 609 days · 5:30–8:30 AM · DSA (5mo) → System Design (2mo) → AWS×3 Certs (7mo) → CKA+TF+Java+Python+Spring Certs → Capstone',
+      sub: 'D488–D1000 · Oct 20, 2027 – Jun 19, 2029 · 513 study days · 96 relaxation · DSA → System Design → AWS×3 → Certs → Capstone',
       ids: ['p9', 'p10b', 'p10', 'p11', 'p12', 'p13', 'p14', 'p15', 'p16'],
     },
   ];
@@ -1343,7 +1349,7 @@ export default function App() {
                   lineHeight: 1.1,
                 }}
               >
-                {'3 Years of Code'}
+                {'1000 Days of Code'}
               </div>
               <div
                 style={{
@@ -1353,7 +1359,7 @@ export default function App() {
                 }}
               >
                 {
-                  'Sat Jun 20, 2026 → Wed Jun 19, 2029 · 5:30 AM – 8:30 AM daily · 3 hours · 1096 days'
+                  'Sat Jun 20, 2026 → Wed Jun 19, 2029 · 5:30 AM – 8:30 AM · 3h · 1000 study days + 96 relaxation days'
                 }
               </div>
             </div>
@@ -1454,12 +1460,44 @@ export default function App() {
               </div>
               <div style={{ fontSize: 8, color: 'rgba(255,255,255,0.5)' }}>
                 {
-                  'Jun 20, 2026 → Jun 19, 2029 · 1096 days · 3 years · Single focused study slot · No 2nd slot'
+                  'Jun 20, 2026 → Jun 19, 2029 · 1000 study days · 96 relaxation days if you miss 5:30–8:30 AM · No 2nd slot'
                 }
               </div>
             </div>
           </div>
 
+
+          <div
+            style={{
+              background: 'rgba(245,158,11,0.14)',
+              border: '1px solid rgba(245,158,11,0.4)',
+              borderRadius: 8,
+              padding: '8px 12px',
+              marginBottom: 10,
+              display: 'flex',
+              gap: 9,
+              alignItems: 'center',
+            }}
+          >
+            <span style={{ fontSize: 15, flexShrink: 0 }}>{'🌴'}</span>
+            <div>
+              <div
+                style={{
+                  fontSize: 10,
+                  fontWeight: 700,
+                  color: '#FDE68A',
+                  marginBottom: 1,
+                }}
+              >
+                {'96 relaxation days · skip 5:30–8:30 AM when needed · no guilt'}
+              </div>
+              <div style={{ fontSize: 8, color: 'rgba(255,255,255,0.5)' }}>
+                {
+                  '1000 study days of content · 96 buffer days · finish by Jun 19, 2029'
+                }
+              </div>
+            </div>
+          </div>
           <div style={{ marginBottom: 10 }}>
             <div
               style={{
@@ -1480,9 +1518,9 @@ export default function App() {
                     transition: 'background 0.3s',
                     borderRight: '1px solid rgba(0,0,0,0.1)',
                     background:
-                      d + 1 > p.de
+                      sd > p.de
                         ? p.color + '75'
-                        : d + 1 >= p.ds
+                        : sd >= p.ds
                           ? p.color
                           : p.color + '30',
                   }}
@@ -1504,7 +1542,7 @@ export default function App() {
               <span
                 style={{ color: 'rgba(255,255,255,0.75)', fontWeight: 700 }}
               >
-                {prog + '% · Day ' + Math.min(d + 1, 1096) + ' of 1096'}
+                {prog + '% · Study Day ' + sd + ' of 1000 · Deadline ' + CALENDAR_END}
               </span>
               <span>{'Jun 19, 2029'}</span>
             </div>
@@ -1559,7 +1597,7 @@ export default function App() {
               }}
             >
               {MILESTONES.map((m, i) => {
-                const done = m.day <= d + 1,
+                const done = m.day <= sd,
                   isNext = nextMs && nextMs.day === m.day;
                 return (
                   <div
@@ -1695,7 +1733,7 @@ export default function App() {
                   open={openId === p.id}
                   onToggle={() => toggle(p.id)}
                   isCurrent={cid === p.id}
-                  isDone={d + 1 > p.de}
+                  isDone={sd > p.de}
                 />
               ))}
             </div>
@@ -1720,7 +1758,7 @@ export default function App() {
               marginBottom: 3,
             }}
           >
-            {'🏆 3 Years of Code · Jun 20, 2026 → Jun 19, 2029 · 1096 Days'}
+            {'🏆 1000 Days of Code · Jun 20, 2026 → Jun 19, 2029 · 1000 study + 96 relaxation'}
           </div>
           <div
             style={{
@@ -1730,7 +1768,7 @@ export default function App() {
             }}
           >
             {
-              'Block 1: 16-Month Skills (D1–D487) · Block 2: Advanced Studies (D488–D1096) · 5:30–8:30 AM · 3h daily · 3 years'
+              'Block 1: 16-Month Skills (D1–D487) · Block 2: Advanced Studies (D488–D1000) · 5:30–8:30 AM · 3h · 96 relaxation days'
             }
           </div>
           <div
@@ -1751,7 +1789,7 @@ export default function App() {
                     fontSize: 8,
                     color: p.color,
                     fontWeight: 700,
-                    opacity: d + 1 > p.de ? 1 : 0.35,
+                    opacity: sd > p.de ? 1 : 0.35,
                   }}
                 >
                   {p.icon + ' ' + p.name.split(' ')[0]}
