@@ -1,11 +1,11 @@
 import { useState } from 'react';
-// 1064 Days of Code · Jun 20, 2026 → May 18, 2029
+// 3 Years of Code · 1096 Days · Jun 20, 2026 → Jun 19, 2029
 // 5:30 AM – 8:30 AM daily · 3 hours · No 2nd slot
 // Block 1: 16-Month Skill Plan D1-D487   (Jun 20, 2026 – Oct 19, 2027)
-// Block 2: Advanced Studies    D488-D1064 (Oct 20, 2027 – May 18, 2029)
+// Block 2: Advanced Studies    D488-D1096 (Oct 20, 2027 – Jun 19, 2029)
 
 const START = new Date('2026-06-20');
-const TOTAL = 1064;
+const TOTAL = 1096;
 
 const BLOCKS = [
   {
@@ -23,7 +23,7 @@ const BLOCKS = [
     icon: '🚀',
     col: '#6366F1',
     title: 'Advanced Studies',
-    sub: 'D488–D1064 · Oct 20, 2027 – May 18, 2029 · 577 days · 8 phases',
+    sub: 'D488–D1096 · Oct 20, 2027 – Jun 19, 2029 · 609 days · 9 phases',
     detail:
       'DSA (5mo) → System Design (2mo) → AWS×3 Certs (7mo) → CKA+TF+Java+Python+Spring Certs (9 total)',
     time: '5:30 AM – 8:30 AM · 3h daily',
@@ -368,7 +368,7 @@ const PHASES = [
       { w: 4, f: 'AWS FPO Stack + Wrap-Up', t: 'Lambda/Step Functions/DynamoDB/CDK, enterprise pipeline capstone. D487 = Oct 19, 2027 DONE 🎉' },
     ],
   },
-  // ══ BLOCK 2: ADVANCED STUDIES (577 days) ══════════════════════════════════
+  // ══ BLOCK 2: ADVANCED STUDIES (609 days) ══════════════════════════════════
   {
     id: 'p9',
     block: 'b2',
@@ -763,14 +763,14 @@ const PHASES = [
     bg: '#F0FDF4',
     border: '#BBF7D0',
     name: 'Spring Professional Certification',
-    label: 'Block 2 · Month 12 · Cert · FINAL',
+    label: 'Block 2 · Month 12 · Cert',
     days: 31,
     ds: 1034,
     de: 1064,
     period: 'Apr 18 – May 18, 2029',
-    ms: 'All 9 Certs + 1064 DAYS COMPLETE · May 18, 2029',
+    ms: 'Spring Professional Cert Done · D1064 · May 18, 2029',
     about:
-      '31 days · 1 month. VMware/Broadcom Spring Professional 2024 (EDU-1202) — the most recognised Java/Spring certification. Spring Core (IoC/DI/AOP), Spring Boot auto-configuration, Spring MVC REST APIs, Spring Data JPA, Spring Security (JWT/OAuth2), Spring Testing. You built full Spring Boot apps in Block 1 Skill 3 — this consolidates and certifies that knowledge. Day 1064 = May 18, 2029 = ALL DONE.',
+      '31 days · 1 month. VMware/Broadcom Spring Professional 2024 (EDU-1202) — the most recognised Java/Spring certification. Spring Core (IoC/DI/AOP), Spring Boot auto-configuration, Spring MVC REST APIs, Spring Data JPA, Spring Security (JWT/OAuth2), Spring Testing. You built full Spring Boot apps in Block 1 — this consolidates and certifies that knowledge. All 9 certs achieved by D1064.',
     courses: [
       'VMware/Broadcom — Spring Professional 2024 (EDU-1202) official study guide',
       'John Thompson — Spring Framework 6 Beginner to Guru (Udemy) · reference for gaps',
@@ -794,8 +794,54 @@ const PHASES = [
       },
       {
         w: 4,
-        f: 'All 9 Certs · Day 1064 DONE',
-        t: 'Spring cert achieved. All 9 badges on Credly: AWS×3, CKA, Terraform, Java, Python, Spring. Day 1064 = May 18, 2029 = 1064 DAYS COMPLETE 🎉',
+        f: 'Spring Cert + All 9 Badges',
+        t: 'Sit Spring Professional exam. All 9 badges on Credly: AWS×3, CKA, Terraform, Java, Python, Spring. D1064 = May 18, 2029 = ALL 9 CERTS DONE 🎉',
+      },
+    ],
+  },
+  {
+    id: 'p16',
+    block: 'b2',
+    seq: 16,
+    icon: '🏆',
+    color: '#E11D48',
+    dark: '#BE123C',
+    bg: '#FFF1F2',
+    border: '#FECDD3',
+    name: '3-Year Journey Capstone',
+    label: 'Block 2 · Final Month · WRAP-UP',
+    days: 32,
+    ds: 1065,
+    de: 1096,
+    period: 'May 19 – Jun 19, 2029',
+    ms: '3 YEARS COMPLETE · D1096 · Jun 19, 2029',
+    about:
+      '32 days · ~1 month. Final capstone month after all 9 certifications. Polish GitHub portfolio (FPO Cloud, React, Spring, AI, PySpark projects). Update resume + LinkedIn. Full-stack mock interviews (coding + system design + behavioural). Blog 3 ADRs. Celebrate 3 years: Jun 20, 2026 → Jun 19, 2029 = 1096 days = DONE.',
+    courses: [
+      'Pramp.com + interviewing.io — mock interviews (coding + system design)',
+      'Your GitHub portfolio — README overhaul for all capstone projects',
+      'LinkedIn + resume — showcase 16 skills + 9 certs + FPO Cloud production experience',
+    ],
+    wplan: [
+      {
+        w: 1,
+        f: 'Portfolio + GitHub Polish',
+        t: 'README for every project: FPO web portal, mobile app, Spring APIs, AI assistant, PySpark pipeline. Pin top 6 repos. Architecture diagrams.',
+      },
+      {
+        w: 2,
+        f: 'Mock Interviews Round 1',
+        t: '5 timed LeetCode mocks + 3 system design mocks (spoken aloud). Record yourself. Fix weakest patterns from DSA block.',
+      },
+      {
+        w: 3,
+        f: 'Mock Interviews Round 2 + Resume',
+        t: '5 more coding mocks, 2 behavioural (STAR stories from FPO/SCB). Resume v3: 16 skills, 9 certs, metrics. LinkedIn featured section.',
+      },
+      {
+        w: 4,
+        f: '3 Years Complete · D1096',
+        t: 'Final review: 16 skills ✓ 9 certs ✓ DSA ✓ System Design ✓ AWS ✓. Day 1096 = Jun 19, 2029 = 3 YEARS OF CODE COMPLETE 🏆',
       },
     ],
   },
@@ -825,7 +871,8 @@ const MILESTONES = [
   { day: 974, icon: '🏗', label: 'Terraform Done', date: 'Feb 17, 2029', color: '#B45309' },
   { day: 1005, icon: '☕', label: 'Java SE 17 Done', date: 'Mar 20, 2029', color: '#EA580C' },
   { day: 1033, icon: '🐍', label: 'Python PCEP+PCAP Done', date: 'Apr 17, 2029', color: '#16A34A' },
-  { day: 1064, icon: '🏆', label: 'Spring Cert — ALL 9 DONE', date: 'May 18, 2029', color: '#E11D48' },
+  { day: 1064, icon: '🌿', label: 'Spring Cert — ALL 9 DONE', date: 'May 18, 2029', color: '#16A34A' },
+  { day: 1096, icon: '🏆', label: '3 YEARS COMPLETE', date: 'Jun 19, 2029', color: '#E11D48' },
 ];
 
 function daysIn() {
@@ -1209,8 +1256,8 @@ export default function App() {
     {
       col: '#6366F1',
       title: '🚀 BLOCK 2 · ADVANCED STUDIES',
-      sub: 'D488–D1064 · Oct 20, 2027 – May 18, 2029 · 577 days · 5:30–8:30 AM · DSA (5mo) → System Design (2mo) → AWS×3 Certs (7mo) → CKA+TF+Java+Python+Spring Certs',
-      ids: ['p9', 'p10b', 'p10', 'p11', 'p12', 'p13', 'p14', 'p15'],
+      sub: 'D488–D1096 · Oct 20, 2027 – Jun 19, 2029 · 609 days · 5:30–8:30 AM · DSA (5mo) → System Design (2mo) → AWS×3 Certs (7mo) → CKA+TF+Java+Python+Spring Certs → Capstone',
+      ids: ['p9', 'p10b', 'p10', 'p11', 'p12', 'p13', 'p14', 'p15', 'p16'],
     },
   ];
 
@@ -1296,7 +1343,7 @@ export default function App() {
                   lineHeight: 1.1,
                 }}
               >
-                {'1064 Days of Code'}
+                {'3 Years of Code'}
               </div>
               <div
                 style={{
@@ -1306,7 +1353,7 @@ export default function App() {
                 }}
               >
                 {
-                  'Sat Jun 20, 2026 → Fri May 18, 2029 · 5:30 AM – 8:30 AM daily · 3 hours'
+                  'Sat Jun 20, 2026 → Wed Jun 19, 2029 · 5:30 AM – 8:30 AM daily · 3 hours · 1096 days'
                 }
               </div>
             </div>
@@ -1407,7 +1454,7 @@ export default function App() {
               </div>
               <div style={{ fontSize: 8, color: 'rgba(255,255,255,0.5)' }}>
                 {
-                  'Jun 20, 2026 → May 18, 2029 · 1064 days · Single focused study slot · No 2nd slot'
+                  'Jun 20, 2026 → Jun 19, 2029 · 1096 days · 3 years · Single focused study slot · No 2nd slot'
                 }
               </div>
             </div>
@@ -1457,9 +1504,9 @@ export default function App() {
               <span
                 style={{ color: 'rgba(255,255,255,0.75)', fontWeight: 700 }}
               >
-                {prog + '% · Day ' + Math.min(d + 1, 1064) + ' of 1064'}
+                {prog + '% · Day ' + Math.min(d + 1, 1096) + ' of 1096'}
               </span>
-              <span>{'May 18, 2029'}</span>
+              <span>{'Jun 19, 2029'}</span>
             </div>
           </div>
 
@@ -1673,7 +1720,7 @@ export default function App() {
               marginBottom: 3,
             }}
           >
-            {'🏆 1064 Days of Code · Jun 20, 2026 → May 18, 2029'}
+            {'🏆 3 Years of Code · Jun 20, 2026 → Jun 19, 2029 · 1096 Days'}
           </div>
           <div
             style={{
@@ -1683,7 +1730,7 @@ export default function App() {
             }}
           >
             {
-              'Block 1: 16-Month Skills (D1–D487) · Block 2: Advanced Studies (D488–D1064) · 5:30–8:30 AM · 3h daily'
+              'Block 1: 16-Month Skills (D1–D487) · Block 2: Advanced Studies (D488–D1096) · 5:30–8:30 AM · 3h daily · 3 years'
             }
           </div>
           <div
