@@ -1489,7 +1489,7 @@ export default function App() {
                   marginBottom: 1,
                 }}
               >
-                {'96 relaxation days · skip 5:30–8:30 AM when needed · no guilt'}
+                {'96 relaxation days · skip 5:30–8:30 AM when unavoidable'}
               </div>
               <div style={{ fontSize: 8, color: 'rgba(255,255,255,0.5)' }}>
                 {
