@@ -17,7 +17,7 @@ const BLOCKS = [
     title: '16-Month Skill Plan',
     sub: 'D1–D487 · Jun 20, 2026 – Oct 19, 2027 · 487 days · 16 skills',
     detail:
-      'JavaScript → TypeScript → React → NextJS → React Native → Express/Node → J2SE → J2EE → JPA → Spring Boot → Microservices → Python → Django → Agentic AI → PySpark → DevOps',
+      'JavaScript → TypeScript → React → NextJS → React Native → Express/Node → J2SE → J2EE → JPA → Spring Boot → Microservices → Python → Django → Agentic AI → FastAPI → DevOps',
     time: '5:30 AM – 8:30 AM · 3h daily',
   },
   {
@@ -315,7 +315,7 @@ const PHASES = [
     days: 30, ds: 391, de: 420,
     period: 'Jul 15 – Aug 13, 2027',
     ms: 'Agentic AI Complete · D420',
-    about: '30 days · 1 month. LangChain, LangGraph, RAG pipelines, multi-agent systems, MCP protocol, FastAPI + Pydantic v2, AWS Bedrock. Ed Donner projects. Capstone: FPO AI assistant (natural language flight queries) on AWS Lambda.',
+    about: '30 days · 1 month. LangChain, LangGraph, RAG pipelines, multi-agent systems, MCP protocol, AWS Bedrock. Ed Donner projects. Build agent logic and tools — FastAPI API layer follows in Skill 15.',
     courses: [
       'Ed Donner — Complete Agentic AI Engineering 2026 (Udemy)',
       'Eden Marco — LangChain LLM Applications (Udemy)',
@@ -325,28 +325,28 @@ const PHASES = [
       { w: 1, f: 'GenAI + Prompt Engineering', t: 'LLMs, embeddings, RAG, vector DBs, CoT/ReAct, AWS Bedrock' },
       { w: 2, f: 'LangChain + LangGraph', t: 'chains, agents, tools, LCEL, state machines, supervisor agents' },
       { w: 3, f: 'Ed Donner Projects', t: 'Career Digital Twin, Deep Research Agent, SDR Agent — build 3' },
-      { w: 4, f: 'FPO AI Capstone', t: 'FastAPI + Mangum, MCP integration, FPO AI assistant on Lambda' },
+      { w: 4, f: 'Agentic AI Capstone', t: 'MCP integration, multi-agent FPO assistant logic, RAG over flight data. Wire up tools ready for FastAPI layer next month.' },
     ],
   },
   {
     id: 's15', block: 'b1', seq: 15, icon: '⚡',
-    color: '#F59E0B', dark: '#D97706', bg: '#FFFBEB', border: '#FDE68A',
-    name: 'Big Data with PySpark',
+    color: '#059669', dark: '#047857', bg: '#ECFDF5', border: '#A7F3D0',
+    name: 'FastAPI',
     label: 'Skill 15 · 1 Month',
     days: 30, ds: 421, de: 450,
     period: 'Aug 14 – Sep 12, 2027',
-    ms: 'Big Data with PySpark Complete · D450',
-    about: '30 days · 1 month. Apache Spark with PySpark: RDDs, DataFrames, Spark SQL, transformations/actions, joins, window functions, partitioning, Spark Streaming basics, Delta Lake intro. Process FPO flight telemetry datasets on local/Databricks community.',
+    ms: 'FastAPI Complete · D450',
+    about: '30 days · 1 month. FastAPI deep dive: async/await, Pydantic v2 models, dependency injection, path/query/body params, routers, middleware, background tasks, WebSockets, OpenAPI/Swagger auto-docs, pytest + TestClient, SQLAlchemy async, JWT auth. Deploy with Mangum to AWS Lambda. Capstone: FPO AI assistant REST API wrapping your Skill 14 agents.',
     courses: [
-      'Databricks — Apache Spark Python API docs (official)',
-      'Frank Kane — Taming Big Data with Apache Spark and Python (Udemy)',
-      'Jose Portilla — Spark and Python for Big Data (Udemy)',
+      'Sebastián Ramírez — FastAPI official docs (fastapi.tiangolo.com) · primary',
+      'tiangolo/full-stack-fastapi-template (GitHub) · production patterns',
+      'Jose Salvatierra — FastAPI course (Udemy) · async + Pydantic v2 + deploy',
     ],
     wplan: [
-      { w: 1, f: 'Spark + PySpark Foundations', t: 'Spark architecture, RDDs, DataFrames, SparkSession, lazy evaluation' },
-      { w: 2, f: 'Spark SQL + Transformations', t: 'select/filter/groupBy, joins, aggregations, window functions, UDFs' },
-      { w: 3, f: 'Data Pipelines + Performance', t: 'partitioning, caching, broadcast joins, shuffle optimization, Parquet/S3' },
-      { w: 4, f: 'FPO Big Data Capstone', t: 'ingest flight telemetry CSV/JSON, analytics with PySpark, write to S3/Delta' },
+      { w: 1, f: 'FastAPI Core + Pydantic v2', t: 'async def routes, Pydantic BaseModel, validation, response models, status codes, dependency injection basics' },
+      { w: 2, f: 'Routers + Auth + Database', t: 'APIRouter, OAuth2 JWT, SQLAlchemy async, Alembic migrations, CORS, middleware, exception handlers' },
+      { w: 3, f: 'Testing + WebSockets + OpenAPI', t: 'pytest + httpx TestClient, WebSocket endpoints, background tasks, OpenAPI customization, rate limiting' },
+      { w: 4, f: 'FPO FastAPI Capstone', t: 'FPO AI assistant API: natural language flight queries, connect Skill 14 agents, Mangum deploy to AWS Lambda + API Gateway' },
     ],
   },
   {
@@ -818,7 +818,7 @@ const PHASES = [
     period: 'Feb 27 – Mar 15, 2029 · buffer until Jun 19',
     ms: '1000 DAYS COMPLETE · D1000 · Mar 15, 2029',
     about:
-      '27 study days. Final capstone after all 9 certifications. Polish GitHub portfolio (FPO Cloud, React, Spring, AI, PySpark projects). Update resume + LinkedIn. Full-stack mock interviews (coding + system design + behavioural). Blog 3 ADRs. D1000 = study plan done — use 96 relaxation days anytime before Jun 19, 2029 if you miss a 5:30 AM slot.',
+      '27 study days. Final capstone after all 9 certifications. Polish GitHub portfolio (FPO Cloud, React, Spring, AI, FastAPI projects). Update resume + LinkedIn. Full-stack mock interviews (coding + system design + behavioural). Blog 3 ADRs. D1000 = study plan done — use 96 relaxation days anytime before Jun 19, 2029 if you miss a 5:30 AM slot.',
     courses: [
       'Pramp.com + interviewing.io — mock interviews (coding + system design)',
       'Your GitHub portfolio — README overhaul for all capstone projects',
@@ -828,7 +828,7 @@ const PHASES = [
       {
         w: 1,
         f: 'Portfolio + GitHub Polish',
-        t: 'README for every project: FPO web portal, mobile app, Spring APIs, AI assistant, PySpark pipeline. Pin top 6 repos. Architecture diagrams.',
+        t: 'README for every project: FPO web portal, mobile app, Spring APIs, AI assistant, FastAPI backend. Pin top 6 repos. Architecture diagrams.',
       },
       {
         w: 2,
@@ -864,7 +864,7 @@ const MILESTONES = [
   { day: 360, icon: '🐍', label: 'Python Done', date: 'Jun 14, 2027', color: '#16A34A' },
   { day: 390, icon: '🎸', label: 'Django Done', date: 'Jul 14, 2027', color: '#0891B2' },
   { day: 420, icon: '🤖', label: 'Agentic AI Done', date: 'Aug 13, 2027', color: '#6366F1' },
-  { day: 450, icon: '⚡', label: 'PySpark Done', date: 'Sep 12, 2027', color: '#F59E0B' },
+  { day: 450, icon: '⚡', label: 'FastAPI Done', date: 'Sep 12, 2027', color: '#059669' },
   { day: 487, icon: '🔧', label: 'DevOps — 16mo DONE', date: 'Oct 19, 2027', color: '#D97706' },
   { day: 617, icon: '🧩', label: 'DSA Complete', date: 'Feb 14, 2028', color: '#4F46E5' },
   { day: 682, icon: '🏗', label: 'System Design Done', date: 'Apr 20, 2028', color: '#7C3AED' },
@@ -1256,7 +1256,7 @@ export default function App() {
     {
       col: '#0EA5E9',
       title: '📚 BLOCK 1 · 16-MONTH SKILL PLAN · 16 SKILLS',
-      sub: 'D1–D487 · Jun 20, 2026 – Oct 19, 2027 · 487 days · 5:30–8:30 AM · JS → TS → React → NextJS → RN → Express → J2SE → J2EE → JPA → Spring → Micro → Python → Django → Agentic AI → PySpark → DevOps',
+      sub: 'D1–D487 · Jun 20, 2026 – Oct 19, 2027 · 487 days · 5:30–8:30 AM · JS → TS → React → NextJS → RN → Express → J2SE → J2EE → JPA → Spring → Micro → Python → Django → Agentic AI → FastAPI → DevOps',
       ids: ['s1','s2','s3','s4','s5','s6','s7','s8','s9','s10','s11','s12','s13','s14','s15','s16'],
     },
     {
