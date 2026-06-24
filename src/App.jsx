@@ -21,9 +21,9 @@ const BLOCKS = [
     id: 'b2',
     icon: '📜',
     col: '#EAB308',
-    title: '100 Days of JavaScript',
+    title: '100 Days of Javascript/TypeScript',
     sub: 'D101–D200 · Oct 3, 2026 – Jan 10, 2027 · 100 days',
-    detail: 'JavaScript — block 2 of 10',
+    detail: 'Javascript/TypeScript — block 2 of 10',
     time: '5:30 AM – 8:30 AM · 3h daily',
   },
   {
@@ -141,13 +141,13 @@ const PHASES = [
     dark: '#CA8A04',
     bg: '#FEFCE8',
     border: '#FDE047',
-    name: 'JavaScript',
+    name: 'Javascript/TypeScript',
     label: 'Block 2 · 100 Days',
     days: 100,
     ds: 101,
     de: 200,
     period: 'Oct 3, 2026 – Jan 10, 2027',
-    ms: 'JavaScript Complete · D200',
+    ms: 'Javascript/TypeScript Complete · D200',
     about: '100 study days. JavaScript ES6+ and TypeScript: let/const, closures, prototypes, async/await, Promises, modules, destructuring, strict TypeScript, generics, utility types. Node.js fundamentals. Build 10 mini projects.',
     courses: [
       'Maximilian Schwarzmüller — JavaScript Complete Guide (Udemy)',
@@ -414,7 +414,7 @@ const PHASES = [
 
 const MILESTONES = [
   { day: 100, icon: '☁', label: 'AWS Done', date: 'Oct 2, 2026', color: '#D97706' },
-  { day: 200, icon: '📜', label: 'JavaScript Done', date: 'Jan 10, 2027', color: '#EAB308' },
+  { day: 200, icon: '📜', label: 'Javascript/TypeScript Done', date: 'Jan 10, 2027', color: '#EAB308' },
   { day: 300, icon: '⚛', label: 'React Done', date: 'Apr 20, 2027', color: '#0EA5E9' },
   { day: 400, icon: '🐍', label: 'Python Done', date: 'Jul 29, 2027', color: '#16A34A' },
   { day: 500, icon: '🤖', label: 'Agentic AI Done', date: 'Nov 6, 2027', color: '#8B5CF6' },
@@ -800,7 +800,7 @@ export default function App() {
     {
       col: '#1565C0',
       title: '🔥 1000 DAYS OF CODE · 10 BLOCKS × 100 DAYS',
-      sub: 'D1–D1000 · Jun 25, 2026 – Mar 20, 2029 · AWS → JavaScript → React → Python → Agentic AI → Java → DevOps → DSA → System Design → Interview Prep',
+      sub: 'D1–D1000 · Jun 25, 2026 – Mar 20, 2029 · AWS → Javascript/TypeScript → React → Python → Agentic AI → Java → DevOps → DSA → System Design → Interview Prep',
       ids: ['p1', 'p2', 'p3', 'p4', 'p5', 'p6', 'p7', 'p8', 'p9', 'p10'],
     },
   ];
@@ -1306,7 +1306,7 @@ export default function App() {
             }}
           >
             {
-              'AWS → JavaScript → React → Python → Agentic AI → Java → DevOps → DSA → System Design → Interview Prep · 5:30–8:30 AM · 3h'
+              'AWS → Javascript/TypeScript → React → Python → Agentic AI → Java → DevOps → DSA → System Design → Interview Prep · 5:30–8:30 AM · 3h'
             }
           </div>
           <div
