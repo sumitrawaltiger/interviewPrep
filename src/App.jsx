@@ -21,18 +21,18 @@ const BLOCKS = [
     id: 'b2',
     icon: '📜',
     col: '#EAB308',
-    title: '100 Days of Javascript',
+    title: '100 Days of Javascript/Typescript',
     sub: 'D101–D200 · Oct 3, 2026 – Jan 10, 2027 · 100 days',
-    detail: 'Javascript — block 2 of 10',
+    detail: 'Javascript/Typescript — block 2 of 10',
     time: '5:30 AM – 8:30 AM · 3h daily',
   },
   {
     id: 'b3',
     icon: '⚛',
     col: '#0EA5E9',
-    title: '100 Days of React',
+    title: '100 Days of React/React native',
     sub: 'D201–D300 · Jan 11 – Apr 20, 2027 · 100 days',
-    detail: 'React — block 3 of 10',
+    detail: 'React/React native — block 3 of 10',
     time: '5:30 AM – 8:30 AM · 3h daily',
   },
   {
@@ -141,13 +141,13 @@ const PHASES = [
     dark: '#CA8A04',
     bg: '#FEFCE8',
     border: '#FDE047',
-    name: 'Javascript',
+    name: 'Javascript/Typescript',
     label: 'Block 2 · 100 Days',
     days: 100,
     ds: 101,
     de: 200,
     period: 'Oct 3, 2026 – Jan 10, 2027',
-    ms: 'Javascript Complete · D200',
+    ms: 'Javascript/Typescript Complete · D200',
     about: '100 study days. JavaScript ES6+ and TypeScript: let/const, closures, prototypes, async/await, Promises, modules, destructuring, strict TypeScript, generics, utility types. Node.js fundamentals. Build 10 mini projects.',
     courses: [
       'Maximilian Schwarzmüller — JavaScript Complete Guide (Udemy)',
@@ -172,13 +172,13 @@ const PHASES = [
     dark: '#0369A1',
     bg: '#F0F9FF',
     border: '#BAE6FD',
-    name: 'React',
+    name: 'React/React native',
     label: 'Block 3 · 100 Days',
     days: 100,
     ds: 201,
     de: 300,
     period: 'Jan 11 – Apr 20, 2027',
-    ms: 'React Complete · D300',
+    ms: 'React/React native Complete · D300',
     about: '100 study days. React 19 + Next.js 15 + React Native: hooks, React Router, Redux Toolkit, RTK Query, Next.js App Router, Server Components, React Native + Expo. Build FPO web portal + mobile app.',
     courses: [
       'Maximilian Schwarzmüller — React Complete Guide (Udemy)',
@@ -414,8 +414,8 @@ const PHASES = [
 
 const MILESTONES = [
   { day: 100, icon: '☁', label: 'AWS Done', date: 'Oct 2, 2026', color: '#D97706' },
-  { day: 200, icon: '📜', label: 'Javascript Done', date: 'Jan 10, 2027', color: '#EAB308' },
-  { day: 300, icon: '⚛', label: 'React Done', date: 'Apr 20, 2027', color: '#0EA5E9' },
+  { day: 200, icon: '📜', label: 'Javascript/Typescript Done', date: 'Jan 10, 2027', color: '#EAB308' },
+  { day: 300, icon: '⚛', label: 'React/React native Done', date: 'Apr 20, 2027', color: '#0EA5E9' },
   { day: 400, icon: '🐍', label: 'Python Done', date: 'Jul 29, 2027', color: '#16A34A' },
   { day: 500, icon: '🤖', label: 'Agentic AI Done', date: 'Nov 6, 2027', color: '#8B5CF6' },
   { day: 600, icon: '☕', label: 'Java Done', date: 'Feb 14, 2028', color: '#EA580C' },
@@ -800,7 +800,7 @@ export default function App() {
     {
       col: '#1565C0',
       title: '🔥 1000 DAYS OF CODE · 10 BLOCKS × 100 DAYS',
-      sub: 'D1–D1000 · Jun 25, 2026 – Mar 20, 2029 · AWS → Javascript → React → Python → Agentic AI → Java → Microservices → DevOps → DSA → System Design',
+      sub: 'D1–D1000 · Jun 25, 2026 – Mar 20, 2029 · AWS → Javascript/Typescript → React/React native → Python → Agentic AI → Java → Microservices → DevOps → DSA → System Design',
       ids: ['p1', 'p2', 'p3', 'p4', 'p5', 'p6', 'p7', 'p8', 'p9', 'p10'],
     },
   ];
@@ -1306,7 +1306,7 @@ export default function App() {
             }}
           >
             {
-              'AWS → Javascript → React → Python → Agentic AI → Java → Microservices → DevOps → DSA → System Design · 5:30–8:30 AM · 3h'
+              'AWS → Javascript/Typescript → React/React native → Python → Agentic AI → Java → Microservices → DevOps → DSA → System Design · 5:30–8:30 AM · 3h'
             }
           </div>
           <div
