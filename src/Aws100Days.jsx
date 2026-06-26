@@ -338,7 +338,7 @@ export default function Aws100Days() {
             {'☁ Day 100 = AWS Block Complete'}
           </div>
           <div style={{ fontSize: 9, opacity: 0.75 }}>
-            {'CDK FPO capstone + 2 SAA practice exams · Then Block 2: Javascript/Typescript'}
+            {'CDK FPO capstone + 2 SAA practice exams · Then Block 2: DevOps'}
           </div>
           <a
             href="#/"
