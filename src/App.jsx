@@ -1,6 +1,6 @@
 import { useState } from 'react';
 // 1000 Days of Code · Jun 26, 2026 → Mar 21, 2029
-// 1000 study days · 10 blocks × 100 days · 5 AM – 8 AM BKK · 3 hours
+// 1000 study days · 10 blocks × 100 days · 5:30 AM – 8:30 AM IST · 3 hours
 // Miss a morning? That calendar day = relaxation day (plan extends)
 
 const START = new Date('2026-06-26');
@@ -15,7 +15,7 @@ const BLOCKS = [
     title: '100 Days of AWS',
     sub: 'D1–D100 · Jun 26 – Oct 3, 2026 · 100 days',
     detail: 'AWS — block 1 of 10',
-    time: '5 AM – 8 AM BKK · 3h daily',
+    time: '5:30 AM – 8:30 AM IST · 3h daily',
   },
   {
     id: 'b2',
@@ -24,7 +24,7 @@ const BLOCKS = [
     title: '100 Days of Javascript/Typescript',
     sub: 'D101–D200 · Oct 4, 2026 – Jan 11, 2027 · 100 days',
     detail: 'Javascript/Typescript — block 2 of 10',
-    time: '5 AM – 8 AM BKK · 3h daily',
+    time: '5:30 AM – 8:30 AM IST · 3h daily',
   },
   {
     id: 'b3',
@@ -33,7 +33,7 @@ const BLOCKS = [
     title: '100 Days of React/React native',
     sub: 'D201–D300 · Jan 12 – Apr 21, 2027 · 100 days',
     detail: 'React/React native — block 3 of 10',
-    time: '5 AM – 8 AM BKK · 3h daily',
+    time: '5:30 AM – 8:30 AM IST · 3h daily',
   },
   {
     id: 'b4',
@@ -42,7 +42,7 @@ const BLOCKS = [
     title: '100 Days of Python',
     sub: 'D301–D400 · Apr 22 – Jul 30, 2027 · 100 days',
     detail: 'Python — block 4 of 10',
-    time: '5 AM – 8 AM BKK · 3h daily',
+    time: '5:30 AM – 8:30 AM IST · 3h daily',
   },
   {
     id: 'b5',
@@ -51,7 +51,7 @@ const BLOCKS = [
     title: '100 Days of Agentic AI Study',
     sub: 'D401–D500 · Jul 31 – Nov 7, 2027 · 100 days',
     detail: 'Agentic AI — block 5 of 10',
-    time: '5 AM – 8 AM BKK · 3h daily',
+    time: '5:30 AM – 8:30 AM IST · 3h daily',
   },
   {
     id: 'b6',
@@ -60,7 +60,7 @@ const BLOCKS = [
     title: '100 Days of Java',
     sub: 'D501–D600 · Nov 8, 2027 – Feb 15, 2028 · 100 days',
     detail: 'Java — block 6 of 10',
-    time: '5 AM – 8 AM BKK · 3h daily',
+    time: '5:30 AM – 8:30 AM IST · 3h daily',
   },
   {
     id: 'b7',
@@ -69,7 +69,7 @@ const BLOCKS = [
     title: '100 Days of Microservices',
     sub: 'D601–D700 · Feb 16 – May 25, 2028 · 100 days',
     detail: 'Microservices — block 7 of 10',
-    time: '5 AM – 8 AM BKK · 3h daily',
+    time: '5:30 AM – 8:30 AM IST · 3h daily',
   },
   {
     id: 'b8',
@@ -78,7 +78,7 @@ const BLOCKS = [
     title: '100 Days of DevOps',
     sub: 'D701–D800 · May 26 – Sep 2, 2028 · 100 days',
     detail: 'DevOps — block 8 of 10',
-    time: '5 AM – 8 AM BKK · 3h daily',
+    time: '5:30 AM – 8:30 AM IST · 3h daily',
   },
   {
     id: 'b9',
@@ -88,7 +88,7 @@ const BLOCKS = [
     title: '100 Days of Data Structures',
     sub: 'D801–D900 · Sep 3 – Dec 11, 2028 · 100 days',
     detail: 'Data Structures — block 9 of 10',
-    time: '5 AM – 8 AM BKK · 3h daily',
+    time: '5:30 AM – 8:30 AM IST · 3h daily',
   },
   {
     id: 'b10',
@@ -98,7 +98,7 @@ const BLOCKS = [
     title: '100 Days of System Design',
     sub: 'D901–D1000 · Dec 12, 2028 – Mar 21, 2029 · 100 days',
     detail: 'System Design — block 10 of 10',
-    time: '5 AM – 8 AM BKK · 3h daily',
+    time: '5:30 AM – 8:30 AM IST · 3h daily',
   },
 ];
 
@@ -899,7 +899,7 @@ export default function App() {
                 }}
               >
                 {
-                  'Fri Jun 26, 2026 → Wed Mar 21, 2029 · 5 AM – 8 AM BKK · 3h · 1000 study days · 10 blocks'
+                  'Fri Jun 26, 2026 → Wed Mar 21, 2029 · 5:30 AM – 8:30 AM IST · 3h · 1000 study days · 10 blocks'
                 }
               </div>
             </div>
@@ -1005,12 +1005,12 @@ export default function App() {
                 }}
               >
                 {
-                  '5 AM – 8 AM BKK daily · 3 hours · MANDATORY · Every day including weekends'
+                  '5:30 AM – 8:30 AM IST daily · 3 hours · MANDATORY · Every day including weekends'
                 }
               </div>
               <div style={{ fontSize: 8, color: 'rgba(255,255,255,0.5)' }}>
                 {
-                  'Jun 26, 2026 → Mar 21, 2029 · 1000 study days · relaxation days when 5–8 AM BKK is impossible · No 2nd slot'
+                  'Jun 26, 2026 → Mar 21, 2029 · 1000 study days · relaxation days when 5:30–8:30 AM IST is impossible · No 2nd slot'
                 }
               </div>
             </div>
@@ -1039,7 +1039,7 @@ export default function App() {
                   marginBottom: 1,
                 }}
               >
-                {'Relaxation days · when 5–8 AM BKK study is impossible'}
+                {'Relaxation days · when 5:30–8:30 AM IST study is impossible'}
               </div>
               <div style={{ fontSize: 8, color: 'rgba(255,255,255,0.5)' }}>
                 {
@@ -1318,7 +1318,7 @@ export default function App() {
             }}
           >
             {
-              'AWS → Javascript/Typescript → React/React native → Python → Agentic AI → Java → Microservices → DevOps → DSA → System Design · 5–8 AM BKK · 3h'
+              'AWS → Javascript/Typescript → React/React native → Python → Agentic AI → Java → Microservices → DevOps → DSA → System Design · 5:30–8:30 AM IST · 3h'
             }
           </div>
           <div
