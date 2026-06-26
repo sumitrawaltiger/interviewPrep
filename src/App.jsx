@@ -16,6 +16,7 @@ const BLOCKS = [
     sub: 'D1–D100 · Jun 26 – Oct 3, 2026 · 100 days',
     detail: 'AWS — block 1 of 10',
     time: '5:30 AM – 8:30 AM IST · 3h daily',
+    scheduleLink: '#/aws-100-days',
   },
   {
     id: 'b2',
@@ -570,7 +571,17 @@ function Card({ p, open, onToggle, isCurrent, isDone }) {
                 whiteSpace: 'nowrap',
               }}
             >
-              {blk?.title || p.block}
+              {blk?.scheduleLink ? (
+                <a
+                  href={blk.scheduleLink}
+                  onClick={(e) => e.stopPropagation()}
+                  style={{ color: 'inherit', textDecoration: 'underline', textUnderlineOffset: 2 }}
+                >
+                  {blk.title}
+                </a>
+              ) : (
+                blk?.title || p.block
+              )}
             </span>
             <span
               style={{
@@ -640,6 +651,30 @@ function Card({ p, open, onToggle, isCurrent, isDone }) {
           >
             {p.about}
           </div>
+          {p.id === 'p1' && (
+            <a
+              href="#/aws-100-days"
+              onClick={(e) => e.stopPropagation()}
+              style={{
+                display: 'flex',
+                alignItems: 'center',
+                justifyContent: 'space-between',
+                gap: 8,
+                marginBottom: 10,
+                padding: '10px 12px',
+                borderRadius: 9,
+                background: 'linear-gradient(135deg,#D97706,#F59E0B)',
+                color: '#fff',
+                fontSize: 11,
+                fontWeight: 800,
+                textDecoration: 'none',
+                boxShadow: '0 4px 14px rgba(217,119,6,0.35)',
+              }}
+            >
+              <span>{'📅 100 Days of AWS — Daily Schedule (Day 1–100)'}</span>
+              <span style={{ fontSize: 14, opacity: 0.85 }}>{'→'}</span>
+            </a>
+          )}
           <div
             style={{
               background: '#F8FAFC',
@@ -934,16 +969,32 @@ export default function App() {
                   }}
                 >
                   <span style={{ fontSize: 15 }}>{b.icon}</span>
-                  <span
-                    style={{
-                      fontSize: 10,
-                      fontWeight: 800,
-                      color: hc,
-                      textShadow: b.headerCol ? '0 1px 3px rgba(0,0,0,0.35)' : 'none',
-                    }}
-                  >
-                    {b.title}
-                  </span>
+                  {b.scheduleLink ? (
+                    <a
+                      href={b.scheduleLink}
+                      style={{
+                        fontSize: 10,
+                        fontWeight: 800,
+                        color: hc,
+                        textShadow: b.headerCol ? '0 1px 3px rgba(0,0,0,0.35)' : 'none',
+                        textDecoration: 'underline',
+                        textUnderlineOffset: 3,
+                      }}
+                    >
+                      {b.title}
+                    </a>
+                  ) : (
+                    <span
+                      style={{
+                        fontSize: 10,
+                        fontWeight: 800,
+                        color: hc,
+                        textShadow: b.headerCol ? '0 1px 3px rgba(0,0,0,0.35)' : 'none',
+                      }}
+                    >
+                      {b.title}
+                    </span>
+                  )}
                 </div>
                 <div
                   style={{
