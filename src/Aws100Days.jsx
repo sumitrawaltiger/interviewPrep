@@ -7,7 +7,7 @@ const BG = '#FFFBEB';
 const BORDER = '#FDE68A';
 
 function todayAwsDay() {
-  const start = new Date('2026-06-26');
+  const start = new Date('2026-06-23');
   const d = Math.floor((new Date() - start) / 86400000) + 1;
   return Math.min(Math.max(d, 1), 100);
 }
@@ -89,7 +89,7 @@ export default function Aws100Days() {
                   color: 'rgba(255,255,255,0.55)',
                 }}
               >
-                {'Block 1 · D1–D100 · Jun 26 – Oct 3, 2026'}
+                {'Block 1 · D1–D100 · Jun 23 – Sep 30, 2026'}
               </div>
               <h1
                 style={{

@@ -1,11 +1,11 @@
 import { useState } from 'react';
-// 1000 Days of Code · Jun 26, 2026 → Mar 21, 2029
+// 1000 Days of Code · Jun 23, 2026 → Mar 18, 2029
 // 1000 study days · 10 blocks × 100 days · 5:30 AM – 8:30 AM IST · 3 hours
 // Miss a morning? That calendar day = relaxation day (plan extends)
 
-const START = new Date('2026-06-26');
+const START = new Date('2026-06-23');
 const TOTAL = 1000;
-const STUDY_END = 'Mar 21, 2029';
+const STUDY_END = 'Mar 18, 2029';
 
 const BLOCKS = [
   {
@@ -14,7 +14,7 @@ const BLOCKS = [
     col: '#D97706',
     scheduleLink: '#/aws-100-days',
     title: '100 Days of AWS',
-    sub: 'D1–D100 · Jun 26 – Oct 3, 2026 · 100 days',
+    sub: 'D1–D100 · Jun 23 – Sep 30, 2026 · 100 days',
     detail: 'AWS — block 1 of 10',
     time: '5:30 AM – 8:30 AM IST · 3h daily',
   },
@@ -23,7 +23,7 @@ const BLOCKS = [
     icon: '🔧',
     col: '#6366F1',
     title: '100 Days of DevOps',
-    sub: 'D101–D200 · Oct 4, 2026 – Jan 11, 2027 · 100 days',
+    sub: 'D101–D200 · Oct 1, 2026 – Jan 8, 2027 · 100 days',
     detail: 'DevOps — block 2 of 10',
     time: '5:30 AM – 8:30 AM IST · 3h daily',
   },
@@ -32,7 +32,7 @@ const BLOCKS = [
     icon: '📜',
     col: '#EAB308',
     title: '100 Days of Javascript/Typescript',
-    sub: 'D201–D300 · Jan 12 – Apr 21, 2027 · 100 days',
+    sub: 'D201–D300 · Jan 9 – Apr 18, 2027 · 100 days',
     detail: 'Javascript/Typescript — block 3 of 10',
     time: '5:30 AM – 8:30 AM IST · 3h daily',
   },
@@ -41,7 +41,7 @@ const BLOCKS = [
     icon: '⚛',
     col: '#0EA5E9',
     title: '100 Days of React/React native',
-    sub: 'D301–D400 · Apr 22 – Jul 30, 2027 · 100 days',
+    sub: 'D301–D400 · Apr 19 – Jul 27, 2027 · 100 days',
     detail: 'React/React native — block 4 of 10',
     time: '5:30 AM – 8:30 AM IST · 3h daily',
   },
@@ -50,7 +50,7 @@ const BLOCKS = [
     icon: '🐍',
     col: '#16A34A',
     title: '100 Days of Python',
-    sub: 'D401–D500 · Jul 31 – Nov 7, 2027 · 100 days',
+    sub: 'D401–D500 · Jul 28 – Nov 4, 2027 · 100 days',
     detail: 'Python — block 5 of 10',
     time: '5:30 AM – 8:30 AM IST · 3h daily',
   },
@@ -59,7 +59,7 @@ const BLOCKS = [
     icon: '🤖',
     col: '#8B5CF6',
     title: '100 Days of Agentic AI Study',
-    sub: 'D501–D600 · Nov 8, 2027 – Feb 15, 2028 · 100 days',
+    sub: 'D501–D600 · Nov 5, 2027 – Feb 12, 2028 · 100 days',
     detail: 'Agentic AI — block 6 of 10',
     time: '5:30 AM – 8:30 AM IST · 3h daily',
   },
@@ -68,7 +68,7 @@ const BLOCKS = [
     icon: '☕',
     col: '#EA580C',
     title: '100 Days of Java',
-    sub: 'D601–D700 · Feb 16 – May 25, 2028 · 100 days',
+    sub: 'D601–D700 · Feb 13 – May 22, 2028 · 100 days',
     detail: 'Java — block 7 of 10',
     time: '5:30 AM – 8:30 AM IST · 3h daily',
   },
@@ -77,7 +77,7 @@ const BLOCKS = [
     icon: '🏛',
     col: '#E11D48',
     title: '100 Days of Microservices',
-    sub: 'D701–D800 · May 26 – Sep 2, 2028 · 100 days',
+    sub: 'D701–D800 · May 23 – Aug 30, 2028 · 100 days',
     detail: 'Microservices — block 8 of 10',
     time: '5:30 AM – 8:30 AM IST · 3h daily',
   },
@@ -87,7 +87,7 @@ const BLOCKS = [
     col: '#4F46E5',
     headerCol: '#A5B4FC',
     title: '100 Days of Data Structures',
-    sub: 'D801–D900 · Sep 3 – Dec 11, 2028 · 100 days',
+    sub: 'D801–D900 · Aug 31 – Dec 8, 2028 · 100 days',
     detail: 'Data Structures — block 9 of 10',
     time: '5:30 AM – 8:30 AM IST · 3h daily',
   },
@@ -97,7 +97,7 @@ const BLOCKS = [
     col: '#7C3AED',
     headerCol: '#DDD6FE',
     title: '100 Days of System Design',
-    sub: 'D901–D1000 · Dec 12, 2028 – Mar 21, 2029 · 100 days',
+    sub: 'D901–D1000 · Dec 9, 2028 – Mar 18, 2029 · 100 days',
     detail: 'System Design — block 10 of 10',
     time: '5:30 AM – 8:30 AM IST · 3h daily',
   },
@@ -118,7 +118,7 @@ const PHASES = [
     days: 100,
     ds: 1,
     de: 100,
-    period: 'Jun 26 – Oct 3, 2026',
+    period: 'Jun 23 – Sep 30, 2026',
     ms: 'AWS Complete · D100',
     about: '100 study days. AWS deep dive for FPO Cloud stack: IAM, VPC, EC2, S3, RDS, DynamoDB, Lambda, API Gateway, Cognito, Step Functions, ECS/EKS, SQS/SNS, CloudFront, Route53, CDK TypeScript. Hands-on labs + architecture whiteboards. Build production-grade AWS skills.',
     courses: [
@@ -149,7 +149,7 @@ const PHASES = [
     days: 100,
     ds: 101,
     de: 200,
-    period: 'Oct 4, 2026 – Jan 11, 2027',
+    period: 'Oct 1, 2026 – Jan 8, 2027',
     ms: 'DevOps Complete · D200',
     about: '100 study days. DevOps mastery: Docker, Kubernetes/EKS, CI/CD (GitHub Actions, Jenkins), Terraform/IaC, Prometheus/Grafana, SonarQube, DevSecOps. Deploy and operate FPO Cloud infrastructure right after AWS.',
     courses: [
@@ -180,7 +180,7 @@ const PHASES = [
     days: 100,
     ds: 201,
     de: 300,
-    period: 'Jan 12 – Apr 21, 2027',
+    period: 'Jan 9 – Apr 18, 2027',
     ms: 'Javascript/Typescript Complete · D300',
     about: '100 study days. JavaScript ES6+ and TypeScript: let/const, closures, prototypes, async/await, Promises, modules, destructuring, strict TypeScript, generics, utility types. Node.js fundamentals. Build 10 mini projects.',
     courses: [
@@ -211,7 +211,7 @@ const PHASES = [
     days: 100,
     ds: 301,
     de: 400,
-    period: 'Apr 22 – Jul 30, 2027',
+    period: 'Apr 19 – Jul 27, 2027',
     ms: 'React/React native Complete · D400',
     about: '100 study days. React 19 + Next.js 15 + React Native: hooks, React Router, Redux Toolkit, RTK Query, Next.js App Router, Server Components, React Native + Expo. Build FPO web portal + mobile app.',
     courses: [
@@ -241,7 +241,7 @@ const PHASES = [
     days: 100,
     ds: 401,
     de: 500,
-    period: 'Jul 31 – Nov 7, 2027',
+    period: 'Jul 28 – Nov 4, 2027',
     ms: 'Python Complete · D500',
     about: '100 study days. Python 3 mastery: fundamentals, OOP, decorators, generators, asyncio, type hints, boto3, FastAPI basics, Django REST Framework intro, data processing with pandas. Foundation for Agentic AI in Block 6.',
     courses: [
@@ -272,7 +272,7 @@ const PHASES = [
     days: 100,
     ds: 501,
     de: 600,
-    period: 'Nov 8, 2027 – Feb 15, 2028',
+    period: 'Nov 5, 2027 – Feb 12, 2028',
     ms: 'Agentic AI Complete · D600',
     about: '100 study days. Agentic AI: LangChain, LangGraph, RAG pipelines, multi-agent systems, MCP protocol, AWS Bedrock, FastAPI deployment. Ed Donner projects. Capstone: FPO AI assistant on AWS Lambda.',
     courses: [
@@ -303,7 +303,7 @@ const PHASES = [
     days: 100,
     ds: 601,
     de: 700,
-    period: 'Feb 16 – May 25, 2028',
+    period: 'Feb 13 – May 22, 2028',
     ms: 'Java Complete · D700',
     about: '100 study days. Java enterprise foundations: J2SE, J2EE, JPA/Hibernate, Spring Boot 3, Spring Security + OAuth2 (FPO Cognito!), REST APIs, testing, OpenAPI. Prepares you for the Microservices block next.',
     courses: [
@@ -334,7 +334,7 @@ const PHASES = [
     days: 100,
     ds: 701,
     de: 800,
-    period: 'May 26 – Sep 2, 2028',
+    period: 'May 23 – Aug 30, 2028',
     ms: 'Microservices Complete · D800',
     about: '100 study days. Microservices architecture: Spring Cloud, service discovery, API Gateway, Kafka event streaming, Resilience4j, CQRS, saga patterns, distributed tracing, DDD bounded contexts. Build FPO Cloud as a microservices system on AWS.',
     courses: [
@@ -365,7 +365,7 @@ const PHASES = [
     days: 100,
     ds: 801,
     de: 900,
-    period: 'Sep 3 – Dec 11, 2028',
+    period: 'Aug 31 – Dec 8, 2028',
     ms: 'Data Structures Complete · D900',
     about: '100 study days. DSA in Python and Java: arrays, linked lists, trees, graphs, heaps, hashing, sorting, dynamic programming, backtracking, greedy. 300+ LeetCode problems. NeetCode patterns + mock interviews.',
     courses: [
@@ -396,8 +396,8 @@ const PHASES = [
     days: 100,
     ds: 901,
     de: 1000,
-    period: 'Dec 12, 2028 – Mar 21, 2029',
-    ms: '1000 DAYS COMPLETE · D1000 · Mar 21, 2029',
+    period: 'Dec 9, 2028 – Mar 18, 2029',
+    ms: '1000 DAYS COMPLETE · D1000 · Mar 18, 2029',
     about: '100 study days. System design mastery. Frank Kane framework, Alex Xu designs, classic systems (URL Shortener, WhatsApp, Twitter, YouTube, Uber, Payment). FPO Cloud as real case study. 20 spoken-aloud designs. D1000 = DONE.',
     courses: [
       'Frank Kane — System Design Interview (Udemy)',
@@ -416,16 +416,16 @@ const PHASES = [
 ];
 
 const MILESTONES = [
-  { day: 100, icon: '☁', label: 'AWS Done', date: 'Oct 3, 2026', color: '#D97706' },
-  { day: 200, icon: '🔧', label: 'DevOps Done', date: 'Jan 11, 2027', color: '#6366F1' },
-  { day: 300, icon: '📜', label: 'Javascript/Typescript Done', date: 'Apr 21, 2027', color: '#EAB308' },
-  { day: 400, icon: '⚛', label: 'React/React native Done', date: 'Jul 30, 2027', color: '#0EA5E9' },
-  { day: 500, icon: '🐍', label: 'Python Done', date: 'Nov 7, 2027', color: '#16A34A' },
-  { day: 600, icon: '🤖', label: 'Agentic AI Done', date: 'Feb 15, 2028', color: '#8B5CF6' },
-  { day: 700, icon: '☕', label: 'Java Done', date: 'May 25, 2028', color: '#EA580C' },
-  { day: 800, icon: '🏛', label: 'Microservices Done', date: 'Sep 2, 2028', color: '#E11D48' },
-  { day: 900, icon: '🧩', label: 'Data Structures Done', date: 'Dec 11, 2028', color: '#A5B4FC' },
-  { day: 1000, icon: '🏗', label: 'System Design — 1000 DAYS DONE', date: 'Mar 21, 2029', color: '#DDD6FE' },
+  { day: 100, icon: '☁', label: 'AWS Done', date: 'Sep 30, 2026', color: '#D97706' },
+  { day: 200, icon: '🔧', label: 'DevOps Done', date: 'Jan 8, 2027', color: '#6366F1' },
+  { day: 300, icon: '📜', label: 'Javascript/Typescript Done', date: 'Apr 18, 2027', color: '#EAB308' },
+  { day: 400, icon: '⚛', label: 'React/React native Done', date: 'Jul 27, 2027', color: '#0EA5E9' },
+  { day: 500, icon: '🐍', label: 'Python Done', date: 'Nov 4, 2027', color: '#16A34A' },
+  { day: 600, icon: '🤖', label: 'Agentic AI Done', date: 'Feb 12, 2028', color: '#8B5CF6' },
+  { day: 700, icon: '☕', label: 'Java Done', date: 'May 22, 2028', color: '#EA580C' },
+  { day: 800, icon: '🏛', label: 'Microservices Done', date: 'Aug 30, 2028', color: '#E11D48' },
+  { day: 900, icon: '🧩', label: 'Data Structures Done', date: 'Dec 8, 2028', color: '#A5B4FC' },
+  { day: 1000, icon: '🏗', label: 'System Design — 1000 DAYS DONE', date: 'Mar 18, 2029', color: '#DDD6FE' },
 ];
 function daysIn() {
   return Math.max(0, Math.floor((new Date() - START) / 86400000));
@@ -837,7 +837,7 @@ export default function App() {
     {
       col: '#1565C0',
       title: '🔥 1000 DAYS OF CODE · 10 BLOCKS × 100 DAYS',
-      sub: 'D1–D1000 · Jun 26, 2026 – Mar 21, 2029 · AWS → DevOps → Javascript/Typescript → React/React native → Python → Agentic AI → Java → Microservices → DSA → System Design',
+      sub: 'D1–D1000 · Jun 23, 2026 – Mar 18, 2029 · AWS → DevOps → Javascript/Typescript → React/React native → Python → Agentic AI → Java → Microservices → DSA → System Design',
       ids: ['p1', 'p2', 'p3', 'p4', 'p5', 'p6', 'p7', 'p8', 'p9', 'p10'],
     },
   ];
@@ -934,7 +934,7 @@ export default function App() {
                 }}
               >
                 {
-                  'Fri Jun 26, 2026 → Wed Mar 21, 2029 · 5:30 AM – 8:30 AM IST · 3h · 1000 study days · 10 blocks'
+                  'Tue Jun 23, 2026 → Sun Mar 18, 2029 · 5:30 AM – 8:30 AM IST · 3h · 1000 study days · 10 blocks'
                 }
               </div>
             </div>
@@ -1061,7 +1061,7 @@ export default function App() {
               </div>
               <div style={{ fontSize: 8, color: 'rgba(255,255,255,0.5)' }}>
                 {
-                  'Jun 26, 2026 → Mar 21, 2029 · 1000 study days · relaxation days when 5:30–8:30 AM IST is impossible · No 2nd slot'
+                  'Jun 23, 2026 → Mar 18, 2029 · 1000 study days · relaxation days when 5:30–8:30 AM IST is impossible · No 2nd slot'
                 }
               </div>
             </div>
@@ -1094,7 +1094,7 @@ export default function App() {
               </div>
               <div style={{ fontSize: 8, color: 'rgba(255,255,255,0.5)' }}>
                 {
-                  'That day does not count as a study day · your finish date extends beyond Mar 21, 2029'
+                  'That day does not count as a study day · your finish date extends beyond Mar 18, 2029'
                 }
               </div>
             </div>
@@ -1139,7 +1139,7 @@ export default function App() {
                 color: 'rgba(255,255,255,0.4)',
               }}
             >
-              <span>{'Jun 26, 2026'}</span>
+              <span>{'Jun 23, 2026'}</span>
               <span
                 style={{ color: 'rgba(255,255,255,0.75)', fontWeight: 700 }}
               >
@@ -1359,7 +1359,7 @@ export default function App() {
               marginBottom: 3,
             }}
           >
-            {'🏆 1000 Days of Code · Jun 26, 2026 → Mar 21, 2029 · 10 blocks × 100 days'}
+            {'🏆 1000 Days of Code · Jun 23, 2026 → Mar 18, 2029 · 10 blocks × 100 days'}
           </div>
           <div
             style={{
