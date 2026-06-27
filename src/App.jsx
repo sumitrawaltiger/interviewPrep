@@ -1174,44 +1174,12 @@ export default function App() {
               </div>
               <div style={{ fontSize: 8, color: 'rgba(255,255,255,0.5)' }}>
                 {
-                  'Oct 1, 2026 → Jan 31, 2028 · 488 study days · relaxation days when 5:30–8:30 AM IST is impossible · No 2nd slot'
+                  'Oct 1, 2026 → Jan 31, 2028 · 488 study days · daily 5:30–8:30 AM IST · no days off'
                 }
               </div>
             </div>
           </div>
 
-
-          <div
-            style={{
-              background: 'rgba(245,158,11,0.14)',
-              border: '1px solid rgba(245,158,11,0.4)',
-              borderRadius: 8,
-              padding: '8px 12px',
-              marginBottom: 10,
-              display: 'flex',
-              gap: 9,
-              alignItems: 'center',
-            }}
-          >
-            <span style={{ fontSize: 15, flexShrink: 0 }}>{'🌴'}</span>
-            <div>
-              <div
-                style={{
-                  fontSize: 10,
-                  fontWeight: 700,
-                  color: '#FDE68A',
-                  marginBottom: 1,
-                }}
-              >
-                {'Relaxation days · when 5:30–8:30 AM IST study is impossible'}
-              </div>
-              <div style={{ fontSize: 8, color: 'rgba(255,255,255,0.5)' }}>
-                {
-                  'That day does not count as a study day · your finish date extends beyond Jan 31, 2028'
-                }
-              </div>
-            </div>
-          </div>
           <div style={{ marginBottom: 10 }}>
             <div
               style={{
