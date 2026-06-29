@@ -1,16 +1,18 @@
 import { useState } from 'react';
-// 100 Days AWS + 16 Month Skill Plan · Jun 23, 2026 → Jan 31, 2028
-// 588 study days · 100 AWS + 16 skills · 5:30 AM – 8:30 AM IST · 3 hours
+// 100 Days AWS + 16 Month Skills + DSA + System Design · Jun 23, 2026 → Aug 18, 2028
+// 788 study days · 5:30 AM – 8:30 AM IST · 3 hours
 
 const START = new Date('2026-06-23');
-const TOTAL = 588;
-const STUDY_END = 'Jan 31, 2028';
+const TOTAL = 788;
+const STUDY_END = 'Aug 18, 2028';
 
 const BLOCKS = [
   { id: 'b0', icon: '☁', col: '#D97706', title: '100 Days of AWS', sub: 'D1–D100 · Jun – Sep 2026', detail: 'IAM → VPC → EC2 → S3 → RDS → Lambda → Cognito → ECS → CDN → CDK', time: '5:30 AM – 8:30 AM IST · 3h daily', scheduleLink: '#/aws-100-days' },
   { id: 'b1', icon: '🌐', col: '#0EA5E9', title: 'Frontend with Javascript', sub: 'D101–D282 · Oct 2026 – Mar 2027', detail: 'Javascript → Typescript → React JS → Next JS → React Native → Node JS', time: '5:30 AM – 8:30 AM IST · 3h daily' },
   { id: 'b2', icon: '☕', col: '#EA580C', title: 'Java Backend', sub: 'D283–D435 · Apr – Aug 2027', detail: 'J2SE → J2EE → JPA → Spring Boot → Microservices', time: '5:30 AM – 8:30 AM IST · 3h daily' },
   { id: 'b3', icon: '🐍', col: '#8B5CF6', title: 'Python and DevOps', sub: 'D436–D588 · Sep 2027 – Jan 2028', detail: 'Python → Django → Fast API → Agentic AI → Devops', time: '5:30 AM – 8:30 AM IST · 3h daily' },
+  { id: 'b4', icon: '🧮', col: '#059669', title: '100 Days of DSA', sub: 'D589–D688 · Feb – May 2028', detail: 'Arrays → Trees → Graphs → DP → Greedy → Mock interviews', time: '5:30 AM – 8:30 AM IST · 3h daily' },
+  { id: 'b5', icon: '🏗', col: '#DC2626', title: '100 Days of System Design', sub: 'D689–D788 · May – Aug 2028', detail: 'Fundamentals → Databases → Queues → Classic designs → FPO architecture', time: '5:30 AM – 8:30 AM IST · 3h daily' },
 ];
 
 const PHASES = [
@@ -196,7 +198,7 @@ const PHASES = [
       { w: 3, f: 'Week 3: Ed Donner Projects', t: 'Career Twin, Deep Research, SDR Agent' },
       { w: 4, f: 'Week 4: FPO AI Capstone', t: 'natural language flight queries on Lambda' },
     ], },
-  { id: 's16', block: 'b3', seq: 16, icon: '🔧', color: '#6366F1', dark: '#4338CA', bg: '#EEF2FF', border: '#C7D2FE', name: 'Devops', label: 'Month 16 · 31 days', days: 31, ds: 558, de: 588, period: 'Jan 1 – Jan 31, 2028', ms: '588 DAYS COMPLETE · D588 · Jan 31, 2028', about: 'Month 16. DevOps capstone: Docker, Kubernetes/EKS, CI/CD, Terraform, monitoring. Full journey complete Jan 31, 2028.', courses: [
+  { id: 's16', block: 'b3', seq: 16, icon: '🔧', color: '#6366F1', dark: '#4338CA', bg: '#EEF2FF', border: '#C7D2FE', name: 'Devops', label: 'Month 16 · 31 days', days: 31, ds: 558, de: 588, period: 'Jan 1 – Jan 31, 2028', ms: 'Devops Complete · D588 · Jan 31, 2028', about: 'Month 16. DevOps capstone: Docker, Kubernetes/EKS, CI/CD, Terraform, monitoring. Then DSA and System Design blocks follow.', courses: [
       'Nana Janashia — DevOps Bootcamp (Udemy)',
       'Mumshad Mannambeth — Kubernetes CKA (KodeKloud)',
       'HashiCorp Learn — Terraform',
@@ -206,6 +208,40 @@ const PHASES = [
       { w: 2, f: 'Week 2: Kubernetes + EKS', t: 'deployments, services, ingress, Helm' },
       { w: 3, f: 'Week 3: CI/CD + Terraform', t: 'GitHub Actions OIDC, IaC modules' },
       { w: 4, f: 'Week 4: FPO Pipeline', t: 'full pipeline + monitoring. 16 MONTHS DONE 🏆' },
+    ], },
+  { id: 's17', block: 'b4', seq: 'DSA', icon: '🧮', color: '#059669', dark: '#047857', bg: '#ECFDF5', border: '#6EE7B7', name: 'DSA', label: '100 days', days: 100, ds: 589, de: 688, period: 'Feb 1 – May 10, 2028', ms: 'DSA 100 Days Complete · D688 · May 10, 2028', about: '100 days of Data Structures & Algorithms after the 16-month skill plan. Solve in Python and Java. NeetCode 150 + Blind 75 patterns. Daily 3h: 1h theory/review, 2h timed problem solving. Target: confident medium/hard on arrays, trees, graphs, DP.', courses: [
+      'NeetCode.io (free)',
+      'LeetCode Premium — company tagged',
+      'William Fiset — Graph Theory (YouTube)',
+      'AlgoExpert or take U forward (Striver)',
+    ], wplan: [
+      { w: 1, f: 'Week 1: Arrays & Hashing', t: 'two sum, anagrams, top K, hash maps, prefix sums' },
+      { w: 2, f: 'Week 2: Two Pointers & Sliding Window', t: 'palindrome, container water, longest substring' },
+      { w: 3, f: 'Week 3: Stacks, Queues & Linked Lists', t: 'valid parentheses, LRU cache, reverse list, merge lists' },
+      { w: 4, f: 'Week 4: Trees & BST', t: 'traversals, LCA, validate BST, serialize tree' },
+      { w: 5, f: 'Week 5: Graphs BFS/DFS', t: 'islands, course schedule, shortest path basics' },
+      { w: 6, f: 'Week 6: Heaps & Intervals', t: 'merge intervals, meeting rooms, kth largest, median stream' },
+      { w: 7, f: 'Week 7: Backtracking & Recursion', t: 'subsets, permutations, N-queens, word search' },
+      { w: 8, f: 'Week 8: Dynamic Programming I', t: 'climbing stairs, coin change, LIS, knapsack' },
+      { w: 9, f: 'Week 9: DP II & Greedy', t: 'edit distance, matrix paths, activity selection' },
+      { w: 10, f: 'Week 10: Mocks & Revision', t: 'timed sets, weak-pattern review, 5 full mock rounds' },
+    ], },
+  { id: 's18', block: 'b5', seq: 'SD', icon: '🏗', color: '#DC2626', dark: '#B91C1C', bg: '#FEF2F2', border: '#FECACA', name: 'System Design', label: '100 days', days: 100, ds: 689, de: 788, period: 'May 11 – Aug 18, 2028', ms: '788 DAYS COMPLETE · D788 · Aug 18, 2028', about: '100 days of System Design interview prep. Learn scalability fundamentals, design classic systems (URL shortener, Twitter, Uber, WhatsApp), apply AWS patterns from your cert stack, and design FPO end-to-end. Daily: 1h reading/video, 1h whiteboard, 1h written ADR or mock.', courses: [
+      'Gaurav Sen — System Design (YouTube)',
+      'Alex Xu — System Design Interview Vol 1 & 2',
+      'ByteByteGo newsletter',
+      'Designing Data-Intensive Applications (Kleppmann)',
+    ], wplan: [
+      { w: 1, f: 'Week 1: Fundamentals', t: 'scalability, CAP, load balancers, CDNs, caching layers' },
+      { w: 2, f: 'Week 2: Databases & Storage', t: 'SQL vs NoSQL, sharding, replication, DynamoDB/RDS tradeoffs' },
+      { w: 3, f: 'Week 3: Messaging & Streaming', t: 'SQS, SNS, Kafka, event-driven, idempotency' },
+      { w: 4, f: 'Week 4: API & Microservices', t: 'REST vs gRPC, API gateway, service discovery, sagas' },
+      { w: 5, f: 'Week 5: URL Shortener & Rate Limiter', t: 'hashing, collision, Redis, token bucket' },
+      { w: 6, f: 'Week 6: Social & Feed Systems', t: 'Twitter timeline, notification system, fan-out' },
+      { w: 7, f: 'Week 7: Ride & Chat Systems', t: 'Uber matching, WhatsApp delivery, geospatial indexes' },
+      { w: 8, f: 'Week 8: FPO Architecture', t: 'flight search, booking, payments, Cognito auth on AWS' },
+      { w: 9, f: 'Week 9: Mock Interviews', t: '5 timed whiteboard sessions, peer or self-recorded' },
+      { w: 10, f: 'Week 10: Portfolio & Capstone', t: '10 ADRs, diagrams in GitHub, 5 cold mocks — JOURNEY DONE 🏆' },
     ], },
 ];
 
@@ -226,7 +262,9 @@ const MILESTONES = [
   { day: 496, icon: '🎸', label: 'Django Done', date: 'Oct 31, 2027', color: '#092E20' },
   { day: 526, icon: '⚡', label: 'Fast API Done', date: 'Nov 30, 2027', color: '#009688' },
   { day: 557, icon: '🤖', label: 'Agentic AI Done', date: 'Dec 31, 2027', color: '#8B5CF6' },
-  { day: 588, icon: '🔧', label: 'Devops — JOURNEY DONE', date: 'Jan 31, 2028', color: '#6366F1' },
+  { day: 588, icon: '🔧', label: 'Devops Done', date: 'Jan 31, 2028', color: '#6366F1' },
+  { day: 688, icon: '🧮', label: 'DSA 100 Days Done', date: 'May 10, 2028', color: '#059669' },
+  { day: 788, icon: '🏗', label: 'System Design — JOURNEY DONE', date: 'Aug 18, 2028', color: '#DC2626' },
 ];
 function daysIn() {
   return Math.max(0, Math.floor((new Date() - START) / 86400000));
@@ -635,6 +673,18 @@ export default function App() {
       sub: 'Sep 2027 – Jan 2028 · Python → Django → Fast API → Agentic AI → Devops',
       ids: ['s12', 's13', 's14', 's15', 's16'],
     },
+    {
+      col: '#059669',
+      title: '🧮 DSA · 100 DAYS',
+      sub: 'Feb 1 – May 10, 2028 · Arrays → Trees → Graphs → DP → Mock interviews',
+      ids: ['s17'],
+    },
+    {
+      col: '#DC2626',
+      title: '🏗 SYSTEM DESIGN · 100 DAYS',
+      sub: 'May 11 – Aug 18, 2028 · Fundamentals → Classic designs → FPO architecture',
+      ids: ['s18'],
+    },
   ];
 
   return (
@@ -719,7 +769,7 @@ export default function App() {
                   lineHeight: 1.1,
                 }}
               >
-                {'100 Days AWS + 16 Month Skill Plan'}
+                {'100 Days AWS + 16 Months + DSA + System Design'}
               </div>
               <div
                 style={{
@@ -729,7 +779,7 @@ export default function App() {
                 }}
               >
                 {
-                  'Tue Jun 23, 2026 → Mon Jan 31, 2028 · 5:30 AM – 8:30 AM IST · 3h · 588 study days · AWS + 16 skills'
+                  'Tue Jun 23, 2026 → Fri Aug 18, 2028 · 5:30 AM – 8:30 AM IST · 3h · 788 study days'
                 }
               </div>
             </div>
@@ -856,7 +906,7 @@ export default function App() {
               </div>
               <div style={{ fontSize: 8, color: 'rgba(255,255,255,0.5)' }}>
                 {
-                  'Jun 23, 2026 → Jan 31, 2028 · 588 study days · daily 5:30–8:30 AM IST · no days off'
+                  'Jun 23, 2026 → Aug 18, 2028 · 788 study days · daily 5:30–8:30 AM IST · no days off'
                 }
               </div>
             </div>
@@ -1122,7 +1172,7 @@ export default function App() {
               marginBottom: 3,
             }}
           >
-            {'🏆 100 Days AWS + 16 Month Skill Plan · Jun 23, 2026 → Jan 31, 2028'}
+            {'🏆 Full Journey · Jun 23, 2026 → Aug 18, 2028 · 788 days'}
           </div>
           <div
             style={{
@@ -1132,7 +1182,7 @@ export default function App() {
             }}
           >
             {
-              'JS → TS → React → Next → RN → Node → J2SE → J2EE → JPA → Spring Boot → Microservices → Python → Django → FastAPI → Agentic AI → DevOps · 5:30–8:30 AM IST · 3h'
+              'AWS → 16 Skills → DSA → System Design · 5:30–8:30 AM IST · 3h daily'
             }
           </div>
           <div
