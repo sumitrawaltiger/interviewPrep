@@ -1,4 +1,4 @@
-const START = new Date('2026-06-23');
+const START = new Date('2028-05-19');
 
 export function awsDayDate(day) {
   const d = new Date(START);

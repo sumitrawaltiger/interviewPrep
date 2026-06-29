@@ -7,7 +7,7 @@ const BG = '#FFFBEB';
 const BORDER = '#FDE68A';
 
 function todayAwsDay() {
-  const start = new Date('2026-06-23');
+  const start = new Date('2028-05-19');
   const d = Math.floor((new Date() - start) / 86400000) + 1;
   return Math.min(Math.max(d, 1), 100);
 }
@@ -103,7 +103,7 @@ export default function Aws100Days() {
                 {'100 Days of AWS — Daily Schedule'}
               </h1>
               <div style={{ fontSize: 9, color: 'rgba(255,255,255,0.65)', marginTop: 3 }}>
-                {'Jun 23 – Sep 30, 2026 · 5:30 AM – 8:30 AM IST · 3 hours · Maarek SAA-C03 + hands-on labs'}
+                {'May 19 – Aug 26, 2028 · D689–D788 of 1000 · 5:30 AM – 8:30 AM IST · Maarek SAA-C03 + labs'}
               </div>
             </div>
           </div>
@@ -315,7 +315,7 @@ export default function Aws100Days() {
                         color: '#64748B',
                       }}
                     >
-                      {'Week ' + d.week + ' · Study day D' + d.day + ' of 588'}
+                      {'Week ' + d.week + ' · Plan day D' + (688 + d.day) + ' of 1000'}
                     </div>
                   </div>
                 )}
@@ -338,7 +338,7 @@ export default function Aws100Days() {
             {'☁ Day 100 = AWS Block Complete'}
           </div>
           <div style={{ fontSize: 9, opacity: 0.75 }}>
-            {'CDK FPO capstone + 2 SAA practice exams · Then Oct 1: Javascript (16 Month Skill Plan)'}
+            {'CDK FPO capstone + 2 SAA practice exams · Then Interview Prep (D789–D1000)'}
           </div>
           <a
             href="#/"

@@ -1,130 +1,146 @@
 import { useState } from 'react';
-// 100 Days AWS + 16 Month Skills + DSA + System Design · Jun 23, 2026 → Aug 18, 2028
-// 788 study days · 5:30 AM – 8:30 AM IST · 3 hours
+// 1000 Days of Code · Jul 1, 2026 → Mar 26, 2029
+// Coder Army MERN → 16 skills → DSA → System Design → AWS → Interview Prep
 
-const START = new Date('2026-06-23');
-const TOTAL = 788;
-const STUDY_END = 'Aug 18, 2028';
+const START = new Date('2026-07-01');
+const TOTAL = 1000;
+const STUDY_END = 'Mar 26, 2029';
 
 const BLOCKS = [
-  { id: 'b0', icon: '☁', col: '#D97706', title: '100 Days of AWS', sub: 'D1–D100 · Jun – Sep 2026', detail: 'IAM → VPC → EC2 → S3 → RDS → Lambda → Cognito → ECS → CDN → CDK', time: '5:30 AM – 8:30 AM IST · 3h daily', scheduleLink: '#/aws-100-days' },
-  { id: 'b1', icon: '🌐', col: '#0EA5E9', title: 'Frontend with Javascript', sub: 'D101–D282 · Oct 2026 – Mar 2027', detail: 'Javascript → Typescript → React JS → Next JS → React Native → Node JS', time: '5:30 AM – 8:30 AM IST · 3h daily' },
-  { id: 'b2', icon: '☕', col: '#EA580C', title: 'Java Backend', sub: 'D283–D435 · Apr – Aug 2027', detail: 'J2SE → J2EE → JPA → Spring Boot → Microservices', time: '5:30 AM – 8:30 AM IST · 3h daily' },
-  { id: 'b3', icon: '🐍', col: '#8B5CF6', title: 'Python and DevOps', sub: 'D436–D588 · Sep 2027 – Jan 2028', detail: 'Python → Django → Fast API → Agentic AI → Devops', time: '5:30 AM – 8:30 AM IST · 3h daily' },
-  { id: 'b4', icon: '🧮', col: '#059669', title: '100 Days of DSA', sub: 'D589–D688 · Feb – May 2028', detail: 'Arrays → Trees → Graphs → DP → Greedy → Mock interviews', time: '5:30 AM – 8:30 AM IST · 3h daily' },
-  { id: 'b5', icon: '🏗', col: '#DC2626', title: '100 Days of System Design', sub: 'D689–D788 · May – Aug 2028', detail: 'Fundamentals → Databases → Queues → Classic designs → FPO architecture', time: '5:30 AM – 8:30 AM IST · 3h daily' },
+  { id: 'b1', icon: '🎓', col: '#E11D48', title: 'Coder Army MERN Course', sub: 'D1–D123 · Jul – Oct 2026', detail: 'Javascript → ExpressJS → Typescript → React JS', time: '5:30 AM – 8:30 AM IST · 3h daily' },
+  { id: 'b2', icon: '🌐', col: '#0EA5E9', title: 'Extended Frontend', sub: 'D124–D184 · Nov – Dec 2026', detail: 'Next JS → React Native', time: '5:30 AM – 8:30 AM IST · 3h daily' },
+  { id: 'b3', icon: '🐍', col: '#15803D', title: 'Python Stack', sub: 'D185–D304 · Jan – Apr 2027', detail: 'Python → Django → Fast API → Agentic AI', time: '5:30 AM – 8:30 AM IST · 3h daily' },
+  { id: 'b4', icon: '☕', col: '#EA580C', title: 'Java Backend', sub: 'D305–D457 · May – Sep 2027', detail: 'J2SE → J2EE → JPA → Spring Boot → Microservices', time: '5:30 AM – 8:30 AM IST · 3h daily' },
+  { id: 'b5', icon: '🔧', col: '#6366F1', title: 'DevOps', sub: 'D458–D488 · Oct 2027', detail: 'Docker → Kubernetes → CI/CD → Terraform', time: '5:30 AM – 8:30 AM IST · 3h daily' },
+  { id: 'b6', icon: '🧮', col: '#059669', title: '100 Days of DSA', sub: 'D489–D588 · Nov 2027 – Feb 2028', detail: 'Arrays → Trees → Graphs → DP → Mocks', time: '5:30 AM – 8:30 AM IST · 3h daily' },
+  { id: 'b7', icon: '🏗', col: '#DC2626', title: '100 Days of System Design', sub: 'D589–D688 · Feb – May 2028', detail: 'Fundamentals → Classic designs → FPO architecture', time: '5:30 AM – 8:30 AM IST · 3h daily' },
+  { id: 'b8', icon: '☁', col: '#D97706', title: '100 Days of AWS Cloud', sub: 'D689–D788 · May – Aug 2028', detail: 'IAM → VPC → EC2 → S3 → Lambda → ECS → CDK', time: '5:30 AM – 8:30 AM IST · 3h daily', scheduleLink: '#/aws-100-days' },
+  { id: 'b9', icon: '🎯', col: '#7C3AED', title: 'Interview Preparation', sub: 'D789–D1000 · Aug 2028 – Mar 2029', detail: 'React + Java interviews → Behavioral → Mocks → Offers', time: '5:30 AM – 8:30 AM IST · 3h daily' },
 ];
 
 const PHASES = [
-  { id: 's0', block: 'b0', seq: 'AWS', icon: '☁', color: '#D97706', dark: '#B45309', bg: '#FFFBEB', border: '#FDE68A', name: 'AWS', label: '100 days · Pre-phase', days: 100, ds: 1, de: 100, period: 'Jun 23 – Sep 30, 2026', ms: 'AWS 100 Days Complete · D100 · Sep 30, 2026', about: 'Pre-phase before the 16-month skill plan. 100 days of hands-on AWS: IAM, VPC, EC2, S3, RDS, Lambda, Cognito, ECS/EKS, messaging, CDK capstone, and SAA exam prep. Daily 3h lab from the detailed schedule.', courses: [
-      'Stephane Maarek — AWS Certified Solutions Architect (Udemy)',
-      'Jon Bonso / Tutorials Dojo — SAA practice exams',
-      'AWS Skill Builder (free)',
-      'AWS Official Documentation',
-    ], wplan: [
-      { w: 1, f: 'Week 1: IAM & Account', t: 'IAM users, roles, policies, MFA, CLI setup' },
-      { w: 2, f: 'Week 2: VPC Networking', t: 'subnets, IGW, NAT, SGs, peering, endpoints' },
-      { w: 3, f: 'Week 3: EC2 & Load Balancing', t: 'EC2, EBS, ALB, ASG, CloudWatch alarms' },
-      { w: 4, f: 'Week 4: S3 Storage', t: 'buckets, versioning, lifecycle, CloudFront intro' },
-      { w: 5, f: 'Week 5: RDS & DynamoDB', t: 'RDS, Aurora, DynamoDB, DMS overview' },
-      { w: 6, f: 'Week 6: Lambda & API Gateway', t: 'serverless APIs, triggers, SAM/CDK intro' },
-      { w: 7, f: 'Week 7: Cognito & Orchestration', t: 'user pools, Step Functions, EventBridge' },
-      { w: 8, f: 'Week 8: ECS, EKS & ECR', t: 'containers on AWS, Fargate, EKS basics' },
-      { w: 9, f: 'Week 9: Messaging, CDN & DNS', t: 'SQS, SNS, Route 53, CloudFront' },
-      { w: 10, f: 'Week 10: CDK Capstone + Exam', t: 'FPO CDK stack deploy + 2 SAA practice exams' },
-    ], },
-  { id: 's1', block: 'b1', seq: 1, icon: '📜', color: '#EAB308', dark: '#CA8A04', bg: '#FEFCE8', border: '#FDE047', name: 'Javascript', label: 'Month 1 · 31 days', days: 31, ds: 101, de: 131, period: 'Oct 1 – Oct 31, 2026', ms: 'Javascript Complete · D131', about: 'Month 1. JavaScript ES6+ fundamentals: variables, functions, closures, prototypes, arrays/objects, map/filter/reduce, async/await, Promises, modules. Build 8 mini projects. Foundation for TypeScript and React.', courses: [
-      'Maximilian Schwarzmüller — JavaScript Complete Guide (Udemy)',
+  { id: 's1', block: 'b1', seq: 1, icon: '📜', color: '#EAB308', dark: '#CA8A04', bg: '#FEFCE8', border: '#FDE047', name: 'Javascript', label: 'Month 1 · 31 days', days: 31, ds: 1, de: 31, period: 'Jul 1 – Jul 31, 2026', ms: 'Javascript Complete · D31', about: 'Month 1 · Coder Army MERN course. JavaScript ES6+ fundamentals: variables, functions, closures, prototypes, arrays/objects, async/await, Promises, modules. Follow course live classes + assignments.', courses: [
+      'Coder Army — Web Dev + System Design + Security + DevOps (MERN)',
       'javascript.info (free)',
       'MDN Web Docs',
-      'Corey Schafer — JS playlist (YouTube)',
     ], wplan: [
       { w: 1, f: 'Week 1: JS Basics', t: 'syntax, let/const, data types, operators, control flow' },
       { w: 2, f: 'Week 2: Functions & Scope', t: 'closures, hoisting, this keyword, arrow functions' },
       { w: 3, f: 'Week 3: Objects & Arrays', t: 'destructuring, spread, map/filter/reduce, JSON' },
       { w: 4, f: 'Week 4: Async JS', t: 'Promises, async/await, fetch, ES modules, npm' },
     ], },
-  { id: 's2', block: 'b1', seq: 2, icon: '🔷', color: '#2563EB', dark: '#1D4ED8', bg: '#EFF6FF', border: '#BFDBFE', name: 'Typescript', label: 'Month 2 · 30 days', days: 30, ds: 132, de: 161, period: 'Nov 1 – Nov 30, 2026', ms: 'Typescript Complete · D161', about: 'Month 2. TypeScript strict mode: types, interfaces, generics, utility types, enums, tuples, type guards, narrowing. Configure tsconfig. Refactor Month 1 JS projects to TypeScript.', courses: [
-      'Maximilian Schwarzmüller — Understanding TypeScript (Udemy)',
+  { id: 's2', block: 'b1', seq: 2, icon: '🟢', color: '#16A34A', dark: '#15803D', bg: '#F0FDF4', border: '#BBF7D0', name: 'ExpressJS', label: 'Month 2 · 31 days', days: 31, ds: 32, de: 62, period: 'Aug 1 – Aug 31, 2026', ms: 'ExpressJS Complete · D62', about: 'Month 2 · Coder Army MERN course. Express.js: routing, middleware, REST APIs, error handling, JWT auth, MongoDB integration. Build backend APIs for course projects.', courses: [
+      'Coder Army — MERN Stack course',
+      'Express.js official guide',
+      'The Net Ninja — Node/Express (YouTube)',
+    ], wplan: [
+      { w: 1, f: 'Week 1: Node & Express Core', t: 'event loop, modules, Express setup, routing' },
+      { w: 2, f: 'Week 2: Middleware & APIs', t: 'custom middleware, validation, error handling, REST design' },
+      { w: 3, f: 'Week 3: Auth & Database', t: 'JWT, bcrypt, MongoDB/Mongoose integration' },
+      { w: 4, f: 'Week 4: Course Project API', t: 'full CRUD API, deploy, Postman testing' },
+    ], },
+  { id: 's3', block: 'b1', seq: 3, icon: '🔷', color: '#2563EB', dark: '#1D4ED8', bg: '#EFF6FF', border: '#BFDBFE', name: 'Typescript', label: 'Month 3 · 30 days', days: 30, ds: 63, de: 92, period: 'Sep 1 – Sep 30, 2026', ms: 'Typescript Complete · D92', about: 'Month 3 · Coder Army MERN course. TypeScript strict mode: types, interfaces, generics, utility types, enums, type guards. Refactor JS projects to TypeScript.', courses: [
+      'Coder Army — MERN Stack course',
       'TypeScript Handbook (free)',
       'Total TypeScript (Matt Pocock)',
-      'typescriptlang.org docs',
     ], wplan: [
       { w: 1, f: 'Week 1: Types & Interfaces', t: 'primitives, arrays, objects, interfaces, type aliases' },
       { w: 2, f: 'Week 2: Functions & Generics', t: 'generic functions, constraints, keyof, typeof' },
       { w: 3, f: 'Week 3: Advanced Types', t: 'union/intersection, discriminated unions, utility types' },
-      { w: 4, f: 'Week 4: TS Project', t: 'strict tsconfig, migrate JS projects, build typed CLI tool' },
+      { w: 4, f: 'Week 4: TS + Express', t: 'strict tsconfig, typed Express routes, migrate projects' },
     ], },
-  { id: 's3', block: 'b1', seq: 3, icon: '⚛', color: '#0EA5E9', dark: '#0369A1', bg: '#F0F9FF', border: '#BAE6FD', name: 'React JS', label: 'Month 3 · 31 days', days: 31, ds: 162, de: 192, period: 'Dec 1 – Dec 31, 2026', ms: 'React JS Complete · D192', about: 'Month 3. React 19: components, JSX, props, state, hooks, React Router, Redux Toolkit, RTK Query, testing with React Testing Library.', courses: [
-      'Maximilian Schwarzmüller — React Complete Guide (Udemy)',
+  { id: 's4', block: 'b1', seq: 4, icon: '⚛', color: '#0EA5E9', dark: '#0369A1', bg: '#F0F9FF', border: '#BAE6FD', name: 'React JS', label: 'Month 4 · 31 days', days: 31, ds: 93, de: 123, period: 'Oct 1 – Oct 31, 2026', ms: 'React JS Complete · D123', about: 'Month 4 · Coder Army MERN course ends Oct 2026. React 19: components, JSX, hooks, React Router, state management, API integration. Complete course capstone project.', courses: [
+      'Coder Army — MERN Stack course',
       'react.dev official docs',
-      'Jack Herrington — React patterns (YouTube)',
-      'Kent C. Dodds — Testing Library',
+      'Jack Herrington — React patterns',
     ], wplan: [
       { w: 1, f: 'Week 1: React Core', t: 'components, JSX, props, state, event handling' },
       { w: 2, f: 'Week 2: Hooks Deep Dive', t: 'useEffect, useContext, useReducer, custom hooks' },
-      { w: 3, f: 'Week 3: Routing & State', t: 'React Router v6, Redux Toolkit, RTK Query' },
-      { w: 4, f: 'Week 4: Testing & Project', t: 'RTL tests, build dashboard app with API integration' },
+      { w: 3, f: 'Week 3: Routing & State', t: 'React Router v6, context, API integration' },
+      { w: 4, f: 'Week 4: MERN Capstone', t: 'full-stack project, course completion 🏆' },
     ], },
-  { id: 's4', block: 'b1', seq: 4, icon: '▲', color: '#171717', dark: '#000000', bg: '#F5F5F5', border: '#D4D4D4', name: 'Next JS', label: 'Month 4 · 31 days', days: 31, ds: 193, de: 223, period: 'Jan 1 – Jan 31, 2027', ms: 'Next JS Complete · D223', about: 'Month 4. Next.js 15 App Router: Server Components, Server Actions, layouts, NextAuth, Prisma ORM, middleware, deploy to Vercel. FPO web portal foundation.', courses: [
-      'Maximilian Schwarzmüller — Next.js 15 Guide (Udemy)',
-      'Next.js docs (nextjs.org)',
-      'Lee Robinson — Next.js tutorials',
-      'Vercel deployment guides',
+  { id: 's5', block: 'b2', seq: 5, icon: '▲', color: '#171717', dark: '#000000', bg: '#F5F5F5', border: '#D4D4D4', name: 'Next JS', label: 'Month 5 · 30 days', days: 30, ds: 124, de: 153, period: 'Nov 1 – Nov 30, 2026', ms: 'Next JS Complete · D153', about: 'Month 5. Next.js 15 App Router: Server Components, Server Actions, layouts, NextAuth, Prisma, deploy to Vercel. FPO web portal foundation.', courses: [
+      'Maximilian Schwarzmüller — Next.js Guide (Udemy)',
+      'Next.js docs',
+      'Lee Robinson tutorials',
     ], wplan: [
       { w: 1, f: 'Week 1: App Router', t: 'file-based routing, layouts, RSC vs client components' },
-      { w: 2, f: 'Week 2: Data Fetching', t: 'Server Actions, caching, revalidation, Prisma setup' },
+      { w: 2, f: 'Week 2: Data Fetching', t: 'Server Actions, caching, revalidation, Prisma' },
       { w: 3, f: 'Week 3: Auth & API', t: 'NextAuth, middleware, protected routes' },
-      { w: 4, f: 'Week 4: FPO Portal', t: 'flight search UI, deploy to Vercel, performance audit' },
+      { w: 4, f: 'Week 4: FPO Portal', t: 'flight search UI, deploy to Vercel' },
     ], },
-  { id: 's5', block: 'b1', seq: 5, icon: '📱', color: '#7C3AED', dark: '#6D28D9', bg: '#F5F3FF', border: '#DDD6FE', name: 'React Native', label: 'Month 5 · 28 days', days: 28, ds: 224, de: 251, period: 'Feb 1 – Feb 28, 2027', ms: 'React Native Complete · D251', about: 'Month 5. React Native + Expo: navigation, device APIs, push notifications, EAS Build. Build FPO mobile flight status app.', courses: [
-      'Maximilian Schwarzmüller — React Native Guide (Udemy)',
-      'Chaicode — React Native (free)',
+  { id: 's6', block: 'b2', seq: 6, icon: '📱', color: '#7C3AED', dark: '#6D28D9', bg: '#F5F3FF', border: '#DDD6FE', name: 'React Native', label: 'Month 6 · 31 days', days: 31, ds: 154, de: 184, period: 'Dec 1 – Dec 31, 2026', ms: 'React Native Complete · D184', about: 'Month 6. React Native + Expo: navigation, device APIs, push notifications, EAS Build. FPO mobile flight status app.', courses: [
+      'Maximilian Schwarzmüller — React Native Guide',
       'Expo docs',
       'React Navigation docs',
     ], wplan: [
       { w: 1, f: 'Week 1: RN Basics', t: 'Expo setup, core components, StyleSheet, Flexbox' },
       { w: 2, f: 'Week 2: Navigation', t: 'React Navigation stack/tab, deep linking' },
       { w: 3, f: 'Week 3: Device APIs', t: 'camera, location, AsyncStorage, push notifications' },
-      { w: 4, f: 'Week 4: FPO Mobile App', t: 'flight status screen, EAS Build, TestFlight/APK' },
+      { w: 4, f: 'Week 4: FPO Mobile App', t: 'flight status screen, EAS Build, APK' },
     ], },
-  { id: 's6', block: 'b1', seq: 6, icon: '🟢', color: '#16A34A', dark: '#15803D', bg: '#F0FDF4', border: '#BBF7D0', name: 'Node JS', label: 'Month 6 · 31 days', days: 31, ds: 252, de: 282, period: 'Mar 1 – Mar 31, 2027', ms: 'Node JS Complete · D282', about: 'Month 6. Node.js: event loop, Express.js, REST APIs, middleware, JWT auth, WebSockets. Build production Node API for FPO.', courses: [
-      'Maximilian Schwarzmüller — Node.js Guide (Udemy)',
-      'Node.js docs',
-      'Express.js official guide',
-      'The Net Ninja — Node (YouTube)',
+  { id: 's7', block: 'b3', seq: 7, icon: '🐍', color: '#15803D', dark: '#166534', bg: '#F0FDF4', border: '#86EFAC', name: 'Python', label: 'Month 7 · 31 days', days: 31, ds: 185, de: 215, period: 'Jan 1 – Jan 31, 2027', ms: 'Python Complete · D215', about: 'Month 7. Python 3: fundamentals, OOP, decorators, asyncio, boto3. Foundation for Django, FastAPI, and Agentic AI.', courses: [
+      'Corey Schafer — Python (YouTube)',
+      'Real Python',
+      'Python official docs',
     ], wplan: [
-      { w: 1, f: 'Week 1: Node Fundamentals', t: 'event loop, modules, fs, path, streams' },
-      { w: 2, f: 'Week 2: Express APIs', t: 'routing, middleware, validation, error handling' },
-      { w: 3, f: 'Week 3: Auth & Real-time', t: 'JWT, bcrypt, WebSockets, Socket.io' },
-      { w: 4, f: 'Week 4: FPO API', t: 'REST API for flights, deploy on AWS EC2/ECS' },
+      { w: 1, f: 'Week 1: Python Basics', t: 'syntax, data types, functions, comprehensions' },
+      { w: 2, f: 'Week 2: OOP & Advanced', t: 'classes, decorators, generators, context managers' },
+      { w: 3, f: 'Week 3: Async & boto3', t: 'asyncio, aiohttp, boto3 basics' },
+      { w: 4, f: 'Week 4: Automation', t: 'scripts, pandas intro, file processing' },
     ], },
-  { id: 's7', block: 'b2', seq: 7, icon: '☕', color: '#EA580C', dark: '#C2410C', bg: '#FFF7ED', border: '#FED7AA', name: 'J2SE', label: 'Month 7 · 30 days', days: 30, ds: 283, de: 312, period: 'Apr 1 – Apr 30, 2027', ms: 'J2SE Complete · D312', about: 'Month 7. Java SE: syntax, OOP, collections, streams, lambdas, Optional, records, generics, multithreading basics.', courses: [
-      'Navin Reddy Telusko — Java (YouTube)',
-      'John Thompson — Java Masterclass (Udemy)',
-      'Oracle Java Tutorials',
-      'Baeldung — Java basics',
+  { id: 's8', block: 'b3', seq: 8, icon: '🎸', color: '#092E20', dark: '#051B14', bg: '#ECFDF5', border: '#6EE7B7', name: 'Django', label: 'Month 8 · 28 days', days: 28, ds: 216, de: 243, period: 'Feb 1 – Feb 28, 2027', ms: 'Django Complete · D243', about: 'Month 8. Django 5 + DRF: models, migrations, admin, serializers, viewsets, permissions. FPO admin backend.', courses: [
+      'Dennis Ivy — Django (YouTube)',
+      'Django official docs',
+      'DRF docs',
+    ], wplan: [
+      { w: 1, f: 'Week 1: Django Core', t: 'models, migrations, admin, templates' },
+      { w: 2, f: 'Week 2: DRF Basics', t: 'serializers, API views, routers' },
+      { w: 3, f: 'Week 3: Auth & Permissions', t: 'token auth, permissions, throttling' },
+      { w: 4, f: 'Week 4: FPO Admin', t: 'booking admin API' },
+    ], },
+  { id: 's9', block: 'b3', seq: 9, icon: '⚡', color: '#009688', dark: '#00796B', bg: '#E0F2F1', border: '#80CBC4', name: 'Fast API', label: 'Month 9 · 31 days', days: 31, ds: 244, de: 274, period: 'Mar 1 – Mar 31, 2027', ms: 'Fast API Complete · D274', about: 'Month 9. FastAPI: async routes, Pydantic v2, dependency injection, OAuth2, SQLAlchemy.', courses: [
+      'FastAPI official docs',
+      'TestDriven.io — FastAPI',
+    ], wplan: [
+      { w: 1, f: 'Week 1: FastAPI Core', t: 'routes, Pydantic models, validation' },
+      { w: 2, f: 'Week 2: Database Layer', t: 'SQLAlchemy, Alembic, CRUD' },
+      { w: 3, f: 'Week 3: Auth & Middleware', t: 'OAuth2, JWT, CORS, rate limiting' },
+      { w: 4, f: 'Week 4: Deploy API', t: 'Dockerize, OpenAPI docs' },
+    ], },
+  { id: 's10', block: 'b3', seq: 10, icon: '🤖', color: '#8B5CF6', dark: '#6D28D9', bg: '#F5F3FF', border: '#DDD6FE', name: 'Agentic AI', label: 'Month 10 · 30 days', days: 30, ds: 275, de: 304, period: 'Apr 1 – Apr 30, 2027', ms: 'Agentic AI Complete · D304', about: 'Month 10. Agentic AI with Python: LangChain, LangGraph, RAG, multi-agent systems, MCP.', courses: [
+      'Ed Donner — Agentic AI Engineering (Udemy)',
+      'LangGraph docs',
+      'LangChain docs',
+    ], wplan: [
+      { w: 1, f: 'Week 1: GenAI + RAG', t: 'LLMs, embeddings, vector stores' },
+      { w: 2, f: 'Week 2: LangChain + LangGraph', t: 'chains, agents, tools, state machines' },
+      { w: 3, f: 'Week 3: Agent Projects', t: 'Career Twin, Deep Research patterns' },
+      { w: 4, f: 'Week 4: FPO AI Capstone', t: 'natural language flight queries' },
+    ], },
+  { id: 's11', block: 'b4', seq: 11, icon: '☕', color: '#EA580C', dark: '#C2410C', bg: '#FFF7ED', border: '#FED7AA', name: 'J2SE', label: 'Month 11 · 31 days', days: 31, ds: 305, de: 335, period: 'May 1 – May 31, 2027', ms: 'J2SE Complete · D335', about: 'Month 11. Java SE: syntax, OOP, collections, streams, lambdas, Optional, records, generics.', courses: [
+      'Telusko — Java (YouTube)',
+      'John Thompson — Java Masterclass',
+      'Baeldung',
     ], wplan: [
       { w: 1, f: 'Week 1: Java Syntax & OOP', t: 'classes, inheritance, polymorphism, interfaces' },
       { w: 2, f: 'Week 2: Collections & Streams', t: 'ArrayList, HashMap, Stream API, collectors' },
       { w: 3, f: 'Week 3: Modern Java', t: 'lambdas, Optional, records, sealed classes' },
-      { w: 4, f: 'Week 4: Concurrency & I/O', t: 'threads, ExecutorService, NIO basics' },
+      { w: 4, f: 'Week 4: Concurrency', t: 'threads, ExecutorService, NIO basics' },
     ], },
-  { id: 's8', block: 'b2', seq: 8, icon: '🏢', color: '#0891B2', dark: '#0E7490', bg: '#ECFEFF', border: '#A5F3FC', name: 'J2EE', label: 'Month 8 · 31 days', days: 31, ds: 313, de: 343, period: 'May 1 – May 31, 2027', ms: 'J2EE Complete · D343', about: 'Month 8. Java EE / Jakarta EE: Servlets, JSP, JNDI, JDBC, connection pooling, transactions.', courses: [
-      'Telusko — Servlet & JSP (YouTube)',
-      'Java Brains — J2EE (YouTube)',
-      'Oracle Java EE tutorial',
-      'Head First Servlets & JSP (book)',
+  { id: 's12', block: 'b4', seq: 12, icon: '🏢', color: '#0891B2', dark: '#0E7490', bg: '#ECFEFF', border: '#A5F3FC', name: 'J2EE', label: 'Month 12 · 30 days', days: 30, ds: 336, de: 365, period: 'Jun 1 – Jun 30, 2027', ms: 'J2EE Complete · D365', about: 'Month 12. Jakarta EE: Servlets, JSP, JNDI, JDBC, connection pooling, transactions.', courses: [
+      'Telusko — Servlet & JSP',
+      'Java Brains — J2EE',
+      'Head First Servlets & JSP',
     ], wplan: [
-      { w: 1, f: 'Week 1: Servlets', t: 'lifecycle, request/response, session management' },
-      { w: 2, f: 'Week 2: JSP & JSTL', t: 'JSP tags, EL, JSTL, MVC pattern' },
-      { w: 3, f: 'Week 3: JDBC & JNDI', t: 'DataSource, connection pooling, transactions' },
-      { w: 4, f: 'Week 4: EE Architecture', t: 'deploy WAR, compare Tomcat vs WildFly' },
+      { w: 1, f: 'Week 1: Servlets', t: 'lifecycle, request/response, sessions' },
+      { w: 2, f: 'Week 2: JSP & JSTL', t: 'JSP tags, EL, JSTL, MVC' },
+      { w: 3, f: 'Week 3: JDBC & JNDI', t: 'DataSource, pooling, transactions' },
+      { w: 4, f: 'Week 4: EE Architecture', t: 'deploy WAR, Tomcat vs WildFly' },
     ], },
-  { id: 's9', block: 'b2', seq: 9, icon: '🗄', color: '#7C3AED', dark: '#6D28D9', bg: '#F5F3FF', border: '#DDD6FE', name: 'JPA', label: 'Month 9 · 30 days', days: 30, ds: 344, de: 373, period: 'Jun 1 – Jun 30, 2027', ms: 'JPA Complete · D373', about: 'Month 9. JPA/Hibernate: @Entity, relationships, JPQL, Spring Data JPA, @Transactional, N+1 problem.', courses: [
-      'Java Brains — JPA & Hibernate (YouTube)',
-      'Baeldung — JPA tutorials',
-      'Vlad Mihalcea — High-Performance JPA',
+  { id: 's13', block: 'b4', seq: 13, icon: '🗄', color: '#7C3AED', dark: '#6D28D9', bg: '#F5F3FF', border: '#DDD6FE', name: 'JPA', label: 'Month 13 · 31 days', days: 31, ds: 366, de: 396, period: 'Jul 1 – Jul 31, 2027', ms: 'JPA Complete · D396', about: 'Month 13. JPA/Hibernate: @Entity, relationships, JPQL, Spring Data JPA, N+1 problem.', courses: [
+      'Java Brains — JPA & Hibernate',
+      'Baeldung — JPA',
       'Spring Data JPA docs',
     ], wplan: [
       { w: 1, f: 'Week 1: JPA Entities', t: '@Entity, @Id, relationships, cascading' },
@@ -132,140 +148,125 @@ const PHASES = [
       { w: 3, f: 'Week 3: Spring Data JPA', t: 'JpaRepository, custom queries, paging' },
       { w: 4, f: 'Week 4: Performance', t: 'N+1 fix, caching, batch operations' },
     ], },
-  { id: 's10', block: 'b2', seq: 10, icon: '🌱', color: '#6DB33F', dark: '#4E9A2E', bg: '#F0FDF4', border: '#86EFAC', name: 'Spring Boot', label: 'Month 10 · 31 days', days: 31, ds: 374, de: 404, period: 'Jul 1 – Jul 31, 2027', ms: 'Spring Boot Complete · D404', about: 'Month 10. Spring Boot 3: REST APIs, Spring Security + OAuth2 (FPO Cognito!), OpenAPI, Actuator, testing.', courses: [
-      'John Thompson — Spring Boot 3 (Udemy)',
-      'Baeldung — Spring Boot tutorials',
-      'Spring official guides',
+  { id: 's14', block: 'b4', seq: 14, icon: '🌱', color: '#6DB33F', dark: '#4E9A2E', bg: '#F0FDF4', border: '#86EFAC', name: 'Spring Boot', label: 'Month 14 · 31 days', days: 31, ds: 397, de: 427, period: 'Aug 1 – Aug 31, 2027', ms: 'Spring Boot Complete · D427', about: 'Month 14. Spring Boot 3: REST APIs, Spring Security + OAuth2, OpenAPI, Actuator, testing.', courses: [
+      'John Thompson — Spring Boot 3',
+      'Baeldung — Spring Boot',
       'Spring Security docs',
     ], wplan: [
       { w: 1, f: 'Week 1: Spring Boot Core', t: 'starters, auto-config, REST controllers' },
-      { w: 2, f: 'Week 2: Security', t: 'Spring Security, JWT, OAuth2 resource server' },
-      { w: 3, f: 'Week 3: Testing', t: 'JUnit 5, Mockito, @WebMvcTest, Testcontainers' },
-      { w: 4, f: 'Week 4: FPO API', t: 'Spring Boot flight API + Cognito auth on ECS' },
+      { w: 2, f: 'Week 2: Security', t: 'Spring Security, JWT, OAuth2' },
+      { w: 3, f: 'Week 3: Testing', t: 'JUnit 5, Mockito, Testcontainers' },
+      { w: 4, f: 'Week 4: FPO API', t: 'Spring Boot flight API' },
     ], },
-  { id: 's11', block: 'b2', seq: 11, icon: '🏛', color: '#E11D48', dark: '#BE123C', bg: '#FFF1F2', border: '#FECDD3', name: 'Microservices', label: 'Month 11 · 31 days', days: 31, ds: 405, de: 435, period: 'Aug 1 – Aug 31, 2027', ms: 'Microservices Complete · D435', about: 'Month 11. Microservices: Spring Cloud, Kafka, Resilience4j, CQRS, saga patterns. Decompose FPO on AWS.', courses: [
-      'Ranga Karanam — Microservices with K8s (Udemy)',
+  { id: 's15', block: 'b4', seq: 15, icon: '🏛', color: '#E11D48', dark: '#BE123C', bg: '#FFF1F2', border: '#FECDD3', name: 'Microservices', label: 'Month 15 · 30 days', days: 30, ds: 428, de: 457, period: 'Sep 1 – Sep 30, 2027', ms: 'Microservices Complete · D457', about: 'Month 15. Microservices: Spring Cloud, Kafka, Resilience4j, CQRS, saga patterns.', courses: [
+      'Ranga Karanam — Microservices',
       'Spring Cloud docs',
-      'Chris Richardson — microservices.io',
-      'Confluent Kafka tutorials',
+      'microservices.io',
     ], wplan: [
       { w: 1, f: 'Week 1: MS Fundamentals', t: '12-factor, bounded contexts, DDD' },
       { w: 2, f: 'Week 2: Spring Cloud', t: 'Eureka, Config Server, API Gateway' },
       { w: 3, f: 'Week 3: Event-Driven', t: 'Kafka producers/consumers, CQRS' },
-      { w: 4, f: 'Week 4: FPO Decomposition', t: 'flight/booking/auth services on ECS/EKS' },
+      { w: 4, f: 'Week 4: FPO Decomposition', t: 'flight/booking/auth services' },
     ], },
-  { id: 's12', block: 'b3', seq: 12, icon: '🐍', color: '#15803D', dark: '#166534', bg: '#F0FDF4', border: '#86EFAC', name: 'Python', label: 'Month 12 · 30 days', days: 30, ds: 436, de: 465, period: 'Sep 1 – Sep 30, 2027', ms: 'Python Complete · D465', about: 'Month 12. Python 3: fundamentals, OOP, decorators, asyncio, boto3, pandas. Foundation for Django, FastAPI, and Agentic AI.', courses: [
-      'Corey Schafer — Python playlist (YouTube)',
-      'Dr. Angela Yu — 100 Days of Python (Udemy)',
-      'Real Python tutorials',
-      'Python official docs',
+  { id: 's16', block: 'b5', seq: 16, icon: '🔧', color: '#6366F1', dark: '#4338CA', bg: '#EEF2FF', border: '#C7D2FE', name: 'Devops', label: 'Month 16 · 31 days', days: 31, ds: 458, de: 488, period: 'Oct 1 – Oct 31, 2027', ms: 'Devops Complete · D488', about: 'Month 16. DevOps: Docker, Kubernetes/EKS, CI/CD, Terraform, monitoring. Then DSA → System Design → AWS → Interview Prep.', courses: [
+      'Nana Janashia — DevOps Bootcamp',
+      'Mumshad Mannambeth — CKA',
+      'HashiCorp Terraform',
     ], wplan: [
-      { w: 1, f: 'Week 1: Python Basics', t: 'syntax, data types, functions, comprehensions' },
-      { w: 2, f: 'Week 2: OOP & Advanced', t: 'classes, decorators, generators, context managers' },
-      { w: 3, f: 'Week 3: Async & boto3', t: 'asyncio, aiohttp, boto3 EC2/S3/Lambda' },
-      { w: 4, f: 'Week 4: Data & Automation', t: 'pandas intro, AWS automation scripts' },
-    ], },
-  { id: 's13', block: 'b3', seq: 13, icon: '🎸', color: '#092E20', dark: '#051B14', bg: '#ECFDF5', border: '#6EE7B7', name: 'Django', label: 'Month 13 · 31 days', days: 31, ds: 466, de: 496, period: 'Oct 1 – Oct 31, 2027', ms: 'Django Complete · D496', about: 'Month 13. Django 5 + DRF: models, migrations, admin, serializers, viewsets, permissions. FPO admin backend.', courses: [
-      'Dennis Ivy — Django tutorials (YouTube)',
-      'William Vincent — Django for APIs (book)',
-      'Django official docs',
-      'DRF official docs',
-    ], wplan: [
-      { w: 1, f: 'Week 1: Django Core', t: 'models, migrations, admin, templates' },
-      { w: 2, f: 'Week 2: DRF Basics', t: 'serializers, API views, routers' },
-      { w: 3, f: 'Week 3: Auth & Permissions', t: 'token auth, permissions, throttling' },
-      { w: 4, f: 'Week 4: FPO Admin', t: 'booking admin API, deploy on AWS' },
-    ], },
-  { id: 's14', block: 'b3', seq: 14, icon: '⚡', color: '#009688', dark: '#00796B', bg: '#E0F2F1', border: '#80CBC4', name: 'Fast API', label: 'Month 14 · 30 days', days: 30, ds: 497, de: 526, period: 'Nov 1 – Nov 30, 2027', ms: 'Fast API Complete · D526', about: 'Month 14. FastAPI: async routes, Pydantic v2, dependency injection, OAuth2, SQLAlchemy, deploy on AWS.', courses: [
-      'FastAPI official docs',
-      'Raymond Hettinger — async Python',
-      'TestDriven.io — FastAPI course',
-      'Tiago Forte — API design patterns',
-    ], wplan: [
-      { w: 1, f: 'Week 1: FastAPI Core', t: 'routes, path/query params, Pydantic models' },
-      { w: 2, f: 'Week 2: Database Layer', t: 'SQLAlchemy, Alembic, CRUD operations' },
-      { w: 3, f: 'Week 3: Auth & Middleware', t: 'OAuth2, JWT, CORS, rate limiting' },
-      { w: 4, f: 'Week 4: Deploy FPO API', t: 'Dockerize, deploy to AWS ECS, OpenAPI docs' },
-    ], },
-  { id: 's15', block: 'b3', seq: 15, icon: '🤖', color: '#8B5CF6', dark: '#6D28D9', bg: '#F5F3FF', border: '#DDD6FE', name: 'Agentic AI', label: 'Month 15 · 31 days', days: 31, ds: 527, de: 557, period: 'Dec 1 – Dec 31, 2027', ms: 'Agentic AI Complete · D557', about: 'Month 15. Agentic AI: LangChain, LangGraph, RAG, AWS Bedrock, multi-agent systems, MCP. FPO AI assistant on Lambda.', courses: [
-      'Ed Donner — Agentic AI Engineering 2026 (Udemy)',
-      'Eden Marco — LangChain (Udemy)',
-      'AWS Bedrock docs',
-      'LangGraph documentation',
-    ], wplan: [
-      { w: 1, f: 'Week 1: GenAI + RAG', t: 'LLMs, embeddings, vector stores, Bedrock' },
-      { w: 2, f: 'Week 2: LangChain + LangGraph', t: 'chains, agents, tools, state machines' },
-      { w: 3, f: 'Week 3: Ed Donner Projects', t: 'Career Twin, Deep Research, SDR Agent' },
-      { w: 4, f: 'Week 4: FPO AI Capstone', t: 'natural language flight queries on Lambda' },
-    ], },
-  { id: 's16', block: 'b3', seq: 16, icon: '🔧', color: '#6366F1', dark: '#4338CA', bg: '#EEF2FF', border: '#C7D2FE', name: 'Devops', label: 'Month 16 · 31 days', days: 31, ds: 558, de: 588, period: 'Jan 1 – Jan 31, 2028', ms: 'Devops Complete · D588 · Jan 31, 2028', about: 'Month 16. DevOps capstone: Docker, Kubernetes/EKS, CI/CD, Terraform, monitoring. Then DSA and System Design blocks follow.', courses: [
-      'Nana Janashia — DevOps Bootcamp (Udemy)',
-      'Mumshad Mannambeth — Kubernetes CKA (KodeKloud)',
-      'HashiCorp Learn — Terraform',
-      'Bogdan Stashchuk — Terraform (Udemy)',
-    ], wplan: [
-      { w: 1, f: 'Week 1: Docker + ECR', t: 'multi-stage Dockerfile, compose, push to ECR' },
+      { w: 1, f: 'Week 1: Docker + ECR', t: 'multi-stage Dockerfile, compose, ECR' },
       { w: 2, f: 'Week 2: Kubernetes + EKS', t: 'deployments, services, ingress, Helm' },
       { w: 3, f: 'Week 3: CI/CD + Terraform', t: 'GitHub Actions OIDC, IaC modules' },
       { w: 4, f: 'Week 4: FPO Pipeline', t: 'full pipeline + monitoring. 16 MONTHS DONE 🏆' },
     ], },
-  { id: 's17', block: 'b4', seq: 'DSA', icon: '🧮', color: '#059669', dark: '#047857', bg: '#ECFDF5', border: '#6EE7B7', name: 'DSA', label: '100 days', days: 100, ds: 589, de: 688, period: 'Feb 1 – May 10, 2028', ms: 'DSA 100 Days Complete · D688 · May 10, 2028', about: '100 days of Data Structures & Algorithms after the 16-month skill plan. Solve in Python and Java. NeetCode 150 + Blind 75 patterns. Daily 3h: 1h theory/review, 2h timed problem solving. Target: confident medium/hard on arrays, trees, graphs, DP.', courses: [
-      'NeetCode.io (free)',
-      'LeetCode Premium — company tagged',
-      'William Fiset — Graph Theory (YouTube)',
-      'AlgoExpert or take U forward (Striver)',
+  { id: 's17', block: 'b6', seq: 'DSA', icon: '🧮', color: '#059669', dark: '#047857', bg: '#ECFDF5', border: '#6EE7B7', name: 'DSA', label: '100 days', days: 100, ds: 489, de: 588, period: 'Nov 1, 2027 – Feb 8, 2028', ms: 'DSA 100 Days Complete · D588 · Feb 8, 2028', about: '100 days of DSA. NeetCode 150 + Blind 75 patterns. Solve in Python and Java. Daily 3h: 1h review, 2h timed problems.', courses: [
+      'NeetCode.io',
+      'LeetCode Premium',
+      'Striver A2Z DSA',
     ], wplan: [
-      { w: 1, f: 'Week 1: Arrays & Hashing', t: 'two sum, anagrams, top K, hash maps, prefix sums' },
+      { w: 1, f: 'Week 1: Arrays & Hashing', t: 'two sum, anagrams, top K, prefix sums' },
       { w: 2, f: 'Week 2: Two Pointers & Sliding Window', t: 'palindrome, container water, longest substring' },
-      { w: 3, f: 'Week 3: Stacks, Queues & Linked Lists', t: 'valid parentheses, LRU cache, reverse list, merge lists' },
-      { w: 4, f: 'Week 4: Trees & BST', t: 'traversals, LCA, validate BST, serialize tree' },
-      { w: 5, f: 'Week 5: Graphs BFS/DFS', t: 'islands, course schedule, shortest path basics' },
-      { w: 6, f: 'Week 6: Heaps & Intervals', t: 'merge intervals, meeting rooms, kth largest, median stream' },
-      { w: 7, f: 'Week 7: Backtracking & Recursion', t: 'subsets, permutations, N-queens, word search' },
-      { w: 8, f: 'Week 8: Dynamic Programming I', t: 'climbing stairs, coin change, LIS, knapsack' },
-      { w: 9, f: 'Week 9: DP II & Greedy', t: 'edit distance, matrix paths, activity selection' },
-      { w: 10, f: 'Week 10: Mocks & Revision', t: 'timed sets, weak-pattern review, 5 full mock rounds' },
+      { w: 3, f: 'Week 3: Stacks & Linked Lists', t: 'valid parentheses, LRU cache, reverse list' },
+      { w: 4, f: 'Week 4: Trees & BST', t: 'traversals, LCA, validate BST' },
+      { w: 5, f: 'Week 5: Graphs BFS/DFS', t: 'islands, course schedule, shortest path' },
+      { w: 6, f: 'Week 6: Heaps & Intervals', t: 'merge intervals, kth largest, median stream' },
+      { w: 7, f: 'Week 7: Backtracking', t: 'subsets, permutations, N-queens' },
+      { w: 8, f: 'Week 8: Dynamic Programming I', t: 'coin change, LIS, knapsack' },
+      { w: 9, f: 'Week 9: DP II & Greedy', t: 'edit distance, matrix paths, greedy' },
+      { w: 10, f: 'Week 10: Mocks & Revision', t: 'timed sets, 5 full mock rounds' },
     ], },
-  { id: 's18', block: 'b5', seq: 'SD', icon: '🏗', color: '#DC2626', dark: '#B91C1C', bg: '#FEF2F2', border: '#FECACA', name: 'System Design', label: '100 days', days: 100, ds: 689, de: 788, period: 'May 11 – Aug 18, 2028', ms: '788 DAYS COMPLETE · D788 · Aug 18, 2028', about: '100 days of System Design interview prep. Learn scalability fundamentals, design classic systems (URL shortener, Twitter, Uber, WhatsApp), apply AWS patterns from your cert stack, and design FPO end-to-end. Daily: 1h reading/video, 1h whiteboard, 1h written ADR or mock.', courses: [
-      'Gaurav Sen — System Design (YouTube)',
-      'Alex Xu — System Design Interview Vol 1 & 2',
-      'ByteByteGo newsletter',
-      'Designing Data-Intensive Applications (Kleppmann)',
+  { id: 's18', block: 'b7', seq: 'SD', icon: '🏗', color: '#DC2626', dark: '#B91C1C', bg: '#FEF2F2', border: '#FECACA', name: 'System Design', label: '100 days', days: 100, ds: 589, de: 688, period: 'Feb 9 – May 18, 2028', ms: 'System Design 100 Days Complete · D688 · May 18, 2028', about: '100 days of System Design. Scalability fundamentals, classic designs, FPO architecture, mock interviews.', courses: [
+      'Alex Xu — System Design Interview',
+      'Gaurav Sen (YouTube)',
+      'ByteByteGo',
+      'DDIA (Kleppmann)',
     ], wplan: [
-      { w: 1, f: 'Week 1: Fundamentals', t: 'scalability, CAP, load balancers, CDNs, caching layers' },
-      { w: 2, f: 'Week 2: Databases & Storage', t: 'SQL vs NoSQL, sharding, replication, DynamoDB/RDS tradeoffs' },
-      { w: 3, f: 'Week 3: Messaging & Streaming', t: 'SQS, SNS, Kafka, event-driven, idempotency' },
-      { w: 4, f: 'Week 4: API & Microservices', t: 'REST vs gRPC, API gateway, service discovery, sagas' },
-      { w: 5, f: 'Week 5: URL Shortener & Rate Limiter', t: 'hashing, collision, Redis, token bucket' },
-      { w: 6, f: 'Week 6: Social & Feed Systems', t: 'Twitter timeline, notification system, fan-out' },
-      { w: 7, f: 'Week 7: Ride & Chat Systems', t: 'Uber matching, WhatsApp delivery, geospatial indexes' },
-      { w: 8, f: 'Week 8: FPO Architecture', t: 'flight search, booking, payments, Cognito auth on AWS' },
-      { w: 9, f: 'Week 9: Mock Interviews', t: '5 timed whiteboard sessions, peer or self-recorded' },
-      { w: 10, f: 'Week 10: Portfolio & Capstone', t: '10 ADRs, diagrams in GitHub, 5 cold mocks — JOURNEY DONE 🏆' },
+      { w: 1, f: 'Week 1: Fundamentals', t: 'scalability, CAP, load balancers, CDNs' },
+      { w: 2, f: 'Week 2: Databases & Storage', t: 'SQL vs NoSQL, sharding, replication' },
+      { w: 3, f: 'Week 3: Messaging & Streaming', t: 'SQS, SNS, Kafka, event-driven' },
+      { w: 4, f: 'Week 4: API & Microservices', t: 'REST vs gRPC, gateway, sagas' },
+      { w: 5, f: 'Week 5: URL Shortener & Rate Limiter', t: 'hashing, Redis, token bucket' },
+      { w: 6, f: 'Week 6: Social & Feed Systems', t: 'Twitter timeline, notifications' },
+      { w: 7, f: 'Week 7: Ride & Chat Systems', t: 'Uber matching, WhatsApp delivery' },
+      { w: 8, f: 'Week 8: FPO Architecture', t: 'flight search, booking, payments' },
+      { w: 9, f: 'Week 9: Mock Interviews', t: '5 timed whiteboard sessions' },
+      { w: 10, f: 'Week 10: Portfolio', t: '10 ADRs, diagrams in GitHub' },
+    ], },
+  { id: 's19', block: 'b8', seq: 'AWS', icon: '☁', color: '#D97706', dark: '#B45309', bg: '#FFFBEB', border: '#FDE68A', name: 'AWS', label: '100 days', days: 100, ds: 689, de: 788, period: 'May 19 – Aug 26, 2028', ms: 'AWS 100 Days Complete · D788 · Aug 26, 2028', about: '100 days of AWS Cloud. IAM, VPC, EC2, S3, RDS, Lambda, Cognito, ECS, CDK capstone, SAA exam prep.', courses: [
+      'Stephane Maarek — AWS SAA (Udemy)',
+      'Tutorials Dojo practice exams',
+      'AWS Skill Builder',
+    ], wplan: [
+      { w: 1, f: 'Week 1: IAM & Account', t: 'IAM users, roles, policies, MFA, CLI' },
+      { w: 2, f: 'Week 2: VPC Networking', t: 'subnets, IGW, NAT, SGs, endpoints' },
+      { w: 3, f: 'Week 3: EC2 & Load Balancing', t: 'EC2, EBS, ALB, ASG' },
+      { w: 4, f: 'Week 4: S3 Storage', t: 'buckets, versioning, lifecycle, CloudFront' },
+      { w: 5, f: 'Week 5: RDS & DynamoDB', t: 'RDS, Aurora, DynamoDB' },
+      { w: 6, f: 'Week 6: Lambda & API Gateway', t: 'serverless APIs, triggers' },
+      { w: 7, f: 'Week 7: Cognito & Orchestration', t: 'user pools, Step Functions' },
+      { w: 8, f: 'Week 8: ECS, EKS & ECR', t: 'containers on AWS, Fargate' },
+      { w: 9, f: 'Week 9: Messaging, CDN & DNS', t: 'SQS, SNS, Route 53' },
+      { w: 10, f: 'Week 10: CDK Capstone + Exam', t: 'FPO CDK deploy + SAA practice exams' },
+    ],
+    scheduleLink: '#/aws-100-days', },
+  { id: 's20', block: 'b9', seq: 'INT', icon: '🎯', color: '#7C3AED', dark: '#6D28D9', bg: '#F5F3FF', border: '#DDD6FE', name: 'Interview Preparation', label: '212 days', days: 212, ds: 789, de: 1000, period: 'Aug 27, 2028 – Mar 26, 2029', ms: '1000 DAYS COMPLETE · D1000 · Mar 26, 2029', about: '212 days of interview preparation after AWS. React interviews (hooks, performance, patterns), Java interviews (Java 8 tricky Qs, Streams API, Spring Boot), behavioral STAR stories, resume polish, DSA/SD revision, and full mock interviews until D1000.', courses: [
+      'GreatFrontEnd — React interviews',
+      'Java Brains — Java 8 + Streams',
+      'Exponent — behavioral',
+      'Pramp / Interviewing.io mocks',
+    ], wplan: [
+      { w: 1, f: 'Weeks 1–3: React Interviews', t: 'hooks deep dive, reconciliation, performance, state patterns, custom hooks Q&A' },
+      { w: 2, f: 'Weeks 4–6: Java Interviews', t: 'Java 8 lambdas, Optional, tricky streams/collectors, concurrency, Spring Boot Q&A' },
+      { w: 3, f: 'Weeks 7–9: DSA & SD Revision', t: '2 problems/day review, 2 system designs/week, weak-area drills' },
+      { w: 4, f: 'Weeks 10–12: Behavioral & Resume', t: 'STAR stories, project walkthroughs, resume v3, LinkedIn, portfolio' },
+      { w: 5, f: 'Weeks 13–16: Mock Interviews', t: '3 mocks/week: 1 coding, 1 system design, 1 behavioral' },
+      { w: 6, f: 'Weeks 17–20: Company Prep', t: 'target company research, tagged LeetCode, tailored stories' },
+      { w: 7, f: 'Weeks 21–30: Interview Season', t: 'daily mocks, same-day debrief, offer negotiation prep — D1000 DONE 🏆' },
     ], },
 ];
 
 const MILESTONES = [
-  { day: 100, icon: '☁', label: 'AWS 100 Days Done', date: 'Sep 30, 2026', color: '#D97706' },
-  { day: 131, icon: '📜', label: 'Javascript Done', date: 'Oct 31, 2026', color: '#EAB308' },
-  { day: 161, icon: '🔷', label: 'Typescript Done', date: 'Nov 30, 2026', color: '#2563EB' },
-  { day: 192, icon: '⚛', label: 'React JS Done', date: 'Dec 31, 2026', color: '#0EA5E9' },
-  { day: 223, icon: '▲', label: 'Next JS Done', date: 'Jan 31, 2027', color: '#171717' },
-  { day: 251, icon: '📱', label: 'React Native Done', date: 'Feb 28, 2027', color: '#7C3AED' },
-  { day: 282, icon: '🟢', label: 'Node JS Done', date: 'Mar 31, 2027', color: '#16A34A' },
-  { day: 312, icon: '☕', label: 'J2SE Done', date: 'Apr 30, 2027', color: '#EA580C' },
-  { day: 343, icon: '🏢', label: 'J2EE Done', date: 'May 31, 2027', color: '#0891B2' },
-  { day: 373, icon: '🗄', label: 'JPA Done', date: 'Jun 30, 2027', color: '#7C3AED' },
-  { day: 404, icon: '🌱', label: 'Spring Boot Done', date: 'Jul 31, 2027', color: '#6DB33F' },
-  { day: 435, icon: '🏛', label: 'Microservices Done', date: 'Aug 31, 2027', color: '#E11D48' },
-  { day: 465, icon: '🐍', label: 'Python Done', date: 'Sep 30, 2027', color: '#16A34A' },
-  { day: 496, icon: '🎸', label: 'Django Done', date: 'Oct 31, 2027', color: '#092E20' },
-  { day: 526, icon: '⚡', label: 'Fast API Done', date: 'Nov 30, 2027', color: '#009688' },
-  { day: 557, icon: '🤖', label: 'Agentic AI Done', date: 'Dec 31, 2027', color: '#8B5CF6' },
-  { day: 588, icon: '🔧', label: 'Devops Done', date: 'Jan 31, 2028', color: '#6366F1' },
-  { day: 688, icon: '🧮', label: 'DSA 100 Days Done', date: 'May 10, 2028', color: '#059669' },
-  { day: 788, icon: '🏗', label: 'System Design — JOURNEY DONE', date: 'Aug 18, 2028', color: '#DC2626' },
+  { day: 31, icon: '📜', label: 'Javascript Done', date: 'Jul 31, 2026', color: '#EAB308' },
+  { day: 62, icon: '🟢', label: 'ExpressJS Done', date: 'Aug 31, 2026', color: '#16A34A' },
+  { day: 92, icon: '🔷', label: 'Typescript Done', date: 'Sep 30, 2026', color: '#2563EB' },
+  { day: 123, icon: '⚛', label: 'React JS Done', date: 'Oct 31, 2026', color: '#0EA5E9' },
+  { day: 153, icon: '▲', label: 'Next JS Done', date: 'Nov 30, 2026', color: '#171717' },
+  { day: 184, icon: '📱', label: 'React Native Done', date: 'Dec 31, 2026', color: '#7C3AED' },
+  { day: 215, icon: '🐍', label: 'Python Done', date: 'Jan 31, 2027', color: '#15803D' },
+  { day: 243, icon: '🎸', label: 'Django Done', date: 'Feb 28, 2027', color: '#092E20' },
+  { day: 274, icon: '⚡', label: 'Fast API Done', date: 'Mar 31, 2027', color: '#009688' },
+  { day: 304, icon: '🤖', label: 'Agentic AI Done', date: 'Apr 30, 2027', color: '#8B5CF6' },
+  { day: 335, icon: '☕', label: 'J2SE Done', date: 'May 31, 2027', color: '#EA580C' },
+  { day: 365, icon: '🏢', label: 'J2EE Done', date: 'Jun 30, 2027', color: '#0891B2' },
+  { day: 396, icon: '🗄', label: 'JPA Done', date: 'Jul 31, 2027', color: '#7C3AED' },
+  { day: 427, icon: '🌱', label: 'Spring Boot Done', date: 'Aug 31, 2027', color: '#6DB33F' },
+  { day: 457, icon: '🏛', label: 'Microservices Done', date: 'Sep 30, 2027', color: '#E11D48' },
+  { day: 488, icon: '🔧', label: 'Devops Done', date: 'Oct 31, 2027', color: '#6366F1' },
+  { day: 588, icon: '🧮', label: 'DSA 100 Days Done', date: 'Feb 8, 2028', color: '#059669' },
+  { day: 688, icon: '🏗', label: 'System Design 100 Days Done', date: 'May 18, 2028', color: '#DC2626' },
+  { day: 788, icon: '☁', label: 'AWS 100 Days Done', date: 'Aug 26, 2028', color: '#D97706' },
+  { day: 1000, icon: '🎯', label: '1000 Days — JOURNEY DONE', date: 'Mar 26, 2029', color: '#7C3AED' },
 ];
+
 function daysIn() {
   return Math.max(0, Math.floor((new Date() - START) / 86400000));
 }
@@ -650,40 +651,58 @@ export default function App() {
 
   const sections = [
     {
-      col: '#D97706',
-      title: '☁ AWS · 100 DAYS',
-      sub: 'Jun 23 – Sep 30, 2026 · IAM → VPC → EC2 → S3 → RDS → Lambda → Cognito → ECS → CDN → CDK',
-      ids: ['s0'],
+      col: '#E11D48',
+      title: '🎓 CODER ARMY MERN · MONTHS 1–4',
+      sub: 'Jul – Oct 2026 · Javascript → ExpressJS → Typescript → React JS',
+      ids: ['s1', 's2', 's3', 's4'],
     },
     {
       col: '#0EA5E9',
-      title: '🌐 FRONTEND WITH JAVASCRIPT · MONTHS 1–6',
-      sub: 'Oct 2026 – Mar 2027 · Javascript → Typescript → React JS → Next JS → React Native → Node JS',
-      ids: ['s1', 's2', 's3', 's4', 's5', 's6'],
+      title: '🌐 EXTENDED FRONTEND · MONTHS 5–6',
+      sub: 'Nov – Dec 2026 · Next JS → React Native',
+      ids: ['s5', 's6'],
+    },
+    {
+      col: '#15803D',
+      title: '🐍 PYTHON STACK · MONTHS 7–10',
+      sub: 'Jan – Apr 2027 · Python → Django → Fast API → Agentic AI',
+      ids: ['s7', 's8', 's9', 's10'],
     },
     {
       col: '#EA580C',
-      title: '☕ JAVA BACKEND · MONTHS 7–11',
-      sub: 'Apr – Aug 2027 · J2SE → J2EE → JPA → Spring Boot → Microservices',
-      ids: ['s7', 's8', 's9', 's10', 's11'],
+      title: '☕ JAVA BACKEND · MONTHS 11–15',
+      sub: 'May – Sep 2027 · J2SE → J2EE → JPA → Spring Boot → Microservices',
+      ids: ['s11', 's12', 's13', 's14', 's15'],
     },
     {
-      col: '#8B5CF6',
-      title: '🐍 PYTHON AND DEVOPS · MONTHS 12–16',
-      sub: 'Sep 2027 – Jan 2028 · Python → Django → Fast API → Agentic AI → Devops',
-      ids: ['s12', 's13', 's14', 's15', 's16'],
+      col: '#6366F1',
+      title: '🔧 DEVOPS · MONTH 16',
+      sub: 'Oct 2027 · Docker → Kubernetes → CI/CD → Terraform',
+      ids: ['s16'],
     },
     {
       col: '#059669',
       title: '🧮 DSA · 100 DAYS',
-      sub: 'Feb 1 – May 10, 2028 · Arrays → Trees → Graphs → DP → Mock interviews',
+      sub: 'Nov 2027 – Feb 2028 · Arrays → Trees → Graphs → DP',
       ids: ['s17'],
     },
     {
       col: '#DC2626',
       title: '🏗 SYSTEM DESIGN · 100 DAYS',
-      sub: 'May 11 – Aug 18, 2028 · Fundamentals → Classic designs → FPO architecture',
+      sub: 'Feb – May 2028 · Fundamentals → Classic designs → FPO',
       ids: ['s18'],
+    },
+    {
+      col: '#D97706',
+      title: '☁ AWS CLOUD · 100 DAYS',
+      sub: 'May – Aug 2028 · IAM → VPC → EC2 → S3 → Lambda → CDK',
+      ids: ['s19'],
+    },
+    {
+      col: '#7C3AED',
+      title: '🎯 INTERVIEW PREP · D789–D1000',
+      sub: 'Aug 2028 – Mar 2029 · React + Java + Behavioral + Mocks',
+      ids: ['s20'],
     },
   ];
 
@@ -769,7 +788,7 @@ export default function App() {
                   lineHeight: 1.1,
                 }}
               >
-                {'100 Days AWS + 16 Months + DSA + System Design'}
+                {'1000 Days of Code'}
               </div>
               <div
                 style={{
@@ -779,7 +798,7 @@ export default function App() {
                 }}
               >
                 {
-                  'Tue Jun 23, 2026 → Fri Aug 18, 2028 · 5:30 AM – 8:30 AM IST · 3h · 788 study days'
+                  'Wed Jul 1, 2026 → Mar 26, 2029 · 5:30 AM – 8:30 AM IST · 3h · 1000 study days'
                 }
               </div>
             </div>
@@ -906,7 +925,7 @@ export default function App() {
               </div>
               <div style={{ fontSize: 8, color: 'rgba(255,255,255,0.5)' }}>
                 {
-                  'Jun 23, 2026 → Aug 18, 2028 · 788 study days · daily 5:30–8:30 AM IST · no days off'
+                  'Jul 1, 2026 → Mar 26, 2029 · 1000 study days · daily 5:30–8:30 AM IST · no days off'
                 }
               </div>
             </div>
@@ -952,7 +971,7 @@ export default function App() {
                 color: 'rgba(255,255,255,0.4)',
               }}
             >
-              <span>{'Jun 23, 2026'}</span>
+              <span>{'Jul 1, 2026'}</span>
               <span
                 style={{ color: 'rgba(255,255,255,0.75)', fontWeight: 700 }}
               >
@@ -1172,7 +1191,7 @@ export default function App() {
               marginBottom: 3,
             }}
           >
-            {'🏆 Full Journey · Jun 23, 2026 → Aug 18, 2028 · 788 days'}
+            {'🏆 1000 Days of Code · Jul 1, 2026 → Mar 26, 2029'}
           </div>
           <div
             style={{
@@ -1182,7 +1201,7 @@ export default function App() {
             }}
           >
             {
-              'AWS → 16 Skills → DSA → System Design · 5:30–8:30 AM IST · 3h daily'
+              'MERN → 16 Skills → DSA → SD → AWS → Interview Prep · 5:30–8:30 AM IST · 3h daily'
             }
           </div>
           <div
