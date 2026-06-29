@@ -63,7 +63,7 @@ export default function Aws100Days() {
               marginBottom: 10,
             }}
           >
-            {'← Back to 1000 Days of Code'}
+            {'← Back to main plan'}
           </a>
           <div style={{ display: 'flex', alignItems: 'center', gap: 11, marginBottom: 10 }}>
             <div
@@ -103,7 +103,7 @@ export default function Aws100Days() {
                 {'100 Days of AWS — Daily Schedule'}
               </h1>
               <div style={{ fontSize: 9, color: 'rgba(255,255,255,0.65)', marginTop: 3 }}>
-                {'5:30 AM – 8:30 AM IST · 3 hours · Maarek SAA-C03 + hands-on labs · FPO Cloud'}
+                {'Jun 23 – Sep 30, 2026 · 5:30 AM – 8:30 AM IST · 3 hours · Maarek SAA-C03 + hands-on labs'}
               </div>
             </div>
           </div>
@@ -315,7 +315,7 @@ export default function Aws100Days() {
                         color: '#64748B',
                       }}
                     >
-                      {'Week ' + d.week + ' · Study day D' + d.day + ' of 1000'}
+                      {'Week ' + d.week + ' · Study day D' + d.day + ' of 588'}
                     </div>
                   </div>
                 )}
@@ -338,7 +338,7 @@ export default function Aws100Days() {
             {'☁ Day 100 = AWS Block Complete'}
           </div>
           <div style={{ fontSize: 9, opacity: 0.75 }}>
-            {'CDK FPO capstone + 2 SAA practice exams · Then Block 2: DevOps'}
+            {'CDK FPO capstone + 2 SAA practice exams · Then Oct 1: Javascript (16 Month Skill Plan)'}
           </div>
           <a
             href="#/"
