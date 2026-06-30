@@ -1,9 +1,14 @@
 const START = new Date('2026-07-01');
-export const AWS_PHASE_DAYS = 92;
+export const AWS_PLAN_START = 489;
+export const AWS_PHASE_DAYS = 100;
 
-export function awsDayDate(day) {
+export function awsPlanDay(awsDay) {
+  return AWS_PLAN_START + awsDay - 1;
+}
+
+export function awsDayDate(awsDay) {
   const d = new Date(START);
-  d.setDate(d.getDate() + day - 1);
+  d.setDate(d.getDate() + AWS_PLAN_START + awsDay - 2);
   return d.toLocaleDateString('en-US', {
     month: 'short',
     day: 'numeric',

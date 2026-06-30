@@ -1,5 +1,5 @@
 import { useState, useMemo } from 'react';
-import { AWS_SCHEDULE, AWS_WEEKS, awsDayDate } from './aws100DaysSchedule.js';
+import { AWS_SCHEDULE, AWS_WEEKS, AWS_PLAN_START, AWS_PHASE_DAYS, awsDayDate, awsPlanDay } from './aws100DaysSchedule.js';
 
 const COL = '#D97706';
 const COL_DARK = '#B45309';
@@ -8,8 +8,9 @@ const BORDER = '#FDE68A';
 
 function todayAwsDay() {
   const start = new Date('2026-07-01');
-  const d = Math.floor((new Date() - start) / 86400000) + 1;
-  return Math.min(Math.max(d, 1), 92);
+  const planDay = Math.floor((new Date() - start) / 86400000) + 1;
+  if (planDay < AWS_PLAN_START) return 0;
+  return Math.min(planDay - AWS_PLAN_START + 1, AWS_PHASE_DAYS);
 }
 
 export default function Aws100Days() {
@@ -18,12 +19,13 @@ export default function Aws100Days() {
   const today = todayAwsDay();
 
   const days = useMemo(() => {
-    if (week === 0) return AWS_SCHEDULE.filter((d) => d.day <= 92);
+    if (week === 0) return AWS_SCHEDULE;
     const w = AWS_WEEKS.find((x) => x.n === week);
     return AWS_SCHEDULE.filter((d) => d.day >= w.days[0] && d.day <= w.days[1]);
   }, [week]);
 
-  const doneCount = today - 1;
+  const doneCount = today > 0 ? today - 1 : 0;
+  const progress = today > 0 ? Math.min(100, Math.round((today / AWS_PHASE_DAYS) * 100)) : 0;
 
   return (
     <div
@@ -89,7 +91,7 @@ export default function Aws100Days() {
                   color: 'rgba(255,255,255,0.55)',
                 }}
               >
-                {'AWS Pre-Phase · D1–D92 · Jul 1 – Sep 30, 2026'}
+                {'100 Days of AWS · D489–D588 · Nov 2027 – Feb 2028'}
               </div>
               <h1
                 style={{
@@ -100,10 +102,10 @@ export default function Aws100Days() {
                   lineHeight: 1.15,
                 }}
               >
-                {'92 Days of AWS — Daily Schedule'}
+                {'100 Days of AWS — Daily Schedule'}
               </h1>
               <div style={{ fontSize: 9, color: 'rgba(255,255,255,0.65)', marginTop: 3 }}>
-                {'Jul 1 – Sep 30, 2026 · D1–D92 of 1000 · 5:30–8:30 AM + 9–11 AM IST (5h) · CloudFolks Hub'}
+                {'Nov 1, 2027 – Feb 8, 2028 · D489–D588 of 1000 · 5:30–8:30 AM + 9–11 AM IST (5h) · CloudFolks Hub'}
               </div>
             </div>
           </div>
@@ -118,13 +120,17 @@ export default function Aws100Days() {
               color: 'rgba(255,255,255,0.85)',
             }}
           >
-            {'Today: '}
-            <strong>{'Day ' + today}</strong>
-            {' · ' + awsDayDate(today)}
-            {today <= 92 && (
-              <span style={{ opacity: 0.75 }}>
-                {' · ' + AWS_SCHEDULE[today - 1].tag + ': ' + AWS_SCHEDULE[today - 1].learn.slice(0, 60) + '…'}
-              </span>
+            {today > 0 ? (
+              <>
+                {'Today: '}
+                <strong>{'AWS Day ' + today + ' · Plan D' + awsPlanDay(today)}</strong>
+                {' · ' + awsDayDate(today)}
+                <span style={{ opacity: 0.75 }}>
+                  {' · ' + AWS_SCHEDULE[today - 1].tag + ': ' + AWS_SCHEDULE[today - 1].learn.slice(0, 60) + '…'}
+                </span>
+              </>
+            ) : (
+              'AWS block starts Nov 1, 2027 (D489) — after 16-month skill plan'
             )}
           </div>
 
@@ -132,7 +138,7 @@ export default function Aws100Days() {
             <div
               style={{
                 height: '100%',
-                width: Math.min(100, Math.round((today / 92) * 100)) + '%',
+                width: progress + '%',
                 background: '#fff',
                 borderRadius: 4,
                 transition: 'width 0.3s',
@@ -149,8 +155,8 @@ export default function Aws100Days() {
             }}
           >
             <span>{doneCount + ' days done'}</span>
-            <span>{Math.min(100, Math.round((today / 92) * 100)) + '%'}</span>
-            <span>{'92 days'}</span>
+            <span>{progress + '%'}</span>
+            <span>{AWS_PHASE_DAYS + ' days'}</span>
           </div>
         </div>
       </div>
@@ -168,7 +174,7 @@ export default function Aws100Days() {
             onClick={() => setWeek(0)}
             style={filterBtn(week === 0)}
           >
-            {'All 92 days'}
+            {'All 100 days'}
           </button>
           {AWS_WEEKS.map((w) => (
             <button key={w.n} onClick={() => setWeek(w.n)} style={filterBtn(week === w.n)}>
@@ -315,7 +321,7 @@ export default function Aws100Days() {
                         color: '#64748B',
                       }}
                     >
-                      {'Week ' + d.week + ' · Plan day D' + d.day + ' of 1000'}
+                      {'Week ' + d.week + ' · Plan day D' + awsPlanDay(d.day) + ' of 1000'}
                     </div>
                   </div>
                 )}
@@ -335,10 +341,10 @@ export default function Aws100Days() {
           }}
         >
           <div style={{ fontSize: 13, fontWeight: 800, marginBottom: 4 }}>
-            {'☁ Day 92 = AWS Pre-Phase Complete'}
+            {'☁ Day 100 = AWS Complete · Plan D588'}
           </div>
           <div style={{ fontSize: 9, opacity: 0.75 }}>
-            {'Then Oct 1: Javascript — Coder Army MERN (3h daily · 5:30–8:30 AM)'}
+            {'Then Feb 9, 2028: System Design — 100 days (3h daily · 5:30–8:30 AM)'}
           </div>
           <a
             href="#/"
