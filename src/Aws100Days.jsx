@@ -7,9 +7,9 @@ const BG = '#FFFBEB';
 const BORDER = '#FDE68A';
 
 function todayAwsDay() {
-  const start = new Date('2027-11-01');
+  const start = new Date('2026-07-01');
   const d = Math.floor((new Date() - start) / 86400000) + 1;
-  return Math.min(Math.max(d, 1), 100);
+  return Math.min(Math.max(d, 1), 92);
 }
 
 export default function Aws100Days() {
@@ -18,7 +18,7 @@ export default function Aws100Days() {
   const today = todayAwsDay();
 
   const days = useMemo(() => {
-    if (week === 0) return AWS_SCHEDULE;
+    if (week === 0) return AWS_SCHEDULE.filter((d) => d.day <= 92);
     const w = AWS_WEEKS.find((x) => x.n === week);
     return AWS_SCHEDULE.filter((d) => d.day >= w.days[0] && d.day <= w.days[1]);
   }, [week]);
@@ -89,7 +89,7 @@ export default function Aws100Days() {
                   color: 'rgba(255,255,255,0.55)',
                 }}
               >
-                {'Block 1 · D1–D100 · Jun 23 – Sep 30, 2026'}
+                {'AWS Pre-Phase · D1–D92 · Jul 1 – Sep 30, 2026'}
               </div>
               <h1
                 style={{
@@ -100,10 +100,10 @@ export default function Aws100Days() {
                   lineHeight: 1.15,
                 }}
               >
-                {'100 Days of AWS — Daily Schedule'}
+                {'92 Days of AWS — Daily Schedule'}
               </h1>
               <div style={{ fontSize: 9, color: 'rgba(255,255,255,0.65)', marginTop: 3 }}>
-                {'Nov 1, 2027 – Feb 8, 2028 · D489–D588 of 1000 · 5:30 AM – 8:30 AM IST · CloudFolks Hub + labs'}
+                {'Jul 1 – Sep 30, 2026 · D1–D92 of 1000 · 5:30–8:30 AM + 9–11 AM IST (5h) · CloudFolks Hub'}
               </div>
             </div>
           </div>
@@ -121,7 +121,7 @@ export default function Aws100Days() {
             {'Today: '}
             <strong>{'Day ' + today}</strong>
             {' · ' + awsDayDate(today)}
-            {today <= 100 && (
+            {today <= 92 && (
               <span style={{ opacity: 0.75 }}>
                 {' · ' + AWS_SCHEDULE[today - 1].tag + ': ' + AWS_SCHEDULE[today - 1].learn.slice(0, 60) + '…'}
               </span>
@@ -132,7 +132,7 @@ export default function Aws100Days() {
             <div
               style={{
                 height: '100%',
-                width: Math.min(100, today) + '%',
+                width: Math.min(100, Math.round((today / 92) * 100)) + '%',
                 background: '#fff',
                 borderRadius: 4,
                 transition: 'width 0.3s',
@@ -149,8 +149,8 @@ export default function Aws100Days() {
             }}
           >
             <span>{doneCount + ' days done'}</span>
-            <span>{Math.min(100, today) + '%'}</span>
-            <span>{'100 days'}</span>
+            <span>{Math.min(100, Math.round((today / 92) * 100)) + '%'}</span>
+            <span>{'92 days'}</span>
           </div>
         </div>
       </div>
@@ -168,7 +168,7 @@ export default function Aws100Days() {
             onClick={() => setWeek(0)}
             style={filterBtn(week === 0)}
           >
-            {'All 100 days'}
+            {'All 92 days'}
           </button>
           {AWS_WEEKS.map((w) => (
             <button key={w.n} onClick={() => setWeek(w.n)} style={filterBtn(week === w.n)}>
@@ -315,7 +315,7 @@ export default function Aws100Days() {
                         color: '#64748B',
                       }}
                     >
-                      {'Week ' + d.week + ' · Plan day D' + (488 + d.day) + ' of 1000'}
+                      {'Week ' + d.week + ' · Plan day D' + d.day + ' of 1000'}
                     </div>
                   </div>
                 )}
@@ -335,10 +335,10 @@ export default function Aws100Days() {
           }}
         >
           <div style={{ fontSize: 13, fontWeight: 800, marginBottom: 4 }}>
-            {'☁ Day 100 = AWS Block Complete'}
+            {'☁ Day 92 = AWS Pre-Phase Complete'}
           </div>
           <div style={{ fontSize: 9, opacity: 0.75 }}>
-            {'CDK FPO capstone + 2 SAA practice exams · Then System Design (D589–D688)'}
+            {'Then Oct 1: Javascript — Coder Army MERN (3h daily · 5:30–8:30 AM)'}
           </div>
           <a
             href="#/"

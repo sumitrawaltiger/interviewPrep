@@ -1,4 +1,5 @@
-const START = new Date('2027-11-01');
+const START = new Date('2026-07-01');
+export const AWS_PHASE_DAYS = 92;
 
 export function awsDayDate(day) {
   const d = new Date(START);
