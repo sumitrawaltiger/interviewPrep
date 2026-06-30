@@ -1,10 +1,12 @@
 import { useState } from 'react';
-// 1000 Days of Code · Jul 1, 2026 → Mar 26, 2029
-// Coder Army MERN → 16 skills → DSA → System Design → AWS → Interview Prep
+// 1000 Days of Code · Jul 1, 2026 → Jun 30, 2029
+// 1000 study days · 96 relaxation days · 1096 calendar days
 
 const START = new Date('2026-07-01');
 const TOTAL = 1000;
-const STUDY_END = 'Mar 26, 2029';
+const RELAXATION = 96;
+const DEADLINE = 'Jun 30, 2029';
+const STUDY_END = 'Mar 26, 2029'; // D1000 if no relaxation days used
 
 const BLOCKS = [
   { id: 'b1', icon: '🎓', col: '#E11D48', title: 'Coder Army MERN Course', sub: 'D1–D123 · Jul – Oct 2026', detail: 'Javascript → ExpressJS → Typescript → React JS', time: '5:30 AM – 8:30 AM IST · 3h daily' },
@@ -15,7 +17,7 @@ const BLOCKS = [
   { id: 'b6', icon: '🧮', col: '#059669', title: '100 Days of DSA', sub: 'D489–D588 · Nov 2027 – Feb 2028', detail: 'Arrays → Trees → Graphs → DP → Mocks', time: '5:30 AM – 8:30 AM IST · 3h daily' },
   { id: 'b7', icon: '🏗', col: '#DC2626', title: '100 Days of System Design', sub: 'D589–D688 · Feb – May 2028', detail: 'Fundamentals → Classic designs → FPO architecture', time: '5:30 AM – 8:30 AM IST · 3h daily' },
   { id: 'b8', icon: '☁', col: '#D97706', title: '100 Days of AWS Cloud', sub: 'D689–D788 · May – Aug 2028', detail: 'IAM → VPC → EC2 → S3 → Lambda → ECS → CDK', time: '5:30 AM – 8:30 AM IST · 3h daily', scheduleLink: '#/aws-100-days' },
-  { id: 'b9', icon: '🎯', col: '#7C3AED', title: 'Interview Preparation', sub: 'D789–D1000 · Aug 2028 – Mar 2029', detail: 'React + Java interviews → Behavioral → Mocks → Offers', time: '5:30 AM – 8:30 AM IST · 3h daily' },
+  { id: 'b9', icon: '🎯', col: '#7C3AED', title: 'Interview Preparation', sub: 'D789–D1000 · Aug 2028 – Mar 2029', detail: 'React + Java interviews → Behavioral → Mocks → buffer till Jun 30, 2029', time: '5:30 AM – 8:30 AM IST · 3h daily' },
 ];
 
 const PHASES = [
@@ -228,7 +230,7 @@ const PHASES = [
       { w: 10, f: 'Week 10: CDK Capstone + Exam', t: 'FPO CDK deploy + SAA practice exams' },
     ],
     scheduleLink: '#/aws-100-days', },
-  { id: 's20', block: 'b9', seq: 'INT', icon: '🎯', color: '#7C3AED', dark: '#6D28D9', bg: '#F5F3FF', border: '#DDD6FE', name: 'Interview Preparation', label: '212 days', days: 212, ds: 789, de: 1000, period: 'Aug 27, 2028 – Mar 26, 2029', ms: '1000 DAYS COMPLETE · D1000 · Mar 26, 2029', about: '212 days of interview preparation after AWS. React interviews (hooks, performance, patterns), Java interviews (Java 8 tricky Qs, Streams API, Spring Boot), behavioral STAR stories, resume polish, DSA/SD revision, and full mock interviews until D1000.', courses: [
+  { id: 's20', block: 'b9', seq: 'INT', icon: '🎯', color: '#7C3AED', dark: '#6D28D9', bg: '#F5F3FF', border: '#DDD6FE', name: 'Interview Preparation', label: '212 days', days: 212, ds: 789, de: 1000, period: 'Aug 27, 2028 – Mar 26, 2029', ms: '1000 Study Days Complete · D1000 · Mar 26, 2029', about: '212 study days of interview preparation after AWS. React + Java interviews, behavioral STAR stories, DSA/SD revision, mock interviews. Up to 96 relaxation days allowed if 5:30–8:30 AM is unavoidable — hard deadline Jun 30, 2029.', courses: [
       'GreatFrontEnd — React interviews',
       'Java Brains — Java 8 + Streams',
       'Exponent — behavioral',
@@ -264,7 +266,7 @@ const MILESTONES = [
   { day: 588, icon: '🧮', label: 'DSA 100 Days Done', date: 'Feb 8, 2028', color: '#059669' },
   { day: 688, icon: '🏗', label: 'System Design 100 Days Done', date: 'May 18, 2028', color: '#DC2626' },
   { day: 788, icon: '☁', label: 'AWS 100 Days Done', date: 'Aug 26, 2028', color: '#D97706' },
-  { day: 1000, icon: '🎯', label: '1000 Days — JOURNEY DONE', date: 'Mar 26, 2029', color: '#7C3AED' },
+  { day: 1000, icon: '🎯', label: '1000 Study Days Done', date: 'Mar 26, 2029', color: '#7C3AED' },
 ];
 
 function daysIn() {
@@ -701,7 +703,7 @@ export default function App() {
     {
       col: '#7C3AED',
       title: '🎯 INTERVIEW PREP · D789–D1000',
-      sub: 'Aug 2028 – Mar 2029 · React + Java + Behavioral + Mocks',
+      sub: 'Aug 2028 – Mar 2029 · React + Java + Behavioral + Mocks · deadline Jun 30, 2029',
       ids: ['s20'],
     },
   ];
@@ -798,7 +800,7 @@ export default function App() {
                 }}
               >
                 {
-                  'Wed Jul 1, 2026 → Mar 26, 2029 · 5:30 AM – 8:30 AM IST · 3h · 1000 study days'
+                  'Wed Jul 1, 2026 → Sun Jun 30, 2029 · 5:30 AM – 8:30 AM IST · 3h · 1000 study days + 96 relaxation'
                 }
               </div>
             </div>
@@ -920,12 +922,44 @@ export default function App() {
                 }}
               >
                 {
-                  '5:30 AM – 8:30 AM IST daily · 3 hours · MANDATORY · Every day including weekends'
+                  '5:30 AM – 8:30 AM IST daily · 3 hours · MANDATORY on study days'
                 }
               </div>
               <div style={{ fontSize: 8, color: 'rgba(255,255,255,0.5)' }}>
                 {
-                  'Jul 1, 2026 → Mar 26, 2029 · 1000 study days · daily 5:30–8:30 AM IST · no days off'
+                  'Jul 1, 2026 → Jun 30, 2029 · 1000 study days · 96 relaxation days · 5:30–8:30 AM IST daily'
+                }
+              </div>
+            </div>
+          </div>
+
+          <div
+            style={{
+              background: 'rgba(245,158,11,0.14)',
+              border: '1px solid rgba(245,158,11,0.45)',
+              borderRadius: 8,
+              padding: '8px 12px',
+              marginBottom: 10,
+              display: 'flex',
+              gap: 9,
+              alignItems: 'center',
+            }}
+          >
+            <span style={{ fontSize: 15, flexShrink: 0 }}>{'🛋'}</span>
+            <div>
+              <div
+                style={{
+                  fontSize: 10,
+                  fontWeight: 700,
+                  color: '#FDE68A',
+                  marginBottom: 1,
+                }}
+              >
+                {RELAXATION + ' Relaxation Days — buffer for unavoidable misses'}
+              </div>
+              <div style={{ fontSize: 8, color: 'rgba(255,255,255,0.5)' }}>
+                {
+                  '1000 study days of content · 96 days when 5:30–8:30 AM IST is not possible · 1096 calendar days total · finish by ' + DEADLINE
                 }
               </div>
             </div>
@@ -975,9 +1009,9 @@ export default function App() {
               <span
                 style={{ color: 'rgba(255,255,255,0.75)', fontWeight: 700 }}
               >
-                {prog + '% · Study Day ' + sd + ' of ' + TOTAL + ' · Target ' + STUDY_END}
+                {prog + '% · Study Day ' + sd + ' of ' + TOTAL + ' · Deadline ' + DEADLINE}
               </span>
-              <span>{STUDY_END}</span>
+              <span>{DEADLINE}</span>
             </div>
           </div>
 
@@ -1191,7 +1225,7 @@ export default function App() {
               marginBottom: 3,
             }}
           >
-            {'🏆 1000 Days of Code · Jul 1, 2026 → Mar 26, 2029'}
+            {'🏆 1000 Days of Code · Jul 1, 2026 → Jun 30, 2029 · 96 relaxation days'}
           </div>
           <div
             style={{
