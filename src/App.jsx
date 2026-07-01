@@ -26,7 +26,9 @@ const BLOCKS = [
 ];
 
 const PHASES = [
-  { id: 's1', block: 'b1', seq: 1, icon: '📜', color: '#EAB308', dark: '#CA8A04', bg: '#FEFCE8', border: '#FDE047', name: 'Javascript', label: 'Month 1 · 31 days', days: 31, ds: 1, de: 31, period: 'Jul 1 – Jul 31, 2026', ms: 'Javascript Complete · D31', about: 'Month 1 · Coder Army MERN course starts Jul 2026. JavaScript ES6+ fundamentals: variables, functions, closures, prototypes, arrays/objects, async/await, Promises, modules.', courses: [
+  { id: 's1', block: 'b1', seq: 1, icon: '📜', color: '#EAB308', dark: '#CA8A04', bg: '#FEFCE8', border: '#FDE047', name: 'Javascript', label: 'Month 1 · 31 days', days: 31, ds: 1, de: 31, period: 'Jul 1 – Jul 31, 2026', ms: 'Javascript Complete · D31', about: 'Month 1 · Coder Army MERN course starts Jul 2026. JavaScript ES6+ fundamentals: variables, functions, closures, prototypes, arrays/objects, async/await, Promises, modules.', dayLinks: [
+      { href: '#/day-001', label: 'Day 001 · Jul 1, 2026', done: true },
+    ], courses: [
       'Coder Army — Web Dev + System Design + Security + DevOps (MERN)',
       'javascript.info (free)',
       'MDN Web Docs',
@@ -513,6 +515,51 @@ function Card({ p, open, onToggle, isCurrent, isDone }) {
           >
             {p.about}
           </div>
+          {p.dayLinks?.length > 0 && (
+            <div
+              style={{
+                background: p.bg,
+                borderRadius: 8,
+                padding: '9px 11px',
+                border: '1px solid ' + p.border,
+                marginBottom: 10,
+              }}
+            >
+              <div
+                style={{
+                  fontSize: 9,
+                  fontWeight: 800,
+                  color: p.dark,
+                  letterSpacing: '0.08em',
+                  marginBottom: 6,
+                }}
+              >
+                {'📓 DAILY STUDY LOG'}
+              </div>
+              {p.dayLinks.map((d) => (
+                <a
+                  key={d.href}
+                  href={d.href}
+                  style={{
+                    display: 'flex',
+                    alignItems: 'center',
+                    gap: 8,
+                    padding: '7px 9px',
+                    borderRadius: 7,
+                    background: '#fff',
+                    border: '1px solid ' + p.border,
+                    textDecoration: 'none',
+                    color: '#0F172A',
+                    marginBottom: 4,
+                  }}
+                >
+                  <span style={{ fontSize: 12 }}>{d.done ? '✅' : '📄'}</span>
+                  <span style={{ fontSize: 11, fontWeight: 700, color: p.color }}>{d.label}</span>
+                  <span style={{ marginLeft: 'auto', fontSize: 9, color: '#64748B' }}>{'View →'}</span>
+                </a>
+              ))}
+            </div>
+          )}
           <div
             style={{
               background: '#F8FAFC',
