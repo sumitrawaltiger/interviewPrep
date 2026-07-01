@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import { JS_COURSE_DAYS } from './data/jsCourseDays.js';
 // 1000 Days of Code · Jul 1, 2026 → Jun 30, 2029
 // 1000 study days + 96 relaxation = 1096 calendar days
 // 16 months (3h) → 100d AWS (5h) → 100d SD → 100d DSA → 100d K8s → 112d Interview (+ 96 relax)
@@ -11,6 +12,22 @@ const DEADLINE = 'Jun 30, 2029';
 const AWS_DAYS = 100;
 const AWS_TIME = '5:30 AM – 8:30 AM + 9 AM – 11 AM IST · 5h daily';
 const STUDY_TIME = '5:30 AM – 8:30 AM IST · 3h daily';
+
+const JS_DAY_LINKS = JS_COURSE_DAYS.map((d) => ({
+  href: d.hash,
+  notionUrl: d.notionUrl,
+  notionLabel: d.notionLabel,
+  label:
+    'Day ' +
+    String(d.day).padStart(3, '0') +
+    ' · ' +
+    d.date +
+    ' · L' +
+    String(d.lecture).padStart(2, '0') +
+    ': ' +
+    d.title,
+  done: !!d.done,
+}));
 
 const BLOCKS = [
   { id: 'b1', icon: '🎓', col: '#E11D48', title: 'Coder Army MERN Course', sub: 'D1–D123 · Jul – Oct 2026', detail: 'Javascript → ExpressJS → Typescript → React JS', time: STUDY_TIME },
@@ -26,9 +43,7 @@ const BLOCKS = [
 ];
 
 const PHASES = [
-  { id: 's1', block: 'b1', seq: 1, icon: '📜', color: '#EAB308', dark: '#CA8A04', bg: '#FEFCE8', border: '#FDE047', name: 'Javascript', label: 'Month 1 · 31 days', days: 31, ds: 1, de: 31, period: 'Jul 1 – Jul 31, 2026', ms: 'Javascript Complete · D31', about: 'Month 1 · Coder Army MERN course starts Jul 2026. JavaScript ES6+ fundamentals: variables, functions, closures, prototypes, arrays/objects, async/await, Promises, modules.', dayLinks: [
-      { href: '#/day-001', label: 'Day 001 · Jul 1, 2026', done: true },
-    ], courses: [
+  { id: 's1', block: 'b1', seq: 1, icon: '📜', color: '#EAB308', dark: '#CA8A04', bg: '#FEFCE8', border: '#FDE047', name: 'Javascript', label: 'Month 1 · 31 days', days: 31, ds: 1, de: 31, period: 'Jul 1 – Jul 31, 2026', ms: 'Javascript Complete · D31',     about: 'Month 1 · Coder Army Day of Thunder — 19 daily lectures (Jul 1–19, 2026). Then advanced JS topics through Jul 31.', dayLinks: JS_DAY_LINKS, courses: [
       'Coder Army — Web Dev + System Design + Security + DevOps (MERN)',
       'javascript.info (free)',
       'MDN Web Docs',
@@ -537,26 +552,46 @@ function Card({ p, open, onToggle, isCurrent, isDone }) {
                 {'📓 DAILY STUDY LOG'}
               </div>
               {p.dayLinks.map((d) => (
-                <a
-                  key={d.href}
-                  href={d.href}
-                  style={{
-                    display: 'flex',
-                    alignItems: 'center',
-                    gap: 8,
-                    padding: '7px 9px',
-                    borderRadius: 7,
-                    background: '#fff',
-                    border: '1px solid ' + p.border,
-                    textDecoration: 'none',
-                    color: '#0F172A',
-                    marginBottom: 4,
-                  }}
-                >
-                  <span style={{ fontSize: 12 }}>{d.done ? '✅' : '📄'}</span>
-                  <span style={{ fontSize: 11, fontWeight: 700, color: p.color }}>{d.label}</span>
-                  <span style={{ marginLeft: 'auto', fontSize: 9, color: '#64748B' }}>{'View →'}</span>
-                </a>
+                <div key={d.href} style={{ marginBottom: 4 }}>
+                  <a
+                    href={d.href}
+                    style={{
+                      display: 'flex',
+                      alignItems: 'center',
+                      gap: 8,
+                      padding: '7px 9px',
+                      borderRadius: 7,
+                      background: '#fff',
+                      border: '1px solid ' + p.border,
+                      textDecoration: 'none',
+                      color: '#0F172A',
+                    }}
+                  >
+                    <span style={{ fontSize: 12 }}>{d.done ? '✅' : '📄'}</span>
+                    <span style={{ fontSize: 11, fontWeight: 700, color: p.color }}>{d.label}</span>
+                    <span style={{ marginLeft: 'auto', fontSize: 9, color: '#64748B' }}>{'View →'}</span>
+                  </a>
+                  {d.notionUrl && (
+                    <a
+                      href={d.notionUrl}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      onClick={(e) => e.stopPropagation()}
+                      style={{
+                        display: 'block',
+                        marginTop: 3,
+                        marginLeft: 28,
+                        fontSize: 9,
+                        fontWeight: 700,
+                        color: '#0F172A',
+                        textDecoration: 'underline',
+                        textUnderlineOffset: 2,
+                      }}
+                    >
+                      {'📝 ' + (d.notionLabel || 'Notion Notes')}
+                    </a>
+                  )}
+                </div>
               ))}
             </div>
           )}
