@@ -1,7 +1,7 @@
 import { useState } from 'react';
 // 1000 Days of Code · Jul 1, 2026 → Jun 30, 2029
 // 1000 study days + 96 relaxation = 1096 calendar days
-// 16 months (3h) → 100d AWS (5h) → 100d SD → 100d DSA → Interview (212 study + 96 relax)
+// 16 months (3h) → 100d AWS (5h) → 100d SD → 100d DSA → 100d K8s → 112d Interview (+ 96 relax)
 
 const START = new Date('2026-07-01');
 const TOTAL = 1000;
@@ -21,7 +21,8 @@ const BLOCKS = [
   { id: 'b0', icon: '☁', col: '#D97706', title: '100 Days of AWS', sub: 'D489–D588 · Nov 2027 – Feb 2028', detail: 'CloudFolks Hub · IAM → VPC → EC2 → S3 → Lambda → ECS', time: AWS_TIME, scheduleLink: '#/aws-100-days' },
   { id: 'b6', icon: '🏗', col: '#DC2626', title: 'System Design', sub: 'D589–D688 · Feb – May 2028', detail: '100 days · Fundamentals → Classic designs → FPO', time: STUDY_TIME },
   { id: 'b7', icon: '🧮', col: '#059669', title: 'DSA', sub: 'D689–D788 · May – Aug 2028', detail: '100 days · Arrays → Trees → Graphs → DP → Mocks', time: STUDY_TIME },
-  { id: 'b8', icon: '🎯', col: '#7C3AED', title: 'Interview Preparation', sub: 'D789–D1000 · Aug 2028 – Jun 2029', detail: '212 study days + 96 relaxation · React + Java + Mocks', time: STUDY_TIME },
+  { id: 'b8', icon: '☸', col: '#326CE5', title: 'Kubernetes', sub: 'D789–D888 · Aug – Dec 2028', detail: '100 days · CKA/CKAD path · clusters → workloads → networking', time: STUDY_TIME },
+  { id: 'b9', icon: '🎯', col: '#7C3AED', title: 'Interview Preparation', sub: 'D889–D1000 · Dec 2028 – Jun 2029', detail: '112 study days (16 weeks) + 96 relaxation · React + Java + Mocks', time: STUDY_TIME },
 ];
 
 const PHASES = [
@@ -172,7 +173,7 @@ const PHASES = [
       { w: 3, f: 'Week 3: Event-Driven', t: 'Kafka producers/consumers' },
       { w: 4, f: 'Week 4: FPO Decomposition', t: 'flight/booking/auth services' },
     ], },
-  { id: 's16', block: 'b5', seq: 16, icon: '🔧', color: '#6366F1', dark: '#4338CA', bg: '#EEF2FF', border: '#C7D2FE', name: 'Devops', label: 'Month 16 · 31 days', days: 31, ds: 458, de: 488, period: 'Oct 1 – Oct 31, 2027', ms: 'Devops Complete · D488', about: 'Month 16. DevOps from CloudFolks Hub paid course. Then 100 days AWS → 100 days System Design → 100 days DSA → Interview Prep through Jun 2029.', courses: [
+  { id: 's16', block: 'b5', seq: 16, icon: '🔧', color: '#6366F1', dark: '#4338CA', bg: '#EEF2FF', border: '#C7D2FE', name: 'Devops', label: 'Month 16 · 31 days', days: 31, ds: 458, de: 488, period: 'Oct 1 – Oct 31, 2027', ms: 'Devops Complete · D488', about: 'Month 16. DevOps from CloudFolks Hub paid course. Then 100 days AWS → System Design → DSA → Kubernetes → Interview Prep through Jun 2029.', courses: [
       'CloudFolks Hub — DevOps (paid course)',
       'Docker docs',
       'Kubernetes docs',
@@ -232,18 +233,35 @@ const PHASES = [
       { w: 9, f: 'Week 9: DP II & Greedy', t: 'edit distance, greedy' },
       { w: 10, f: 'Week 10: Mocks', t: '5 full mock rounds' },
     ], },
-  { id: 's19', block: 'b8', seq: 'INT', icon: '🎯', color: '#7C3AED', dark: '#6D28D9', bg: '#F5F3FF', border: '#DDD6FE', name: 'Interview Preparation', label: '212 study + 96 relaxation', days: 212, ds: 789, de: 1000, period: 'Aug 27, 2028 – Jun 30, 2029', ms: '1000 Study Days Complete · D1000', about: 'Interview prep Aug 27, 2028 – Jun 30, 2029 (308 calendar days). 212 mandatory study days (D789–D1000) plus 96 relaxation days when 5:30–8:30 AM IST is not possible. React + Java interviews, behavioral STAR stories, DSA/SD revision, mocks. Finish all study by D1000; calendar deadline Jun 30, 2029.', courses: [
+  { id: 's19', block: 'b8', seq: 'K8s', icon: '☸', color: '#326CE5', dark: '#1D4ED8', bg: '#EFF6FF', border: '#BFDBFE', name: 'Kubernetes', label: '100 days', days: 100, ds: 789, de: 888, period: 'Aug 27 – Dec 4, 2028', ms: 'Kubernetes Complete · D888 · Dec 4, 2028', about: '100 days of Kubernetes (Aug–Dec 2028). Core concepts, kubectl, workloads, networking, storage, security, Helm, and CKA/CKAD exam prep. 3h daily 5:30–8:30 AM IST. First half of the post-DSA block before interview prep.', courses: [
+      'KodeKloud — CKA/CKAD courses',
+      'Kubernetes official docs',
+      'Killer.sh CKA/CKAD practice',
+    ], wplan: [
+      { w: 1, f: 'Week 1: Architecture & kubectl', t: 'control plane, nodes, contexts, imperative vs declarative' },
+      { w: 2, f: 'Week 2: Pods & Workloads', t: 'Deployments, ReplicaSets, DaemonSets, Jobs, CronJobs' },
+      { w: 3, f: 'Week 3: Services & Networking', t: 'ClusterIP, NodePort, Ingress, DNS, NetworkPolicies' },
+      { w: 4, f: 'Week 4: Storage', t: 'PV, PVC, StorageClass, ConfigMaps, Secrets' },
+      { w: 5, f: 'Week 5: Scheduling & Resources', t: 'requests/limits, affinity, taints, tolerations' },
+      { w: 6, f: 'Week 6: Security & RBAC', t: 'ServiceAccounts, Roles, RoleBindings, Pod Security' },
+      { w: 7, f: 'Week 7: Observability', t: 'probes, logging, metrics-server, troubleshooting' },
+      { w: 8, f: 'Week 8: Helm & GitOps intro', t: 'charts, releases, Argo CD basics' },
+      { w: 9, f: 'Week 9: FPO on K8s', t: 'deploy FPO services, HPA, rolling updates' },
+      { w: 10, f: 'Week 10: CKA/CKAD mocks', t: 'timed labs, weak-area drills' },
+    ], },
+  { id: 's20', block: 'b9', seq: 'INT', icon: '🎯', color: '#7C3AED', dark: '#6D28D9', bg: '#F5F3FF', border: '#DDD6FE', name: 'Interview Preparation', label: '16 weeks · 112 days', days: 112, ds: 889, de: 1000, period: 'Dec 5, 2028 – Jun 30, 2029', ms: '1000 Study Days Complete · D1000', about: '112 study days (16 weeks, D889–D1000) plus 96 relaxation days through Jun 30, 2029 when 5:30–8:30 AM IST is not possible. React + Java interviews, behavioral STAR stories, DSA/SD revision, mocks. Study content ends ~Mar 26, 2029; calendar deadline Jun 30, 2029.', courses: [
       'GreatFrontEnd — React interviews',
       'Java Brains — Java 8 + Streams',
       'Exponent — behavioral',
       'Pramp / Interviewing.io mocks',
     ], wplan: [
-      { w: 1, f: 'Aug–Oct: React + Java', t: 'hooks, performance, Java 8 streams, Spring Boot Q&A' },
-      { w: 2, f: 'Nov–Dec: DSA & SD Revision', t: '2 problems/day, 2 system designs/week' },
-      { w: 3, f: 'Jan–Feb: Behavioral & Resume', t: 'STAR stories, resume v3, LinkedIn, portfolio' },
-      { w: 4, f: 'Mar–May: Mock Interviews', t: '3 mocks/week — coding, design, behavioral' },
-      { w: 5, f: 'Jun: Interview Season', t: 'daily mocks, company prep — D1000 DONE 🏆' },
-      { w: 6, f: '🛋 96 Relaxation Days (Aug–Jun)', t: 'spread across this window when 5:30–8:30 AM study is not possible' },
+      { w: 1, f: 'Weeks 1–2: React Interviews', t: 'hooks, performance, patterns, system design tie-ins' },
+      { w: 2, f: 'Weeks 3–4: Java Interviews', t: 'Java 8, streams, Spring Boot Q&A' },
+      { w: 3, f: 'Weeks 5–6: DSA & SD Revision', t: '2 problems/day, 2 system designs/week' },
+      { w: 4, f: 'Weeks 7–8: Behavioral & Resume', t: 'STAR stories, resume v3, LinkedIn, portfolio' },
+      { w: 5, f: 'Weeks 9–12: Mock Interviews', t: '3 mocks/week — coding, design, behavioral' },
+      { w: 6, f: 'Weeks 13–16: Interview Season', t: 'daily mocks, company prep — D1000 DONE 🏆' },
+      { w: 7, f: '🛋 96 Relaxation Days (Aug 2028 – Jun 2029)', t: 'spread across the full post-DSA window when 5:30–8:30 AM study is not possible' },
     ], },
 ];
 
@@ -267,6 +285,7 @@ const MILESTONES = [
   { day: 588, icon: '☁', label: 'AWS Done', date: 'Feb 8, 2028', color: '#D97706' },
   { day: 688, icon: '🏗', label: 'System Design Done', date: 'May 18, 2028', color: '#DC2626' },
   { day: 788, icon: '🧮', label: 'DSA Done', date: 'Aug 26, 2028', color: '#059669' },
+  { day: 888, icon: '☸', label: 'Kubernetes Done', date: 'Dec 4, 2028', color: '#326CE5' },
   { day: 1000, icon: '🎯', label: '1000 Study Days Complete', date: 'Mar 26, 2029', color: '#7C3AED' },
 ];
 
@@ -661,7 +680,8 @@ export default function App() {
     { col: '#D97706', title: '☁ 100 DAYS OF AWS', sub: 'Nov 2027 – Feb 2028 · 5h daily (5:30–8:30 AM + 9–11 AM) · CloudFolks Hub', ids: ['s0'] },
     { col: '#DC2626', title: '🏗 SYSTEM DESIGN · 100 DAYS', sub: 'Feb – May 2028 · D589–D688', ids: ['s17'] },
     { col: '#059669', title: '🧮 DSA · 100 DAYS', sub: 'May – Aug 2028 · D689–D788', ids: ['s18'] },
-    { col: '#7C3AED', title: '🎯 INTERVIEW PREP · D789–D1000', sub: 'Aug 2028 – Jun 2029 · 212 study + 96 relaxation days', ids: ['s19'] },
+    { col: '#326CE5', title: '☸ KUBERNETES · 100 DAYS', sub: 'Aug – Dec 2028 · D789–D888', ids: ['s19'] },
+    { col: '#7C3AED', title: '🎯 INTERVIEW PREP · D889–D1000', sub: 'Dec 2028 – Jun 2029 · 112 study days (16 weeks) + 96 relaxation', ids: ['s20'] },
   ];
 
   return (
@@ -915,7 +935,7 @@ export default function App() {
               </div>
               <div style={{ fontSize: 8, color: 'rgba(255,255,255,0.5)' }}>
                 {
-                  TOTAL + ' mandatory study days · ' + RELAXATION + ' relaxation days built into interview prep (Oct 2028 – Jun 2029) · ' + CALENDAR_DAYS + ' calendar days · finish by ' + DEADLINE
+                  TOTAL + ' mandatory study days · ' + RELAXATION + ' relaxation days in post-DSA window (Aug 2028 – Jun 2029) · ' + CALENDAR_DAYS + ' calendar days · finish by ' + DEADLINE
                 }
               </div>
             </div>
@@ -1191,7 +1211,7 @@ export default function App() {
             }}
           >
             {
-              'Javascript (D1) → 16 Skills → AWS (5h) → SD → DSA → Interview · 3h daily'
+              'Javascript (D1) → 16 Skills → AWS (5h) → SD → DSA → K8s → Interview · 3h daily'
             }
           </div>
           <div
