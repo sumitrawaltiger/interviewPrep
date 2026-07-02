@@ -7,7 +7,7 @@ const BG = '#FFFBEB';
 const BORDER = '#FDE68A';
 
 function todayAwsDay() {
-  const start = new Date('2026-07-01');
+  const start = new Date('2026-07-04');
   const planDay = Math.floor((new Date() - start) / 86400000) + 1;
   if (planDay < AWS_PLAN_START) return 0;
   return Math.min(planDay - AWS_PLAN_START + 1, AWS_PHASE_DAYS);
@@ -105,7 +105,7 @@ export default function Aws100Days() {
                 {'100 Days of AWS — Daily Schedule'}
               </h1>
               <div style={{ fontSize: 9, color: 'rgba(255,255,255,0.65)', marginTop: 3 }}>
-                {'Nov 1, 2027 – Feb 8, 2028 · D489–D588 of 1000 · 5:30–8:30 AM + 9–11 AM IST (5h) · CloudFolks Hub'}
+                {'Nov 4, 2027 – Feb 11, 2028 · D489–D588 of 1050 · 5:30–8:30 AM IST (3h) · CloudFolks Hub'}
               </div>
             </div>
           </div>
@@ -321,7 +321,7 @@ export default function Aws100Days() {
                         color: '#64748B',
                       }}
                     >
-                      {'Week ' + d.week + ' · Plan day D' + awsPlanDay(d.day) + ' of 1000'}
+                      {'Week ' + d.week + ' · Plan day D' + awsPlanDay(d.day) + ' of 1050'}
                     </div>
                   </div>
                 )}

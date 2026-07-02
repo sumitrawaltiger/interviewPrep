@@ -1,4 +1,4 @@
-const START = new Date('2026-07-01');
+const START = new Date('2026-07-04');
 
 const NOTION_URLS = {
   1: 'https://app.notion.com/p/Lecture01-Introduction-to-Javascript-37243ac5cab9802293fff4573c26a6f4',
