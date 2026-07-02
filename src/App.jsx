@@ -29,9 +29,9 @@ const JS_DAY_LINKS = JS_COURSE_DAYS.map((d) => ({
 }));
 
 const PHASES_LIST = PHASES.map((p) =>
-  p.id === 's1'
+  p.id === 's2'
     ? { ...p, dayLinks: JS_DAY_LINKS }
-    : p.id === 's18'
+    : p.id === 's1'
       ? { ...p, scheduleLink: '#/aws-100-days' }
       : p,
 );
@@ -488,10 +488,11 @@ export default function App() {
   };
 
   const sections = [
-    { col: '#E11D48', title: '🎓 JAVASCRIPT ECOSYSTEM · W1–W35', sub: 'Jul 2026 – Mar 2027 · Javascript → Typescript → ExpressJS → React → Next JS → React Native · 35 weeks', ids: ['s1','s2','s3','s4','s5','s6'] },
-    { col: '#15803D', title: '🐍 PYTHON STACK · W36–W56', sub: 'Mar – Jul 2027 · Python → Django → Fast API → Agentic AI · 21 weeks', ids: ['s7','s8','s9','s10'] },
-    { col: '#EA580C', title: '☕ JAVA BACKEND · W57–W82', sub: 'Jul 2027 – Jan 2028 · J2SE → J2EE → JPA → Spring Boot → Microservices · 26 weeks', ids: ['s11','s12','s13','s14','s15'] },
-    { col: '#6366F1', title: '🔧 DEVOPS & CLOUD · W83–W116', sub: 'Jan – Sep 2028 · DevOps → Kubernetes → AWS · 34 weeks', ids: ['s16','s17','s18'] },
+    { col: '#D97706', title: '☁ AWS · W1–W13', sub: 'Jul – Oct 2026 · 13 weeks · CloudFolks Hub · 3h daily', ids: ['s1'] },
+    { col: '#E11D48', title: '🎓 JAVASCRIPT ECOSYSTEM · W14–W48', sub: 'Sep 2026 – Mar 2027 · Javascript → Typescript → ExpressJS → React → Next JS → React Native · 35 weeks', ids: ['s2','s3','s4','s5','s6','s7'] },
+    { col: '#15803D', title: '🐍 PYTHON STACK · W49–W69', sub: 'Mar – Aug 2027 · Python → Django → Fast API → Agentic AI · 21 weeks', ids: ['s8','s9','s10','s11'] },
+    { col: '#EA580C', title: '☕ JAVA BACKEND · W70–W95', sub: 'Aug 2027 – Feb 2028 · J2SE → J2EE → JPA → Spring Boot → Microservices · 26 weeks', ids: ['s12','s13','s14','s15','s16'] },
+    { col: '#6366F1', title: '🔧 DEVOPS & KUBERNETES · W96–W116', sub: 'Feb – Sep 2028 · DevOps → Kubernetes · 21 weeks', ids: ['s17','s18'] },
     { col: '#7C3AED', title: '🎯 INTERVIEW READINESS · W117–W150', sub: 'Sep 2028 – May 2029 · Data Structures → System Design · 34 weeks', ids: ['s19','s20'] },
   ];
 
@@ -709,7 +710,7 @@ export default function App() {
                 }}
               >
                 {
-                  '20 skills across 150 weeks · 3h daily (5:30–8:30 AM IST) · JS first, DSA + System Design last'
+                  '20 skills across 150 weeks · 3h daily (5:30–8:30 AM IST) · AWS first, DSA + System Design last'
                 }
               </div>
               <div style={{ fontSize: 8, color: 'rgba(255,255,255,0.5)' }}>
@@ -745,7 +746,7 @@ export default function App() {
                 {'150 Weeks of Code — daily 5:30–8:30 AM IST through ' + DEADLINE}
               </div>
               <div style={{ fontSize: 8, color: 'rgba(255,255,255,0.5)' }}>
-                {'W1 Javascript → W150 System Design · 1050 study days total'}
+                {'W1 AWS → W150 System Design · 1050 study days total'}
               </div>
             </div>
           </div>
@@ -1020,7 +1021,7 @@ export default function App() {
             }}
           >
             {
-              'JS → TS → Express → React → Next → RN → Python → Django → FastAPI → AI → Java → DevOps → K8s → AWS → DSA → SD'
+              'AWS → JS → TS → Express → React → Next → RN → Python → Django → FastAPI → AI → Java → DevOps → K8s → DSA → SD'
             }
           </div>
           <div

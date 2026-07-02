@@ -344,8 +344,40 @@ const SKILLS = [
   },
 ];
 
+const SKILL_ORDER = [
+  'AWS', 'Javascript', 'Typescript', 'ExpressJS', 'React JS', 'Next JS', 'React Native',
+  'Python', 'Django', 'Fast API', 'Agentic AI', 'J2SE', 'J2EE', 'JPA', 'Spring Boot',
+  'Microservices', 'Devops', 'Kubernetes', 'Data Structures', 'System Design',
+];
+
+const BLOCK_BY_SKILL = {
+  AWS: 'b0',
+  Javascript: 'b1', Typescript: 'b1', ExpressJS: 'b1', 'React JS': 'b1', 'Next JS': 'b1', 'React Native': 'b1',
+  Python: 'b2', Django: 'b2', 'Fast API': 'b2', 'Agentic AI': 'b2',
+  J2SE: 'b3', J2EE: 'b3', JPA: 'b3', 'Spring Boot': 'b3', Microservices: 'b3',
+  Devops: 'b4', Kubernetes: 'b4',
+  'Data Structures': 'b5', 'System Design': 'b5',
+};
+
+const byName = Object.fromEntries(SKILLS.map((s) => [s.name, s]));
+const ORDERED_SKILLS = SKILL_ORDER.map((name, i) => {
+  const s = byName[name];
+  if (!s) throw new Error('Missing skill: ' + name);
+  const aboutBody = s.about.replace(/^Weeks \d+–\d+ · /, '');
+  const ordered = {
+    ...s,
+    aboutBody,
+    id: 's' + (i + 1),
+    seq: i + 1,
+    block: BLOCK_BY_SKILL[name],
+  };
+  if (name === 'AWS') ordered.scheduleLink = '#/aws-100-days';
+  delete ordered.about;
+  return ordered;
+});
+
 let ws = 1;
-const PHASES = SKILLS.map((s) => {
+const PHASES = ORDERED_SKILLS.map((s) => {
   const we = ws + s.weeks - 1;
   const ds = (ws - 1) * 7 + 1;
   const de = we * 7;
@@ -360,6 +392,7 @@ const PHASES = SKILLS.map((s) => {
     ds,
     de,
     period: period(ws, we),
+    about: 'Weeks ' + ws + '–' + we + ' · ' + s.aboutBody,
     ms: s.name + ' Complete · W' + we,
     wplan: s.wplan.map((row, i) => ({
       w: ws + i,
@@ -368,19 +401,37 @@ const PHASES = SKILLS.map((s) => {
     })),
   };
   ws = we + 1;
-  return p;
+  const { aboutBody, ...phase } = p;
+  return phase;
 });
 
 const sumWeeks = PHASES.reduce((a, p) => a + p.weeks, 0);
 if (sumWeeks !== TOTAL_WEEKS) throw new Error('Week sum ' + sumWeeks + ' !== ' + TOTAL_WEEKS);
 
-const BLOCKS = [
-  { id: 'b1', icon: '🎓', col: '#E11D48', title: 'JavaScript Ecosystem', sub: 'W1–W35 · Jul 2026 – Mar 2027', detail: 'Javascript → Typescript → ExpressJS → React → Next JS → React Native', time: '5:30 AM – 8:30 AM IST · 3h daily' },
-  { id: 'b2', icon: '🐍', col: '#15803D', title: 'Python Stack', sub: 'W36–W56 · Mar – Jul 2027', detail: 'Python → Django → Fast API → Agentic AI', time: '5:30 AM – 8:30 AM IST · 3h daily' },
-  { id: 'b3', icon: '☕', col: '#EA580C', title: 'Java Backend', sub: 'W57–W82 · Jul 2027 – Jan 2028', detail: 'J2SE → J2EE → JPA → Spring Boot → Microservices', time: '5:30 AM – 8:30 AM IST · 3h daily' },
-  { id: 'b4', icon: '🔧', col: '#6366F1', title: 'DevOps & Cloud', sub: 'W83–W116 · Jan – Sep 2028', detail: 'DevOps → Kubernetes → AWS', time: '5:30 AM – 8:30 AM IST · 3h daily' },
-  { id: 'b5', icon: '🎯', col: '#7C3AED', title: 'Interview Readiness', sub: 'W117–W150 · Sep 2028 – May 2029', detail: 'Data Structures → System Design', time: '5:30 AM – 8:30 AM IST · 3h daily' },
-];
+const BLOCK_META = {
+  b0: { icon: '☁', col: '#D97706', title: 'AWS', detail: 'CloudFolks Hub · IAM → VPC → EC2 → S3 → Lambda → ECS', scheduleLink: '#/aws-100-days' },
+  b1: { icon: '🎓', col: '#E11D48', title: 'JavaScript Ecosystem', detail: 'Javascript → Typescript → ExpressJS → React → Next JS → React Native' },
+  b2: { icon: '🐍', col: '#15803D', title: 'Python Stack', detail: 'Python → Django → Fast API → Agentic AI' },
+  b3: { icon: '☕', col: '#EA580C', title: 'Java Backend', detail: 'J2SE → J2EE → JPA → Spring Boot → Microservices' },
+  b4: { icon: '🔧', col: '#6366F1', title: 'DevOps & Kubernetes', detail: 'DevOps → Kubernetes' },
+  b5: { icon: '🎯', col: '#7C3AED', title: 'Interview Readiness', detail: 'Data Structures → System Design' },
+};
+
+const BLOCKS = Object.entries(BLOCK_META).map(([id, meta]) => {
+  const phases = PHASES.filter((p) => p.block === id);
+  const bws = phases[0].ws;
+  const bwe = phases[phases.length - 1].we;
+  return {
+    id,
+    icon: meta.icon,
+    col: meta.col,
+    title: meta.title,
+    sub: 'W' + bws + '–W' + bwe + ' · ' + period(bws, bwe),
+    detail: meta.detail,
+    time: '5:30 AM – 8:30 AM IST · 3h daily',
+    ...(meta.scheduleLink ? { scheduleLink: meta.scheduleLink } : {}),
+  };
+});
 
 const MILESTONES = PHASES.map((p) => ({
   week: p.we,

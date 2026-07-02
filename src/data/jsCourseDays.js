@@ -1,4 +1,5 @@
 const START = new Date('2026-07-04');
+const JS_PLAN_START = 92; // W14 — Javascript phase start
 
 const NOTION_URLS = {
   1: 'https://app.notion.com/p/Lecture01-Introduction-to-Javascript-37243ac5cab9802293fff4573c26a6f4',
@@ -21,9 +22,9 @@ const NOTION_URLS = {
   19: 'https://app.notion.com/p/Lecture-19-Closure-and-This-Keyword-38f43ac5cab9806e98f2f95649ffb759',
 };
 
-function planDate(day) {
+function planDate(lectureDay) {
   const d = new Date(START);
-  d.setDate(d.getDate() + day - 1);
+  d.setDate(d.getDate() + JS_PLAN_START + lectureDay - 2);
   return d.toLocaleDateString('en-US', { month: 'short', day: 'numeric', year: 'numeric' });
 }
 
@@ -208,7 +209,7 @@ export const JS_COURSE_DAYS = [
   },
 ].map((d) => ({
   ...d,
-  planDay: d.day,
+  planDay: JS_PLAN_START + d.day - 1,
   date: planDate(d.day),
   hash: '#/day-' + String(d.day).padStart(3, '0'),
   notionUrl: NOTION_URLS[d.lecture] ?? null,
