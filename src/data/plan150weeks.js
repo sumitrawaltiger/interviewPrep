@@ -3,6 +3,9 @@ export const START = new Date('2026-07-04');
 export const TOTAL_WEEKS = 150;
 export const TOTAL_DAYS = 1050;
 export const DEADLINE = 'May 18, 2029';
+export const KODEKLOUD_WEEKS = 4;
+export const AWS_WEEKS = 9;
+export const AWS_PLAN_WEEK_START = 5;
 export const STUDY_TIME = '5:30 AM – 8:30 AM IST · 3h daily';
 
 export const BLOCKS = [
@@ -10,9 +13,9 @@ export const BLOCKS = [
     "id": "b0",
     "icon": "☁",
     "col": "#D97706",
-    "title": "AWS",
+    "title": "KodeKloud + AWS",
     "sub": "W1–W13 · Jul 4 – Oct 2, 2026",
-    "detail": "CloudFolks Hub · IAM → VPC → EC2 → S3 → Lambda → ECS",
+    "detail": "W1–W4 KodeKloud DevOps & Cloud → W5–W13 AWS (CloudFolks Hub)",
     "time": "5:30 AM – 8:30 AM IST · 3h daily",
     "scheduleLink": "#/aws-100-days"
   },
@@ -68,13 +71,61 @@ export const PHASES = [
     "id": "s1",
     "block": "b0",
     "seq": 1,
+    "icon": "🎓",
+    "color": "#10B981",
+    "dark": "#059669",
+    "bg": "#ECFDF5",
+    "border": "#6EE7B7",
+    "name": "KodeKloud DevOps & Cloud",
+    "weeks": 4,
+    "courses": [
+      "KodeKloud — DevOps learning path",
+      "KodeKloud — Kubernetes for Beginners",
+      "KodeKloud — AWS / cloud labs"
+    ],
+    "wplan": [
+      {
+        "w": 1,
+        "f": "Week 1: Linux & Docker",
+        "t": "shell, containers, images, compose, multi-stage builds"
+      },
+      {
+        "w": 2,
+        "f": "Week 2: Kubernetes Core",
+        "t": "pods, deployments, services, kubectl, YAML manifests"
+      },
+      {
+        "w": 3,
+        "f": "Week 3: CI/CD & Terraform",
+        "t": "pipelines, GitHub Actions, IaC basics on KodeKloud"
+      },
+      {
+        "w": 4,
+        "f": "Week 4: Cloud on KodeKloud",
+        "t": "AWS/cloud hands-on labs, exam-style drills, revision"
+      }
+    ],
+    "label": "4 weeks",
+    "days": 28,
+    "ws": 1,
+    "we": 4,
+    "ds": 1,
+    "de": 28,
+    "period": "Jul 4 – Jul 31, 2026",
+    "about": "Weeks 1–4 · KodeKloud 1-month subscription (through Aug 2, 2026) · DevOps & Cloud — Linux, Docker, Kubernetes, CI/CD, Terraform, AWS/cloud labs on KodeKloud.",
+    "ms": "KodeKloud DevOps & Cloud Complete · W4"
+  },
+  {
+    "id": "s2",
+    "block": "b0",
+    "seq": 2,
     "icon": "☁",
     "color": "#D97706",
     "dark": "#B45309",
     "bg": "#FFFBEB",
     "border": "#FDE68A",
     "name": "AWS",
-    "weeks": 13,
+    "weeks": 9,
     "scheduleLink": "#/aws-100-days",
     "courses": [
       "CloudFolks Hub — AWS Cloud (paid course)",
@@ -83,64 +134,44 @@ export const PHASES = [
     ],
     "wplan": [
       {
-        "w": 1,
-        "f": "Week 1: IAM & Account",
+        "w": 5,
+        "f": "Week 5: IAM & Account",
         "t": "users, roles, policies, MFA, CLI"
       },
       {
-        "w": 2,
-        "f": "Week 2: VPC Networking",
+        "w": 6,
+        "f": "Week 6: VPC Networking",
         "t": "subnets, IGW, NAT, SGs, endpoints"
       },
       {
-        "w": 3,
-        "f": "Week 3: EC2 & Load Balancing",
+        "w": 7,
+        "f": "Week 7: EC2 & Load Balancing",
         "t": "EC2, EBS, ALB, ASG"
       },
       {
-        "w": 4,
-        "f": "Week 4: S3 Storage",
+        "w": 8,
+        "f": "Week 8: S3 Storage",
         "t": "buckets, versioning, lifecycle"
       },
       {
-        "w": 5,
-        "f": "Week 5: RDS & DynamoDB",
+        "w": 9,
+        "f": "Week 9: RDS & DynamoDB",
         "t": "RDS, Aurora, DynamoDB"
       },
       {
-        "w": 6,
-        "f": "Week 6: Lambda & API Gateway",
+        "w": 10,
+        "f": "Week 10: Lambda & API Gateway",
         "t": "serverless APIs, triggers"
       },
       {
-        "w": 7,
-        "f": "Week 7: Cognito & Orchestration",
-        "t": "user pools, Step Functions"
-      },
-      {
-        "w": 8,
-        "f": "Week 8: ECS, EKS & ECR",
+        "w": 11,
+        "f": "Week 11: ECS, EKS & ECR",
         "t": "containers on AWS, Fargate"
       },
       {
-        "w": 9,
-        "f": "Week 9: Messaging & DNS",
-        "t": "SQS, SNS, Route 53, CloudFront"
-      },
-      {
-        "w": 10,
-        "f": "Week 10: Monitoring & Cost",
-        "t": "CloudWatch, billing, Well-Architected"
-      },
-      {
-        "w": 11,
-        "f": "Week 11: Security & Compliance",
-        "t": "KMS, WAF, shared responsibility"
-      },
-      {
         "w": 12,
-        "f": "Week 12: Advanced Services",
-        "t": "ElastiCache, OpenSearch, EventBridge"
+        "f": "Week 12: Messaging & DNS",
+        "t": "SQS, SNS, Route 53, CloudFront"
       },
       {
         "w": 13,
@@ -148,20 +179,20 @@ export const PHASES = [
         "t": "FPO AWS architecture + exam prep"
       }
     ],
-    "label": "13 weeks",
-    "days": 91,
-    "ws": 1,
+    "label": "9 weeks",
+    "days": 63,
+    "ws": 5,
     "we": 13,
-    "ds": 1,
+    "ds": 29,
     "de": 91,
-    "period": "Jul 4 – Oct 2, 2026",
-    "about": "Weeks 1–13 · CloudFolks Hub AWS + hands-on labs. IAM, VPC, EC2, S3, RDS, Lambda, Cognito, ECS.",
+    "period": "Aug 1 – Oct 2, 2026",
+    "about": "Weeks 5–13 · CloudFolks Hub AWS + hands-on labs. IAM, VPC, EC2, S3, RDS, Lambda, ECS — after KodeKloud foundation.",
     "ms": "AWS Complete · W13"
   },
   {
-    "id": "s2",
+    "id": "s3",
     "block": "b1",
-    "seq": 2,
+    "seq": 3,
     "icon": "📜",
     "color": "#EAB308",
     "dark": "#CA8A04",
@@ -227,9 +258,9 @@ export const PHASES = [
     "ms": "Javascript Complete · W21"
   },
   {
-    "id": "s3",
+    "id": "s4",
     "block": "b1",
-    "seq": 3,
+    "seq": 4,
     "icon": "🔷",
     "color": "#2563EB",
     "dark": "#1D4ED8",
@@ -270,9 +301,9 @@ export const PHASES = [
     "ms": "Typescript Complete · W24"
   },
   {
-    "id": "s4",
+    "id": "s5",
     "block": "b1",
-    "seq": 4,
+    "seq": 5,
     "icon": "🟢",
     "color": "#16A34A",
     "dark": "#15803D",
@@ -313,9 +344,9 @@ export const PHASES = [
     "ms": "ExpressJS Complete · W27"
   },
   {
-    "id": "s5",
+    "id": "s6",
     "block": "b1",
-    "seq": 5,
+    "seq": 6,
     "icon": "⚛",
     "color": "#0EA5E9",
     "dark": "#0369A1",
@@ -386,9 +417,9 @@ export const PHASES = [
     "ms": "React JS Complete · W36"
   },
   {
-    "id": "s6",
+    "id": "s7",
     "block": "b1",
-    "seq": 6,
+    "seq": 7,
     "icon": "▲",
     "color": "#171717",
     "dark": "#000000",
@@ -443,9 +474,9 @@ export const PHASES = [
     "ms": "Next JS Complete · W42"
   },
   {
-    "id": "s7",
+    "id": "s8",
     "block": "b1",
-    "seq": 7,
+    "seq": 8,
     "icon": "📱",
     "color": "#7C3AED",
     "dark": "#6D28D9",
@@ -501,9 +532,9 @@ export const PHASES = [
     "ms": "React Native Complete · W48"
   },
   {
-    "id": "s8",
+    "id": "s9",
     "block": "b2",
-    "seq": 8,
+    "seq": 9,
     "icon": "🐍",
     "color": "#15803D",
     "dark": "#166534",
@@ -548,9 +579,9 @@ export const PHASES = [
     "ms": "Python Complete · W52"
   },
   {
-    "id": "s9",
+    "id": "s10",
     "block": "b2",
-    "seq": 9,
+    "seq": 10,
     "icon": "🎸",
     "color": "#092E20",
     "dark": "#051B14",
@@ -596,9 +627,9 @@ export const PHASES = [
     "ms": "Django Complete · W56"
   },
   {
-    "id": "s10",
+    "id": "s11",
     "block": "b2",
-    "seq": 10,
+    "seq": 11,
     "icon": "⚡",
     "color": "#009688",
     "dark": "#00796B",
@@ -638,9 +669,9 @@ export const PHASES = [
     "ms": "Fast API Complete · W59"
   },
   {
-    "id": "s11",
+    "id": "s12",
     "block": "b2",
-    "seq": 11,
+    "seq": 12,
     "icon": "🤖",
     "color": "#8B5CF6",
     "dark": "#6D28D9",
@@ -716,9 +747,9 @@ export const PHASES = [
     "ms": "Agentic AI Complete · W69"
   },
   {
-    "id": "s12",
+    "id": "s13",
     "block": "b3",
-    "seq": 12,
+    "seq": 13,
     "icon": "☕",
     "color": "#EA580C",
     "dark": "#C2410C",
@@ -764,9 +795,9 @@ export const PHASES = [
     "ms": "J2SE Complete · W73"
   },
   {
-    "id": "s13",
+    "id": "s14",
     "block": "b3",
-    "seq": 13,
+    "seq": 14,
     "icon": "🏢",
     "color": "#0891B2",
     "dark": "#0E7490",
@@ -812,9 +843,9 @@ export const PHASES = [
     "ms": "J2EE Complete · W77"
   },
   {
-    "id": "s14",
+    "id": "s15",
     "block": "b3",
-    "seq": 14,
+    "seq": 15,
     "icon": "🗄",
     "color": "#7C3AED",
     "dark": "#6D28D9",
@@ -855,9 +886,9 @@ export const PHASES = [
     "ms": "JPA Complete · W80"
   },
   {
-    "id": "s15",
+    "id": "s16",
     "block": "b3",
-    "seq": 15,
+    "seq": 16,
     "icon": "🌱",
     "color": "#6DB33F",
     "dark": "#4E9A2E",
@@ -923,9 +954,9 @@ export const PHASES = [
     "ms": "Spring Boot Complete · W88"
   },
   {
-    "id": "s16",
+    "id": "s17",
     "block": "b3",
-    "seq": 16,
+    "seq": 17,
     "icon": "🏛",
     "color": "#E11D48",
     "dark": "#BE123C",
@@ -986,9 +1017,9 @@ export const PHASES = [
     "ms": "Microservices Complete · W95"
   },
   {
-    "id": "s17",
+    "id": "s18",
     "block": "b4",
-    "seq": 17,
+    "seq": 18,
     "icon": "🔧",
     "color": "#6366F1",
     "dark": "#4338CA",
@@ -1069,9 +1100,9 @@ export const PHASES = [
     "ms": "Devops Complete · W106"
   },
   {
-    "id": "s18",
+    "id": "s19",
     "block": "b4",
-    "seq": 18,
+    "seq": 19,
     "icon": "☸",
     "color": "#326CE5",
     "dark": "#1D4ED8",
@@ -1147,9 +1178,9 @@ export const PHASES = [
     "ms": "Kubernetes Complete · W116"
   },
   {
-    "id": "s19",
+    "id": "s20",
     "block": "b5",
-    "seq": 19,
+    "seq": 20,
     "icon": "🧮",
     "color": "#059669",
     "dark": "#047857",
@@ -1275,9 +1306,9 @@ export const PHASES = [
     "ms": "Data Structures Complete · W136"
   },
   {
-    "id": "s20",
+    "id": "s21",
     "block": "b5",
-    "seq": 20,
+    "seq": 21,
     "icon": "🏗",
     "color": "#DC2626",
     "dark": "#B91C1C",
@@ -1376,6 +1407,14 @@ export const PHASES = [
 ];
 
 export const MILESTONES = [
+  {
+    "week": 4,
+    "day": 28,
+    "icon": "🎓",
+    "label": "KodeKloud DevOps & Cloud Done",
+    "date": "Jul 31, 2026",
+    "color": "#10B981"
+  },
   {
     "week": 13,
     "day": 91,

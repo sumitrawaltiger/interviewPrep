@@ -91,7 +91,7 @@ export default function Aws100Days() {
                   color: 'rgba(255,255,255,0.55)',
                 }}
               >
-                {'13 weeks of AWS · W1–W13 · Jul 4 – Oct 2, 2026'}
+                {'13 weeks of AWS · W5–W13 · Aug 1 – Oct 2, 2026'}
               </div>
               <h1
                 style={{
@@ -105,7 +105,7 @@ export default function Aws100Days() {
                 {'AWS Daily Schedule — 100-day deep dive'}
               </h1>
               <div style={{ fontSize: 9, color: 'rgba(255,255,255,0.65)', marginTop: 3 }}>
-                {'Jul 4 – Oct 2, 2026 · W1–W13 of 150 · D1+ · 5:30–8:30 AM IST (3h) · CloudFolks Hub'}
+                {'Aug 1 – Oct 2, 2026 · W5–W13 of 150 · D29+ · 5:30–8:30 AM IST (3h) · CloudFolks Hub'}
               </div>
             </div>
           </div>
@@ -130,7 +130,7 @@ export default function Aws100Days() {
                 </span>
               </>
             ) : (
-              'AWS starts Jul 4, 2026 (W1 / D1) — first skill in the 150-week plan'
+              'AWS starts Aug 1, 2026 (W5 / D29) — after 4 weeks of KodeKloud DevOps & Cloud (W1–4)'
             )}
           </div>
 
@@ -341,7 +341,7 @@ export default function Aws100Days() {
           }}
         >
           <div style={{ fontSize: 13, fontWeight: 800, marginBottom: 4 }}>
-            {'☁ Day 100 = AWS deep dive complete · Plan D100'}
+            {'☁ Day 100 = AWS deep dive complete · Plan D128'}
           </div>
           <div style={{ fontSize: 9, opacity: 0.75 }}>
             {'Then Feb 9, 2028: System Design — 100 days (3h daily · 5:30–8:30 AM)'}

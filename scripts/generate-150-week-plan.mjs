@@ -273,8 +273,8 @@ const SKILLS = [
   },
   {
     id: 's18', block: 'b4', seq: 18, icon: '☁', color: '#D97706', dark: '#B45309', bg: '#FFFBEB', border: '#FDE68A',
-    name: 'AWS', weeks: 13, scheduleLink: '#/aws-100-days',
-    about: 'Weeks 104–116 · CloudFolks Hub AWS + hands-on labs. IAM, VPC, EC2, S3, RDS, Lambda, Cognito, ECS.',
+    name: 'AWS', weeks: 9, scheduleLink: '#/aws-100-days',
+    about: 'CloudFolks Hub AWS + hands-on labs. IAM, VPC, EC2, S3, RDS, Lambda, ECS — after KodeKloud foundation.',
     courses: ['CloudFolks Hub — AWS Cloud (paid course)', 'AWS Skill Builder', 'AWS Official Documentation'],
     wplan: [
       ['IAM & Account', 'users, roles, policies, MFA, CLI'],
@@ -283,13 +283,21 @@ const SKILLS = [
       ['S3 Storage', 'buckets, versioning, lifecycle'],
       ['RDS & DynamoDB', 'RDS, Aurora, DynamoDB'],
       ['Lambda & API Gateway', 'serverless APIs, triggers'],
-      ['Cognito & Orchestration', 'user pools, Step Functions'],
       ['ECS, EKS & ECR', 'containers on AWS, Fargate'],
       ['Messaging & DNS', 'SQS, SNS, Route 53, CloudFront'],
-      ['Monitoring & Cost', 'CloudWatch, billing, Well-Architected'],
-      ['Security & Compliance', 'KMS, WAF, shared responsibility'],
-      ['Advanced Services', 'ElastiCache, OpenSearch, EventBridge'],
       ['CDK & Capstone', 'FPO AWS architecture + exam prep'],
+    ],
+  },
+  {
+    id: 's_kk', block: 'b0', seq: 0, icon: '🎓', color: '#10B981', dark: '#059669', bg: '#ECFDF5', border: '#6EE7B7',
+    name: 'KodeKloud DevOps & Cloud', weeks: 4,
+    about: 'KodeKloud 1-month subscription (through Aug 2, 2026) · DevOps & Cloud — Linux, Docker, Kubernetes, CI/CD, Terraform, AWS/cloud labs on KodeKloud.',
+    courses: ['KodeKloud — DevOps learning path', 'KodeKloud — Kubernetes for Beginners', 'KodeKloud — AWS / cloud labs'],
+    wplan: [
+      ['Linux & Docker', 'shell, containers, images, compose, multi-stage builds'],
+      ['Kubernetes Core', 'pods, deployments, services, kubectl, YAML manifests'],
+      ['CI/CD & Terraform', 'pipelines, GitHub Actions, IaC basics on KodeKloud'],
+      ['Cloud on KodeKloud', 'AWS/cloud hands-on labs, exam-style drills, revision'],
     ],
   },
   {
@@ -345,12 +353,13 @@ const SKILLS = [
 ];
 
 const SKILL_ORDER = [
-  'AWS', 'Javascript', 'Typescript', 'ExpressJS', 'React JS', 'Next JS', 'React Native',
+  'KodeKloud DevOps & Cloud', 'AWS', 'Javascript', 'Typescript', 'ExpressJS', 'React JS', 'Next JS', 'React Native',
   'Python', 'Django', 'Fast API', 'Agentic AI', 'J2SE', 'J2EE', 'JPA', 'Spring Boot',
   'Microservices', 'Devops', 'Kubernetes', 'Data Structures', 'System Design',
 ];
 
 const BLOCK_BY_SKILL = {
+  'KodeKloud DevOps & Cloud': 'b0',
   AWS: 'b0',
   Javascript: 'b1', Typescript: 'b1', ExpressJS: 'b1', 'React JS': 'b1', 'Next JS': 'b1', 'React Native': 'b1',
   Python: 'b2', Django: 'b2', 'Fast API': 'b2', 'Agentic AI': 'b2',
@@ -409,7 +418,7 @@ const sumWeeks = PHASES.reduce((a, p) => a + p.weeks, 0);
 if (sumWeeks !== TOTAL_WEEKS) throw new Error('Week sum ' + sumWeeks + ' !== ' + TOTAL_WEEKS);
 
 const BLOCK_META = {
-  b0: { icon: '☁', col: '#D97706', title: 'AWS', detail: 'CloudFolks Hub · IAM → VPC → EC2 → S3 → Lambda → ECS', scheduleLink: '#/aws-100-days' },
+  b0: { icon: '☁', col: '#D97706', title: 'KodeKloud + AWS', detail: 'W1–W4 KodeKloud DevOps & Cloud → W5–W13 AWS (CloudFolks Hub)', scheduleLink: '#/aws-100-days' },
   b1: { icon: '🎓', col: '#E11D48', title: 'JavaScript Ecosystem', detail: 'Javascript → Typescript → ExpressJS → React → Next JS → React Native' },
   b2: { icon: '🐍', col: '#15803D', title: 'Python Stack', detail: 'Python → Django → Fast API → Agentic AI' },
   b3: { icon: '☕', col: '#EA580C', title: 'Java Backend', detail: 'J2SE → J2EE → JPA → Spring Boot → Microservices' },
@@ -447,6 +456,9 @@ export const START = new Date('2026-07-04');
 export const TOTAL_WEEKS = ${TOTAL_WEEKS};
 export const TOTAL_DAYS = ${TOTAL_WEEKS * 7};
 export const DEADLINE = 'May 18, 2029';
+export const KODEKLOUD_WEEKS = ${PHASES.find((p) => p.name === 'KodeKloud DevOps & Cloud').weeks};
+export const AWS_WEEKS = ${PHASES.find((p) => p.name === 'AWS').weeks};
+export const AWS_PLAN_WEEK_START = ${PHASES.find((p) => p.name === 'AWS').ws};
 export const STUDY_TIME = '5:30 AM – 8:30 AM IST · 3h daily';
 
 export const BLOCKS = ${JSON.stringify(BLOCKS, null, 2)};

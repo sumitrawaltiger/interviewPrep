@@ -29,9 +29,9 @@ const JS_DAY_LINKS = JS_COURSE_DAYS.map((d) => ({
 }));
 
 const PHASES_LIST = PHASES.map((p) =>
-  p.id === 's2'
+  p.id === 's3'
     ? { ...p, dayLinks: JS_DAY_LINKS }
-    : p.id === 's1'
+    : p.id === 's2'
       ? { ...p, scheduleLink: '#/aws-100-days' }
       : p,
 );
@@ -488,12 +488,12 @@ export default function App() {
   };
 
   const sections = [
-    { col: '#D97706', title: '☁ AWS · W1–W13', sub: 'Jul – Oct 2026 · 13 weeks · CloudFolks Hub · 3h daily', ids: ['s1'] },
-    { col: '#E11D48', title: '🎓 JAVASCRIPT ECOSYSTEM · W14–W48', sub: 'Sep 2026 – Mar 2027 · Javascript → Typescript → ExpressJS → React → Next JS → React Native · 35 weeks', ids: ['s2','s3','s4','s5','s6','s7'] },
-    { col: '#15803D', title: '🐍 PYTHON STACK · W49–W69', sub: 'Mar – Aug 2027 · Python → Django → Fast API → Agentic AI · 21 weeks', ids: ['s8','s9','s10','s11'] },
-    { col: '#EA580C', title: '☕ JAVA BACKEND · W70–W95', sub: 'Aug 2027 – Feb 2028 · J2SE → J2EE → JPA → Spring Boot → Microservices · 26 weeks', ids: ['s12','s13','s14','s15','s16'] },
-    { col: '#6366F1', title: '🔧 DEVOPS & KUBERNETES · W96–W116', sub: 'Feb – Sep 2028 · DevOps → Kubernetes · 21 weeks', ids: ['s17','s18'] },
-    { col: '#7C3AED', title: '🎯 INTERVIEW READINESS · W117–W150', sub: 'Sep 2028 – May 2029 · Data Structures → System Design · 34 weeks', ids: ['s19','s20'] },
+    { col: '#10B981', title: '🎓 KODEKLOUD + AWS · W1–W13', sub: 'Jul – Oct 2026 · W1–4 KodeKloud DevOps & Cloud (sub till Aug 2) → W5–13 AWS · CloudFolks Hub', ids: ['s1','s2'] },
+    { col: '#E11D48', title: '🎓 JAVASCRIPT ECOSYSTEM · W14–W48', sub: 'Oct 2026 – Mar 2027 · Javascript → Typescript → ExpressJS → React → Next JS → React Native · 35 weeks', ids: ['s3','s4','s5','s6','s7','s8'] },
+    { col: '#15803D', title: '🐍 PYTHON STACK · W49–W69', sub: 'Mar – Aug 2027 · Python → Django → Fast API → Agentic AI · 21 weeks', ids: ['s9','s10','s11','s12'] },
+    { col: '#EA580C', title: '☕ JAVA BACKEND · W70–W95', sub: 'Aug 2027 – Feb 2028 · J2SE → J2EE → JPA → Spring Boot → Microservices · 26 weeks', ids: ['s13','s14','s15','s16','s17'] },
+    { col: '#6366F1', title: '🔧 DEVOPS & KUBERNETES · W96–W116', sub: 'Feb – Sep 2028 · DevOps → Kubernetes · 21 weeks', ids: ['s18','s19'] },
+    { col: '#7C3AED', title: '🎯 INTERVIEW READINESS · W117–W150', sub: 'Sep 2028 – May 2029 · Data Structures → System Design · 34 weeks', ids: ['s20','s21'] },
   ];
 
   return (
@@ -710,7 +710,7 @@ export default function App() {
                 }}
               >
                 {
-                  '20 skills across 150 weeks · 3h daily (5:30–8:30 AM IST) · AWS first, DSA + System Design last'
+                  '150 weeks · 3h daily (5:30–8:30 AM IST) · W1–4 KodeKloud DevOps & Cloud → W5–13 AWS → then full stack plan'
                 }
               </div>
               <div style={{ fontSize: 8, color: 'rgba(255,255,255,0.5)' }}>
@@ -720,6 +720,31 @@ export default function App() {
               </div>
             </div>
           </div>
+
+          {sw <= 4 && (
+            <div
+              style={{
+                background: 'rgba(16,185,129,0.18)',
+                border: '1px solid rgba(16,185,129,0.5)',
+                borderRadius: 8,
+                padding: '8px 12px',
+                marginBottom: 10,
+                display: 'flex',
+                gap: 9,
+                alignItems: 'center',
+              }}
+            >
+              <span style={{ fontSize: 15, flexShrink: 0 }}>{'🎓'}</span>
+              <div>
+                <div style={{ fontSize: 10, fontWeight: 700, color: '#6EE7B7', marginBottom: 1 }}>
+                  {'KodeKloud Sprint · W' + sw + ' of 4 · DevOps & Cloud only (subscription till Aug 2, 2026)'}
+                </div>
+                <div style={{ fontSize: 8, color: 'rgba(255,255,255,0.5)' }}>
+                  {'Jul 4 – Jul 31 · Linux → Docker → Kubernetes → CI/CD → cloud labs · AWS (CloudFolks) starts W5 Aug 1'}
+                </div>
+              </div>
+            </div>
+          )}
 
           <div
             style={{
@@ -746,7 +771,7 @@ export default function App() {
                 {'150 Weeks of Code — daily 5:30–8:30 AM IST through ' + DEADLINE}
               </div>
               <div style={{ fontSize: 8, color: 'rgba(255,255,255,0.5)' }}>
-                {'W1 AWS → W150 System Design · 1050 study days total'}
+                {'W1 KodeKloud → W13 AWS → W150 System Design · ends ' + DEADLINE}
               </div>
             </div>
           </div>
@@ -1021,7 +1046,7 @@ export default function App() {
             }}
           >
             {
-              'AWS → JS → TS → Express → React → Next → RN → Python → Django → FastAPI → AI → Java → DevOps → K8s → DSA → SD'
+              'KodeKloud → AWS → JS → TS → Express → React → Next → RN → Python → Java → DevOps → K8s → DSA → SD'
             }
           </div>
           <div
