@@ -1,5 +1,5 @@
 const START = new Date('2026-07-04');
-const JS_PLAN_START = 31; // Aug 3, 2026 — Javascript phase start
+const JS_PLAN_START = 99; // W15 — Javascript phase start (Oct 10, 2026)
 
 const NOTION_URLS = {
   1: 'https://app.notion.com/p/Lecture01-Introduction-to-Javascript-37243ac5cab9802293fff4573c26a6f4',
