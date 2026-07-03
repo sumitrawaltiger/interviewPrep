@@ -5,12 +5,15 @@ import {
   TOTAL_WEEKS,
   TOTAL_DAYS,
   DEADLINE,
+  CLOUD_END_DAY,
+  JS_START_DAY,
+  KODEKLOUD_END,
   STUDY_TIME,
   BLOCKS,
   PHASES,
   MILESTONES,
 } from './data/plan150weeks.js';
-// 150 Weeks of Code · Jul 4, 2026 → May 18, 2029 · 20 skills · 3h daily
+// 150 Weeks · Jul 4, 2026 → May 18, 2029 · KodeKloud till Aug 2 → stack from Aug 3 → AWS final 61d
 
 const JS_DAY_LINKS = JS_COURSE_DAYS.map((d) => ({
   href: d.hash,
@@ -29,9 +32,9 @@ const JS_DAY_LINKS = JS_COURSE_DAYS.map((d) => ({
 }));
 
 const PHASES_LIST = PHASES.map((p) =>
-  p.id === 's3'
+  p.id === 's2'
     ? { ...p, dayLinks: JS_DAY_LINKS }
-    : p.id === 's2'
+    : p.id === 's21'
       ? { ...p, scheduleLink: '#/aws-100-days' }
       : p,
 );
@@ -46,8 +49,8 @@ function studyWeek() {
   return Math.min(Math.ceil(studyDay() / 7), TOTAL_WEEKS);
 }
 function curId() {
-  const w = studyWeek();
-  for (const p of PHASES_LIST) if (w <= p.we) return p.id;
+  const d = studyDay();
+  for (const p of PHASES_LIST) if (d <= p.de) return p.id;
   return null;
 }
 function pct() {
@@ -473,8 +476,8 @@ export default function App() {
     sw = studyWeek(),
     cid = curId(),
     prog = pct();
-  const msDone = MILESTONES.filter((m) => m.week <= sw).length;
-  const nextMs = MILESTONES.find((m) => m.week > sw);
+  const msDone = MILESTONES.filter((m) => m.day <= sd).length;
+  const nextMs = MILESTONES.find((m) => m.day > sd);
   const toggle = (id) => setOpenId(openId === id ? null : id);
   const jump = (id) => {
     setOpenId(id);
@@ -488,12 +491,13 @@ export default function App() {
   };
 
   const sections = [
-    { col: '#10B981', title: '🎓 KODEKLOUD + AWS · W1–W13', sub: 'Jul – Oct 2026 · W1–4 KodeKloud DevOps & Cloud (sub till Aug 2) → W5–13 AWS · CloudFolks Hub', ids: ['s1','s2'] },
-    { col: '#E11D48', title: '🎓 JAVASCRIPT ECOSYSTEM · W14–W48', sub: 'Oct 2026 – Mar 2027 · Javascript → Typescript → ExpressJS → React → Next JS → React Native · 35 weeks', ids: ['s3','s4','s5','s6','s7','s8'] },
-    { col: '#15803D', title: '🐍 PYTHON STACK · W49–W69', sub: 'Mar – Aug 2027 · Python → Django → Fast API → Agentic AI · 21 weeks', ids: ['s9','s10','s11','s12'] },
-    { col: '#EA580C', title: '☕ JAVA BACKEND · W70–W95', sub: 'Aug 2027 – Feb 2028 · J2SE → J2EE → JPA → Spring Boot → Microservices · 26 weeks', ids: ['s13','s14','s15','s16','s17'] },
-    { col: '#6366F1', title: '🔧 DEVOPS & KUBERNETES · W96–W116', sub: 'Feb – Sep 2028 · DevOps → Kubernetes · 21 weeks', ids: ['s18','s19'] },
-    { col: '#7C3AED', title: '🎯 INTERVIEW READINESS · W117–W150', sub: 'Sep 2028 – May 2029 · Data Structures → System Design · 34 weeks', ids: ['s20','s21'] },
+    { col: '#10B981', title: '🎓 KODEKLOUD DEVOPS, CLOUD & AWS · D1–D30', sub: 'Jul 4 – Aug 2, 2026 · 30 days · KodeKloud subscription', ids: ['s1'] },
+    { col: '#E11D48', title: '🎓 JAVASCRIPT ECOSYSTEM', sub: 'Aug 3, 2026 onward · Javascript → Typescript → ExpressJS → React → Next JS → React Native · 35 weeks', ids: ['s2','s3','s4','s5','s6','s7'] },
+    { col: '#15803D', title: '🐍 PYTHON STACK', sub: 'Python → Django → Fast API → Agentic AI · 21 weeks', ids: ['s8','s9','s10','s11'] },
+    { col: '#EA580C', title: '☕ JAVA BACKEND', sub: 'J2SE → J2EE → JPA → Spring Boot → Microservices · 26 weeks', ids: ['s12','s13','s14','s15','s16'] },
+    { col: '#6366F1', title: '🔧 DEVOPS & KUBERNETES', sub: 'DevOps → Kubernetes · 21 weeks', ids: ['s17','s18'] },
+    { col: '#7C3AED', title: '🎯 INTERVIEW READINESS', sub: 'Data Structures → System Design · 34 weeks', ids: ['s19','s20'] },
+    { col: '#D97706', title: '☁ AWS FINAL BLOCK · D990–D1050', sub: 'Mar 19 – May 18, 2029 · 61 days · CloudFolks Hub · SAA + capstone', ids: ['s21'] },
   ];
 
   return (
@@ -710,7 +714,7 @@ export default function App() {
                 }}
               >
                 {
-                  '150 weeks · 3h daily (5:30–8:30 AM IST) · W1–4 KodeKloud DevOps & Cloud → W5–13 AWS → then full stack plan'
+                  '150 weeks · 3h daily · Jul 4–Aug 2 KodeKloud & Cloud → Aug 3 full stack → final 61 days AWS'
                 }
               </div>
               <div style={{ fontSize: 8, color: 'rgba(255,255,255,0.5)' }}>
@@ -721,7 +725,7 @@ export default function App() {
             </div>
           </div>
 
-          {sw <= 4 && (
+          {sd <= CLOUD_END_DAY && (
             <div
               style={{
                 background: 'rgba(16,185,129,0.18)',
@@ -737,10 +741,10 @@ export default function App() {
               <span style={{ fontSize: 15, flexShrink: 0 }}>{'🎓'}</span>
               <div>
                 <div style={{ fontSize: 10, fontWeight: 700, color: '#6EE7B7', marginBottom: 1 }}>
-                  {'KodeKloud Sprint · W' + sw + ' of 4 · DevOps & Cloud only (subscription till Aug 2, 2026)'}
+                  {'KodeKloud · Day ' + sd + ' of ' + CLOUD_END_DAY + ' · DevOps, Cloud & AWS (till ' + KODEKLOUD_END + ')'}
                 </div>
                 <div style={{ fontSize: 8, color: 'rgba(255,255,255,0.5)' }}>
-                  {'Jul 4 – Jul 31 · Linux → Docker → Kubernetes → CI/CD → cloud labs · AWS (CloudFolks) starts W5 Aug 1'}
+                  {'Javascript & full stack starts Aug 3, 2026 · Final 61-day AWS block at plan end'}
                 </div>
               </div>
             </div>
@@ -771,7 +775,7 @@ export default function App() {
                 {'150 Weeks of Code — daily 5:30–8:30 AM IST through ' + DEADLINE}
               </div>
               <div style={{ fontSize: 8, color: 'rgba(255,255,255,0.5)' }}>
-                {'W1 KodeKloud → W13 AWS → W150 System Design · ends ' + DEADLINE}
+                {'KodeKloud (Jul–Aug 2) → Stack (Aug 3) → DSA & SD → 61d AWS finale · ends ' + DEADLINE}
               </div>
             </div>
           </div>
@@ -796,9 +800,9 @@ export default function App() {
                     transition: 'background 0.3s',
                     borderRight: '1px solid rgba(0,0,0,0.1)',
                     background:
-                      sw > p.we
+                      sd > p.de
                         ? p.color + '75'
-                        : sw >= p.ws
+                        : sd >= p.ds
                           ? p.color
                           : p.color + '30',
                   }}
@@ -875,8 +879,8 @@ export default function App() {
               }}
             >
               {MILESTONES.map((m, i) => {
-                const done = m.week <= sw,
-                  isNext = nextMs && nextMs.week === m.week;
+                const done = m.day <= sd,
+                  isNext = nextMs && nextMs.day === m.day;
                 return (
                   <div
                     key={i}
@@ -923,7 +927,7 @@ export default function App() {
                       <div
                         style={{ fontSize: 7, color: 'rgba(255,255,255,0.35)' }}
                       >
-                        {'W' + m.week + ' · ' + m.date}
+                        {'D' + m.day + ' · ' + m.date}
                       </div>
                     </div>
                     <span
@@ -945,7 +949,7 @@ export default function App() {
                             : 'rgba(255,255,255,0.3)',
                       }}
                     >
-                      {done ? '✓' : isNext ? '→' : 'W' + m.week}
+                      {done ? '✓' : isNext ? '→' : 'D' + m.day}
                     </span>
                   </div>
                 );
@@ -1011,7 +1015,7 @@ export default function App() {
                   open={openId === p.id}
                   onToggle={() => toggle(p.id)}
                   isCurrent={cid === p.id}
-                  isDone={sw > p.we}
+                  isDone={sd > p.de}
                 />
               ))}
             </div>
@@ -1046,7 +1050,7 @@ export default function App() {
             }}
           >
             {
-              'KodeKloud → AWS → JS → TS → Express → React → Next → RN → Python → Java → DevOps → K8s → DSA → SD'
+              'KodeKloud → JS stack → Python → Java → DevOps → K8s → DSA → SD → AWS (61d finale)'
             }
           </div>
           <div
@@ -1067,7 +1071,7 @@ export default function App() {
                     fontSize: 8,
                     color: p.color,
                     fontWeight: 700,
-                    opacity: sw > p.we ? 1 : 0.35,
+                    opacity: sd > p.de ? 1 : 0.35,
                   }}
                 >
                   {p.icon + ' ' + p.name.split(' ')[0]}

@@ -5,15 +5,14 @@ import { dirname, join } from 'path';
 const __dirname = dirname(fileURLToPath(import.meta.url));
 const START = new Date('2026-07-04');
 const TOTAL_WEEKS = 150;
+const TOTAL_DAYS = TOTAL_WEEKS * 7;
+const CLOUD_END_DAY = 30; // Jul 4 – Aug 2, 2026
+const JS_START_DAY = 31; // Aug 3, 2026
+const AWS_END_DAYS = 61;
 
-function weekStart(w) {
+function dayDate(dayNum) {
   const d = new Date(START);
-  d.setDate(d.getDate() + (w - 1) * 7);
-  return d;
-}
-function weekEnd(w) {
-  const d = weekStart(w);
-  d.setDate(d.getDate() + 6);
+  d.setDate(d.getDate() + dayNum - 1);
   return d;
 }
 function fmt(d) {
@@ -22,9 +21,9 @@ function fmt(d) {
 function fmtShort(d) {
   return d.toLocaleDateString('en-US', { month: 'short', day: 'numeric' });
 }
-function period(ws, we) {
-  const a = weekStart(ws);
-  const b = weekEnd(we);
+function periodDays(ds, de) {
+  const a = dayDate(ds);
+  const b = dayDate(de);
   if (a.getFullYear() === b.getFullYear()) {
     return fmtShort(a) + ' – ' + fmt(b);
   }
@@ -33,9 +32,21 @@ function period(ws, we) {
 
 const SKILLS = [
   {
-    id: 's1', block: 'b1', seq: 1, icon: '📜', color: '#EAB308', dark: '#CA8A04', bg: '#FEFCE8', border: '#FDE047',
+    icon: '🎓', color: '#10B981', dark: '#059669', bg: '#ECFDF5', border: '#6EE7B7',
+    name: 'KodeKloud DevOps, Cloud & AWS',
+    aboutBody: 'KodeKloud subscription through Aug 2, 2026 · DevOps, Cloud & AWS — Linux, Docker, Kubernetes, CI/CD, Terraform, AWS/cloud labs on KodeKloud.',
+    courses: ['KodeKloud — DevOps learning path', 'KodeKloud — Kubernetes for Beginners', 'KodeKloud — AWS / cloud labs'],
+    wplan: [
+      ['Linux & Docker', 'shell, containers, images, compose, multi-stage builds'],
+      ['Kubernetes Core', 'pods, deployments, services, kubectl, YAML manifests'],
+      ['CI/CD & Terraform', 'pipelines, GitHub Actions, IaC basics on KodeKloud'],
+      ['Cloud & AWS on KodeKloud', 'AWS/cloud hands-on labs, exam drills — through Aug 2'],
+    ],
+  },
+  {
+    icon: '📜', color: '#EAB308', dark: '#CA8A04', bg: '#FEFCE8', border: '#FDE047',
     name: 'Javascript', weeks: 8,
-    about: 'Weeks 1–8 · Coder Army Day of Thunder + advanced JS. Core language, async, closures, prototypes, modules.',
+    aboutBody: 'Coder Army Day of Thunder + advanced JS. Core language, async, closures, prototypes, modules.',
     courses: ['Coder Army — Web Dev + System Design + Security + DevOps (MERN)', 'javascript.info (free)', 'MDN Web Docs'],
     wplan: [
       ['JS Basics', 'syntax, let/const, types, operators, control flow'],
@@ -49,9 +60,9 @@ const SKILLS = [
     ],
   },
   {
-    id: 's2', block: 'b1', seq: 2, icon: '🔷', color: '#2563EB', dark: '#1D4ED8', bg: '#EFF6FF', border: '#BFDBFE',
+    icon: '🔷', color: '#2563EB', dark: '#1D4ED8', bg: '#EFF6FF', border: '#BFDBFE',
     name: 'Typescript', weeks: 3,
-    about: 'Weeks 9–11 · TypeScript strict mode: types, interfaces, generics, utility types, type guards.',
+    aboutBody: 'TypeScript strict mode: types, interfaces, generics, utility types, type guards.',
     courses: ['Coder Army — MERN Stack course', 'TypeScript Handbook (free)', 'Total TypeScript (Matt Pocock)'],
     wplan: [
       ['Types & Interfaces', 'primitives, arrays, objects, interfaces'],
@@ -60,9 +71,9 @@ const SKILLS = [
     ],
   },
   {
-    id: 's3', block: 'b1', seq: 3, icon: '🟢', color: '#16A34A', dark: '#15803D', bg: '#F0FDF4', border: '#BBF7D0',
+    icon: '🟢', color: '#16A34A', dark: '#15803D', bg: '#F0FDF4', border: '#BBF7D0',
     name: 'ExpressJS', weeks: 3,
-    about: 'Weeks 12–14 · Express.js: routing, middleware, REST APIs, JWT auth, MongoDB integration.',
+    aboutBody: 'Express.js: routing, middleware, REST APIs, JWT auth, MongoDB integration.',
     courses: ['Coder Army — MERN Stack course', 'Express.js official guide', 'The Net Ninja — Node/Express (YouTube)'],
     wplan: [
       ['Node & Express Core', 'event loop, modules, routing'],
@@ -71,9 +82,9 @@ const SKILLS = [
     ],
   },
   {
-    id: 's4', block: 'b1', seq: 4, icon: '⚛', color: '#0EA5E9', dark: '#0369A1', bg: '#F0F9FF', border: '#BAE6FD',
+    icon: '⚛', color: '#0EA5E9', dark: '#0369A1', bg: '#F0F9FF', border: '#BAE6FD',
     name: 'React JS', weeks: 9,
-    about: 'Weeks 15–23 · React 19 deep dive: components, hooks, state management, React Router, performance.',
+    aboutBody: 'React 19 deep dive: components, hooks, state management, React Router, performance.',
     courses: ['Coder Army — MERN Stack course', 'react.dev official docs', 'Jack Herrington — React patterns'],
     wplan: [
       ['React Core', 'components, JSX, props, state'],
@@ -88,9 +99,9 @@ const SKILLS = [
     ],
   },
   {
-    id: 's5', block: 'b1', seq: 5, icon: '▲', color: '#171717', dark: '#000000', bg: '#F5F5F5', border: '#D4D4D4',
+    icon: '▲', color: '#171717', dark: '#000000', bg: '#F5F5F5', border: '#D4D4D4',
     name: 'Next JS', weeks: 6,
-    about: 'Weeks 24–29 · Next.js via Anil Dollar: App Router, Server Components, Server Actions, auth, Vercel deploy.',
+    aboutBody: 'Next.js via Anil Dollar: App Router, Server Components, Server Actions, auth, Vercel deploy.',
     courses: ['Anil Dollar — Next.js (Udemy)', 'nextjs.org official docs'],
     wplan: [
       ['App Router', 'file-based routing, layouts, RSC'],
@@ -102,9 +113,9 @@ const SKILLS = [
     ],
   },
   {
-    id: 's6', block: 'b1', seq: 6, icon: '📱', color: '#7C3AED', dark: '#6D28D9', bg: '#F5F3FF', border: '#DDD6FE',
+    icon: '📱', color: '#7C3AED', dark: '#6D28D9', bg: '#F5F3FF', border: '#DDD6FE',
     name: 'React Native', weeks: 6,
-    about: 'Weeks 30–35 · React Native from ChaiCode: Expo, navigation, device APIs, EAS Build.',
+    aboutBody: 'React Native from ChaiCode: Expo, navigation, device APIs, EAS Build.',
     courses: ['ChaiCode — React Native (official website)', 'Expo docs', 'React Navigation docs'],
     wplan: [
       ['RN Basics', 'Expo setup, core components, Flexbox'],
@@ -116,9 +127,9 @@ const SKILLS = [
     ],
   },
   {
-    id: 's7', block: 'b2', seq: 7, icon: '🐍', color: '#15803D', dark: '#166534', bg: '#F0FDF4', border: '#86EFAC',
+    icon: '🐍', color: '#15803D', dark: '#166534', bg: '#F0FDF4', border: '#86EFAC',
     name: 'Python', weeks: 4,
-    about: 'Weeks 36–39 · Python 3 from Ashok IT: fundamentals, OOP, decorators, asyncio.',
+    aboutBody: 'Python 3 from Ashok IT: fundamentals, OOP, decorators, asyncio.',
     courses: ['Ashok IT — Python (paid course)', 'Python official docs'],
     wplan: [
       ['Python Basics', 'syntax, data types, functions'],
@@ -128,9 +139,9 @@ const SKILLS = [
     ],
   },
   {
-    id: 's8', block: 'b2', seq: 8, icon: '🎸', color: '#092E20', dark: '#051B14', bg: '#ECFDF5', border: '#6EE7B7',
+    icon: '🎸', color: '#092E20', dark: '#051B14', bg: '#ECFDF5', border: '#6EE7B7',
     name: 'Django', weeks: 4,
-    about: 'Weeks 40–43 · Django 5 + DRF: models, migrations, admin, serializers, viewsets.',
+    aboutBody: 'Django 5 + DRF: models, migrations, admin, serializers, viewsets.',
     courses: ['Dennis Ivy — Django (YouTube)', 'Django official docs', 'DRF docs'],
     wplan: [
       ['Django Core', 'models, migrations, admin'],
@@ -140,9 +151,9 @@ const SKILLS = [
     ],
   },
   {
-    id: 's9', block: 'b2', seq: 9, icon: '⚡', color: '#009688', dark: '#00796B', bg: '#E0F2F1', border: '#80CBC4',
+    icon: '⚡', color: '#009688', dark: '#00796B', bg: '#E0F2F1', border: '#80CBC4',
     name: 'Fast API', weeks: 3,
-    about: 'Weeks 44–46 · FastAPI: async routes, Pydantic v2, dependency injection, OAuth2, SQLAlchemy.',
+    aboutBody: 'FastAPI: async routes, Pydantic v2, dependency injection, OAuth2, SQLAlchemy.',
     courses: ['FastAPI official docs', 'TestDriven.io — FastAPI'],
     wplan: [
       ['FastAPI Core', 'routes, Pydantic models'],
@@ -151,9 +162,9 @@ const SKILLS = [
     ],
   },
   {
-    id: 's10', block: 'b2', seq: 10, icon: '🤖', color: '#8B5CF6', dark: '#6D28D9', bg: '#F5F3FF', border: '#DDD6FE',
+    icon: '🤖', color: '#8B5CF6', dark: '#6D28D9', bg: '#F5F3FF', border: '#DDD6FE',
     name: 'Agentic AI', weeks: 10,
-    about: 'Weeks 47–56 · Agentic AI from Ashok IT: LangChain, LangGraph, RAG, multi-agent systems.',
+    aboutBody: 'Agentic AI from Ashok IT: LangChain, LangGraph, RAG, multi-agent systems.',
     courses: ['Ashok IT — Agentic AI (paid course)', 'LangGraph docs', 'LangChain docs'],
     wplan: [
       ['GenAI Foundations', 'LLMs, tokens, embeddings'],
@@ -169,9 +180,9 @@ const SKILLS = [
     ],
   },
   {
-    id: 's11', block: 'b3', seq: 11, icon: '☕', color: '#EA580C', dark: '#C2410C', bg: '#FFF7ED', border: '#FED7AA',
+    icon: '☕', color: '#EA580C', dark: '#C2410C', bg: '#FFF7ED', border: '#FED7AA',
     name: 'J2SE', weeks: 4,
-    about: 'Weeks 57–60 · Java SE: syntax, OOP, collections, streams, lambdas, Optional, records.',
+    aboutBody: 'Java SE: syntax, OOP, collections, streams, lambdas, Optional, records.',
     courses: ['Telusko — Java (YouTube)', 'John Thompson — Java Masterclass', 'Baeldung'],
     wplan: [
       ['Java Syntax & OOP', 'classes, inheritance, polymorphism'],
@@ -181,9 +192,9 @@ const SKILLS = [
     ],
   },
   {
-    id: 's12', block: 'b3', seq: 12, icon: '🏢', color: '#0891B2', dark: '#0E7490', bg: '#ECFEFF', border: '#A5F3FC',
+    icon: '🏢', color: '#0891B2', dark: '#0E7490', bg: '#ECFEFF', border: '#A5F3FC',
     name: 'J2EE', weeks: 4,
-    about: 'Weeks 61–64 · Jakarta EE: Servlets, JSP, JNDI, JDBC, connection pooling.',
+    aboutBody: 'Jakarta EE: Servlets, JSP, JNDI, JDBC, connection pooling.',
     courses: ['Telusko — Servlet & JSP', 'Java Brains — J2EE', 'Head First Servlets & JSP'],
     wplan: [
       ['Servlets', 'lifecycle, request/response, sessions'],
@@ -193,9 +204,9 @@ const SKILLS = [
     ],
   },
   {
-    id: 's13', block: 'b3', seq: 13, icon: '🗄', color: '#7C3AED', dark: '#6D28D9', bg: '#F5F3FF', border: '#DDD6FE',
+    icon: '🗄', color: '#7C3AED', dark: '#6D28D9', bg: '#F5F3FF', border: '#DDD6FE',
     name: 'JPA', weeks: 3,
-    about: 'Weeks 65–67 · JPA/Hibernate: @Entity, relationships, JPQL, Spring Data JPA, N+1 problem.',
+    aboutBody: 'JPA/Hibernate: @Entity, relationships, JPQL, Spring Data JPA, N+1 problem.',
     courses: ['Java Brains — JPA & Hibernate', 'Baeldung — JPA', 'Spring Data JPA docs'],
     wplan: [
       ['JPA Entities', '@Entity, @Id, relationships'],
@@ -204,9 +215,9 @@ const SKILLS = [
     ],
   },
   {
-    id: 's14', block: 'b3', seq: 14, icon: '🌱', color: '#6DB33F', dark: '#4E9A2E', bg: '#F0FDF4', border: '#86EFAC',
+    icon: '🌱', color: '#6DB33F', dark: '#4E9A2E', bg: '#F0FDF4', border: '#86EFAC',
     name: 'Spring Boot', weeks: 8,
-    about: 'Weeks 68–75 · Spring Boot 3: REST APIs, Spring Security + OAuth2, OpenAPI, testing.',
+    aboutBody: 'Spring Boot 3: REST APIs, Spring Security + OAuth2, OpenAPI, testing.',
     courses: ['John Thompson — Spring Boot 3', 'Baeldung — Spring Boot', 'Spring Security docs'],
     wplan: [
       ['Spring Boot Core', 'starters, REST controllers'],
@@ -220,9 +231,9 @@ const SKILLS = [
     ],
   },
   {
-    id: 's15', block: 'b3', seq: 15, icon: '🏛', color: '#E11D48', dark: '#BE123C', bg: '#FFF1F2', border: '#FECDD3',
+    icon: '🏛', color: '#E11D48', dark: '#BE123C', bg: '#FFF1F2', border: '#FECDD3',
     name: 'Microservices', weeks: 7,
-    about: 'Weeks 76–82 · Microservices: Spring Cloud, Kafka, Resilience4j, CQRS, saga patterns.',
+    aboutBody: 'Microservices: Spring Cloud, Kafka, Resilience4j, CQRS, saga patterns.',
     courses: ['Ranga Karanam — Microservices', 'Spring Cloud docs', 'microservices.io'],
     wplan: [
       ['MS Fundamentals', '12-factor, bounded contexts, DDD'],
@@ -235,9 +246,9 @@ const SKILLS = [
     ],
   },
   {
-    id: 's16', block: 'b4', seq: 16, icon: '🔧', color: '#6366F1', dark: '#4338CA', bg: '#EEF2FF', border: '#C7D2FE',
+    icon: '🔧', color: '#6366F1', dark: '#4338CA', bg: '#EEF2FF', border: '#C7D2FE',
     name: 'Devops', weeks: 11,
-    about: 'Weeks 83–93 · DevOps from CloudFolks Hub: Docker, CI/CD, Terraform, monitoring, GitOps.',
+    aboutBody: 'DevOps from CloudFolks Hub: Docker, CI/CD, Terraform, monitoring, GitOps.',
     courses: ['CloudFolks Hub — DevOps (paid course)', 'Docker docs', 'Terraform docs'],
     wplan: [
       ['Linux & Shell', 'bash, permissions, networking basics'],
@@ -254,9 +265,9 @@ const SKILLS = [
     ],
   },
   {
-    id: 's17', block: 'b4', seq: 17, icon: '☸', color: '#326CE5', dark: '#1D4ED8', bg: '#EFF6FF', border: '#BFDBFE',
+    icon: '☸', color: '#326CE5', dark: '#1D4ED8', bg: '#EFF6FF', border: '#BFDBFE',
     name: 'Kubernetes', weeks: 10,
-    about: 'Weeks 94–103 · Kubernetes CKA/CKAD path: clusters, workloads, networking, storage, security, Helm.',
+    aboutBody: 'Kubernetes CKA/CKAD path: clusters, workloads, networking, storage, security, Helm.',
     courses: ['KodeKloud — CKA/CKAD courses', 'Kubernetes official docs', 'Killer.sh CKA/CKAD practice'],
     wplan: [
       ['Architecture & kubectl', 'control plane, nodes, contexts'],
@@ -272,38 +283,9 @@ const SKILLS = [
     ],
   },
   {
-    id: 's18', block: 'b4', seq: 18, icon: '☁', color: '#D97706', dark: '#B45309', bg: '#FFFBEB', border: '#FDE68A',
-    name: 'AWS', weeks: 9, scheduleLink: '#/aws-100-days',
-    about: 'CloudFolks Hub AWS + hands-on labs. IAM, VPC, EC2, S3, RDS, Lambda, ECS — after KodeKloud foundation.',
-    courses: ['CloudFolks Hub — AWS Cloud (paid course)', 'AWS Skill Builder', 'AWS Official Documentation'],
-    wplan: [
-      ['IAM & Account', 'users, roles, policies, MFA, CLI'],
-      ['VPC Networking', 'subnets, IGW, NAT, SGs, endpoints'],
-      ['EC2 & Load Balancing', 'EC2, EBS, ALB, ASG'],
-      ['S3 Storage', 'buckets, versioning, lifecycle'],
-      ['RDS & DynamoDB', 'RDS, Aurora, DynamoDB'],
-      ['Lambda & API Gateway', 'serverless APIs, triggers'],
-      ['ECS, EKS & ECR', 'containers on AWS, Fargate'],
-      ['Messaging & DNS', 'SQS, SNS, Route 53, CloudFront'],
-      ['CDK & Capstone', 'FPO AWS architecture + exam prep'],
-    ],
-  },
-  {
-    id: 's_kk', block: 'b0', seq: 0, icon: '🎓', color: '#10B981', dark: '#059669', bg: '#ECFDF5', border: '#6EE7B7',
-    name: 'KodeKloud DevOps & Cloud', weeks: 4,
-    about: 'KodeKloud 1-month subscription (through Aug 2, 2026) · DevOps & Cloud — Linux, Docker, Kubernetes, CI/CD, Terraform, AWS/cloud labs on KodeKloud.',
-    courses: ['KodeKloud — DevOps learning path', 'KodeKloud — Kubernetes for Beginners', 'KodeKloud — AWS / cloud labs'],
-    wplan: [
-      ['Linux & Docker', 'shell, containers, images, compose, multi-stage builds'],
-      ['Kubernetes Core', 'pods, deployments, services, kubectl, YAML manifests'],
-      ['CI/CD & Terraform', 'pipelines, GitHub Actions, IaC basics on KodeKloud'],
-      ['Cloud on KodeKloud', 'AWS/cloud hands-on labs, exam-style drills, revision'],
-    ],
-  },
-  {
-    id: 's19', block: 'b5', seq: 19, icon: '🧮', color: '#059669', dark: '#047857', bg: '#ECFDF5', border: '#6EE7B7',
+    icon: '🧮', color: '#059669', dark: '#047857', bg: '#ECFDF5', border: '#6EE7B7',
     name: 'Data Structures', weeks: 20,
-    about: 'Weeks 117–136 · DSA deep dive: NeetCode 150 + Blind 75 patterns in Python and Java. 2–3 problems daily.',
+    aboutBody: 'DSA deep dive: NeetCode 150 + Blind 75 patterns in Python and Java. 2–3 problems daily.',
     courses: ['NeetCode.io', 'LeetCode Premium', 'Striver A2Z DSA'],
     wplan: [
       ['Arrays & Hashing', 'two sum, anagrams, top K'],
@@ -329,9 +311,9 @@ const SKILLS = [
     ],
   },
   {
-    id: 's20', block: 'b5', seq: 20, icon: '🏗', color: '#DC2626', dark: '#B91C1C', bg: '#FEF2F2', border: '#FECACA',
+    icon: '🏗', color: '#DC2626', dark: '#B91C1C', bg: '#FEF2F2', border: '#FECACA',
     name: 'System Design', weeks: 14,
-    about: 'Weeks 137–150 · System Design: scalability, classic designs, FPO architecture, whiteboards, portfolio ADRs.',
+    aboutBody: 'System Design: scalability, classic designs, FPO architecture, whiteboards, portfolio ADRs.',
     courses: ['Alex Xu — System Design Interview', 'Gaurav Sen (YouTube)', 'ByteByteGo', 'DDIA (Kleppmann)'],
     wplan: [
       ['Fundamentals', 'scalability, CAP, load balancers'],
@@ -347,95 +329,146 @@ const SKILLS = [
       ['FPO Architecture II', 'payments, inventory, multi-region'],
       ['Mock Interviews I', '5 whiteboard sessions'],
       ['Mock Interviews II', '5 more designs, feedback loops'],
-      ['Portfolio & Finish', '10 ADRs in GitHub — W150 DONE 🏆'],
+      ['Portfolio Wrap-up', '10 ADRs in GitHub before final AWS block'],
+    ],
+  },
+  {
+    icon: '☁', color: '#D97706', dark: '#B45309', bg: '#FFFBEB', border: '#FDE68A',
+    name: 'AWS',
+    aboutBody: 'Final 61-day AWS block · CloudFolks Hub deep dive — IAM, VPC, EC2, S3, RDS, Lambda, ECS, CDK, SAA prep, FPO capstone. Ends May 18, 2029 🏆',
+    courses: ['CloudFolks Hub — AWS Cloud (paid course)', 'AWS Skill Builder', 'AWS Official Documentation'],
+    wplan: [
+      ['IAM & Account', 'users, roles, policies, MFA, CLI'],
+      ['VPC Networking', 'subnets, IGW, NAT, SGs, endpoints'],
+      ['EC2 & Load Balancing', 'EC2, EBS, ALB, ASG'],
+      ['S3 Storage', 'buckets, versioning, lifecycle'],
+      ['RDS & DynamoDB', 'RDS, Aurora, DynamoDB'],
+      ['Lambda & API Gateway', 'serverless APIs, triggers'],
+      ['ECS, EKS & ECR', 'containers on AWS, Fargate'],
+      ['Messaging & DNS', 'SQS, SNS, Route 53, CloudFront'],
+      ['CDK & Capstone', 'FPO AWS architecture + SAA exam prep — D1050 DONE 🏆'],
     ],
   },
 ];
 
-const SKILL_ORDER = [
-  'KodeKloud DevOps & Cloud', 'AWS', 'Javascript', 'Typescript', 'ExpressJS', 'React JS', 'Next JS', 'React Native',
+const MAIN_SKILL_ORDER = [
+  'Javascript', 'Typescript', 'ExpressJS', 'React JS', 'Next JS', 'React Native',
   'Python', 'Django', 'Fast API', 'Agentic AI', 'J2SE', 'J2EE', 'JPA', 'Spring Boot',
   'Microservices', 'Devops', 'Kubernetes', 'Data Structures', 'System Design',
 ];
 
 const BLOCK_BY_SKILL = {
-  'KodeKloud DevOps & Cloud': 'b0',
-  AWS: 'b0',
+  'KodeKloud DevOps, Cloud & AWS': 'b0',
   Javascript: 'b1', Typescript: 'b1', ExpressJS: 'b1', 'React JS': 'b1', 'Next JS': 'b1', 'React Native': 'b1',
   Python: 'b2', Django: 'b2', 'Fast API': 'b2', 'Agentic AI': 'b2',
   J2SE: 'b3', J2EE: 'b3', JPA: 'b3', 'Spring Boot': 'b3', Microservices: 'b3',
   Devops: 'b4', Kubernetes: 'b4',
   'Data Structures': 'b5', 'System Design': 'b5',
+  AWS: 'b6',
 };
 
 const byName = Object.fromEntries(SKILLS.map((s) => [s.name, s]));
-const ORDERED_SKILLS = SKILL_ORDER.map((name, i) => {
-  const s = byName[name];
-  if (!s) throw new Error('Missing skill: ' + name);
-  const aboutBody = s.about.replace(/^Weeks \d+–\d+ · /, '');
-  const ordered = {
-    ...s,
-    aboutBody,
-    id: 's' + (i + 1),
-    seq: i + 1,
-    block: BLOCK_BY_SKILL[name],
-  };
-  if (name === 'AWS') ordered.scheduleLink = '#/aws-100-days';
-  delete ordered.about;
-  return ordered;
-});
 
-let ws = 1;
-const PHASES = ORDERED_SKILLS.map((s) => {
-  const we = ws + s.weeks - 1;
-  const ds = (ws - 1) * 7 + 1;
-  const de = we * 7;
-  const days = s.weeks * 7;
-  const p = {
-    ...s,
-    label: s.weeks + ' weeks',
+function makeWplan(skill, ws, count) {
+  const rows = skill.wplan.slice(0, count);
+  while (rows.length < count) {
+    const i = rows.length;
+    rows.push(skill.wplan[i % skill.wplan.length]);
+  }
+  return rows.map((row, i) => ({
+    w: ws + i,
+    f: 'Week ' + (ws + i) + ': ' + row[0],
+    t: row[1],
+  }));
+}
+
+function buildPhase(skill, ds, de, seq, id, extra = {}) {
+  const days = de - ds + 1;
+  const weeks = skill.weeks ?? Math.ceil(days / 7);
+  const ws = Math.ceil(ds / 7);
+  const we = Math.ceil(de / 7);
+  const wplanCount = skill.weeks ?? weeks;
+  return {
+    ...skill,
+    id,
+    seq,
+    block: BLOCK_BY_SKILL[skill.name],
+    label: skill.weeks ? weeks + ' weeks' : days + ' days',
     days,
-    weeks: s.weeks,
+    weeks,
     ws,
     we,
     ds,
     de,
-    period: period(ws, we),
-    about: 'Weeks ' + ws + '–' + we + ' · ' + s.aboutBody,
-    ms: s.name + ' Complete · W' + we,
-    wplan: s.wplan.map((row, i) => ({
-      w: ws + i,
-      f: 'Week ' + (ws + i) + ': ' + row[0],
-      t: row[1],
-    })),
+    period: periodDays(ds, de),
+    about: (ds === 1
+      ? 'Jul 4 – Aug 2, 2026 · '
+      : de === TOTAL_DAYS
+        ? 'Final block · '
+        : 'Weeks ' + ws + '–' + we + ' · ') + skill.aboutBody,
+    ms: de === TOTAL_DAYS
+      ? '150 Study Days Complete · D1050 · ' + skill.name
+      : skill.name + ' Complete · W' + we,
+    wplan: makeWplan(skill, ws, wplanCount),
+    ...extra,
   };
-  ws = we + 1;
-  const { aboutBody, ...phase } = p;
-  return phase;
-});
+}
+
+const PHASES = [];
+let seq = 1;
+
+// 1. KodeKloud + Cloud + AWS intro (30 days, through Aug 2)
+PHASES.push(buildPhase(byName['KodeKloud DevOps, Cloud & AWS'], 1, CLOUD_END_DAY, seq, 's' + seq));
+seq++;
+
+// 2. Main stack from Aug 3 (137 weeks)
+let ds = JS_START_DAY;
+for (const name of MAIN_SKILL_ORDER) {
+  const skill = byName[name];
+  const de = ds + skill.weeks * 7 - 1;
+  PHASES.push(buildPhase(skill, ds, de, seq, 's' + seq));
+  ds = de + 1;
+  seq++;
+}
+
+// 3. Final AWS block (61 days)
+const awsStart = ds;
+const awsEnd = TOTAL_DAYS;
+if (awsEnd - awsStart + 1 !== AWS_END_DAYS) {
+  throw new Error('AWS end days mismatch: ' + (awsEnd - awsStart + 1) + ' !== ' + AWS_END_DAYS);
+}
+PHASES.push(buildPhase(byName.AWS, awsStart, awsEnd, seq, 's' + seq, {
+  scheduleLink: '#/aws-100-days',
+}));
+
+if (PHASES[PHASES.length - 1].de !== TOTAL_DAYS) {
+  throw new Error('Plan does not end on day ' + TOTAL_DAYS);
+}
 
 const sumWeeks = PHASES.reduce((a, p) => a + p.weeks, 0);
-if (sumWeeks !== TOTAL_WEEKS) throw new Error('Week sum ' + sumWeeks + ' !== ' + TOTAL_WEEKS);
 
 const BLOCK_META = {
-  b0: { icon: '☁', col: '#D97706', title: 'KodeKloud + AWS', detail: 'W1–W4 KodeKloud DevOps & Cloud → W5–W13 AWS (CloudFolks Hub)', scheduleLink: '#/aws-100-days' },
+  b0: { icon: '🎓', col: '#10B981', title: 'KodeKloud DevOps, Cloud & AWS', detail: 'Jul 4 – Aug 2, 2026 · 30 days · KodeKloud subscription' },
   b1: { icon: '🎓', col: '#E11D48', title: 'JavaScript Ecosystem', detail: 'Javascript → Typescript → ExpressJS → React → Next JS → React Native' },
   b2: { icon: '🐍', col: '#15803D', title: 'Python Stack', detail: 'Python → Django → Fast API → Agentic AI' },
   b3: { icon: '☕', col: '#EA580C', title: 'Java Backend', detail: 'J2SE → J2EE → JPA → Spring Boot → Microservices' },
   b4: { icon: '🔧', col: '#6366F1', title: 'DevOps & Kubernetes', detail: 'DevOps → Kubernetes' },
   b5: { icon: '🎯', col: '#7C3AED', title: 'Interview Readiness', detail: 'Data Structures → System Design' },
+  b6: { icon: '☁', col: '#D97706', title: 'AWS Final Block', detail: '61 days · CloudFolks Hub · SAA prep + FPO capstone', scheduleLink: '#/aws-100-days' },
 };
 
 const BLOCKS = Object.entries(BLOCK_META).map(([id, meta]) => {
   const phases = PHASES.filter((p) => p.block === id);
   const bws = phases[0].ws;
   const bwe = phases[phases.length - 1].we;
+  const bds = phases[0].ds;
+  const bde = phases[phases.length - 1].de;
   return {
     id,
     icon: meta.icon,
     col: meta.col,
     title: meta.title,
-    sub: 'W' + bws + '–W' + bwe + ' · ' + period(bws, bwe),
+    sub: 'W' + bws + '–W' + bwe + ' · ' + periodDays(bds, bde),
     detail: meta.detail,
     time: '5:30 AM – 8:30 AM IST · 3h daily',
     ...(meta.scheduleLink ? { scheduleLink: meta.scheduleLink } : {}),
@@ -446,19 +479,25 @@ const MILESTONES = PHASES.map((p) => ({
   week: p.we,
   day: p.de,
   icon: p.icon,
-  label: p.name + ' Done',
-  date: fmt(weekEnd(p.we)),
+  label: p.de === TOTAL_DAYS ? 'Plan Complete · ' + p.name : p.name + ' Done',
+  date: fmt(dayDate(p.de)),
   color: p.color,
 }));
+
+const cloudPhase = PHASES[0];
+const awsFinal = PHASES[PHASES.length - 1];
 
 const out = `// Auto-generated · 150 weeks · Jul 4, 2026 → May 18, 2029
 export const START = new Date('2026-07-04');
 export const TOTAL_WEEKS = ${TOTAL_WEEKS};
-export const TOTAL_DAYS = ${TOTAL_WEEKS * 7};
+export const TOTAL_DAYS = ${TOTAL_DAYS};
 export const DEADLINE = 'May 18, 2029';
-export const KODEKLOUD_WEEKS = ${PHASES.find((p) => p.name === 'KodeKloud DevOps & Cloud').weeks};
-export const AWS_WEEKS = ${PHASES.find((p) => p.name === 'AWS').weeks};
-export const AWS_PLAN_WEEK_START = ${PHASES.find((p) => p.name === 'AWS').ws};
+export const CLOUD_END_DAY = ${CLOUD_END_DAY};
+export const JS_START_DAY = ${JS_START_DAY};
+export const KODEKLOUD_END = 'Aug 2, 2026';
+export const AWS_END_DAYS = ${AWS_END_DAYS};
+export const AWS_PLAN_START = ${awsFinal.ds};
+export const AWS_PLAN_WEEK_START = ${awsFinal.ws};
 export const STUDY_TIME = '5:30 AM – 8:30 AM IST · 3h daily';
 
 export const BLOCKS = ${JSON.stringify(BLOCKS, null, 2)};
@@ -471,5 +510,8 @@ export const MILESTONES = ${JSON.stringify(MILESTONES, null, 2)};
 const dest = join(__dirname, '../src/data/plan150weeks.js');
 writeFileSync(dest, out);
 console.log('Wrote', dest);
-console.log('Weeks:', sumWeeks);
-console.log('Last phase:', PHASES[PHASES.length - 1].period);
+console.log('Phases:', PHASES.length);
+console.log('First:', PHASES[0].name, PHASES[0].period);
+console.log('JS:', PHASES[1].name, PHASES[1].period);
+console.log('Last AWS:', awsFinal.period, 'D' + awsFinal.ds + '-D' + awsFinal.de);
+console.log('Sum weeks (approx):', sumWeeks);

@@ -1,5 +1,5 @@
 import { useState, useMemo } from 'react';
-import { AWS_SCHEDULE, AWS_WEEKS, AWS_PLAN_START, AWS_PHASE_DAYS, awsDayDate, awsPlanDay } from './aws100DaysSchedule.js';
+import { AWS_SCHEDULE, AWS_WEEKS, AWS_PLAN_START, AWS_PHASE_DAYS, AWS_FINAL_DAYS, awsDayDate, awsPlanDay } from './aws100DaysSchedule.js';
 
 const COL = '#D97706';
 const COL_DARK = '#B45309';
@@ -10,7 +10,7 @@ function todayAwsDay() {
   const start = new Date('2026-07-04');
   const planDay = Math.floor((new Date() - start) / 86400000) + 1;
   if (planDay < AWS_PLAN_START) return 0;
-  return Math.min(planDay - AWS_PLAN_START + 1, AWS_PHASE_DAYS);
+  return Math.min(planDay - AWS_PLAN_START + 1, AWS_FINAL_DAYS);
 }
 
 export default function Aws100Days() {
@@ -25,7 +25,7 @@ export default function Aws100Days() {
   }, [week]);
 
   const doneCount = today > 0 ? today - 1 : 0;
-  const progress = today > 0 ? Math.min(100, Math.round((today / AWS_PHASE_DAYS) * 100)) : 0;
+  const progress = today > 0 ? Math.min(100, Math.round((today / AWS_FINAL_DAYS) * 100)) : 0;
 
   return (
     <div
@@ -91,7 +91,7 @@ export default function Aws100Days() {
                   color: 'rgba(255,255,255,0.55)',
                 }}
               >
-                {'13 weeks of AWS · W5–W13 · Aug 1 – Oct 2, 2026'}
+                {'AWS Final Block · 61 days · Mar 19 – May 18, 2029'}
               </div>
               <h1
                 style={{
@@ -102,10 +102,10 @@ export default function Aws100Days() {
                   lineHeight: 1.15,
                 }}
               >
-                {'AWS Daily Schedule — 100-day deep dive'}
+                {'AWS Daily Schedule — final 61-day CloudFolks deep dive'}
               </h1>
               <div style={{ fontSize: 9, color: 'rgba(255,255,255,0.65)', marginTop: 3 }}>
-                {'Aug 1 – Oct 2, 2026 · W5–W13 of 150 · D29+ · 5:30–8:30 AM IST (3h) · CloudFolks Hub'}
+                {'Mar 19 – May 18, 2029 · D990–D1050 · 5:30–8:30 AM IST (3h) · CloudFolks Hub'}
               </div>
             </div>
           </div>
@@ -130,7 +130,7 @@ export default function Aws100Days() {
                 </span>
               </>
             ) : (
-              'AWS starts Aug 1, 2026 (W5 / D29) — after 4 weeks of KodeKloud DevOps & Cloud (W1–4)'
+              'AWS final block starts Mar 19, 2029 (D990) — after DSA & System Design · KodeKloud was Jul 4 – Aug 2, 2026'
             )}
           </div>
 
@@ -156,7 +156,7 @@ export default function Aws100Days() {
           >
             <span>{doneCount + ' days done'}</span>
             <span>{progress + '%'}</span>
-            <span>{AWS_PHASE_DAYS + ' days'}</span>
+            <span>{AWS_FINAL_DAYS + ' days · 100-day curriculum'}</span>
           </div>
         </div>
       </div>
@@ -341,7 +341,7 @@ export default function Aws100Days() {
           }}
         >
           <div style={{ fontSize: 13, fontWeight: 800, marginBottom: 4 }}>
-            {'☁ Day 100 = AWS deep dive complete · Plan D128'}
+            {'☁ Day 61 = AWS Final Block complete · Plan D1050 DONE 🏆'}
           </div>
           <div style={{ fontSize: 9, opacity: 0.75 }}>
             {'Then Feb 9, 2028: System Design — 100 days (3h daily · 5:30–8:30 AM)'}
