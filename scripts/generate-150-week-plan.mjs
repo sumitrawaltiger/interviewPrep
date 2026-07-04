@@ -40,7 +40,7 @@ function fmtShort(d) {
   return d.toLocaleDateString('en-US', { month: 'short', day: 'numeric' });
 }
 
-// 20 skills · 4 years · Jul 5, 2026 → Jul 4, 2030 · 5:30–8:30 AM IST · 3h daily
+// 20 skills · 4 years · Jul 5, 2026 → Jul 4, 2030 · 5:30–8:30 AM BKK · 3h daily
 
 function scaleWeeks(baseWeeks, targetTotal) {
   const baseSum = baseWeeks.reduce((a, b) => a + b, 0);
@@ -455,7 +455,7 @@ const BLOCKS = Object.entries(BLOCK_META).map(([id, meta]) => {
     title: meta.title,
     sub: 'W' + phases[0].ws + '–W' + phases.at(-1).we + ' · ' + dayPeriod(phases[0].ds, phases.at(-1).de),
     detail: meta.detail,
-    time: '5:30 AM – 8:30 AM IST · 3h daily',
+    time: '5:30 AM – 8:30 AM BKK · 3h daily',
     ...(meta.scheduleLink ? { scheduleLink: meta.scheduleLink } : {}),
   };
 });
@@ -504,7 +504,7 @@ export const SKILL_COUNT = 20;
 export const DEADLINE = '${DEADLINE_STR}';
 export const AWS_PLAN_START = ${awsPhase.ds};
 export const JS_PLAN_START = ${jsPhase.ds};
-export const STUDY_TIME = '5:30 AM – 8:30 AM IST · 3h daily';
+export const STUDY_TIME = '5:30 AM – 8:30 AM BKK · 3h daily';
 
 export const YEARS = ${JSON.stringify(YEARS, null, 2)};
 

@@ -167,7 +167,7 @@ export default function JsDayLog({ day }) {
           <div style={{ fontSize: 15, fontWeight: 900, color: '#0F172A', marginBottom: 4 }}>
             {'Lecture' + String(data.lecture).padStart(2, '0') + ': ' + data.title}
           </div>
-          <div style={{ fontSize: 10, color: '#64748B' }}>{'⏱ ' + data.duration + ' · 3h session (5:30–8:30 AM IST)'}</div>
+          <div style={{ fontSize: 10, color: '#64748B' }}>{'⏱ ' + data.duration + ' · 3h session (5:30–8:30 AM BKK)'}</div>
           {data.notionUrl && (
             <a
               href={data.notionUrl}
