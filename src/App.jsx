@@ -38,6 +38,29 @@ const PHASES_LIST = PHASES.map((p) =>
       : p,
 );
 
+const SKILL_SHORT = {
+  Javascript: 'JS',
+  Typescript: 'TS',
+  'React JS': 'React',
+  'Next JS': 'Next',
+  'React Native': 'RN',
+  'Node JS': 'Node',
+  Python: 'Python',
+  Django: 'Django',
+  'Fast API': 'FastAPI',
+  'Agentic AI': 'AI',
+  J2SE: 'J2SE',
+  J2EE: 'J2EE',
+  JPA: 'JPA',
+  'Spring Boot': 'Spring',
+  Microservices: 'Micro',
+  Devops: 'DevOps',
+  AWS: 'AWS',
+  Kubernetes: 'K8s',
+  'Data Structures': 'DSA',
+  'System Design': 'SD',
+};
+
 function daysIn() {
   return Math.max(0, Math.floor((new Date() - START) / 86400000));
 }
@@ -1002,64 +1025,103 @@ export default function App() {
         <div
           style={{
             marginTop: 22,
-            background: 'linear-gradient(135deg,#1a237e,#1565C0)',
-            borderRadius: 12,
-            padding: '15px 17px',
-            boxShadow: '0 6px 24px rgba(99,102,241,0.3)',
+            background: 'linear-gradient(160deg,#0F172A 0%,#1E3A8A 45%,#1D4ED8 100%)',
+            borderRadius: 14,
+            padding: '18px 14px 16px',
+            boxShadow: '0 8px 32px rgba(30,58,138,0.35)',
             textAlign: 'center',
+            border: '1px solid rgba(255,255,255,0.12)',
           }}
         >
           <div
             style={{
-              fontSize: 'clamp(12px,4vw,15px)',
+              fontSize: 'clamp(13px,4vw,16px)',
               fontWeight: 900,
               color: '#FDE68A',
-              marginBottom: 3,
+              marginBottom: 6,
+              letterSpacing: '0.02em',
             }}
           >
             {'🏆 ' + TOTAL_YEARS + ' Years of Code · Jul 5, 2026 → ' + DEADLINE}
           </div>
           <div
             style={{
-              fontSize: 9,
-              color: 'rgba(255,255,255,0.55)',
-              marginBottom: 8,
+              fontSize: 10,
+              color: 'rgba(255,255,255,0.82)',
+              marginBottom: 14,
+              lineHeight: 1.5,
+              fontWeight: 500,
             }}
           >
-            {
-              'JS stack → Python → Java → DevOps → AWS → K8s → DSA → System Design'
-            }
+            {'JS stack → Python → Java → DevOps → AWS → K8s → DSA → System Design'}
           </div>
           <div
             style={{
               display: 'flex',
               justifyContent: 'center',
-              gap: 4,
+              gap: 6,
+              flexWrap: 'wrap',
+              maxWidth: 640,
+              margin: '0 auto',
+            }}
+          >
+            {PHASES_LIST.map((p) => {
+              const isDone = sd > p.de;
+              const isCurrent = cid === p.id;
+              const label = SKILL_SHORT[p.name] || p.name;
+              return (
+                <span
+                  key={p.id}
+                  title={p.name}
+                  style={{
+                    display: 'inline-flex',
+                    alignItems: 'center',
+                    gap: 4,
+                    padding: '5px 10px',
+                    borderRadius: 20,
+                    fontSize: 9,
+                    fontWeight: 700,
+                    letterSpacing: '0.03em',
+                    background: isCurrent
+                      ? p.color
+                      : isDone
+                        ? 'rgba(16,185,129,0.28)'
+                        : 'rgba(255,255,255,0.14)',
+                    color: '#FFFFFF',
+                    border: isCurrent
+                      ? '2px solid ' + p.border
+                      : isDone
+                        ? '1px solid rgba(52,211,153,0.55)'
+                        : '1px solid rgba(255,255,255,0.22)',
+                    boxShadow: isCurrent
+                      ? '0 0 0 3px ' + p.color + '44, 0 2px 8px rgba(0,0,0,0.25)'
+                      : '0 1px 4px rgba(0,0,0,0.15)',
+                    transform: isCurrent ? 'scale(1.05)' : 'none',
+                    transition: 'transform 0.15s ease',
+                  }}
+                >
+                  <span style={{ fontSize: 11, lineHeight: 1 }}>
+                    {isDone ? '✓' : p.icon}
+                  </span>
+                  {label}
+                </span>
+              );
+            })}
+          </div>
+          <div
+            style={{
+              marginTop: 12,
+              fontSize: 8,
+              color: 'rgba(255,255,255,0.45)',
+              display: 'flex',
+              justifyContent: 'center',
+              gap: 12,
               flexWrap: 'wrap',
             }}
           >
-            {PHASES_LIST.map((p, i, a) => (
-              <span
-                key={p.id}
-                style={{ display: 'flex', alignItems: 'center', gap: 2 }}
-              >
-                <span
-                  style={{
-                    fontSize: 8,
-                    color: p.color,
-                    fontWeight: 700,
-                    opacity: sd > p.de ? 1 : 0.35,
-                  }}
-                >
-                  {p.icon + ' ' + p.name.split(' ')[0]}
-                </span>
-                {i < a.length - 1 && (
-                  <span style={{ color: 'rgba(255,255,255,0.2)', fontSize: 8 }}>
-                    {'·'}
-                  </span>
-                )}
-              </span>
-            ))}
+            <span>{'● Current skill'}</span>
+            <span>{'✓ Completed'}</span>
+            <span>{'○ Upcoming'}</span>
           </div>
         </div>
       </div>
