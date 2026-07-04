@@ -1,6 +1,6 @@
 import { useState, useMemo } from 'react';
 import { AWS_SCHEDULE, AWS_WEEKS, AWS_PLAN_START, AWS_PHASE_DAYS, awsDayDate, awsPlanDay } from './aws100DaysSchedule.js';
-import { TOTAL_DAYS, DEADLINE } from './data/plan150weeks.js';
+import { TOTAL_DAYS, DEADLINE, WAKE_TIME, STUDY_TIME } from './data/plan150weeks.js';
 
 const COL = '#D97706';
 const COL_DARK = '#B45309';
@@ -106,7 +106,7 @@ export default function Aws100Days() {
                 {'AWS Daily Schedule — 100-day CloudFolks curriculum'}
               </h1>
               <div style={{ fontSize: 9, color: 'rgba(255,255,255,0.65)', marginTop: 3 }}>
-                {'Jan 7 – May 19, 2029 · W132–W150 · D918–D1050 · 5:30–8:30 AM BKK (3h) · CloudFolks Hub'}
+                {'Jan 7 – May 19, 2029 · W132–W150 · D918–D1050 · Wake 4 AM · ' + STUDY_TIME + ' · CloudFolks Hub'}
               </div>
             </div>
           </div>

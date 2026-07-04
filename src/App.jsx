@@ -7,12 +7,13 @@ import {
   TOTAL_YEARS,
   SKILL_COUNT,
   DEADLINE,
+  WAKE_TIME,
   STUDY_TIME,
   BLOCKS,
   PHASES,
   MILESTONES,
 } from './data/plan150weeks.js';
-// 20 skills · 4 years · Jul 5, 2026 → Jul 4, 2030 · 5:30–8:30 AM BKK
+// 20 skills · 4 years · Jul 5, 2026 → Jul 4, 2030 · wake 4 AM · study 5–8 AM BKK
 
 const JS_DAY_LINKS = JS_COURSE_DAYS.map((d) => ({
   href: d.hash,
@@ -617,7 +618,7 @@ export default function App() {
                 }}
               >
                 {
-                  'Sun Jul 5, 2026 → Fri Jul 4, 2030 · 5:30 AM – 8:30 AM BKK · ' + TOTAL_YEARS + ' years · ' + TOTAL_WEEKS + ' weeks · ' + SKILL_COUNT + ' skills'
+                  'Sun Jul 5, 2026 → Fri Jul 4, 2030 · Wake ' + WAKE_TIME.replace(' daily', '') + ' · ' + STUDY_TIME + ' · ' + TOTAL_YEARS + ' years · ' + SKILL_COUNT + ' skills'
                 }
               </div>
             </div>
@@ -739,7 +740,7 @@ export default function App() {
                 }}
               >
                 {
-                  TOTAL_YEARS + ' years · ' + TOTAL_WEEKS + ' weeks · 3h daily · JS first → Python → Java → DevOps → AWS → K8s → DSA & SD'
+                  WAKE_TIME + ' · ' + STUDY_TIME + ' · JS first → Python → Java → DevOps → AWS → K8s → DSA & SD'
                 }
               </div>
               <div style={{ fontSize: 8, color: 'rgba(255,255,255,0.5)' }}>
@@ -772,7 +773,7 @@ export default function App() {
                   marginBottom: 1,
                 }}
               >
-                {TOTAL_YEARS + ' Years of Code — daily 5:30–8:30 AM BKK through ' + DEADLINE}
+                {TOTAL_YEARS + ' Years of Code — ' + WAKE_TIME + ' · ' + STUDY_TIME + ' through ' + DEADLINE}
               </div>
               <div style={{ fontSize: 8, color: 'rgba(255,255,255,0.5)' }}>
                 {'JS ecosystem → Python → Java → DevOps → AWS → K8s → DSA & System Design · ends ' + DEADLINE}

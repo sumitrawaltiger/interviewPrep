@@ -1,4 +1,5 @@
 import { getJsCourseDay, JS_COURSE_DAYS } from './data/jsCourseDays.js';
+import { WAKE_TIME, STUDY_TIME } from './data/plan150weeks.js';
 
 const COL_DARK = '#CA8A04';
 const BORDER = '#FDE047';
@@ -167,7 +168,7 @@ export default function JsDayLog({ day }) {
           <div style={{ fontSize: 15, fontWeight: 900, color: '#0F172A', marginBottom: 4 }}>
             {'Lecture' + String(data.lecture).padStart(2, '0') + ': ' + data.title}
           </div>
-          <div style={{ fontSize: 10, color: '#64748B' }}>{'⏱ ' + data.duration + ' · 3h session (5:30–8:30 AM BKK)'}</div>
+          <div style={{ fontSize: 10, color: '#64748B' }}>{'⏱ ' + data.duration + ' · Wake ' + WAKE_TIME.replace(' daily', '') + ' · ' + STUDY_TIME}</div>
           {data.notionUrl && (
             <a
               href={data.notionUrl}
