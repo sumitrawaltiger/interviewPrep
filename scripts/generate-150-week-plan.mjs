@@ -4,18 +4,32 @@ import { dirname, join } from 'path';
 
 const __dirname = dirname(fileURLToPath(import.meta.url));
 const START = new Date('2026-07-04');
-const TOTAL_WEEKS = 150;
-const TOTAL_DAYS = TOTAL_WEEKS * 7;
+const END = new Date('2030-07-03');
+const TOTAL_YEARS = 4;
+const TOTAL_DAYS = Math.floor((END - START) / 86400000) + 1; // 1461 days · Jul 4, 2026 → Jul 3, 2030
+const ALLOC_WEEKS = Math.floor(TOTAL_DAYS / 7); // 208 full weeks; last skill absorbs remaining days
+const TOTAL_WEEKS = Math.ceil(TOTAL_DAYS / 7); // 209 (final week is partial)
+const DEADLINE_STR = 'Jul 3, 2030';
 
-function weekStart(w) {
+function dayDate(dayNum) {
   const d = new Date(START);
-  d.setDate(d.getDate() + (w - 1) * 7);
+  d.setDate(d.getDate() + dayNum - 1);
   return d;
 }
-function weekEnd(w) {
-  const d = weekStart(w);
-  d.setDate(d.getDate() + 6);
-  return d;
+function dayNum(date) {
+  return Math.floor((date - START) / 86400000) + 1;
+}
+function dayPeriod(ds, de) {
+  const a = dayDate(ds);
+  const b = dayDate(de);
+  if (a.getTime() === b.getTime()) return fmt(a);
+  if (a.getFullYear() === b.getFullYear()) {
+    return fmtShort(a) + ' – ' + fmt(b);
+  }
+  return fmtShort(a) + ', ' + a.getFullYear() + ' – ' + fmt(b);
+}
+function studyWeekOf(day) {
+  return Math.ceil(day / 7);
 }
 function fmt(d) {
   return d.toLocaleDateString('en-US', { month: 'short', day: 'numeric', year: 'numeric' });
@@ -23,16 +37,38 @@ function fmt(d) {
 function fmtShort(d) {
   return d.toLocaleDateString('en-US', { month: 'short', day: 'numeric' });
 }
-function period(ws, we) {
-  const a = weekStart(ws);
-  const b = weekEnd(we);
-  if (a.getFullYear() === b.getFullYear()) {
-    return fmtShort(a) + ' – ' + fmt(b);
-  }
-  return fmtShort(a) + ', ' + a.getFullYear() + ' – ' + fmt(b);
+
+// 20 skills · 4 years · Jul 4, 2026 → Jul 3, 2030 · 5:30–8:30 AM IST · 3h daily
+
+function scaleWeeks(baseWeeks, targetTotal) {
+  const baseSum = baseWeeks.reduce((a, b) => a + b, 0);
+  const scaled = baseWeeks.map((w) => Math.floor((w * targetTotal) / baseSum));
+  const fracs = baseWeeks.map((w, i) => ({
+    i,
+    frac: (w * targetTotal) / baseSum - scaled[i],
+  }));
+  let rem = targetTotal - scaled.reduce((a, b) => a + b, 0);
+  fracs.sort((a, b) => b.frac - a.frac);
+  for (let k = 0; k < rem; k++) scaled[fracs[k % fracs.length].i]++;
+  return scaled;
 }
 
-// 20 skills · 150 weeks · Jul 4, 2026 → May 18, 2029
+function expandWplan(wplan, weeks) {
+  if (wplan.length >= weeks) return wplan.slice(0, weeks);
+  const out = [...wplan];
+  while (out.length < weeks) {
+    const src = wplan[out.length % wplan.length];
+    const n = Math.floor(out.length / wplan.length) + 1;
+    out.push([src[0] + (n > 1 ? ' · Deep dive ' + n : ' · Practice'), src[1] + ' — extended hands-on']);
+  }
+  return out;
+}
+
+const BASE_WEEKS = [
+  14, 8, 3, 9, 6, 6, 4, 4, 4, 3, 10, 4, 4, 3, 8, 7, 11, 10, 16, 16,
+];
+const SCALED_WEEKS = scaleWeeks(BASE_WEEKS, ALLOC_WEEKS);
+
 const SKILL_DEFS = [
   {
     icon: '☁', color: '#D97706', dark: '#B45309', bg: '#FFFBEB', border: '#FDE68A', block: 'b0',
@@ -341,16 +377,23 @@ const SKILL_DEFS = [
       ['Mock Interviews II', '5 more designs, feedback loops'],
       ['Portfolio ADRs I', 'document 5 classic designs'],
       ['Portfolio ADRs II', 'document 5 more designs'],
-      ['Final Portfolio', '10 ADRs in GitHub — W150 DONE 🏆'],
+      ['Final Portfolio', '10 ADRs in GitHub — 4-year plan DONE 🏆'],
     ],
   },
 ];
 
-let ws = 1;
+SKILL_DEFS.forEach((s, i) => {
+  s.weeks = SCALED_WEEKS[i];
+  s.wplan = expandWplan(s.wplan, s.weeks);
+});
+
+let ds = 1;
 const PHASES = SKILL_DEFS.map((s, i) => {
-  const we = ws + s.weeks - 1;
-  const ds = (ws - 1) * 7 + 1;
-  const de = we * 7;
+  const isLast = i === SKILL_DEFS.length - 1;
+  const days = isLast ? TOTAL_DAYS - ds + 1 : s.weeks * 7;
+  const de = ds + days - 1;
+  const ws = studyWeekOf(ds);
+  const we = studyWeekOf(de);
   const phase = {
     id: 's' + (i + 1),
     seq: i + 1,
@@ -361,17 +404,19 @@ const PHASES = SKILL_DEFS.map((s, i) => {
     bg: s.bg,
     border: s.border,
     name: s.name,
-    label: s.weeks + ' weeks',
-    days: s.weeks * 7,
+    label: isLast && days % 7 !== 0
+      ? s.weeks + ' weeks + ' + (days % 7) + ' days'
+      : s.weeks + ' weeks',
+    days,
     weeks: s.weeks,
     ws,
     we,
     ds,
     de,
-    period: period(ws, we),
+    period: dayPeriod(ds, de),
     about: 'Weeks ' + ws + '–' + we + ' · ' + s.aboutBody,
-    ms: i === SKILL_DEFS.length - 1
-      ? '150 Weeks Complete · W150 · ' + s.name
+    ms: isLast
+      ? TOTAL_YEARS + '-Year Plan Complete · ' + DEADLINE_STR + ' · ' + s.name
       : s.name + ' Complete · W' + we,
     courses: s.courses,
     wplan: s.wplan.map((row, j) => ({
@@ -381,13 +426,15 @@ const PHASES = SKILL_DEFS.map((s, i) => {
     })),
     ...(s.name === 'AWS' ? { scheduleLink: '#/aws-100-days' } : {}),
   };
-  ws = we + 1;
+  ds = de + 1;
   return phase;
 });
 
 const sumWeeks = PHASES.reduce((a, p) => a + p.weeks, 0);
-if (sumWeeks !== TOTAL_WEEKS) throw new Error('Week sum ' + sumWeeks + ' !== ' + TOTAL_WEEKS);
-if (PHASES[PHASES.length - 1].de !== TOTAL_DAYS) throw new Error('End day ' + PHASES.at(-1).de + ' !== ' + TOTAL_DAYS);
+if (sumWeeks !== ALLOC_WEEKS) throw new Error('Week sum ' + sumWeeks + ' !== ' + ALLOC_WEEKS);
+if (PHASES[PHASES.length - 1].de !== TOTAL_DAYS) {
+  throw new Error('End day ' + PHASES.at(-1).de + ' !== ' + TOTAL_DAYS);
+}
 
 const BLOCK_META = {
   b0: { icon: '☁', col: '#D97706', title: 'AWS', detail: 'CloudFolks Hub · IAM → VPC → EC2 → S3 → Lambda → ECS', scheduleLink: '#/aws-100-days' },
@@ -405,10 +452,32 @@ const BLOCKS = Object.entries(BLOCK_META).map(([id, meta]) => {
     icon: meta.icon,
     col: meta.col,
     title: meta.title,
-    sub: 'W' + phases[0].ws + '–W' + phases.at(-1).we + ' · ' + period(phases[0].ws, phases.at(-1).we),
+    sub: 'W' + phases[0].ws + '–W' + phases.at(-1).we + ' · ' + dayPeriod(phases[0].ds, phases.at(-1).de),
     detail: meta.detail,
     time: '5:30 AM – 8:30 AM IST · 3h daily',
     ...(meta.scheduleLink ? { scheduleLink: meta.scheduleLink } : {}),
+  };
+});
+
+const YEARS = Array.from({ length: TOTAL_YEARS }, (_, i) => {
+  const yStart = new Date(START);
+  yStart.setFullYear(yStart.getFullYear() + i);
+  const yEnd = new Date(START);
+  yEnd.setFullYear(yEnd.getFullYear() + i + 1);
+  yEnd.setDate(yEnd.getDate() - 1);
+  const yds = dayNum(yStart);
+  const yde = dayNum(yEnd);
+  const phases = PHASES.filter((p) => p.ds <= yde && p.de >= yds);
+  return {
+    n: i + 1,
+    ds: yds,
+    de: yde,
+    ws: studyWeekOf(yds),
+    we: studyWeekOf(yde),
+    label: 'Year ' + (i + 1),
+    period: fmt(yStart) + ' – ' + fmt(yEnd),
+    skills: phases.map((p) => p.name),
+    phaseIds: phases.map((p) => p.id),
   };
 });
 
@@ -416,23 +485,27 @@ const MILESTONES = PHASES.map((p) => ({
   week: p.we,
   day: p.de,
   icon: p.icon,
-  label: p.de === TOTAL_DAYS ? '150 Weeks Complete' : p.name + ' Done',
-  date: fmt(weekEnd(p.we)),
+  label: p.de === TOTAL_DAYS ? TOTAL_YEARS + '-Year Plan Complete' : p.name + ' Done',
+  date: p.de === TOTAL_DAYS ? DEADLINE_STR : fmt(dayDate(p.de)),
   color: p.color,
 }));
 
 const awsPhase = PHASES.find((p) => p.name === 'AWS');
 const jsPhase = PHASES.find((p) => p.name === 'Javascript');
 
-const out = `// Auto-generated · 20 skills · 150 weeks · Jul 4, 2026 → May 18, 2029
+const out = `// Auto-generated · 20 skills · ${TOTAL_YEARS} years · Jul 4, 2026 → ${DEADLINE_STR} · ${TOTAL_DAYS} days
 export const START = new Date('2026-07-04');
+export const END = new Date('2030-07-03');
+export const TOTAL_YEARS = ${TOTAL_YEARS};
 export const TOTAL_WEEKS = ${TOTAL_WEEKS};
 export const TOTAL_DAYS = ${TOTAL_DAYS};
 export const SKILL_COUNT = 20;
-export const DEADLINE = 'May 18, 2029';
+export const DEADLINE = '${DEADLINE_STR}';
 export const AWS_PLAN_START = ${awsPhase.ds};
 export const JS_PLAN_START = ${jsPhase.ds};
 export const STUDY_TIME = '5:30 AM – 8:30 AM IST · 3h daily';
+
+export const YEARS = ${JSON.stringify(YEARS, null, 2)};
 
 export const BLOCKS = ${JSON.stringify(BLOCKS, null, 2)};
 
@@ -443,7 +516,7 @@ export const MILESTONES = ${JSON.stringify(MILESTONES, null, 2)};
 
 writeFileSync(join(__dirname, '../src/data/plan150weeks.js'), out);
 console.log('Wrote plan150weeks.js');
-console.log('Skills:', PHASES.length, '· Weeks:', sumWeeks);
+console.log('Skills:', PHASES.length, '· Weeks:', sumWeeks, '· Years:', TOTAL_YEARS);
 console.log('AWS:', awsPhase.period);
 console.log('JS:', jsPhase.period);
-console.log('End:', PHASES.at(-1).period, '·', fmt(weekEnd(150)));
+console.log('End:', PHASES.at(-1).period, '·', DEADLINE_STR, '· Day', TOTAL_DAYS);

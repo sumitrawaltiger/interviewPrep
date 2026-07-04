@@ -4,6 +4,7 @@ import {
   START,
   TOTAL_WEEKS,
   TOTAL_DAYS,
+  TOTAL_YEARS,
   SKILL_COUNT,
   DEADLINE,
   STUDY_TIME,
@@ -11,7 +12,7 @@ import {
   PHASES,
   MILESTONES,
 } from './data/plan150weeks.js';
-// 20 skills · 150 weeks · Jul 4, 2026 → May 18, 2029 · 5:30–8:30 AM IST
+// 20 skills · 4 years · Jul 4, 2026 → Jul 3, 2030 · 5:30–8:30 AM IST
 
 const JS_DAY_LINKS = JS_COURSE_DAYS.map((d) => ({
   href: d.hash,
@@ -583,7 +584,7 @@ export default function App() {
                   lineHeight: 1.1,
                 }}
               >
-                {'150 Weeks of Code'}
+                {TOTAL_YEARS + ' Years of Code'}
               </div>
               <div
                 style={{
@@ -593,7 +594,7 @@ export default function App() {
                 }}
               >
                 {
-                  'Sat Jul 4, 2026 → Fri May 18, 2029 · 5:30 AM – 8:30 AM IST · 150 weeks · 20 skills'
+                  'Sat Jul 4, 2026 → Thu Jul 3, 2030 · 5:30 AM – 8:30 AM IST · ' + TOTAL_YEARS + ' years · ' + TOTAL_WEEKS + ' weeks · ' + SKILL_COUNT + ' skills'
                 }
               </div>
             </div>
@@ -715,12 +716,12 @@ export default function App() {
                 }}
               >
                 {
-                  '20 skills · 150 weeks · 3h daily · AWS first → JS stack → Python → Java → DevOps → DSA & SD'
+                  TOTAL_YEARS + ' years · ' + TOTAL_WEEKS + ' weeks · 3h daily · AWS first → JS stack → Python → Java → DevOps → DSA & SD'
                 }
               </div>
               <div style={{ fontSize: 8, color: 'rgba(255,255,255,0.5)' }}>
                 {
-                  'Jul 4, 2026 → May 18, 2029 · Week ' + sw + ' of ' + TOTAL_WEEKS + ' · Study day ' + sd + ' of ' + TOTAL_DAYS
+                  'Jul 4, 2026 → ' + DEADLINE + ' · Week ' + sw + ' of ' + TOTAL_WEEKS + ' · Study day ' + sd + ' of ' + TOTAL_DAYS
                 }
               </div>
             </div>
@@ -748,7 +749,7 @@ export default function App() {
                   marginBottom: 1,
                 }}
               >
-                {'150 Weeks of Code — daily 5:30–8:30 AM IST through ' + DEADLINE}
+                {TOTAL_YEARS + ' Years of Code — daily 5:30–8:30 AM IST through ' + DEADLINE}
               </div>
               <div style={{ fontSize: 8, color: 'rgba(255,255,255,0.5)' }}>
                 {'AWS → JS ecosystem → Python → Java → DevOps & K8s → DSA & System Design · ends ' + DEADLINE}
@@ -1016,7 +1017,7 @@ export default function App() {
               marginBottom: 3,
             }}
           >
-            {'🏆 150 Weeks of Code · Jul 4, 2026 → May 18, 2029'}
+            {'🏆 ' + TOTAL_YEARS + ' Years of Code · Jul 4, 2026 → ' + DEADLINE}
           </div>
           <div
             style={{

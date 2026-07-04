@@ -1,5 +1,6 @@
 import { useState, useMemo } from 'react';
 import { AWS_SCHEDULE, AWS_WEEKS, AWS_PLAN_START, AWS_PHASE_DAYS, awsDayDate, awsPlanDay } from './aws100DaysSchedule.js';
+import { TOTAL_DAYS, DEADLINE, TOTAL_YEARS } from './data/plan150weeks.js';
 
 const COL = '#D97706';
 const COL_DARK = '#B45309';
@@ -91,7 +92,7 @@ export default function Aws100Days() {
                   color: 'rgba(255,255,255,0.55)',
                 }}
               >
-                {'AWS · W1–W14 · Jul 4 – Oct 9, 2026'}
+                {'AWS · W1–W20 · Jul 4 – Nov 13, 2026'}
               </div>
               <h1
                 style={{
@@ -105,7 +106,7 @@ export default function Aws100Days() {
                 {'AWS Daily Schedule — 100-day CloudFolks curriculum'}
               </h1>
               <div style={{ fontSize: 9, color: 'rgba(255,255,255,0.65)', marginTop: 3 }}>
-                {'Jul 4 – Oct 9, 2026 · W1–W14 · D1–D98 · 5:30–8:30 AM IST (3h) · CloudFolks Hub'}
+                {'Jul 4 – Nov 13, 2026 · W1–W20 · D1–D140 · 5:30–8:30 AM IST (3h) · CloudFolks Hub'}
               </div>
             </div>
           </div>
@@ -130,7 +131,7 @@ export default function Aws100Days() {
                 </span>
               </>
             ) : (
-              'AWS block starts Jul 4, 2026 (W1) — first skill in your 150-week plan · then Javascript from Oct 10, 2026'
+              'AWS block starts Jul 4, 2026 (W1) — first skill in your ' + TOTAL_YEARS + '-year plan · ends ' + DEADLINE
             )}
           </div>
 
@@ -321,7 +322,7 @@ export default function Aws100Days() {
                         color: '#64748B',
                       }}
                     >
-                      {'Week ' + d.week + ' · Plan day D' + awsPlanDay(d.day) + ' of 1050'}
+                      {'Week ' + d.week + ' · Plan day D' + awsPlanDay(d.day) + ' of ' + TOTAL_DAYS}
                     </div>
                   </div>
                 )}

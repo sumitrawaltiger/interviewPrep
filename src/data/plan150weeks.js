@@ -1,12 +1,115 @@
-// Auto-generated · 20 skills · 150 weeks · Jul 4, 2026 → May 18, 2029
+// Auto-generated · 20 skills · 4 years · Jul 4, 2026 → Jul 3, 2030 · 1461 days
 export const START = new Date('2026-07-04');
-export const TOTAL_WEEKS = 150;
-export const TOTAL_DAYS = 1050;
+export const END = new Date('2030-07-03');
+export const TOTAL_YEARS = 4;
+export const TOTAL_WEEKS = 209;
+export const TOTAL_DAYS = 1461;
 export const SKILL_COUNT = 20;
-export const DEADLINE = 'May 18, 2029';
+export const DEADLINE = 'Jul 3, 2030';
 export const AWS_PLAN_START = 1;
-export const JS_PLAN_START = 99;
+export const JS_PLAN_START = 134;
 export const STUDY_TIME = '5:30 AM – 8:30 AM IST · 3h daily';
+
+export const YEARS = [
+  {
+    "n": 1,
+    "ds": 1,
+    "de": 365,
+    "ws": 1,
+    "we": 53,
+    "label": "Year 1",
+    "period": "Jul 4, 2026 – Jul 3, 2027",
+    "skills": [
+      "AWS",
+      "Javascript",
+      "Typescript",
+      "React JS",
+      "Next JS"
+    ],
+    "phaseIds": [
+      "s1",
+      "s2",
+      "s3",
+      "s4",
+      "s5"
+    ]
+  },
+  {
+    "n": 2,
+    "ds": 366,
+    "de": 731,
+    "ws": 53,
+    "we": 105,
+    "label": "Year 2",
+    "period": "Jul 4, 2027 – Jul 3, 2028",
+    "skills": [
+      "Next JS",
+      "React Native",
+      "Node JS",
+      "Python",
+      "Django",
+      "Fast API",
+      "Agentic AI",
+      "J2SE",
+      "J2EE"
+    ],
+    "phaseIds": [
+      "s5",
+      "s6",
+      "s7",
+      "s8",
+      "s9",
+      "s10",
+      "s11",
+      "s12",
+      "s13"
+    ]
+  },
+  {
+    "n": 3,
+    "ds": 732,
+    "de": 1096,
+    "ws": 105,
+    "we": 157,
+    "label": "Year 3",
+    "period": "Jul 4, 2028 – Jul 3, 2029",
+    "skills": [
+      "J2EE",
+      "JPA",
+      "Spring Boot",
+      "Microservices",
+      "Devops",
+      "Kubernetes"
+    ],
+    "phaseIds": [
+      "s13",
+      "s14",
+      "s15",
+      "s16",
+      "s17",
+      "s18"
+    ]
+  },
+  {
+    "n": 4,
+    "ds": 1097,
+    "de": 1461,
+    "ws": 157,
+    "we": 209,
+    "label": "Year 4",
+    "period": "Jul 4, 2029 – Jul 3, 2030",
+    "skills": [
+      "Kubernetes",
+      "Data Structures",
+      "System Design"
+    ],
+    "phaseIds": [
+      "s18",
+      "s19",
+      "s20"
+    ]
+  }
+];
 
 export const BLOCKS = [
   {
@@ -14,7 +117,7 @@ export const BLOCKS = [
     "icon": "☁",
     "col": "#D97706",
     "title": "AWS",
-    "sub": "W1–W14 · Jul 4 – Oct 9, 2026",
+    "sub": "W1–W19 · Jul 4 – Nov 13, 2026",
     "detail": "CloudFolks Hub · IAM → VPC → EC2 → S3 → Lambda → ECS",
     "time": "5:30 AM – 8:30 AM IST · 3h daily",
     "scheduleLink": "#/aws-100-days"
@@ -24,7 +127,7 @@ export const BLOCKS = [
     "icon": "🎓",
     "col": "#E11D48",
     "title": "JavaScript Ecosystem",
-    "sub": "W15–W50 · Oct 10, 2026 – Jun 18, 2027",
+    "sub": "W20–W68 · Nov 14, 2026 – Oct 22, 2027",
     "detail": "Javascript → Typescript → React → Next JS → React Native → Node JS",
     "time": "5:30 AM – 8:30 AM IST · 3h daily"
   },
@@ -33,7 +136,7 @@ export const BLOCKS = [
     "icon": "🐍",
     "col": "#15803D",
     "title": "Python Stack",
-    "sub": "W51–W71 · Jun 19 – Nov 12, 2027",
+    "sub": "W69–W98 · Oct 23, 2027 – May 19, 2028",
     "detail": "Python → Django → Fast API → Agentic AI",
     "time": "5:30 AM – 8:30 AM IST · 3h daily"
   },
@@ -42,7 +145,7 @@ export const BLOCKS = [
     "icon": "☕",
     "col": "#EA580C",
     "title": "Java Backend",
-    "sub": "W72–W97 · Nov 13, 2027 – May 12, 2028",
+    "sub": "W99–W135 · May 20, 2028 – Feb 2, 2029",
     "detail": "J2SE → J2EE → JPA → Spring Boot → Microservices",
     "time": "5:30 AM – 8:30 AM IST · 3h daily"
   },
@@ -51,7 +154,7 @@ export const BLOCKS = [
     "icon": "🔧",
     "col": "#6366F1",
     "title": "DevOps & Kubernetes",
-    "sub": "W98–W118 · May 13 – Oct 6, 2028",
+    "sub": "W136–W164 · Feb 3 – Aug 24, 2029",
     "detail": "DevOps → Kubernetes",
     "time": "5:30 AM – 8:30 AM IST · 3h daily"
   },
@@ -60,7 +163,7 @@ export const BLOCKS = [
     "icon": "🎯",
     "col": "#7C3AED",
     "title": "Interview Readiness",
-    "sub": "W119–W150 · Oct 7, 2028 – May 18, 2029",
+    "sub": "W165–W209 · Aug 25, 2029 – Jul 3, 2030",
     "detail": "Data Structures → System Design",
     "time": "5:30 AM – 8:30 AM IST · 3h daily"
   }
@@ -77,16 +180,16 @@ export const PHASES = [
     "bg": "#FFFBEB",
     "border": "#FDE68A",
     "name": "AWS",
-    "label": "14 weeks",
-    "days": 98,
-    "weeks": 14,
+    "label": "19 weeks",
+    "days": 133,
+    "weeks": 19,
     "ws": 1,
-    "we": 14,
+    "we": 19,
     "ds": 1,
-    "de": 98,
-    "period": "Jul 4 – Oct 9, 2026",
-    "about": "Weeks 1–14 · CloudFolks Hub + hands-on labs. IAM, VPC, EC2, S3, RDS, Lambda, ECS, CDK, SAA prep.",
-    "ms": "AWS Complete · W14",
+    "de": 133,
+    "period": "Jul 4 – Nov 13, 2026",
+    "about": "Weeks 1–19 · CloudFolks Hub + hands-on labs. IAM, VPC, EC2, S3, RDS, Lambda, ECS, CDK, SAA prep.",
+    "ms": "AWS Complete · W19",
     "courses": [
       "CloudFolks Hub — AWS Cloud",
       "AWS Skill Builder",
@@ -162,6 +265,31 @@ export const PHASES = [
         "w": 14,
         "f": "Week 14: SAA Capstone",
         "t": "practice exams, weak-area drills"
+      },
+      {
+        "w": 15,
+        "f": "Week 15: IAM & Account · Deep dive 2",
+        "t": "users, roles, policies, MFA, CLI — extended hands-on"
+      },
+      {
+        "w": 16,
+        "f": "Week 16: VPC Networking · Deep dive 2",
+        "t": "subnets, IGW, NAT, SGs, endpoints — extended hands-on"
+      },
+      {
+        "w": 17,
+        "f": "Week 17: EC2 & Load Balancing · Deep dive 2",
+        "t": "EC2, EBS, ALB, ASG — extended hands-on"
+      },
+      {
+        "w": 18,
+        "f": "Week 18: S3 Storage · Deep dive 2",
+        "t": "buckets, versioning, lifecycle — extended hands-on"
+      },
+      {
+        "w": 19,
+        "f": "Week 19: RDS & DynamoDB · Deep dive 2",
+        "t": "RDS, Aurora, DynamoDB — extended hands-on"
       }
     ],
     "scheduleLink": "#/aws-100-days"
@@ -176,16 +304,16 @@ export const PHASES = [
     "bg": "#FEFCE8",
     "border": "#FDE047",
     "name": "Javascript",
-    "label": "8 weeks",
-    "days": 56,
-    "weeks": 8,
-    "ws": 15,
-    "we": 22,
-    "ds": 99,
-    "de": 154,
-    "period": "Oct 10 – Dec 4, 2026",
-    "about": "Weeks 15–22 · Coder Army Day of Thunder + advanced JS. Core language, async, closures, prototypes, modules.",
-    "ms": "Javascript Complete · W22",
+    "label": "11 weeks",
+    "days": 77,
+    "weeks": 11,
+    "ws": 20,
+    "we": 30,
+    "ds": 134,
+    "de": 210,
+    "period": "Nov 14, 2026 – Jan 29, 2027",
+    "about": "Weeks 20–30 · Coder Army Day of Thunder + advanced JS. Core language, async, closures, prototypes, modules.",
+    "ms": "Javascript Complete · W30",
     "courses": [
       "Coder Army — MERN course",
       "javascript.info",
@@ -193,44 +321,59 @@ export const PHASES = [
     ],
     "wplan": [
       {
-        "w": 15,
-        "f": "Week 15: JS Basics",
+        "w": 20,
+        "f": "Week 20: JS Basics",
         "t": "syntax, let/const, types, operators, control flow"
       },
       {
-        "w": 16,
-        "f": "Week 16: Functions & Scope",
+        "w": 21,
+        "f": "Week 21: Functions & Scope",
         "t": "closures, hoisting, this, arrow functions"
       },
       {
-        "w": 17,
-        "f": "Week 17: Objects & Arrays",
+        "w": 22,
+        "f": "Week 22: Objects & Arrays",
         "t": "destructuring, spread, map/filter/reduce"
       },
       {
-        "w": 18,
-        "f": "Week 18: Async JS I",
+        "w": 23,
+        "f": "Week 23: Async JS I",
         "t": "callbacks, Promises, error handling"
       },
       {
-        "w": 19,
-        "f": "Week 19: Async JS II",
+        "w": 24,
+        "f": "Week 24: Async JS II",
         "t": "async/await, fetch, event loop"
       },
       {
-        "w": 20,
-        "f": "Week 20: OOP & Prototypes",
+        "w": 25,
+        "f": "Week 25: OOP & Prototypes",
         "t": "classes, prototype chain, inheritance"
       },
       {
-        "w": 21,
-        "f": "Week 21: Modules & Tooling",
+        "w": 26,
+        "f": "Week 26: Modules & Tooling",
         "t": "ES modules, npm, bundler basics"
       },
       {
-        "w": 22,
-        "f": "Week 22: JS Capstone",
+        "w": 27,
+        "f": "Week 27: JS Capstone",
         "t": "mini projects, Coder Army lectures wrap-up"
+      },
+      {
+        "w": 28,
+        "f": "Week 28: JS Basics · Deep dive 2",
+        "t": "syntax, let/const, types, operators, control flow — extended hands-on"
+      },
+      {
+        "w": 29,
+        "f": "Week 29: Functions & Scope · Deep dive 2",
+        "t": "closures, hoisting, this, arrow functions — extended hands-on"
+      },
+      {
+        "w": 30,
+        "f": "Week 30: Objects & Arrays · Deep dive 2",
+        "t": "destructuring, spread, map/filter/reduce — extended hands-on"
       }
     ]
   },
@@ -244,16 +387,16 @@ export const PHASES = [
     "bg": "#EFF6FF",
     "border": "#BFDBFE",
     "name": "Typescript",
-    "label": "3 weeks",
-    "days": 21,
-    "weeks": 3,
-    "ws": 23,
-    "we": 25,
-    "ds": 155,
-    "de": 175,
-    "period": "Dec 5 – Dec 25, 2026",
-    "about": "Weeks 23–25 · TypeScript strict mode: types, interfaces, generics, utility types, type guards.",
-    "ms": "Typescript Complete · W25",
+    "label": "4 weeks",
+    "days": 28,
+    "weeks": 4,
+    "ws": 31,
+    "we": 34,
+    "ds": 211,
+    "de": 238,
+    "period": "Jan 30 – Feb 26, 2027",
+    "about": "Weeks 31–34 · TypeScript strict mode: types, interfaces, generics, utility types, type guards.",
+    "ms": "Typescript Complete · W34",
     "courses": [
       "TypeScript Handbook",
       "Total TypeScript (Matt Pocock)",
@@ -261,19 +404,24 @@ export const PHASES = [
     ],
     "wplan": [
       {
-        "w": 23,
-        "f": "Week 23: Types & Interfaces",
+        "w": 31,
+        "f": "Week 31: Types & Interfaces",
         "t": "primitives, arrays, objects, interfaces"
       },
       {
-        "w": 24,
-        "f": "Week 24: Functions & Generics",
+        "w": 32,
+        "f": "Week 32: Functions & Generics",
         "t": "generic functions, constraints, keyof"
       },
       {
-        "w": 25,
-        "f": "Week 25: Advanced TS",
+        "w": 33,
+        "f": "Week 33: Advanced TS",
         "t": "union/intersection, utility types, strict tsconfig"
+      },
+      {
+        "w": 34,
+        "f": "Week 34: Types & Interfaces · Deep dive 2",
+        "t": "primitives, arrays, objects, interfaces — extended hands-on"
       }
     ]
   },
@@ -287,16 +435,16 @@ export const PHASES = [
     "bg": "#F0F9FF",
     "border": "#BAE6FD",
     "name": "React JS",
-    "label": "9 weeks",
-    "days": 63,
-    "weeks": 9,
-    "ws": 26,
-    "we": 34,
-    "ds": 176,
-    "de": 238,
-    "period": "Dec 26, 2026 – Feb 26, 2027",
-    "about": "Weeks 26–34 · React 19 deep dive: components, hooks, state management, React Router, performance.",
-    "ms": "React JS Complete · W34",
+    "label": "12 weeks",
+    "days": 84,
+    "weeks": 12,
+    "ws": 35,
+    "we": 46,
+    "ds": 239,
+    "de": 322,
+    "period": "Feb 27 – May 21, 2027",
+    "about": "Weeks 35–46 · React 19 deep dive: components, hooks, state management, React Router, performance.",
+    "ms": "React JS Complete · W46",
     "courses": [
       "react.dev",
       "Coder Army MERN",
@@ -304,49 +452,64 @@ export const PHASES = [
     ],
     "wplan": [
       {
-        "w": 26,
-        "f": "Week 26: React Core",
+        "w": 35,
+        "f": "Week 35: React Core",
         "t": "components, JSX, props, state"
       },
       {
-        "w": 27,
-        "f": "Week 27: Hooks I",
+        "w": 36,
+        "f": "Week 36: Hooks I",
         "t": "useEffect, useRef, useMemo, useCallback"
       },
       {
-        "w": 28,
-        "f": "Week 28: Hooks II",
+        "w": 37,
+        "f": "Week 37: Hooks II",
         "t": "useContext, useReducer, custom hooks"
       },
       {
-        "w": 29,
-        "f": "Week 29: Routing",
+        "w": 38,
+        "f": "Week 38: Routing",
         "t": "React Router v6, nested routes, loaders"
       },
       {
-        "w": 30,
-        "f": "Week 30: State Management",
+        "w": 39,
+        "f": "Week 39: State Management",
         "t": "context patterns, Zustand intro"
       },
       {
-        "w": 31,
-        "f": "Week 31: Forms & Validation",
+        "w": 40,
+        "f": "Week 40: Forms & Validation",
         "t": "controlled inputs, react-hook-form"
       },
       {
-        "w": 32,
-        "f": "Week 32: API Integration",
+        "w": 41,
+        "f": "Week 41: API Integration",
         "t": "fetch, React Query, error boundaries"
       },
       {
-        "w": 33,
-        "f": "Week 33: Performance",
+        "w": 42,
+        "f": "Week 42: Performance",
         "t": "memo, lazy, Suspense, profiling"
       },
       {
-        "w": 34,
-        "f": "Week 34: React Capstone",
+        "w": 43,
+        "f": "Week 43: React Capstone",
         "t": "full-stack UI project"
+      },
+      {
+        "w": 44,
+        "f": "Week 44: React Core · Deep dive 2",
+        "t": "components, JSX, props, state — extended hands-on"
+      },
+      {
+        "w": 45,
+        "f": "Week 45: Hooks I · Deep dive 2",
+        "t": "useEffect, useRef, useMemo, useCallback — extended hands-on"
+      },
+      {
+        "w": 46,
+        "f": "Week 46: Hooks II · Deep dive 2",
+        "t": "useContext, useReducer, custom hooks — extended hands-on"
       }
     ]
   },
@@ -360,50 +523,60 @@ export const PHASES = [
     "bg": "#F5F5F5",
     "border": "#D4D4D4",
     "name": "Next JS",
-    "label": "6 weeks",
-    "days": 42,
-    "weeks": 6,
-    "ws": 35,
-    "we": 40,
-    "ds": 239,
-    "de": 280,
-    "period": "Feb 27 – Apr 9, 2027",
-    "about": "Weeks 35–40 · Next.js: App Router, Server Components, Server Actions, auth, Vercel deploy.",
-    "ms": "Next JS Complete · W40",
+    "label": "8 weeks",
+    "days": 56,
+    "weeks": 8,
+    "ws": 47,
+    "we": 54,
+    "ds": 323,
+    "de": 378,
+    "period": "May 22 – Jul 16, 2027",
+    "about": "Weeks 47–54 · Next.js: App Router, Server Components, Server Actions, auth, Vercel deploy.",
+    "ms": "Next JS Complete · W54",
     "courses": [
       "Anil Dollar — Next.js (Udemy)",
       "nextjs.org"
     ],
     "wplan": [
       {
-        "w": 35,
-        "f": "Week 35: App Router",
+        "w": 47,
+        "f": "Week 47: App Router",
         "t": "file-based routing, layouts, RSC"
       },
       {
-        "w": 36,
-        "f": "Week 36: Data Fetching",
+        "w": 48,
+        "f": "Week 48: Data Fetching",
         "t": "Server Actions, caching, revalidation"
       },
       {
-        "w": 37,
-        "f": "Week 37: Auth & Middleware",
+        "w": 49,
+        "f": "Week 49: Auth & Middleware",
         "t": "NextAuth, protected routes"
       },
       {
-        "w": 38,
-        "f": "Week 38: Database Layer",
+        "w": 50,
+        "f": "Week 50: Database Layer",
         "t": "Prisma, API routes"
       },
       {
-        "w": 39,
-        "f": "Week 39: Advanced Patterns",
+        "w": 51,
+        "f": "Week 51: Advanced Patterns",
         "t": "parallel routes, intercepting routes"
       },
       {
-        "w": 40,
-        "f": "Week 40: FPO Portal",
+        "w": 52,
+        "f": "Week 52: FPO Portal",
         "t": "flight search UI, deploy to Vercel"
+      },
+      {
+        "w": 53,
+        "f": "Week 53: App Router · Deep dive 2",
+        "t": "file-based routing, layouts, RSC — extended hands-on"
+      },
+      {
+        "w": 54,
+        "f": "Week 54: Data Fetching · Deep dive 2",
+        "t": "Server Actions, caching, revalidation — extended hands-on"
       }
     ]
   },
@@ -417,16 +590,16 @@ export const PHASES = [
     "bg": "#F5F3FF",
     "border": "#DDD6FE",
     "name": "React Native",
-    "label": "6 weeks",
-    "days": 42,
-    "weeks": 6,
-    "ws": 41,
-    "we": 46,
-    "ds": 281,
-    "de": 322,
-    "period": "Apr 10 – May 21, 2027",
-    "about": "Weeks 41–46 · React Native from ChaiCode: Expo, navigation, device APIs, EAS Build.",
-    "ms": "React Native Complete · W46",
+    "label": "8 weeks",
+    "days": 56,
+    "weeks": 8,
+    "ws": 55,
+    "we": 62,
+    "ds": 379,
+    "de": 434,
+    "period": "Jul 17 – Sep 10, 2027",
+    "about": "Weeks 55–62 · React Native from ChaiCode: Expo, navigation, device APIs, EAS Build.",
+    "ms": "React Native Complete · W62",
     "courses": [
       "ChaiCode — React Native",
       "Expo docs",
@@ -434,34 +607,44 @@ export const PHASES = [
     ],
     "wplan": [
       {
-        "w": 41,
-        "f": "Week 41: RN Basics",
+        "w": 55,
+        "f": "Week 55: RN Basics",
         "t": "Expo setup, core components, Flexbox"
       },
       {
-        "w": 42,
-        "f": "Week 42: Navigation",
+        "w": 56,
+        "f": "Week 56: Navigation",
         "t": "stack/tab navigators, deep linking"
       },
       {
-        "w": 43,
-        "f": "Week 43: State & APIs",
+        "w": 57,
+        "f": "Week 57: State & APIs",
         "t": "AsyncStorage, fetch, offline patterns"
       },
       {
-        "w": 44,
-        "f": "Week 44: Device APIs",
+        "w": 58,
+        "f": "Week 58: Device APIs",
         "t": "camera, location, notifications"
       },
       {
-        "w": 45,
-        "f": "Week 45: Native Modules",
+        "w": 59,
+        "f": "Week 59: Native Modules",
         "t": "platform-specific code, gestures"
       },
       {
-        "w": 46,
-        "f": "Week 46: FPO Mobile App",
+        "w": 60,
+        "f": "Week 60: FPO Mobile App",
         "t": "flight status screen, EAS Build"
+      },
+      {
+        "w": 61,
+        "f": "Week 61: RN Basics · Deep dive 2",
+        "t": "Expo setup, core components, Flexbox — extended hands-on"
+      },
+      {
+        "w": 62,
+        "f": "Week 62: Navigation · Deep dive 2",
+        "t": "stack/tab navigators, deep linking — extended hands-on"
       }
     ]
   },
@@ -475,16 +658,16 @@ export const PHASES = [
     "bg": "#F0FDF4",
     "border": "#BBF7D0",
     "name": "Node JS",
-    "label": "4 weeks",
-    "days": 28,
-    "weeks": 4,
-    "ws": 47,
-    "we": 50,
-    "ds": 323,
-    "de": 350,
-    "period": "May 22 – Jun 18, 2027",
-    "about": "Weeks 47–50 · Node.js runtime: event loop, modules, Express, REST APIs, auth, MongoDB, deployment.",
-    "ms": "Node JS Complete · W50",
+    "label": "6 weeks",
+    "days": 42,
+    "weeks": 6,
+    "ws": 63,
+    "we": 68,
+    "ds": 435,
+    "de": 476,
+    "period": "Sep 11 – Oct 22, 2027",
+    "about": "Weeks 63–68 · Node.js runtime: event loop, modules, Express, REST APIs, auth, MongoDB, deployment.",
+    "ms": "Node JS Complete · W68",
     "courses": [
       "Node.js official docs",
       "Express.js guide",
@@ -492,24 +675,34 @@ export const PHASES = [
     ],
     "wplan": [
       {
-        "w": 47,
-        "f": "Week 47: Node Core",
+        "w": 63,
+        "f": "Week 63: Node Core",
         "t": "event loop, modules, npm, file system"
       },
       {
-        "w": 48,
-        "f": "Week 48: Express & REST",
+        "w": 64,
+        "f": "Week 64: Express & REST",
         "t": "routing, middleware, validation, error handling"
       },
       {
-        "w": 49,
-        "f": "Week 49: Auth & Database",
+        "w": 65,
+        "f": "Week 65: Auth & Database",
         "t": "JWT, bcrypt, MongoDB/Mongoose"
       },
       {
-        "w": 50,
-        "f": "Week 50: Node Capstone",
+        "w": 66,
+        "f": "Week 66: Node Capstone",
         "t": "full CRUD API, deploy, Postman"
+      },
+      {
+        "w": 67,
+        "f": "Week 67: Node Core · Deep dive 2",
+        "t": "event loop, modules, npm, file system — extended hands-on"
+      },
+      {
+        "w": 68,
+        "f": "Week 68: Express & REST · Deep dive 2",
+        "t": "routing, middleware, validation, error handling — extended hands-on"
       }
     ]
   },
@@ -523,40 +716,50 @@ export const PHASES = [
     "bg": "#F0FDF4",
     "border": "#86EFAC",
     "name": "Python",
-    "label": "4 weeks",
-    "days": 28,
-    "weeks": 4,
-    "ws": 51,
-    "we": 54,
-    "ds": 351,
-    "de": 378,
-    "period": "Jun 19 – Jul 16, 2027",
-    "about": "Weeks 51–54 · Python 3 from Ashok IT: fundamentals, OOP, decorators, asyncio.",
-    "ms": "Python Complete · W54",
+    "label": "6 weeks",
+    "days": 42,
+    "weeks": 6,
+    "ws": 69,
+    "we": 74,
+    "ds": 477,
+    "de": 518,
+    "period": "Oct 23 – Dec 3, 2027",
+    "about": "Weeks 69–74 · Python 3 from Ashok IT: fundamentals, OOP, decorators, asyncio.",
+    "ms": "Python Complete · W74",
     "courses": [
       "Ashok IT — Python",
       "Python official docs"
     ],
     "wplan": [
       {
-        "w": 51,
-        "f": "Week 51: Python Basics",
+        "w": 69,
+        "f": "Week 69: Python Basics",
         "t": "syntax, data types, functions"
       },
       {
-        "w": 52,
-        "f": "Week 52: OOP & Advanced",
+        "w": 70,
+        "f": "Week 70: OOP & Advanced",
         "t": "classes, decorators, generators"
       },
       {
-        "w": 53,
-        "f": "Week 53: Async & IO",
+        "w": 71,
+        "f": "Week 71: Async & IO",
         "t": "asyncio, file handling, context managers"
       },
       {
-        "w": 54,
-        "f": "Week 54: Libraries",
+        "w": 72,
+        "f": "Week 72: Libraries",
         "t": "pandas intro, scripting automation"
+      },
+      {
+        "w": 73,
+        "f": "Week 73: Python Basics · Deep dive 2",
+        "t": "syntax, data types, functions — extended hands-on"
+      },
+      {
+        "w": 74,
+        "f": "Week 74: OOP & Advanced · Deep dive 2",
+        "t": "classes, decorators, generators — extended hands-on"
       }
     ]
   },
@@ -570,16 +773,16 @@ export const PHASES = [
     "bg": "#ECFDF5",
     "border": "#6EE7B7",
     "name": "Django",
-    "label": "4 weeks",
-    "days": 28,
-    "weeks": 4,
-    "ws": 55,
-    "we": 58,
-    "ds": 379,
-    "de": 406,
-    "period": "Jul 17 – Aug 13, 2027",
-    "about": "Weeks 55–58 · Django 5 + DRF: models, migrations, admin, serializers, viewsets.",
-    "ms": "Django Complete · W58",
+    "label": "6 weeks",
+    "days": 42,
+    "weeks": 6,
+    "ws": 75,
+    "we": 80,
+    "ds": 519,
+    "de": 560,
+    "period": "Dec 4, 2027 – Jan 14, 2028",
+    "about": "Weeks 75–80 · Django 5 + DRF: models, migrations, admin, serializers, viewsets.",
+    "ms": "Django Complete · W80",
     "courses": [
       "Dennis Ivy — Django",
       "Django official docs",
@@ -587,24 +790,34 @@ export const PHASES = [
     ],
     "wplan": [
       {
-        "w": 55,
-        "f": "Week 55: Django Core",
+        "w": 75,
+        "f": "Week 75: Django Core",
         "t": "models, migrations, admin"
       },
       {
-        "w": 56,
-        "f": "Week 56: DRF Basics",
+        "w": 76,
+        "f": "Week 76: DRF Basics",
         "t": "serializers, API views"
       },
       {
-        "w": 57,
-        "f": "Week 57: Auth & Permissions",
+        "w": 77,
+        "f": "Week 77: Auth & Permissions",
         "t": "token auth, throttling"
       },
       {
-        "w": 58,
-        "f": "Week 58: FPO Admin API",
+        "w": 78,
+        "f": "Week 78: FPO Admin API",
         "t": "booking admin, deploy"
+      },
+      {
+        "w": 79,
+        "f": "Week 79: Django Core · Deep dive 2",
+        "t": "models, migrations, admin — extended hands-on"
+      },
+      {
+        "w": 80,
+        "f": "Week 80: DRF Basics · Deep dive 2",
+        "t": "serializers, API views — extended hands-on"
       }
     ]
   },
@@ -618,35 +831,40 @@ export const PHASES = [
     "bg": "#E0F2F1",
     "border": "#80CBC4",
     "name": "Fast API",
-    "label": "3 weeks",
-    "days": 21,
-    "weeks": 3,
-    "ws": 59,
-    "we": 61,
-    "ds": 407,
-    "de": 427,
-    "period": "Aug 14 – Sep 3, 2027",
-    "about": "Weeks 59–61 · FastAPI: async routes, Pydantic v2, dependency injection, OAuth2, SQLAlchemy.",
-    "ms": "Fast API Complete · W61",
+    "label": "4 weeks",
+    "days": 28,
+    "weeks": 4,
+    "ws": 81,
+    "we": 84,
+    "ds": 561,
+    "de": 588,
+    "period": "Jan 15 – Feb 11, 2028",
+    "about": "Weeks 81–84 · FastAPI: async routes, Pydantic v2, dependency injection, OAuth2, SQLAlchemy.",
+    "ms": "Fast API Complete · W84",
     "courses": [
       "FastAPI official docs",
       "TestDriven.io — FastAPI"
     ],
     "wplan": [
       {
-        "w": 59,
-        "f": "Week 59: FastAPI Core",
+        "w": 81,
+        "f": "Week 81: FastAPI Core",
         "t": "routes, Pydantic models"
       },
       {
-        "w": 60,
-        "f": "Week 60: Database Layer",
+        "w": 82,
+        "f": "Week 82: Database Layer",
         "t": "SQLAlchemy, Alembic"
       },
       {
-        "w": 61,
-        "f": "Week 61: Auth & Deploy",
+        "w": 83,
+        "f": "Week 83: Auth & Deploy",
         "t": "OAuth2, JWT, Dockerize API"
+      },
+      {
+        "w": 84,
+        "f": "Week 84: FastAPI Core · Deep dive 2",
+        "t": "routes, Pydantic models — extended hands-on"
       }
     ]
   },
@@ -660,16 +878,16 @@ export const PHASES = [
     "bg": "#F5F3FF",
     "border": "#DDD6FE",
     "name": "Agentic AI",
-    "label": "10 weeks",
-    "days": 70,
-    "weeks": 10,
-    "ws": 62,
-    "we": 71,
-    "ds": 428,
-    "de": 497,
-    "period": "Sep 4 – Nov 12, 2027",
-    "about": "Weeks 62–71 · Agentic AI from Ashok IT: LangChain, LangGraph, RAG, multi-agent systems.",
-    "ms": "Agentic AI Complete · W71",
+    "label": "14 weeks",
+    "days": 98,
+    "weeks": 14,
+    "ws": 85,
+    "we": 98,
+    "ds": 589,
+    "de": 686,
+    "period": "Feb 12 – May 19, 2028",
+    "about": "Weeks 85–98 · Agentic AI from Ashok IT: LangChain, LangGraph, RAG, multi-agent systems.",
+    "ms": "Agentic AI Complete · W98",
     "courses": [
       "Ashok IT — Agentic AI",
       "LangGraph docs",
@@ -677,54 +895,74 @@ export const PHASES = [
     ],
     "wplan": [
       {
-        "w": 62,
-        "f": "Week 62: GenAI Foundations",
+        "w": 85,
+        "f": "Week 85: GenAI Foundations",
         "t": "LLMs, tokens, embeddings"
       },
       {
-        "w": 63,
-        "f": "Week 63: RAG Pipeline",
+        "w": 86,
+        "f": "Week 86: RAG Pipeline",
         "t": "vector stores, chunking, retrieval"
       },
       {
-        "w": 64,
-        "f": "Week 64: LangChain",
+        "w": 87,
+        "f": "Week 87: LangChain",
         "t": "chains, tools, memory"
       },
       {
-        "w": 65,
-        "f": "Week 65: LangGraph",
+        "w": 88,
+        "f": "Week 88: LangGraph",
         "t": "agents, state machines, multi-step"
       },
       {
-        "w": 66,
-        "f": "Week 66: Tool Use & APIs",
+        "w": 89,
+        "f": "Week 89: Tool Use & APIs",
         "t": "function calling, external tools"
       },
       {
-        "w": 67,
-        "f": "Week 67: Agent Projects I",
+        "w": 90,
+        "f": "Week 90: Agent Projects I",
         "t": "research agent, code assistant"
       },
       {
-        "w": 68,
-        "f": "Week 68: Agent Projects II",
+        "w": 91,
+        "f": "Week 91: Agent Projects II",
         "t": "Career Twin, Deep Research"
       },
       {
-        "w": 69,
-        "f": "Week 69: Evaluation & Safety",
+        "w": 92,
+        "f": "Week 92: Evaluation & Safety",
         "t": "guardrails, evals, monitoring"
       },
       {
-        "w": 70,
-        "f": "Week 70: Production Patterns",
+        "w": 93,
+        "f": "Week 93: Production Patterns",
         "t": "deploy agents, cost control"
       },
       {
-        "w": 71,
-        "f": "Week 71: FPO AI Capstone",
+        "w": 94,
+        "f": "Week 94: FPO AI Capstone",
         "t": "natural language flight queries"
+      },
+      {
+        "w": 95,
+        "f": "Week 95: GenAI Foundations · Deep dive 2",
+        "t": "LLMs, tokens, embeddings — extended hands-on"
+      },
+      {
+        "w": 96,
+        "f": "Week 96: RAG Pipeline · Deep dive 2",
+        "t": "vector stores, chunking, retrieval — extended hands-on"
+      },
+      {
+        "w": 97,
+        "f": "Week 97: LangChain · Deep dive 2",
+        "t": "chains, tools, memory — extended hands-on"
+      },
+      {
+        "w": 98,
+        "f": "Week 98: LangGraph · Deep dive 2",
+        "t": "agents, state machines, multi-step — extended hands-on"
       }
     ]
   },
@@ -738,16 +976,16 @@ export const PHASES = [
     "bg": "#FFF7ED",
     "border": "#FED7AA",
     "name": "J2SE",
-    "label": "4 weeks",
-    "days": 28,
-    "weeks": 4,
-    "ws": 72,
-    "we": 75,
-    "ds": 498,
-    "de": 525,
-    "period": "Nov 13 – Dec 10, 2027",
-    "about": "Weeks 72–75 · Java SE: syntax, OOP, collections, streams, lambdas, Optional, records.",
-    "ms": "J2SE Complete · W75",
+    "label": "6 weeks",
+    "days": 42,
+    "weeks": 6,
+    "ws": 99,
+    "we": 104,
+    "ds": 687,
+    "de": 728,
+    "period": "May 20 – Jun 30, 2028",
+    "about": "Weeks 99–104 · Java SE: syntax, OOP, collections, streams, lambdas, Optional, records.",
+    "ms": "J2SE Complete · W104",
     "courses": [
       "Telusko — Java",
       "John Thompson — Java Masterclass",
@@ -755,24 +993,34 @@ export const PHASES = [
     ],
     "wplan": [
       {
-        "w": 72,
-        "f": "Week 72: Java Syntax & OOP",
+        "w": 99,
+        "f": "Week 99: Java Syntax & OOP",
         "t": "classes, inheritance, polymorphism"
       },
       {
-        "w": 73,
-        "f": "Week 73: Collections & Streams",
+        "w": 100,
+        "f": "Week 100: Collections & Streams",
         "t": "ArrayList, HashMap, Stream API"
       },
       {
-        "w": 74,
-        "f": "Week 74: Modern Java",
+        "w": 101,
+        "f": "Week 101: Modern Java",
         "t": "lambdas, Optional, records"
       },
       {
-        "w": 75,
-        "f": "Week 75: Concurrency",
+        "w": 102,
+        "f": "Week 102: Concurrency",
         "t": "threads, ExecutorService"
+      },
+      {
+        "w": 103,
+        "f": "Week 103: Java Syntax & OOP · Deep dive 2",
+        "t": "classes, inheritance, polymorphism — extended hands-on"
+      },
+      {
+        "w": 104,
+        "f": "Week 104: Collections & Streams · Deep dive 2",
+        "t": "ArrayList, HashMap, Stream API — extended hands-on"
       }
     ]
   },
@@ -786,16 +1034,16 @@ export const PHASES = [
     "bg": "#ECFEFF",
     "border": "#A5F3FC",
     "name": "J2EE",
-    "label": "4 weeks",
-    "days": 28,
-    "weeks": 4,
-    "ws": 76,
-    "we": 79,
-    "ds": 526,
-    "de": 553,
-    "period": "Dec 11, 2027 – Jan 7, 2028",
-    "about": "Weeks 76–79 · Jakarta EE: Servlets, JSP, JNDI, JDBC, connection pooling.",
-    "ms": "J2EE Complete · W79",
+    "label": "6 weeks",
+    "days": 42,
+    "weeks": 6,
+    "ws": 105,
+    "we": 110,
+    "ds": 729,
+    "de": 770,
+    "period": "Jul 1 – Aug 11, 2028",
+    "about": "Weeks 105–110 · Jakarta EE: Servlets, JSP, JNDI, JDBC, connection pooling.",
+    "ms": "J2EE Complete · W110",
     "courses": [
       "Telusko — Servlet & JSP",
       "Java Brains — J2EE",
@@ -803,24 +1051,34 @@ export const PHASES = [
     ],
     "wplan": [
       {
-        "w": 76,
-        "f": "Week 76: Servlets",
+        "w": 105,
+        "f": "Week 105: Servlets",
         "t": "lifecycle, request/response, sessions"
       },
       {
-        "w": 77,
-        "f": "Week 77: JSP & JSTL",
+        "w": 106,
+        "f": "Week 106: JSP & JSTL",
         "t": "JSP tags, EL, JSTL"
       },
       {
-        "w": 78,
-        "f": "Week 78: JDBC & JNDI",
+        "w": 107,
+        "f": "Week 107: JDBC & JNDI",
         "t": "DataSource, pooling"
       },
       {
-        "w": 79,
-        "f": "Week 79: EE Architecture",
+        "w": 108,
+        "f": "Week 108: EE Architecture",
         "t": "deploy WAR, Tomcat"
+      },
+      {
+        "w": 109,
+        "f": "Week 109: Servlets · Deep dive 2",
+        "t": "lifecycle, request/response, sessions — extended hands-on"
+      },
+      {
+        "w": 110,
+        "f": "Week 110: JSP & JSTL · Deep dive 2",
+        "t": "JSP tags, EL, JSTL — extended hands-on"
       }
     ]
   },
@@ -834,16 +1092,16 @@ export const PHASES = [
     "bg": "#F5F3FF",
     "border": "#DDD6FE",
     "name": "JPA",
-    "label": "3 weeks",
-    "days": 21,
-    "weeks": 3,
-    "ws": 80,
-    "we": 82,
-    "ds": 554,
-    "de": 574,
-    "period": "Jan 8 – Jan 28, 2028",
-    "about": "Weeks 80–82 · JPA/Hibernate: @Entity, relationships, JPQL, Spring Data JPA, N+1 problem.",
-    "ms": "JPA Complete · W82",
+    "label": "4 weeks",
+    "days": 28,
+    "weeks": 4,
+    "ws": 111,
+    "we": 114,
+    "ds": 771,
+    "de": 798,
+    "period": "Aug 12 – Sep 8, 2028",
+    "about": "Weeks 111–114 · JPA/Hibernate: @Entity, relationships, JPQL, Spring Data JPA, N+1 problem.",
+    "ms": "JPA Complete · W114",
     "courses": [
       "Java Brains — JPA & Hibernate",
       "Baeldung — JPA",
@@ -851,19 +1109,24 @@ export const PHASES = [
     ],
     "wplan": [
       {
-        "w": 80,
-        "f": "Week 80: JPA Entities",
+        "w": 111,
+        "f": "Week 111: JPA Entities",
         "t": "@Entity, @Id, relationships"
       },
       {
-        "w": 81,
-        "f": "Week 81: Queries",
+        "w": 112,
+        "f": "Week 112: Queries",
         "t": "JPQL, Criteria API"
       },
       {
-        "w": 82,
-        "f": "Week 82: Spring Data JPA",
+        "w": 113,
+        "f": "Week 113: Spring Data JPA",
         "t": "JpaRepository, N+1 fix, caching"
+      },
+      {
+        "w": 114,
+        "f": "Week 114: JPA Entities · Deep dive 2",
+        "t": "@Entity, @Id, relationships — extended hands-on"
       }
     ]
   },
@@ -877,16 +1140,16 @@ export const PHASES = [
     "bg": "#F0FDF4",
     "border": "#86EFAC",
     "name": "Spring Boot",
-    "label": "8 weeks",
-    "days": 56,
-    "weeks": 8,
-    "ws": 83,
-    "we": 90,
-    "ds": 575,
-    "de": 630,
-    "period": "Jan 29 – Mar 24, 2028",
-    "about": "Weeks 83–90 · Spring Boot 3: REST APIs, Spring Security + OAuth2, OpenAPI, testing.",
-    "ms": "Spring Boot Complete · W90",
+    "label": "11 weeks",
+    "days": 77,
+    "weeks": 11,
+    "ws": 115,
+    "we": 125,
+    "ds": 799,
+    "de": 875,
+    "period": "Sep 9 – Nov 24, 2028",
+    "about": "Weeks 115–125 · Spring Boot 3: REST APIs, Spring Security + OAuth2, OpenAPI, testing.",
+    "ms": "Spring Boot Complete · W125",
     "courses": [
       "John Thompson — Spring Boot 3",
       "Baeldung — Spring Boot",
@@ -894,44 +1157,59 @@ export const PHASES = [
     ],
     "wplan": [
       {
-        "w": 83,
-        "f": "Week 83: Spring Boot Core",
+        "w": 115,
+        "f": "Week 115: Spring Boot Core",
         "t": "starters, REST controllers"
       },
       {
-        "w": 84,
-        "f": "Week 84: Dependency Injection",
+        "w": 116,
+        "f": "Week 116: Dependency Injection",
         "t": "beans, configuration, profiles"
       },
       {
-        "w": 85,
-        "f": "Week 85: Spring Security I",
+        "w": 117,
+        "f": "Week 117: Spring Security I",
         "t": "auth, roles, JWT"
       },
       {
-        "w": 86,
-        "f": "Week 86: Spring Security II",
+        "w": 118,
+        "f": "Week 118: Spring Security II",
         "t": "OAuth2, method security"
       },
       {
-        "w": 87,
-        "f": "Week 87: Data Layer",
+        "w": 119,
+        "f": "Week 119: Data Layer",
         "t": "JPA integration, transactions"
       },
       {
-        "w": 88,
-        "f": "Week 88: Testing",
+        "w": 120,
+        "f": "Week 120: Testing",
         "t": "JUnit 5, Mockito, Testcontainers"
       },
       {
-        "w": 89,
-        "f": "Week 89: Observability",
+        "w": 121,
+        "f": "Week 121: Observability",
         "t": "Actuator, logging, metrics"
       },
       {
-        "w": 90,
-        "f": "Week 90: FPO API",
+        "w": 122,
+        "f": "Week 122: FPO API",
         "t": "Spring Boot flight API capstone"
+      },
+      {
+        "w": 123,
+        "f": "Week 123: Spring Boot Core · Deep dive 2",
+        "t": "starters, REST controllers — extended hands-on"
+      },
+      {
+        "w": 124,
+        "f": "Week 124: Dependency Injection · Deep dive 2",
+        "t": "beans, configuration, profiles — extended hands-on"
+      },
+      {
+        "w": 125,
+        "f": "Week 125: Spring Security I · Deep dive 2",
+        "t": "auth, roles, JWT — extended hands-on"
       }
     ]
   },
@@ -945,16 +1223,16 @@ export const PHASES = [
     "bg": "#FFF1F2",
     "border": "#FECDD3",
     "name": "Microservices",
-    "label": "7 weeks",
-    "days": 49,
-    "weeks": 7,
-    "ws": 91,
-    "we": 97,
-    "ds": 631,
-    "de": 679,
-    "period": "Mar 25 – May 12, 2028",
-    "about": "Weeks 91–97 · Microservices: Spring Cloud, Kafka, Resilience4j, CQRS, saga patterns.",
-    "ms": "Microservices Complete · W97",
+    "label": "10 weeks",
+    "days": 70,
+    "weeks": 10,
+    "ws": 126,
+    "we": 135,
+    "ds": 876,
+    "de": 945,
+    "period": "Nov 25, 2028 – Feb 2, 2029",
+    "about": "Weeks 126–135 · Microservices: Spring Cloud, Kafka, Resilience4j, CQRS, saga patterns.",
+    "ms": "Microservices Complete · W135",
     "courses": [
       "Ranga Karanam — Microservices",
       "Spring Cloud docs",
@@ -962,39 +1240,54 @@ export const PHASES = [
     ],
     "wplan": [
       {
-        "w": 91,
-        "f": "Week 91: MS Fundamentals",
+        "w": 126,
+        "f": "Week 126: MS Fundamentals",
         "t": "12-factor, bounded contexts, DDD"
       },
       {
-        "w": 92,
-        "f": "Week 92: Service Communication",
+        "w": 127,
+        "f": "Week 127: Service Communication",
         "t": "REST, gRPC, API contracts"
       },
       {
-        "w": 93,
-        "f": "Week 93: Spring Cloud",
+        "w": 128,
+        "f": "Week 128: Spring Cloud",
         "t": "Eureka, Config Server, API Gateway"
       },
       {
-        "w": 94,
-        "f": "Week 94: Resilience",
+        "w": 129,
+        "f": "Week 129: Resilience",
         "t": "circuit breaker, retry, bulkhead"
       },
       {
-        "w": 95,
-        "f": "Week 95: Event-Driven",
+        "w": 130,
+        "f": "Week 130: Event-Driven",
         "t": "Kafka producers/consumers"
       },
       {
-        "w": 96,
-        "f": "Week 96: CQRS & Saga",
+        "w": 131,
+        "f": "Week 131: CQRS & Saga",
         "t": "event sourcing, distributed transactions"
       },
       {
-        "w": 97,
-        "f": "Week 97: FPO Decomposition",
+        "w": 132,
+        "f": "Week 132: FPO Decomposition",
         "t": "flight/booking/auth services"
+      },
+      {
+        "w": 133,
+        "f": "Week 133: MS Fundamentals · Deep dive 2",
+        "t": "12-factor, bounded contexts, DDD — extended hands-on"
+      },
+      {
+        "w": 134,
+        "f": "Week 134: Service Communication · Deep dive 2",
+        "t": "REST, gRPC, API contracts — extended hands-on"
+      },
+      {
+        "w": 135,
+        "f": "Week 135: Spring Cloud · Deep dive 2",
+        "t": "Eureka, Config Server, API Gateway — extended hands-on"
       }
     ]
   },
@@ -1008,16 +1301,16 @@ export const PHASES = [
     "bg": "#EEF2FF",
     "border": "#C7D2FE",
     "name": "Devops",
-    "label": "11 weeks",
-    "days": 77,
-    "weeks": 11,
-    "ws": 98,
-    "we": 108,
-    "ds": 680,
-    "de": 756,
-    "period": "May 13 – Jul 28, 2028",
-    "about": "Weeks 98–108 · DevOps from CloudFolks Hub: Docker, CI/CD, Terraform, monitoring, GitOps.",
-    "ms": "Devops Complete · W108",
+    "label": "15 weeks",
+    "days": 105,
+    "weeks": 15,
+    "ws": 136,
+    "we": 150,
+    "ds": 946,
+    "de": 1050,
+    "period": "Feb 3 – May 18, 2029",
+    "about": "Weeks 136–150 · DevOps from CloudFolks Hub: Docker, CI/CD, Terraform, monitoring, GitOps.",
+    "ms": "Devops Complete · W150",
     "courses": [
       "CloudFolks Hub — DevOps",
       "Docker docs",
@@ -1025,59 +1318,79 @@ export const PHASES = [
     ],
     "wplan": [
       {
-        "w": 98,
-        "f": "Week 98: Linux & Shell",
+        "w": 136,
+        "f": "Week 136: Linux & Shell",
         "t": "bash, permissions, networking basics"
       },
       {
-        "w": 99,
-        "f": "Week 99: Docker",
+        "w": 137,
+        "f": "Week 137: Docker",
         "t": "images, containers, compose, multi-stage"
       },
       {
-        "w": 100,
-        "f": "Week 100: CI/CD",
+        "w": 138,
+        "f": "Week 138: CI/CD",
         "t": "GitHub Actions, pipelines, artifacts"
       },
       {
-        "w": 101,
-        "f": "Week 101: IaC — Terraform",
+        "w": 139,
+        "f": "Week 139: IaC — Terraform",
         "t": "modules, state, AWS provider"
       },
       {
-        "w": 102,
-        "f": "Week 102: Monitoring",
+        "w": 140,
+        "f": "Week 140: Monitoring",
         "t": "Prometheus, Grafana, alerts"
       },
       {
-        "w": 103,
-        "f": "Week 103: Logging & Tracing",
+        "w": 141,
+        "f": "Week 141: Logging & Tracing",
         "t": "ELK, OpenTelemetry intro"
       },
       {
-        "w": 104,
-        "f": "Week 104: Secrets & Security",
+        "w": 142,
+        "f": "Week 142: Secrets & Security",
         "t": "Vault patterns, OIDC"
       },
       {
-        "w": 105,
-        "f": "Week 105: GitOps",
+        "w": 143,
+        "f": "Week 143: GitOps",
         "t": "Argo CD, deployment strategies"
       },
       {
-        "w": 106,
-        "f": "Week 106: Infrastructure Patterns",
+        "w": 144,
+        "f": "Week 144: Infrastructure Patterns",
         "t": "blue/green, canary"
       },
       {
-        "w": 107,
-        "f": "Week 107: FPO Pipeline I",
+        "w": 145,
+        "f": "Week 145: FPO Pipeline I",
         "t": "build, test, deploy pipeline"
       },
       {
-        "w": 108,
-        "f": "Week 108: FPO Pipeline II",
+        "w": 146,
+        "f": "Week 146: FPO Pipeline II",
         "t": "full pipeline + monitoring capstone"
+      },
+      {
+        "w": 147,
+        "f": "Week 147: Linux & Shell · Deep dive 2",
+        "t": "bash, permissions, networking basics — extended hands-on"
+      },
+      {
+        "w": 148,
+        "f": "Week 148: Docker · Deep dive 2",
+        "t": "images, containers, compose, multi-stage — extended hands-on"
+      },
+      {
+        "w": 149,
+        "f": "Week 149: CI/CD · Deep dive 2",
+        "t": "GitHub Actions, pipelines, artifacts — extended hands-on"
+      },
+      {
+        "w": 150,
+        "f": "Week 150: IaC — Terraform · Deep dive 2",
+        "t": "modules, state, AWS provider — extended hands-on"
       }
     ]
   },
@@ -1091,16 +1404,16 @@ export const PHASES = [
     "bg": "#EFF6FF",
     "border": "#BFDBFE",
     "name": "Kubernetes",
-    "label": "10 weeks",
-    "days": 70,
-    "weeks": 10,
-    "ws": 109,
-    "we": 118,
-    "ds": 757,
-    "de": 826,
-    "period": "Jul 29 – Oct 6, 2028",
-    "about": "Weeks 109–118 · Kubernetes CKA/CKAD path: clusters, workloads, networking, storage, security, Helm.",
-    "ms": "Kubernetes Complete · W118",
+    "label": "14 weeks",
+    "days": 98,
+    "weeks": 14,
+    "ws": 151,
+    "we": 164,
+    "ds": 1051,
+    "de": 1148,
+    "period": "May 19 – Aug 24, 2029",
+    "about": "Weeks 151–164 · Kubernetes CKA/CKAD path: clusters, workloads, networking, storage, security, Helm.",
+    "ms": "Kubernetes Complete · W164",
     "courses": [
       "KodeKloud — CKA/CKAD",
       "Kubernetes official docs",
@@ -1108,54 +1421,74 @@ export const PHASES = [
     ],
     "wplan": [
       {
-        "w": 109,
-        "f": "Week 109: Architecture & kubectl",
+        "w": 151,
+        "f": "Week 151: Architecture & kubectl",
         "t": "control plane, nodes, contexts"
       },
       {
-        "w": 110,
-        "f": "Week 110: Pods & Workloads",
+        "w": 152,
+        "f": "Week 152: Pods & Workloads",
         "t": "Deployments, ReplicaSets, Jobs"
       },
       {
-        "w": 111,
-        "f": "Week 111: Services & Networking",
+        "w": 153,
+        "f": "Week 153: Services & Networking",
         "t": "ClusterIP, Ingress, DNS, NetworkPolicies"
       },
       {
-        "w": 112,
-        "f": "Week 112: Storage",
+        "w": 154,
+        "f": "Week 154: Storage",
         "t": "PV, PVC, ConfigMaps, Secrets"
       },
       {
-        "w": 113,
-        "f": "Week 113: Scheduling",
+        "w": 155,
+        "f": "Week 155: Scheduling",
         "t": "requests/limits, affinity, taints"
       },
       {
-        "w": 114,
-        "f": "Week 114: Security & RBAC",
+        "w": 156,
+        "f": "Week 156: Security & RBAC",
         "t": "ServiceAccounts, Roles, Pod Security"
       },
       {
-        "w": 115,
-        "f": "Week 115: Observability",
+        "w": 157,
+        "f": "Week 157: Observability",
         "t": "probes, logging, troubleshooting"
       },
       {
-        "w": 116,
-        "f": "Week 116: Helm & GitOps",
+        "w": 158,
+        "f": "Week 158: Helm & GitOps",
         "t": "charts, releases, Argo CD on K8s"
       },
       {
-        "w": 117,
-        "f": "Week 117: FPO on K8s",
+        "w": 159,
+        "f": "Week 159: FPO on K8s",
         "t": "deploy services, HPA, rolling updates"
       },
       {
-        "w": 118,
-        "f": "Week 118: CKA/CKAD Mocks",
+        "w": 160,
+        "f": "Week 160: CKA/CKAD Mocks",
         "t": "timed labs, weak-area drills"
+      },
+      {
+        "w": 161,
+        "f": "Week 161: Architecture & kubectl · Deep dive 2",
+        "t": "control plane, nodes, contexts — extended hands-on"
+      },
+      {
+        "w": 162,
+        "f": "Week 162: Pods & Workloads · Deep dive 2",
+        "t": "Deployments, ReplicaSets, Jobs — extended hands-on"
+      },
+      {
+        "w": 163,
+        "f": "Week 163: Services & Networking · Deep dive 2",
+        "t": "ClusterIP, Ingress, DNS, NetworkPolicies — extended hands-on"
+      },
+      {
+        "w": 164,
+        "f": "Week 164: Storage · Deep dive 2",
+        "t": "PV, PVC, ConfigMaps, Secrets — extended hands-on"
       }
     ]
   },
@@ -1169,16 +1502,16 @@ export const PHASES = [
     "bg": "#ECFDF5",
     "border": "#6EE7B7",
     "name": "Data Structures",
-    "label": "16 weeks",
-    "days": 112,
-    "weeks": 16,
-    "ws": 119,
-    "we": 134,
-    "ds": 827,
-    "de": 938,
-    "period": "Oct 7, 2028 – Jan 26, 2029",
-    "about": "Weeks 119–134 · DSA deep dive: NeetCode 150 + Blind 75 patterns in Python and Java. 2–3 problems daily.",
-    "ms": "Data Structures Complete · W134",
+    "label": "22 weeks",
+    "days": 154,
+    "weeks": 22,
+    "ws": 165,
+    "we": 186,
+    "ds": 1149,
+    "de": 1302,
+    "period": "Aug 25, 2029 – Jan 25, 2030",
+    "about": "Weeks 165–186 · DSA deep dive: NeetCode 150 + Blind 75 patterns in Python and Java. 2–3 problems daily.",
+    "ms": "Data Structures Complete · W186",
     "courses": [
       "NeetCode.io",
       "LeetCode Premium",
@@ -1186,84 +1519,114 @@ export const PHASES = [
     ],
     "wplan": [
       {
-        "w": 119,
-        "f": "Week 119: Arrays & Hashing",
+        "w": 165,
+        "f": "Week 165: Arrays & Hashing",
         "t": "two sum, anagrams, top K"
       },
       {
-        "w": 120,
-        "f": "Week 120: Two Pointers",
+        "w": 166,
+        "f": "Week 166: Two Pointers",
         "t": "sliding window, palindrome"
       },
       {
-        "w": 121,
-        "f": "Week 121: Stacks & Queues",
+        "w": 167,
+        "f": "Week 167: Stacks & Queues",
         "t": "valid parentheses, monotonic stack"
       },
       {
-        "w": 122,
-        "f": "Week 122: Linked Lists",
+        "w": 168,
+        "f": "Week 168: Linked Lists",
         "t": "reverse, cycle, merge lists"
       },
       {
-        "w": 123,
-        "f": "Week 123: Binary Search",
+        "w": 169,
+        "f": "Week 169: Binary Search",
         "t": "search rotated, boundary problems"
       },
       {
-        "w": 124,
-        "f": "Week 124: Trees I",
+        "w": 170,
+        "f": "Week 170: Trees I",
         "t": "traversals, BST basics"
       },
       {
-        "w": 125,
-        "f": "Week 125: Trees II",
+        "w": 171,
+        "f": "Week 171: Trees II",
         "t": "LCA, serialize, validate BST"
       },
       {
-        "w": 126,
-        "f": "Week 126: Tries & Heaps",
+        "w": 172,
+        "f": "Week 172: Tries & Heaps",
         "t": "word search, kth largest"
       },
       {
-        "w": 127,
-        "f": "Week 127: Backtracking I",
+        "w": 173,
+        "f": "Week 173: Backtracking I",
         "t": "subsets, combinations"
       },
       {
-        "w": 128,
-        "f": "Week 128: Backtracking II",
+        "w": 174,
+        "f": "Week 174: Backtracking II",
         "t": "permutations, N-Queens"
       },
       {
-        "w": 129,
-        "f": "Week 129: Graphs I",
+        "w": 175,
+        "f": "Week 175: Graphs I",
         "t": "BFS/DFS, islands, topo sort"
       },
       {
-        "w": 130,
-        "f": "Week 130: Graphs II",
+        "w": 176,
+        "f": "Week 176: Graphs II",
         "t": "Dijkstra, union-find"
       },
       {
-        "w": 131,
-        "f": "Week 131: DP I",
+        "w": 177,
+        "f": "Week 177: DP I",
         "t": "climbing stairs, house robber"
       },
       {
-        "w": 132,
-        "f": "Week 132: DP II",
+        "w": 178,
+        "f": "Week 178: DP II",
         "t": "coin change, knapsack"
       },
       {
-        "w": 133,
-        "f": "Week 133: DP III",
+        "w": 179,
+        "f": "Week 179: DP III",
         "t": "LCS, edit distance"
       },
       {
-        "w": 134,
-        "f": "Week 134: Mock Rounds",
+        "w": 180,
+        "f": "Week 180: Mock Rounds",
         "t": "5 full timed mock interviews"
+      },
+      {
+        "w": 181,
+        "f": "Week 181: Arrays & Hashing · Deep dive 2",
+        "t": "two sum, anagrams, top K — extended hands-on"
+      },
+      {
+        "w": 182,
+        "f": "Week 182: Two Pointers · Deep dive 2",
+        "t": "sliding window, palindrome — extended hands-on"
+      },
+      {
+        "w": 183,
+        "f": "Week 183: Stacks & Queues · Deep dive 2",
+        "t": "valid parentheses, monotonic stack — extended hands-on"
+      },
+      {
+        "w": 184,
+        "f": "Week 184: Linked Lists · Deep dive 2",
+        "t": "reverse, cycle, merge lists — extended hands-on"
+      },
+      {
+        "w": 185,
+        "f": "Week 185: Binary Search · Deep dive 2",
+        "t": "search rotated, boundary problems — extended hands-on"
+      },
+      {
+        "w": 186,
+        "f": "Week 186: Trees I · Deep dive 2",
+        "t": "traversals, BST basics — extended hands-on"
       }
     ]
   },
@@ -1277,16 +1640,16 @@ export const PHASES = [
     "bg": "#FEF2F2",
     "border": "#FECACA",
     "name": "System Design",
-    "label": "16 weeks",
-    "days": 112,
-    "weeks": 16,
-    "ws": 135,
-    "we": 150,
-    "ds": 939,
-    "de": 1050,
-    "period": "Jan 27 – May 18, 2029",
-    "about": "Weeks 135–150 · System Design: scalability, classic designs, FPO architecture, whiteboards, portfolio ADRs.",
-    "ms": "150 Weeks Complete · W150 · System Design",
+    "label": "22 weeks + 5 days",
+    "days": 159,
+    "weeks": 22,
+    "ws": 187,
+    "we": 209,
+    "ds": 1303,
+    "de": 1461,
+    "period": "Jan 26 – Jul 3, 2030",
+    "about": "Weeks 187–209 · System Design: scalability, classic designs, FPO architecture, whiteboards, portfolio ADRs.",
+    "ms": "4-Year Plan Complete · Jul 3, 2030 · System Design",
     "courses": [
       "Alex Xu — System Design Interview",
       "Gaurav Sen",
@@ -1295,84 +1658,114 @@ export const PHASES = [
     ],
     "wplan": [
       {
-        "w": 135,
-        "f": "Week 135: Fundamentals",
+        "w": 187,
+        "f": "Week 187: Fundamentals",
         "t": "scalability, CAP, load balancers"
       },
       {
-        "w": 136,
-        "f": "Week 136: Databases",
+        "w": 188,
+        "f": "Week 188: Databases",
         "t": "SQL vs NoSQL, sharding, replication"
       },
       {
-        "w": 137,
-        "f": "Week 137: Caching & CDN",
+        "w": 189,
+        "f": "Week 189: Caching & CDN",
         "t": "Redis, cache strategies, invalidation"
       },
       {
-        "w": 138,
-        "f": "Week 138: Messaging",
+        "w": 190,
+        "f": "Week 190: Messaging",
         "t": "SQS, SNS, Kafka, pub/sub patterns"
       },
       {
-        "w": 139,
-        "f": "Week 139: API Design",
+        "w": 191,
+        "f": "Week 191: API Design",
         "t": "REST vs gRPC, rate limiting, gateway"
       },
       {
-        "w": 140,
-        "f": "Week 140: URL Shortener",
+        "w": 192,
+        "f": "Week 192: URL Shortener",
         "t": "hashing, Redis, analytics"
       },
       {
-        "w": 141,
-        "f": "Week 141: Social Systems",
+        "w": 193,
+        "f": "Week 193: Social Systems",
         "t": "Twitter timeline, notifications"
       },
       {
-        "w": 142,
-        "f": "Week 142: Ride & Chat",
+        "w": 194,
+        "f": "Week 194: Ride & Chat",
         "t": "Uber matching, WhatsApp architecture"
       },
       {
-        "w": 143,
-        "f": "Week 143: Search & Storage",
+        "w": 195,
+        "f": "Week 195: Search & Storage",
         "t": "Elasticsearch, object storage at scale"
       },
       {
-        "w": 144,
-        "f": "Week 144: FPO Architecture I",
+        "w": 196,
+        "f": "Week 196: FPO Architecture I",
         "t": "flight search, booking flow"
       },
       {
-        "w": 145,
-        "f": "Week 145: FPO Architecture II",
+        "w": 197,
+        "f": "Week 197: FPO Architecture II",
         "t": "payments, inventory, multi-region"
       },
       {
-        "w": 146,
-        "f": "Week 146: Mock Interviews I",
+        "w": 198,
+        "f": "Week 198: Mock Interviews I",
         "t": "5 whiteboard sessions"
       },
       {
-        "w": 147,
-        "f": "Week 147: Mock Interviews II",
+        "w": 199,
+        "f": "Week 199: Mock Interviews II",
         "t": "5 more designs, feedback loops"
       },
       {
-        "w": 148,
-        "f": "Week 148: Portfolio ADRs I",
+        "w": 200,
+        "f": "Week 200: Portfolio ADRs I",
         "t": "document 5 classic designs"
       },
       {
-        "w": 149,
-        "f": "Week 149: Portfolio ADRs II",
+        "w": 201,
+        "f": "Week 201: Portfolio ADRs II",
         "t": "document 5 more designs"
       },
       {
-        "w": 150,
-        "f": "Week 150: Final Portfolio",
-        "t": "10 ADRs in GitHub — W150 DONE 🏆"
+        "w": 202,
+        "f": "Week 202: Final Portfolio",
+        "t": "10 ADRs in GitHub — 4-year plan DONE 🏆"
+      },
+      {
+        "w": 203,
+        "f": "Week 203: Fundamentals · Deep dive 2",
+        "t": "scalability, CAP, load balancers — extended hands-on"
+      },
+      {
+        "w": 204,
+        "f": "Week 204: Databases · Deep dive 2",
+        "t": "SQL vs NoSQL, sharding, replication — extended hands-on"
+      },
+      {
+        "w": 205,
+        "f": "Week 205: Caching & CDN · Deep dive 2",
+        "t": "Redis, cache strategies, invalidation — extended hands-on"
+      },
+      {
+        "w": 206,
+        "f": "Week 206: Messaging · Deep dive 2",
+        "t": "SQS, SNS, Kafka, pub/sub patterns — extended hands-on"
+      },
+      {
+        "w": 207,
+        "f": "Week 207: API Design · Deep dive 2",
+        "t": "REST vs gRPC, rate limiting, gateway — extended hands-on"
+      },
+      {
+        "w": 208,
+        "f": "Week 208: URL Shortener · Deep dive 2",
+        "t": "hashing, Redis, analytics — extended hands-on"
       }
     ]
   }
@@ -1380,163 +1773,163 @@ export const PHASES = [
 
 export const MILESTONES = [
   {
-    "week": 14,
-    "day": 98,
+    "week": 19,
+    "day": 133,
     "icon": "☁",
     "label": "AWS Done",
-    "date": "Oct 9, 2026",
+    "date": "Nov 13, 2026",
     "color": "#D97706"
   },
   {
-    "week": 22,
-    "day": 154,
+    "week": 30,
+    "day": 210,
     "icon": "📜",
     "label": "Javascript Done",
-    "date": "Dec 4, 2026",
+    "date": "Jan 29, 2027",
     "color": "#EAB308"
-  },
-  {
-    "week": 25,
-    "day": 175,
-    "icon": "🔷",
-    "label": "Typescript Done",
-    "date": "Dec 25, 2026",
-    "color": "#2563EB"
   },
   {
     "week": 34,
     "day": 238,
-    "icon": "⚛",
-    "label": "React JS Done",
+    "icon": "🔷",
+    "label": "Typescript Done",
     "date": "Feb 26, 2027",
-    "color": "#0EA5E9"
-  },
-  {
-    "week": 40,
-    "day": 280,
-    "icon": "▲",
-    "label": "Next JS Done",
-    "date": "Apr 9, 2027",
-    "color": "#171717"
+    "color": "#2563EB"
   },
   {
     "week": 46,
     "day": 322,
-    "icon": "📱",
-    "label": "React Native Done",
+    "icon": "⚛",
+    "label": "React JS Done",
     "date": "May 21, 2027",
-    "color": "#7C3AED"
-  },
-  {
-    "week": 50,
-    "day": 350,
-    "icon": "🟢",
-    "label": "Node JS Done",
-    "date": "Jun 18, 2027",
-    "color": "#16A34A"
+    "color": "#0EA5E9"
   },
   {
     "week": 54,
     "day": 378,
-    "icon": "🐍",
-    "label": "Python Done",
+    "icon": "▲",
+    "label": "Next JS Done",
     "date": "Jul 16, 2027",
-    "color": "#15803D"
+    "color": "#171717"
   },
   {
-    "week": 58,
-    "day": 406,
-    "icon": "🎸",
-    "label": "Django Done",
-    "date": "Aug 13, 2027",
-    "color": "#092E20"
-  },
-  {
-    "week": 61,
-    "day": 427,
-    "icon": "⚡",
-    "label": "Fast API Done",
-    "date": "Sep 3, 2027",
-    "color": "#009688"
-  },
-  {
-    "week": 71,
-    "day": 497,
-    "icon": "🤖",
-    "label": "Agentic AI Done",
-    "date": "Nov 12, 2027",
-    "color": "#8B5CF6"
-  },
-  {
-    "week": 75,
-    "day": 525,
-    "icon": "☕",
-    "label": "J2SE Done",
-    "date": "Dec 10, 2027",
-    "color": "#EA580C"
-  },
-  {
-    "week": 79,
-    "day": 553,
-    "icon": "🏢",
-    "label": "J2EE Done",
-    "date": "Jan 7, 2028",
-    "color": "#0891B2"
-  },
-  {
-    "week": 82,
-    "day": 574,
-    "icon": "🗄",
-    "label": "JPA Done",
-    "date": "Jan 28, 2028",
+    "week": 62,
+    "day": 434,
+    "icon": "📱",
+    "label": "React Native Done",
+    "date": "Sep 10, 2027",
     "color": "#7C3AED"
   },
   {
-    "week": 90,
-    "day": 630,
+    "week": 68,
+    "day": 476,
+    "icon": "🟢",
+    "label": "Node JS Done",
+    "date": "Oct 22, 2027",
+    "color": "#16A34A"
+  },
+  {
+    "week": 74,
+    "day": 518,
+    "icon": "🐍",
+    "label": "Python Done",
+    "date": "Dec 3, 2027",
+    "color": "#15803D"
+  },
+  {
+    "week": 80,
+    "day": 560,
+    "icon": "🎸",
+    "label": "Django Done",
+    "date": "Jan 14, 2028",
+    "color": "#092E20"
+  },
+  {
+    "week": 84,
+    "day": 588,
+    "icon": "⚡",
+    "label": "Fast API Done",
+    "date": "Feb 11, 2028",
+    "color": "#009688"
+  },
+  {
+    "week": 98,
+    "day": 686,
+    "icon": "🤖",
+    "label": "Agentic AI Done",
+    "date": "May 19, 2028",
+    "color": "#8B5CF6"
+  },
+  {
+    "week": 104,
+    "day": 728,
+    "icon": "☕",
+    "label": "J2SE Done",
+    "date": "Jun 30, 2028",
+    "color": "#EA580C"
+  },
+  {
+    "week": 110,
+    "day": 770,
+    "icon": "🏢",
+    "label": "J2EE Done",
+    "date": "Aug 11, 2028",
+    "color": "#0891B2"
+  },
+  {
+    "week": 114,
+    "day": 798,
+    "icon": "🗄",
+    "label": "JPA Done",
+    "date": "Sep 8, 2028",
+    "color": "#7C3AED"
+  },
+  {
+    "week": 125,
+    "day": 875,
     "icon": "🌱",
     "label": "Spring Boot Done",
-    "date": "Mar 24, 2028",
+    "date": "Nov 24, 2028",
     "color": "#6DB33F"
   },
   {
-    "week": 97,
-    "day": 679,
+    "week": 135,
+    "day": 945,
     "icon": "🏛",
     "label": "Microservices Done",
-    "date": "May 12, 2028",
+    "date": "Feb 2, 2029",
     "color": "#E11D48"
-  },
-  {
-    "week": 108,
-    "day": 756,
-    "icon": "🔧",
-    "label": "Devops Done",
-    "date": "Jul 28, 2028",
-    "color": "#6366F1"
-  },
-  {
-    "week": 118,
-    "day": 826,
-    "icon": "☸",
-    "label": "Kubernetes Done",
-    "date": "Oct 6, 2028",
-    "color": "#326CE5"
-  },
-  {
-    "week": 134,
-    "day": 938,
-    "icon": "🧮",
-    "label": "Data Structures Done",
-    "date": "Jan 26, 2029",
-    "color": "#059669"
   },
   {
     "week": 150,
     "day": 1050,
-    "icon": "🏗",
-    "label": "150 Weeks Complete",
+    "icon": "🔧",
+    "label": "Devops Done",
     "date": "May 18, 2029",
+    "color": "#6366F1"
+  },
+  {
+    "week": 164,
+    "day": 1148,
+    "icon": "☸",
+    "label": "Kubernetes Done",
+    "date": "Aug 24, 2029",
+    "color": "#326CE5"
+  },
+  {
+    "week": 186,
+    "day": 1302,
+    "icon": "🧮",
+    "label": "Data Structures Done",
+    "date": "Jan 25, 2030",
+    "color": "#059669"
+  },
+  {
+    "week": 209,
+    "day": 1461,
+    "icon": "🏗",
+    "label": "4-Year Plan Complete",
+    "date": "Jul 3, 2030",
     "color": "#DC2626"
   }
 ];
