@@ -1,6 +1,6 @@
 import { useState, useMemo } from 'react';
 import { AWS_SCHEDULE, AWS_WEEKS, AWS_PLAN_START, AWS_PHASE_DAYS, awsDayDate, awsPlanDay } from './aws100DaysSchedule.js';
-import { TOTAL_DAYS, DEADLINE, TOTAL_YEARS } from './data/plan150weeks.js';
+import { TOTAL_DAYS, DEADLINE } from './data/plan150weeks.js';
 
 const COL = '#D97706';
 const COL_DARK = '#B45309';
@@ -92,7 +92,7 @@ export default function Aws100Days() {
                   color: 'rgba(255,255,255,0.55)',
                 }}
               >
-                {'AWS · W1–W19 · Jul 5 – Nov 14, 2026'}
+                {'AWS · W132–W150 · Jan 7 – May 19, 2029'}
               </div>
               <h1
                 style={{
@@ -106,7 +106,7 @@ export default function Aws100Days() {
                 {'AWS Daily Schedule — 100-day CloudFolks curriculum'}
               </h1>
               <div style={{ fontSize: 9, color: 'rgba(255,255,255,0.65)', marginTop: 3 }}>
-                {'Jul 5 – Nov 14, 2026 · W1–W19 · D1–D133 · 5:30–8:30 AM IST (3h) · CloudFolks Hub'}
+                {'Jan 7 – May 19, 2029 · W132–W150 · D918–D1050 · 5:30–8:30 AM IST (3h) · CloudFolks Hub'}
               </div>
             </div>
           </div>
@@ -131,7 +131,7 @@ export default function Aws100Days() {
                 </span>
               </>
             ) : (
-              'AWS block starts Jul 5, 2026 (W1) — first skill in your ' + TOTAL_YEARS + '-year plan · bundle DSA/SD ends ' + DEADLINE
+              'AWS block · Jan 7 – May 19, 2029 (after DevOps, before Kubernetes) · plan ends ' + DEADLINE
             )}
           </div>
 
@@ -342,10 +342,10 @@ export default function Aws100Days() {
           }}
         >
           <div style={{ fontSize: 13, fontWeight: 800, marginBottom: 4 }}>
-            {'☁ Day 100 = AWS curriculum complete · Then Javascript W15 (Oct 10, 2026) 🏆'}
+            {'☁ Day 100 = AWS curriculum complete · Then Kubernetes (May 20, 2029) 🏆'}
           </div>
           <div style={{ fontSize: 9, opacity: 0.75 }}>
-            {'14 weeks AWS → 36 weeks JS ecosystem → Python → Java → DevOps → DSA & System Design'}
+            {'14 weeks AWS → Kubernetes → DSA & System Design · plan ends ' + DEADLINE}
           </div>
           <a
             href="#/"

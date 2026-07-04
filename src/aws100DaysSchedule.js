@@ -1,5 +1,5 @@
 const START = new Date('2026-07-05');
-export const AWS_PLAN_START = 1;
+export const AWS_PLAN_START = 918;
 export const AWS_PHASE_DAYS = 100;
 
 export function awsPlanDay(awsDay) {

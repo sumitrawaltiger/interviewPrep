@@ -31,9 +31,9 @@ const JS_DAY_LINKS = JS_COURSE_DAYS.map((d) => ({
 }));
 
 const PHASES_LIST = PHASES.map((p) =>
-  p.id === 's2'
+  p.name === 'Javascript'
     ? { ...p, dayLinks: JS_DAY_LINKS }
-    : p.id === 's1'
+    : p.name === 'AWS'
       ? { ...p, scheduleLink: '#/aws-100-days' }
       : p,
 );
@@ -716,7 +716,7 @@ export default function App() {
                 }}
               >
                 {
-                  TOTAL_YEARS + ' years · ' + TOTAL_WEEKS + ' weeks · 3h daily · AWS first → JS stack → Python → Java → DevOps → DSA & SD'
+                  TOTAL_YEARS + ' years · ' + TOTAL_WEEKS + ' weeks · 3h daily · JS first → Python → Java → DevOps → AWS → K8s → DSA & SD'
                 }
               </div>
               <div style={{ fontSize: 8, color: 'rgba(255,255,255,0.5)' }}>
@@ -752,7 +752,7 @@ export default function App() {
                 {TOTAL_YEARS + ' Years of Code — daily 5:30–8:30 AM IST through ' + DEADLINE}
               </div>
               <div style={{ fontSize: 8, color: 'rgba(255,255,255,0.5)' }}>
-                {'AWS → JS ecosystem → Python → Java → DevOps & K8s → DSA & System Design · ends ' + DEADLINE}
+                {'JS ecosystem → Python → Java → DevOps → AWS → K8s → DSA & System Design · ends ' + DEADLINE}
               </div>
             </div>
           </div>
@@ -1027,7 +1027,7 @@ export default function App() {
             }}
           >
             {
-              'AWS → JS stack → Python → Java → DevOps → K8s → DSA → System Design'
+              'JS stack → Python → Java → DevOps → AWS → K8s → DSA → System Design'
             }
           </div>
           <div
