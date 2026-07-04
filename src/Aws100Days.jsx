@@ -8,7 +8,7 @@ const BG = '#FFFBEB';
 const BORDER = '#FDE68A';
 
 function todayAwsDay() {
-  const start = new Date('2026-07-04');
+  const start = new Date('2026-07-05');
   const planDay = Math.floor((new Date() - start) / 86400000) + 1;
   if (planDay < AWS_PLAN_START) return 0;
   return Math.min(planDay - AWS_PLAN_START + 1, AWS_PHASE_DAYS);
@@ -92,7 +92,7 @@ export default function Aws100Days() {
                   color: 'rgba(255,255,255,0.55)',
                 }}
               >
-                {'AWS · W1–W20 · Jul 4 – Nov 13, 2026'}
+                {'AWS · W1–W19 · Jul 5 – Nov 14, 2026'}
               </div>
               <h1
                 style={{
@@ -106,7 +106,7 @@ export default function Aws100Days() {
                 {'AWS Daily Schedule — 100-day CloudFolks curriculum'}
               </h1>
               <div style={{ fontSize: 9, color: 'rgba(255,255,255,0.65)', marginTop: 3 }}>
-                {'Jul 4 – Nov 13, 2026 · W1–W20 · D1–D140 · 5:30–8:30 AM IST (3h) · CloudFolks Hub'}
+                {'Jul 5 – Nov 14, 2026 · W1–W19 · D1–D133 · 5:30–8:30 AM IST (3h) · CloudFolks Hub'}
               </div>
             </div>
           </div>
@@ -131,7 +131,7 @@ export default function Aws100Days() {
                 </span>
               </>
             ) : (
-              'AWS block starts Jul 4, 2026 (W1) — first skill in your ' + TOTAL_YEARS + '-year plan · ends ' + DEADLINE
+              'AWS block starts Jul 5, 2026 (W1) — first skill in your ' + TOTAL_YEARS + '-year plan · bundle DSA/SD ends ' + DEADLINE
             )}
           </div>
 

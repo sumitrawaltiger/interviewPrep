@@ -1,11 +1,11 @@
-// Auto-generated · 20 skills · 4 years · Jul 4, 2026 → Jul 3, 2030 · 1461 days
-export const START = new Date('2026-07-04');
-export const END = new Date('2030-07-03');
+// Auto-generated · 20 skills · 4 years · Jul 5, 2026 → Jul 4, 2030 · 1461 days
+export const START = new Date('2026-07-05');
+export const END = new Date('2030-07-04');
 export const TOTAL_YEARS = 4;
 export const TOTAL_WEEKS = 209;
 export const TOTAL_DAYS = 1461;
 export const SKILL_COUNT = 20;
-export const DEADLINE = 'Jul 3, 2030';
+export const DEADLINE = 'Jul 4, 2030';
 export const AWS_PLAN_START = 1;
 export const JS_PLAN_START = 134;
 export const STUDY_TIME = '5:30 AM – 8:30 AM IST · 3h daily';
@@ -18,7 +18,7 @@ export const YEARS = [
     "ws": 1,
     "we": 53,
     "label": "Year 1",
-    "period": "Jul 4, 2026 – Jul 3, 2027",
+    "period": "Jul 5, 2026 – Jul 4, 2027",
     "skills": [
       "AWS",
       "Javascript",
@@ -41,7 +41,7 @@ export const YEARS = [
     "ws": 53,
     "we": 105,
     "label": "Year 2",
-    "period": "Jul 4, 2027 – Jul 3, 2028",
+    "period": "Jul 5, 2027 – Jul 4, 2028",
     "skills": [
       "Next JS",
       "React Native",
@@ -72,7 +72,7 @@ export const YEARS = [
     "ws": 105,
     "we": 157,
     "label": "Year 3",
-    "period": "Jul 4, 2028 – Jul 3, 2029",
+    "period": "Jul 5, 2028 – Jul 4, 2029",
     "skills": [
       "J2EE",
       "JPA",
@@ -97,7 +97,7 @@ export const YEARS = [
     "ws": 157,
     "we": 209,
     "label": "Year 4",
-    "period": "Jul 4, 2029 – Jul 3, 2030",
+    "period": "Jul 5, 2029 – Jul 4, 2030",
     "skills": [
       "Kubernetes",
       "Data Structures",
@@ -117,7 +117,7 @@ export const BLOCKS = [
     "icon": "☁",
     "col": "#D97706",
     "title": "AWS",
-    "sub": "W1–W19 · Jul 4 – Nov 13, 2026",
+    "sub": "W1–W19 · Jul 5 – Nov 14, 2026",
     "detail": "CloudFolks Hub · IAM → VPC → EC2 → S3 → Lambda → ECS",
     "time": "5:30 AM – 8:30 AM IST · 3h daily",
     "scheduleLink": "#/aws-100-days"
@@ -127,7 +127,7 @@ export const BLOCKS = [
     "icon": "🎓",
     "col": "#E11D48",
     "title": "JavaScript Ecosystem",
-    "sub": "W20–W68 · Nov 14, 2026 – Oct 22, 2027",
+    "sub": "W20–W68 · Nov 15, 2026 – Oct 23, 2027",
     "detail": "Javascript → Typescript → React → Next JS → React Native → Node JS",
     "time": "5:30 AM – 8:30 AM IST · 3h daily"
   },
@@ -136,7 +136,7 @@ export const BLOCKS = [
     "icon": "🐍",
     "col": "#15803D",
     "title": "Python Stack",
-    "sub": "W69–W98 · Oct 23, 2027 – May 19, 2028",
+    "sub": "W69–W98 · Oct 24, 2027 – May 20, 2028",
     "detail": "Python → Django → Fast API → Agentic AI",
     "time": "5:30 AM – 8:30 AM IST · 3h daily"
   },
@@ -145,7 +145,7 @@ export const BLOCKS = [
     "icon": "☕",
     "col": "#EA580C",
     "title": "Java Backend",
-    "sub": "W99–W135 · May 20, 2028 – Feb 2, 2029",
+    "sub": "W99–W135 · May 21, 2028 – Feb 3, 2029",
     "detail": "J2SE → J2EE → JPA → Spring Boot → Microservices",
     "time": "5:30 AM – 8:30 AM IST · 3h daily"
   },
@@ -154,7 +154,7 @@ export const BLOCKS = [
     "icon": "🔧",
     "col": "#6366F1",
     "title": "DevOps & Kubernetes",
-    "sub": "W136–W164 · Feb 3 – Aug 24, 2029",
+    "sub": "W136–W164 · Feb 4 – Aug 25, 2029",
     "detail": "DevOps → Kubernetes",
     "time": "5:30 AM – 8:30 AM IST · 3h daily"
   },
@@ -163,8 +163,8 @@ export const BLOCKS = [
     "icon": "🎯",
     "col": "#7C3AED",
     "title": "Interview Readiness",
-    "sub": "W165–W209 · Aug 25, 2029 – Jul 3, 2030",
-    "detail": "Data Structures → System Design",
+    "sub": "W165–W209 · Aug 26, 2029 – Jul 4, 2030",
+    "detail": "DSA → System Design · All in One Bundle (expires Jul 4, 2030)",
     "time": "5:30 AM – 8:30 AM IST · 3h daily"
   }
 ];
@@ -187,7 +187,7 @@ export const PHASES = [
     "we": 19,
     "ds": 1,
     "de": 133,
-    "period": "Jul 4 – Nov 13, 2026",
+    "period": "Jul 5 – Nov 14, 2026",
     "about": "Weeks 1–19 · CloudFolks Hub + hands-on labs. IAM, VPC, EC2, S3, RDS, Lambda, ECS, CDK, SAA prep.",
     "ms": "AWS Complete · W19",
     "courses": [
@@ -311,7 +311,7 @@ export const PHASES = [
     "we": 30,
     "ds": 134,
     "de": 210,
-    "period": "Nov 14, 2026 – Jan 29, 2027",
+    "period": "Nov 15, 2026 – Jan 30, 2027",
     "about": "Weeks 20–30 · Coder Army Day of Thunder + advanced JS. Core language, async, closures, prototypes, modules.",
     "ms": "Javascript Complete · W30",
     "courses": [
@@ -394,7 +394,7 @@ export const PHASES = [
     "we": 34,
     "ds": 211,
     "de": 238,
-    "period": "Jan 30 – Feb 26, 2027",
+    "period": "Jan 31 – Feb 27, 2027",
     "about": "Weeks 31–34 · TypeScript strict mode: types, interfaces, generics, utility types, type guards.",
     "ms": "Typescript Complete · W34",
     "courses": [
@@ -442,7 +442,7 @@ export const PHASES = [
     "we": 46,
     "ds": 239,
     "de": 322,
-    "period": "Feb 27 – May 21, 2027",
+    "period": "Feb 28 – May 22, 2027",
     "about": "Weeks 35–46 · React 19 deep dive: components, hooks, state management, React Router, performance.",
     "ms": "React JS Complete · W46",
     "courses": [
@@ -530,7 +530,7 @@ export const PHASES = [
     "we": 54,
     "ds": 323,
     "de": 378,
-    "period": "May 22 – Jul 16, 2027",
+    "period": "May 23 – Jul 17, 2027",
     "about": "Weeks 47–54 · Next.js: App Router, Server Components, Server Actions, auth, Vercel deploy.",
     "ms": "Next JS Complete · W54",
     "courses": [
@@ -597,7 +597,7 @@ export const PHASES = [
     "we": 62,
     "ds": 379,
     "de": 434,
-    "period": "Jul 17 – Sep 10, 2027",
+    "period": "Jul 18 – Sep 11, 2027",
     "about": "Weeks 55–62 · React Native from ChaiCode: Expo, navigation, device APIs, EAS Build.",
     "ms": "React Native Complete · W62",
     "courses": [
@@ -665,7 +665,7 @@ export const PHASES = [
     "we": 68,
     "ds": 435,
     "de": 476,
-    "period": "Sep 11 – Oct 22, 2027",
+    "period": "Sep 12 – Oct 23, 2027",
     "about": "Weeks 63–68 · Node.js runtime: event loop, modules, Express, REST APIs, auth, MongoDB, deployment.",
     "ms": "Node JS Complete · W68",
     "courses": [
@@ -723,7 +723,7 @@ export const PHASES = [
     "we": 74,
     "ds": 477,
     "de": 518,
-    "period": "Oct 23 – Dec 3, 2027",
+    "period": "Oct 24 – Dec 4, 2027",
     "about": "Weeks 69–74 · Python 3 from Ashok IT: fundamentals, OOP, decorators, asyncio.",
     "ms": "Python Complete · W74",
     "courses": [
@@ -780,7 +780,7 @@ export const PHASES = [
     "we": 80,
     "ds": 519,
     "de": 560,
-    "period": "Dec 4, 2027 – Jan 14, 2028",
+    "period": "Dec 5, 2027 – Jan 15, 2028",
     "about": "Weeks 75–80 · Django 5 + DRF: models, migrations, admin, serializers, viewsets.",
     "ms": "Django Complete · W80",
     "courses": [
@@ -838,7 +838,7 @@ export const PHASES = [
     "we": 84,
     "ds": 561,
     "de": 588,
-    "period": "Jan 15 – Feb 11, 2028",
+    "period": "Jan 16 – Feb 12, 2028",
     "about": "Weeks 81–84 · FastAPI: async routes, Pydantic v2, dependency injection, OAuth2, SQLAlchemy.",
     "ms": "Fast API Complete · W84",
     "courses": [
@@ -885,7 +885,7 @@ export const PHASES = [
     "we": 98,
     "ds": 589,
     "de": 686,
-    "period": "Feb 12 – May 19, 2028",
+    "period": "Feb 13 – May 20, 2028",
     "about": "Weeks 85–98 · Agentic AI from Ashok IT: LangChain, LangGraph, RAG, multi-agent systems.",
     "ms": "Agentic AI Complete · W98",
     "courses": [
@@ -983,7 +983,7 @@ export const PHASES = [
     "we": 104,
     "ds": 687,
     "de": 728,
-    "period": "May 20 – Jun 30, 2028",
+    "period": "May 21 – Jul 1, 2028",
     "about": "Weeks 99–104 · Java SE: syntax, OOP, collections, streams, lambdas, Optional, records.",
     "ms": "J2SE Complete · W104",
     "courses": [
@@ -1041,7 +1041,7 @@ export const PHASES = [
     "we": 110,
     "ds": 729,
     "de": 770,
-    "period": "Jul 1 – Aug 11, 2028",
+    "period": "Jul 2 – Aug 12, 2028",
     "about": "Weeks 105–110 · Jakarta EE: Servlets, JSP, JNDI, JDBC, connection pooling.",
     "ms": "J2EE Complete · W110",
     "courses": [
@@ -1099,7 +1099,7 @@ export const PHASES = [
     "we": 114,
     "ds": 771,
     "de": 798,
-    "period": "Aug 12 – Sep 8, 2028",
+    "period": "Aug 13 – Sep 9, 2028",
     "about": "Weeks 111–114 · JPA/Hibernate: @Entity, relationships, JPQL, Spring Data JPA, N+1 problem.",
     "ms": "JPA Complete · W114",
     "courses": [
@@ -1147,7 +1147,7 @@ export const PHASES = [
     "we": 125,
     "ds": 799,
     "de": 875,
-    "period": "Sep 9 – Nov 24, 2028",
+    "period": "Sep 10 – Nov 25, 2028",
     "about": "Weeks 115–125 · Spring Boot 3: REST APIs, Spring Security + OAuth2, OpenAPI, testing.",
     "ms": "Spring Boot Complete · W125",
     "courses": [
@@ -1230,7 +1230,7 @@ export const PHASES = [
     "we": 135,
     "ds": 876,
     "de": 945,
-    "period": "Nov 25, 2028 – Feb 2, 2029",
+    "period": "Nov 26, 2028 – Feb 3, 2029",
     "about": "Weeks 126–135 · Microservices: Spring Cloud, Kafka, Resilience4j, CQRS, saga patterns.",
     "ms": "Microservices Complete · W135",
     "courses": [
@@ -1308,7 +1308,7 @@ export const PHASES = [
     "we": 150,
     "ds": 946,
     "de": 1050,
-    "period": "Feb 3 – May 18, 2029",
+    "period": "Feb 4 – May 19, 2029",
     "about": "Weeks 136–150 · DevOps from CloudFolks Hub: Docker, CI/CD, Terraform, monitoring, GitOps.",
     "ms": "Devops Complete · W150",
     "courses": [
@@ -1411,7 +1411,7 @@ export const PHASES = [
     "we": 164,
     "ds": 1051,
     "de": 1148,
-    "period": "May 19 – Aug 24, 2029",
+    "period": "May 20 – Aug 25, 2029",
     "about": "Weeks 151–164 · Kubernetes CKA/CKAD path: clusters, workloads, networking, storage, security, Helm.",
     "ms": "Kubernetes Complete · W164",
     "courses": [
@@ -1509,12 +1509,12 @@ export const PHASES = [
     "we": 186,
     "ds": 1149,
     "de": 1302,
-    "period": "Aug 25, 2029 – Jan 25, 2030",
-    "about": "Weeks 165–186 · DSA deep dive: NeetCode 150 + Blind 75 patterns in Python and Java. 2–3 problems daily.",
+    "period": "Aug 26, 2029 – Jan 26, 2030",
+    "about": "Weeks 165–186 · All in One Interview Preparation bundle — DSA track. Core patterns, topic-wise problems, 2–3 daily. Bundle expires Jul 4, 2030.",
     "ms": "Data Structures Complete · W186",
     "courses": [
-      "NeetCode.io",
-      "LeetCode Premium",
+      "All in One Interview Preparation — DSA",
+      "LeetCode",
       "Striver A2Z DSA"
     ],
     "wplan": [
@@ -1647,14 +1647,13 @@ export const PHASES = [
     "we": 209,
     "ds": 1303,
     "de": 1461,
-    "period": "Jan 26 – Jul 3, 2030",
-    "about": "Weeks 187–209 · System Design: scalability, classic designs, FPO architecture, whiteboards, portfolio ADRs.",
-    "ms": "4-Year Plan Complete · Jul 3, 2030 · System Design",
+    "period": "Jan 27 – Jul 4, 2030",
+    "about": "Weeks 187–209 · All in One Interview Preparation bundle — System Design, DBMS, OS & Computer Networks. Classic designs, FPO architecture, mock interviews.",
+    "ms": "4-Year Plan Complete · Jul 4, 2030 · System Design",
     "courses": [
-      "Alex Xu — System Design Interview",
-      "Gaurav Sen",
-      "ByteByteGo",
-      "DDIA"
+      "All in One Interview Preparation — System Design",
+      "DBMS · OS · Computer Networks",
+      "ByteByteGo"
     ],
     "wplan": [
       {
@@ -1777,7 +1776,7 @@ export const MILESTONES = [
     "day": 133,
     "icon": "☁",
     "label": "AWS Done",
-    "date": "Nov 13, 2026",
+    "date": "Nov 14, 2026",
     "color": "#D97706"
   },
   {
@@ -1785,7 +1784,7 @@ export const MILESTONES = [
     "day": 210,
     "icon": "📜",
     "label": "Javascript Done",
-    "date": "Jan 29, 2027",
+    "date": "Jan 30, 2027",
     "color": "#EAB308"
   },
   {
@@ -1793,7 +1792,7 @@ export const MILESTONES = [
     "day": 238,
     "icon": "🔷",
     "label": "Typescript Done",
-    "date": "Feb 26, 2027",
+    "date": "Feb 27, 2027",
     "color": "#2563EB"
   },
   {
@@ -1801,7 +1800,7 @@ export const MILESTONES = [
     "day": 322,
     "icon": "⚛",
     "label": "React JS Done",
-    "date": "May 21, 2027",
+    "date": "May 22, 2027",
     "color": "#0EA5E9"
   },
   {
@@ -1809,7 +1808,7 @@ export const MILESTONES = [
     "day": 378,
     "icon": "▲",
     "label": "Next JS Done",
-    "date": "Jul 16, 2027",
+    "date": "Jul 17, 2027",
     "color": "#171717"
   },
   {
@@ -1817,7 +1816,7 @@ export const MILESTONES = [
     "day": 434,
     "icon": "📱",
     "label": "React Native Done",
-    "date": "Sep 10, 2027",
+    "date": "Sep 11, 2027",
     "color": "#7C3AED"
   },
   {
@@ -1825,7 +1824,7 @@ export const MILESTONES = [
     "day": 476,
     "icon": "🟢",
     "label": "Node JS Done",
-    "date": "Oct 22, 2027",
+    "date": "Oct 23, 2027",
     "color": "#16A34A"
   },
   {
@@ -1833,7 +1832,7 @@ export const MILESTONES = [
     "day": 518,
     "icon": "🐍",
     "label": "Python Done",
-    "date": "Dec 3, 2027",
+    "date": "Dec 4, 2027",
     "color": "#15803D"
   },
   {
@@ -1841,7 +1840,7 @@ export const MILESTONES = [
     "day": 560,
     "icon": "🎸",
     "label": "Django Done",
-    "date": "Jan 14, 2028",
+    "date": "Jan 15, 2028",
     "color": "#092E20"
   },
   {
@@ -1849,7 +1848,7 @@ export const MILESTONES = [
     "day": 588,
     "icon": "⚡",
     "label": "Fast API Done",
-    "date": "Feb 11, 2028",
+    "date": "Feb 12, 2028",
     "color": "#009688"
   },
   {
@@ -1857,7 +1856,7 @@ export const MILESTONES = [
     "day": 686,
     "icon": "🤖",
     "label": "Agentic AI Done",
-    "date": "May 19, 2028",
+    "date": "May 20, 2028",
     "color": "#8B5CF6"
   },
   {
@@ -1865,7 +1864,7 @@ export const MILESTONES = [
     "day": 728,
     "icon": "☕",
     "label": "J2SE Done",
-    "date": "Jun 30, 2028",
+    "date": "Jul 1, 2028",
     "color": "#EA580C"
   },
   {
@@ -1873,7 +1872,7 @@ export const MILESTONES = [
     "day": 770,
     "icon": "🏢",
     "label": "J2EE Done",
-    "date": "Aug 11, 2028",
+    "date": "Aug 12, 2028",
     "color": "#0891B2"
   },
   {
@@ -1881,7 +1880,7 @@ export const MILESTONES = [
     "day": 798,
     "icon": "🗄",
     "label": "JPA Done",
-    "date": "Sep 8, 2028",
+    "date": "Sep 9, 2028",
     "color": "#7C3AED"
   },
   {
@@ -1889,7 +1888,7 @@ export const MILESTONES = [
     "day": 875,
     "icon": "🌱",
     "label": "Spring Boot Done",
-    "date": "Nov 24, 2028",
+    "date": "Nov 25, 2028",
     "color": "#6DB33F"
   },
   {
@@ -1897,7 +1896,7 @@ export const MILESTONES = [
     "day": 945,
     "icon": "🏛",
     "label": "Microservices Done",
-    "date": "Feb 2, 2029",
+    "date": "Feb 3, 2029",
     "color": "#E11D48"
   },
   {
@@ -1905,7 +1904,7 @@ export const MILESTONES = [
     "day": 1050,
     "icon": "🔧",
     "label": "Devops Done",
-    "date": "May 18, 2029",
+    "date": "May 19, 2029",
     "color": "#6366F1"
   },
   {
@@ -1913,7 +1912,7 @@ export const MILESTONES = [
     "day": 1148,
     "icon": "☸",
     "label": "Kubernetes Done",
-    "date": "Aug 24, 2029",
+    "date": "Aug 25, 2029",
     "color": "#326CE5"
   },
   {
@@ -1921,7 +1920,7 @@ export const MILESTONES = [
     "day": 1302,
     "icon": "🧮",
     "label": "Data Structures Done",
-    "date": "Jan 25, 2030",
+    "date": "Jan 26, 2030",
     "color": "#059669"
   },
   {
@@ -1929,7 +1928,7 @@ export const MILESTONES = [
     "day": 1461,
     "icon": "🏗",
     "label": "4-Year Plan Complete",
-    "date": "Jul 3, 2030",
+    "date": "Jul 4, 2030",
     "color": "#DC2626"
   }
 ];

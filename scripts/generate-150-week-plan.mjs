@@ -3,13 +3,15 @@ import { fileURLToPath } from 'url';
 import { dirname, join } from 'path';
 
 const __dirname = dirname(fileURLToPath(import.meta.url));
-const START = new Date('2026-07-04');
-const END = new Date('2030-07-03');
+const START = new Date('2026-07-05');
+const END = new Date('2030-07-04');
 const TOTAL_YEARS = 4;
-const TOTAL_DAYS = Math.floor((END - START) / 86400000) + 1; // 1461 days · Jul 4, 2026 → Jul 3, 2030
+const TOTAL_DAYS = Math.floor((END - START) / 86400000) + 1; // 1461 days · Jul 5, 2026 → Jul 4, 2030
 const ALLOC_WEEKS = Math.floor(TOTAL_DAYS / 7); // 208 full weeks; last skill absorbs remaining days
 const TOTAL_WEEKS = Math.ceil(TOTAL_DAYS / 7); // 209 (final week is partial)
-const DEADLINE_STR = 'Jul 3, 2030';
+const DEADLINE_STR = 'Jul 4, 2030';
+const START_ISO = '2026-07-05';
+const END_ISO = '2030-07-04';
 
 function dayDate(dayNum) {
   const d = new Date(START);
@@ -38,7 +40,7 @@ function fmtShort(d) {
   return d.toLocaleDateString('en-US', { month: 'short', day: 'numeric' });
 }
 
-// 20 skills · 4 years · Jul 4, 2026 → Jul 3, 2030 · 5:30–8:30 AM IST · 3h daily
+// 20 skills · 4 years · Jul 5, 2026 → Jul 4, 2030 · 5:30–8:30 AM IST · 3h daily
 
 function scaleWeeks(baseWeeks, targetTotal) {
   const baseSum = baseWeeks.reduce((a, b) => a + b, 0);
@@ -335,8 +337,8 @@ const SKILL_DEFS = [
   {
     icon: '🧮', color: '#059669', dark: '#047857', bg: '#ECFDF5', border: '#6EE7B7', block: 'b5',
     name: 'Data Structures', weeks: 16,
-    aboutBody: 'DSA deep dive: NeetCode 150 + Blind 75 patterns in Python and Java. 2–3 problems daily.',
-    courses: ['NeetCode.io', 'LeetCode Premium', 'Striver A2Z DSA'],
+    aboutBody: 'All in One Interview Preparation bundle — DSA track. Core patterns, topic-wise problems, 2–3 daily. Bundle expires Jul 4, 2030.',
+    courses: ['All in One Interview Preparation — DSA', 'LeetCode', 'Striver A2Z DSA'],
     wplan: [
       ['Arrays & Hashing', 'two sum, anagrams, top K'],
       ['Two Pointers', 'sliding window, palindrome'],
@@ -359,8 +361,8 @@ const SKILL_DEFS = [
   {
     icon: '🏗', color: '#DC2626', dark: '#B91C1C', bg: '#FEF2F2', border: '#FECACA', block: 'b5',
     name: 'System Design', weeks: 16,
-    aboutBody: 'System Design: scalability, classic designs, FPO architecture, whiteboards, portfolio ADRs.',
-    courses: ['Alex Xu — System Design Interview', 'Gaurav Sen', 'ByteByteGo', 'DDIA'],
+    aboutBody: 'All in One Interview Preparation bundle — System Design, DBMS, OS & Computer Networks. Classic designs, FPO architecture, mock interviews.',
+    courses: ['All in One Interview Preparation — System Design', 'DBMS · OS · Computer Networks', 'ByteByteGo'],
     wplan: [
       ['Fundamentals', 'scalability, CAP, load balancers'],
       ['Databases', 'SQL vs NoSQL, sharding, replication'],
@@ -442,7 +444,7 @@ const BLOCK_META = {
   b2: { icon: '🐍', col: '#15803D', title: 'Python Stack', detail: 'Python → Django → Fast API → Agentic AI' },
   b3: { icon: '☕', col: '#EA580C', title: 'Java Backend', detail: 'J2SE → J2EE → JPA → Spring Boot → Microservices' },
   b4: { icon: '🔧', col: '#6366F1', title: 'DevOps & Kubernetes', detail: 'DevOps → Kubernetes' },
-  b5: { icon: '🎯', col: '#7C3AED', title: 'Interview Readiness', detail: 'Data Structures → System Design' },
+  b5: { icon: '🎯', col: '#7C3AED', title: 'Interview Readiness', detail: 'DSA → System Design · All in One Bundle (expires Jul 4, 2030)' },
 };
 
 const BLOCKS = Object.entries(BLOCK_META).map(([id, meta]) => {
@@ -493,9 +495,9 @@ const MILESTONES = PHASES.map((p) => ({
 const awsPhase = PHASES.find((p) => p.name === 'AWS');
 const jsPhase = PHASES.find((p) => p.name === 'Javascript');
 
-const out = `// Auto-generated · 20 skills · ${TOTAL_YEARS} years · Jul 4, 2026 → ${DEADLINE_STR} · ${TOTAL_DAYS} days
-export const START = new Date('2026-07-04');
-export const END = new Date('2030-07-03');
+const out = `// Auto-generated · 20 skills · ${TOTAL_YEARS} years · Jul 5, 2026 → ${DEADLINE_STR} · ${TOTAL_DAYS} days
+export const START = new Date('${START_ISO}');
+export const END = new Date('${END_ISO}');
 export const TOTAL_YEARS = ${TOTAL_YEARS};
 export const TOTAL_WEEKS = ${TOTAL_WEEKS};
 export const TOTAL_DAYS = ${TOTAL_DAYS};

@@ -12,7 +12,7 @@ import {
   PHASES,
   MILESTONES,
 } from './data/plan150weeks.js';
-// 20 skills · 4 years · Jul 4, 2026 → Jul 3, 2030 · 5:30–8:30 AM IST
+// 20 skills · 4 years · Jul 5, 2026 → Jul 4, 2030 · 5:30–8:30 AM IST
 
 const JS_DAY_LINKS = JS_COURSE_DAYS.map((d) => ({
   href: d.hash,
@@ -594,7 +594,7 @@ export default function App() {
                 }}
               >
                 {
-                  'Sat Jul 4, 2026 → Thu Jul 3, 2030 · 5:30 AM – 8:30 AM IST · ' + TOTAL_YEARS + ' years · ' + TOTAL_WEEKS + ' weeks · ' + SKILL_COUNT + ' skills'
+                  'Sun Jul 5, 2026 → Fri Jul 4, 2030 · 5:30 AM – 8:30 AM IST · ' + TOTAL_YEARS + ' years · ' + TOTAL_WEEKS + ' weeks · ' + SKILL_COUNT + ' skills'
                 }
               </div>
             </div>
@@ -721,7 +721,7 @@ export default function App() {
               </div>
               <div style={{ fontSize: 8, color: 'rgba(255,255,255,0.5)' }}>
                 {
-                  'Jul 4, 2026 → ' + DEADLINE + ' · Week ' + sw + ' of ' + TOTAL_WEEKS + ' · Study day ' + sd + ' of ' + TOTAL_DAYS
+                  'Jul 5, 2026 → ' + DEADLINE + ' · Week ' + sw + ' of ' + TOTAL_WEEKS + ' · Study day ' + sd + ' of ' + TOTAL_DAYS
                 }
               </div>
             </div>
@@ -797,7 +797,7 @@ export default function App() {
                 color: 'rgba(255,255,255,0.4)',
               }}
             >
-              <span>{'Jul 4, 2026'}</span>
+              <span>{'Jul 5, 2026'}</span>
               <span
                 style={{ color: 'rgba(255,255,255,0.75)', fontWeight: 700 }}
               >
@@ -1017,7 +1017,7 @@ export default function App() {
               marginBottom: 3,
             }}
           >
-            {'🏆 ' + TOTAL_YEARS + ' Years of Code · Jul 4, 2026 → ' + DEADLINE}
+            {'🏆 ' + TOTAL_YEARS + ' Years of Code · Jul 5, 2026 → ' + DEADLINE}
           </div>
           <div
             style={{

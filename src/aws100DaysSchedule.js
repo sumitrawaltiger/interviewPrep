@@ -1,4 +1,4 @@
-const START = new Date('2026-07-04');
+const START = new Date('2026-07-05');
 export const AWS_PLAN_START = 1;
 export const AWS_PHASE_DAYS = 100;
 
