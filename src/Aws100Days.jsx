@@ -106,7 +106,7 @@ export default function Aws100Days() {
                 {'AWS Daily Schedule — 100-day CloudFolks curriculum'}
               </h1>
               <div style={{ fontSize: 9, color: 'rgba(255,255,255,0.65)', marginTop: 3 }}>
-                {'Jan 7 – May 19, 2029 · W132–W150 · D918–D1050 · Wake 4 AM · ' + STUDY_TIME + ' · CloudFolks Hub'}
+                {'Jan 7 – May 19, 2029 · W132–W150 · D918–D1050 · ' + WAKE_TIME + ' · ' + STUDY_TIME + ' · CloudFolks Hub'}
               </div>
             </div>
           </div>

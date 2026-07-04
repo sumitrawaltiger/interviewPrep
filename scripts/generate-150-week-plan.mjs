@@ -12,8 +12,8 @@ const TOTAL_WEEKS = Math.ceil(TOTAL_DAYS / 7); // 209 (final week is partial)
 const DEADLINE_STR = 'Jul 4, 2030';
 const START_ISO = '2026-07-05';
 const END_ISO = '2030-07-04';
-const WAKE_TIME = '4:00 AM BKK daily';
-const STUDY_TIME_STR = '5:00 AM – 8:00 AM BKK · 3h daily';
+const WAKE_TIME = '5:00 AM BKK daily';
+const STUDY_TIME_STR = '5:30 AM – 8:30 AM BKK · 3h daily';
 
 function dayDate(dayNum) {
   const d = new Date(START);
@@ -42,7 +42,7 @@ function fmtShort(d) {
   return d.toLocaleDateString('en-US', { month: 'short', day: 'numeric' });
 }
 
-// 20 skills · 4 years · Jul 5, 2026 → Jul 4, 2030 · wake 4 AM · study 5–8 AM BKK
+// 20 skills · 4 years · Jul 5, 2026 → Jul 4, 2030 · wake 5 AM · study 5:30–8:30 AM BKK
 
 function scaleWeeks(baseWeeks, targetTotal) {
   const baseSum = baseWeeks.reduce((a, b) => a + b, 0);

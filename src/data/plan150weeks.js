@@ -8,8 +8,8 @@ export const SKILL_COUNT = 20;
 export const DEADLINE = 'Jul 4, 2030';
 export const AWS_PLAN_START = 918;
 export const JS_PLAN_START = 1;
-export const WAKE_TIME = '4:00 AM BKK daily';
-export const STUDY_TIME = '5:00 AM – 8:00 AM BKK · 3h daily';
+export const WAKE_TIME = '5:00 AM BKK daily';
+export const STUDY_TIME = '5:30 AM – 8:30 AM BKK · 3h daily';
 
 export const YEARS = [
   {
@@ -120,7 +120,7 @@ export const BLOCKS = [
     "title": "JavaScript Ecosystem",
     "sub": "W1–W49 · Jul 5, 2026 – Jun 12, 2027",
     "detail": "Javascript → Typescript → React → Next JS → React Native → Node JS",
-    "time": "5:00 AM – 8:00 AM BKK · 3h daily"
+    "time": "5:30 AM – 8:30 AM BKK · 3h daily"
   },
   {
     "id": "b1",
@@ -129,7 +129,7 @@ export const BLOCKS = [
     "title": "Python Stack",
     "sub": "W50–W79 · Jun 13, 2027 – Jan 8, 2028",
     "detail": "Python → Django → Fast API → Agentic AI",
-    "time": "5:00 AM – 8:00 AM BKK · 3h daily"
+    "time": "5:30 AM – 8:30 AM BKK · 3h daily"
   },
   {
     "id": "b2",
@@ -138,7 +138,7 @@ export const BLOCKS = [
     "title": "Java Backend",
     "sub": "W80–W116 · Jan 9 – Sep 23, 2028",
     "detail": "J2SE → J2EE → JPA → Spring Boot → Microservices",
-    "time": "5:00 AM – 8:00 AM BKK · 3h daily"
+    "time": "5:30 AM – 8:30 AM BKK · 3h daily"
   },
   {
     "id": "b3",
@@ -147,7 +147,7 @@ export const BLOCKS = [
     "title": "DevOps, AWS & Kubernetes",
     "sub": "W117–W164 · Sep 24, 2028 – Aug 25, 2029",
     "detail": "DevOps → AWS → Kubernetes",
-    "time": "5:00 AM – 8:00 AM BKK · 3h daily"
+    "time": "5:30 AM – 8:30 AM BKK · 3h daily"
   },
   {
     "id": "b4",
@@ -156,7 +156,7 @@ export const BLOCKS = [
     "title": "Interview Readiness",
     "sub": "W165–W209 · Aug 26, 2029 – Jul 4, 2030",
     "detail": "DSA → System Design · All in One Bundle (expires Jul 4, 2030)",
-    "time": "5:00 AM – 8:00 AM BKK · 3h daily"
+    "time": "5:30 AM – 8:30 AM BKK · 3h daily"
   }
 ];
 

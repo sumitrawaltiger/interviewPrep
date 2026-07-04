@@ -13,7 +13,7 @@ import {
   PHASES,
   MILESTONES,
 } from './data/plan150weeks.js';
-// 20 skills · 4 years · Jul 5, 2026 → Jul 4, 2030 · wake 4 AM · study 5–8 AM BKK
+// 20 skills · 4 years · Jul 5, 2026 → Jul 4, 2030 · wake 5 AM · study 5:30–8:30 AM BKK
 
 const JS_DAY_LINKS = JS_COURSE_DAYS.map((d) => ({
   href: d.hash,
